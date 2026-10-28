@@ -4,6 +4,7 @@ import importX from "eslint-plugin-import-x";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
+import boundaries from "eslint-plugin-boundaries";
 
 const fluentBan = {
   paths: [
@@ -13,24 +14,7 @@ const fluentBan = {
     },
     { name: "@fluentui/react-icons", message: "Import icons only from @/components/ui." },
   ],
-  patterns: [
-    { group: ["@fluentui/*"], message: "Import Fluent only through @/components/ui." },
-    {
-      group: ["@/components/ui/*"],
-      message: "Import UI only from the barrel @/components/ui, not a ui subfile.",
-    },
-    {
-      group: [
-        "./components/ui/*",
-        "../components/ui/*",
-        "../../components/ui/*",
-        "../../../components/ui/*",
-        "../../../../components/ui/*",
-        "**/components/ui/*",
-      ],
-      message: "Import UI only from the barrel @/components/ui, not a ui subfile.",
-    },
-  ],
+  patterns: [{ group: ["@fluentui/*"], message: "Import Fluent only through @/components/ui." }],
 };
 
 const coreBan = {
@@ -134,27 +118,7 @@ export default tseslint.config(
       "no-restricted-imports": [
         "error",
         {
-          patterns: [
-            {
-              group: ["@/components/ui/*"],
-              message: "Import UI only from the barrel @/components/ui, not a ui subfile.",
-            },
-            {
-              group: [
-                "./components/ui/*",
-                "../components/ui/*",
-                "../../components/ui/*",
-                "../../../components/ui/*",
-                "../../../../components/ui/*",
-                "**/components/ui/*",
-              ],
-              message: "Import UI only from the barrel @/components/ui, not a ui subfile.",
-            },
-            {
-              group: ["./*", "../*"],
-              message: "Core code must import internal modules via @/ alias, not relative paths.",
-            },
-          ],
+          patterns: [...coreBan.patterns],
         },
       ],
     },
@@ -164,6 +128,115 @@ export default tseslint.config(
   {
     files: ["src/components/ui/index.ts"],
     rules: { "no-restricted-imports": ["error", fluentBan] },
+  },
+  // Architecture boundaries: layer direction + ui entry-point.
+  // Ui may only be imported via its barrel by non-ui elements; ui itself
+  // may import its own files (index.ts re-exports them). External packages
+  // (react, etc.) are allowed for all elements; Fluent itself is still
+  // gated by no-restricted-imports above, not by boundaries.
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    plugins: { boundaries },
+    settings: {
+      "import/resolver": {
+        typescript: { project: "./tsconfig.json" },
+      },
+      "boundaries/elements": [
+        { type: "ui", pattern: "src/components/ui/**" },
+        { type: "common", pattern: "src/components/common/**" },
+        { type: "layout", pattern: "src/layouts/**" },
+        { type: "feature", pattern: "src/features/*/**", capture: ["feature"] },
+        { type: "shared", pattern: "src/data/**" },
+        { type: "shared", pattern: "src/styles/**" },
+        { type: "shared", pattern: "src/theme/**" },
+        { type: "app", pattern: "src/App.tsx", mode: "file" },
+        { type: "app", pattern: "src/main.tsx", mode: "file" },
+      ],
+    },
+    rules: {
+      "boundaries/dependencies": [
+        "error",
+        {
+          default: "disallow",
+          policies: [
+            { allow: { to: { module: { origin: "external" } } } },
+            { from: { element: { type: "ui" } }, allow: { to: { element: { type: "ui" } } } },
+            {
+              from: { element: { type: "common" } },
+              allow: { to: { element: { type: "common" } } },
+            },
+            {
+              from: { element: { type: "layout" } },
+              allow: { to: { element: { type: "layout" } } },
+            },
+            {
+              from: { element: { type: "shared" } },
+              allow: { to: { element: { type: "shared" } } },
+            },
+            { from: { element: { type: "app" } }, allow: { to: { element: { type: "app" } } } },
+            {
+              from: { element: { type: "feature" } },
+              allow: {
+                to: {
+                  element: {
+                    type: "feature",
+                    captured: { feature: "{{from.element.captured.feature}}" },
+                  },
+                },
+              },
+            },
+            {
+              from: { element: { type: "common" } },
+              allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "layout" } },
+              allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "feature" } },
+              allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "shared" } },
+              allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "app" } },
+              allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "common" } },
+              allow: { to: { element: { type: "shared" } } },
+            },
+            {
+              from: { element: { type: "layout" } },
+              allow: { to: { element: { type: "feature" } } },
+            },
+            {
+              from: { element: { type: "layout" } },
+              allow: { to: { element: { type: "common" } } },
+            },
+            {
+              from: { element: { type: "layout" } },
+              allow: { to: { element: { type: "shared" } } },
+            },
+            {
+              from: { element: { type: "feature" } },
+              allow: { to: { element: { type: "common" } } },
+            },
+            {
+              from: { element: { type: "feature" } },
+              allow: { to: { element: { type: "shared" } } },
+            },
+            { from: { element: { type: "app" } }, allow: { to: { element: { type: "layout" } } } },
+            { from: { element: { type: "app" } }, allow: { to: { element: { type: "feature" } } } },
+            { from: { element: { type: "app" } }, allow: { to: { element: { type: "common" } } } },
+            { from: { element: { type: "app" } }, allow: { to: { element: { type: "shared" } } } },
+          ],
+        },
+      ],
+    },
   },
   {
     files: ["src/**/*.{ts,tsx}"],
