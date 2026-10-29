@@ -21,6 +21,42 @@ export interface NavigationItem {
   tableRows?: string[][];
 }
 
+export const DETAIL_TITLE_BY_NAME: Record<string, string> = { AIAgent: "CM MES Agent" };
+
+export function getNavigationItem(navigationId: string) {
+  return NAVIGATION_ITEMS.find((item) => item.id === navigationId);
+}
+
+export function routeForNav(navigationId: string) {
+  return navigationId === "entities" ? "/entity-types" : `/modules/${navigationId}`;
+}
+
+export function routeForTab(tab: { id: string; type: string; nav: string }) {
+  if (tab.type === "list") return "/entity-types";
+  if (tab.type === "page") return `/modules/${tab.nav}`;
+  return `/detail/${encodeURIComponent(tab.id.slice(2))}`;
+}
+
+export type RouteTab =
+  | { kind: "list" }
+  | { kind: "page"; nav: string }
+  | { kind: "detail"; name: string }
+  | { kind: "none" };
+
+export function tabFromPath(pathname: string): RouteTab {
+  const path = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
+  if (path === "/" || path === "/entity-types") return { kind: "list" };
+  if (path.startsWith("/modules/")) {
+    const nav = decodeURIComponent(path.slice("/modules/".length));
+    return nav ? { kind: "page", nav } : { kind: "none" };
+  }
+  if (path.startsWith("/detail/")) {
+    const name = decodeURIComponent(path.slice("/detail/".length));
+    return name ? { kind: "detail", name } : { kind: "none" };
+  }
+  return { kind: "none" };
+}
+
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     id: "ai",

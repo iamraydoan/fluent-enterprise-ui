@@ -19,6 +19,18 @@ module.exports = {
       from: { path: "^src/components/ui/" },
       to: { path: "^src/", pathNot: "^src/components/ui/" },
     },
+    {
+      name: "no-feature-to-routes",
+      severity: "error",
+      from: { path: "^src/features/" },
+      to: { path: "^src/(routes/|routeTree\\.gen\\.ts$|main\\.tsx$)" },
+    },
+    {
+      name: "no-stores-to-app",
+      severity: "error",
+      from: { path: "^src/stores/" },
+      to: { path: "^src/", pathNot: "^src/(stores|data|styles|theme|lib)/" },
+    },
   ],
   options: {
     doNotFollow: { path: "node_modules" },

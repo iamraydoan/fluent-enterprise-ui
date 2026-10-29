@@ -1,7 +1,7 @@
 npx lint-staged || exit 1
-staged_src=$(git diff --cached --name-only --diff-filter=ACM -- 'src/*')
+staged_src=$(git diff --cached --name-only --diff-filter=ACM -- 'src/*' | grep -v '^src/routeTree.gen.ts$' || true)
 if [ -n "$staged_src" ]; then
-  if echo "$staged_src" | xargs grep -l "eslint-disable\|@ts-ignore\|@ts-nocheck\|prettier-ignore" > /dev/null 2>&1; then
+  if echo "$staged_src" | xargs -r grep -l "eslint-disable\|@ts-ignore\|@ts-nocheck\|prettier-ignore" > /dev/null 2>&1; then
     echo "Blocked: bypass comment found in staged src files"
     exit 1
   fi

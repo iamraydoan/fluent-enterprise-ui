@@ -14,14 +14,8 @@ import {
   Warning12Filled,
 } from "@/components/ui";
 import type { NavigationItem } from "@/data/navigation";
+import type { PageTab } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
-
-export interface PageTab {
-  id: string;
-  type: "list" | "page" | "detail";
-  nav: string;
-  title: string;
-}
 
 const useStyles = makeStyles({
   tabList: {

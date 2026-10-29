@@ -4,3 +4,6 @@ screenshots
 *.local
 tsconfig.tsbuildinfo
 .DS_Store
+**/__screenshots__/
+.vitest-attachments/
+/coverage

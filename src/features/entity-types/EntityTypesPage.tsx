@@ -1,7 +1,9 @@
+import { useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ActionBar } from "@/components/common/ActionBar";
 import { PageHeader } from "@/components/common/PageHeader";
 import { RibbonButton } from "@/components/common/RibbonButton";
+import { TablePagination } from "@/components/common/data-table/TablePagination";
 import {
   Add24Regular,
   ArrowDown16Regular,
@@ -12,8 +14,6 @@ import {
   Button,
   Checkmark20Filled,
   ChevronDown20Regular,
-  ChevronLeft20Regular,
-  ChevronRight20Regular,
   Dismiss20Filled,
   DocumentBulletList20Regular,
   Input,
@@ -35,17 +35,21 @@ import {
   Text,
   tokens,
 } from "@/components/ui";
+import { containsIgnoreCase } from "@/lib/utils";
+import { useTabsStore } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
 import { ColumnChooser } from "./components/ColumnChooser";
 import { ENTITY_COLUMN_BY_KEY, ENTITY_TYPES, DEFAULT_VISIBLE_COLUMNS } from "./data";
 import type { EntityColumnKey, SortState, VisibleColumn } from "./types";
 
-interface EntityTypesPageProps {
-  onOpen: (name: string) => void;
-}
-
-export function EntityTypesPage({ onOpen }: EntityTypesPageProps) {
+export function EntityTypesPage() {
   const sharedStyles = useSharedStyles();
+  const openDetail = useTabsStore((state) => state.openDetail);
+  const navigate = useNavigate();
+  const openDetailPage = (name: string) => {
+    openDetail(name);
+    navigate({ to: "/detail/$name", params: { name } });
+  };
   const [stateFilter, setStateFilter] = useState<{ state: string[] }>({ state: ["all"] });
   const [searchQuery, setSearchQuery] = useState("");
   const [columns, setColumns] = useState<VisibleColumn[]>(DEFAULT_VISIBLE_COLUMNS);
@@ -59,7 +63,7 @@ export function EntityTypesPage({ onOpen }: EntityTypesPageProps) {
     const r = ENTITY_TYPES.filter(
       (d) =>
         (st === "all" || d.state.toLowerCase() === st) &&
-        (d.name + " " + d.description).toLowerCase().includes(searchQuery.toLowerCase()),
+        containsIgnoreCase(`${d.name} ${d.description}`, searchQuery),
     );
     if (sort) {
       return [...r].sort((a, b) => {
@@ -260,7 +264,7 @@ export function EntityTypesPage({ onOpen }: EntityTypesPageProps) {
                             href="#"
                             onClick={(e) => {
                               e.preventDefault();
-                              onOpen(r.name);
+                              openDetailPage(r.name);
                             }}
                           >
                             {r.name}
@@ -296,54 +300,17 @@ export function EntityTypesPage({ onOpen }: EntityTypesPageProps) {
           )}
         </div>
 
-        <div className={sharedStyles.tableFooter}>
-          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
-            Rows per Page:
-            <Menu
-              checkedValues={{ size: [String(pageSize)] }}
-              onCheckedValueChange={(_, d) => {
-                setPageSize(Number(d.checkedItems[0]));
-                setPage(1);
-              }}
-            >
-              <MenuTrigger disableButtonEnhancement>
-                <button className={sharedStyles.dropdownButton} style={{ fontSize: 13 }}>
-                  {pageSize}
-                  <ChevronDown20Regular />
-                </button>
-              </MenuTrigger>
-              <MenuPopover>
-                <MenuList>
-                  {[10, 25, 50, 100].map((n) => (
-                    <MenuItemRadio key={n} name="size" value={String(n)}>
-                      {n}
-                    </MenuItemRadio>
-                  ))}
-                </MenuList>
-              </MenuPopover>
-            </Menu>
-          </span>
-          <div style={{ lineHeight: "19px" }}>
-            Page {currentPage} of {pages}
-            <br />({rows.length} Records)
-          </div>
-          <div>
-            <Button
-              appearance="subtle"
-              icon={<ChevronLeft20Regular />}
-              disabled={currentPage <= 1}
-              onClick={() => setPage(currentPage - 1)}
-              aria-label="Previous page"
-            />
-            <Button
-              appearance="subtle"
-              icon={<ChevronRight20Regular />}
-              disabled={currentPage >= pages}
-              onClick={() => setPage(currentPage + 1)}
-              aria-label="Next page"
-            />
-          </div>
-        </div>
+        <TablePagination
+          pageSize={pageSize}
+          onPageSizeChange={(size) => {
+            setPageSize(size);
+            setPage(1);
+          }}
+          currentPage={currentPage}
+          pages={pages}
+          total={rows.length}
+          onPageChange={setPage}
+        />
       </section>
     </>
   );

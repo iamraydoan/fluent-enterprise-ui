@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 import prettierConfig from "eslint-config-prettier";
 import importX from "eslint-plugin-import-x";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -50,6 +51,7 @@ export default tseslint.config(
   { ignores: ["dist", "node_modules", "pnpm-lock.yaml"] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
+  ...pluginQuery.configs["flat/recommended"],
   {
     files: ["src/**/*.{ts,tsx}"],
     plugins: {
@@ -96,6 +98,9 @@ export default tseslint.config(
     files: [
       "src/components/**/*.{ts,tsx}",
       "src/layouts/**/*.{ts,tsx}",
+      "src/routes/**/*.{ts,tsx}",
+      "src/stores/**/*.{ts,tsx}",
+      "src/lib/**/*.{ts,tsx}",
       "src/theme/**/*.ts",
       "src/styles/**/*.ts",
     ],
@@ -146,11 +151,14 @@ export default tseslint.config(
         { type: "common", pattern: "src/components/common/**" },
         { type: "layout", pattern: "src/layouts/**" },
         { type: "feature", pattern: "src/features/*/**", capture: ["feature"] },
+        { type: "routes", pattern: "src/routes/**" },
+        { type: "stores", pattern: "src/stores/**" },
         { type: "shared", pattern: "src/data/**" },
         { type: "shared", pattern: "src/styles/**" },
         { type: "shared", pattern: "src/theme/**" },
-        { type: "app", pattern: "src/App.tsx", mode: "file" },
+        { type: "shared", pattern: "src/lib/**" },
         { type: "app", pattern: "src/main.tsx", mode: "file" },
+        { type: "routetree", pattern: "src/routeTree.gen.ts", mode: "file" },
       ],
     },
     rules: {
@@ -233,6 +241,51 @@ export default tseslint.config(
             { from: { element: { type: "app" } }, allow: { to: { element: { type: "feature" } } } },
             { from: { element: { type: "app" } }, allow: { to: { element: { type: "common" } } } },
             { from: { element: { type: "app" } }, allow: { to: { element: { type: "shared" } } } },
+            { from: { element: { type: "app" } }, allow: { to: { element: { type: "routes" } } } },
+            {
+              from: { element: { type: "app" } },
+              allow: { to: { element: { type: "routetree" } } },
+            },
+            {
+              from: { element: { type: "routes" } },
+              allow: { to: { element: { type: "routetree" } } },
+            },
+            {
+              from: { element: { type: "stores" } },
+              allow: { to: { element: { type: "stores" } } },
+            },
+            {
+              from: { element: { type: "stores" } },
+              allow: { to: { element: { type: "shared" } } },
+            },
+            {
+              from: { element: { type: "routes" } },
+              allow: { to: { element: { type: "feature" } } },
+            },
+            {
+              from: { element: { type: "routes" } },
+              allow: { to: { element: { type: "layout" } } },
+            },
+            {
+              from: { element: { type: "routes" } },
+              allow: { to: { element: { type: "shared" } } },
+            },
+            {
+              from: { element: { type: "routes" } },
+              allow: { to: { element: { type: "stores" } } },
+            },
+            {
+              from: { element: { type: "routes" } },
+              allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "layout" } },
+              allow: { to: { element: { type: "stores" } } },
+            },
+            {
+              from: { element: { type: "feature" } },
+              allow: { to: { element: { type: "stores" } } },
+            },
           ],
         },
       ],

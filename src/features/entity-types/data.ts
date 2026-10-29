@@ -155,7 +155,7 @@ function buildEntityTypes(): EntityType[] {
 }
 export const ENTITY_TYPES: EntityType[] = buildEntityTypes();
 
-export const ENTITY_TYPE_COLUMNS: EntityColumn[] = [
+const ENTITY_TYPE_COLUMNS: EntityColumn[] = [
   { key: "name", label: "ENTITY TYPE", width: "22%", locked: true },
   { key: "description", label: "DESCRIPTION", width: "22%" },
   { key: "system", label: "SYSTEM", width: "14%", isCentered: true, isBoolean: true },

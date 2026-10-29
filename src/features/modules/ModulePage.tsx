@@ -1,3 +1,4 @@
+import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { ActionBar } from "@/components/common/ActionBar";
 import { PageHeader } from "@/components/common/PageHeader";
@@ -17,6 +18,8 @@ import {
   Text,
 } from "@/components/ui";
 import { NAVIGATION_ITEMS } from "@/data/navigation";
+import { containsIgnoreCase } from "@/lib/utils";
+import { useTabsStore } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
 
 type BadgeColor = "success" | "informative" | "danger";
@@ -28,18 +31,23 @@ const STATE: Record<string, BadgeColor> = {
 
 interface ModulePageProps {
   id: string;
-  onOpen: (name: string) => void;
 }
 
-export function ModulePage({ id, onOpen }: ModulePageProps) {
+export function ModulePage({ id }: ModulePageProps) {
   const sharedStyles = useSharedStyles();
+  const openDetail = useTabsStore((state) => state.openDetail);
+  const navigate = useNavigate();
   const navigationItem = NAVIGATION_ITEMS.find((r) => r.id === id);
   const [searchQuery, setSearchQuery] = useState("");
   const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
   if (!navigationItem || !navigationItem.columns || !navigationItem.tableRows) return null;
   const filteredRows = navigationItem.tableRows.filter((r) =>
-    r.join(" ").toLowerCase().includes(searchQuery.toLowerCase()),
+    containsIgnoreCase(r.join(" "), searchQuery),
   );
+  const openDetailPage = (name: string) => {
+    openDetail(name);
+    navigate({ to: "/detail/$name", params: { name } });
+  };
   return (
     <>
       <div className={sharedStyles.headerBlock}>
@@ -102,7 +110,7 @@ export function ModulePage({ id, onOpen }: ModulePageProps) {
             </TableHeader>
             <TableBody>
               {filteredRows.map((r) => (
-                <TableRow key={r[0]} onClick={() => navigationItem.opens && onOpen(r[0])}>
+                <TableRow key={r[0]} onClick={() => navigationItem.opens && openDetailPage(r[0])}>
                   {r.map((c, i) => (
                     <TableCell key={i} className={sharedStyles.tableCell}>
                       {i === 0 ? (
@@ -111,7 +119,7 @@ export function ModulePage({ id, onOpen }: ModulePageProps) {
                           href="#"
                           onClick={(e) => {
                             e.preventDefault();
-                            if (navigationItem.opens) onOpen(r[0]);
+                            if (navigationItem.opens) openDetailPage(r[0]);
                           }}
                         >
                           {r[0]}
