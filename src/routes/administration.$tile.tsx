@@ -8,7 +8,7 @@ function AdministrationTileRoute() {
   if (!tileDef) {
     return <PlaceholderPage title="Page not found" body="This page does not exist." />;
   }
-  return <PlaceholderPage title={tileDef.label} body="This page is not yet implemented" />;
+  return <PlaceholderPage title={tileDef.label} icon={tileDef.icon} />;
 }
 
 export const Route = createFileRoute("/administration/$tile")({

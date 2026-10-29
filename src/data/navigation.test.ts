@@ -54,6 +54,18 @@ describe("route helpers", () => {
       title: "AI MCP Server",
       parentRoute: "/administration",
     });
+    expect(tabForRoute("/administration/apps")).toEqual({
+      id: "administration/apps",
+      route: "/administration/apps",
+      title: "Apps",
+      parentRoute: "/administration",
+    });
+    expect(tabForRoute("/administration/configuration")).toEqual({
+      id: "administration/configuration",
+      route: "/administration/configuration",
+      title: "Configuration",
+      parentRoute: "/administration",
+    });
   });
 
   it("maps administration details to tabs with their lists as parents", () => {

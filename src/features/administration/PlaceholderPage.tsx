@@ -1,21 +1,43 @@
-import { Text } from "@/components/ui";
-import { useSharedStyles } from "@/styles/shared";
+import { cloneElement } from "react";
+import type { ReactElement } from "react";
+import { Wrench24Regular } from "@/components/icons";
+import { Caption1, makeStyles, Text, tokens } from "@/components/ui";
+
+const usePlaceholderStyles = makeStyles({
+  stub: {
+    flexGrow: 1,
+    minHeight: 0,
+    backgroundColor: "#FAFAFA",
+    borderRadius: "0 0 12px 12px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    rowGap: "8px",
+    color: tokens.colorNeutralForeground3,
+    textAlign: "center",
+    padding: "24px",
+  },
+});
 
 interface PlaceholderPageProps {
   title: string;
-  body: string;
+  icon?: ReactElement;
+  body?: string;
 }
 
-export function PlaceholderPage({ title, body }: PlaceholderPageProps) {
-  const sharedStyles = useSharedStyles();
+export function PlaceholderPage({ title, icon, body }: PlaceholderPageProps) {
+  const placeholderStyles = usePlaceholderStyles();
+  const renderedIcon = cloneElement(icon ?? <Wrench24Regular />, {
+    style: { width: 40, height: 40 },
+  });
   return (
-    <section className={sharedStyles.contentCard} aria-label={title}>
-      <div style={{ padding: "24px 8px", display: "flex", flexDirection: "column", rowGap: 8 }}>
-        <Text weight="semibold" size={400}>
-          {title}
-        </Text>
-        <Text size={300}>{body}</Text>
-      </div>
+    <section className={placeholderStyles.stub} aria-label={title}>
+      <div style={{ fontSize: 40 }}>{renderedIcon}</div>
+      <Text weight="semibold" size={500} style={{ color: "#222" }}>
+        {title}
+      </Text>
+      <Caption1>{body ?? "This page is a placeholder in the demo."}</Caption1>
     </section>
   );
 }

@@ -107,7 +107,28 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
         <Button appearance="subtle" icon={<ChevronDown20Regular />} aria-label="More" />
         <Button appearance="subtle" icon={<QrCode20Regular />} aria-label="Scan" />
         <Button appearance="subtle" icon={<Search20Regular />} aria-label="Search" />
-        <Button appearance="subtle" icon={<Chat20Regular />} aria-label="Messages" />
+        <span style={{ position: "relative", display: "inline-flex" }}>
+          <Button appearance="subtle" icon={<Chat20Regular />} aria-label="Messages" />
+          <span
+            aria-label="5 unread"
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              minWidth: 14,
+              height: 14,
+              borderRadius: 7,
+              backgroundColor: "#C50F1F",
+              color: "#fff",
+              fontSize: 9,
+              display: "grid",
+              placeItems: "center",
+              padding: "0 3px",
+            }}
+          >
+            5
+          </span>
+        </span>
         <span style={{ position: "relative", marginLeft: 12, display: "inline-flex" }}>
           <Avatar name="A" initials="A" color="brand" size={36} />
           <Warning12Filled

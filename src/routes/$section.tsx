@@ -8,7 +8,7 @@ function SectionRoute() {
   if (!sectionDef) {
     return <PlaceholderPage title="Page not found" body="This page does not exist." />;
   }
-  return <PlaceholderPage title={sectionDef.label} body="This page is not yet implemented" />;
+  return <PlaceholderPage title={sectionDef.label} icon={sectionDef.icon} />;
 }
 
 export const Route = createFileRoute("/$section")({

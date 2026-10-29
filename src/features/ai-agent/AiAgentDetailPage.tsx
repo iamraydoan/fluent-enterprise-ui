@@ -1,197 +1,443 @@
+import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "@/components/common";
+import type { DetailTab, MiniBarButton, MiniBarGroup } from "@/components/common";
 import {
-  ArrowSync24Regular,
+  ArrowSync20Regular,
+  Attach20Regular,
   Bot20Regular,
-  Edit24Regular,
+  BotSparkle24Regular,
+  Checkmark16Filled,
+  Checkmark20Filled,
+  ChevronDown20Regular,
+  ChevronRight20Regular,
+  ColumnTriple20Regular,
+  Dismiss20Filled,
+  Edit20Regular,
+  Eye20Filled,
   Info20Regular,
-  MoreVertical24Regular,
-  PanelLeftContract20Regular,
-  PanelLeftExpand20Regular,
-  Sparkle20Filled,
+  MoreVertical20Regular,
+  PlugConnected20Regular,
 } from "@/components/icons";
-import { Body1Strong, Button, Caption1, mergeClasses, Tab, TabList, Text } from "@/components/ui";
-import { useSharedStyles } from "@/styles/shared";
-import { AI_AGENT_SECTIONS, aiAgentDetailFor } from "./data";
-import { useDetailStyles } from "./styles";
+import {
+  Body1Strong,
+  Button,
+  Caption1,
+  makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  Text,
+  tokens,
+  Tooltip,
+} from "@/components/ui";
+import { useTabsStore } from "@/stores/tabs-store";
+import { EditInstructionsDialog } from "./EditInstructionsDialog";
+import { ManageMcpDialog } from "./ManageMcpDialog";
+import { ToolDescriptionDialog } from "./ToolDescriptionDialog";
+import type { ToolSelection } from "./data";
+import {
+  AI_AGENT_HISTORY,
+  AI_AGENT_SECTIONS,
+  agentData,
+  countSelectedTools,
+  INITIAL_TOOL_SELECTION,
+  toolDescription,
+} from "./data";
 
-type TopTab = "details" | "references";
+const useDetailStyles = makeStyles({
+  titleRow: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "12px 0 8px",
+  },
+  scroll: {
+    flexGrow: 1,
+    minHeight: 0,
+    overflow: "auto",
+    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: "none",
+  },
+  th: {
+    position: "sticky",
+    top: 0,
+    zIndex: 1,
+    backgroundColor: "#EFEFEF",
+    height: "36px",
+    fontSize: "12px",
+    fontWeight: 400,
+    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+  },
+  groupRow: { backgroundColor: "#EFEFEF", cursor: "pointer" },
+  td: { height: "34.5px", fontSize: "13px" },
+  tile: {
+    width: "72px",
+    height: "72px",
+    flexShrink: 0,
+    backgroundColor: "#C9E0EC",
+    color: "#0F5C93",
+    display: "grid",
+    placeItems: "center",
+    fontSize: "44px",
+  },
+  instr: {
+    padding: "14px 4px",
+    fontSize: "13px",
+    lineHeight: "20px",
+    whiteSpace: "pre-wrap",
+    overflow: "auto",
+    flexGrow: 1,
+  },
+});
+
+const TOP_TABS: DetailTab[] = [
+  { value: "details", label: "Details" },
+  { value: "references", label: "References" },
+  { value: "history", label: "History" },
+];
 
 interface AiAgentDetailPageProps {
   name: string;
 }
 
-function FieldRow({ label, value }: { label: string; value: string }) {
+function ToolsGrid({
+  selection,
+  onView,
+}: {
+  selection: ToolSelection;
+  onView: (server: string, tool: string) => void;
+}) {
   const detailStyles = useDetailStyles();
+  const [closed, setClosed] = useState(new Set<string>());
+  const groups = Object.entries(selection);
+  const toggle = (serverName: string) =>
+    setClosed((previous) => {
+      const next = new Set(previous);
+      if (next.has(serverName)) next.delete(serverName);
+      else next.add(serverName);
+      return next;
+    });
   return (
-    <div className={detailStyles.fieldRow}>
-      <span className={detailStyles.fieldLabel}>{label}</span>
-      <span className={detailStyles.fieldValue}>{value}</span>
-    </div>
+    <>
+      <div className={detailStyles.titleRow}>
+        <Text size={400}>MCP Server Tools ({countSelectedTools(selection)})</Text>
+        <div>
+          <Button
+            appearance="subtle"
+            icon={<ColumnTriple20Regular />}
+            aria-label="Choose columns"
+          />
+          <Button appearance="subtle" icon={<MoreVertical20Regular />} aria-label="More options" />
+        </div>
+      </div>
+      <div className={detailStyles.scroll}>
+        <Table
+          aria-label="MCP server tools"
+          style={{ tableLayout: "fixed", width: "100%", minWidth: 640 }}
+        >
+          <TableHeader>
+            <TableRow>
+              <TableHeaderCell className={detailStyles.th} style={{ width: 30 }} />
+              <TableHeaderCell className={detailStyles.th} style={{ width: "40%" }}>
+                TOOL
+              </TableHeaderCell>
+              <TableHeaderCell className={detailStyles.th}>
+                <div style={{ textAlign: "center" }}>DESCRIPTION</div>
+              </TableHeaderCell>
+              <TableHeaderCell className={detailStyles.th}>
+                <div style={{ textAlign: "center" }}>DEFERRED</div>
+              </TableHeaderCell>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {groups.map(([serverName, tools]) => {
+              const open = !closed.has(serverName);
+              return [
+                <TableRow
+                  key={serverName}
+                  className={detailStyles.groupRow}
+                  onClick={() => toggle(serverName)}
+                  aria-expanded={open}
+                >
+                  <TableCell colSpan={4}>
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        columnGap: 10,
+                        color: "#1a6fc4",
+                        fontSize: 13,
+                      }}
+                    >
+                      {open ? <ChevronDown20Regular /> : <ChevronRight20Regular />}
+                      <PlugConnected20Regular />
+                      <span>
+                        {serverName}{" "}
+                        <span style={{ color: "#444" }}>({Object.keys(tools).length} Tools)</span>
+                      </span>
+                    </span>
+                  </TableCell>
+                </TableRow>,
+                ...(open
+                  ? Object.entries(tools).map(([tool, deferred]) => (
+                      <TableRow key={serverName + tool}>
+                        <TableCell className={detailStyles.td} />
+                        <TableCell className={detailStyles.td}>
+                          <span
+                            title={tool}
+                            style={{
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            {tool}
+                          </span>
+                        </TableCell>
+                        <TableCell className={detailStyles.td}>
+                          <div style={{ display: "flex", justifyContent: "center" }}>
+                            <Button
+                              size="small"
+                              appearance="transparent"
+                              icon={<Eye20Filled />}
+                              aria-label={`View description of ${tool}`}
+                              onClick={() => onView(serverName, tool)}
+                            />
+                          </div>
+                        </TableCell>
+                        <TableCell className={detailStyles.td}>
+                          <div style={{ display: "flex", justifyContent: "center" }}>
+                            {deferred ? (
+                              <Checkmark20Filled aria-label="Deferred" />
+                            ) : (
+                              <Dismiss20Filled
+                                style={{ color: "#8A8A8A" }}
+                                aria-label="Not deferred"
+                              />
+                            )}
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  : []),
+              ];
+            })}
+          </TableBody>
+        </Table>
+        {groups.length === 0 && (
+          <div style={{ padding: 40, textAlign: "center", color: "#777" }}>
+            No tools selected. Use Edit to add MCP server tools.
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
 export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
-  const sharedStyles = useSharedStyles();
   const detailStyles = useDetailStyles();
-  const detail = aiAgentDetailFor(name);
-  const [activeTab, setActiveTab] = useState<TopTab>("details");
-  const [selectedSection, setSelectedSection] = useState("Details");
-  const [isPanelVisible, setPanelVisible] = useState(true);
-  const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
+  const openRoute = useTabsStore((state) => state.openRoute);
+  const navigate = useNavigate();
+  const data = agentData(name);
+  const [top, setTop] = useState("details");
+  const [left, setLeft] = useState("Details");
+  const [instructions, setInstructions] = useState(data.instructions);
+  const [selection, setSelection] = useState<ToolSelection>(INITIAL_TOOL_SELECTION);
+  const [dialog, setDialog] = useState<"instr" | "mcp" | null>(null);
+  const [view, setView] = useState<{ server: string; tool: string } | null>(null);
+
+  const editInstructions = () => setDialog("instr");
+  const editMcp = () => setDialog("mcp");
+  const instructionButtons: MiniBarButton[] = [
+    { icon: <ArrowSync20Regular />, label: "Refresh" },
+    { icon: <Edit20Regular />, label: "Edit", onClick: editInstructions },
+  ];
+  const instructionBarGroups: MiniBarGroup[] = [{ buttons: instructionButtons }];
+  const mcpServerButtons: MiniBarButton[] = [
+    { icon: <ArrowSync20Regular />, label: "Refresh" },
+    { icon: <Edit20Regular />, label: "Edit", onClick: editMcp },
+  ];
+  const mcpServerBarGroups: MiniBarGroup[] = [
+    { buttons: mcpServerButtons },
+    { label: "Actions", buttons: [{ icon: <MoreVertical20Regular />, label: "More" }] },
+  ];
+  const onEdit = left === "MCP Servers" ? editMcp : editInstructions;
+  const askAi = () => {
+    openRoute("/ai");
+    navigate({ to: "/ai" });
+  };
+
+  let content;
+  if (top === "references") {
+    content = (
+      <Panel>
+        <Empty>
+          <Body1Strong>No references</Body1Strong>
+          <Caption1>This record is not referenced by other objects.</Caption1>
+        </Empty>
+      </Panel>
+    );
+  } else if (top === "history") {
+    content = (
+      <Panel>
+        <div className={detailStyles.titleRow}>
+          <Text size={400}>History ({AI_AGENT_HISTORY.length})</Text>
+        </div>
+        <div className={detailStyles.scroll}>
+          <Table aria-label="History" style={{ tableLayout: "fixed", width: "100%" }}>
+            <TableHeader>
+              <TableRow>
+                {["DATE", "USER", "ACTION", "DETAILS"].map((header) => (
+                  <TableHeaderCell key={header} className={detailStyles.th}>
+                    {header}
+                  </TableHeaderCell>
+                ))}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {AI_AGENT_HISTORY.map((row) => (
+                <TableRow key={row[0]}>
+                  {row.map((cell, index) => (
+                    <TableCell key={index} className={detailStyles.td}>
+                      {cell}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </Panel>
+    );
+  } else if (left === "Details") {
+    content = (
+      <CardGrid>
+        <Card title="AI Agent">
+          <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
+            <div className={detailStyles.tile}>
+              <BotSparkle24Regular />
+            </div>
+            <div style={{ flexGrow: 1, minWidth: 0 }}>
+              <KV
+                rows={[
+                  ["Name", name],
+                  ["Description", data.description],
+                  ["Universal State", "Active"],
+                  ["Data Group", ""],
+                ]}
+              />
+            </div>
+            <Tooltip content="Created 12/10/2026 by Nguyen Minh Anh" relationship="description">
+              <Button
+                appearance="transparent"
+                icon={<Info20Regular style={{ color: "#0F6CBD" }} />}
+                aria-label="Information"
+              />
+            </Tooltip>
+          </div>
+        </Card>
+        <Card title="Information">
+          <KV
+            rows={[
+              ["Provider", data.provider],
+              ["Model", data.model],
+              ["Runtime", data.runtime],
+              [
+                "Publish To Runtime",
+                data.publish ? (
+                  <span style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
+                    <Checkmark16Filled />
+                    Yes
+                  </span>
+                ) : (
+                  "No"
+                ),
+              ],
+              ["Synchronization Status", data.sync],
+            ]}
+          />
+        </Card>
+      </CardGrid>
+    );
+  } else if (left === "Instructions") {
+    content = (
+      <Panel>
+        <MiniBar groups={instructionBarGroups} />
+        <div className={detailStyles.instr}>{instructions}</div>
+      </Panel>
+    );
+  } else if (left === "MCP Servers") {
+    content = (
+      <Panel>
+        <MiniBar groups={mcpServerBarGroups} />
+        <ToolsGrid selection={selection} onView={(server, tool) => setView({ server, tool })} />
+      </Panel>
+    );
+  } else {
+    content = (
+      <Panel>
+        <Empty>
+          <Attach20Regular />
+          <Body1Strong>No attachments</Body1Strong>
+          <Caption1>Files added to this agent will appear here.</Caption1>
+        </Empty>
+      </Panel>
+    );
+  }
 
   return (
     <>
-      <div className={sharedStyles.headerBlock}>
-        <div className={detailStyles.detailTabsRow}>
-          <TabList
-            size="small"
-            selectedValue={activeTab}
-            onTabSelect={(_, d) => setActiveTab(d.value as TopTab)}
-          >
-            <Tab value="details">Details</Tab>
-            <Tab value="references">References</Tab>
-          </TabList>
-        </div>
-        {!actionBarCollapsed && (
-          <ActionBar style={{ paddingTop: 8 }}>
-            <div className={sharedStyles.actionBarGroup}>
-              <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<ArrowSync24Regular />}
-                  label="Refresh"
-                />
-                <RibbonButton sharedStyles={sharedStyles} icon={<Edit24Regular />} label="Edit" />
-              </div>
-              <div className={sharedStyles.actionBarGroupLabel}>General</div>
-            </div>
-            <div className={sharedStyles.actionBarGroup}>
-              <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<Sparkle20Filled />}
-                  label="Ask AI"
-                />
-              </div>
-              <div className={sharedStyles.actionBarGroupLabel}>MES Copilot</div>
-            </div>
-            <div className={sharedStyles.actionBarGroup}>
-              <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<MoreVertical24Regular />}
-                  label="More"
-                />
-              </div>
-              <div className={sharedStyles.actionBarGroupLabel}>Actions</div>
-            </div>
-          </ActionBar>
-        )}
-        <PageHeader
-          collapsed={actionBarCollapsed}
-          onToggle={() => setActionBarCollapsed((v) => !v)}
-        >
-          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 8 }}>
-            <Bot20Regular />
-            <Text size={300} weight="semibold">
-              {detail.name}
-            </Text>
-            <Text size={200}>({detail.state})</Text>
-          </span>
-        </PageHeader>
-      </div>
+      <DetailShell
+        title={name}
+        icon={<Bot20Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={AI_AGENT_SECTIONS}
+        left={left}
+        onLeft={setLeft}
+        onEdit={onEdit}
+        onAskAi={askAi}
+      >
+        {content}
+      </DetailShell>
 
-      <div className={detailStyles.detailBody}>
-        {activeTab === "details" && isPanelVisible && (
-          <aside className={detailStyles.detailsPanel} aria-label="Details View">
-            <div className={detailStyles.detailsPanelHeader}>
-              <Body1Strong>Details View</Body1Strong>
-              <Button
-                size="small"
-                appearance="subtle"
-                icon={<PanelLeftContract20Regular />}
-                aria-label="Collapse panel"
-                onClick={() => setPanelVisible(false)}
-              />
-            </div>
-            {AI_AGENT_SECTIONS.map((section) => (
-              <button
-                key={section}
-                className={mergeClasses(
-                  detailStyles.detailsPanelItem,
-                  selectedSection === section && detailStyles.detailsPanelActive,
-                )}
-                aria-current={selectedSection === section ? "page" : undefined}
-                onClick={() => setSelectedSection(section)}
-              >
-                {section}
-              </button>
-            ))}
-          </aside>
-        )}
-        <section
-          className={detailStyles.detailContent}
-          aria-label={activeTab === "details" ? selectedSection : activeTab}
-        >
-          {activeTab === "details" && !isPanelVisible && (
-            <div>
-              <Button
-                size="small"
-                appearance="subtle"
-                icon={<PanelLeftExpand20Regular />}
-                onClick={() => setPanelVisible(true)}
-              >
-                Details View
-              </Button>
-            </div>
-          )}
-          {activeTab === "references" && (
-            <div className={detailStyles.emptyState}>
-              <Body1Strong>No references</Body1Strong>
-              <Caption1>This record is not referenced by other objects.</Caption1>
-            </div>
-          )}
-          {activeTab === "details" && selectedSection !== "Details" && (
-            <div className={detailStyles.emptyState}>
-              <Body1Strong>This section is not yet implemented</Body1Strong>
-            </div>
-          )}
-          {activeTab === "details" && selectedSection === "Details" && (
-            <div className={detailStyles.detailCards}>
-              <section className={detailStyles.fieldCard} aria-label="AI Agent">
-                <div className={detailStyles.fieldCardHeader}>
-                  <div className={detailStyles.fieldCardIconRow}>
-                    <span className={detailStyles.fieldCardIconBox}>
-                      <Bot20Regular />
-                    </span>
-                    <Text weight="semibold" size={400}>
-                      AI Agent
-                    </Text>
-                  </div>
-                  <Button appearance="subtle" icon={<Info20Regular />} aria-label="Information" />
-                </div>
-                <FieldRow label="Name:" value={detail.name} />
-                <FieldRow label="Description:" value={detail.description} />
-                <FieldRow label="Universal State:" value={detail.state} />
-                <FieldRow label="Data Group:" value={detail.dataGroup} />
-              </section>
-              <section className={detailStyles.fieldCard} aria-label="Information">
-                <div className={detailStyles.fieldCardHeader}>
-                  <Text weight="semibold" size={400}>
-                    Information
-                  </Text>
-                </div>
-                <FieldRow label="Provider:" value={detail.provider} />
-                <FieldRow label="Model:" value={detail.model} />
-                <FieldRow label="Runtime:" value={detail.runtime} />
-                <FieldRow label="Publish To Runtime:" value={detail.publishToRuntime} />
-                <FieldRow label="Synchronization Status:" value={detail.synchronizationStatus} />
-              </section>
-            </div>
-          )}
-        </section>
-      </div>
+      {dialog === "instr" && (
+        <EditInstructionsDialog
+          agentName={name}
+          value={instructions}
+          onClose={() => setDialog(null)}
+          onSave={(next) => {
+            setInstructions(next);
+            setDialog(null);
+          }}
+        />
+      )}
+      {dialog === "mcp" && (
+        <ManageMcpDialog
+          agentName={name}
+          agentDescription={data.description || undefined}
+          selection={selection}
+          onClose={() => setDialog(null)}
+          onUpdate={(next) => {
+            setSelection(next);
+            setDialog(null);
+          }}
+          onViewTool={(server, tool) => setView({ server, tool })}
+        />
+      )}
+      {view && (
+        <ToolDescriptionDialog
+          server={view.server}
+          tool={view.tool}
+          text={toolDescription(view.server, view.tool)}
+          onClose={() => setView(null)}
+        />
+      )}
     </>
   );
 }

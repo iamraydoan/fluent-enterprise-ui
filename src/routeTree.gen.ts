@@ -16,6 +16,8 @@ import { Route as AiRouteImport } from './routes/ai'
 import { Route as AdministrationTileRouteImport } from './routes/administration.$tile'
 import { Route as AdministrationAiAgentRouteImport } from './routes/administration.ai-agent'
 import { Route as AdministrationAiMcpServerRouteImport } from './routes/administration.ai-mcp-server'
+import { Route as AdministrationAppsRouteImport } from './routes/administration.apps'
+import { Route as AdministrationConfigurationRouteImport } from './routes/administration.configuration'
 import { Route as AdministrationEntityTypesRouteImport } from './routes/administration.entity-types'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
@@ -56,6 +58,17 @@ const AdministrationAiMcpServerRoute =
     path: '/ai-mcp-server',
     getParentRoute: () => AdministrationRoute,
   } as any)
+const AdministrationAppsRoute = AdministrationAppsRouteImport.update({
+  id: '/apps',
+  path: '/apps',
+  getParentRoute: () => AdministrationRoute,
+} as any)
+const AdministrationConfigurationRoute =
+  AdministrationConfigurationRouteImport.update({
+    id: '/configuration',
+    path: '/configuration',
+    getParentRoute: () => AdministrationRoute,
+  } as any)
 const AdministrationEntityTypesRoute =
   AdministrationEntityTypesRouteImport.update({
     id: '/entity-types',
@@ -83,6 +96,8 @@ export interface FileRoutesByFullPath {
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
+  '/administration/apps': typeof AdministrationAppsRoute
+  '/administration/configuration': typeof AdministrationConfigurationRoute
   '/administration/entity-types': typeof AdministrationEntityTypesRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
@@ -95,6 +110,8 @@ export interface FileRoutesByTo {
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
+  '/administration/apps': typeof AdministrationAppsRoute
+  '/administration/configuration': typeof AdministrationConfigurationRoute
   '/administration/entity-types': typeof AdministrationEntityTypesRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
@@ -108,6 +125,8 @@ export interface FileRoutesById {
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
+  '/administration/apps': typeof AdministrationAppsRoute
+  '/administration/configuration': typeof AdministrationConfigurationRoute
   '/administration/entity-types': typeof AdministrationEntityTypesRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
@@ -122,6 +141,8 @@ export interface FileRouteTypes {
     | '/administration/$tile'
     | '/administration/ai-agent'
     | '/administration/ai-mcp-server'
+    | '/administration/apps'
+    | '/administration/configuration'
     | '/administration/entity-types'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
@@ -134,6 +155,8 @@ export interface FileRouteTypes {
     | '/administration/$tile'
     | '/administration/ai-agent'
     | '/administration/ai-mcp-server'
+    | '/administration/apps'
+    | '/administration/configuration'
     | '/administration/entity-types'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
@@ -146,6 +169,8 @@ export interface FileRouteTypes {
     | '/administration/$tile'
     | '/administration/ai-agent'
     | '/administration/ai-mcp-server'
+    | '/administration/apps'
+    | '/administration/configuration'
     | '/administration/entity-types'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
@@ -209,6 +234,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdministrationAiMcpServerRouteImport
       parentRoute: typeof AdministrationRoute
     }
+    '/administration/apps': {
+      id: '/administration/apps'
+      path: '/apps'
+      fullPath: '/administration/apps'
+      preLoaderRoute: typeof AdministrationAppsRouteImport
+      parentRoute: typeof AdministrationRoute
+    }
+    '/administration/configuration': {
+      id: '/administration/configuration'
+      path: '/configuration'
+      fullPath: '/administration/configuration'
+      preLoaderRoute: typeof AdministrationConfigurationRouteImport
+      parentRoute: typeof AdministrationRoute
+    }
     '/administration/entity-types': {
       id: '/administration/entity-types'
       path: '/entity-types'
@@ -264,6 +303,8 @@ interface AdministrationRouteChildren {
   AdministrationTileRoute: typeof AdministrationTileRoute
   AdministrationAiAgentRoute: typeof AdministrationAiAgentRouteWithChildren
   AdministrationAiMcpServerRoute: typeof AdministrationAiMcpServerRouteWithChildren
+  AdministrationAppsRoute: typeof AdministrationAppsRoute
+  AdministrationConfigurationRoute: typeof AdministrationConfigurationRoute
   AdministrationEntityTypesRoute: typeof AdministrationEntityTypesRoute
 }
 
@@ -271,6 +312,8 @@ const AdministrationRouteChildren: AdministrationRouteChildren = {
   AdministrationTileRoute: AdministrationTileRoute,
   AdministrationAiAgentRoute: AdministrationAiAgentRouteWithChildren,
   AdministrationAiMcpServerRoute: AdministrationAiMcpServerRouteWithChildren,
+  AdministrationAppsRoute: AdministrationAppsRoute,
+  AdministrationConfigurationRoute: AdministrationConfigurationRoute,
   AdministrationEntityTypesRoute: AdministrationEntityTypesRoute,
 }
 

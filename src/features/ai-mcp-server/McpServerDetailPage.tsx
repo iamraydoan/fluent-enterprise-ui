@@ -1,211 +1,318 @@
+import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "@/components/common";
+import type { DetailTab, MiniBarGroup } from "@/components/common";
 import {
-  ArrowSync24Regular,
-  Edit24Regular,
+  ArrowSync20Regular,
+  Attach20Regular,
+  Attach24Regular,
+  Checkmark16Filled,
+  ChevronLeft20Regular,
+  ChevronRight20Regular,
+  ColumnTriple20Regular,
   Info20Regular,
-  MoreVertical24Regular,
-  PanelLeftContract20Regular,
-  PanelLeftExpand20Regular,
-  PlugConnected20Regular,
-  Sparkle20Filled,
+  MoreVertical20Regular,
 } from "@/components/icons";
-import { Body1Strong, Button, Caption1, mergeClasses, Tab, TabList, Text } from "@/components/ui";
-import { useSharedStyles } from "@/styles/shared";
-import { MCP_SERVER_SECTIONS, mcpServerDetailFor } from "./data";
-import { useDetailStyles } from "./styles";
+import {
+  Body1Strong,
+  Button,
+  Caption1,
+  makeStyles,
+  Menu,
+  MenuItemRadio,
+  MenuList,
+  MenuPopover,
+  MenuTrigger,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  Text,
+  tokens,
+} from "@/components/ui";
+import { useTabsStore } from "@/stores/tabs-store";
+import { MCP_SERVER_SECTIONS, mcpDetail } from "./data";
 
-type TopTab = "details" | "references";
+const useMcpDetailStyles = makeStyles({
+  tile: {
+    width: "72px",
+    height: "72px",
+    flexShrink: 0,
+    backgroundColor: "#C9E0EC",
+    color: "#0F5C93",
+    display: "grid",
+    placeItems: "center",
+    fontSize: "44px",
+  },
+  link: { color: "#1a6fc4", wordBreak: "break-all" },
+  titleRow: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "10px 0 8px",
+  },
+  scroll: {
+    overflow: "auto",
+    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: "none",
+  },
+  th: {
+    backgroundColor: "#EFEFEF",
+    height: "36px",
+    fontSize: "12px",
+    fontWeight: 400,
+    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+  },
+  td: { height: "34.5px", fontSize: "13px" },
+  foot: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    columnGap: "28px",
+    padding: "8px 4px 12px",
+    fontSize: "13px",
+    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+  },
+  menuBtn: {
+    border: "none",
+    background: "transparent",
+    cursor: "pointer",
+    fontFamily: "inherit",
+    fontSize: "13px",
+    color: "#222",
+    display: "inline-flex",
+    alignItems: "center",
+    columnGap: "6px",
+  },
+});
+
+const TOP_TABS: DetailTab[] = [
+  { value: "details", label: "Details" },
+  { value: "references", label: "References" },
+];
 
 interface McpServerDetailPageProps {
   name: string;
 }
 
-function FieldRow({ label, value }: { label: string; value: string }) {
-  const detailStyles = useDetailStyles();
-  return (
-    <div className={detailStyles.fieldRow}>
-      <span className={detailStyles.fieldLabel}>{label}</span>
-      <span className={detailStyles.fieldValue}>{value}</span>
-    </div>
-  );
-}
-
 export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
-  const sharedStyles = useSharedStyles();
-  const detailStyles = useDetailStyles();
-  const detail = mcpServerDetailFor(name);
-  const [activeTab, setActiveTab] = useState<TopTab>("details");
-  const [selectedSection, setSelectedSection] = useState("Details");
-  const [isPanelVisible, setPanelVisible] = useState(true);
-  const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
+  const mcpDetailStyles = useMcpDetailStyles();
+  const openRoute = useTabsStore((state) => state.openRoute);
+  const navigate = useNavigate();
+  const detail = mcpDetail(name);
+  const [top, setTop] = useState("details");
+  const [left, setLeft] = useState("Details");
+  const [pageSize, setPageSize] = useState(100);
+  const [lastSync, setLastSync] = useState(detail.lastSync);
+  const synchronize = () => {
+    const now = new Date();
+    const pad = (value: number) => String(value).padStart(2, "0");
+    const hour = now.getHours() % 12 || 12;
+    setLastSync(
+      `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(hour)}:${pad(now.getMinutes())} ${now.getHours() >= 12 ? "PM" : "AM"}`,
+    );
+  };
+  const askAi = () => {
+    openRoute("/ai");
+    navigate({ to: "/ai" });
+  };
+  const toolsBarGroups: MiniBarGroup[] = [
+    { buttons: [{ icon: <ArrowSync20Regular />, label: "Synchronize", onClick: synchronize }] },
+  ];
+  const detailLink = (label: string) => (
+    <a className={mcpDetailStyles.link} href="#" onClick={(event) => event.preventDefault()}>
+      {label}
+    </a>
+  );
 
-  return (
-    <>
-      <div className={sharedStyles.headerBlock}>
-        <div className={detailStyles.detailTabsRow}>
-          <TabList
-            size="small"
-            selectedValue={activeTab}
-            onTabSelect={(_, d) => setActiveTab(d.value as TopTab)}
-          >
-            <Tab value="details">Details</Tab>
-            <Tab value="references">References</Tab>
-          </TabList>
-        </div>
-        {!actionBarCollapsed && (
-          <ActionBar style={{ paddingTop: 8 }}>
-            <div className={sharedStyles.actionBarGroup}>
-              <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<ArrowSync24Regular />}
-                  label="Refresh"
-                />
-                <RibbonButton sharedStyles={sharedStyles} icon={<Edit24Regular />} label="Edit" />
-              </div>
-              <div className={sharedStyles.actionBarGroupLabel}>General</div>
+  let content;
+  if (top === "references") {
+    content = (
+      <Panel>
+        <Empty>
+          <Body1Strong>No references</Body1Strong>
+          <Caption1>This server is not referenced by other objects.</Caption1>
+        </Empty>
+      </Panel>
+    );
+  } else if (left === "Details") {
+    content = (
+      <CardGrid>
+        <Card title="AI MCP Server">
+          <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
+            <div className={mcpDetailStyles.tile}>
+              <Attach24Regular />
             </div>
-            <div className={sharedStyles.actionBarGroup}>
-              <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<Sparkle20Filled />}
-                  label="Ask AI"
-                />
-              </div>
-              <div className={sharedStyles.actionBarGroupLabel}>MES Copilot</div>
-            </div>
-            <div className={sharedStyles.actionBarGroup}>
-              <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<MoreVertical24Regular />}
-                  label="More"
-                />
-              </div>
-              <div className={sharedStyles.actionBarGroupLabel}>Actions</div>
-            </div>
-          </ActionBar>
-        )}
-        <PageHeader
-          collapsed={actionBarCollapsed}
-          onToggle={() => setActionBarCollapsed((v) => !v)}
-        >
-          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 8 }}>
-            <PlugConnected20Regular />
-            <Text size={300} weight="semibold">
-              {detail.name}
-            </Text>
-            <Text size={200}>({detail.state})</Text>
-          </span>
-        </PageHeader>
-      </div>
-
-      <div className={detailStyles.detailBody}>
-        {activeTab === "details" && isPanelVisible && (
-          <aside className={detailStyles.detailsPanel} aria-label="Details View">
-            <div className={detailStyles.detailsPanelHeader}>
-              <Body1Strong>Details View</Body1Strong>
-              <Button
-                size="small"
-                appearance="subtle"
-                icon={<PanelLeftContract20Regular />}
-                aria-label="Collapse panel"
-                onClick={() => setPanelVisible(false)}
+            <div style={{ flexGrow: 1, minWidth: 0 }}>
+              <KV
+                rows={[
+                  ["Name", name],
+                  ["Description", detail.description],
+                  ["Universal State", "Active"],
+                  ["Data Group", ""],
+                ]}
               />
             </div>
-            {MCP_SERVER_SECTIONS.map((section) => (
-              <button
-                key={section}
-                className={mergeClasses(
-                  detailStyles.detailsPanelItem,
-                  selectedSection === section && detailStyles.detailsPanelActive,
-                )}
-                aria-current={selectedSection === section ? "page" : undefined}
-                onClick={() => setSelectedSection(section)}
-              >
-                {section}
-              </button>
-            ))}
-          </aside>
-        )}
-        <section
-          className={detailStyles.detailContent}
-          aria-label={activeTab === "details" ? selectedSection : activeTab}
-        >
-          {activeTab === "details" && !isPanelVisible && (
-            <div>
-              <Button
-                size="small"
-                appearance="subtle"
-                icon={<PanelLeftExpand20Regular />}
-                onClick={() => setPanelVisible(true)}
-              >
-                Details View
-              </Button>
-            </div>
-          )}
-          {activeTab === "references" && (
-            <div className={detailStyles.emptyState}>
-              <Body1Strong>No references</Body1Strong>
-              <Caption1>This record is not referenced by other objects.</Caption1>
-            </div>
-          )}
-          {activeTab === "details" && selectedSection !== "Details" && (
-            <div className={detailStyles.emptyState}>
-              <Body1Strong>This section is not yet implemented</Body1Strong>
-            </div>
-          )}
-          {activeTab === "details" && selectedSection === "Details" && (
-            <div className={detailStyles.detailCards}>
-              <section className={detailStyles.fieldCard} aria-label="AI MCP Server">
-                <div className={detailStyles.fieldCardHeader}>
-                  <div className={detailStyles.fieldCardIconRow}>
-                    <span className={detailStyles.fieldCardIconBox}>
-                      <PlugConnected20Regular />
-                    </span>
-                    <Text weight="semibold" size={400}>
-                      AI MCP Server
-                    </Text>
-                  </div>
-                  <Button appearance="subtle" icon={<Info20Regular />} aria-label="Information" />
-                </div>
-                <FieldRow label="Name:" value={detail.name} />
-                <FieldRow label="Description:" value={detail.description} />
-                <FieldRow label="Universal State:" value={detail.state} />
-                <FieldRow label="Data Group:" value={detail.dataGroup} />
-              </section>
-              <section className={detailStyles.fieldCard} aria-label="Information">
-                <div className={detailStyles.fieldCardHeader}>
-                  <Text weight="semibold" size={400}>
-                    Information
-                  </Text>
-                </div>
-                <FieldRow label="Initialization Timeout:" value={detail.initializationTimeout} />
-                <FieldRow label="Instructions:" value={detail.instructions} />
-                <FieldRow label="Request Timeout:" value={detail.requestTimeout} />
-                <FieldRow label="URL:" value={detail.url} />
-                <FieldRow label="Synchronization Status:" value={detail.synchronizationStatus} />
-                <FieldRow label="Protocol Version:" value={detail.protocolVersion} />
-                <FieldRow label="Is System:" value={detail.isSystem} />
-              </section>
-              <section className={detailStyles.fieldCard} aria-label="Authentication">
-                <div className={detailStyles.fieldCardHeader}>
-                  <Text weight="semibold" size={400}>
-                    Authentication
-                  </Text>
-                </div>
-                <FieldRow label="Authentication Mode:" value={detail.authenticationMode} />
-                <FieldRow label="Client ID:" value={detail.clientId} />
-                <FieldRow label="Authorization URL:" value={detail.authorizationUrl} />
-                <FieldRow label="Token URL:" value={detail.tokenUrl} />
-                <FieldRow label="Scope:" value={detail.scope} />
-              </section>
-            </div>
-          )}
-        </section>
-      </div>
-    </>
+            <Info20Regular
+              style={{ color: "#0F6CBD", margin: "6px 4px" }}
+              aria-label="Information"
+            />
+          </div>
+        </Card>
+        <Card title="Information">
+          <KV
+            rows={[
+              ["Initialization Timeout", String(detail.init)],
+              ["Instructions", ""],
+              ["Request Timeout", String(detail.req)],
+              ["URL", detailLink(detail.url)],
+              ["Synchronization Status", detail.sync],
+              ["Protocol Version", detail.protocol],
+              [
+                "Is System",
+                detail.isSystem ? (
+                  <span style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
+                    <Checkmark16Filled />
+                    Yes
+                  </span>
+                ) : (
+                  "No"
+                ),
+              ],
+            ]}
+          />
+        </Card>
+        <Card title="Authentication">
+          <KV
+            rows={[
+              ["Authentication Mode", detail.auth.mode],
+              ["Client ID", detail.auth.clientId],
+              ["Authorization URL", detailLink(detail.auth.authUrl)],
+              ["Token URL", detailLink(detail.auth.tokenUrl)],
+              ["Scope", detail.auth.scope],
+            ]}
+          />
+        </Card>
+      </CardGrid>
+    );
+  } else if (left === "Tools") {
+    content = (
+      <Panel>
+        <MiniBar groups={toolsBarGroups} />
+        <div style={{ padding: "12px 12px 0", fontSize: 13, color: "#444" }}>
+          Last Tool Synchronization:{" "}
+          <span style={{ color: "#222", marginLeft: 6 }}>{lastSync}</span>
+        </div>
+        <div className={mcpDetailStyles.titleRow}>
+          <Text size={400}>Tools ({detail.tools.length})</Text>
+          <div>
+            <Button
+              appearance="subtle"
+              icon={<ColumnTriple20Regular />}
+              aria-label="Choose columns"
+            />
+            <Button
+              appearance="subtle"
+              icon={<MoreVertical20Regular />}
+              aria-label="More options"
+            />
+          </div>
+        </div>
+        <div className={mcpDetailStyles.scroll}>
+          <Table aria-label="Tools" style={{ tableLayout: "fixed", width: "100%", minWidth: 560 }}>
+            <TableHeader>
+              <TableRow>
+                <TableHeaderCell className={mcpDetailStyles.th} style={{ width: "30%" }}>
+                  NAME
+                </TableHeaderCell>
+                <TableHeaderCell className={mcpDetailStyles.th}>DESCRIPTION</TableHeaderCell>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {detail.tools.slice(0, pageSize).map(([toolName, toolDescription]) => (
+                <TableRow key={toolName}>
+                  <TableCell className={mcpDetailStyles.td}>{toolName}</TableCell>
+                  <TableCell className={mcpDetailStyles.td}>
+                    <span title={toolDescription}>{toolDescription}</span>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+        <div className={mcpDetailStyles.foot}>
+          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
+            Rows per Page:
+            <Menu
+              checkedValues={{ size: [String(pageSize)] }}
+              onCheckedValueChange={(_, d) => setPageSize(Number(d.checkedItems[0]))}
+            >
+              <MenuTrigger disableButtonEnhancement>
+                <button className={mcpDetailStyles.menuBtn}>
+                  {pageSize}
+                  <span style={{ fontSize: 8, color: "#1a6fc4" }}>▼</span>
+                </button>
+              </MenuTrigger>
+              <MenuPopover>
+                <MenuList>
+                  {[10, 25, 50, 100].map((size) => (
+                    <MenuItemRadio key={size} name="size" value={String(size)}>
+                      {size}
+                    </MenuItemRadio>
+                  ))}
+                </MenuList>
+              </MenuPopover>
+            </Menu>
+          </span>
+          <div style={{ lineHeight: "17px" }}>
+            Page 1 of 1
+            <br />({detail.tools.length} Records)
+          </div>
+          <div>
+            <Button
+              appearance="subtle"
+              icon={<ChevronLeft20Regular />}
+              disabled
+              aria-label="Previous page"
+            />
+            <Button
+              appearance="subtle"
+              icon={<ChevronRight20Regular />}
+              disabled
+              aria-label="Next page"
+            />
+          </div>
+        </div>
+      </Panel>
+    );
+  } else {
+    content = (
+      <Panel>
+        <Empty>
+          <Attach20Regular />
+          <Body1Strong>No attachments</Body1Strong>
+          <Caption1>Files added to this server will appear here.</Caption1>
+        </Empty>
+      </Panel>
+    );
+  }
+
+  return (
+    <DetailShell
+      title={name}
+      icon={<Attach20Regular />}
+      topTabs={TOP_TABS}
+      top={top}
+      onTop={setTop}
+      leftItems={MCP_SERVER_SECTIONS}
+      left={left}
+      onLeft={setLeft}
+      onEdit={() => {}}
+      onAskAi={askAi}
+    >
+      {content}
+    </DetailShell>
   );
 }
