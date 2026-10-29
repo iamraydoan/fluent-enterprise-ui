@@ -1,9 +1,9 @@
 import { createColumnHelper } from "@tanstack/react-table";
 import type { ColumnDef } from "@tanstack/react-table";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 import { useEntityTypes } from "@/api";
 import type { EntityTypeRecord } from "@/api";
-import { ActionBar, DataTableCard, PageHeader, RibbonButton } from "@/components/common";
+import { DataTableCard, ListPageHeader } from "@/components/common";
 import {
   Add24Regular,
   ArrowDownload24Regular,
@@ -13,18 +13,15 @@ import {
   Dismiss20Filled,
   DocumentBulletList20Regular,
 } from "@/components/icons";
-import { TableCellLayout, Text } from "@/components/ui";
+import { TableCellLayout } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 
 const columnHelper = createColumnHelper<EntityTypeRecord>();
 
 const STATE_OPTIONS = ["all", "active", "terminated"];
 
 export function EntityTypesPage() {
-  const sharedStyles = useSharedStyles();
   const { t } = useAppTranslation();
-  const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
   const renderBoolean = useCallback(
     (value: boolean) => (
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -80,48 +77,19 @@ export function EntityTypesPage() {
   );
   return (
     <>
-      <div className={sharedStyles.headerBlock}>
-        {!actionBarCollapsed && (
-          <ActionBar>
-            <div className={sharedStyles.actionBarGroup}>
-              <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<Add24Regular />}
-                  label={t("actionBar.create")}
-                />
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<ArrowSync24Regular />}
-                  label={t("actionBar.refresh")}
-                />
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<ArrowExportUp24Regular style={{ transform: "rotate(180deg)" }} />}
-                  label={t("actionBar.export")}
-                />
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<ArrowDownload24Regular />}
-                  label={t("actionBar.downloadLbos")}
-                />
-              </div>
-              <div className={sharedStyles.actionBarGroupLabel}>
-                {t("actionBar.groups.general")}
-              </div>
-            </div>
-          </ActionBar>
-        )}
-        <PageHeader
-          collapsed={actionBarCollapsed}
-          onToggle={() => setActionBarCollapsed((v) => !v)}
-        >
-          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 12 }}>
-            <DocumentBulletList20Regular />
-            <Text size={300}>{t("entityTypes.pageLabel")}</Text>
-          </span>
-        </PageHeader>
-      </div>
+      <ListPageHeader
+        icon={<DocumentBulletList20Regular />}
+        title={t("entityTypes.pageLabel")}
+        actions={[
+          { icon: <Add24Regular />, label: t("actionBar.create") },
+          { icon: <ArrowSync24Regular />, label: t("actionBar.refresh") },
+          {
+            icon: <ArrowExportUp24Regular style={{ transform: "rotate(180deg)" }} />,
+            label: t("actionBar.export"),
+          },
+          { icon: <ArrowDownload24Regular />, label: t("actionBar.downloadLbos") },
+        ]}
+      />
 
       <DataTableCard
         title={(count) => t("entityTypes.title", { count })}

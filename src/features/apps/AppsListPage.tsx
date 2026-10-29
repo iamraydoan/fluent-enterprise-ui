@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useApps } from "@/api";
-import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
+import { ListPageHeader, RECORD_STATE_LABELS } from "@/components/common";
 import {
   Add24Regular,
   ArrowSync24Regular,
@@ -19,7 +19,7 @@ import {
   Text,
   tokens,
 } from "@/components/ui";
-import { useAppTranslation, type TranslationKey } from "@/i18n";
+import { useAppTranslation } from "@/i18n";
 import { useDebouncedValue } from "@/lib/useDebouncedValue";
 import { useSharedStyles } from "@/styles/shared";
 
@@ -29,18 +29,11 @@ const STATE_COLORS: Record<string, "success" | "informative" | "danger"> = {
   Terminated: "danger",
 };
 
-const STATE_LABELS: Record<string, TranslationKey> = {
-  Active: "common.active",
-  Draft: "common.draft",
-  Terminated: "common.terminated",
-};
-
 export function AppsListPage() {
   const sharedStyles = useSharedStyles();
   const { t } = useAppTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearch = useDebouncedValue(searchQuery, 300);
-  const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
   const { data, isLoading } = useApps({
     page: 1,
     limit: 100,
@@ -52,38 +45,14 @@ export function AppsListPage() {
     t(type === "System" ? "apps.types.system" : "apps.types.userDefined");
   return (
     <>
-      <div className={sharedStyles.headerBlock}>
-        {!actionBarCollapsed && (
-          <ActionBar>
-            <div className={sharedStyles.actionBarGroup}>
-              <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<Add24Regular />}
-                  label={t("actionBar.create")}
-                />
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<ArrowSync24Regular />}
-                  label={t("actionBar.refresh")}
-                />
-              </div>
-              <div className={sharedStyles.actionBarGroupLabel}>
-                {t("actionBar.groups.general")}
-              </div>
-            </div>
-          </ActionBar>
-        )}
-        <PageHeader
-          collapsed={actionBarCollapsed}
-          onToggle={() => setActionBarCollapsed((v) => !v)}
-        >
-          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 12 }}>
-            <Window20Regular />
-            <Text size={300}>{t("apps.pageLabel")}</Text>
-          </span>
-        </PageHeader>
-      </div>
+      <ListPageHeader
+        icon={<Window20Regular />}
+        title={t("apps.pageLabel")}
+        actions={[
+          { icon: <Add24Regular />, label: t("actionBar.create") },
+          { icon: <ArrowSync24Regular />, label: t("actionBar.refresh") },
+        ]}
+      />
 
       <section className={sharedStyles.contentCard} aria-label={t("apps.pageLabel")}>
         <div className={sharedStyles.filterBar}>
@@ -134,7 +103,7 @@ export function AppsListPage() {
                       size="small"
                       color={STATE_COLORS[row.state] ?? "informative"}
                     >
-                      {t(STATE_LABELS[row.state] ?? "common.active")}
+                      {t(RECORD_STATE_LABELS[row.state] ?? "common.active")}
                     </Badge>
                   </TableCell>
                 </TableRow>

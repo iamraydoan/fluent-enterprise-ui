@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useConfigurations } from "@/api";
 import type { ConfigurationRecord } from "@/api";
-import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
+import { ListPageHeader } from "@/components/common";
 import {
   Add24Regular,
   ArrowSync24Regular,
@@ -28,7 +28,6 @@ export function ConfigurationListPage() {
   const { t } = useAppTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearch = useDebouncedValue(searchQuery, 300);
-  const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
   const { data } = useConfigurations({
     page: 1,
     limit: 100,
@@ -39,38 +38,14 @@ export function ConfigurationListPage() {
   const getValueLabel = (row: ConfigurationRecord) => row.value;
   return (
     <>
-      <div className={sharedStyles.headerBlock}>
-        {!actionBarCollapsed && (
-          <ActionBar>
-            <div className={sharedStyles.actionBarGroup}>
-              <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<Add24Regular />}
-                  label={t("actionBar.create")}
-                />
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<ArrowSync24Regular />}
-                  label={t("actionBar.refresh")}
-                />
-              </div>
-              <div className={sharedStyles.actionBarGroupLabel}>
-                {t("actionBar.groups.general")}
-              </div>
-            </div>
-          </ActionBar>
-        )}
-        <PageHeader
-          collapsed={actionBarCollapsed}
-          onToggle={() => setActionBarCollapsed((v) => !v)}
-        >
-          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 12 }}>
-            <Wrench20Regular />
-            <Text size={300}>{t("configuration.pageLabel")}</Text>
-          </span>
-        </PageHeader>
-      </div>
+      <ListPageHeader
+        icon={<Wrench20Regular />}
+        title={t("configuration.pageLabel")}
+        actions={[
+          { icon: <Add24Regular />, label: t("actionBar.create") },
+          { icon: <ArrowSync24Regular />, label: t("actionBar.refresh") },
+        ]}
+      />
 
       <section className={sharedStyles.contentCard} aria-label={t("configuration.pageLabel")}>
         <div className={sharedStyles.filterBar}>
