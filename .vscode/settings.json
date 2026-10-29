@@ -1,1 +1,9 @@
-{ "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.formatOnSave": true }
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Generate commit messages that pass this repository's commitlint configuration. Use Conventional Commits: <type>(<optional scope>): <subject>. Allowed types are feat, fix, docs, style, refactor, perf, test, build, ci, chore, and revert. The type must be lowercase, the subject must be non-empty and must not end with a period, and the complete first line must be no more than 100 characters. Return only the commit message, with no Markdown fences or explanation."
+    }
+  ]
+}
