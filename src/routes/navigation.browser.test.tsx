@@ -6,7 +6,7 @@ import { initI18n } from "@/i18n";
 import { routeTree } from "@/routeTree.gen";
 import { useTabsStore } from "@/stores/tabs-store";
 
-function renderAt(path: string) {
+async function renderAt(path: string) {
   localStorage.setItem("fluent-enterprise-ui:language", "en");
   initI18n();
   const queryClient = new QueryClient();
@@ -14,7 +14,7 @@ function renderAt(path: string) {
     routeTree,
     history: createMemoryHistory({ initialEntries: [path] }),
   });
-  return render(
+  return await render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>,
@@ -47,7 +47,7 @@ beforeEach(() => {
 });
 
 test("administration hub renders tiles and a tile opens its list without adding a tab", async () => {
-  const screen = renderAt("/administration");
+  const screen = await renderAt("/administration");
   await expect.element(screen.getByText("AI Agent")).toBeVisible();
   await screen.getByText("AI Agent").click();
   await waitForText("AI Agents (5)");
@@ -56,7 +56,7 @@ test("administration hub renders tiles and a tile opens its list without adding 
 });
 
 test("sidebar navigation opens the AI chat without adding a tab", async () => {
-  const screen = renderAt("/administration/ai-agent");
+  const screen = await renderAt("/administration/ai-agent");
   await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByRole("button", { name: "AI", exact: true }).click();
@@ -65,7 +65,7 @@ test("sidebar navigation opens the AI chat without adding a tab", async () => {
 });
 
 test("the new tab button adds a home tab on every click", async () => {
-  const screen = renderAt("/administration");
+  const screen = await renderAt("/administration");
   await expect.element(screen.getByText("AI Agent")).toBeVisible();
   expect(tabCount()).toBe(1);
   await screen.getByRole("button", { name: "New tab" }).click();
@@ -76,7 +76,7 @@ test("the new tab button adds a home tab on every click", async () => {
 });
 
 test("an AI Agent list link opens the detail in the current tab and back returns to the list", async () => {
-  const screen = renderAt("/administration/ai-agent");
+  const screen = await renderAt("/administration/ai-agent");
   await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByText("CM MES Agent").click();
@@ -90,7 +90,7 @@ test("an AI Agent list link opens the detail in the current tab and back returns
 });
 
 test("an MCP Server list link opens the Cubes detail and back returns to the list", async () => {
-  const screen = renderAt("/administration/ai-mcp-server");
+  const screen = await renderAt("/administration/ai-mcp-server");
   await waitForText("AI MCP Servers (5)");
   await expect.element(screen.getByText("AI MCP Servers (5)")).toBeVisible();
   await screen.getByRole("link", { name: "Cubes", exact: true }).click();
@@ -104,7 +104,7 @@ test("an MCP Server list link opens the Cubes detail and back returns to the lis
 });
 
 test("an Entity Types list row click does nothing", async () => {
-  const screen = renderAt("/administration/entity-types");
+  const screen = await renderAt("/administration/entity-types");
   await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   await screen.getByText("AIAgent", { exact: true }).click();
@@ -114,7 +114,7 @@ test("an Entity Types list row click does nothing", async () => {
 });
 
 test("state filter still works without adding tabs", async () => {
-  const screen = renderAt("/administration/entity-types");
+  const screen = await renderAt("/administration/entity-types");
   await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   await screen.getByRole("button", { name: "STATE: ALL" }).click();
@@ -126,7 +126,7 @@ test("state filter still works without adding tabs", async () => {
 });
 
 test("pagination still works without adding tabs", async () => {
-  const screen = renderAt("/administration/entity-types");
+  const screen = await renderAt("/administration/entity-types");
   await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   await screen.getByRole("button", { name: "Next page" }).click();
@@ -137,7 +137,7 @@ test("pagination still works without adding tabs", async () => {
 });
 
 test("hub tiles open the Apps and Configuration lists and a placeholder tile shows the placeholder text", async () => {
-  const screen = renderAt("/administration");
+  const screen = await renderAt("/administration");
   await expect.element(screen.getByText("Apps")).toBeVisible();
   await screen.getByText("Apps").click();
   await waitForText("Apps (4)");
@@ -156,7 +156,7 @@ test("hub tiles open the Apps and Configuration lists and a placeholder tile sho
 });
 
 test("search filters the AI Agents list", async () => {
-  const screen = renderAt("/administration/ai-agent");
+  const screen = await renderAt("/administration/ai-agent");
   await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByRole("textbox", { name: "Search" }).fill("Quality");
@@ -166,7 +166,7 @@ test("search filters the AI Agents list", async () => {
 });
 
 test("chat send appends a demo reply with tool chips and new chat resets", async () => {
-  const screen = renderAt("/ai");
+  const screen = await renderAt("/ai");
   await waitForText("Answers questions about MES documents and entity revisions");
   await screen.getByRole("textbox", { name: "Message CM MES Agent" }).fill("Hello demo");
   await screen.getByRole("button", { name: "Send" }).click();
@@ -178,7 +178,7 @@ test("chat send appends a demo reply with tool chips and new chat resets", async
 });
 
 test("agent detail dialogs open for instructions, MCP servers and tool descriptions", async () => {
-  const screen = renderAt("/administration/ai-agent");
+  const screen = await renderAt("/administration/ai-agent");
   await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByText("CM MES Agent").click();
@@ -203,7 +203,7 @@ test("agent detail dialogs open for instructions, MCP servers and tool descripti
 });
 
 test("MCP detail shows tools and synchronizes", async () => {
-  const screen = renderAt("/administration/ai-mcp-server");
+  const screen = await renderAt("/administration/ai-mcp-server");
   await waitForText("AI MCP Servers (5)");
   await expect.element(screen.getByText("AI MCP Servers (5)")).toBeVisible();
   await screen.getByRole("link", { name: "Cubes", exact: true }).click();

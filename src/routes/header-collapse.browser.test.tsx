@@ -6,7 +6,7 @@ import { initI18n } from "@/i18n";
 import { routeTree } from "@/routeTree.gen";
 import { useTabsStore } from "@/stores/tabs-store";
 
-function renderAt(path: string) {
+async function renderAt(path: string) {
   localStorage.setItem("fluent-enterprise-ui:language", "en");
   initI18n();
   const queryClient = new QueryClient();
@@ -14,7 +14,7 @@ function renderAt(path: string) {
     routeTree,
     history: createMemoryHistory({ initialEntries: [path] }),
   });
-  return render(
+  return await render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>,
@@ -71,7 +71,7 @@ beforeEach(() => {
 });
 
 test("entity types list header collapses and expands through the shared toggle", async () => {
-  const screen = renderAt("/administration/entity-types");
+  const screen = await renderAt("/administration/entity-types");
   await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   expect(titleStripBorderTop()).toBe("1px");
@@ -86,7 +86,7 @@ test("entity types list header collapses and expands through the shared toggle",
 });
 
 test("ai agent list header collapses and expands through the shared toggle", async () => {
-  const screen = renderAt("/administration/ai-agent");
+  const screen = await renderAt("/administration/ai-agent");
   await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
@@ -97,7 +97,7 @@ test("ai agent list header collapses and expands through the shared toggle", asy
 });
 
 test("mcp server list header collapses and expands through the shared toggle", async () => {
-  const screen = renderAt("/administration/ai-mcp-server");
+  const screen = await renderAt("/administration/ai-mcp-server");
   await waitForText("AI MCP Servers (5)");
   await expect.element(screen.getByText("AI MCP Servers (5)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
@@ -108,7 +108,7 @@ test("mcp server list header collapses and expands through the shared toggle", a
 });
 
 test("apps list header collapses and expands through the shared toggle", async () => {
-  const screen = renderAt("/administration/apps");
+  const screen = await renderAt("/administration/apps");
   await waitForText("Apps (4)");
   await expect.element(screen.getByText("Apps (4)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
@@ -119,7 +119,7 @@ test("apps list header collapses and expands through the shared toggle", async (
 });
 
 test("configuration list header collapses and expands through the shared toggle", async () => {
-  const screen = renderAt("/administration/configuration");
+  const screen = await renderAt("/administration/configuration");
   await waitForText("Configuration (4)");
   await expect.element(screen.getByText("Configuration (4)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
@@ -130,7 +130,7 @@ test("configuration list header collapses and expands through the shared toggle"
 });
 
 test("ai agent detail header collapses and expands while the mini bar stays", async () => {
-  const screen = renderAt("/administration/ai-agent");
+  const screen = await renderAt("/administration/ai-agent");
   await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByText("CM MES Agent").click();
@@ -151,7 +151,7 @@ test("ai agent detail header collapses and expands while the mini bar stays", as
 });
 
 test("mcp server detail header collapses and expands while the mini bar stays", async () => {
-  const screen = renderAt("/administration/ai-mcp-server");
+  const screen = await renderAt("/administration/ai-mcp-server");
   await waitForText("AI MCP Servers (5)");
   await expect.element(screen.getByText("AI MCP Servers (5)")).toBeVisible();
   await screen.getByRole("link", { name: "Cubes", exact: true }).click();
@@ -169,7 +169,7 @@ test("mcp server detail header collapses and expands while the mini bar stays", 
 });
 
 test("collapse state is per page for lists", async () => {
-  const screen = renderAt("/administration/ai-agent");
+  const screen = await renderAt("/administration/ai-agent");
   await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
@@ -183,7 +183,7 @@ test("collapse state is per page for lists", async () => {
 });
 
 test("collapse state is per page for details", async () => {
-  const screen = renderAt("/administration/ai-agent");
+  const screen = await renderAt("/administration/ai-agent");
   await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByText("CM MES Agent").click();
@@ -203,7 +203,7 @@ test("collapse state is per page for details", async () => {
 });
 
 test("administration hub has no header collapse toggle", async () => {
-  const screen = renderAt("/administration");
+  const screen = await renderAt("/administration");
   await expect.element(screen.getByText("AI Agent")).toBeVisible();
   expect(toggleButton()).toBeNull();
 });
