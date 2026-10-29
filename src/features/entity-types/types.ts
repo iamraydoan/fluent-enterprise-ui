@@ -1,3 +1,5 @@
+import type { TranslationKey } from "@/i18n";
+
 export type EntityState = "Active" | "Terminated";
 
 export interface EntityType {
@@ -15,7 +17,8 @@ export type EntityColumnKey =
 
 export interface EntityColumn {
   key: EntityColumnKey;
-  label: string;
+  labelKey: TranslationKey;
+  chooserLabelKey: TranslationKey;
   width: string;
   locked?: boolean;
   isCentered?: boolean;

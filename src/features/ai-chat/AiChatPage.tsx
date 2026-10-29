@@ -26,6 +26,7 @@ import {
   tokens,
   Tooltip,
 } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import { CHAT_AGENTS, CHAT_EXAMPLES, pickTools, SEED_CHATS } from "./data";
 import type { ChatSession } from "./data";
 
@@ -262,6 +263,7 @@ const useChatStyles = makeStyles({
 
 export function AiChatPage() {
   const chatStyles = useChatStyles();
+  const { t } = useAppTranslation();
   const [chats, setChats] = useState<ChatSession[]>(SEED_CHATS);
   const [currentChatId, setCurrentChatId] = useState<string | null>(null);
   const [agentId, setAgentId] = useState("cm");
@@ -320,7 +322,7 @@ export function AiChatPage() {
                   {
                     role: "bot",
                     tools: pickTools(messageText),
-                    text: `Here is what I found for "${messageText}". This is a demo reply from ${sendingAgent.name}; connect the page to your agent API to get real answers.`,
+                    text: t("aiChat.demoReply", { text: messageText, agent: sendingAgent.name }),
                   },
                 ],
               }
@@ -344,30 +346,30 @@ export function AiChatPage() {
           className={chatStyles.textarea}
           rows={Math.min(6, text.split("\n").length)}
           value={text}
-          placeholder={`Message ${agent.title}`}
+          placeholder={t("aiChat.messageAgent", { agent: t(agent.titleKey) })}
           onChange={(event) => setText(event.target.value)}
           onKeyDown={onKeyDown}
-          aria-label={`Message ${agent.title}`}
+          aria-label={t("aiChat.messageAgent", { agent: t(agent.titleKey) })}
         />
         <div className={chatStyles.composerRow}>
           <Button
             appearance="subtle"
             shape="circular"
             icon={<Attach20Regular />}
-            aria-label="Attach file"
+            aria-label={t("aiChat.attachFile")}
           />
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 4 }}>
             <Button
               appearance="subtle"
               shape="circular"
               icon={<Mic20Regular />}
-              aria-label="Dictate"
+              aria-label={t("aiChat.dictate")}
             />
             <button
               className={mergeClasses(chatStyles.send, text.trim() && !busy && chatStyles.sendOn)}
               onClick={() => send()}
               disabled={!text.trim() || busy}
-              aria-label="Send"
+              aria-label={t("aiChat.send")}
             >
               <ArrowUp20Regular />
             </button>
@@ -408,17 +410,21 @@ export function AiChatPage() {
 
       <div className={chatStyles.body}>
         <div className={chatStyles.tools}>
-          <Tooltip content="Toggle history" relationship="label" positioning="after">
+          <Tooltip content={t("aiChat.toggleHistory")} relationship="label" positioning="after">
             <button
               className={chatStyles.toolBtn}
-              aria-label="Toggle history"
+              aria-label={t("aiChat.toggleHistory")}
               onClick={() => setShowHistory((value) => !value)}
             >
               <PanelLeft20Regular />
             </button>
           </Tooltip>
-          <Tooltip content="New chat" relationship="label" positioning="after">
-            <button className={chatStyles.toolBtn} aria-label="New chat" onClick={newChat}>
+          <Tooltip content={t("aiChat.newChat")} relationship="label" positioning="after">
+            <button
+              className={chatStyles.toolBtn}
+              aria-label={t("aiChat.newChat")}
+              onClick={newChat}
+            >
               <Compose20Regular />
             </button>
           </Tooltip>
@@ -429,10 +435,10 @@ export function AiChatPage() {
               margin: "2px 0",
             }}
           />
-          <Tooltip content="Chats" relationship="label" positioning="after">
+          <Tooltip content={t("aiChat.chats")} relationship="label" positioning="after">
             <button
               className={mergeClasses(chatStyles.toolBtn, showHistory && chatStyles.toolOn)}
-              aria-label="Chats"
+              aria-label={t("aiChat.chats")}
               aria-pressed={showHistory}
               onClick={() => setShowHistory((value) => !value)}
             >
@@ -442,8 +448,8 @@ export function AiChatPage() {
         </div>
 
         {showHistory && (
-          <aside className={chatStyles.history} aria-label="Chat history">
-            <Body1Strong style={{ padding: "4px 10px 8px" }}>Chats</Body1Strong>
+          <aside className={chatStyles.history} aria-label={t("aiChat.chatHistory")}>
+            <Body1Strong style={{ padding: "4px 10px 8px" }}>{t("aiChat.chats")}</Body1Strong>
             {chats.map((candidate) => (
               <button
                 key={candidate.id}
@@ -457,7 +463,7 @@ export function AiChatPage() {
                 }}
               >
                 <Text size={300} truncate wrap={false} style={{ maxWidth: 210 }}>
-                  {candidate.title}
+                  {candidate.titleKey ? t(candidate.titleKey) : candidate.title}
                 </Text>
                 <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>
                   {CHAT_AGENTS.find((item) => item.id === candidate.agent)?.name}
@@ -474,20 +480,16 @@ export function AiChatPage() {
                 <span className={chatStyles.heroIcon}>
                   <Bot24Regular />
                 </span>
-                {agent.title}
+                {t(agent.titleKey)}
               </div>
               <Text size={300} style={{ maxWidth: 460, lineHeight: "21px" }}>
-                {agent.description}
+                {t(agent.descriptionKey)}
               </Text>
               <div style={{ width: "100%" }}>{composer}</div>
               <div className={chatStyles.examples}>
-                {CHAT_EXAMPLES.map((example) => (
-                  <button
-                    key={example}
-                    className={chatStyles.example}
-                    onClick={() => send(example)}
-                  >
-                    {example}
+                {CHAT_EXAMPLES.map((key) => (
+                  <button key={key} className={chatStyles.example} onClick={() => send(t(key))}>
+                    {t(key)}
                   </button>
                 ))}
               </div>
@@ -499,7 +501,7 @@ export function AiChatPage() {
                   {messages.map((message, index) =>
                     message.role === "user" ? (
                       <div key={index} className={chatStyles.userMsg}>
-                        {message.text}
+                        {message.textKey ? t(message.textKey) : message.text}
                       </div>
                     ) : (
                       <div key={index} className={chatStyles.botRow}>
@@ -507,7 +509,7 @@ export function AiChatPage() {
                           <Bot20Regular />
                         </span>
                         <div style={{ fontSize: 14, lineHeight: "22px" }}>
-                          {message.text}
+                          {message.textKey ? t(message.textKey) : message.text}
                           {message.tools && (
                             <div className={chatStyles.chips}>
                               {message.tools.map((tool) => (
@@ -527,7 +529,9 @@ export function AiChatPage() {
                       <span className={chatStyles.botIcon}>
                         <Bot20Regular />
                       </span>
-                      <Caption1 style={{ lineHeight: "28px" }}>{agent.title} is thinking…</Caption1>
+                      <Caption1 style={{ lineHeight: "28px" }}>
+                        {t("aiChat.thinking", { agent: t(agent.titleKey) })}
+                      </Caption1>
                     </div>
                   )}
                   <div ref={endRef} />

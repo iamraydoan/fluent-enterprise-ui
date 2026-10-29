@@ -2,6 +2,7 @@ import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Button, makeStyles, Text, tokens } from "@/components/ui";
 import { NAVIGATION_SECTIONS, routeForSection, sectionForRoute } from "@/data/navigation";
+import { useAppTranslation } from "@/i18n";
 import { PageTabs } from "@/layouts/PageTabs";
 import { Sidebar } from "@/layouts/Sidebar";
 import { useTabsStore } from "@/stores/tabs-store";
@@ -36,8 +37,11 @@ const useStyles = makeStyles({
   },
 });
 
+const ADMINISTRATION_SECTION_ID = "administration";
+
 export function MainLayout() {
   const layoutStyles = useStyles();
+  const { t } = useAppTranslation();
   const [expanded, setExpanded] = useState(false);
   const tabs = useTabsStore((state) => state.tabs);
   const active = useTabsStore((state) => state.active);
@@ -114,10 +118,10 @@ export function MainLayout() {
         {!currentTab && (
           <div className={layoutStyles.welcome}>
             <Text weight="semibold" size={400}>
-              No open tabs
+              {t("mainLayout.noOpenTabs")}
             </Text>
-            <Button appearance="primary" onClick={() => handleNavigate("administration")}>
-              Open Administration
+            <Button appearance="primary" onClick={() => handleNavigate(ADMINISTRATION_SECTION_ID)}>
+              {t("mainLayout.openAdministration")}
             </Button>
           </div>
         )}

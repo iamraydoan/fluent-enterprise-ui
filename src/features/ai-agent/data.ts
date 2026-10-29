@@ -1,6 +1,8 @@
+import type { TranslationKey } from "@/i18n";
+
 export interface AiAgentRow {
   name: string;
-  description: string;
+  descriptionKey: TranslationKey;
   mcpServers: string;
   state: string;
 }
@@ -8,31 +10,31 @@ export interface AiAgentRow {
 export const AI_AGENT_ROWS: AiAgentRow[] = [
   {
     name: "CM MES Agent",
-    description: "Answers questions about MES documents and entity revisions",
+    descriptionKey: "aiAgent.descriptions.cmMes",
     mcpServers: "2",
     state: "Active",
   },
   {
     name: "AnalyticsViewAgent",
-    description: "Builds and refines analytics dashboards for Analytics Views",
+    descriptionKey: "aiAgent.descriptions.analyticsView",
     mcpServers: "1",
     state: "Active",
   },
   {
     name: "Quality Assistant",
-    description: "Helps review non-conformance reports",
+    descriptionKey: "aiAgent.descriptions.quality",
     mcpServers: "1",
     state: "Active",
   },
   {
     name: "Document Summarizer",
-    description: "Summarizes attachments and documents",
+    descriptionKey: "aiAgent.descriptions.docSummarizer",
     mcpServers: "1",
     state: "Active",
   },
   {
     name: "Maintenance Planner",
-    description: "Suggests maintenance schedules",
+    descriptionKey: "aiAgent.descriptions.maintenance",
     mcpServers: "0",
     state: "Draft",
   },
@@ -40,6 +42,7 @@ export const AI_AGENT_ROWS: AiAgentRow[] = [
 
 export interface AiAgentDetail {
   description: string;
+  descriptionKey?: TranslationKey;
   provider: string;
   model: string;
   runtime: string;
@@ -69,6 +72,7 @@ export const AGENT_DETAILS: Record<string, AiAgentDetail> = {
   "CM MES Agent": {
     description:
       "Acts as a general MES assistant, a starting point for questions about products, resources or documents.",
+    descriptionKey: "aiAgent.detailDescription",
     provider: "bedrock",
     model: AGENT_MODEL,
     runtime: "LibreChat",
@@ -88,7 +92,12 @@ export function agentData(name: string): AiAgentDetail {
   );
 }
 
-export const AI_AGENT_SECTIONS = ["Details", "Instructions", "MCP Servers", "Attachments"];
+export const AI_AGENT_SECTIONS: TranslationKey[] = [
+  "aiAgent.sections.details",
+  "aiAgent.sections.instructions",
+  "aiAgent.sections.mcpServers",
+  "aiAgent.sections.attachments",
+];
 
 export const AI_AGENT_HISTORY: string[][] = [
   ["28/10/2026 09:12", "Nguyen Minh Anh", "Updated", "Instructions changed"],

@@ -17,6 +17,8 @@ import {
   TabList,
   tokens,
 } from "@/components/ui";
+import type { TranslationKey } from "@/i18n";
+import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { ActionBar } from "./ActionBar";
 import { PageHeader } from "./PageHeader";
@@ -157,7 +159,7 @@ export function KV({ rows }: { rows: [string, ReactNode][] }) {
     <div className={detailShellStyles.kv}>
       {rows.map(([label, value], index) => [
         <div key={`${label}-${index}-label`} className={detailShellStyles.kvLabel}>
-          {label}:
+          {`${label}:`}
         </div>,
         <div key={`${label}-${index}-value`} className={detailShellStyles.kvVal}>
           {value}
@@ -222,7 +224,7 @@ export function MiniBar({ groups }: { groups: MiniBarGroup[] }) {
 
 export interface DetailTab {
   value: string;
-  label: string;
+  labelKey: TranslationKey;
 }
 
 interface DetailShellProps {
@@ -231,7 +233,7 @@ interface DetailShellProps {
   topTabs: DetailTab[];
   top: string;
   onTop: (value: string) => void;
-  leftItems: string[];
+  leftItems: TranslationKey[];
   left: string;
   onLeft: (value: string) => void;
   onEdit: () => void;
@@ -252,6 +254,7 @@ export function DetailShell({
   onAskAi,
   children,
 }: DetailShellProps) {
+  const { t } = useAppTranslation();
   const sharedStyles = useSharedStyles();
   const detailShellStyles = useDetailShellStyles();
   const [showLeft, setShowLeft] = useState(true);
@@ -264,7 +267,7 @@ export function DetailShell({
           <TabList size="small" selectedValue={top} onTabSelect={(_, d) => onTop(String(d.value))}>
             {topTabs.map((tab) => (
               <Tab key={tab.value} value={tab.value}>
-                {tab.label}
+                {t(tab.labelKey)}
               </Tab>
             ))}
           </TabList>
@@ -276,13 +279,19 @@ export function DetailShell({
                 <RibbonButton
                   sharedStyles={sharedStyles}
                   icon={<ArrowSync24Regular />}
-                  label="Refresh"
+                  label={t("actionBar.refresh")}
                 />
                 <span onClick={onEdit}>
-                  <RibbonButton sharedStyles={sharedStyles} icon={<Edit24Regular />} label="Edit" />
+                  <RibbonButton
+                    sharedStyles={sharedStyles}
+                    icon={<Edit24Regular />}
+                    label={t("actionBar.edit")}
+                  />
                 </span>
               </div>
-              <div className={sharedStyles.actionBarGroupLabel}>General</div>
+              <div className={sharedStyles.actionBarGroupLabel}>
+                {t("actionBar.groups.general")}
+              </div>
             </div>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
@@ -290,21 +299,25 @@ export function DetailShell({
                   <RibbonButton
                     sharedStyles={sharedStyles}
                     icon={<Sparkle24Filled style={{ color: "#B24BF3" }} />}
-                    label="Ask AI"
+                    label={t("actionBar.askAi")}
                   />
                 </span>
               </div>
-              <div className={sharedStyles.actionBarGroupLabel}>MES Copilot</div>
+              <div className={sharedStyles.actionBarGroupLabel}>
+                {t("actionBar.groups.mesCopilot")}
+              </div>
             </div>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
                 <RibbonButton
                   sharedStyles={sharedStyles}
                   icon={<MoreVertical24Regular />}
-                  label="More"
+                  label={t("actionBar.more")}
                 />
               </div>
-              <div className={sharedStyles.actionBarGroupLabel}>Actions</div>
+              <div className={sharedStyles.actionBarGroupLabel}>
+                {t("actionBar.groups.actions")}
+              </div>
             </div>
           </ActionBar>
         )}
@@ -317,21 +330,21 @@ export function DetailShell({
           >
             {icon}
             <b style={{ fontWeight: 600 }}>{title}</b>
-            <span style={{ fontSize: 12 }}>(Active)</span>
+            <span style={{ fontSize: 12 }}>{t("common.activeState")}</span>
           </span>
         </PageHeader>
       </div>
 
       <div className={detailShellStyles.body}>
         {showPanel && showLeft && (
-          <aside className={detailShellStyles.left} aria-label="Details View">
+          <aside className={detailShellStyles.left} aria-label={t("common.detailsView")}>
             <div className={detailShellStyles.leftHead}>
-              <Body1Strong>Details View</Body1Strong>
+              <Body1Strong>{t("common.detailsView")}</Body1Strong>
               <Button
                 size="small"
                 appearance="subtle"
                 icon={<PanelLeftContract20Regular />}
-                aria-label="Collapse panel"
+                aria-label={t("common.collapsePanel")}
                 onClick={() => setShowLeft(false)}
               />
             </div>
@@ -345,7 +358,7 @@ export function DetailShell({
                 aria-current={left === item ? "page" : undefined}
                 onClick={() => onLeft(item)}
               >
-                {item}
+                {t(item)}
               </button>
             ))}
           </aside>
@@ -359,7 +372,7 @@ export function DetailShell({
                 icon={<PanelLeftExpand20Regular />}
                 onClick={() => setShowLeft(true)}
               >
-                Details View
+                {t("common.detailsView")}
               </Button>
             </div>
           )}

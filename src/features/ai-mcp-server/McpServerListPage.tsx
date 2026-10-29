@@ -19,6 +19,8 @@ import {
   Text,
   tokens,
 } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
+import type { TranslationKey } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { useTabsStore } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
@@ -30,14 +32,21 @@ const STATE_COLORS: Record<string, "success" | "informative" | "danger"> = {
   Terminated: "danger",
 };
 
+const STATE_LABELS: Record<string, TranslationKey> = {
+  Active: "common.active",
+  Draft: "common.draft",
+  Terminated: "common.terminated",
+};
+
 export function McpServerListPage() {
   const sharedStyles = useSharedStyles();
+  const { t } = useAppTranslation();
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
   const rows = MCP_SERVER_ROWS.filter((row) =>
-    containsIgnoreCase(`${row.name} ${row.description} ${row.url} ${row.state}`, searchQuery),
+    containsIgnoreCase(`${row.name} ${t(row.descriptionKey)} ${row.url} ${row.state}`, searchQuery),
   );
   const openDetail = (name: string) => {
     const route = `/administration/ai-mcp-server/${encodeURIComponent(name)}`;
@@ -51,14 +60,20 @@ export function McpServerListPage() {
           <ActionBar>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton sharedStyles={sharedStyles} icon={<Add24Regular />} label="Create" />
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<Add24Regular />}
+                  label={t("actionBar.create")}
+                />
                 <RibbonButton
                   sharedStyles={sharedStyles}
                   icon={<ArrowSync24Regular />}
-                  label="Refresh"
+                  label={t("actionBar.refresh")}
                 />
               </div>
-              <div className={sharedStyles.actionBarGroupLabel}>General</div>
+              <div className={sharedStyles.actionBarGroupLabel}>
+                {t("actionBar.groups.general")}
+              </div>
             </div>
           </ActionBar>
         )}
@@ -68,36 +83,41 @@ export function McpServerListPage() {
         >
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 12 }}>
             <PlugConnected20Regular />
-            <Text size={300}>AI MCP Servers</Text>
+            <Text size={300}>{t("mcpServer.pageLabel")}</Text>
           </span>
         </PageHeader>
       </div>
 
-      <section className={sharedStyles.contentCard} aria-label="AI MCP Servers">
+      <section className={sharedStyles.contentCard} aria-label={t("mcpServer.pageLabel")}>
         <div className={sharedStyles.filterBar}>
           <Input
             className={sharedStyles.searchInput}
             appearance="outline"
             contentBefore={<Search20Regular />}
-            placeholder="Search"
+            placeholder={t("common.search")}
             value={searchQuery}
             onChange={(_, d) => setSearchQuery(d.value)}
-            aria-label="Search"
+            aria-label={t("common.search")}
           />
         </div>
         <div className={sharedStyles.titleRow}>
           <Text weight="semibold" size={400}>
-            AI MCP Servers ({rows.length})
+            {t("mcpServer.listTitle", { count: rows.length })}
           </Text>
         </div>
         <div className={sharedStyles.tableScroll} style={{ flexGrow: 0 }}>
           <Table
-            aria-label="AI MCP Servers"
+            aria-label={t("mcpServer.pageLabel")}
             style={{ tableLayout: "fixed", width: "100%", minWidth: 640 }}
           >
             <TableHeader>
               <TableRow>
-                {["NAME", "DESCRIPTION", "URL", "STATE"].map((header) => (
+                {[
+                  t("mcpServer.columns.name"),
+                  t("mcpServer.columns.description"),
+                  t("mcpServer.columns.url"),
+                  t("mcpServer.columns.state"),
+                ].map((header) => (
                   <TableHeaderCell key={header} className={sharedStyles.tableHeaderCell}>
                     {header}
                   </TableHeaderCell>
@@ -119,7 +139,7 @@ export function McpServerListPage() {
                       {row.name}
                     </a>
                   </TableCell>
-                  <TableCell className={sharedStyles.tableCell}>{row.description}</TableCell>
+                  <TableCell className={sharedStyles.tableCell}>{t(row.descriptionKey)}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>{row.url}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>
                     <Badge
@@ -128,7 +148,7 @@ export function McpServerListPage() {
                       size="small"
                       color={STATE_COLORS[row.state] ?? "informative"}
                     >
-                      {row.state}
+                      {t(STATE_LABELS[row.state] ?? "common.active")}
                     </Badge>
                   </TableCell>
                 </TableRow>
@@ -139,7 +159,7 @@ export function McpServerListPage() {
             <div
               style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}
             >
-              No records found
+              {t("common.noRecordsFound")}
             </div>
           )}
         </div>

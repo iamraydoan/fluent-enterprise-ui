@@ -2,10 +2,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, createMemoryHistory, createRouter } from "@tanstack/react-router";
 import { beforeEach, expect, test } from "vitest";
 import { render } from "vitest-browser-react";
+import { initI18n } from "@/i18n";
 import { routeTree } from "@/routeTree.gen";
 import { useTabsStore } from "@/stores/tabs-store";
 
 function renderAt(path: string) {
+  localStorage.setItem("fluent-enterprise-ui:language", "en");
+  initI18n();
   const queryClient = new QueryClient();
   const router = createRouter({
     routeTree,

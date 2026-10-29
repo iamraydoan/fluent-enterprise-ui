@@ -1,0 +1,432 @@
+{
+  "actionBar": {
+    "askAi": "Hỏi AI",
+    "create": "Tạo",
+    "downloadLbos": "Tải xuống LBOs",
+    "edit": "Sửa",
+    "export": "Xuất",
+    "groups": {
+      "actions": "Thao tác",
+      "general": "Chung",
+      "mesCopilot": "MES Copilot"
+    },
+    "more": "Thêm",
+    "refresh": "Làm mới"
+  },
+  "administration": {
+    "pageLabel": "Quản trị"
+  },
+  "aiAgent": {
+    "cards": {
+      "agent": "Tác tử AI",
+      "information": "Thông tin"
+    },
+    "columns": {
+      "agent": "Tác tử",
+      "description": "Mô tả",
+      "mcpServers": "Máy chủ MCP",
+      "state": "Trạng thái"
+    },
+    "createdBy": "Được tạo ngày 12/10/2026 bởi Nguyen Minh Anh",
+    "deferred": "Tạm hoãn",
+    "descriptions": {
+      "analyticsView": "Xây dựng và tinh chỉnh bảng phân tích cho Chế độ xem phân tích",
+      "cmMes": "Trả lời câu hỏi về tài liệu MES và các phiên bản thực thể",
+      "docSummarizer": "Tóm tắt tệp đính kèm và tài liệu",
+      "maintenance": "Đề xuất lịch bảo trì",
+      "quality": "Hỗ trợ xem xét báo cáo không phù hợp"
+    },
+    "detailDescription": "Đóng vai trò trợ lý MES tổng quát, điểm khởi đầu cho các câu hỏi về sản phẩm, nguồn lực hoặc tài liệu.",
+    "fields": {
+      "dataGroup": "Nhóm dữ liệu",
+      "description": "Mô tả",
+      "model": "Mô hình",
+      "name": "Tên",
+      "provider": "Nhà cung cấp",
+      "publishToRuntime": "Xuất bản lên Runtime",
+      "runtime": "Runtime",
+      "synchronizationStatus": "Trạng thái đồng bộ",
+      "universalState": "Trạng thái chung"
+    },
+    "historyColumns": {
+      "action": "Thao tác",
+      "date": "Ngày",
+      "details": "Chi tiết",
+      "user": "Người dùng"
+    },
+    "historyTitle": "Lịch sử ({{count}})",
+    "listTitle": "Tác tử AI ({{count}})",
+    "noAttachments": "Không có tệp đính kèm",
+    "noAttachmentsBody": "Các tệp được thêm vào tác tử này sẽ hiển thị tại đây.",
+    "noReferences": "Không có tham chiếu",
+    "noReferencesBody": "Bản ghi này không được đối tượng khác tham chiếu.",
+    "noToolsSelected": "Chưa chọn công cụ nào. Dùng Sửa để thêm công cụ của máy chủ MCP.",
+    "notDeferred": "Không tạm hoãn",
+    "pageLabel": "Tác tử AI",
+    "sections": {
+      "attachments": "Tệp đính kèm",
+      "details": "Chi tiết",
+      "instructions": "Hướng dẫn",
+      "mcpServers": "Máy chủ MCP"
+    },
+    "toolsColumns": {
+      "deferred": "Tạm hoãn",
+      "description": "Mô tả",
+      "tool": "Công cụ"
+    },
+    "toolsGroupCount": "({{count}} công cụ)",
+    "toolsTitle": "Công cụ máy chủ MCP ({{count}})",
+    "viewDescription": "Xem mô tả của {{tool}}"
+  },
+  "aiChat": {
+    "agents": {
+      "cm": {
+        "description": "Đóng vai trò trợ lý MES tổng quát, điểm khởi đầu cho các câu hỏi về sản phẩm, nguồn lực hoặc tài liệu, giúp bạn tìm đúng câu trả lời.",
+        "title": "Tác tử MES"
+      },
+      "doc": {
+        "description": "Tóm tắt tài liệu và tệp đính kèm, trích xuất các ý chính theo yêu cầu của bạn.",
+        "title": "Tóm tắt tài liệu"
+      },
+      "mp": {
+        "description": "Đề xuất lịch bảo trì và tra cứu lịch sử thiết bị của một nguồn lực.",
+        "title": "Lập kế hoạch bảo trì"
+      },
+      "qa": {
+        "description": "Hỗ trợ xem xét báo cáo không phù hợp và kết quả kiểm tra, chỉ ra các bản ghi cần lưu ý.",
+        "title": "Trợ lý chất lượng"
+      }
+    },
+    "attachFile": "Đính kèm tệp",
+    "chatHistory": "Lịch sử trò chuyện",
+    "chats": "Cuộc trò chuyện",
+    "demoReply": "Đây là những gì tôi tìm thấy cho \"{{text}}\". Đây là câu trả lời demo của {{agent}}; hãy kết nối trang với API tác tử của bạn để nhận câu trả lời thực.",
+    "dictate": "Đọc chính tả",
+    "examples": {
+      "first": "Tóm tắt tệp đính kèm mới nhất",
+      "second": "So sánh hai phiên bản tài liệu",
+      "third": "Tìm thực thể theo tên"
+    },
+    "messageAgent": "Nhắn cho {{agent}}",
+    "newChat": "Cuộc trò chuyện mới",
+    "seeds": {
+      "first": {
+        "botText": "Tôi tìm thấy 3 tài liệu tham chiếu đến phiên bản công thức mới nhất. Tài liệu gần đây nhất được cập nhật ngày 28/10/2026.",
+        "title": "Tài liệu nào tham chiếu đến công thức mới nhất?",
+        "userText": "Tài liệu nào tham chiếu đến công thức mới nhất?"
+      },
+      "second": {
+        "botText": "Phiên bản 3 thêm bước kiểm tra mô-men xoắn ở bước 5 và loại bỏ bước vệ sinh tùy chọn.",
+        "title": "So sánh phiên bản 2 và 3 của hướng dẫn công việc",
+        "userText": "So sánh phiên bản 2 và 3 của hướng dẫn công việc"
+      }
+    },
+    "send": "Gửi",
+    "thinking": "{{agent}} đang suy nghĩ…",
+    "toggleHistory": "Bật/tắt lịch sử"
+  },
+  "apps": {
+    "columns": {
+      "app": "Ứng dụng",
+      "description": "Mô tả",
+      "state": "Trạng thái",
+      "type": "Loại"
+    },
+    "descriptions": {
+      "maintenance": "Ứng dụng bảo trì thiết bị",
+      "quality": "Kiểm tra và xử lý NCR",
+      "shopFloor": "Bảng điều khiển vận hành cho lệnh sản xuất",
+      "traceability": "Truy xuất nguồn gốc và theo dõi lô"
+    },
+    "listTitle": "Ứng dụng ({{count}})",
+    "pageLabel": "Ứng dụng",
+    "types": {
+      "system": "Hệ thống",
+      "userDefined": "Người dùng định nghĩa"
+    }
+  },
+  "common": {
+    "active": "Hoạt động",
+    "activeState": "(Hoạt động)",
+    "all": "Tất cả",
+    "cancel": "Hủy",
+    "chooseColumns": "Chọn cột",
+    "close": "Đóng",
+    "collapsePanel": "Thu gọn bảng",
+    "columns": "Cột",
+    "detailsView": "Chế độ xem chi tiết",
+    "draft": "Nháp",
+    "information": "Thông tin",
+    "moreOptions": "Tùy chọn khác",
+    "moveDown": "Di chuyển xuống",
+    "moveUp": "Di chuyển lên",
+    "nextPage": "Trang tiếp",
+    "no": "Không",
+    "noRecordsFound": "Không tìm thấy bản ghi",
+    "noResults": "Không có kết quả",
+    "pageOf": "Trang {{page}} / {{pages}}",
+    "previousPage": "Trang trước",
+    "records": "({{count}} bản ghi)",
+    "rowsPerPage": "Số hàng mỗi trang:",
+    "save": "Lưu",
+    "search": "Tìm kiếm",
+    "syncCompleted": "Hoàn tất",
+    "syncPending": "Đang chờ",
+    "terminated": "Đã kết thúc",
+    "update": "Cập nhật",
+    "yes": "Có"
+  },
+  "configuration": {
+    "columns": {
+      "modified": "Đã sửa đổi",
+      "scope": "Phạm vi",
+      "setting": "Cài đặt",
+      "value": "Giá trị"
+    },
+    "listTitle": "Cấu hình ({{count}})",
+    "pageLabel": "Cấu hình",
+    "scopes": {
+      "global": "Toàn cục",
+      "security": "Bảo mật"
+    },
+    "settings": {
+      "auditLogging": "Ghi nhật ký kiểm tra",
+      "defaultLanguage": "Ngôn ngữ mặc định",
+      "sessionTimeout": "Thời gian chờ phiên",
+      "timeZone": "Múi giờ"
+    },
+    "values": {
+      "enabled": "Đã bật",
+      "english": "Tiếng Anh",
+      "minutes": "{{count}} phút"
+    }
+  },
+  "detailShell": {
+    "tabs": {
+      "details": "Chi tiết",
+      "history": "Lịch sử",
+      "references": "Tham chiếu"
+    }
+  },
+  "dialogs": {
+    "comments": "Bình luận",
+    "commentsLabel": "Bình luận:",
+    "editInstructions": {
+      "alignLeft": "Căn trái",
+      "alignRight": "Căn phải",
+      "bold": "Đậm",
+      "bulletedList": "Danh sách dấu chấm",
+      "center": "Căn giữa",
+      "file": "Tệp",
+      "font": "Phông chữ",
+      "format": "Định dạng",
+      "formatting": "Định dạng",
+      "heading2": "Tiêu đề 2",
+      "heading3": "Tiêu đề 3",
+      "highlight": "Tô sáng",
+      "image": "Hình ảnh",
+      "indent": "Thụt lề",
+      "inherited": "(được kế thừa)",
+      "instructions": "Hướng dẫn",
+      "instructionsLabel": "Hướng dẫn:",
+      "italic": "Nghiêng",
+      "justify": "Căn đều",
+      "link": "Liên kết",
+      "numberedList": "Danh sách đánh số",
+      "outdent": "Giảm thụt lề",
+      "paragraph": "Đoạn văn",
+      "removeLink": "Gỡ liên kết",
+      "size": "Cỡ",
+      "strikethrough": "Gạch ngang",
+      "table": "Bảng",
+      "textColor": "Màu chữ",
+      "title": "Sửa hướng dẫn tác tử AI",
+      "underline": "Gạch chân",
+      "colorNames": {
+        "black": "Đen",
+        "blue": "Xanh dương",
+        "red": "Đỏ",
+        "green": "Xanh lá",
+        "orange": "Cam"
+      },
+      "requiredMark": "* "
+    },
+    "help": "Trợ giúp",
+    "manageMcp": {
+      "clearSelected": "Bỏ chọn công cụ",
+      "mcpServers": "Máy chủ MCP",
+      "noTools": "Chưa chọn công cụ",
+      "searchTools": "Tìm công cụ",
+      "selectAllTools": "Chọn tất cả công cụ",
+      "selectTools": "Chọn công cụ máy chủ MCP",
+      "selectedTools": "Công cụ đã chọn ({{count}})",
+      "serverCount": "{{selected}}/{{total}}",
+      "title": "Quản lý máy chủ MCP",
+      "tools": "Công cụ",
+      "viewTool": "Xem {{tool}}"
+    },
+    "toolDescription": {
+      "title": "Xem mô tả công cụ"
+    }
+  },
+  "entityTypes": {
+    "clearSorting": "Xóa sắp xếp",
+    "columnNames": {
+      "description": "Mô tả",
+      "name": "Loại thực thể",
+      "relation": "Quan hệ",
+      "state": "Trạng thái",
+      "system": "Hệ thống",
+      "versioned": "Có phiên bản"
+    },
+    "columns": {
+      "description": "Mô tả",
+      "name": "Loại thực thể",
+      "relation": "Quan hệ",
+      "state": "Trạng thái",
+      "system": "Hệ thống",
+      "versioned": "Có phiên bản"
+    },
+    "pageLabel": "Loại thực thể",
+    "resetAll": "Đặt lại tất cả",
+    "resetColumns": "Đặt lại cột",
+    "stateFilterLabel": "Trạng thái:",
+    "stateOptions": {
+      "all": "TẤT CẢ",
+      "active": "HOẠT ĐỘNG",
+      "terminated": "ĐÃ KẾT THÚC"
+    },
+    "title": "Loại thực thể ({{count}})"
+  },
+  "mainLayout": {
+    "noOpenTabs": "Không có tab đang mở",
+    "openAdministration": "Mở Quản trị"
+  },
+  "mcpServer": {
+    "cards": {
+      "authentication": "Xác thực",
+      "information": "Thông tin",
+      "server": "Máy chủ MCP AI"
+    },
+    "columns": {
+      "description": "Mô tả",
+      "name": "Tên",
+      "state": "Trạng thái",
+      "url": "URL"
+    },
+    "descriptions": {
+      "clickhouse": "Truy cập dữ liệu SQL ClickHouse",
+      "cmMes": "Thực thể, tài liệu và tệp đính kèm MES",
+      "cubes": "Khối dữ liệu Cube.js",
+      "grafana": "Bảng điều khiển và nguồn dữ liệu Grafana",
+      "portalDocs": "Tìm kiếm tài liệu sản phẩm"
+    },
+    "fields": {
+      "authMode": "Chế độ xác thực",
+      "authUrl": "URL ủy quyền",
+      "clientId": "Client ID",
+      "dataGroup": "Nhóm dữ liệu",
+      "description": "Mô tả",
+      "initTimeout": "Thời gian chờ khởi tạo",
+      "instructions": "Hướng dẫn",
+      "isSystem": "Là hệ thống",
+      "name": "Tên",
+      "protocolVersion": "Phiên bản giao thức",
+      "reqTimeout": "Thời gian chờ yêu cầu",
+      "scope": "Phạm vi",
+      "syncStatus": "Trạng thái đồng bộ",
+      "tokenUrl": "URL token",
+      "universalState": "Trạng thái chung",
+      "url": "URL"
+    },
+    "lastSync": "Lần đồng bộ công cụ gần nhất:",
+    "listTitle": "Máy chủ MCP AI ({{count}})",
+    "noAttachments": "Không có tệp đính kèm",
+    "noAttachmentsBody": "Các tệp được thêm vào máy chủ này sẽ hiển thị tại đây.",
+    "noReferences": "Không có tham chiếu",
+    "noReferencesBody": "Máy chủ này không được đối tượng khác tham chiếu.",
+    "pageLabel": "Máy chủ MCP AI",
+    "sections": {
+      "attachments": "Tệp đính kèm",
+      "details": "Chi tiết",
+      "tools": "Công cụ"
+    },
+    "synchronize": "Đồng bộ",
+    "toolsColumns": {
+      "description": "Mô tả",
+      "name": "Tên"
+    },
+    "toolsTitle": "Công cụ ({{count}})"
+  },
+  "nav": {
+    "collapseMenu": "Thu gọn menu",
+    "expandMenu": "Mở rộng menu",
+    "globalNavigation": "Điều hướng toàn cục",
+    "sections": {
+      "administration": "Quản trị",
+      "ai": "AI",
+      "apps": "Ứng dụng",
+      "automation": "Tự động hóa",
+      "businessData": "Dữ liệu kinh doanh",
+      "businessIntelligence": "Trí tuệ kinh doanh",
+      "dataPlatform": "Nền tảng dữ liệu",
+      "lowCode": "Low Code",
+      "maintenance": "Bảo trì",
+      "manufacturing": "Sản xuất",
+      "planningAndLogistics": "Hoạch định và logistics",
+      "quality": "Chất lượng"
+    },
+    "tiles": {
+      "aiAgent": "Tác tử AI",
+      "aiMcpServer": "Máy chủ MCP AI",
+      "apps": "Ứng dụng",
+      "augmentedReality": "Thực tế tăng cường",
+      "changePackage": "Gói thay đổi",
+      "configuration": "Cấu hình",
+      "dataOrchestrator": "Điều phối dữ liệu",
+      "deeActions": "Thao tác DEE",
+      "entityTypes": "Loại thực thể",
+      "eventRules": "Quy tắc sự kiện",
+      "fabLives": "FabLives",
+      "globalShortcuts": "Phím tắt toàn cục",
+      "licenses": "Giấy phép",
+      "localizedMessages": "Thông báo bản địa hóa",
+      "masterDataExport": "Xuất dữ liệu gốc",
+      "masterDataPackage": "Gói dữ liệu gốc",
+      "messageBus": "Bus tin nhắn",
+      "multimedia": "Đa phương tiện",
+      "nameGenerators": "Trình tạo tên",
+      "printingIntegration": "Tích hợp in ấn",
+      "queries": "Truy vấn",
+      "rules": "Quy tắc",
+      "security": "Bảo mật",
+      "stateModels": "Mô hình trạng thái",
+      "systemIntegrations": "Tích hợp hệ thống",
+      "systemMonitoring": "Giám sát hệ thống",
+      "tables": "Bảng",
+      "timers": "Bộ hẹn giờ",
+      "uipages": "Trang UI"
+    }
+  },
+  "pageHeader": {
+    "collapseActionBar": "Thu gọn thanh tác vụ",
+    "expandActionBar": "Mở rộng thanh tác vụ"
+  },
+  "placeholder": {
+    "defaultBody": "Trang này là trang giữ chỗ trong bản demo.",
+    "notFoundBody": "Trang này không tồn tại.",
+    "notFoundTitle": "Không tìm thấy trang"
+  },
+  "tabs": {
+    "back": "Quay lại",
+    "closeTab": "Đóng {{title}}",
+    "language": "Ngôn ngữ",
+    "messages": "Tin nhắn",
+    "more": "Thêm",
+    "newTab": "Tab mới",
+    "scan": "Quét",
+    "search": "Tìm kiếm",
+    "unreadMessages": "{{count}} chưa đọc",
+    "warning": "Cảnh báo"
+  }
+}

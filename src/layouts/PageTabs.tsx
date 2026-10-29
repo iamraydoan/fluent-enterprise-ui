@@ -4,12 +4,27 @@ import {
   ChevronDown20Regular,
   ChevronLeft20Regular,
   Dismiss16Regular,
+  Globe20Regular,
   QrCode20Regular,
   Search20Regular,
   Warning12Filled,
 } from "@/components/icons";
-import { Avatar, Button, makeStyles, mergeClasses, Text, Tooltip } from "@/components/ui";
+import {
+  Avatar,
+  Button,
+  makeStyles,
+  Menu,
+  MenuItemRadio,
+  MenuList,
+  MenuPopover,
+  MenuTrigger,
+  mergeClasses,
+  Text,
+  Tooltip,
+} from "@/components/ui";
 import { iconForRoute } from "@/data/navigation";
+import { SUPPORTED_LANGUAGES, useAppTranslation } from "@/i18n";
+import type { LanguageCode } from "@/i18n";
 import type { PageTab } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
 
@@ -35,6 +50,14 @@ const useStyles = makeStyles({
     backgroundColor: "transparent",
     ":hover": { backgroundColor: "#f3f2f1", color: "#222" },
   },
+  languageButton: {
+    minWidth: "32px",
+    height: "32px",
+    borderRadius: "8px",
+    color: "#222",
+    backgroundColor: "transparent",
+    ":hover": { backgroundColor: "#f3f2f1", color: "#222" },
+  },
 });
 
 interface PageTabsProps {
@@ -49,11 +72,13 @@ interface PageTabsProps {
 export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: PageTabsProps) {
   const pageTabsStyles = useStyles();
   const sharedStyles = useSharedStyles();
+  const { t, language, setLanguage } = useAppTranslation();
   return (
     <div className={sharedStyles.pageTabsBar}>
       <div className={pageTabsStyles.tabList} role="tablist">
         {tabs.map((tab) => {
           const isActive = tab.id === active;
+          const title = tab.titleKey ? t(tab.titleKey) : (tab.title ?? "");
           return (
             <div
               key={tab.id}
@@ -70,7 +95,7 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
                 appearance="subtle"
                 size="small"
                 icon={<ChevronLeft20Regular />}
-                aria-label="Back"
+                aria-label={t("tabs.back")}
                 onClick={(e) => {
                   e.stopPropagation();
                   onBack(tab);
@@ -78,13 +103,13 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
               />
               {iconForRoute(tab.route)}
               <Text size={300} truncate wrap={false} style={{ flexGrow: 1 }}>
-                {tab.title}
+                {title}
               </Text>
               <Button
                 appearance="subtle"
                 size="small"
                 icon={<Dismiss16Regular />}
-                aria-label={`Close ${tab.title}`}
+                aria-label={t("tabs.closeTab", { title })}
                 onClick={(e) => {
                   e.stopPropagation();
                   onClose(tab.id);
@@ -93,24 +118,51 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
             </div>
           );
         })}
-        <Tooltip content="New tab" relationship="label">
+        <Tooltip content={t("tabs.newTab")} relationship="label">
           <Button
             appearance="subtle"
             icon={<Add24Regular />}
-            aria-label="New tab"
+            aria-label={t("tabs.newTab")}
             className={pageTabsStyles.newTabButton}
             onClick={onNewTab}
           />
         </Tooltip>
       </div>
       <div className={sharedStyles.pageTabsActions}>
-        <Button appearance="subtle" icon={<ChevronDown20Regular />} aria-label="More" />
-        <Button appearance="subtle" icon={<QrCode20Regular />} aria-label="Scan" />
-        <Button appearance="subtle" icon={<Search20Regular />} aria-label="Search" />
+        <Button appearance="subtle" icon={<ChevronDown20Regular />} aria-label={t("tabs.more")} />
+        <Button appearance="subtle" icon={<QrCode20Regular />} aria-label={t("tabs.scan")} />
+        <Button appearance="subtle" icon={<Search20Regular />} aria-label={t("tabs.search")} />
+        <Menu
+          checkedValues={{ language: [language] }}
+          onCheckedValueChange={(_, d) => {
+            const next = d.checkedItems[0];
+            if (next) setLanguage(next as LanguageCode);
+          }}
+        >
+          <MenuTrigger disableButtonEnhancement>
+            <Button
+              appearance="subtle"
+              icon={<Globe20Regular />}
+              aria-label={t("tabs.language")}
+              className={pageTabsStyles.languageButton}
+            >
+              {language.toUpperCase()}
+            </Button>
+          </MenuTrigger>
+          <MenuPopover>
+            <MenuList>
+              {SUPPORTED_LANGUAGES.map((option) => (
+                <MenuItemRadio key={option.code} name="language" value={option.code}>
+                  {option.label}
+                </MenuItemRadio>
+              ))}
+            </MenuList>
+          </MenuPopover>
+        </Menu>
         <span style={{ position: "relative", display: "inline-flex" }}>
-          <Button appearance="subtle" icon={<Chat20Regular />} aria-label="Messages" />
+          <Button appearance="subtle" icon={<Chat20Regular />} aria-label={t("tabs.messages")} />
           <span
-            aria-label="5 unread"
+            aria-label={t("tabs.unreadMessages", { count: 5 })}
             style={{
               position: "absolute",
               top: 0,
@@ -133,7 +185,7 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
           <Avatar name="A" initials="A" color="brand" size={36} />
           <Warning12Filled
             style={{ position: "absolute", left: -2, bottom: -2, color: "#F5B800" }}
-            aria-label="Warning"
+            aria-label={t("tabs.warning")}
           />
         </span>
       </div>

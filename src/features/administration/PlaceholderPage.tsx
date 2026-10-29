@@ -2,6 +2,7 @@ import { cloneElement } from "react";
 import type { ReactElement } from "react";
 import { Wrench24Regular } from "@/components/icons";
 import { Caption1, makeStyles, Text, tokens } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 
 const usePlaceholderStyles = makeStyles({
   stub: {
@@ -28,6 +29,7 @@ interface PlaceholderPageProps {
 
 export function PlaceholderPage({ title, icon, body }: PlaceholderPageProps) {
   const placeholderStyles = usePlaceholderStyles();
+  const { t } = useAppTranslation();
   const renderedIcon = cloneElement(icon ?? <Wrench24Regular />, {
     style: { width: 40, height: 40 },
   });
@@ -37,7 +39,7 @@ export function PlaceholderPage({ title, icon, body }: PlaceholderPageProps) {
       <Text weight="semibold" size={500} style={{ color: "#222" }}>
         {title}
       </Text>
-      <Caption1>{body ?? "This page is a placeholder in the demo."}</Caption1>
+      <Caption1>{body ?? t("placeholder.defaultBody")}</Caption1>
     </section>
   );
 }

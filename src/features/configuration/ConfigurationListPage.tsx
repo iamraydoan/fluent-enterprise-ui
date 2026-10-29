@@ -17,16 +17,25 @@ import {
   Text,
   tokens,
 } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
-import { CONFIGURATION_ROWS } from "./data";
+import { CONFIGURATION_ROWS, type ConfigurationRow } from "./data";
 
 export function ConfigurationListPage() {
   const sharedStyles = useSharedStyles();
+  const { t } = useAppTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
+  const getValueLabel = (row: ConfigurationRow) =>
+    row.valueKey
+      ? t(row.valueKey, row.valueCount === null ? undefined : { count: row.valueCount })
+      : (row.valueText ?? "");
   const rows = CONFIGURATION_ROWS.filter((row) =>
-    containsIgnoreCase(`${row.setting} ${row.value} ${row.scope} ${row.modified}`, searchQuery),
+    containsIgnoreCase(
+      `${t(row.settingKey)} ${getValueLabel(row)} ${t(row.scopeKey)} ${row.modified}`,
+      searchQuery,
+    ),
   );
   return (
     <>
@@ -35,14 +44,20 @@ export function ConfigurationListPage() {
           <ActionBar>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton sharedStyles={sharedStyles} icon={<Add24Regular />} label="Create" />
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<Add24Regular />}
+                  label={t("actionBar.create")}
+                />
                 <RibbonButton
                   sharedStyles={sharedStyles}
                   icon={<ArrowSync24Regular />}
-                  label="Refresh"
+                  label={t("actionBar.refresh")}
                 />
               </div>
-              <div className={sharedStyles.actionBarGroupLabel}>General</div>
+              <div className={sharedStyles.actionBarGroupLabel}>
+                {t("actionBar.groups.general")}
+              </div>
             </div>
           </ActionBar>
         )}
@@ -52,36 +67,41 @@ export function ConfigurationListPage() {
         >
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 12 }}>
             <Wrench20Regular />
-            <Text size={300}>Configuration</Text>
+            <Text size={300}>{t("configuration.pageLabel")}</Text>
           </span>
         </PageHeader>
       </div>
 
-      <section className={sharedStyles.contentCard} aria-label="Configuration">
+      <section className={sharedStyles.contentCard} aria-label={t("configuration.pageLabel")}>
         <div className={sharedStyles.filterBar}>
           <Input
             className={sharedStyles.searchInput}
             appearance="outline"
             contentBefore={<Search20Regular />}
-            placeholder="Search"
+            placeholder={t("common.search")}
             value={searchQuery}
             onChange={(_, d) => setSearchQuery(d.value)}
-            aria-label="Search"
+            aria-label={t("common.search")}
           />
         </div>
         <div className={sharedStyles.titleRow}>
           <Text weight="semibold" size={400}>
-            Configuration ({rows.length})
+            {t("configuration.listTitle", { count: rows.length })}
           </Text>
         </div>
         <div className={sharedStyles.tableScroll} style={{ flexGrow: 0 }}>
           <Table
-            aria-label="Configuration"
+            aria-label={t("configuration.pageLabel")}
             style={{ tableLayout: "fixed", width: "100%", minWidth: 640 }}
           >
             <TableHeader>
               <TableRow>
-                {["SETTING", "VALUE", "SCOPE", "MODIFIED"].map((header) => (
+                {[
+                  t("configuration.columns.setting"),
+                  t("configuration.columns.value"),
+                  t("configuration.columns.scope"),
+                  t("configuration.columns.modified"),
+                ].map((header) => (
                   <TableHeaderCell key={header} className={sharedStyles.tableHeaderCell}>
                     {header}
                   </TableHeaderCell>
@@ -90,10 +110,10 @@ export function ConfigurationListPage() {
             </TableHeader>
             <TableBody>
               {rows.map((row) => (
-                <TableRow key={row.setting}>
-                  <TableCell className={sharedStyles.tableCell}>{row.setting}</TableCell>
-                  <TableCell className={sharedStyles.tableCell}>{row.value}</TableCell>
-                  <TableCell className={sharedStyles.tableCell}>{row.scope}</TableCell>
+                <TableRow key={row.settingKey}>
+                  <TableCell className={sharedStyles.tableCell}>{t(row.settingKey)}</TableCell>
+                  <TableCell className={sharedStyles.tableCell}>{getValueLabel(row)}</TableCell>
+                  <TableCell className={sharedStyles.tableCell}>{t(row.scopeKey)}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>{row.modified}</TableCell>
                 </TableRow>
               ))}
@@ -103,7 +123,7 @@ export function ConfigurationListPage() {
             <div
               style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}
             >
-              No records found
+              {t("common.noRecordsFound")}
             </div>
           )}
         </div>

@@ -1,0 +1,432 @@
+{
+  "actionBar": {
+    "askAi": "AI에 질문",
+    "create": "만들기",
+    "downloadLbos": "LBO 다운로드",
+    "edit": "편집",
+    "export": "내보내기",
+    "groups": {
+      "actions": "작업",
+      "general": "일반",
+      "mesCopilot": "MES Copilot"
+    },
+    "more": "더 보기",
+    "refresh": "새로 고침"
+  },
+  "administration": {
+    "pageLabel": "관리"
+  },
+  "aiAgent": {
+    "cards": {
+      "agent": "AI 에이전트",
+      "information": "정보"
+    },
+    "columns": {
+      "agent": "에이전트",
+      "description": "설명",
+      "mcpServers": "MCP 서버",
+      "state": "상태"
+    },
+    "createdBy": "Nguyen Minh Anh이 12/10/2026에 생성",
+    "deferred": "연기됨",
+    "descriptions": {
+      "analyticsView": "Analytics 보기의 분석 대시보드를 구축하고 개선합니다",
+      "cmMes": "MES 문서 및 엔터티 리비전에 대한 질문에 답변합니다",
+      "docSummarizer": "첨부 파일과 문서를 요약합니다",
+      "maintenance": "유지보수 일정을 제안합니다",
+      "quality": "부적합 보고서 검토를 지원합니다"
+    },
+    "detailDescription": "제품, 리소스 또는 문서에 대한 질문의 출발점이 되는 범용 MES 어시스턴트로 동작합니다.",
+    "fields": {
+      "dataGroup": "데이터 그룹",
+      "description": "설명",
+      "model": "모델",
+      "name": "이름",
+      "provider": "공급자",
+      "publishToRuntime": "런타임에 게시",
+      "runtime": "런타임",
+      "synchronizationStatus": "동기화 상태",
+      "universalState": "유니버설 상태"
+    },
+    "historyColumns": {
+      "action": "작업",
+      "date": "날짜",
+      "details": "세부 정보",
+      "user": "사용자"
+    },
+    "historyTitle": "기록 ({{count}})",
+    "listTitle": "AI 에이전트 ({{count}})",
+    "noAttachments": "첨부 파일 없음",
+    "noAttachmentsBody": "이 에이전트에 추가된 파일이 여기에 표시됩니다.",
+    "noReferences": "참조 없음",
+    "noReferencesBody": "이 레코드는 다른 개체에서 참조되지 않습니다.",
+    "noToolsSelected": "선택된 도구가 없습니다. 편집을 사용해 MCP 서버 도구를 추가하세요.",
+    "notDeferred": "연기되지 않음",
+    "pageLabel": "AI 에이전트",
+    "sections": {
+      "attachments": "첨부 파일",
+      "details": "세부 정보",
+      "instructions": "지침",
+      "mcpServers": "MCP 서버"
+    },
+    "toolsColumns": {
+      "deferred": "연기됨",
+      "description": "설명",
+      "tool": "도구"
+    },
+    "toolsGroupCount": "({{count}}개 도구)",
+    "toolsTitle": "MCP 서버 도구 ({{count}})",
+    "viewDescription": "{{tool}} 설명 보기"
+  },
+  "aiChat": {
+    "agents": {
+      "cm": {
+        "description": "제품, 리소스 또는 문서에 대한 질문의 출발점이 되는 범용 MES 어시스턴트로, 올바른 답을 찾도록 안내합니다.",
+        "title": "MES 에이전트"
+      },
+      "doc": {
+        "description": "문서와 첨부 파일을 요약하고 요청한 핵심 내용을 추출합니다.",
+        "title": "문서 요약기"
+      },
+      "mp": {
+        "description": "유지보수 일정을 제안하고 리소스의 장비 이력을 찾습니다.",
+        "title": "유지보수 계획자"
+      },
+      "qa": {
+        "description": "부적합 보고서와 검사 결과를 검토하도록 돕고 중요한 레코드를 가리킵니다.",
+        "title": "품질 어시스턴트"
+      }
+    },
+    "attachFile": "파일 첨부",
+    "chatHistory": "채팅 기록",
+    "chats": "채팅",
+    "demoReply": "\"{{text}}\"에 대해 찾은 내용은 다음과 같습니다. 이는 {{agent}}의 데모 응답입니다. 실제 답변을 받으려면 이 페이지를 에이전트 API에 연결하세요.",
+    "dictate": "받아쓰기",
+    "examples": {
+      "first": "최신 첨부 파일 요약",
+      "second": "두 문서 리비전 비교",
+      "third": "이름으로 엔터티 찾기"
+    },
+    "messageAgent": "{{agent}}에게 메시지 보내기",
+    "newChat": "새 채팅",
+    "seeds": {
+      "first": {
+        "botText": "최신 레시피 리비전을 참조하는 문서를 3건 찾았습니다. 가장 최근 문서는 28/10/2026에 업데이트되었습니다.",
+        "title": "최신 레시피를 참조하는 문서는 무엇인가요?",
+        "userText": "최신 레시피를 참조하는 문서는 무엇인가요?"
+      },
+      "second": {
+        "botText": "리비전 3에서는 5단계에 토크 검사가 추가되고 선택적 세척 단계가 제거됩니다.",
+        "title": "작업 지시서의 리비전 2와 3 비교",
+        "userText": "작업 지시서의 리비전 2와 3 비교"
+      }
+    },
+    "send": "보내기",
+    "thinking": "{{agent}} 생각 중…",
+    "toggleHistory": "기록 토글"
+  },
+  "apps": {
+    "columns": {
+      "app": "앱",
+      "description": "설명",
+      "state": "상태",
+      "type": "유형"
+    },
+    "descriptions": {
+      "maintenance": "장비 유지보수 앱",
+      "quality": "검사 및 NCR 처리",
+      "shopFloor": "작업 지시용 작업자 콘솔",
+      "traceability": "이력 추적 및 로트 추적"
+    },
+    "listTitle": "앱 ({{count}})",
+    "pageLabel": "앱",
+    "types": {
+      "system": "시스템",
+      "userDefined": "사용자 정의"
+    }
+  },
+  "common": {
+    "active": "활성",
+    "activeState": "(활성)",
+    "all": "전체",
+    "cancel": "취소",
+    "chooseColumns": "열 선택",
+    "close": "닫기",
+    "collapsePanel": "패널 축소",
+    "columns": "열",
+    "detailsView": "세부 정보 보기",
+    "draft": "초안",
+    "information": "정보",
+    "moreOptions": "추가 옵션",
+    "moveDown": "아래로 이동",
+    "moveUp": "위로 이동",
+    "nextPage": "다음 페이지",
+    "no": "아니요",
+    "noRecordsFound": "레코드를 찾을 수 없습니다",
+    "noResults": "결과 없음",
+    "pageOf": "{{page}} / {{pages}} 페이지",
+    "previousPage": "이전 페이지",
+    "records": "({{count}}개 레코드)",
+    "rowsPerPage": "페이지당 행:",
+    "save": "저장",
+    "search": "검색",
+    "syncCompleted": "완료",
+    "syncPending": "대기 중",
+    "terminated": "종료",
+    "update": "업데이트",
+    "yes": "예"
+  },
+  "configuration": {
+    "columns": {
+      "modified": "수정됨",
+      "scope": "범위",
+      "setting": "설정",
+      "value": "값"
+    },
+    "listTitle": "구성 ({{count}})",
+    "pageLabel": "구성",
+    "scopes": {
+      "global": "전역",
+      "security": "보안"
+    },
+    "settings": {
+      "auditLogging": "감사 로깅",
+      "defaultLanguage": "기본 언어",
+      "sessionTimeout": "세션 시간 제한",
+      "timeZone": "표준 시간대"
+    },
+    "values": {
+      "enabled": "사용",
+      "english": "영어",
+      "minutes": "{{count}}분"
+    }
+  },
+  "detailShell": {
+    "tabs": {
+      "details": "세부 정보",
+      "history": "기록",
+      "references": "참조"
+    }
+  },
+  "dialogs": {
+    "comments": "댓글",
+    "commentsLabel": "댓글:",
+    "editInstructions": {
+      "alignLeft": "왼쪽 맞춤",
+      "alignRight": "오른쪽 맞춤",
+      "bold": "굵게",
+      "bulletedList": "글머리 기호 목록",
+      "center": "가운데 맞춤",
+      "file": "파일",
+      "font": "글꼴",
+      "format": "서식",
+      "formatting": "서식 지정",
+      "heading2": "제목 2",
+      "heading3": "제목 3",
+      "highlight": "강조",
+      "image": "이미지",
+      "indent": "들여쓰기",
+      "inherited": "(상속됨)",
+      "instructions": "지침",
+      "instructionsLabel": "지침:",
+      "italic": "기울임",
+      "justify": "양쪽 맞춤",
+      "link": "링크",
+      "numberedList": "번호 매기기 목록",
+      "outdent": "내어쓰기",
+      "paragraph": "단락",
+      "removeLink": "링크 제거",
+      "size": "크기",
+      "strikethrough": "취소선",
+      "table": "표",
+      "textColor": "텍스트 색",
+      "title": "AI 에이전트 지침 편집",
+      "underline": "밑줄",
+      "colorNames": {
+        "black": "검정",
+        "blue": "파랑",
+        "red": "빨강",
+        "green": "초록",
+        "orange": "주황"
+      },
+      "requiredMark": "* "
+    },
+    "help": "도움말",
+    "manageMcp": {
+      "clearSelected": "선택한 도구 지우기",
+      "mcpServers": "MCP 서버",
+      "noTools": "선택된 도구 없음",
+      "searchTools": "도구 검색",
+      "selectAllTools": "모든 도구 선택",
+      "selectTools": "MCP 서버 도구 선택",
+      "selectedTools": "선택한 도구 ({{count}})",
+      "serverCount": "{{selected}}/{{total}}",
+      "title": "MCP 서버 관리",
+      "tools": "도구",
+      "viewTool": "{{tool}} 보기"
+    },
+    "toolDescription": {
+      "title": "도구 설명 보기"
+    }
+  },
+  "entityTypes": {
+    "clearSorting": "정렬 지우기",
+    "columnNames": {
+      "description": "설명",
+      "name": "엔터티 유형",
+      "relation": "관계",
+      "state": "상태",
+      "system": "시스템",
+      "versioned": "버전 관리"
+    },
+    "columns": {
+      "description": "설명",
+      "name": "엔터티 유형",
+      "relation": "관계",
+      "state": "상태",
+      "system": "시스템",
+      "versioned": "버전 관리"
+    },
+    "pageLabel": "엔터티 유형",
+    "resetAll": "모두 재설정",
+    "resetColumns": "열 재설정",
+    "stateFilterLabel": "상태:",
+    "stateOptions": {
+      "all": "전체",
+      "active": "활성",
+      "terminated": "종료"
+    },
+    "title": "엔터티 유형 ({{count}})"
+  },
+  "mainLayout": {
+    "noOpenTabs": "열린 탭이 없습니다",
+    "openAdministration": "관리 열기"
+  },
+  "mcpServer": {
+    "cards": {
+      "authentication": "인증",
+      "information": "정보",
+      "server": "AI MCP 서버"
+    },
+    "columns": {
+      "description": "설명",
+      "name": "이름",
+      "state": "상태",
+      "url": "URL"
+    },
+    "descriptions": {
+      "clickhouse": "ClickHouse SQL 데이터 액세스",
+      "cmMes": "MES 엔터티, 문서 및 첨부 파일",
+      "cubes": "Cube.js 데이터 큐브",
+      "grafana": "Grafana 대시보드 및 데이터 소스",
+      "portalDocs": "제품 문서 검색"
+    },
+    "fields": {
+      "authMode": "인증 모드",
+      "authUrl": "인증 URL",
+      "clientId": "클라이언트 ID",
+      "dataGroup": "데이터 그룹",
+      "description": "설명",
+      "initTimeout": "초기화 시간 제한",
+      "instructions": "지침",
+      "isSystem": "시스템 여부",
+      "name": "이름",
+      "protocolVersion": "프로토콜 버전",
+      "reqTimeout": "요청 시간 제한",
+      "scope": "범위",
+      "syncStatus": "동기화 상태",
+      "tokenUrl": "토큰 URL",
+      "universalState": "유니버설 상태",
+      "url": "URL"
+    },
+    "lastSync": "마지막 도구 동기화:",
+    "listTitle": "AI MCP 서버 ({{count}})",
+    "noAttachments": "첨부 파일 없음",
+    "noAttachmentsBody": "이 서버에 추가된 파일이 여기에 표시됩니다.",
+    "noReferences": "참조 없음",
+    "noReferencesBody": "이 서버는 다른 개체에서 참조되지 않습니다.",
+    "pageLabel": "AI MCP 서버",
+    "sections": {
+      "attachments": "첨부 파일",
+      "details": "세부 정보",
+      "tools": "도구"
+    },
+    "synchronize": "동기화",
+    "toolsColumns": {
+      "description": "설명",
+      "name": "이름"
+    },
+    "toolsTitle": "도구 ({{count}})"
+  },
+  "nav": {
+    "collapseMenu": "메뉴 축소",
+    "expandMenu": "메뉴 확장",
+    "globalNavigation": "전역 탐색",
+    "sections": {
+      "administration": "관리",
+      "ai": "AI",
+      "apps": "앱",
+      "automation": "자동화",
+      "businessData": "비즈니스 데이터",
+      "businessIntelligence": "비즈니스 인텔리전스",
+      "dataPlatform": "데이터 플랫폼",
+      "lowCode": "로우코드",
+      "maintenance": "유지보수",
+      "manufacturing": "제조",
+      "planningAndLogistics": "계획 및 물류",
+      "quality": "품질"
+    },
+    "tiles": {
+      "aiAgent": "AI 에이전트",
+      "aiMcpServer": "AI MCP 서버",
+      "apps": "앱",
+      "augmentedReality": "증강 현실",
+      "changePackage": "변경 패키지",
+      "configuration": "구성",
+      "dataOrchestrator": "데이터 오케스트레이터",
+      "deeActions": "DEE 작업",
+      "entityTypes": "엔터티 유형",
+      "eventRules": "이벤트 규칙",
+      "fabLives": "FabLives",
+      "globalShortcuts": "전역 바로 가기",
+      "licenses": "라이선스",
+      "localizedMessages": "현지화된 메시지",
+      "masterDataExport": "마스터 데이터 내보내기",
+      "masterDataPackage": "마스터 데이터 패키지",
+      "messageBus": "메시지 버스",
+      "multimedia": "멀티미디어",
+      "nameGenerators": "이름 생성기",
+      "printingIntegration": "인쇄 통합",
+      "queries": "쿼리",
+      "rules": "규칙",
+      "security": "보안",
+      "stateModels": "상태 모델",
+      "systemIntegrations": "시스템 통합",
+      "systemMonitoring": "시스템 모니터링",
+      "tables": "테이블",
+      "timers": "타이머",
+      "uipages": "UIPages"
+    }
+  },
+  "pageHeader": {
+    "collapseActionBar": "작업 표시줄 축소",
+    "expandActionBar": "작업 표시줄 확장"
+  },
+  "placeholder": {
+    "defaultBody": "이 페이지는 데모의 자리 표시자입니다.",
+    "notFoundBody": "이 페이지가 존재하지 않습니다.",
+    "notFoundTitle": "페이지를 찾을 수 없음"
+  },
+  "tabs": {
+    "back": "뒤로",
+    "closeTab": "{{title}} 닫기",
+    "language": "언어",
+    "messages": "메시지",
+    "more": "더 보기",
+    "newTab": "새 탭",
+    "scan": "스캔",
+    "search": "검색",
+    "unreadMessages": "읽지 않음 {{count}}개",
+    "warning": "경고"
+  }
+}

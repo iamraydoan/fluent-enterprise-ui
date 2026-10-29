@@ -13,7 +13,8 @@ describe("tabs store", () => {
       {
         id: "administration",
         route: "/administration",
-        title: "Administration",
+        titleKey: "nav.sections.administration",
+        title: null,
         parentRoute: null,
       },
     ]);
@@ -46,7 +47,8 @@ describe("tabs store", () => {
     expect(state.tabs[0]).toEqual({
       id: "ai",
       route: "/ai",
-      title: "AI",
+      titleKey: "nav.sections.ai",
+      title: null,
       parentRoute: null,
     });
     expect(state.active).toBe("ai");
@@ -74,7 +76,8 @@ describe("tabs store", () => {
       {
         id: "administration",
         route: "/administration",
-        title: "Administration",
+        titleKey: "nav.sections.administration",
+        title: null,
         parentRoute: null,
       },
     ]);

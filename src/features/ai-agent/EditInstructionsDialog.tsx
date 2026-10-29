@@ -34,6 +34,8 @@ import {
   MenuTrigger,
   tokens,
 } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
+import type { TranslationKey } from "@/i18n";
 import { DialogAgentSub, DialogShell } from "./DialogShell";
 
 const useEditStyles = makeStyles({
@@ -90,12 +92,12 @@ const useEditStyles = makeStyles({
   },
 });
 
-const TEXT_COLORS: [string, string][] = [
-  ["Black", "#000000"],
-  ["Blue", "#0066A1"],
-  ["Red", "#B83128"],
-  ["Green", "#2E7D32"],
-  ["Orange", "#E15532"],
+const TEXT_COLORS: { key: TranslationKey; color: string }[] = [
+  { key: "dialogs.editInstructions.colorNames.black", color: "#000000" },
+  { key: "dialogs.editInstructions.colorNames.blue", color: "#0066A1" },
+  { key: "dialogs.editInstructions.colorNames.red", color: "#B83128" },
+  { key: "dialogs.editInstructions.colorNames.green", color: "#2E7D32" },
+  { key: "dialogs.editInstructions.colorNames.orange", color: "#E15532" },
 ];
 
 interface EditInstructionsDialogProps {
@@ -112,6 +114,7 @@ export function EditInstructionsDialog({
   onClose,
 }: EditInstructionsDialogProps) {
   const editStyles = useEditStyles();
+  const { t } = useAppTranslation();
   const editorRef = useRef<HTMLDivElement>(null);
   const savedRangeRef = useRef<Range | null>(null);
   const rememberSelection = () => {
@@ -184,7 +187,7 @@ export function EditInstructionsDialog({
       </MenuTrigger>
       <MenuPopover>
         <MenuList>
-          {TEXT_COLORS.map(([name, color]) => (
+          {TEXT_COLORS.map(({ key, color }) => (
             <MenuItem
               key={color}
               icon={
@@ -200,7 +203,7 @@ export function EditInstructionsDialog({
               }
               onClick={() => execute(command, color)}
             >
-              {name}
+              {t(key)}
             </MenuItem>
           ))}
         </MenuList>
@@ -209,61 +212,88 @@ export function EditInstructionsDialog({
   );
   return (
     <DialogShell
-      title="Edit AI Agent Instructions"
+      title={t("dialogs.editInstructions.title")}
       icon={<Edit20Regular />}
       onClose={onClose}
       sub={<DialogAgentSub agentName={agentName} />}
       footer={
         <>
-          <Button onClick={onClose}>Cancel</Button>
+          <Button onClick={onClose}>{t("common.cancel")}</Button>
           <Button
             appearance="primary"
             onClick={() => onSave(editorRef.current?.innerText ?? value)}
           >
-            Save
+            {t("common.save")}
           </Button>
         </>
       }
     >
-      <div style={{ padding: "26px 32px 10px", fontSize: 14, color: "#333" }}>Instructions</div>
+      <div style={{ padding: "26px 32px 10px", fontSize: 14, color: "#333" }}>
+        {t("dialogs.editInstructions.instructions")}
+      </div>
       <div className={editStyles.field}>
         <div className={editStyles.label}>
-          <span style={{ color: "#C50F1F" }}>* </span>Instructions:
+          <span style={{ color: "#C50F1F" }}>{t("dialogs.editInstructions.requiredMark")}</span>
+          {t("dialogs.editInstructions.instructionsLabel")}
         </div>
         <div className={editStyles.editor}>
-          <div className={editStyles.toolbar} role="toolbar" aria-label="Formatting">
-            <FormatButton icon={<TextBold20Regular />} label="Bold" command="bold" />
-            <FormatButton icon={<TextItalic20Regular />} label="Italic" command="italic" />
-            <FormatButton icon={<TextUnderline20Regular />} label="Underline" command="underline" />
+          <div
+            className={editStyles.toolbar}
+            role="toolbar"
+            aria-label={t("dialogs.editInstructions.formatting")}
+          >
+            <FormatButton
+              icon={<TextBold20Regular />}
+              label={t("dialogs.editInstructions.bold")}
+              command="bold"
+            />
+            <FormatButton
+              icon={<TextItalic20Regular />}
+              label={t("dialogs.editInstructions.italic")}
+              command="italic"
+            />
+            <FormatButton
+              icon={<TextUnderline20Regular />}
+              label={t("dialogs.editInstructions.underline")}
+              command="underline"
+            />
             <FormatButton
               icon={<TextStrikethrough20Regular />}
-              label="Strikethrough"
+              label={t("dialogs.editInstructions.strikethrough")}
               command="strikeThrough"
             />
             <span className={editStyles.sep} />
-            <ColorMenu icon={<TextColor20Regular />} label="Text color" command="foreColor" />
-            <ColorMenu icon={<Highlight20Regular />} label="Highlight" command="hiliteColor" />
+            <ColorMenu
+              icon={<TextColor20Regular />}
+              label={t("dialogs.editInstructions.textColor")}
+              command="foreColor"
+            />
+            <ColorMenu
+              icon={<Highlight20Regular />}
+              label={t("dialogs.editInstructions.highlight")}
+              command="hiliteColor"
+            />
             <span className={editStyles.sep} />
             <select
               className={editStyles.sel}
-              aria-label="Font"
+              aria-label={t("dialogs.editInstructions.font")}
               defaultValue=""
               onMouseDown={rememberSelection}
               onChange={(event) => event.target.value && execute("fontName", event.target.value)}
             >
-              <option value="">(inherited)</option>
+              <option value="">{t("dialogs.editInstructions.inherited")}</option>
               <option>Arial</option>
               <option>Segoe UI</option>
               <option>Courier New</option>
             </select>
             <select
               className={editStyles.sel}
-              aria-label="Size"
+              aria-label={t("dialogs.editInstructions.size")}
               defaultValue=""
               onMouseDown={rememberSelection}
               onChange={(event) => event.target.value && execute("fontSize", event.target.value)}
             >
-              <option value="">(inherited)</option>
+              <option value="">{t("dialogs.editInstructions.inherited")}</option>
               <option value="2">12</option>
               <option value="3">14</option>
               <option value="4">16</option>
@@ -271,63 +301,91 @@ export function EditInstructionsDialog({
             </select>
             <select
               className={editStyles.sel}
-              aria-label="Format"
+              aria-label={t("dialogs.editInstructions.format")}
               defaultValue=""
               onMouseDown={rememberSelection}
               onChange={(event) => event.target.value && execute("formatBlock", event.target.value)}
             >
-              <option value="">Format</option>
-              <option value="p">Paragraph</option>
-              <option value="h2">Heading 2</option>
-              <option value="h3">Heading 3</option>
+              <option value="">{t("dialogs.editInstructions.format")}</option>
+              <option value="p">{t("dialogs.editInstructions.paragraph")}</option>
+              <option value="h2">{t("dialogs.editInstructions.heading2")}</option>
+              <option value="h3">{t("dialogs.editInstructions.heading3")}</option>
             </select>
             <span className={editStyles.sep} />
             <FormatButton
               icon={<TextAlignLeft20Regular />}
-              label="Align left"
+              label={t("dialogs.editInstructions.alignLeft")}
               command="justifyLeft"
             />
             <FormatButton
               icon={<TextAlignCenter20Regular />}
-              label="Center"
+              label={t("dialogs.editInstructions.center")}
               command="justifyCenter"
             />
             <FormatButton
               icon={<TextAlignRight20Regular />}
-              label="Align right"
+              label={t("dialogs.editInstructions.alignRight")}
               command="justifyRight"
             />
             <FormatButton
               icon={<TextAlignJustify20Regular />}
-              label="Justify"
+              label={t("dialogs.editInstructions.justify")}
               command="justifyFull"
             />
             <span className={editStyles.sep} />
             <FormatButton
               icon={<TextBulletList20Regular />}
-              label="Bulleted list"
+              label={t("dialogs.editInstructions.bulletedList")}
               command="insertUnorderedList"
             />
             <FormatButton
               icon={<TextNumberListLtr20Regular />}
-              label="Numbered list"
+              label={t("dialogs.editInstructions.numberedList")}
               command="insertOrderedList"
             />
             <span className={editStyles.sep} />
-            <FormatButton icon={<TextIndentIncrease20Regular />} label="Indent" command="indent" />
+            <FormatButton
+              icon={<TextIndentIncrease20Regular />}
+              label={t("dialogs.editInstructions.indent")}
+              command="indent"
+            />
             <FormatButton
               icon={<TextIndentDecrease20Regular />}
-              label="Outdent"
+              label={t("dialogs.editInstructions.outdent")}
               command="outdent"
             />
             <span className={editStyles.sep} />
-            <FormatButton icon={<Link20Regular />} label="Link" disabled />
-            <FormatButton icon={<LinkDismiss20Regular />} label="Remove link" command="unlink" />
-            <FormatButton icon={<Image20Regular />} label="Image" disabled />
-            <FormatButton icon={<DocumentAdd20Regular />} label="File" disabled />
-            <FormatButton icon={<Table20Regular />} label="Table" disabled />
+            <FormatButton
+              icon={<Link20Regular />}
+              label={t("dialogs.editInstructions.link")}
+              disabled
+            />
+            <FormatButton
+              icon={<LinkDismiss20Regular />}
+              label={t("dialogs.editInstructions.removeLink")}
+              command="unlink"
+            />
+            <FormatButton
+              icon={<Image20Regular />}
+              label={t("dialogs.editInstructions.image")}
+              disabled
+            />
+            <FormatButton
+              icon={<DocumentAdd20Regular />}
+              label={t("dialogs.editInstructions.file")}
+              disabled
+            />
+            <FormatButton
+              icon={<Table20Regular />}
+              label={t("dialogs.editInstructions.table")}
+              disabled
+            />
             <span style={{ flexGrow: 1 }} />
-            <FormatButton icon={<MoreVertical20Regular />} label="More" command="removeFormat" />
+            <FormatButton
+              icon={<MoreVertical20Regular />}
+              label={t("common.moreOptions")}
+              command="removeFormat"
+            />
           </div>
           <div
             ref={(element) => {
@@ -344,7 +402,7 @@ export function EditInstructionsDialog({
             suppressContentEditableWarning
             role="textbox"
             aria-multiline="true"
-            aria-label="Instructions"
+            aria-label={t("dialogs.editInstructions.instructions")}
             onKeyUp={rememberSelection}
             onMouseUp={rememberSelection}
           />

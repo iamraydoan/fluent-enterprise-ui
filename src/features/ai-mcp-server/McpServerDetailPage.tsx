@@ -32,6 +32,7 @@ import {
   Text,
   tokens,
 } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import { useTabsStore } from "@/stores/tabs-store";
 import { MCP_SERVER_SECTIONS, mcpDetail } from "./data";
 
@@ -89,8 +90,8 @@ const useMcpDetailStyles = makeStyles({
 });
 
 const TOP_TABS: DetailTab[] = [
-  { value: "details", label: "Details" },
-  { value: "references", label: "References" },
+  { value: "details", labelKey: "detailShell.tabs.details" },
+  { value: "references", labelKey: "detailShell.tabs.references" },
 ];
 
 interface McpServerDetailPageProps {
@@ -99,11 +100,12 @@ interface McpServerDetailPageProps {
 
 export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
   const mcpDetailStyles = useMcpDetailStyles();
+  const { t } = useAppTranslation();
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
   const detail = mcpDetail(name);
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState("Details");
+  const [left, setLeft] = useState("mcpServer.sections.details");
   const [pageSize, setPageSize] = useState(100);
   const [lastSync, setLastSync] = useState(detail.lastSync);
   const synchronize = () => {
@@ -119,7 +121,11 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
     navigate({ to: "/ai" });
   };
   const toolsBarGroups: MiniBarGroup[] = [
-    { buttons: [{ icon: <ArrowSync20Regular />, label: "Synchronize", onClick: synchronize }] },
+    {
+      buttons: [
+        { icon: <ArrowSync20Regular />, label: t("mcpServer.synchronize"), onClick: synchronize },
+      ],
+    },
   ];
   const detailLink = (label: string) => (
     <a className={mcpDetailStyles.link} href="#" onClick={(event) => event.preventDefault()}>
@@ -132,15 +138,15 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
     content = (
       <Panel>
         <Empty>
-          <Body1Strong>No references</Body1Strong>
-          <Caption1>This server is not referenced by other objects.</Caption1>
+          <Body1Strong>{t("mcpServer.noReferences")}</Body1Strong>
+          <Caption1>{t("mcpServer.noReferencesBody")}</Caption1>
         </Empty>
       </Panel>
     );
-  } else if (left === "Details") {
+  } else if (left === "mcpServer.sections.details") {
     content = (
       <CardGrid>
-        <Card title="AI MCP Server">
+        <Card title={t("mcpServer.cards.server")}>
           <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
             <div className={mcpDetailStyles.tile}>
               <Attach24Regular />
@@ -148,86 +154,93 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
             <div style={{ flexGrow: 1, minWidth: 0 }}>
               <KV
                 rows={[
-                  ["Name", name],
-                  ["Description", detail.description],
-                  ["Universal State", "Active"],
-                  ["Data Group", ""],
+                  [t("mcpServer.fields.name"), name],
+                  [t("mcpServer.fields.description"), detail.description],
+                  [t("mcpServer.fields.universalState"), t("common.active")],
+                  [t("mcpServer.fields.dataGroup"), ""],
                 ]}
               />
             </div>
             <Info20Regular
               style={{ color: "#0F6CBD", margin: "6px 4px" }}
-              aria-label="Information"
+              aria-label={t("common.information")}
             />
           </div>
         </Card>
-        <Card title="Information">
+        <Card title={t("mcpServer.cards.information")}>
           <KV
             rows={[
-              ["Initialization Timeout", String(detail.init)],
-              ["Instructions", ""],
-              ["Request Timeout", String(detail.req)],
-              ["URL", detailLink(detail.url)],
-              ["Synchronization Status", detail.sync],
-              ["Protocol Version", detail.protocol],
+              [t("mcpServer.fields.initTimeout"), String(detail.init)],
+              [t("mcpServer.fields.instructions"), ""],
+              [t("mcpServer.fields.reqTimeout"), String(detail.req)],
+              [t("mcpServer.fields.url"), detailLink(detail.url)],
               [
-                "Is System",
+                t("mcpServer.fields.syncStatus"),
+                t(detail.sync === "Completed" ? "common.syncCompleted" : "common.syncPending"),
+              ],
+              [t("mcpServer.fields.protocolVersion"), detail.protocol],
+              [
+                t("mcpServer.fields.isSystem"),
                 detail.isSystem ? (
                   <span style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
                     <Checkmark16Filled />
-                    Yes
+                    {t("common.yes")}
                   </span>
                 ) : (
-                  "No"
+                  t("common.no")
                 ),
               ],
             ]}
           />
         </Card>
-        <Card title="Authentication">
+        <Card title={t("mcpServer.cards.authentication")}>
           <KV
             rows={[
-              ["Authentication Mode", detail.auth.mode],
-              ["Client ID", detail.auth.clientId],
-              ["Authorization URL", detailLink(detail.auth.authUrl)],
-              ["Token URL", detailLink(detail.auth.tokenUrl)],
-              ["Scope", detail.auth.scope],
+              [t("mcpServer.fields.authMode"), detail.auth.mode],
+              [t("mcpServer.fields.clientId"), detail.auth.clientId],
+              [t("mcpServer.fields.authUrl"), detailLink(detail.auth.authUrl)],
+              [t("mcpServer.fields.tokenUrl"), detailLink(detail.auth.tokenUrl)],
+              [t("mcpServer.fields.scope"), detail.auth.scope],
             ]}
           />
         </Card>
       </CardGrid>
     );
-  } else if (left === "Tools") {
+  } else if (left === "mcpServer.sections.tools") {
     content = (
       <Panel>
         <MiniBar groups={toolsBarGroups} />
         <div style={{ padding: "12px 12px 0", fontSize: 13, color: "#444" }}>
-          Last Tool Synchronization:{" "}
-          <span style={{ color: "#222", marginLeft: 6 }}>{lastSync}</span>
+          {t("mcpServer.lastSync")} <span style={{ color: "#222", marginLeft: 6 }}>{lastSync}</span>
         </div>
         <div className={mcpDetailStyles.titleRow}>
-          <Text size={400}>Tools ({detail.tools.length})</Text>
+          <Text size={400}>{t("mcpServer.toolsTitle", { count: detail.tools.length })}</Text>
           <div>
             <Button
               appearance="subtle"
               icon={<ColumnTriple20Regular />}
-              aria-label="Choose columns"
+              aria-label={t("common.chooseColumns")}
             />
             <Button
               appearance="subtle"
               icon={<MoreVertical20Regular />}
-              aria-label="More options"
+              aria-label={t("common.moreOptions")}
             />
           </div>
         </div>
         <div className={mcpDetailStyles.scroll}>
-          <Table aria-label="Tools" style={{ tableLayout: "fixed", width: "100%", minWidth: 560 }}>
+          <Table
+            aria-label={t("mcpServer.sections.tools")}
+            style={{ tableLayout: "fixed", width: "100%", minWidth: 560 }}
+          >
             <TableHeader>
               <TableRow>
                 <TableHeaderCell className={mcpDetailStyles.th} style={{ width: "30%" }}>
-                  NAME
+                  {t("mcpServer.toolsColumns.name")}
                 </TableHeaderCell>
-                <TableHeaderCell className={mcpDetailStyles.th}>DESCRIPTION</TableHeaderCell>
+                <TableHeaderCell className={mcpDetailStyles.th}>
+                  {t("mcpServer.toolsColumns.description")}
+                </TableHeaderCell>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -244,7 +257,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
         </div>
         <div className={mcpDetailStyles.foot}>
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
-            Rows per Page:
+            {t("common.rowsPerPage")}
             <Menu
               checkedValues={{ size: [String(pageSize)] }}
               onCheckedValueChange={(_, d) => setPageSize(Number(d.checkedItems[0]))}
@@ -267,21 +280,22 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
             </Menu>
           </span>
           <div style={{ lineHeight: "17px" }}>
-            Page 1 of 1
-            <br />({detail.tools.length} Records)
+            {t("common.pageOf", { page: 1, pages: 1 })}
+            <br />
+            {t("common.records", { count: detail.tools.length })}
           </div>
           <div>
             <Button
               appearance="subtle"
               icon={<ChevronLeft20Regular />}
               disabled
-              aria-label="Previous page"
+              aria-label={t("common.previousPage")}
             />
             <Button
               appearance="subtle"
               icon={<ChevronRight20Regular />}
               disabled
-              aria-label="Next page"
+              aria-label={t("common.nextPage")}
             />
           </div>
         </div>
@@ -292,8 +306,8 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
       <Panel>
         <Empty>
           <Attach20Regular />
-          <Body1Strong>No attachments</Body1Strong>
-          <Caption1>Files added to this server will appear here.</Caption1>
+          <Body1Strong>{t("mcpServer.noAttachments")}</Body1Strong>
+          <Caption1>{t("mcpServer.noAttachmentsBody")}</Caption1>
         </Empty>
       </Panel>
     );

@@ -43,218 +43,259 @@ import {
   Window20Regular,
   Wrench20Regular,
 } from "@/components/icons";
+import type { TranslationKey } from "@/i18n";
 
 export interface NavigationSection {
   id: string;
-  label: string;
+  labelKey: TranslationKey;
   icon: ReactElement;
   route: string;
 }
 
 export interface AdministrationTile {
   id: string;
-  label: string;
+  labelKey: TranslationKey;
   icon: ReactElement;
   route: string;
 }
 
 export const NAVIGATION_SECTIONS: NavigationSection[] = [
-  { id: "ai", label: "AI", icon: <Sparkle20Filled style={{ color: "#4F8CFF" }} />, route: "/ai" },
+  {
+    id: "ai",
+    labelKey: "nav.sections.ai",
+    icon: <Sparkle20Filled style={{ color: "#4F8CFF" }} />,
+    route: "/ai",
+  },
   {
     id: "administration",
-    label: "Administration",
+    labelKey: "nav.sections.administration",
     icon: <Wrench20Regular />,
     route: "/administration",
   },
-  { id: "low-code", label: "Low Code", icon: <Code20Regular />, route: "/low-code" },
+  { id: "low-code", labelKey: "nav.sections.lowCode", icon: <Code20Regular />, route: "/low-code" },
   {
     id: "business-data",
-    label: "Business Data",
+    labelKey: "nav.sections.businessData",
     icon: <Database20Regular />,
     route: "/business-data",
   },
   {
     id: "manufacturing",
-    label: "Manufacturing",
+    labelKey: "nav.sections.manufacturing",
     icon: <Settings20Regular />,
     route: "/manufacturing",
   },
-  { id: "maintenance", label: "Maintenance", icon: <Toolbox20Regular />, route: "/maintenance" },
-  { id: "quality", label: "Quality", icon: <ShieldCheckmark20Regular />, route: "/quality" },
+  {
+    id: "maintenance",
+    labelKey: "nav.sections.maintenance",
+    icon: <Toolbox20Regular />,
+    route: "/maintenance",
+  },
+  {
+    id: "quality",
+    labelKey: "nav.sections.quality",
+    icon: <ShieldCheckmark20Regular />,
+    route: "/quality",
+  },
   {
     id: "planning-and-logistics",
-    label: "Planning and Logistics",
+    labelKey: "nav.sections.planningAndLogistics",
     icon: <Flow20Regular />,
     route: "/planning-and-logistics",
   },
   {
     id: "business-intelligence",
-    label: "Business Intelligence",
+    labelKey: "nav.sections.businessIntelligence",
     icon: <DataBarVertical20Regular />,
     route: "/business-intelligence",
   },
-  { id: "automation", label: "Automation", icon: <Target20Regular />, route: "/automation" },
+  {
+    id: "automation",
+    labelKey: "nav.sections.automation",
+    icon: <Target20Regular />,
+    route: "/automation",
+  },
   {
     id: "data-platform",
-    label: "Data Platform",
+    labelKey: "nav.sections.dataPlatform",
     icon: <Server20Regular />,
     route: "/data-platform",
   },
-  { id: "apps", label: "Apps", icon: <Window20Regular />, route: "/apps" },
+  { id: "apps", labelKey: "nav.sections.apps", icon: <Window20Regular />, route: "/apps" },
 ];
 
 export const ADMINISTRATION_TILES: AdministrationTile[] = [
-  { id: "ai-agent", label: "AI Agent", icon: <Bot24Regular />, route: "/administration/ai-agent" },
+  {
+    id: "ai-agent",
+    labelKey: "nav.tiles.aiAgent",
+    icon: <Bot24Regular />,
+    route: "/administration/ai-agent",
+  },
   {
     id: "ai-mcp-server",
-    label: "AI MCP Server",
+    labelKey: "nav.tiles.aiMcpServer",
     icon: <PlugConnected24Regular />,
     route: "/administration/ai-mcp-server",
   },
-  { id: "apps", label: "Apps", icon: <Window24Regular />, route: "/administration/apps" },
+  {
+    id: "apps",
+    labelKey: "nav.tiles.apps",
+    icon: <Window24Regular />,
+    route: "/administration/apps",
+  },
   {
     id: "augmented-reality",
-    label: "Augmented Reality",
+    labelKey: "nav.tiles.augmentedReality",
     icon: <Cube24Regular />,
     route: "/administration/augmented-reality",
   },
   {
     id: "change-package",
-    label: "Change Package",
+    labelKey: "nav.tiles.changePackage",
     icon: <Box24Regular />,
     route: "/administration/change-package",
   },
   {
     id: "configuration",
-    label: "Configuration",
+    labelKey: "nav.tiles.configuration",
     icon: <Wrench24Regular />,
     route: "/administration/configuration",
   },
   {
     id: "data-orchestrator",
-    label: "Data Orchestrator",
+    labelKey: "nav.tiles.dataOrchestrator",
     icon: <Flow24Regular />,
     route: "/administration/data-orchestrator",
   },
   {
     id: "dee-actions",
-    label: "DEE Actions",
+    labelKey: "nav.tiles.deeActions",
     icon: <Braces24Regular />,
     route: "/administration/dee-actions",
   },
   {
     id: "entity-types",
-    label: "Entity Types",
+    labelKey: "nav.tiles.entityTypes",
     icon: <DocumentBulletList24Regular />,
     route: "/administration/entity-types",
   },
   {
     id: "event-rules",
-    label: "Event Rules",
+    labelKey: "nav.tiles.eventRules",
     icon: <Flash24Regular />,
     route: "/administration/event-rules",
   },
   {
     id: "fablives",
-    label: "FabLives",
+    labelKey: "nav.tiles.fabLives",
     icon: <Target24Regular />,
     route: "/administration/fablives",
   },
   {
     id: "global-shortcuts",
-    label: "Global Shortcuts",
+    labelKey: "nav.tiles.globalShortcuts",
     icon: <Keyboard24Regular />,
     route: "/administration/global-shortcuts",
   },
   {
     id: "licenses",
-    label: "Licenses",
+    labelKey: "nav.tiles.licenses",
     icon: <Certificate24Regular />,
     route: "/administration/licenses",
   },
   {
     id: "localized-messages",
-    label: "Localized Messages",
+    labelKey: "nav.tiles.localizedMessages",
     icon: <LocalLanguage24Regular />,
     route: "/administration/localized-messages",
   },
   {
     id: "master-data-export",
-    label: "Master Data Export",
+    labelKey: "nav.tiles.masterDataExport",
     icon: <ArrowDownload24Regular />,
     route: "/administration/master-data-export",
   },
   {
     id: "master-data-package",
-    label: "Master Data Package",
+    labelKey: "nav.tiles.masterDataPackage",
     icon: <Box24Regular />,
     route: "/administration/master-data-package",
   },
   {
     id: "message-bus",
-    label: "Message Bus",
+    labelKey: "nav.tiles.messageBus",
     icon: <Organization24Regular />,
     route: "/administration/message-bus",
   },
   {
     id: "multimedia",
-    label: "Multimedia",
+    labelKey: "nav.tiles.multimedia",
     icon: <Image24Regular />,
     route: "/administration/multimedia",
   },
   {
     id: "name-generators",
-    label: "Name Generators",
+    labelKey: "nav.tiles.nameGenerators",
     icon: <NumberSymbol24Regular />,
     route: "/administration/name-generators",
   },
   {
     id: "printing-integration",
-    label: "Printing Integration",
+    labelKey: "nav.tiles.printingIntegration",
     icon: <Print24Regular />,
     route: "/administration/printing-integration",
   },
   {
     id: "queries",
-    label: "Queries",
+    labelKey: "nav.tiles.queries",
     icon: <DocumentSearch24Regular />,
     route: "/administration/queries",
   },
-  { id: "rules", label: "Rules", icon: <Diamond24Filled />, route: "/administration/rules" },
+  {
+    id: "rules",
+    labelKey: "nav.tiles.rules",
+    icon: <Diamond24Filled />,
+    route: "/administration/rules",
+  },
   {
     id: "security",
-    label: "Security",
+    labelKey: "nav.tiles.security",
     icon: <LockClosed24Filled />,
     route: "/administration/security",
   },
   {
     id: "state-models",
-    label: "State Models",
+    labelKey: "nav.tiles.stateModels",
     icon: <ArrowSync24Regular />,
     route: "/administration/state-models",
   },
   {
     id: "system-integrations",
-    label: "System Integrations",
+    labelKey: "nav.tiles.systemIntegrations",
     icon: <Globe24Regular />,
     route: "/administration/system-integrations",
   },
   {
     id: "system-monitoring",
-    label: "System Monitoring",
+    labelKey: "nav.tiles.systemMonitoring",
     icon: <HeartPulse24Regular />,
     route: "/administration/system-monitoring",
   },
   {
     id: "tables",
-    label: "Tables",
+    labelKey: "nav.tiles.tables",
     icon: <Table24Regular />,
     route: "/administration/tables",
   },
-  { id: "timers", label: "Timers", icon: <Timer24Regular />, route: "/administration/timers" },
+  {
+    id: "timers",
+    labelKey: "nav.tiles.timers",
+    icon: <Timer24Regular />,
+    route: "/administration/timers",
+  },
   {
     id: "uipages",
-    label: "UIPages",
+    labelKey: "nav.tiles.uipages",
     icon: <TableSimple24Regular />,
     route: "/administration/uipages",
   },
@@ -281,14 +322,16 @@ export function sectionForRoute(route: string) {
 }
 
 export interface BreadcrumbItem {
-  label: string;
+  labelKey: TranslationKey | null;
+  label: string | null;
   route: string;
 }
 
 export interface RouteTabInfo {
   id: string;
   route: string;
-  title: string;
+  titleKey: TranslationKey | null;
+  title: string | null;
   parentRoute: string | null;
 }
 
@@ -300,11 +343,11 @@ function normalizeRoute(route: string) {
 export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
   const path = normalizeRoute(route);
   if (path === "/" || path === "/administration") {
-    return [{ label: "Administration", route: "/administration" }];
+    return [{ labelKey: "nav.sections.administration", label: null, route: "/administration" }];
   }
-  if (path === "/ai") return [{ label: "AI", route: "/ai" }];
+  if (path === "/ai") return [{ labelKey: "nav.sections.ai", label: null, route: "/ai" }];
   const section = NAVIGATION_SECTIONS.find((candidate) => candidate.route === path);
-  if (section) return [{ label: section.label, route: section.route }];
+  if (section) return [{ labelKey: section.labelKey, label: null, route: section.route }];
   if (path.startsWith("/administration/")) {
     const rest = path.slice("/administration/".length);
     const segments = rest.split("/");
@@ -312,8 +355,8 @@ export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
     if (!tile) return [];
     if (segments.length === 1) {
       return [
-        { label: "Administration", route: "/administration" },
-        { label: tile.label, route: tile.route },
+        { labelKey: "nav.sections.administration", label: null, route: "/administration" },
+        { labelKey: tile.labelKey, label: null, route: tile.route },
       ];
     }
     if (
@@ -322,9 +365,9 @@ export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
       segments[1].length > 0
     ) {
       return [
-        { label: "Administration", route: "/administration" },
-        { label: tile.label, route: tile.route },
-        { label: decodeURIComponent(segments[1]), route: path },
+        { labelKey: "nav.sections.administration", label: null, route: "/administration" },
+        { labelKey: tile.labelKey, label: null, route: tile.route },
+        { labelKey: null, label: decodeURIComponent(segments[1]), route: path },
       ];
     }
   }
@@ -338,7 +381,7 @@ export function tabForRoute(route: string): RouteTabInfo | null {
   const leaf = crumbs[crumbs.length - 1];
   const parentRoute = crumbs.length > 1 ? crumbs[crumbs.length - 2].route : null;
   const id = path === "/administration" || path === "/" ? "administration" : path.slice(1);
-  return { id, route: leaf.route, title: leaf.label, parentRoute };
+  return { id, route: leaf.route, titleKey: leaf.labelKey, title: leaf.label, parentRoute };
 }
 
 export function parentRouteForRoute(route: string) {

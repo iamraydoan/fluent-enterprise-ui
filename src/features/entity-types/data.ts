@@ -156,12 +156,49 @@ function buildEntityTypes(): EntityType[] {
 export const ENTITY_TYPES: EntityType[] = buildEntityTypes();
 
 const ENTITY_TYPE_COLUMNS: EntityColumn[] = [
-  { key: "name", label: "ENTITY TYPE", width: "22%", locked: true },
-  { key: "description", label: "DESCRIPTION", width: "22%" },
-  { key: "system", label: "SYSTEM", width: "14%", isCentered: true, isBoolean: true },
-  { key: "relation", label: "RELATION", width: "14%", isCentered: true, isBoolean: true },
-  { key: "versioned", label: "VERSIONED", width: "14%", isCentered: true, isBoolean: true },
-  { key: "state", label: "STATE", width: "14%" },
+  {
+    key: "name",
+    labelKey: "entityTypes.columns.name",
+    chooserLabelKey: "entityTypes.columnNames.name",
+    width: "22%",
+    locked: true,
+  },
+  {
+    key: "description",
+    labelKey: "entityTypes.columns.description",
+    chooserLabelKey: "entityTypes.columnNames.description",
+    width: "22%",
+  },
+  {
+    key: "system",
+    labelKey: "entityTypes.columns.system",
+    chooserLabelKey: "entityTypes.columnNames.system",
+    width: "14%",
+    isCentered: true,
+    isBoolean: true,
+  },
+  {
+    key: "relation",
+    labelKey: "entityTypes.columns.relation",
+    chooserLabelKey: "entityTypes.columnNames.relation",
+    width: "14%",
+    isCentered: true,
+    isBoolean: true,
+  },
+  {
+    key: "versioned",
+    labelKey: "entityTypes.columns.versioned",
+    chooserLabelKey: "entityTypes.columnNames.versioned",
+    width: "14%",
+    isCentered: true,
+    isBoolean: true,
+  },
+  {
+    key: "state",
+    labelKey: "entityTypes.columns.state",
+    chooserLabelKey: "entityTypes.columnNames.state",
+    width: "14%",
+  },
 ];
 export const DEFAULT_VISIBLE_COLUMNS: VisibleColumn[] = ENTITY_TYPE_COLUMNS.map((column) => ({
   key: column.key,

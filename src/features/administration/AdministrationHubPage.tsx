@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Search20Regular } from "@/components/icons";
 import { Input, makeStyles, tokens } from "@/components/ui";
 import { ADMINISTRATION_TILES } from "@/data/navigation";
+import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { useTabsStore } from "@/stores/tabs-store";
 
@@ -51,18 +52,21 @@ export function AdministrationHubPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
-  const tiles = ADMINISTRATION_TILES.filter((tile) => containsIgnoreCase(tile.label, searchQuery));
+  const { t } = useAppTranslation();
+  const tiles = ADMINISTRATION_TILES.filter((tile) =>
+    containsIgnoreCase(t(tile.labelKey), searchQuery),
+  );
   return (
-    <section className={hubStyles.page} aria-label="Administration">
+    <section className={hubStyles.page} aria-label={t("nav.sections.administration")}>
       <div className={hubStyles.top}>
         <Input
           appearance="outline"
           style={{ width: 210, fontStyle: "italic" }}
           contentBefore={<Search20Regular />}
-          placeholder="Search"
+          placeholder={t("common.search")}
           value={searchQuery}
           onChange={(_, d) => setSearchQuery(d.value)}
-          aria-label="Search"
+          aria-label={t("common.search")}
         />
       </div>
       <div className={hubStyles.grid}>
@@ -76,12 +80,14 @@ export function AdministrationHubPage() {
             }}
           >
             <span className={hubStyles.tileIcon}>{tile.icon}</span>
-            <span>{tile.label}</span>
+            <span>{t(tile.labelKey)}</span>
           </button>
         ))}
       </div>
       {tiles.length === 0 && (
-        <div style={{ padding: 40, textAlign: "center", color: "#777" }}>No results</div>
+        <div style={{ padding: 40, textAlign: "center", color: "#777" }}>
+          {t("common.noResults")}
+        </div>
       )}
     </section>
   );

@@ -1,6 +1,8 @@
+import type { TranslationKey } from "@/i18n";
+
 export interface McpServerRow {
   name: string;
-  description: string;
+  descriptionKey: TranslationKey;
   url: string;
   state: string;
 }
@@ -8,31 +10,31 @@ export interface McpServerRow {
 export const MCP_SERVER_ROWS: McpServerRow[] = [
   {
     name: "Cubes",
-    description: "Cube.js data cubes",
+    descriptionKey: "mcpServer.descriptions.cubes",
     url: "http://mcp-cubejs:8080/mcp",
     state: "Active",
   },
   {
     name: "CM MES",
-    description: "MES entities, documents and attachments",
+    descriptionKey: "mcpServer.descriptions.cmMes",
     url: "http://mcp-cm-mes:8080/mcp",
     state: "Active",
   },
   {
     name: "CM Portal Documentation",
-    description: "Product documentation search",
+    descriptionKey: "mcpServer.descriptions.portalDocs",
     url: "http://mcp-cm-portal-documentation:8080/mcp",
     state: "Active",
   },
   {
     name: "CM Data ClickHouse",
-    description: "ClickHouse SQL data access",
+    descriptionKey: "mcpServer.descriptions.clickhouse",
     url: "http://mcp-cm-data-clickhouse:8080/mcp",
     state: "Active",
   },
   {
     name: "CM Data Grafana",
-    description: "Grafana dashboards and datasources",
+    descriptionKey: "mcpServer.descriptions.grafana",
     url: "http://mcp-cm-data-grafana:8080/mcp",
     state: "Draft",
   },
@@ -242,4 +244,8 @@ export function mcpDetail(name: string): McpServerDetail {
   );
 }
 
-export const MCP_SERVER_SECTIONS = ["Details", "Tools", "Attachments"];
+export const MCP_SERVER_SECTIONS: TranslationKey[] = [
+  "mcpServer.sections.details",
+  "mcpServer.sections.tools",
+  "mcpServer.sections.attachments",
+];

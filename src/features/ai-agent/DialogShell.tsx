@@ -7,6 +7,7 @@ import {
   QuestionCircle20Regular,
 } from "@/components/icons";
 import { Button, makeStyles, Text, tokens } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 
 const useDialogShellStyles = makeStyles({
   overlay: {
@@ -106,6 +107,7 @@ export function DialogShell({
   children,
 }: DialogShellProps) {
   const dialogShellStyles = useDialogShellStyles();
+  const { t } = useAppTranslation();
   const [commentsOpen, setCommentsOpen] = useState(false);
   return (
     <div
@@ -124,7 +126,7 @@ export function DialogShell({
             appearance="subtle"
             shape="circular"
             icon={<QuestionCircle20Regular />}
-            aria-label="Help"
+            aria-label={t("dialogs.help")}
           />
         </div>
         {sub}
@@ -136,13 +138,13 @@ export function DialogShell({
               onClick={() => setCommentsOpen((open) => !open)}
               aria-expanded={commentsOpen}
             >
-              Comments:
+              {t("dialogs.commentsLabel")}
               {commentsOpen ? <ChevronDown20Regular /> : <ChevronUp20Regular />}
             </button>
             {commentsOpen && (
               <div style={{ padding: "0 40px 12px" }}>
                 <textarea
-                  aria-label="Comments"
+                  aria-label={t("dialogs.comments")}
                   rows={3}
                   style={{
                     width: "100%",
@@ -177,7 +179,7 @@ export function DialogAgentSub({
           <Bot20Regular />
           {agentName}
         </span>
-        {agentDescription && <span style={{ color: "#333" }}>/ {agentDescription}</span>}
+        {agentDescription && <span style={{ color: "#333" }}>{` / ${agentDescription}`}</span>}
       </span>
       <ChevronDown20Regular style={{ color: "#1a6fc4" }} />
     </div>

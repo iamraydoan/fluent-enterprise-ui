@@ -1,0 +1,432 @@
+{
+  "actionBar": {
+    "askAi": "AIに質問",
+    "create": "作成",
+    "downloadLbos": "LBOをダウンロード",
+    "edit": "編集",
+    "export": "エクスポート",
+    "groups": {
+      "actions": "アクション",
+      "general": "全般",
+      "mesCopilot": "MES Copilot"
+    },
+    "more": "その他",
+    "refresh": "更新"
+  },
+  "administration": {
+    "pageLabel": "管理"
+  },
+  "aiAgent": {
+    "cards": {
+      "agent": "AIエージェント",
+      "information": "情報"
+    },
+    "columns": {
+      "agent": "エージェント",
+      "description": "説明",
+      "mcpServers": "MCPサーバー",
+      "state": "状態"
+    },
+    "createdBy": "Nguyen Minh Anh が 12/10/2026 に作成",
+    "deferred": "延期",
+    "descriptions": {
+      "analyticsView": "Analyticsビューの分析ダッシュボードを構築・改善します",
+      "cmMes": "MESドキュメントやエンティティのリビジョンに関する質問に回答します",
+      "docSummarizer": "添付ファイルやドキュメントを要約します",
+      "maintenance": "メンテナンススケジュールを提案します",
+      "quality": "不適合レポートのレビューを支援します"
+    },
+    "detailDescription": "製品、リソース、ドキュメントに関する質問の出発点となる、汎用MESアシスタントとして動作します。",
+    "fields": {
+      "dataGroup": "データグループ",
+      "description": "説明",
+      "model": "モデル",
+      "name": "名前",
+      "provider": "プロバイダー",
+      "publishToRuntime": "ランタイムに公開",
+      "runtime": "ランタイム",
+      "synchronizationStatus": "同期ステータス",
+      "universalState": "ユニバーサル状態"
+    },
+    "historyColumns": {
+      "action": "アクション",
+      "date": "日付",
+      "details": "詳細",
+      "user": "ユーザー"
+    },
+    "historyTitle": "履歴 ({{count}})",
+    "listTitle": "AIエージェント ({{count}})",
+    "noAttachments": "添付ファイルがありません",
+    "noAttachmentsBody": "このエージェントに追加されたファイルはここに表示されます。",
+    "noReferences": "参照がありません",
+    "noReferencesBody": "このレコードは他のオブジェクトから参照されていません。",
+    "noToolsSelected": "ツールが選択されていません。編集からMCPサーバーツールを追加してください。",
+    "notDeferred": "延期されていません",
+    "pageLabel": "AIエージェント",
+    "sections": {
+      "attachments": "添付ファイル",
+      "details": "詳細",
+      "instructions": "指示",
+      "mcpServers": "MCPサーバー"
+    },
+    "toolsColumns": {
+      "deferred": "延期",
+      "description": "説明",
+      "tool": "ツール"
+    },
+    "toolsGroupCount": "({{count}} ツール)",
+    "toolsTitle": "MCPサーバーツール ({{count}})",
+    "viewDescription": "{{tool}} の説明を表示"
+  },
+  "aiChat": {
+    "agents": {
+      "cm": {
+        "description": "製品、リソース、ドキュメントに関する質問の出発点となる汎用MESアシスタントとして、適切な回答へ案内します。",
+        "title": "MESエージェント"
+      },
+      "doc": {
+        "description": "ドキュメントや添付ファイルを要約し、求める要点を抽出します。",
+        "title": "ドキュメント要約"
+      },
+      "mp": {
+        "description": "メンテナンススケジュールを提案し、リソースの設備履歴を検索します。",
+        "title": "メンテナンスプランナー"
+      },
+      "qa": {
+        "description": "不適合レポートや検査結果のレビューを支援し、重要なレコードを示します。",
+        "title": "品質アシスタント"
+      }
+    },
+    "attachFile": "ファイルを添付",
+    "chatHistory": "チャット履歴",
+    "chats": "チャット",
+    "demoReply": "「{{text}}」について見つかった内容は次のとおりです。これは{{agent}}からのデモ応答です。実際の回答を得るには、このページをエージェントAPIに接続してください。",
+    "dictate": "音声入力",
+    "examples": {
+      "first": "最新の添付ファイルを要約",
+      "second": "2つのドキュメントのリビジョンを比較",
+      "third": "名前でエンティティを検索"
+    },
+    "messageAgent": "{{agent}} にメッセージを送信",
+    "newChat": "新規チャット",
+    "seeds": {
+      "first": {
+        "botText": "最新のレシピリビジョンを参照するドキュメントを3件見つけました。最新のものは28/10/2026に更新されました。",
+        "title": "最新のレシピを参照するドキュメントはどれですか？",
+        "userText": "最新のレシピを参照するドキュメントはどれですか？"
+      },
+      "second": {
+        "botText": "リビジョン3ではステップ5にトルクチェックが追加され、オプションの清掃ステップが削除されています。",
+        "title": "作業指示書のリビジョン2と3を比較",
+        "userText": "作業指示書のリビジョン2と3を比較"
+      }
+    },
+    "send": "送信",
+    "thinking": "{{agent}} が考えています…",
+    "toggleHistory": "履歴の切り替え"
+  },
+  "apps": {
+    "columns": {
+      "app": "アプリ",
+      "description": "説明",
+      "state": "状態",
+      "type": "種類"
+    },
+    "descriptions": {
+      "maintenance": "設備メンテナンスアプリ",
+      "quality": "検査とNCR対応",
+      "shopFloor": "作業指示用のオペレーターコンソール",
+      "traceability": "系譜とロット追跡"
+    },
+    "listTitle": "アプリ ({{count}})",
+    "pageLabel": "アプリ",
+    "types": {
+      "system": "システム",
+      "userDefined": "ユーザー定義"
+    }
+  },
+  "common": {
+    "active": "アクティブ",
+    "activeState": "(アクティブ)",
+    "all": "すべて",
+    "cancel": "キャンセル",
+    "chooseColumns": "列の選択",
+    "close": "閉じる",
+    "collapsePanel": "パネルを折りたたむ",
+    "columns": "列",
+    "detailsView": "詳細ビュー",
+    "draft": "下書き",
+    "information": "情報",
+    "moreOptions": "その他のオプション",
+    "moveDown": "下に移動",
+    "moveUp": "上に移動",
+    "nextPage": "次のページ",
+    "no": "いいえ",
+    "noRecordsFound": "レコードが見つかりません",
+    "noResults": "結果がありません",
+    "pageOf": "ページ {{page}} / {{pages}}",
+    "previousPage": "前のページ",
+    "records": "({{count}} レコード)",
+    "rowsPerPage": "ページあたりの行数:",
+    "save": "保存",
+    "search": "検索",
+    "syncCompleted": "完了",
+    "syncPending": "保留中",
+    "terminated": "終了",
+    "update": "更新",
+    "yes": "はい"
+  },
+  "configuration": {
+    "columns": {
+      "modified": "更新日時",
+      "scope": "スコープ",
+      "setting": "設定",
+      "value": "値"
+    },
+    "listTitle": "構成 ({{count}})",
+    "pageLabel": "構成",
+    "scopes": {
+      "global": "グローバル",
+      "security": "セキュリティ"
+    },
+    "settings": {
+      "auditLogging": "監査ログ",
+      "defaultLanguage": "既定の言語",
+      "sessionTimeout": "セッションタイムアウト",
+      "timeZone": "タイムゾーン"
+    },
+    "values": {
+      "enabled": "有効",
+      "english": "英語",
+      "minutes": "{{count}} 分"
+    }
+  },
+  "detailShell": {
+    "tabs": {
+      "details": "詳細",
+      "history": "履歴",
+      "references": "参照"
+    }
+  },
+  "dialogs": {
+    "comments": "コメント",
+    "commentsLabel": "コメント:",
+    "editInstructions": {
+      "alignLeft": "左揃え",
+      "alignRight": "右揃え",
+      "bold": "太字",
+      "bulletedList": "箇条書き",
+      "center": "中央揃え",
+      "file": "ファイル",
+      "font": "フォント",
+      "format": "書式",
+      "formatting": "書式設定",
+      "heading2": "見出し2",
+      "heading3": "見出し3",
+      "highlight": "ハイライト",
+      "image": "画像",
+      "indent": "インデント",
+      "inherited": "(継承)",
+      "instructions": "指示",
+      "instructionsLabel": "指示:",
+      "italic": "斜体",
+      "justify": "両端揃え",
+      "link": "リンク",
+      "numberedList": "番号付きリスト",
+      "outdent": "インデント解除",
+      "paragraph": "段落",
+      "removeLink": "リンクの削除",
+      "size": "サイズ",
+      "strikethrough": "取り消し線",
+      "table": "表",
+      "textColor": "文字色",
+      "title": "AIエージェントの指示を編集",
+      "underline": "下線",
+      "colorNames": {
+        "black": "黒",
+        "blue": "青",
+        "red": "赤",
+        "green": "緑",
+        "orange": "オレンジ"
+      },
+      "requiredMark": "* "
+    },
+    "help": "ヘルプ",
+    "manageMcp": {
+      "clearSelected": "選択したツールをクリア",
+      "mcpServers": "MCPサーバー",
+      "noTools": "ツールが選択されていません",
+      "searchTools": "ツールを検索",
+      "selectAllTools": "すべてのツールを選択",
+      "selectTools": "MCPサーバーツールを選択",
+      "selectedTools": "選択中のツール ({{count}})",
+      "serverCount": "{{selected}}/{{total}}",
+      "title": "MCPサーバーの管理",
+      "tools": "ツール",
+      "viewTool": "{{tool}} を表示"
+    },
+    "toolDescription": {
+      "title": "ツールの説明を表示"
+    }
+  },
+  "entityTypes": {
+    "clearSorting": "並べ替えをクリア",
+    "columnNames": {
+      "description": "説明",
+      "name": "エンティティタイプ",
+      "relation": "リレーション",
+      "state": "状態",
+      "system": "システム",
+      "versioned": "バージョン管理"
+    },
+    "columns": {
+      "description": "説明",
+      "name": "エンティティタイプ",
+      "relation": "リレーション",
+      "state": "状態",
+      "system": "システム",
+      "versioned": "バージョン管理"
+    },
+    "pageLabel": "エンティティタイプ",
+    "resetAll": "すべてリセット",
+    "resetColumns": "列をリセット",
+    "stateFilterLabel": "状態:",
+    "stateOptions": {
+      "all": "すべて",
+      "active": "アクティブ",
+      "terminated": "終了"
+    },
+    "title": "エンティティタイプ ({{count}})"
+  },
+  "mainLayout": {
+    "noOpenTabs": "開いているタブがありません",
+    "openAdministration": "管理を開く"
+  },
+  "mcpServer": {
+    "cards": {
+      "authentication": "認証",
+      "information": "情報",
+      "server": "AI MCPサーバー"
+    },
+    "columns": {
+      "description": "説明",
+      "name": "名前",
+      "state": "状態",
+      "url": "URL"
+    },
+    "descriptions": {
+      "clickhouse": "ClickHouse SQLデータアクセス",
+      "cmMes": "MESエンティティ、ドキュメント、添付ファイル",
+      "cubes": "Cube.jsデータキューブ",
+      "grafana": "Grafanaダッシュボードとデータソース",
+      "portalDocs": "製品ドキュメント検索"
+    },
+    "fields": {
+      "authMode": "認証モード",
+      "authUrl": "認可URL",
+      "clientId": "クライアントID",
+      "dataGroup": "データグループ",
+      "description": "説明",
+      "initTimeout": "初期化タイムアウト",
+      "instructions": "指示",
+      "isSystem": "システム",
+      "name": "名前",
+      "protocolVersion": "プロトコルバージョン",
+      "reqTimeout": "リクエストタイムアウト",
+      "scope": "スコープ",
+      "syncStatus": "同期ステータス",
+      "tokenUrl": "トークンURL",
+      "universalState": "ユニバーサル状態",
+      "url": "URL"
+    },
+    "lastSync": "最終ツール同期:",
+    "listTitle": "AI MCPサーバー ({{count}})",
+    "noAttachments": "添付ファイルがありません",
+    "noAttachmentsBody": "このサーバーに追加されたファイルはここに表示されます。",
+    "noReferences": "参照がありません",
+    "noReferencesBody": "このサーバーは他のオブジェクトから参照されていません。",
+    "pageLabel": "AI MCPサーバー",
+    "sections": {
+      "attachments": "添付ファイル",
+      "details": "詳細",
+      "tools": "ツール"
+    },
+    "synchronize": "同期",
+    "toolsColumns": {
+      "description": "説明",
+      "name": "名前"
+    },
+    "toolsTitle": "ツール ({{count}})"
+  },
+  "nav": {
+    "collapseMenu": "メニューを折りたたむ",
+    "expandMenu": "メニューを展開",
+    "globalNavigation": "グローバルナビゲーション",
+    "sections": {
+      "administration": "管理",
+      "ai": "AI",
+      "apps": "アプリ",
+      "automation": "自動化",
+      "businessData": "ビジネスデータ",
+      "businessIntelligence": "ビジネスインテリジェンス",
+      "dataPlatform": "データプラットフォーム",
+      "lowCode": "ローコード",
+      "maintenance": "メンテナンス",
+      "manufacturing": "製造",
+      "planningAndLogistics": "計画と物流",
+      "quality": "品質"
+    },
+    "tiles": {
+      "aiAgent": "AIエージェント",
+      "aiMcpServer": "AI MCPサーバー",
+      "apps": "アプリ",
+      "augmentedReality": "拡張現実",
+      "changePackage": "変更パッケージ",
+      "configuration": "構成",
+      "dataOrchestrator": "データオーケストレーター",
+      "deeActions": "DEEアクション",
+      "entityTypes": "エンティティタイプ",
+      "eventRules": "イベントルール",
+      "fabLives": "FabLives",
+      "globalShortcuts": "グローバルショートカット",
+      "licenses": "ライセンス",
+      "localizedMessages": "ローカライズメッセージ",
+      "masterDataExport": "マスターデータエクスポート",
+      "masterDataPackage": "マスターデータパッケージ",
+      "messageBus": "メッセージバス",
+      "multimedia": "マルチメディア",
+      "nameGenerators": "名前ジェネレーター",
+      "printingIntegration": "印刷連携",
+      "queries": "クエリ",
+      "rules": "ルール",
+      "security": "セキュリティ",
+      "stateModels": "状態モデル",
+      "systemIntegrations": "システム連携",
+      "systemMonitoring": "システム監視",
+      "tables": "テーブル",
+      "timers": "タイマー",
+      "uipages": "UIPages"
+    }
+  },
+  "pageHeader": {
+    "collapseActionBar": "アクションバーを折りたたむ",
+    "expandActionBar": "アクションバーを展開"
+  },
+  "placeholder": {
+    "defaultBody": "このページはデモのプレースホルダーです。",
+    "notFoundBody": "このページは存在しません。",
+    "notFoundTitle": "ページが見つかりません"
+  },
+  "tabs": {
+    "back": "戻る",
+    "closeTab": "{{title}} を閉じる",
+    "language": "言語",
+    "messages": "メッセージ",
+    "more": "その他",
+    "newTab": "新しいタブ",
+    "scan": "スキャン",
+    "search": "検索",
+    "unreadMessages": "未読 {{count}} 件",
+    "warning": "警告"
+  }
+}

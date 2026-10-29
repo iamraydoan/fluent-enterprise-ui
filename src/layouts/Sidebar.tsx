@@ -1,6 +1,7 @@
 import { Navigation24Regular } from "@/components/icons";
 import { makeStyles, mergeClasses, Tooltip } from "@/components/ui";
 import type { NavigationSection } from "@/data/navigation";
+import { useAppTranslation } from "@/i18n";
 
 const useStyles = makeStyles({
   sidebar: {
@@ -58,11 +59,12 @@ export function Sidebar({
   onNavigate,
 }: SidebarProps) {
   const sidebarStyles = useStyles();
+  const { t } = useAppTranslation();
   return (
-    <nav className={sidebarStyles.sidebar} aria-label="Global navigation">
+    <nav className={sidebarStyles.sidebar} aria-label={t("nav.globalNavigation")}>
       <button
         className={sidebarStyles.sidebarButton}
-        aria-label={expanded ? "Collapse menu" : "Expand menu"}
+        aria-label={expanded ? t("nav.collapseMenu") : t("nav.expandMenu")}
         aria-expanded={expanded}
         onClick={onToggleExpanded}
       >
@@ -71,7 +73,7 @@ export function Sidebar({
       {items.map((item) => (
         <Tooltip
           key={item.id}
-          content={item.label}
+          content={t(item.labelKey)}
           relationship="label"
           positioning="after"
           visible={expanded ? false : undefined}
@@ -82,11 +84,11 @@ export function Sidebar({
               currentNav === item.id && sidebarStyles.sidebarActive,
             )}
             aria-current={currentNav === item.id ? "page" : undefined}
-            aria-label={item.label}
+            aria-label={t(item.labelKey)}
             onClick={() => onNavigate(item.id)}
           >
             {item.icon}
-            {expanded && <span>{item.label}</span>}
+            {expanded && <span>{t(item.labelKey)}</span>}
           </button>
         </Tooltip>
       ))}

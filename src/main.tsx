@@ -1,7 +1,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { createRoot } from "react-dom/client";
+import { initI18n } from "@/i18n";
 import { routeTree } from "@/routeTree.gen";
+
+initI18n();
 
 const queryClient = new QueryClient({
   defaultOptions: {

@@ -34,6 +34,7 @@ import {
   tokens,
   Tooltip,
 } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import { useTabsStore } from "@/stores/tabs-store";
 import { EditInstructionsDialog } from "./EditInstructionsDialog";
 import { ManageMcpDialog } from "./ManageMcpDialog";
@@ -95,9 +96,9 @@ const useDetailStyles = makeStyles({
 });
 
 const TOP_TABS: DetailTab[] = [
-  { value: "details", label: "Details" },
-  { value: "references", label: "References" },
-  { value: "history", label: "History" },
+  { value: "details", labelKey: "detailShell.tabs.details" },
+  { value: "references", labelKey: "detailShell.tabs.references" },
+  { value: "history", labelKey: "detailShell.tabs.history" },
 ];
 
 interface AiAgentDetailPageProps {
@@ -111,6 +112,7 @@ function ToolsGrid({
   selection: ToolSelection;
   onView: (server: string, tool: string) => void;
 }) {
+  const { t } = useAppTranslation();
   const detailStyles = useDetailStyles();
   const [closed, setClosed] = useState(new Set<string>());
   const groups = Object.entries(selection);
@@ -124,32 +126,36 @@ function ToolsGrid({
   return (
     <>
       <div className={detailStyles.titleRow}>
-        <Text size={400}>MCP Server Tools ({countSelectedTools(selection)})</Text>
+        <Text size={400}>{t("aiAgent.toolsTitle", { count: countSelectedTools(selection) })}</Text>
         <div>
           <Button
             appearance="subtle"
             icon={<ColumnTriple20Regular />}
-            aria-label="Choose columns"
+            aria-label={t("common.chooseColumns")}
           />
-          <Button appearance="subtle" icon={<MoreVertical20Regular />} aria-label="More options" />
+          <Button
+            appearance="subtle"
+            icon={<MoreVertical20Regular />}
+            aria-label={t("common.moreOptions")}
+          />
         </div>
       </div>
       <div className={detailStyles.scroll}>
         <Table
-          aria-label="MCP server tools"
+          aria-label={t("aiAgent.toolsTitle", { count: countSelectedTools(selection) })}
           style={{ tableLayout: "fixed", width: "100%", minWidth: 640 }}
         >
           <TableHeader>
             <TableRow>
               <TableHeaderCell className={detailStyles.th} style={{ width: 30 }} />
               <TableHeaderCell className={detailStyles.th} style={{ width: "40%" }}>
-                TOOL
+                {t("aiAgent.toolsColumns.tool")}
               </TableHeaderCell>
               <TableHeaderCell className={detailStyles.th}>
-                <div style={{ textAlign: "center" }}>DESCRIPTION</div>
+                <div style={{ textAlign: "center" }}>{t("aiAgent.toolsColumns.description")}</div>
               </TableHeaderCell>
               <TableHeaderCell className={detailStyles.th}>
-                <div style={{ textAlign: "center" }}>DEFERRED</div>
+                <div style={{ textAlign: "center" }}>{t("aiAgent.toolsColumns.deferred")}</div>
               </TableHeaderCell>
             </TableRow>
           </TableHeader>
@@ -177,7 +183,9 @@ function ToolsGrid({
                       <PlugConnected20Regular />
                       <span>
                         {serverName}{" "}
-                        <span style={{ color: "#444" }}>({Object.keys(tools).length} Tools)</span>
+                        <span style={{ color: "#444" }}>
+                          {t("aiAgent.toolsGroupCount", { count: Object.keys(tools).length })}
+                        </span>
                       </span>
                     </span>
                   </TableCell>
@@ -204,7 +212,7 @@ function ToolsGrid({
                               size="small"
                               appearance="transparent"
                               icon={<Eye20Filled />}
-                              aria-label={`View description of ${tool}`}
+                              aria-label={t("aiAgent.viewDescription", { tool })}
                               onClick={() => onView(serverName, tool)}
                             />
                           </div>
@@ -212,11 +220,11 @@ function ToolsGrid({
                         <TableCell className={detailStyles.td}>
                           <div style={{ display: "flex", justifyContent: "center" }}>
                             {deferred ? (
-                              <Checkmark20Filled aria-label="Deferred" />
+                              <Checkmark20Filled aria-label={t("aiAgent.deferred")} />
                             ) : (
                               <Dismiss20Filled
                                 style={{ color: "#8A8A8A" }}
-                                aria-label="Not deferred"
+                                aria-label={t("aiAgent.notDeferred")}
                               />
                             )}
                           </div>
@@ -230,7 +238,7 @@ function ToolsGrid({
         </Table>
         {groups.length === 0 && (
           <div style={{ padding: 40, textAlign: "center", color: "#777" }}>
-            No tools selected. Use Edit to add MCP server tools.
+            {t("aiAgent.noToolsSelected")}
           </div>
         )}
       </div>
@@ -239,12 +247,13 @@ function ToolsGrid({
 }
 
 export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
+  const { t } = useAppTranslation();
   const detailStyles = useDetailStyles();
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
   const data = agentData(name);
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState("Details");
+  const [left, setLeft] = useState("aiAgent.sections.details");
   const [instructions, setInstructions] = useState(data.instructions);
   const [selection, setSelection] = useState<ToolSelection>(INITIAL_TOOL_SELECTION);
   const [dialog, setDialog] = useState<"instr" | "mcp" | null>(null);
@@ -253,31 +262,42 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
   const editInstructions = () => setDialog("instr");
   const editMcp = () => setDialog("mcp");
   const instructionButtons: MiniBarButton[] = [
-    { icon: <ArrowSync20Regular />, label: "Refresh" },
-    { icon: <Edit20Regular />, label: "Edit", onClick: editInstructions },
+    { icon: <ArrowSync20Regular />, label: t("actionBar.refresh") },
+    { icon: <Edit20Regular />, label: t("actionBar.edit"), onClick: editInstructions },
   ];
   const instructionBarGroups: MiniBarGroup[] = [{ buttons: instructionButtons }];
   const mcpServerButtons: MiniBarButton[] = [
-    { icon: <ArrowSync20Regular />, label: "Refresh" },
-    { icon: <Edit20Regular />, label: "Edit", onClick: editMcp },
+    { icon: <ArrowSync20Regular />, label: t("actionBar.refresh") },
+    { icon: <Edit20Regular />, label: t("actionBar.edit"), onClick: editMcp },
   ];
   const mcpServerBarGroups: MiniBarGroup[] = [
     { buttons: mcpServerButtons },
-    { label: "Actions", buttons: [{ icon: <MoreVertical20Regular />, label: "More" }] },
+    {
+      label: t("actionBar.groups.actions"),
+      buttons: [{ icon: <MoreVertical20Regular />, label: t("actionBar.more") }],
+    },
   ];
-  const onEdit = left === "MCP Servers" ? editMcp : editInstructions;
+  const onEdit = left === "aiAgent.sections.mcpServers" ? editMcp : editInstructions;
   const askAi = () => {
     openRoute("/ai");
     navigate({ to: "/ai" });
   };
+
+  const description = data.descriptionKey ? t(data.descriptionKey) : data.description;
+  const historyHeaders = [
+    t("aiAgent.historyColumns.date"),
+    t("aiAgent.historyColumns.user"),
+    t("aiAgent.historyColumns.action"),
+    t("aiAgent.historyColumns.details"),
+  ];
 
   let content;
   if (top === "references") {
     content = (
       <Panel>
         <Empty>
-          <Body1Strong>No references</Body1Strong>
-          <Caption1>This record is not referenced by other objects.</Caption1>
+          <Body1Strong>{t("aiAgent.noReferences")}</Body1Strong>
+          <Caption1>{t("aiAgent.noReferencesBody")}</Caption1>
         </Empty>
       </Panel>
     );
@@ -285,13 +305,16 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
     content = (
       <Panel>
         <div className={detailStyles.titleRow}>
-          <Text size={400}>History ({AI_AGENT_HISTORY.length})</Text>
+          <Text size={400}>{t("aiAgent.historyTitle", { count: AI_AGENT_HISTORY.length })}</Text>
         </div>
         <div className={detailStyles.scroll}>
-          <Table aria-label="History" style={{ tableLayout: "fixed", width: "100%" }}>
+          <Table
+            aria-label={t("aiAgent.historyTitle", { count: AI_AGENT_HISTORY.length })}
+            style={{ tableLayout: "fixed", width: "100%" }}
+          >
             <TableHeader>
               <TableRow>
-                {["DATE", "USER", "ACTION", "DETAILS"].map((header) => (
+                {historyHeaders.map((header) => (
                   <TableHeaderCell key={header} className={detailStyles.th}>
                     {header}
                   </TableHeaderCell>
@@ -313,10 +336,10 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
         </div>
       </Panel>
     );
-  } else if (left === "Details") {
+  } else if (left === "aiAgent.sections.details") {
     content = (
       <CardGrid>
-        <Card title="AI Agent">
+        <Card title={t("aiAgent.cards.agent")}>
           <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
             <div className={detailStyles.tile}>
               <BotSparkle24Regular />
@@ -324,53 +347,56 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
             <div style={{ flexGrow: 1, minWidth: 0 }}>
               <KV
                 rows={[
-                  ["Name", name],
-                  ["Description", data.description],
-                  ["Universal State", "Active"],
-                  ["Data Group", ""],
+                  [t("aiAgent.fields.name"), name],
+                  [t("aiAgent.fields.description"), description],
+                  [t("aiAgent.fields.universalState"), t("common.active")],
+                  [t("aiAgent.fields.dataGroup"), ""],
                 ]}
               />
             </div>
-            <Tooltip content="Created 12/10/2026 by Nguyen Minh Anh" relationship="description">
+            <Tooltip content={t("aiAgent.createdBy")} relationship="description">
               <Button
                 appearance="transparent"
                 icon={<Info20Regular style={{ color: "#0F6CBD" }} />}
-                aria-label="Information"
+                aria-label={t("common.information")}
               />
             </Tooltip>
           </div>
         </Card>
-        <Card title="Information">
+        <Card title={t("aiAgent.cards.information")}>
           <KV
             rows={[
-              ["Provider", data.provider],
-              ["Model", data.model],
-              ["Runtime", data.runtime],
+              [t("aiAgent.fields.provider"), data.provider],
+              [t("aiAgent.fields.model"), data.model],
+              [t("aiAgent.fields.runtime"), data.runtime],
               [
-                "Publish To Runtime",
+                t("aiAgent.fields.publishToRuntime"),
                 data.publish ? (
                   <span style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
                     <Checkmark16Filled />
-                    Yes
+                    {t("common.yes")}
                   </span>
                 ) : (
-                  "No"
+                  t("common.no")
                 ),
               ],
-              ["Synchronization Status", data.sync],
+              [
+                t("aiAgent.fields.synchronizationStatus"),
+                t(data.sync === "Completed" ? "common.syncCompleted" : "common.syncPending"),
+              ],
             ]}
           />
         </Card>
       </CardGrid>
     );
-  } else if (left === "Instructions") {
+  } else if (left === "aiAgent.sections.instructions") {
     content = (
       <Panel>
         <MiniBar groups={instructionBarGroups} />
         <div className={detailStyles.instr}>{instructions}</div>
       </Panel>
     );
-  } else if (left === "MCP Servers") {
+  } else if (left === "aiAgent.sections.mcpServers") {
     content = (
       <Panel>
         <MiniBar groups={mcpServerBarGroups} />
@@ -382,8 +408,8 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
       <Panel>
         <Empty>
           <Attach20Regular />
-          <Body1Strong>No attachments</Body1Strong>
-          <Caption1>Files added to this agent will appear here.</Caption1>
+          <Body1Strong>{t("aiAgent.noAttachments")}</Body1Strong>
+          <Caption1>{t("aiAgent.noAttachmentsBody")}</Caption1>
         </Empty>
       </Panel>
     );
@@ -420,7 +446,7 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
       {dialog === "mcp" && (
         <ManageMcpDialog
           agentName={name}
-          agentDescription={data.description || undefined}
+          agentDescription={description || undefined}
           selection={selection}
           onClose={() => setDialog(null)}
           onUpdate={(next) => {

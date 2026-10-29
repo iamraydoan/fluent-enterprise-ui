@@ -1,10 +1,12 @@
 import { create } from "zustand";
 import { tabForRoute } from "@/data/navigation";
+import type { TranslationKey } from "@/i18n";
 
 export interface PageTab {
   id: string;
   route: string;
-  title: string;
+  titleKey: TranslationKey | null;
+  title: string | null;
   parentRoute: string | null;
 }
 
@@ -20,7 +22,13 @@ interface TabsState {
 }
 
 function homeTab(id: string): PageTab {
-  return { id, route: "/administration", title: "Administration", parentRoute: null };
+  return {
+    id,
+    route: "/administration",
+    titleKey: "nav.sections.administration",
+    title: null,
+    parentRoute: null,
+  };
 }
 
 function nextHomeId(tabs: PageTab[]): string {

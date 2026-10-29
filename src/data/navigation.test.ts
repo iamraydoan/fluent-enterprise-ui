@@ -18,19 +18,22 @@ describe("route helpers", () => {
     expect(tabForRoute("/administration")).toEqual({
       id: "administration",
       route: "/administration",
-      title: "Administration",
+      titleKey: "nav.sections.administration",
+      title: null,
       parentRoute: null,
     });
     expect(tabForRoute("/")).toEqual({
       id: "administration",
       route: "/administration",
-      title: "Administration",
+      titleKey: "nav.sections.administration",
+      title: null,
       parentRoute: null,
     });
     expect(tabForRoute("/ai")).toEqual({
       id: "ai",
       route: "/ai",
-      title: "AI",
+      titleKey: "nav.sections.ai",
+      title: null,
       parentRoute: null,
     });
   });
@@ -39,31 +42,36 @@ describe("route helpers", () => {
     expect(tabForRoute("/administration/entity-types")).toEqual({
       id: "administration/entity-types",
       route: "/administration/entity-types",
-      title: "Entity Types",
+      titleKey: "nav.tiles.entityTypes",
+      title: null,
       parentRoute: "/administration",
     });
     expect(tabForRoute("/administration/ai-agent")).toEqual({
       id: "administration/ai-agent",
       route: "/administration/ai-agent",
-      title: "AI Agent",
+      titleKey: "nav.tiles.aiAgent",
+      title: null,
       parentRoute: "/administration",
     });
     expect(tabForRoute("/administration/ai-mcp-server")).toEqual({
       id: "administration/ai-mcp-server",
       route: "/administration/ai-mcp-server",
-      title: "AI MCP Server",
+      titleKey: "nav.tiles.aiMcpServer",
+      title: null,
       parentRoute: "/administration",
     });
     expect(tabForRoute("/administration/apps")).toEqual({
       id: "administration/apps",
       route: "/administration/apps",
-      title: "Apps",
+      titleKey: "nav.tiles.apps",
+      title: null,
       parentRoute: "/administration",
     });
     expect(tabForRoute("/administration/configuration")).toEqual({
       id: "administration/configuration",
       route: "/administration/configuration",
-      title: "Configuration",
+      titleKey: "nav.tiles.configuration",
+      title: null,
       parentRoute: "/administration",
     });
   });
@@ -72,12 +80,14 @@ describe("route helpers", () => {
     expect(tabForRoute("/administration/ai-agent/AnalyticsViewAgent")).toEqual({
       id: "administration/ai-agent/AnalyticsViewAgent",
       route: "/administration/ai-agent/AnalyticsViewAgent",
+      titleKey: null,
       title: "AnalyticsViewAgent",
       parentRoute: "/administration/ai-agent",
     });
     expect(tabForRoute("/administration/ai-mcp-server/Cubes")).toEqual({
       id: "administration/ai-mcp-server/Cubes",
       route: "/administration/ai-mcp-server/Cubes",
+      titleKey: null,
       title: "Cubes",
       parentRoute: "/administration/ai-mcp-server",
     });
@@ -87,7 +97,8 @@ describe("route helpers", () => {
     expect(tabForRoute("/low-code")).toEqual({
       id: "low-code",
       route: "/low-code",
-      title: "Low Code",
+      titleKey: "nav.sections.lowCode",
+      title: null,
       parentRoute: null,
     });
   });
@@ -100,14 +111,20 @@ describe("route helpers", () => {
 
   it("builds breadcrumb trails for lists and details", () => {
     expect(breadcrumbsForRoute("/administration/ai-agent/AnalyticsViewAgent")).toEqual([
-      { label: "Administration", route: "/administration" },
-      { label: "AI Agent", route: "/administration/ai-agent" },
-      { label: "AnalyticsViewAgent", route: "/administration/ai-agent/AnalyticsViewAgent" },
+      { labelKey: "nav.sections.administration", label: null, route: "/administration" },
+      { labelKey: "nav.tiles.aiAgent", label: null, route: "/administration/ai-agent" },
+      {
+        labelKey: null,
+        label: "AnalyticsViewAgent",
+        route: "/administration/ai-agent/AnalyticsViewAgent",
+      },
     ]);
     expect(breadcrumbsForRoute("/administration/entity-types")).toEqual([
-      { label: "Administration", route: "/administration" },
-      { label: "Entity Types", route: "/administration/entity-types" },
+      { labelKey: "nav.sections.administration", label: null, route: "/administration" },
+      { labelKey: "nav.tiles.entityTypes", label: null, route: "/administration/entity-types" },
     ]);
-    expect(breadcrumbsForRoute("/ai")).toEqual([{ label: "AI", route: "/ai" }]);
+    expect(breadcrumbsForRoute("/ai")).toEqual([
+      { labelKey: "nav.sections.ai", label: null, route: "/ai" },
+    ]);
   });
 });

@@ -33,6 +33,7 @@ import {
   Text,
   tokens,
 } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
 import { ColumnChooser } from "./components/ColumnChooser";
@@ -41,6 +42,7 @@ import type { EntityColumnKey, SortState, VisibleColumn } from "./types";
 
 export function EntityTypesPage() {
   const sharedStyles = useSharedStyles();
+  const { t } = useAppTranslation();
   const [stateFilter, setStateFilter] = useState<{ state: string[] }>({ state: ["all"] });
   const [searchQuery, setSearchQuery] = useState("");
   const [columns, setColumns] = useState<VisibleColumn[]>(DEFAULT_VISIBLE_COLUMNS);
@@ -74,9 +76,16 @@ export function EntityTypesPage() {
   const currentPage = Math.min(page, pages);
   const slice = rows.slice((currentPage - 1) * pageSize, currentPage * pageSize);
   const visible = columns.filter((c) => c.visible).map((c) => ENTITY_COLUMN_BY_KEY[c.key]);
-  const stateLabel = { all: "ALL", active: "ACTIVE", terminated: "TERMINATED" }[
-    stateFilter.state[0]
-  ];
+  const stateLabels: Record<string, string> = {
+    all: t("entityTypes.stateOptions.all"),
+    active: t("entityTypes.stateOptions.active"),
+    terminated: t("entityTypes.stateOptions.terminated"),
+  };
+  const stateLabel = stateLabels[stateFilter.state[0]] ?? t("entityTypes.stateOptions.all");
+  const columnStateLabels: Record<string, string> = {
+    Active: t("common.active"),
+    Terminated: t("common.terminated"),
+  };
   const reset = () => {
     setPage(1);
   };
@@ -93,24 +102,30 @@ export function EntityTypesPage() {
           <ActionBar>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton sharedStyles={sharedStyles} icon={<Add24Regular />} label="Create" />
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<Add24Regular />}
+                  label={t("actionBar.create")}
+                />
                 <RibbonButton
                   sharedStyles={sharedStyles}
                   icon={<ArrowSync24Regular />}
-                  label="Refresh"
+                  label={t("actionBar.refresh")}
                 />
                 <RibbonButton
                   sharedStyles={sharedStyles}
                   icon={<ArrowExportUp24Regular style={{ transform: "rotate(180deg)" }} />}
-                  label="Export"
+                  label={t("actionBar.export")}
                 />
                 <RibbonButton
                   sharedStyles={sharedStyles}
                   icon={<ArrowDownload24Regular />}
-                  label="Download LBOs"
+                  label={t("actionBar.downloadLbos")}
                 />
               </div>
-              <div className={sharedStyles.actionBarGroupLabel}>General</div>
+              <div className={sharedStyles.actionBarGroupLabel}>
+                {t("actionBar.groups.general")}
+              </div>
             </div>
           </ActionBar>
         )}
@@ -120,12 +135,12 @@ export function EntityTypesPage() {
         >
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 12 }}>
             <DocumentBulletList20Regular />
-            <Text size={300}>Entity Types</Text>
+            <Text size={300}>{t("entityTypes.pageLabel")}</Text>
           </span>
         </PageHeader>
       </div>
 
-      <section className={sharedStyles.contentCard} aria-label="Entity Types">
+      <section className={sharedStyles.contentCard} aria-label={t("entityTypes.pageLabel")}>
         <div className={sharedStyles.filterBar}>
           <Menu
             checkedValues={stateFilter}
@@ -136,20 +151,20 @@ export function EntityTypesPage() {
           >
             <MenuTrigger disableButtonEnhancement>
               <button className={sharedStyles.dropdownButton}>
-                STATE: {stateLabel}
+                {t("entityTypes.stateFilterLabel")} {stateLabel}
                 <ChevronDown20Regular />
               </button>
             </MenuTrigger>
             <MenuPopover>
               <MenuList>
                 <MenuItemRadio name="state" value="all">
-                  All
+                  {t("common.all")}
                 </MenuItemRadio>
                 <MenuItemRadio name="state" value="active">
-                  Active
+                  {t("common.active")}
                 </MenuItemRadio>
                 <MenuItemRadio name="state" value="terminated">
-                  Terminated
+                  {t("common.terminated")}
                 </MenuItemRadio>
               </MenuList>
             </MenuPopover>
@@ -157,19 +172,19 @@ export function EntityTypesPage() {
           <Input
             className={sharedStyles.searchInput}
             appearance="outline"
-            placeholder="Search"
+            placeholder={t("common.search")}
             value={searchQuery}
             onChange={(_, d) => {
               setSearchQuery(d.value);
               reset();
             }}
-            aria-label="Search"
+            aria-label={t("common.search")}
           />
         </div>
 
         <div className={sharedStyles.titleRow}>
           <Text weight="semibold" size={400}>
-            Entity Types ({rows.length})
+            {t("entityTypes.title", { count: rows.length })}
           </Text>
           <div>
             <ColumnChooser columns={columns} setColumns={setColumns} />
@@ -178,15 +193,15 @@ export function EntityTypesPage() {
                 <Button
                   appearance="subtle"
                   icon={<MoreVertical20Regular />}
-                  aria-label="More options"
+                  aria-label={t("common.moreOptions")}
                 />
               </MenuTrigger>
               <MenuPopover>
                 <MenuList>
                   <MenuItem onClick={() => setColumns(DEFAULT_VISIBLE_COLUMNS)}>
-                    Reset columns
+                    {t("entityTypes.resetColumns")}
                   </MenuItem>
-                  <MenuItem onClick={() => setSort(null)}>Clear sorting</MenuItem>
+                  <MenuItem onClick={() => setSort(null)}>{t("entityTypes.clearSorting")}</MenuItem>
                   <MenuDivider />
                   <MenuItem
                     onClick={() => {
@@ -197,7 +212,7 @@ export function EntityTypesPage() {
                       setPage(1);
                     }}
                   >
-                    Reset all
+                    {t("entityTypes.resetAll")}
                   </MenuItem>
                 </MenuList>
               </MenuPopover>
@@ -207,7 +222,7 @@ export function EntityTypesPage() {
 
         <div className={sharedStyles.tableScroll}>
           <Table
-            aria-label="Entity types"
+            aria-label={t("entityTypes.pageLabel")}
             style={{ tableLayout: "fixed", width: "100%", minWidth: 760 }}
           >
             <TableHeader>
@@ -233,7 +248,7 @@ export function EntityTypesPage() {
                           className={sharedStyles.tableHeaderButton}
                           onClick={() => onSort(c.key)}
                         >
-                          {c.label}
+                          {t(c.labelKey)}
                           {dir === "asc" && <ArrowUp16Regular />}
                           {dir === "desc" && <ArrowDown16Regular />}
                         </button>
@@ -257,11 +272,16 @@ export function EntityTypesPage() {
                       ) : c.isBoolean ? (
                         <div style={{ display: "flex", justifyContent: "center" }}>
                           {r[c.key] ? (
-                            <Checkmark20Filled aria-label="Yes" />
+                            <Checkmark20Filled aria-label={t("common.yes")} />
                           ) : (
-                            <Dismiss20Filled aria-label="No" style={{ color: "#8A8A8A" }} />
+                            <Dismiss20Filled
+                              aria-label={t("common.no")}
+                              style={{ color: "#8A8A8A" }}
+                            />
                           )}
                         </div>
+                      ) : c.key === "state" ? (
+                        (columnStateLabels[r.state] ?? r.state)
                       ) : (
                         r[c.key]
                       )}
@@ -275,7 +295,7 @@ export function EntityTypesPage() {
             <div
               style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}
             >
-              No records found
+              {t("common.noRecordsFound")}
             </div>
           )}
         </div>

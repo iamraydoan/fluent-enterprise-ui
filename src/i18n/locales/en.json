@@ -1,0 +1,432 @@
+{
+  "actionBar": {
+    "askAi": "Ask AI",
+    "create": "Create",
+    "downloadLbos": "Download LBOs",
+    "edit": "Edit",
+    "export": "Export",
+    "groups": {
+      "actions": "Actions",
+      "general": "General",
+      "mesCopilot": "MES Copilot"
+    },
+    "more": "More",
+    "refresh": "Refresh"
+  },
+  "administration": {
+    "pageLabel": "Administration"
+  },
+  "aiAgent": {
+    "cards": {
+      "agent": "AI Agent",
+      "information": "Information"
+    },
+    "columns": {
+      "agent": "AGENT",
+      "description": "DESCRIPTION",
+      "mcpServers": "MCP SERVERS",
+      "state": "STATE"
+    },
+    "createdBy": "Created 12/10/2026 by Nguyen Minh Anh",
+    "deferred": "Deferred",
+    "descriptions": {
+      "analyticsView": "Builds and refines analytics dashboards for Analytics Views",
+      "cmMes": "Answers questions about MES documents and entity revisions",
+      "docSummarizer": "Summarizes attachments and documents",
+      "maintenance": "Suggests maintenance schedules",
+      "quality": "Helps review non-conformance reports"
+    },
+    "detailDescription": "Acts as a general MES assistant, a starting point for questions about products, resources or documents.",
+    "fields": {
+      "dataGroup": "Data Group",
+      "description": "Description",
+      "model": "Model",
+      "name": "Name",
+      "provider": "Provider",
+      "publishToRuntime": "Publish To Runtime",
+      "runtime": "Runtime",
+      "synchronizationStatus": "Synchronization Status",
+      "universalState": "Universal State"
+    },
+    "historyColumns": {
+      "action": "ACTION",
+      "date": "DATE",
+      "details": "DETAILS",
+      "user": "USER"
+    },
+    "historyTitle": "History ({{count}})",
+    "listTitle": "AI Agents ({{count}})",
+    "noAttachments": "No attachments",
+    "noAttachmentsBody": "Files added to this agent will appear here.",
+    "noReferences": "No references",
+    "noReferencesBody": "This record is not referenced by other objects.",
+    "noToolsSelected": "No tools selected. Use Edit to add MCP server tools.",
+    "notDeferred": "Not deferred",
+    "pageLabel": "AI Agents",
+    "sections": {
+      "attachments": "Attachments",
+      "details": "Details",
+      "instructions": "Instructions",
+      "mcpServers": "MCP Servers"
+    },
+    "toolsColumns": {
+      "deferred": "DEFERRED",
+      "description": "DESCRIPTION",
+      "tool": "TOOL"
+    },
+    "toolsGroupCount": "({{count}} Tools)",
+    "toolsTitle": "MCP Server Tools ({{count}})",
+    "viewDescription": "View description of {{tool}}"
+  },
+  "aiChat": {
+    "agents": {
+      "cm": {
+        "description": "Acts as a general MES assistant, a starting point for questions about products, resources or documents, guiding to the right answer.",
+        "title": "MES Agent"
+      },
+      "doc": {
+        "description": "Summarizes documents and attachments and extracts the key points you ask for.",
+        "title": "Document Summarizer"
+      },
+      "mp": {
+        "description": "Suggests maintenance schedules and finds equipment history for a resource.",
+        "title": "Maintenance Planner"
+      },
+      "qa": {
+        "description": "Helps review non-conformance reports and inspection results, and points to the records that matter.",
+        "title": "Quality Assistant"
+      }
+    },
+    "attachFile": "Attach file",
+    "chatHistory": "Chat history",
+    "chats": "Chats",
+    "demoReply": "Here is what I found for \"{{text}}\". This is a demo reply from {{agent}}; connect the page to your agent API to get real answers.",
+    "dictate": "Dictate",
+    "examples": {
+      "first": "Summarize the latest attachment",
+      "second": "Compare two document revisions",
+      "third": "Find the entity by its name"
+    },
+    "messageAgent": "Message {{agent}}",
+    "newChat": "New chat",
+    "seeds": {
+      "first": {
+        "botText": "I found 3 documents that reference the latest recipe revision. The most recent one was updated on 28/10/2026.",
+        "title": "Which documents reference the latest recipe?",
+        "userText": "Which documents reference the latest recipe?"
+      },
+      "second": {
+        "botText": "Revision 3 adds a torque check at step 5 and removes the optional cleaning step.",
+        "title": "Compare revision 2 and 3 of the work instruction",
+        "userText": "Compare revision 2 and 3 of the work instruction"
+      }
+    },
+    "send": "Send",
+    "thinking": "{{agent}} is thinking…",
+    "toggleHistory": "Toggle history"
+  },
+  "apps": {
+    "columns": {
+      "app": "APP",
+      "description": "DESCRIPTION",
+      "state": "STATE",
+      "type": "TYPE"
+    },
+    "descriptions": {
+      "maintenance": "Equipment maintenance app",
+      "quality": "Inspection and NCR handling",
+      "shopFloor": "Operator console for work orders",
+      "traceability": "Genealogy and lot tracking"
+    },
+    "listTitle": "Apps ({{count}})",
+    "pageLabel": "Apps",
+    "types": {
+      "system": "System",
+      "userDefined": "User defined"
+    }
+  },
+  "common": {
+    "active": "Active",
+    "activeState": "(Active)",
+    "all": "All",
+    "cancel": "Cancel",
+    "chooseColumns": "Choose columns",
+    "close": "Close",
+    "collapsePanel": "Collapse panel",
+    "columns": "Columns",
+    "detailsView": "Details View",
+    "draft": "Draft",
+    "information": "Information",
+    "moreOptions": "More options",
+    "moveDown": "Move down",
+    "moveUp": "Move up",
+    "nextPage": "Next page",
+    "no": "No",
+    "noRecordsFound": "No records found",
+    "noResults": "No results",
+    "pageOf": "Page {{page}} of {{pages}}",
+    "previousPage": "Previous page",
+    "records": "({{count}} Records)",
+    "rowsPerPage": "Rows per Page:",
+    "save": "Save",
+    "search": "Search",
+    "syncCompleted": "Completed",
+    "syncPending": "Pending",
+    "terminated": "Terminated",
+    "update": "Update",
+    "yes": "Yes"
+  },
+  "configuration": {
+    "columns": {
+      "modified": "MODIFIED",
+      "scope": "SCOPE",
+      "setting": "SETTING",
+      "value": "VALUE"
+    },
+    "listTitle": "Configuration ({{count}})",
+    "pageLabel": "Configuration",
+    "scopes": {
+      "global": "Global",
+      "security": "Security"
+    },
+    "settings": {
+      "auditLogging": "Audit logging",
+      "defaultLanguage": "Default language",
+      "sessionTimeout": "Session timeout",
+      "timeZone": "Time zone"
+    },
+    "values": {
+      "enabled": "Enabled",
+      "english": "English",
+      "minutes": "{{count}} min"
+    }
+  },
+  "detailShell": {
+    "tabs": {
+      "details": "Details",
+      "history": "History",
+      "references": "References"
+    }
+  },
+  "dialogs": {
+    "comments": "Comments",
+    "commentsLabel": "Comments:",
+    "editInstructions": {
+      "alignLeft": "Align left",
+      "alignRight": "Align right",
+      "bold": "Bold",
+      "bulletedList": "Bulleted list",
+      "center": "Center",
+      "file": "File",
+      "font": "Font",
+      "format": "Format",
+      "formatting": "Formatting",
+      "heading2": "Heading 2",
+      "heading3": "Heading 3",
+      "highlight": "Highlight",
+      "image": "Image",
+      "indent": "Indent",
+      "inherited": "(inherited)",
+      "instructions": "Instructions",
+      "instructionsLabel": "Instructions:",
+      "italic": "Italic",
+      "justify": "Justify",
+      "link": "Link",
+      "numberedList": "Numbered list",
+      "outdent": "Outdent",
+      "paragraph": "Paragraph",
+      "removeLink": "Remove link",
+      "size": "Size",
+      "strikethrough": "Strikethrough",
+      "table": "Table",
+      "textColor": "Text color",
+      "title": "Edit AI Agent Instructions",
+      "underline": "Underline",
+      "colorNames": {
+        "black": "Black",
+        "blue": "Blue",
+        "red": "Red",
+        "green": "Green",
+        "orange": "Orange"
+      },
+      "requiredMark": "* "
+    },
+    "help": "Help",
+    "manageMcp": {
+      "clearSelected": "Clear selected tools",
+      "mcpServers": "MCP SERVERS",
+      "noTools": "No tools selected",
+      "searchTools": "Search tools",
+      "selectAllTools": "Select all tools",
+      "selectTools": "Select MCP Server Tools",
+      "selectedTools": "Selected Tools ({{count}})",
+      "serverCount": "{{selected}}/{{total}}",
+      "title": "Manage MCP Servers",
+      "tools": "TOOLS",
+      "viewTool": "View {{tool}}"
+    },
+    "toolDescription": {
+      "title": "View Tool Description"
+    }
+  },
+  "entityTypes": {
+    "clearSorting": "Clear sorting",
+    "columnNames": {
+      "description": "Description",
+      "name": "Entity type",
+      "relation": "Relation",
+      "state": "State",
+      "system": "System",
+      "versioned": "Versioned"
+    },
+    "columns": {
+      "description": "DESCRIPTION",
+      "name": "ENTITY TYPE",
+      "relation": "RELATION",
+      "state": "STATE",
+      "system": "SYSTEM",
+      "versioned": "VERSIONED"
+    },
+    "pageLabel": "Entity Types",
+    "resetAll": "Reset all",
+    "resetColumns": "Reset columns",
+    "stateFilterLabel": "STATE:",
+    "stateOptions": {
+      "all": "ALL",
+      "active": "ACTIVE",
+      "terminated": "TERMINATED"
+    },
+    "title": "Entity Types ({{count}})"
+  },
+  "mainLayout": {
+    "noOpenTabs": "No open tabs",
+    "openAdministration": "Open Administration"
+  },
+  "mcpServer": {
+    "cards": {
+      "authentication": "Authentication",
+      "information": "Information",
+      "server": "AI MCP Server"
+    },
+    "columns": {
+      "description": "DESCRIPTION",
+      "name": "NAME",
+      "state": "STATE",
+      "url": "URL"
+    },
+    "descriptions": {
+      "clickhouse": "ClickHouse SQL data access",
+      "cmMes": "MES entities, documents and attachments",
+      "cubes": "Cube.js data cubes",
+      "grafana": "Grafana dashboards and datasources",
+      "portalDocs": "Product documentation search"
+    },
+    "fields": {
+      "authMode": "Authentication Mode",
+      "authUrl": "Authorization URL",
+      "clientId": "Client ID",
+      "dataGroup": "Data Group",
+      "description": "Description",
+      "initTimeout": "Initialization Timeout",
+      "instructions": "Instructions",
+      "isSystem": "Is System",
+      "name": "Name",
+      "protocolVersion": "Protocol Version",
+      "reqTimeout": "Request Timeout",
+      "scope": "Scope",
+      "syncStatus": "Synchronization Status",
+      "tokenUrl": "Token URL",
+      "universalState": "Universal State",
+      "url": "URL"
+    },
+    "lastSync": "Last Tool Synchronization:",
+    "listTitle": "AI MCP Servers ({{count}})",
+    "noAttachments": "No attachments",
+    "noAttachmentsBody": "Files added to this server will appear here.",
+    "noReferences": "No references",
+    "noReferencesBody": "This server is not referenced by other objects.",
+    "pageLabel": "AI MCP Servers",
+    "sections": {
+      "attachments": "Attachments",
+      "details": "Details",
+      "tools": "Tools"
+    },
+    "synchronize": "Synchronize",
+    "toolsColumns": {
+      "description": "DESCRIPTION",
+      "name": "NAME"
+    },
+    "toolsTitle": "Tools ({{count}})"
+  },
+  "nav": {
+    "collapseMenu": "Collapse menu",
+    "expandMenu": "Expand menu",
+    "globalNavigation": "Global navigation",
+    "sections": {
+      "administration": "Administration",
+      "ai": "AI",
+      "apps": "Apps",
+      "automation": "Automation",
+      "businessData": "Business Data",
+      "businessIntelligence": "Business Intelligence",
+      "dataPlatform": "Data Platform",
+      "lowCode": "Low Code",
+      "maintenance": "Maintenance",
+      "manufacturing": "Manufacturing",
+      "planningAndLogistics": "Planning and Logistics",
+      "quality": "Quality"
+    },
+    "tiles": {
+      "aiAgent": "AI Agent",
+      "aiMcpServer": "AI MCP Server",
+      "apps": "Apps",
+      "augmentedReality": "Augmented Reality",
+      "changePackage": "Change Package",
+      "configuration": "Configuration",
+      "dataOrchestrator": "Data Orchestrator",
+      "deeActions": "DEE Actions",
+      "entityTypes": "Entity Types",
+      "eventRules": "Event Rules",
+      "fabLives": "FabLives",
+      "globalShortcuts": "Global Shortcuts",
+      "licenses": "Licenses",
+      "localizedMessages": "Localized Messages",
+      "masterDataExport": "Master Data Export",
+      "masterDataPackage": "Master Data Package",
+      "messageBus": "Message Bus",
+      "multimedia": "Multimedia",
+      "nameGenerators": "Name Generators",
+      "printingIntegration": "Printing Integration",
+      "queries": "Queries",
+      "rules": "Rules",
+      "security": "Security",
+      "stateModels": "State Models",
+      "systemIntegrations": "System Integrations",
+      "systemMonitoring": "System Monitoring",
+      "tables": "Tables",
+      "timers": "Timers",
+      "uipages": "UIPages"
+    }
+  },
+  "pageHeader": {
+    "collapseActionBar": "Collapse action bar",
+    "expandActionBar": "Expand action bar"
+  },
+  "placeholder": {
+    "defaultBody": "This page is a placeholder in the demo.",
+    "notFoundBody": "This page does not exist.",
+    "notFoundTitle": "Page not found"
+  },
+  "tabs": {
+    "back": "Back",
+    "closeTab": "Close {{title}}",
+    "language": "Language",
+    "messages": "Messages",
+    "more": "More",
+    "newTab": "New tab",
+    "scan": "Scan",
+    "search": "Search",
+    "unreadMessages": "{{count}} unread",
+    "warning": "Warning"
+  }
+}

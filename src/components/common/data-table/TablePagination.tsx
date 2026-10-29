@@ -4,6 +4,7 @@ import {
   ChevronRight20Regular,
 } from "@/components/icons";
 import { Button, Menu, MenuItemRadio, MenuList, MenuPopover, MenuTrigger } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
 interface TablePaginationProps {
@@ -23,11 +24,12 @@ export function TablePagination({
   total,
   onPageChange,
 }: TablePaginationProps) {
+  const { t } = useAppTranslation();
   const sharedStyles = useSharedStyles();
   return (
     <div className={sharedStyles.tableFooter}>
       <span style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
-        Rows per Page:
+        {t("common.rowsPerPage")}
         <Menu
           checkedValues={{ size: [String(pageSize)] }}
           onCheckedValueChange={(_, d) => {
@@ -52,8 +54,9 @@ export function TablePagination({
         </Menu>
       </span>
       <div style={{ lineHeight: "19px" }}>
-        Page {currentPage} of {pages}
-        <br />({total} Records)
+        {t("common.pageOf", { page: currentPage, pages })}
+        <br />
+        {t("common.records", { count: total })}
       </div>
       <div>
         <Button
@@ -61,14 +64,14 @@ export function TablePagination({
           icon={<ChevronLeft20Regular />}
           disabled={currentPage <= 1}
           onClick={() => onPageChange(currentPage - 1)}
-          aria-label="Previous page"
+          aria-label={t("common.previousPage")}
         />
         <Button
           appearance="subtle"
           icon={<ChevronRight20Regular />}
           disabled={currentPage >= pages}
           onClick={() => onPageChange(currentPage + 1)}
-          aria-label="Next page"
+          aria-label={t("common.nextPage")}
         />
       </div>
     </div>

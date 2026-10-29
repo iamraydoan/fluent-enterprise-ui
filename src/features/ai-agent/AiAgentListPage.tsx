@@ -19,6 +19,8 @@ import {
   Text,
   tokens,
 } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
+import type { TranslationKey } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { useTabsStore } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
@@ -30,7 +32,14 @@ const STATE_COLORS: Record<string, "success" | "informative" | "danger"> = {
   Terminated: "danger",
 };
 
+const STATE_LABELS: Record<string, TranslationKey> = {
+  Active: "common.active",
+  Draft: "common.draft",
+  Terminated: "common.terminated",
+};
+
 export function AiAgentListPage() {
+  const { t } = useAppTranslation();
   const sharedStyles = useSharedStyles();
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
@@ -38,10 +47,16 @@ export function AiAgentListPage() {
   const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
   const rows = AI_AGENT_ROWS.filter((row) =>
     containsIgnoreCase(
-      `${row.name} ${row.description} ${row.mcpServers} ${row.state}`,
+      `${row.name} ${t(row.descriptionKey)} ${row.mcpServers} ${row.state}`,
       searchQuery,
     ),
   );
+  const headers = [
+    t("aiAgent.columns.agent"),
+    t("aiAgent.columns.description"),
+    t("aiAgent.columns.mcpServers"),
+    t("aiAgent.columns.state"),
+  ];
   const openDetail = (name: string) => {
     const route = `/administration/ai-agent/${encodeURIComponent(name)}`;
     openRoute(route);
@@ -54,14 +69,20 @@ export function AiAgentListPage() {
           <ActionBar>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton sharedStyles={sharedStyles} icon={<Add24Regular />} label="Create" />
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<Add24Regular />}
+                  label={t("actionBar.create")}
+                />
                 <RibbonButton
                   sharedStyles={sharedStyles}
                   icon={<ArrowSync24Regular />}
-                  label="Refresh"
+                  label={t("actionBar.refresh")}
                 />
               </div>
-              <div className={sharedStyles.actionBarGroupLabel}>General</div>
+              <div className={sharedStyles.actionBarGroupLabel}>
+                {t("actionBar.groups.general")}
+              </div>
             </div>
           </ActionBar>
         )}
@@ -71,36 +92,36 @@ export function AiAgentListPage() {
         >
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 12 }}>
             <Bot20Regular />
-            <Text size={300}>AI Agents</Text>
+            <Text size={300}>{t("aiAgent.pageLabel")}</Text>
           </span>
         </PageHeader>
       </div>
 
-      <section className={sharedStyles.contentCard} aria-label="AI Agents">
+      <section className={sharedStyles.contentCard} aria-label={t("aiAgent.pageLabel")}>
         <div className={sharedStyles.filterBar}>
           <Input
             className={sharedStyles.searchInput}
             appearance="outline"
             contentBefore={<Search20Regular />}
-            placeholder="Search"
+            placeholder={t("common.search")}
             value={searchQuery}
             onChange={(_, d) => setSearchQuery(d.value)}
-            aria-label="Search"
+            aria-label={t("common.search")}
           />
         </div>
         <div className={sharedStyles.titleRow}>
           <Text weight="semibold" size={400}>
-            AI Agents ({rows.length})
+            {t("aiAgent.listTitle", { count: rows.length })}
           </Text>
         </div>
         <div className={sharedStyles.tableScroll} style={{ flexGrow: 0 }}>
           <Table
-            aria-label="AI Agents"
+            aria-label={t("aiAgent.pageLabel")}
             style={{ tableLayout: "fixed", width: "100%", minWidth: 640 }}
           >
             <TableHeader>
               <TableRow>
-                {["AGENT", "DESCRIPTION", "MCP SERVERS", "STATE"].map((header) => (
+                {headers.map((header) => (
                   <TableHeaderCell key={header} className={sharedStyles.tableHeaderCell}>
                     {header}
                   </TableHeaderCell>
@@ -122,7 +143,7 @@ export function AiAgentListPage() {
                       {row.name}
                     </a>
                   </TableCell>
-                  <TableCell className={sharedStyles.tableCell}>{row.description}</TableCell>
+                  <TableCell className={sharedStyles.tableCell}>{t(row.descriptionKey)}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>{row.mcpServers}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>
                     <Badge
@@ -131,7 +152,7 @@ export function AiAgentListPage() {
                       size="small"
                       color={STATE_COLORS[row.state] ?? "informative"}
                     >
-                      {row.state}
+                      {t(STATE_LABELS[row.state] ?? "common.active")}
                     </Badge>
                   </TableCell>
                 </TableRow>
@@ -142,7 +163,7 @@ export function AiAgentListPage() {
             <div
               style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}
             >
-              No records found
+              {t("common.noRecordsFound")}
             </div>
           )}
         </div>

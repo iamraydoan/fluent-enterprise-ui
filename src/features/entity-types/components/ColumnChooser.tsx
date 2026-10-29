@@ -9,6 +9,7 @@ import {
   PopoverTrigger,
   Text,
 } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import { ENTITY_COLUMN_BY_KEY } from "../data";
 import type { VisibleColumn } from "../types";
 
@@ -18,6 +19,7 @@ interface ColumnChooserProps {
 }
 
 export function ColumnChooser({ columns, setColumns }: ColumnChooserProps) {
+  const { t } = useAppTranslation();
   const moveColumn = (index: number, direction: number) =>
     setColumns((previousColumns) => {
       const nextColumns = [...previousColumns];
@@ -30,11 +32,15 @@ export function ColumnChooser({ columns, setColumns }: ColumnChooserProps) {
   return (
     <Popover positioning="below-end" withArrow={false}>
       <PopoverTrigger disableButtonEnhancement>
-        <Button appearance="subtle" icon={<ColumnTriple20Regular />} aria-label="Choose columns" />
+        <Button
+          appearance="subtle"
+          icon={<ColumnTriple20Regular />}
+          aria-label={t("common.chooseColumns")}
+        />
       </PopoverTrigger>
       <PopoverSurface style={{ padding: 0, width: 260 }}>
         <div style={{ padding: "10px 14px" }}>
-          <Text weight="semibold">Columns</Text>
+          <Text weight="semibold">{t("common.columns")}</Text>
         </div>
         <Divider />
         <div style={{ padding: "4px 8px" }}>
@@ -46,9 +52,7 @@ export function ColumnChooser({ columns, setColumns }: ColumnChooserProps) {
                 style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
               >
                 <Checkbox
-                  label={
-                    columnDefinition.label.charAt(0) + columnDefinition.label.slice(1).toLowerCase()
-                  }
+                  label={t(columnDefinition.chooserLabelKey)}
                   checked={column.visible}
                   disabled={columnDefinition.locked}
                   onChange={(_, eventData) =>
@@ -66,7 +70,7 @@ export function ColumnChooser({ columns, setColumns }: ColumnChooserProps) {
                     size="small"
                     appearance="subtle"
                     icon={<ArrowUp20Regular />}
-                    aria-label="Move up"
+                    aria-label={t("common.moveUp")}
                     disabled={index <= 1}
                     onClick={() => moveColumn(index, -1)}
                   />
@@ -74,7 +78,7 @@ export function ColumnChooser({ columns, setColumns }: ColumnChooserProps) {
                     size="small"
                     appearance="subtle"
                     icon={<ArrowDown20Regular />}
-                    aria-label="Move down"
+                    aria-label={t("common.moveDown")}
                     disabled={columnDefinition.locked || index === columns.length - 1}
                     onClick={() => moveColumn(index, 1)}
                   />

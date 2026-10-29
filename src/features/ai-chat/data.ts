@@ -1,43 +1,43 @@
+import type { TranslationKey } from "@/i18n";
+
 export interface ChatAgent {
   id: string;
   name: string;
-  title: string;
-  description: string;
+  titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
 }
 
 export const CHAT_AGENTS: ChatAgent[] = [
   {
     id: "cm",
     name: "CM MES Agent",
-    title: "MES Agent",
-    description:
-      "Acts as a general MES assistant, a starting point for questions about products, resources or documents, guiding to the right answer.",
+    titleKey: "aiChat.agents.cm.title",
+    descriptionKey: "aiChat.agents.cm.description",
   },
   {
     id: "qa",
     name: "Quality Assistant",
-    title: "Quality Assistant",
-    description:
-      "Helps review non-conformance reports and inspection results, and points to the records that matter.",
+    titleKey: "aiChat.agents.qa.title",
+    descriptionKey: "aiChat.agents.qa.description",
   },
   {
     id: "doc",
     name: "Document Summarizer",
-    title: "Document Summarizer",
-    description: "Summarizes documents and attachments and extracts the key points you ask for.",
+    titleKey: "aiChat.agents.doc.title",
+    descriptionKey: "aiChat.agents.doc.description",
   },
   {
     id: "mp",
     name: "Maintenance Planner",
-    title: "Maintenance Planner",
-    description: "Suggests maintenance schedules and finds equipment history for a resource.",
+    titleKey: "aiChat.agents.mp.title",
+    descriptionKey: "aiChat.agents.mp.description",
   },
 ];
 
-export const CHAT_EXAMPLES: string[] = [
-  "Summarize the latest attachment",
-  "Compare two document revisions",
-  "Find the entity by its name",
+export const CHAT_EXAMPLES: TranslationKey[] = [
+  "aiChat.examples.first",
+  "aiChat.examples.second",
+  "aiChat.examples.third",
 ];
 
 export function pickTools(text: string): string[] {
@@ -57,12 +57,14 @@ export function pickTools(text: string): string[] {
 export interface ChatMessage {
   role: "user" | "bot";
   text: string;
+  textKey?: TranslationKey;
   tools?: string[];
 }
 
 export interface ChatSession {
   id: string;
   title: string;
+  titleKey?: TranslationKey;
   agent: string;
   messages: ChatMessage[];
 }
@@ -70,26 +72,38 @@ export interface ChatSession {
 export const SEED_CHATS: ChatSession[] = [
   {
     id: "c1",
-    title: "Which documents reference the latest recipe?",
+    title: "",
+    titleKey: "aiChat.seeds.first.title",
     agent: "cm",
     messages: [
-      { role: "user", text: "Which documents reference the latest recipe?" },
+      {
+        role: "user",
+        text: "",
+        textKey: "aiChat.seeds.first.userText",
+      },
       {
         role: "bot",
-        text: "I found 3 documents that reference the latest recipe revision. The most recent one was updated on 28/10/2026.",
+        text: "",
+        textKey: "aiChat.seeds.first.botText",
         tools: ["get_document_content"],
       },
     ],
   },
   {
     id: "c2",
-    title: "Compare revision 2 and 3 of the work instruction",
+    title: "",
+    titleKey: "aiChat.seeds.second.title",
     agent: "cm",
     messages: [
-      { role: "user", text: "Compare revision 2 and 3 of the work instruction" },
+      {
+        role: "user",
+        text: "",
+        textKey: "aiChat.seeds.second.userText",
+      },
       {
         role: "bot",
-        text: "Revision 3 adds a torque check at step 5 and removes the optional cleaning step.",
+        text: "",
+        textKey: "aiChat.seeds.second.botText",
         tools: ["compare_entities"],
       },
     ],

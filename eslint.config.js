@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import pluginQuery from "@tanstack/eslint-plugin-query";
 import prettierConfig from "eslint-config-prettier";
 import importX from "eslint-plugin-import-x";
+import i18nextPlugin from "eslint-plugin-i18next";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
@@ -31,6 +32,11 @@ const coreBan = {
     },
   ],
 };
+
+const i18nBan = [
+  { name: "i18next", message: "Import i18n only from @/i18n." },
+  { name: "react-i18next", message: "Import i18n only from @/i18n." },
+];
 
 const noCommentsPlugin = {
   rules: {
@@ -94,7 +100,7 @@ export default tseslint.config(
           "newlines-between": "never",
         },
       ],
-      "no-restricted-imports": ["error", fluentBan],
+      "no-restricted-imports": ["error", { ...fluentBan, paths: [...fluentBan.paths, ...i18nBan] }],
     },
     linterOptions: { reportUnusedDisableDirectives: "error" },
   },
@@ -113,11 +119,17 @@ export default tseslint.config(
       "no-restricted-imports": [
         "error",
         {
-          paths: fluentBan.paths,
+          paths: [...fluentBan.paths, ...i18nBan],
           patterns: [...fluentBan.patterns, ...coreBan.patterns],
         },
       ],
     },
+  },
+  // i18n layer: only src/i18n may import i18next/react-i18next directly.
+  // Everything else imports the wrapper from @/i18n.
+  {
+    files: ["src/i18n/**/*.{ts,tsx}"],
+    rules: { "no-restricted-imports": ["error", fluentBan] },
   },
   // Wrapper layers + theme: ui and theme may import Fluent components directly
   // but not Fluent icons; icons may import Fluent icons directly but not
@@ -185,6 +197,63 @@ export default tseslint.config(
     files: ["src/components/icons/index.ts"],
     rules: { "no-restricted-imports": ["error", fluentBan] },
   },
+  // i18n enforcement: user-visible strings must go through t().
+  // Only JSX text and JSX attributes are checked (mode jsx-only); plain
+  // TypeScript strings (routes, ids, data) are not. Technical JSX props and
+  // the words below are excluded; test files, the i18n layer itself and the
+  // generated route tree are not checked.
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/i18n/**", "src/routeTree.gen.ts", "**/*.test.{ts,tsx}"],
+    plugins: { i18next: i18nextPlugin },
+    rules: {
+      "i18next/no-literal-string": [
+        "error",
+        {
+          mode: "jsx-only",
+          "jsx-attributes": {
+            exclude: [
+              "className",
+              "styleName",
+              "style",
+              "type",
+              "key",
+              "id",
+              "width",
+              "height",
+              "appearance",
+              "shape",
+              "size",
+              "color",
+              "positioning",
+              "relationship",
+              "name",
+              "value",
+              "iconPosition",
+              "weight",
+              "command",
+              "checked",
+              "sortDirection",
+            ],
+          },
+          "object-properties": {
+            exclude: ["[A-Z_-]+", "^(state|size|agent|language|to)$"],
+          },
+          words: {
+            exclude: [
+              "[0-9!-/:-@[-`{-~]+",
+              "[A-Z_-]+",
+              /^\p{Emoji}+$/u,
+              "▼",
+              "Arial",
+              "Segoe UI",
+              "Courier New",
+            ],
+          },
+        },
+      ],
+    },
+  },
   // Architecture boundaries: layer direction + ui entry-point.
   // Ui may only be imported via its barrel by non-ui elements; ui itself
   // may import its own files (index.ts re-exports them). External packages
@@ -201,6 +270,7 @@ export default tseslint.config(
         { type: "ui", pattern: "src/components/ui/**" },
         { type: "icons", pattern: "src/components/icons/**" },
         { type: "common", pattern: "src/components/common/**" },
+        { type: "i18n", pattern: "src/i18n/**" },
         { type: "layout", pattern: "src/layouts/**" },
         { type: "feature", pattern: "src/features/*/**", capture: ["feature"] },
         { type: "routes", pattern: "src/routes/**" },
@@ -224,6 +294,10 @@ export default tseslint.config(
             {
               from: { element: { type: "icons" } },
               allow: { to: { element: { type: "icons" } } },
+            },
+            {
+              from: { element: { type: "i18n" } },
+              allow: { to: { element: { type: "i18n" } } },
             },
             {
               from: { element: { type: "common" } },
@@ -251,6 +325,10 @@ export default tseslint.config(
             },
             {
               from: { element: { type: "common" } },
+              allow: { to: { element: { type: "i18n", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "common" } },
               allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
             },
             {
@@ -259,6 +337,10 @@ export default tseslint.config(
             },
             {
               from: { element: { type: "layout" } },
+              allow: { to: { element: { type: "i18n", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "layout" } },
               allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
             },
             {
@@ -267,6 +349,10 @@ export default tseslint.config(
             },
             {
               from: { element: { type: "feature" } },
+              allow: { to: { element: { type: "i18n", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "feature" } },
               allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
             },
             {
@@ -275,11 +361,19 @@ export default tseslint.config(
             },
             {
               from: { element: { type: "shared" } },
+              allow: { to: { element: { type: "i18n", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "shared" } },
               allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
             },
             {
               from: { element: { type: "shared" } },
               allow: { to: { element: { type: "icons", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "app" } },
+              allow: { to: { element: { type: "i18n", fileInternalPath: "index.ts" } } },
             },
             {
               from: { element: { type: "app" } },
@@ -323,7 +417,15 @@ export default tseslint.config(
             },
             {
               from: { element: { type: "routes" } },
+              allow: { to: { element: { type: "i18n", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "routes" } },
               allow: { to: { element: { type: "routetree" } } },
+            },
+            {
+              from: { element: { type: "stores" } },
+              allow: { to: { element: { type: "i18n", fileInternalPath: "index.ts" } } },
             },
             {
               from: { element: { type: "stores" } },

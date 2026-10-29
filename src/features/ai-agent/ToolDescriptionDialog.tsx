@@ -1,5 +1,6 @@
 import { Eye20Regular } from "@/components/icons";
 import { Button, makeStyles } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import { DialogShell } from "./DialogShell";
 import { toolDescription } from "./data";
 
@@ -15,14 +16,15 @@ interface ToolDescriptionDialogProps {
 }
 
 export function ToolDescriptionDialog({ server, tool, text, onClose }: ToolDescriptionDialogProps) {
+  const { t } = useAppTranslation();
   const descriptionStyles = useDescriptionStyles();
   return (
     <DialogShell
-      title="View Tool Description"
+      title={t("dialogs.toolDescription.title")}
       icon={<Eye20Regular />}
       onClose={onClose}
       showComments={false}
-      footer={<Button onClick={onClose}>Close</Button>}
+      footer={<Button onClick={onClose}>{t("common.close")}</Button>}
     >
       <div className={descriptionStyles.desc}>
         <div style={{ marginBottom: 24 }}>

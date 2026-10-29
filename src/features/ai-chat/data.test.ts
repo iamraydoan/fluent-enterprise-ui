@@ -3,11 +3,12 @@ import { CHAT_AGENTS, CHAT_EXAMPLES, pickTools, SEED_CHATS } from "./data";
 import type { ChatMessage, ChatSession } from "./data";
 
 describe("ai chat data", () => {
-  it("lists four agents with MES Agent as the CM MES Agent title", () => {
+  it("lists four agents with MES Agent as the CM MES Agent title key", () => {
     expect(CHAT_AGENTS).toHaveLength(4);
     expect(CHAT_AGENTS[0].name).toBe("CM MES Agent");
-    expect(CHAT_AGENTS[0].title).toBe("MES Agent");
+    expect(CHAT_AGENTS[0].titleKey).toBe("aiChat.agents.cm.title");
     expect(CHAT_EXAMPLES).toHaveLength(3);
+    expect(CHAT_EXAMPLES).toContain("aiChat.examples.first");
   });
 
   it("seeds two chats and picks tools from the message text", () => {
@@ -15,6 +16,8 @@ describe("ai chat data", () => {
     expect(seeds).toHaveLength(2);
     const firstMessage: ChatMessage = seeds[0].messages[0];
     expect(firstMessage.role).toBe("user");
+    expect(firstMessage.textKey).toBe("aiChat.seeds.first.userText");
+    expect(seeds[1].messages[1].textKey).toBe("aiChat.seeds.second.botText");
     expect(pickTools("Summarize the latest attachment")).toEqual(["get_attachment_to_summarize"]);
     expect(pickTools("Compare two document revisions")).toEqual([
       "compare_entities",

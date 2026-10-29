@@ -7,6 +7,7 @@ import {
   Settings20Regular,
 } from "@/components/icons";
 import { Button, Checkbox, Input, makeStyles, Text, tokens } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import { DialogAgentSub, DialogShell } from "./DialogShell";
 import { AGENT_MCP_SERVERS, agentServerTools } from "./data";
 import type { ToolSelection } from "./data";
@@ -119,6 +120,7 @@ export function ManageMcpDialog({
   onViewTool,
 }: ManageMcpDialogProps) {
   const manageStyles = useManageStyles();
+  const { t } = useAppTranslation();
   const [draft, setDraft] = useState<ToolSelection>(
     () => JSON.parse(JSON.stringify(selection)) as ToolSelection,
   );
@@ -158,15 +160,15 @@ export function ManageMcpDialog({
   );
   return (
     <DialogShell
-      title="Manage MCP Servers"
+      title={t("dialogs.manageMcp.title")}
       icon={<Settings20Regular />}
       onClose={onClose}
       sub={<DialogAgentSub agentName={agentName} agentDescription={agentDescription} />}
       footer={
         <>
-          <Button onClick={onClose}>Cancel</Button>
+          <Button onClick={onClose}>{t("common.cancel")}</Button>
           <Button appearance="primary" onClick={() => onUpdate(draft)}>
-            Update
+            {t("common.update")}
           </Button>
         </>
       }
@@ -174,20 +176,20 @@ export function ManageMcpDialog({
       <div className={manageStyles.cols}>
         <div className={manageStyles.colBox}>
           <div className={manageStyles.colHead}>
-            <Text size={400}>Select MCP Server Tools</Text>
+            <Text size={400}>{t("dialogs.manageMcp.selectTools")}</Text>
             <Input
               appearance="outline"
               contentBefore={<Search20Regular />}
-              placeholder="Search"
+              placeholder={t("common.search")}
               value={searchQuery}
               onChange={(_, d) => setSearchQuery(d.value)}
-              aria-label="Search tools"
+              aria-label={t("dialogs.manageMcp.searchTools")}
               style={{ width: 204 }}
             />
           </div>
           <div className={manageStyles.box}>
             <div className={manageStyles.list} style={{ borderRight: "1px solid #BDBDBD" }}>
-              <div className={manageStyles.listHead}>MCP SERVERS</div>
+              <div className={manageStyles.listHead}>{t("dialogs.manageMcp.mcpServers")}</div>
               {AGENT_MCP_SERVERS.map((server) => {
                 const count = Object.keys(draft[server.name] ?? {}).length;
                 return (
@@ -199,7 +201,10 @@ export function ManageMcpDialog({
                   >
                     <span>{server.name}</span>
                     <span style={{ display: "inline-flex", alignItems: "center", columnGap: 8 }}>
-                      {count}/{server.tools.length}
+                      {t("dialogs.manageMcp.serverCount", {
+                        selected: count,
+                        total: server.tools.length,
+                      })}
                       <ChevronRight20Regular />
                     </span>
                   </button>
@@ -213,9 +218,9 @@ export function ManageMcpDialog({
                     allOn ? true : tools.some((tool) => isOn(activeServer, tool)) ? "mixed" : false
                   }
                   onChange={toggleAll}
-                  aria-label="Select all tools"
+                  aria-label={t("dialogs.manageMcp.selectAllTools")}
                 />
-                TOOLS
+                {t("dialogs.manageMcp.tools")}
               </div>
               {tools.map((tool) => (
                 <div
@@ -232,7 +237,7 @@ export function ManageMcpDialog({
                     size="small"
                     appearance="transparent"
                     icon={<Eye20Filled />}
-                    aria-label={`View ${tool}`}
+                    aria-label={t("dialogs.manageMcp.viewTool", { tool })}
                     onClick={() => onViewTool(activeServer, tool)}
                   />
                 </div>
@@ -242,11 +247,13 @@ export function ManageMcpDialog({
         </div>
         <div className={manageStyles.colBox}>
           <div className={manageStyles.colHead}>
-            <Text size={400}>Selected Tools ({selectedList.length})</Text>
+            <Text size={400}>
+              {t("dialogs.manageMcp.selectedTools", { count: selectedList.length })}
+            </Text>
             <Button
               appearance="subtle"
               icon={<Delete20Regular />}
-              aria-label="Clear selected tools"
+              aria-label={t("dialogs.manageMcp.clearSelected")}
               disabled={selectedList.length === 0}
               onClick={() => setDraft({})}
             />
@@ -267,12 +274,14 @@ export function ManageMcpDialog({
                     }))
                   }
                 >
-                  {deferred ? "Deferred" : "Not Deferred"}
+                  {deferred ? t("aiAgent.deferred") : t("aiAgent.notDeferred")}
                 </button>
               </div>
             ))}
             {selectedList.length === 0 && (
-              <div style={{ padding: 20, color: "#777", fontSize: 13 }}>No tools selected</div>
+              <div style={{ padding: 20, color: "#777", fontSize: 13 }}>
+                {t("dialogs.manageMcp.noTools")}
+              </div>
             )}
           </div>
         </div>

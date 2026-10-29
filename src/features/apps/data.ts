@@ -1,6 +1,8 @@
+import type { TranslationKey } from "@/i18n";
+
 export interface AppRow {
   name: string;
-  description: string;
+  descriptionKey: TranslationKey;
   type: string;
   state: string;
 }
@@ -8,20 +10,25 @@ export interface AppRow {
 export const APP_ROWS: AppRow[] = [
   {
     name: "Shop Floor",
-    description: "Operator console for work orders",
+    descriptionKey: "apps.descriptions.shopFloor",
     type: "System",
     state: "Active",
   },
-  { name: "Quality", description: "Inspection and NCR handling", type: "System", state: "Active" },
+  {
+    name: "Quality",
+    descriptionKey: "apps.descriptions.quality",
+    type: "System",
+    state: "Active",
+  },
   {
     name: "Maintenance",
-    description: "Equipment maintenance app",
+    descriptionKey: "apps.descriptions.maintenance",
     type: "User defined",
     state: "Active",
   },
   {
     name: "Traceability",
-    description: "Genealogy and lot tracking",
+    descriptionKey: "apps.descriptions.traceability",
     type: "System",
     state: "Active",
   },
