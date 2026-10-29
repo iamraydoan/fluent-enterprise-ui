@@ -8,3 +8,4 @@ tsconfig.tsbuildinfo
 .vitest-attachments/
 /coverage
 .pnpm-store
+.env
