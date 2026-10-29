@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
+import { playwright } from "@vitest/browser-playwright";
 import { defineConfig } from "vite";
 
 const srcDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "src");
@@ -26,9 +27,9 @@ export default defineConfig({
     setupFiles: ["./src/test-setup.ts"],
     browser: {
       enabled: true,
-      provider: "playwright",
+      provider: playwright(),
       headless: true,
-      name: "chromium",
+      instances: [{ browser: "chromium" }],
     },
     coverage: {
       exclude: ["src/components/ui/**", "src/routeTree.gen.ts", "src/routes/**"],
