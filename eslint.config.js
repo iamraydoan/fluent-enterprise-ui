@@ -125,6 +125,10 @@ export default tseslint.config(
       ],
     },
   },
+  {
+    files: ["src/routes/**/*.{ts,tsx}"],
+    rules: { "react-refresh/only-export-components": "off" },
+  },
   // i18n layer: only src/i18n may import i18next/react-i18next directly.
   // Everything else imports the wrapper from @/i18n.
   {
