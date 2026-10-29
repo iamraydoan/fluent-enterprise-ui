@@ -27,22 +27,75 @@ async function waitForText(text: string) {
   expect(document.body.innerText).toContain(text);
 }
 
+function tabCount() {
+  return useTabsStore.getState().tabs.length;
+}
+
 beforeEach(() => {
   useTabsStore.setState({ tabs: [], active: null });
 });
 
-test("detail route renders the detail screen and the list tab navigates back", async () => {
+test("detail route renders the detail screen and sidebar navigation replaces the tab", async () => {
   const screen = renderAt("/detail/AIAgent");
   await expect.element(screen.getByText("MCP Servers")).toBeVisible();
-  await screen.getByText("Entity Types").click();
+  await screen.getByRole("button", { name: "Entity Types" }).click();
   await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
+  expect(tabCount()).toBe(1);
 });
 
-test("sidebar navigation opens a module screen", async () => {
+test("sidebar navigation opens a module screen without adding a tab", async () => {
   const screen = renderAt("/");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   await screen.getByRole("button", { name: "Tools" }).click();
   await waitForText("Tools (4)");
   await expect.element(screen.getByText("Tools (4)")).toBeVisible();
+  expect(tabCount()).toBe(1);
+});
+
+test("the new tab button adds a home tab on every click", async () => {
+  const screen = renderAt("/");
+  await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
+  expect(tabCount()).toBe(1);
+  await screen.getByRole("button", { name: "New tab" }).click();
+  expect(tabCount()).toBe(2);
+  await screen.getByRole("button", { name: "New tab" }).click();
+  expect(tabCount()).toBe(3);
+  expect(useTabsStore.getState().active).toBe("list:3");
+});
+
+test("a module link opens the detail in the current tab and back returns to the module", async () => {
+  const screen = renderAt("/");
+  await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
+  await screen.getByRole("button", { name: "AI Agents" }).click();
+  await waitForText("AI Agents (4)");
+  await screen.getByText("CM MES Agent").click();
+  await waitForText("MCP Servers");
+  await expect.element(screen.getByText("MCP Servers")).toBeVisible();
+  expect(tabCount()).toBe(1);
+  await screen.getByRole("button", { name: "Back" }).click();
+  await waitForText("AI Agents (4)");
+  await expect.element(screen.getByText("AI Agents (4)")).toBeVisible();
+  expect(tabCount()).toBe(1);
+});
+
+test("state filter still works without adding tabs", async () => {
+  const screen = renderAt("/");
+  await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
+  await screen.getByRole("button", { name: "STATE: ALL" }).click();
+  await expect.element(screen.getByRole("menuitemradio", { name: "Active" })).toBeVisible();
+  await new Promise((resolve) => setTimeout(resolve, 800));
+  await screen.getByRole("menuitemradio", { name: "Active" }).click();
+  await waitForText("STATE: ACTIVE");
+  expect(tabCount()).toBe(1);
+});
+
+test("pagination still works without adding tabs", async () => {
+  const screen = renderAt("/");
+  await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
+  await screen.getByRole("button", { name: "Next page" }).click();
+  await waitForText("Page 2 of 16");
+  await screen.getByRole("button", { name: "Previous page" }).click();
+  await waitForText("Page 1 of 16");
+  expect(tabCount()).toBe(1);
 });

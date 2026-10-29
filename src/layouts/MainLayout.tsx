@@ -42,6 +42,7 @@ export function MainLayout() {
   const tabs = useTabsStore((state) => state.tabs);
   const active = useTabsStore((state) => state.active);
   const openNav = useTabsStore((state) => state.openNav);
+  const addTab = useTabsStore((state) => state.addTab);
   const closeTab = useTabsStore((state) => state.closeTab);
   const backFromDetail = useTabsStore((state) => state.backFromDetail);
   const setActive = useTabsStore((state) => state.setActive);
@@ -66,13 +67,17 @@ export function MainLayout() {
     setActive(id);
     navigate({ to: routeForTab(tab) });
   };
+  const handleNewTab = () => {
+    addTab();
+    navigate({ to: "/" });
+  };
   const handleClose = (id: string) => {
     const nextActive = closeTab(id);
     if (!nextActive) {
       navigate({ to: "/" });
       return;
     }
-    const nextTab = tabs.find((candidate) => candidate.id === nextActive);
+    const nextTab = useTabsStore.getState().tabs.find((candidate) => candidate.id === nextActive);
     if (nextTab) navigate({ to: routeForTab(nextTab) });
   };
   const handleBack = (tab: PageTab) => {
@@ -82,11 +87,12 @@ export function MainLayout() {
       navigate({ to: "/" });
       return;
     }
-    if (parent === "list") {
-      navigate({ to: "/entity-types" });
+    const parentTab = useTabsStore.getState().tabs.find((candidate) => candidate.id === parent);
+    if (parentTab) {
+      navigate({ to: routeForTab(parentTab) });
       return;
     }
-    navigate({ to: `/modules/${parent.slice(2)}` });
+    navigate({ to: "/entity-types" });
   };
 
   return (
@@ -109,6 +115,7 @@ export function MainLayout() {
           onSelect={handleSelect}
           onBack={handleBack}
           onClose={handleClose}
+          onNewTab={handleNewTab}
         />
         {!currentTab && (
           <div className={layoutStyles.welcome}>

@@ -1,4 +1,5 @@
 import {
+  Add24Regular,
   Avatar,
   Bot20Regular,
   Button,
@@ -11,6 +12,7 @@ import {
   QrCode20Regular,
   Search20Regular,
   Text,
+  Tooltip,
   Warning12Filled,
 } from "@/components/ui";
 import type { NavigationItem } from "@/data/navigation";
@@ -30,6 +32,15 @@ const useStyles = makeStyles({
     ":hover": { backgroundColor: "rgba(255,255,255,0.5)" },
     cursor: "pointer",
   },
+  newTabButton: {
+    width: "32px",
+    height: "32px",
+    minWidth: "32px",
+    borderRadius: "8px",
+    color: "#222",
+    backgroundColor: "transparent",
+    ":hover": { backgroundColor: "#f3f2f1", color: "#222" },
+  },
 });
 
 interface PageTabsProps {
@@ -39,9 +50,18 @@ interface PageTabsProps {
   onSelect: (id: string) => void;
   onBack: (tab: PageTab) => void;
   onClose: (id: string) => void;
+  onNewTab: () => void;
 }
 
-export function PageTabs({ tabs, active, navigation, onSelect, onBack, onClose }: PageTabsProps) {
+export function PageTabs({
+  tabs,
+  active,
+  navigation,
+  onSelect,
+  onBack,
+  onClose,
+  onNewTab,
+}: PageTabsProps) {
   const pageTabsStyles = useStyles();
   const sharedStyles = useSharedStyles();
   const getNavigationItem = (navigationId: string) =>
@@ -90,6 +110,15 @@ export function PageTabs({ tabs, active, navigation, onSelect, onBack, onClose }
             </div>
           );
         })}
+        <Tooltip content="New tab" relationship="label">
+          <Button
+            appearance="subtle"
+            icon={<Add24Regular />}
+            aria-label="New tab"
+            className={pageTabsStyles.newTabButton}
+            onClick={onNewTab}
+          />
+        </Tooltip>
       </div>
       <div className={sharedStyles.pageTabsActions}>
         <Button appearance="subtle" icon={<ChevronDown20Regular />} aria-label="More" />
