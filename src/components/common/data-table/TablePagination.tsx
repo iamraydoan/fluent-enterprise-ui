@@ -1,14 +1,9 @@
 import {
-  Button,
   ChevronDown20Regular,
   ChevronLeft20Regular,
   ChevronRight20Regular,
-  Menu,
-  MenuItemRadio,
-  MenuList,
-  MenuPopover,
-  MenuTrigger,
-} from "@/components/ui";
+} from "@/components/icons";
+import { Button, Menu, MenuItemRadio, MenuList, MenuPopover, MenuTrigger } from "@/components/ui";
 import { useSharedStyles } from "@/styles/shared";
 
 interface TablePaginationProps {

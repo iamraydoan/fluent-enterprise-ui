@@ -1,12 +1,10 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
+import { Add24Regular, ArrowSync24Regular, Search20Regular } from "@/components/icons";
 import {
-  Add24Regular,
-  ArrowSync24Regular,
   Badge,
   Input,
-  Search20Regular,
   Table,
   TableBody,
   TableCell,

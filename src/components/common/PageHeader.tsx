@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { Button, ChevronDown20Regular, ChevronUp20Regular } from "@/components/ui";
+import { ChevronDown20Regular, ChevronUp20Regular } from "@/components/icons";
+import { Button } from "@/components/ui";
 import { useSharedStyles } from "@/styles/shared";
 
 interface PageHeaderProps {

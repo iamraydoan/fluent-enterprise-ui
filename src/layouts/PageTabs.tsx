@@ -1,20 +1,15 @@
 import {
   Add24Regular,
-  Avatar,
   Bot20Regular,
-  Button,
   Chat20Regular,
   ChevronDown20Regular,
   ChevronLeft20Regular,
   Dismiss16Regular,
-  makeStyles,
-  mergeClasses,
   QrCode20Regular,
   Search20Regular,
-  Text,
-  Tooltip,
   Warning12Filled,
-} from "@/components/ui";
+} from "@/components/icons";
+import { Avatar, Button, makeStyles, mergeClasses, Text, Tooltip } from "@/components/ui";
 import type { NavigationItem } from "@/data/navigation";
 import type { PageTab } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";

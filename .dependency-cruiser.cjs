@@ -20,6 +20,12 @@ module.exports = {
       to: { path: "^src/", pathNot: "^src/components/ui/" },
     },
     {
+      name: "no-icons-to-app",
+      severity: "error",
+      from: { path: "^src/components/icons/" },
+      to: { path: "^src/", pathNot: "^src/components/icons/" },
+    },
+    {
       name: "no-feature-to-routes",
       severity: "error",
       from: { path: "^src/features/" },

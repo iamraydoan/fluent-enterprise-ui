@@ -10,7 +10,7 @@ import {
   Target20Regular,
   Window20Regular,
   Wrench20Regular,
-} from "@/components/ui";
+} from "@/components/icons";
 
 export interface NavigationItem {
   id: string;

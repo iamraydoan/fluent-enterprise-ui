@@ -1,4 +1,5 @@
-import { makeStyles, mergeClasses, Navigation24Regular, Tooltip } from "@/components/ui";
+import { Navigation24Regular } from "@/components/icons";
+import { makeStyles, mergeClasses, Tooltip } from "@/components/ui";
 import type { NavigationItem } from "@/data/navigation";
 
 const useStyles = makeStyles({

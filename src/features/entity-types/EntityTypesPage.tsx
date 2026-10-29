@@ -8,11 +8,14 @@ import {
   ArrowDownload24Regular,
   ArrowExportUp24Regular,
   ArrowSync24Regular,
-  Button,
   Checkmark20Filled,
   ChevronDown20Regular,
   Dismiss20Filled,
   DocumentBulletList20Regular,
+  MoreVertical20Regular,
+} from "@/components/icons";
+import {
+  Button,
   Input,
   Menu,
   MenuDivider,
@@ -21,7 +24,6 @@ import {
   MenuList,
   MenuPopover,
   MenuTrigger,
-  MoreVertical20Regular,
   Table,
   TableBody,
   TableCell,

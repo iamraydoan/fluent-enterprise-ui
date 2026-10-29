@@ -1,4 +1,5 @@
-import { Body1Strong, Button, mergeClasses, PanelLeftContract20Regular } from "@/components/ui";
+import { PanelLeftContract20Regular } from "@/components/icons";
+import { Body1Strong, Button, mergeClasses } from "@/components/ui";
 import { DETAILS_PANEL_ITEMS } from "../data";
 import type { DetailStyles } from "../styles";
 

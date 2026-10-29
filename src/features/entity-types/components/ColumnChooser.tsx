@@ -1,10 +1,8 @@
 import type { Dispatch, SetStateAction } from "react";
+import { ArrowDown20Regular, ArrowUp20Regular, ColumnTriple20Regular } from "@/components/icons";
 import {
-  ArrowDown20Regular,
-  ArrowUp20Regular,
   Button,
   Checkbox,
-  ColumnTriple20Regular,
   Divider,
   Popover,
   PopoverSurface,

@@ -13,9 +13,14 @@ const fluentBan = {
       name: "@fluentui/react-components",
       message: "Import UI only from @/components/ui (theme from @/theme).",
     },
-    { name: "@fluentui/react-icons", message: "Import icons only from @/components/ui." },
+    { name: "@fluentui/react-icons", message: "Import icons only from @/components/icons." },
   ],
-  patterns: [{ group: ["@fluentui/*"], message: "Import Fluent only through @/components/ui." }],
+  patterns: [
+    {
+      group: ["@fluentui/*"],
+      message: "Import Fluent only through @/components/ui or @/components/icons.",
+    },
+  ],
 };
 
 const coreBan = {
@@ -114,8 +119,10 @@ export default tseslint.config(
       ],
     },
   },
-  // Wrapper layer + theme: the only places allowed to import Fluent directly.
-  // They still may not use relative imports or ui subfiles (index.ts is next).
+  // Wrapper layers + theme: ui and theme may import Fluent components directly
+  // but not Fluent icons; icons may import Fluent icons directly but not
+  // Fluent components. They still may not use relative imports, except for
+  // their own barrel index.ts files (next).
   {
     files: ["src/components/ui/**/*.{ts,tsx}", "src/theme/**/*.ts"],
     ignores: ["src/components/ui/index.ts"],
@@ -123,6 +130,30 @@ export default tseslint.config(
       "no-restricted-imports": [
         "error",
         {
+          paths: [
+            {
+              name: "@fluentui/react-icons",
+              message: "Import icons only from @/components/icons.",
+            },
+          ],
+          patterns: [...coreBan.patterns],
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/components/icons/**/*.{ts,tsx}"],
+    ignores: ["src/components/icons/index.ts"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "@fluentui/react-components",
+              message: "Import UI components only from @/components/ui.",
+            },
+          ],
           patterns: [...coreBan.patterns],
         },
       ],
@@ -140,6 +171,12 @@ export default tseslint.config(
     files: ["src/components/common/index.ts"],
     rules: { "no-restricted-imports": ["error", fluentBan] },
   },
+  // Barrel exception: icons/index.ts re-exports its own folder via relative paths.
+  // It still may not import Fluent directly or an icons subfile by alias.
+  {
+    files: ["src/components/icons/index.ts"],
+    rules: { "no-restricted-imports": ["error", fluentBan] },
+  },
   // Architecture boundaries: layer direction + ui entry-point.
   // Ui may only be imported via its barrel by non-ui elements; ui itself
   // may import its own files (index.ts re-exports them). External packages
@@ -154,6 +191,7 @@ export default tseslint.config(
       },
       "boundaries/elements": [
         { type: "ui", pattern: "src/components/ui/**" },
+        { type: "icons", pattern: "src/components/icons/**" },
         { type: "common", pattern: "src/components/common/**" },
         { type: "layout", pattern: "src/layouts/**" },
         { type: "feature", pattern: "src/features/*/**", capture: ["feature"] },
@@ -175,6 +213,10 @@ export default tseslint.config(
           policies: [
             { allow: { to: { module: { origin: "external" } } } },
             { from: { element: { type: "ui" } }, allow: { to: { element: { type: "ui" } } } },
+            {
+              from: { element: { type: "icons" } },
+              allow: { to: { element: { type: "icons" } } },
+            },
             {
               from: { element: { type: "common" } },
               allow: { to: { element: { type: "common" } } },
@@ -204,16 +246,32 @@ export default tseslint.config(
               allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
             },
             {
+              from: { element: { type: "common" } },
+              allow: { to: { element: { type: "icons", fileInternalPath: "index.ts" } } },
+            },
+            {
               from: { element: { type: "layout" } },
               allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "layout" } },
+              allow: { to: { element: { type: "icons", fileInternalPath: "index.ts" } } },
             },
             {
               from: { element: { type: "feature" } },
               allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
             },
             {
+              from: { element: { type: "feature" } },
+              allow: { to: { element: { type: "icons", fileInternalPath: "index.ts" } } },
+            },
+            {
               from: { element: { type: "shared" } },
               allow: { to: { element: { type: "ui", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "shared" } },
+              allow: { to: { element: { type: "icons", fileInternalPath: "index.ts" } } },
             },
             {
               from: { element: { type: "app" } },

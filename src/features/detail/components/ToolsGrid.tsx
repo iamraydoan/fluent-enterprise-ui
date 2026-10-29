@@ -1,8 +1,5 @@
 import { useState } from "react";
 import {
-  Body1Strong,
-  Button,
-  Caption1,
   ChevronDown20Regular,
   ChevronRight20Regular,
   ColumnTriple20Regular,
@@ -10,6 +7,11 @@ import {
   Eye20Filled,
   MoreVertical20Regular,
   PlugConnected20Regular,
+} from "@/components/icons";
+import {
+  Body1Strong,
+  Button,
+  Caption1,
   Popover,
   PopoverSurface,
   PopoverTrigger,
