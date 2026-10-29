@@ -106,4 +106,4 @@ export {
   Wrench16Regular,
   Wrench20Regular,
   Wrench24Regular,
-} from "./icons";
+} from "@fluentui/react-icons";

@@ -195,11 +195,24 @@ export default tseslint.config(
     files: ["src/components/common/DetailShell.tsx"],
     rules: { "no-restricted-imports": ["error", fluentBan] },
   },
-  // Barrel exception: icons/index.ts re-exports its own folder via relative paths.
-  // It still may not import Fluent directly or an icons subfile by alias.
+  // Barrel exception: icons/index.ts is the approved boundary for Fluent icons.
+  // It may re-export icon implementations directly, but not Fluent components.
   {
     files: ["src/components/icons/index.ts"],
-    rules: { "no-restricted-imports": ["error", fluentBan] },
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "@fluentui/react-components",
+              message: "Import UI components only from @/components/ui.",
+            },
+          ],
+          patterns: [...coreBan.patterns],
+        },
+      ],
+    },
   },
   // i18n enforcement: user-visible strings must go through t().
   // Only JSX text and JSX attributes are checked (mode jsx-only); plain
