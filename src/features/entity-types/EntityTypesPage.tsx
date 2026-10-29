@@ -1,9 +1,9 @@
 import { createColumnHelper } from "@tanstack/react-table";
-import type { ColumnDef } from "@tanstack/react-table";
 import { useCallback, useMemo } from "react";
 import { useEntityTypes } from "@/api";
 import type { EntityTypeRecord } from "@/api";
 import { DataTableCard, ListPageHeader } from "@/components/common";
+import type { DataTableFeatures } from "@/components/common";
 import {
   Add24Regular,
   ArrowDownload24Regular,
@@ -16,7 +16,7 @@ import {
 import { TableCellLayout } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
-const columnHelper = createColumnHelper<EntityTypeRecord>();
+const columnHelper = createColumnHelper<DataTableFeatures, EntityTypeRecord>();
 
 const STATE_OPTIONS = ["all", "active", "terminated"];
 
@@ -34,45 +34,46 @@ export function EntityTypesPage() {
     ),
     [t],
   );
-  const columns = useMemo<ColumnDef<EntityTypeRecord>[]>(
-    () => [
-      columnHelper.accessor("name", {
-        header: () => t("entityTypes.columns.name"),
-        cell: (info) => <TableCellLayout truncate>{info.getValue()}</TableCellLayout>,
-        meta: { labelKey: "entityTypes.columns.name", locked: true, width: "22%" },
-      }),
-      columnHelper.accessor("description", {
-        header: () => t("entityTypes.columns.description"),
-        cell: (info) => (
-          <TableCellLayout truncate title={info.getValue()}>
-            {info.getValue()}
-          </TableCellLayout>
-        ),
-        meta: { labelKey: "entityTypes.columns.description", width: "22%" },
-      }),
-      columnHelper.accessor("system", {
-        header: () => t("entityTypes.columns.system"),
-        cell: (info) => renderBoolean(info.getValue()),
-        meta: { labelKey: "entityTypes.columns.system", width: "14%", centered: true },
-      }),
-      columnHelper.accessor((row) => row.isRelation, {
-        id: "relation",
-        header: () => t("entityTypes.columns.relation"),
-        cell: (info) => renderBoolean(info.getValue()),
-        meta: { labelKey: "entityTypes.columns.relation", width: "14%", centered: true },
-      }),
-      columnHelper.accessor("versioned", {
-        header: () => t("entityTypes.columns.versioned"),
-        cell: (info) => renderBoolean(info.getValue()),
-        meta: { labelKey: "entityTypes.columns.versioned", width: "14%", centered: true },
-      }),
-      columnHelper.accessor("state", {
-        header: () => t("entityTypes.columns.state"),
-        cell: (info) =>
-          info.getValue() === "Active" ? t("common.active") : t("common.terminated"),
-        meta: { labelKey: "entityTypes.columns.state", width: "14%" },
-      }),
-    ],
+  const columns = useMemo(
+    () =>
+      columnHelper.columns([
+        columnHelper.accessor("name", {
+          header: () => t("entityTypes.columns.name"),
+          cell: (info) => <TableCellLayout truncate>{info.getValue()}</TableCellLayout>,
+          meta: { labelKey: "entityTypes.columns.name", locked: true, width: "22%" },
+        }),
+        columnHelper.accessor("description", {
+          header: () => t("entityTypes.columns.description"),
+          cell: (info) => (
+            <TableCellLayout truncate title={info.getValue()}>
+              {info.getValue()}
+            </TableCellLayout>
+          ),
+          meta: { labelKey: "entityTypes.columns.description", width: "22%" },
+        }),
+        columnHelper.accessor("system", {
+          header: () => t("entityTypes.columns.system"),
+          cell: (info) => renderBoolean(info.getValue()),
+          meta: { labelKey: "entityTypes.columns.system", width: "14%", centered: true },
+        }),
+        columnHelper.accessor((row) => row.isRelation, {
+          id: "relation",
+          header: () => t("entityTypes.columns.relation"),
+          cell: (info) => renderBoolean(info.getValue()),
+          meta: { labelKey: "entityTypes.columns.relation", width: "14%", centered: true },
+        }),
+        columnHelper.accessor("versioned", {
+          header: () => t("entityTypes.columns.versioned"),
+          cell: (info) => renderBoolean(info.getValue()),
+          meta: { labelKey: "entityTypes.columns.versioned", width: "14%", centered: true },
+        }),
+        columnHelper.accessor("state", {
+          header: () => t("entityTypes.columns.state"),
+          cell: (info) =>
+            info.getValue() === "Active" ? t("common.active") : t("common.terminated"),
+          meta: { labelKey: "entityTypes.columns.state", width: "14%" },
+        }),
+      ]),
     [t, renderBoolean],
   );
   return (

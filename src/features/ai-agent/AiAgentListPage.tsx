@@ -1,6 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
 import { createColumnHelper } from "@tanstack/react-table";
-import type { ColumnDef } from "@tanstack/react-table";
 import { useCallback, useMemo } from "react";
 import { useAiAgents } from "@/api";
 import type { AiAgentRecord } from "@/api";
@@ -10,6 +9,7 @@ import {
   RECORD_STATE_LABELS,
   RECORD_STATE_OPTIONS,
 } from "@/components/common";
+import type { DataTableFeatures } from "@/components/common";
 import {
   Add24Regular,
   ArrowSync24Regular,
@@ -20,7 +20,7 @@ import { useAppTranslation } from "@/i18n";
 import { useTabsStore } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
 
-const columnHelper = createColumnHelper<AiAgentRecord>();
+const columnHelper = createColumnHelper<DataTableFeatures, AiAgentRecord>();
 
 export function AiAgentListPage() {
   const { t } = useAppTranslation();
@@ -35,40 +35,41 @@ export function AiAgentListPage() {
     },
     [navigate, openRoute],
   );
-  const columns = useMemo<ColumnDef<AiAgentRecord>[]>(
-    () => [
-      columnHelper.accessor("name", {
-        header: () => t("aiAgent.columns.agent"),
-        cell: (info) => (
-          <a
-            className={sharedStyles.tableLink}
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              openDetail(info.getValue());
-            }}
-          >
-            {info.getValue()}
-          </a>
-        ),
-        meta: { labelKey: "aiAgent.columns.agent", locked: true, width: "25%" },
-      }),
-      columnHelper.accessor("description", {
-        header: () => t("aiAgent.columns.description"),
-        cell: (info) => info.getValue(),
-        meta: { labelKey: "aiAgent.columns.description", width: "40%" },
-      }),
-      columnHelper.accessor("mcpServers", {
-        header: () => t("aiAgent.columns.mcpServers"),
-        cell: (info) => info.getValue(),
-        meta: { labelKey: "aiAgent.columns.mcpServers", width: "15%" },
-      }),
-      columnHelper.accessor("state", {
-        header: () => t("aiAgent.columns.state"),
-        cell: (info) => t(RECORD_STATE_LABELS[info.getValue()] ?? "common.active"),
-        meta: { labelKey: "aiAgent.columns.state", width: "20%" },
-      }),
-    ],
+  const columns = useMemo(
+    () =>
+      columnHelper.columns([
+        columnHelper.accessor("name", {
+          header: () => t("aiAgent.columns.agent"),
+          cell: (info) => (
+            <a
+              className={sharedStyles.tableLink}
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                openDetail(info.getValue());
+              }}
+            >
+              {info.getValue()}
+            </a>
+          ),
+          meta: { labelKey: "aiAgent.columns.agent", locked: true, width: "25%" },
+        }),
+        columnHelper.accessor("description", {
+          header: () => t("aiAgent.columns.description"),
+          cell: (info) => info.getValue(),
+          meta: { labelKey: "aiAgent.columns.description", width: "40%" },
+        }),
+        columnHelper.accessor("mcpServers", {
+          header: () => t("aiAgent.columns.mcpServers"),
+          cell: (info) => info.getValue(),
+          meta: { labelKey: "aiAgent.columns.mcpServers", width: "15%" },
+        }),
+        columnHelper.accessor("state", {
+          header: () => t("aiAgent.columns.state"),
+          cell: (info) => t(RECORD_STATE_LABELS[info.getValue()] ?? "common.active"),
+          meta: { labelKey: "aiAgent.columns.state", width: "20%" },
+        }),
+      ]),
     [t, sharedStyles, openDetail],
   );
   return (

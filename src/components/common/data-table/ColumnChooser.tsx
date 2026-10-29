@@ -1,4 +1,5 @@
-import type { RowData, Table } from "@tanstack/react-table";
+import type { ReactTable, RowData } from "@tanstack/react-table";
+import type { DataTableFeatures } from "@/components/common/data-table/tableFeatures";
 import { ArrowDown20Regular, ArrowUp20Regular, ColumnTriple20Regular } from "@/components/icons";
 import {
   Button,
@@ -20,12 +21,12 @@ export interface DataTableMeta {
 }
 
 interface ColumnChooserProps<TRow extends RowData> {
-  table: Table<TRow>;
+  table: ReactTable<DataTableFeatures, TRow>;
 }
 
 export function ColumnChooser<TRow extends RowData>({ table }: ColumnChooserProps<TRow>) {
   const { t } = useAppTranslation();
-  const stateOrder = table.getState().columnOrder;
+  const stateOrder = table.state.columnOrder;
   const allIds = table.getAllLeafColumns().map((column) => column.id);
   const orderedIds = stateOrder.length > 0 ? stateOrder : allIds;
   const moveColumn = (id: string, direction: -1 | 1) => {

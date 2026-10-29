@@ -1,11 +1,11 @@
-import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { useTable } from "@tanstack/react-table";
 import type {
   ColumnDef,
   ColumnOrderState,
+  ColumnVisibilityState,
   PaginationState,
   RowData,
   SortingState,
-  VisibilityState,
 } from "@tanstack/react-table";
 import { useState } from "react";
 import type { ReactElement } from "react";
@@ -13,6 +13,10 @@ import { StateFilter } from "@/components/common/StateFilter";
 import { ColumnChooser } from "@/components/common/data-table/ColumnChooser";
 import type { DataTableMeta } from "@/components/common/data-table/ColumnChooser";
 import { TablePagination } from "@/components/common/data-table/TablePagination";
+import {
+  dataTableFeatures,
+  type DataTableFeatures,
+} from "@/components/common/data-table/tableFeatures";
 import { MoreVertical20Regular } from "@/components/icons";
 import {
   Button,
@@ -52,7 +56,7 @@ interface DataTableQueryResult<TRow> {
 interface DataTableCardProps<TRow extends RowData> {
   title: (count: number) => string;
   ariaLabel: string;
-  columns: ColumnDef<TRow>[];
+  columns: ColumnDef<DataTableFeatures, TRow>[];
   stateOptions: string[];
   searchIcon?: ReactElement;
   useListQuery: (params: DataTableQueryParams) => DataTableQueryResult<TRow>;
@@ -76,9 +80,10 @@ export function DataTableCard<TRow extends RowData>({
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedSearch = useDebouncedValue(searchQuery, 300);
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [columnVisibility, setColumnVisibility] = useState<ColumnVisibilityState>({});
   const [columnOrder, setColumnOrder] = useState<ColumnOrderState>([]);
   const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 25 });
+  const [emptyRows] = useState<TRow[]>([]);
 
   const resetPage = () => setPagination((p) => ({ ...p, pageIndex: 0 }));
 
@@ -89,12 +94,13 @@ export function DataTableCard<TRow extends RowData>({
     q: debouncedSearch === "" ? undefined : debouncedSearch,
     state: stateFilter === "all" ? undefined : stateFilter,
   });
-  const rows = data?.data ?? [];
+  const rows = data?.data ?? emptyRows;
   const total = data?.meta.total ?? 0;
 
-  const table = useReactTable({
-    data: rows,
+  const table = useTable({
+    features: dataTableFeatures,
     columns,
+    data: rows,
     rowCount: total,
     getRowId,
     state: { sorting, columnVisibility, columnOrder, pagination },
@@ -102,7 +108,6 @@ export function DataTableCard<TRow extends RowData>({
     onColumnVisibilityChange: setColumnVisibility,
     onColumnOrderChange: setColumnOrder,
     onPaginationChange: setPagination,
-    getCoreRowModel: getCoreRowModel(),
     manualSorting: true,
     manualPagination: true,
   });
@@ -207,7 +212,7 @@ export function DataTableCard<TRow extends RowData>({
                             className={sharedStyles.tableHeaderButton}
                             onClick={header.column.getToggleSortingHandler()}
                           >
-                            {flexRender(header.column.columnDef.header, header.getContext())}
+                            <table.FlexRender header={header} />
                           </button>
                         </div>
                       )}
@@ -225,7 +230,7 @@ export function DataTableCard<TRow extends RowData>({
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id} className={sharedStyles.tableCell}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    <table.FlexRender cell={cell} />
                   </TableCell>
                 ))}
               </TableRow>
