@@ -72,6 +72,7 @@ const useDetailStyles = makeStyles({
     fontSize: "12px",
     fontWeight: 400,
     borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    textTransform: "uppercase",
   },
   groupRow: { backgroundColor: "#EFEFEF", cursor: "pointer" },
   td: { height: "34.5px", fontSize: "13px" },

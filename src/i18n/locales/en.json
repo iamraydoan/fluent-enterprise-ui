@@ -22,10 +22,10 @@
       "information": "Information"
     },
     "columns": {
-      "agent": "AGENT",
-      "description": "DESCRIPTION",
-      "mcpServers": "MCP SERVERS",
-      "state": "STATE"
+      "agent": "Agent",
+      "description": "Description",
+      "mcpServers": "MCP Servers",
+      "state": "State"
     },
     "createdBy": "Created 12/10/2026 by Nguyen Minh Anh",
     "deferred": "Deferred",
@@ -49,10 +49,10 @@
       "universalState": "Universal State"
     },
     "historyColumns": {
-      "action": "ACTION",
-      "date": "DATE",
-      "details": "DETAILS",
-      "user": "USER"
+      "action": "Action",
+      "date": "Date",
+      "details": "Details",
+      "user": "User"
     },
     "historyTitle": "History ({{count}})",
     "listTitle": "AI Agents ({{count}})",
@@ -70,9 +70,9 @@
       "mcpServers": "MCP Servers"
     },
     "toolsColumns": {
-      "deferred": "DEFERRED",
-      "description": "DESCRIPTION",
-      "tool": "TOOL"
+      "deferred": "Deferred",
+      "description": "Description",
+      "tool": "Tool"
     },
     "toolsGroupCount": "({{count}} Tools)",
     "toolsTitle": "MCP Server Tools ({{count}})",
@@ -127,10 +127,10 @@
   },
   "apps": {
     "columns": {
-      "app": "APP",
-      "description": "DESCRIPTION",
-      "state": "STATE",
-      "type": "TYPE"
+      "app": "App",
+      "description": "Description",
+      "state": "State",
+      "type": "Type"
     },
     "descriptions": {
       "maintenance": "Equipment maintenance app",
@@ -178,10 +178,10 @@
   },
   "configuration": {
     "columns": {
-      "modified": "MODIFIED",
-      "scope": "SCOPE",
-      "setting": "SETTING",
-      "value": "VALUE"
+      "modified": "Modified",
+      "scope": "Scope",
+      "setting": "Setting",
+      "value": "Value"
     },
     "listTitle": "Configuration ({{count}})",
     "pageLabel": "Configuration",
@@ -253,16 +253,16 @@
     },
     "help": "Help",
     "manageMcp": {
-      "clearSelected": "Clear selected tools",
-      "mcpServers": "MCP SERVERS",
-      "noTools": "No tools selected",
-      "searchTools": "Search tools",
-      "selectAllTools": "Select all tools",
+      "clearSelected": "Clear Selected Tools",
+      "mcpServers": "MCP Servers",
+      "noTools": "No Tools Selected",
+      "searchTools": "Search Tools",
+      "selectAllTools": "Select All Tools",
       "selectTools": "Select MCP Server Tools",
       "selectedTools": "Selected Tools ({{count}})",
       "serverCount": "{{selected}}/{{total}}",
       "title": "Manage MCP Servers",
-      "tools": "TOOLS",
+      "tools": "Tools",
       "viewTool": "View {{tool}}"
     },
     "toolDescription": {
@@ -280,12 +280,12 @@
       "versioned": "Versioned"
     },
     "columns": {
-      "description": "DESCRIPTION",
-      "name": "ENTITY TYPE",
-      "relation": "RELATION",
-      "state": "STATE",
-      "system": "SYSTEM",
-      "versioned": "VERSIONED"
+      "description": "Description",
+      "name": "Entity type",
+      "relation": "Relation",
+      "state": "State",
+      "system": "System",
+      "versioned": "Versioned"
     },
     "pageLabel": "Entity Types",
     "resetAll": "Reset all",
@@ -309,9 +309,9 @@
       "server": "AI MCP Server"
     },
     "columns": {
-      "description": "DESCRIPTION",
-      "name": "NAME",
-      "state": "STATE",
+      "description": "Description",
+      "name": "Name",
+      "state": "State",
       "url": "URL"
     },
     "descriptions": {
@@ -353,8 +353,8 @@
     },
     "synchronize": "Synchronize",
     "toolsColumns": {
-      "description": "DESCRIPTION",
-      "name": "NAME"
+      "description": "Description",
+      "name": "Name"
     },
     "toolsTitle": "Tools ({{count}})"
   },

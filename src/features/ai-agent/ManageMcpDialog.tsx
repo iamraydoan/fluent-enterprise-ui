@@ -50,6 +50,7 @@ const useManageStyles = makeStyles({
     position: "sticky",
     top: 0,
     zIndex: 1,
+    textTransform: "uppercase",
   },
   row: {
     minHeight: "45px",

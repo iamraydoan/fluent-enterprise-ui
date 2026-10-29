@@ -123,6 +123,7 @@ export const useSharedStyles = makeStyles({
     height: "38px",
     fontSize: "12px",
     fontWeight: 400,
+    textTransform: "uppercase",
   },
   tableHeaderButton: {
     display: "inline-flex",
@@ -131,6 +132,7 @@ export const useSharedStyles = makeStyles({
     border: "none",
     background: "transparent",
     font: "inherit",
+    textTransform: "inherit",
     cursor: "pointer",
     color: "#222",
     padding: 0,

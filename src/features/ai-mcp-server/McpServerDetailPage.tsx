@@ -65,6 +65,7 @@ const useMcpDetailStyles = makeStyles({
     fontSize: "12px",
     fontWeight: 400,
     borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    textTransform: "uppercase",
   },
   td: { height: "34.5px", fontSize: "13px" },
   foot: {
