@@ -130,12 +130,6 @@
     "save": "保存",
     "search": "検索",
     "stateFilterLabel": "状態:",
-    "stateOptions": {
-      "all": "すべて",
-      "active": "アクティブ",
-      "draft": "下書き",
-      "terminated": "終了"
-    },
     "syncCompleted": "完了",
     "syncPending": "保留中",
     "terminated": "終了",

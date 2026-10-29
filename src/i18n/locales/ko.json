@@ -130,12 +130,6 @@
     "save": "저장",
     "search": "검색",
     "stateFilterLabel": "상태:",
-    "stateOptions": {
-      "all": "전체",
-      "active": "활성",
-      "draft": "초안",
-      "terminated": "종료"
-    },
     "syncCompleted": "완료",
     "syncPending": "대기 중",
     "terminated": "종료",

@@ -130,12 +130,6 @@
     "save": "Lưu",
     "search": "Tìm kiếm",
     "stateFilterLabel": "Trạng thái:",
-    "stateOptions": {
-      "all": "TẤT CẢ",
-      "active": "HOẠT ĐỘNG",
-      "draft": "NHÁP",
-      "terminated": "ĐÃ KẾT THÚC"
-    },
     "syncCompleted": "Hoàn tất",
     "syncPending": "Đang chờ",
     "terminated": "Đã kết thúc",

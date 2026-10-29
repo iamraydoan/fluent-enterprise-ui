@@ -1,4 +1,5 @@
 import type { AiAgentDetail, AiAgentRecord } from "@/api";
+import { RecordState } from "@/api";
 
 export function buildAiAgentSeeds(): AiAgentRecord[] {
   return [
@@ -6,31 +7,31 @@ export function buildAiAgentSeeds(): AiAgentRecord[] {
       name: "CM MES Agent",
       description: "Answers questions about MES documents and entity revisions",
       mcpServers: 2,
-      state: "Active",
+      state: RecordState.Active,
     },
     {
       name: "AnalyticsViewAgent",
       description: "Builds and refines analytics dashboards for Analytics Views",
       mcpServers: 1,
-      state: "Active",
+      state: RecordState.Active,
     },
     {
       name: "Quality Assistant",
       description: "Helps review non-conformance reports",
       mcpServers: 1,
-      state: "Active",
+      state: RecordState.Active,
     },
     {
       name: "Document Summarizer",
       description: "Summarizes attachments and documents",
       mcpServers: 1,
-      state: "Active",
+      state: RecordState.Active,
     },
     {
       name: "Maintenance Planner",
       description: "Suggests maintenance schedules",
       mcpServers: 0,
-      state: "Draft",
+      state: RecordState.Draft,
     },
   ];
 }

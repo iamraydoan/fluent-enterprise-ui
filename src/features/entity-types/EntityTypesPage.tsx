@@ -1,9 +1,8 @@
-import { createColumnHelper } from "@tanstack/react-table";
 import { useCallback, useMemo } from "react";
-import { useEntityTypes } from "@/api";
+import { RecordState, useEntityTypes } from "@/api";
 import type { EntityTypeRecord } from "@/api";
-import { DataTableCard, ListPageHeader } from "@/components/common";
-import type { DataTableFeatures } from "@/components/common";
+import { DataTableCard, ListPageHeader, RECORD_STATE_LABELS } from "@/components/common";
+import type { DataColumn, DataFilter } from "@/components/common";
 import {
   Add24Regular,
   ArrowDownload24Regular,
@@ -15,10 +14,7 @@ import {
 } from "@/components/icons";
 import { TableCellLayout } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-
-const columnHelper = createColumnHelper<DataTableFeatures, EntityTypeRecord>();
-
-const STATE_OPTIONS = ["all", "active", "terminated"];
+import { enumOptions } from "@/lib/enum";
 
 export function EntityTypesPage() {
   const { t } = useAppTranslation();
@@ -34,47 +30,68 @@ export function EntityTypesPage() {
     ),
     [t],
   );
-  const columns = useMemo(
-    () =>
-      columnHelper.columns([
-        columnHelper.accessor("name", {
-          header: () => t("entityTypes.columns.name"),
-          cell: (info) => <TableCellLayout truncate>{info.getValue()}</TableCellLayout>,
-          meta: { labelKey: "entityTypes.columns.name", locked: true, width: "22%" },
-        }),
-        columnHelper.accessor("description", {
-          header: () => t("entityTypes.columns.description"),
-          cell: (info) => (
-            <TableCellLayout truncate title={info.getValue()}>
-              {info.getValue()}
-            </TableCellLayout>
-          ),
-          meta: { labelKey: "entityTypes.columns.description", width: "22%" },
-        }),
-        columnHelper.accessor("system", {
-          header: () => t("entityTypes.columns.system"),
-          cell: (info) => renderBoolean(info.getValue()),
-          meta: { labelKey: "entityTypes.columns.system", width: "14%", centered: true },
-        }),
-        columnHelper.accessor((row) => row.isRelation, {
-          id: "relation",
-          header: () => t("entityTypes.columns.relation"),
-          cell: (info) => renderBoolean(info.getValue()),
-          meta: { labelKey: "entityTypes.columns.relation", width: "14%", centered: true },
-        }),
-        columnHelper.accessor("versioned", {
-          header: () => t("entityTypes.columns.versioned"),
-          cell: (info) => renderBoolean(info.getValue()),
-          meta: { labelKey: "entityTypes.columns.versioned", width: "14%", centered: true },
-        }),
-        columnHelper.accessor("state", {
-          header: () => t("entityTypes.columns.state"),
-          cell: (info) =>
-            info.getValue() === "Active" ? t("common.active") : t("common.terminated"),
-          meta: { labelKey: "entityTypes.columns.state", width: "14%" },
-        }),
-      ]),
+  const columns = useMemo<DataColumn<EntityTypeRecord>[]>(
+    () => [
+      {
+        key: "name",
+        labelKey: "entityTypes.columns.name",
+        locked: true,
+        width: "22%",
+        render: (row) => <TableCellLayout truncate>{row.name}</TableCellLayout>,
+      },
+      {
+        key: "description",
+        labelKey: "entityTypes.columns.description",
+        width: "22%",
+        render: (row) => (
+          <TableCellLayout truncate title={row.description}>
+            {row.description}
+          </TableCellLayout>
+        ),
+      },
+      {
+        key: "system",
+        labelKey: "entityTypes.columns.system",
+        width: "14%",
+        align: "center",
+        render: (row) => renderBoolean(row.system),
+      },
+      {
+        key: "relation",
+        labelKey: "entityTypes.columns.relation",
+        width: "14%",
+        align: "center",
+        getValue: (row) => row.isRelation,
+        render: (row) => renderBoolean(row.isRelation),
+      },
+      {
+        key: "versioned",
+        labelKey: "entityTypes.columns.versioned",
+        width: "14%",
+        align: "center",
+        render: (row) => renderBoolean(row.versioned),
+      },
+      {
+        key: "state",
+        labelKey: "entityTypes.columns.state",
+        width: "14%",
+        render: (row) => t(RECORD_STATE_LABELS[row.state]),
+      },
+    ],
     [t, renderBoolean],
+  );
+  const filters = useMemo<DataFilter[]>(
+    () => [
+      {
+        type: "select",
+        param: "state",
+        labelKey: "common.stateFilterLabel",
+        includeAll: true,
+        options: enumOptions([RecordState.Active, RecordState.Terminated], RECORD_STATE_LABELS),
+      },
+      { type: "search", param: "q" },
+    ],
+    [],
   );
   return (
     <>
@@ -96,7 +113,7 @@ export function EntityTypesPage() {
         title={(count) => t("entityTypes.title", { count })}
         ariaLabel={t("entityTypes.pageLabel")}
         columns={columns}
-        stateOptions={STATE_OPTIONS}
+        filters={filters}
         useListQuery={useEntityTypes}
         getRowId={(row) => row.id}
       />

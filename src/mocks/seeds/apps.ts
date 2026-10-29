@@ -1,12 +1,13 @@
 import type { AppRecord } from "@/api";
+import { RecordState } from "@/api";
 
-type AppSeedRow = [name: string, description: string, type: string, state: string];
+type AppSeedRow = [name: string, description: string, type: string, state: RecordState];
 
 const APP_SEED_ROWS: AppSeedRow[] = [
-  ["Shop Floor", "Operator console for work orders", "System", "Active"],
-  ["Quality", "Inspection and NCR handling", "System", "Active"],
-  ["Maintenance", "Equipment maintenance app", "User defined", "Active"],
-  ["Traceability", "Genealogy and lot tracking", "System", "Active"],
+  ["Shop Floor", "Operator console for work orders", "System", RecordState.Active],
+  ["Quality", "Inspection and NCR handling", "System", RecordState.Active],
+  ["Maintenance", "Equipment maintenance app", "User defined", RecordState.Active],
+  ["Traceability", "Genealogy and lot tracking", "System", RecordState.Active],
 ];
 
 export function buildAppSeeds(): AppRecord[] {

@@ -1,26 +1,14 @@
 import { useNavigate } from "@tanstack/react-router";
-import { createColumnHelper } from "@tanstack/react-table";
 import { useCallback, useMemo } from "react";
-import { useAiAgents } from "@/api";
+import { RecordState, useAiAgents } from "@/api";
 import type { AiAgentRecord } from "@/api";
-import {
-  DataTableCard,
-  ListPageHeader,
-  RECORD_STATE_LABELS,
-  RECORD_STATE_OPTIONS,
-} from "@/components/common";
-import type { DataTableFeatures } from "@/components/common";
-import {
-  Add24Regular,
-  ArrowSync24Regular,
-  Bot20Regular,
-  Search20Regular,
-} from "@/components/icons";
+import { DataTableCard, ListPageHeader, RECORD_STATE_LABELS } from "@/components/common";
+import type { DataColumn, DataFilter } from "@/components/common";
+import { Add24Regular, ArrowSync24Regular, Bot20Regular } from "@/components/icons";
 import { useAppTranslation } from "@/i18n";
+import { enumOptions } from "@/lib/enum";
 import { useTabsStore } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
-
-const columnHelper = createColumnHelper<DataTableFeatures, AiAgentRecord>();
 
 export function AiAgentListPage() {
   const { t } = useAppTranslation();
@@ -35,42 +23,52 @@ export function AiAgentListPage() {
     },
     [navigate, openRoute],
   );
-  const columns = useMemo(
-    () =>
-      columnHelper.columns([
-        columnHelper.accessor("name", {
-          header: () => t("aiAgent.columns.agent"),
-          cell: (info) => (
-            <a
-              className={sharedStyles.tableLink}
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                openDetail(info.getValue());
-              }}
-            >
-              {info.getValue()}
-            </a>
-          ),
-          meta: { labelKey: "aiAgent.columns.agent", locked: true, width: "25%" },
-        }),
-        columnHelper.accessor("description", {
-          header: () => t("aiAgent.columns.description"),
-          cell: (info) => info.getValue(),
-          meta: { labelKey: "aiAgent.columns.description", width: "40%" },
-        }),
-        columnHelper.accessor("mcpServers", {
-          header: () => t("aiAgent.columns.mcpServers"),
-          cell: (info) => info.getValue(),
-          meta: { labelKey: "aiAgent.columns.mcpServers", width: "15%" },
-        }),
-        columnHelper.accessor("state", {
-          header: () => t("aiAgent.columns.state"),
-          cell: (info) => t(RECORD_STATE_LABELS[info.getValue()] ?? "common.active"),
-          meta: { labelKey: "aiAgent.columns.state", width: "20%" },
-        }),
-      ]),
+  const columns = useMemo<DataColumn<AiAgentRecord>[]>(
+    () => [
+      {
+        key: "name",
+        labelKey: "aiAgent.columns.agent",
+        locked: true,
+        width: "25%",
+        render: (row) => (
+          <a
+            className={sharedStyles.tableLink}
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              openDetail(row.name);
+            }}
+          >
+            {row.name}
+          </a>
+        ),
+      },
+      { key: "description", labelKey: "aiAgent.columns.description", width: "40%" },
+      { key: "mcpServers", labelKey: "aiAgent.columns.mcpServers", width: "15%" },
+      {
+        key: "state",
+        labelKey: "aiAgent.columns.state",
+        width: "20%",
+        render: (row) => t(RECORD_STATE_LABELS[row.state]),
+      },
+    ],
     [t, sharedStyles, openDetail],
+  );
+  const filters = useMemo<DataFilter[]>(
+    () => [
+      {
+        type: "select",
+        param: "state",
+        labelKey: "common.stateFilterLabel",
+        includeAll: true,
+        options: enumOptions(
+          [RecordState.Active, RecordState.Draft, RecordState.Terminated],
+          RECORD_STATE_LABELS,
+        ),
+      },
+      { type: "search", param: "q" },
+    ],
+    [],
   );
   return (
     <>
@@ -87,8 +85,7 @@ export function AiAgentListPage() {
         title={(count) => t("aiAgent.listTitle", { count })}
         ariaLabel={t("aiAgent.pageLabel")}
         columns={columns}
-        stateOptions={RECORD_STATE_OPTIONS}
-        searchIcon={<Search20Regular />}
+        filters={filters}
         useListQuery={useAiAgents}
         getRowId={(row) => row.name}
         onRowClick={(row) => openDetail(row.name)}

@@ -1,4 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import type { ListQueryParams } from "@/lib/listQuery";
+import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
 
@@ -6,7 +8,7 @@ export interface McpServerRecord {
   name: string;
   description: string;
   url: string;
-  state: string;
+  state: RecordState;
 }
 
 export interface McpServerAuthentication {
@@ -30,21 +32,15 @@ export interface McpServerDetail {
   tools: string[][];
 }
 
-export interface McpServerListParams {
-  page: number;
-  limit: number;
-  sort?: string;
-  q?: string;
-  state?: string;
-}
+export type McpServerListParams = ListQueryParams;
 
 export function listMcpServers(params: McpServerListParams): Promise<Page<McpServerRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.sort) search.set("sort", params.sort);
-  if (params.q) search.set("q", params.q);
-  if (params.state) search.set("state", params.state);
+  if (params.filters?.q) search.set("q", params.filters.q);
+  if (params.filters?.state) search.set("state", params.filters.state);
   return apiFetch<Page<McpServerRecord>>(`/mcp-servers?${search.toString()}`);
 }
 

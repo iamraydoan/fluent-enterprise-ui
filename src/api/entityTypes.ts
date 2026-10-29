@@ -1,8 +1,8 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import type { ListQueryParams } from "@/lib/listQuery";
+import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
-
-export type EntityTypeState = "Active" | "Terminated";
 
 export interface EntityTypeRecord {
   id: string;
@@ -11,18 +11,13 @@ export interface EntityTypeRecord {
   system: boolean;
   versioned: boolean;
   isRelation: boolean;
-  state: EntityTypeState;
+  state: RecordState;
   lockType: string;
   createdAt: string;
   updatedAt: string;
 }
 
-export interface EntityTypeListParams {
-  page: number;
-  limit: number;
-  sort?: string;
-  q?: string;
-  state?: string;
+export interface EntityTypeListParams extends ListQueryParams {
   isRelation?: boolean;
 }
 
@@ -31,8 +26,8 @@ export function listEntityTypes(params: EntityTypeListParams): Promise<Page<Enti
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.sort) search.set("sort", params.sort);
-  if (params.q) search.set("q", params.q);
-  if (params.state) search.set("state", params.state);
+  if (params.filters?.q) search.set("q", params.filters.q);
+  if (params.filters?.state) search.set("state", params.filters.state);
   if (params.isRelation !== undefined) search.set("isRelation", String(params.isRelation));
   return apiFetch<Page<EntityTypeRecord>>(`/entity-types?${search.toString()}`);
 }

@@ -1,7 +1,8 @@
 export { API_BASE_URL, ApiError, apiFetch } from "./client";
+export { RecordState } from "@/lib/recordState";
 export type { Page, PageMeta } from "./types";
 export { listEntityTypes, useEntityTypes } from "./entityTypes";
-export type { EntityTypeListParams, EntityTypeRecord, EntityTypeState } from "./entityTypes";
+export type { EntityTypeListParams, EntityTypeRecord } from "./entityTypes";
 export { getAiAgent, listAiAgents, useAiAgent, useAiAgents } from "./aiAgent";
 export type { AiAgentDetail, AiAgentListParams, AiAgentRecord } from "./aiAgent";
 export { getMcpServer, listMcpServers, useMcpServer, useMcpServers } from "./mcpServer";

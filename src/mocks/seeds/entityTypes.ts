@@ -1,52 +1,79 @@
 import type { EntityTypeRecord } from "@/api";
+import { RecordState } from "@/api";
 
-type SeedState = "Active" | "Terminated";
-
-type SpecialEntityTypeRow = [string, string, number, number, number, SeedState];
+type SpecialEntityTypeRow = [string, string, number, number, number, RecordState];
 
 const SPECIAL_ENTITY_TYPE_ROWS: SpecialEntityTypeRow[] = [
-  ["AIAgent", "This object represents an AI Agent Definition", 1, 0, 0, "Active"],
+  ["AIAgent", "This object represents an AI Agent Definition", 1, 0, 0, RecordState.Active],
   [
     "AIAgentMCPServer",
     "This object represents the relationship between an AI Agent and an MCP Server",
     1,
     1,
     0,
-    "Active",
+    RecordState.Active,
   ],
-  ["AIMCPServer", "This object represents MCP Server configuration", 1, 0, 0, "Active"],
-  ["AnalyticsView", "This object represents a unique Analytics View", 1, 0, 0, "Active"],
-  ["App", "Represents an App, either system app or user defined app", 1, 0, 0, "Active"],
-  ["Area", "Area Object", 1, 0, 0, "Active"],
-  ["AreaSupplyArea", "AreaSupplyArea Object", 1, 0, 0, "Active"],
-  ["AreaTransferRequirementType", "AreaTransferRequirementType Object", 1, 0, 0, "Active"],
-  ["Asset", "This object represents a unique Asset", 1, 0, 0, "Terminated"],
+  ["AIMCPServer", "This object represents MCP Server configuration", 1, 0, 0, RecordState.Active],
+  ["AnalyticsView", "This object represents a unique Analytics View", 1, 0, 0, RecordState.Active],
+  ["App", "Represents an App, either system app or user defined app", 1, 0, 0, RecordState.Active],
+  ["Area", "Area Object", 1, 0, 0, RecordState.Active],
+  ["AreaSupplyArea", "AreaSupplyArea Object", 1, 0, 0, RecordState.Active],
+  [
+    "AreaTransferRequirementType",
+    "AreaTransferRequirementType Object",
+    1,
+    0,
+    0,
+    RecordState.Active,
+  ],
+  ["Asset", "This object represents a unique Asset", 1, 0, 0, RecordState.Terminated],
   [
     "AssetAssetTemplate",
     "This object belongs to an Asset and categorizes it by template",
     1,
     1,
     0,
-    "Terminated",
+    RecordState.Terminated,
   ],
-  ["AssetDashboard", "Relation that maps an Asset to an UI Page dashboard", 1, 1, 0, "Terminated"],
+  [
+    "AssetDashboard",
+    "Relation that maps an Asset to an UI Page dashboard",
+    1,
+    1,
+    0,
+    RecordState.Terminated,
+  ],
   [
     "AssetDirectory",
     "This object represents an independent directory of assets",
     1,
     0,
     0,
-    "Terminated",
+    RecordState.Terminated,
   ],
-  ["AssetEvent", "This object represents the property value change event", 1, 0, 0, "Terminated"],
-  ["AssetProperty", "This object represents the property value of an asset", 1, 0, 0, "Terminated"],
+  [
+    "AssetEvent",
+    "This object represents the property value change event",
+    1,
+    0,
+    0,
+    RecordState.Terminated,
+  ],
+  [
+    "AssetProperty",
+    "This object represents the property value of an asset",
+    1,
+    0,
+    0,
+    RecordState.Terminated,
+  ],
   [
     "AssetPropertyDefinition",
     "This object represents a property definition for assets",
     1,
     0,
     0,
-    "Terminated",
+    RecordState.Terminated,
   ],
 ];
 
@@ -120,7 +147,7 @@ interface RawEntityTypeRow {
   system: boolean;
   relation: boolean;
   versioned: boolean;
-  state: SeedState;
+  state: RecordState;
 }
 
 function buildRawRows(): RawEntityTypeRow[] {
@@ -145,7 +172,9 @@ function buildRawRows(): RawEntityTypeRow[] {
       nameHash % 10 !== 0 ? 1 : 0,
       nameHash % 4 === 0 ? 1 : 0,
       nameHash % 7 === 0 ? 1 : 0,
-      generatedName.startsWith("Asset") || nameHash % 9 === 0 ? "Terminated" : "Active",
+      generatedName.startsWith("Asset") || nameHash % 9 === 0
+        ? RecordState.Terminated
+        : RecordState.Active,
     ] as SpecialEntityTypeRow;
   });
   return [...SPECIAL_ENTITY_TYPE_ROWS, ...gen]

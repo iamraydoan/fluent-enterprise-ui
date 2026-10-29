@@ -38,6 +38,18 @@ const i18nBan = [
   { name: "react-i18next", message: "Import i18n only from @/i18n." },
 ];
 
+// TanStack Table is an implementation detail of the data-table adapter.
+// Pages must use the pure DataColumn / DataFilter configs from @/components/common.
+const tanstackTableBan = {
+  paths: [
+    {
+      name: "@tanstack/react-table",
+      message:
+        "Import @tanstack/react-table only in src/components/common/data-table/**. Pages must use the pure DataColumn / DataFilter configs from @/components/common.",
+    },
+  ],
+};
+
 const noCommentsPlugin = {
   rules: {
     "no-comments": {
@@ -100,7 +112,10 @@ export default tseslint.config(
           "newlines-between": "never",
         },
       ],
-      "no-restricted-imports": ["error", { ...fluentBan, paths: [...fluentBan.paths, ...i18nBan] }],
+      "no-restricted-imports": [
+        "error",
+        { ...fluentBan, paths: [...fluentBan.paths, ...i18nBan, ...tanstackTableBan.paths] },
+      ],
     },
     linterOptions: { reportUnusedDisableDirectives: "error" },
   },
@@ -119,7 +134,7 @@ export default tseslint.config(
       "no-restricted-imports": [
         "error",
         {
-          paths: [...fluentBan.paths, ...i18nBan],
+          paths: [...fluentBan.paths, ...i18nBan, ...tanstackTableBan.paths],
           patterns: [...fluentBan.patterns, ...coreBan.patterns],
         },
       ],
@@ -133,7 +148,12 @@ export default tseslint.config(
   // Everything else imports the wrapper from @/i18n.
   {
     files: ["src/i18n/**/*.{ts,tsx}"],
-    rules: { "no-restricted-imports": ["error", fluentBan] },
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        { ...fluentBan, paths: [...fluentBan.paths, ...tanstackTableBan.paths] },
+      ],
+    },
   },
   // Wrapper layers + theme: ui and theme may import Fluent components directly
   // but not Fluent icons; icons may import Fluent icons directly but not
@@ -151,6 +171,7 @@ export default tseslint.config(
               name: "@fluentui/react-icons",
               message: "Import icons only from @/components/icons.",
             },
+            ...tanstackTableBan.paths,
           ],
           patterns: [...coreBan.patterns],
         },
@@ -169,6 +190,7 @@ export default tseslint.config(
               name: "@fluentui/react-components",
               message: "Import UI components only from @/components/ui.",
             },
+            ...tanstackTableBan.paths,
           ],
           patterns: [...coreBan.patterns],
         },
@@ -321,6 +343,10 @@ export default tseslint.config(
             {
               from: { element: { type: "api" } },
               allow: { to: { element: { type: "api" } } },
+            },
+            {
+              from: { element: { type: "api" } },
+              allow: { to: { element: { type: "shared" } } },
             },
             {
               from: { element: { type: "mocks" } },
@@ -520,6 +546,20 @@ export default tseslint.config(
     ignores: ["src/vite-env.d.ts"],
     plugins: { local: noCommentsPlugin },
     rules: { "local/no-comments": "error" },
+  },
+  // Exception: the data-table adapter itself may import TanStack Table.
+  // This restores the core-only rule (without the TanStack ban) for the adapter.
+  {
+    files: ["src/components/common/data-table/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [...fluentBan.paths, ...i18nBan],
+          patterns: [...fluentBan.patterns, ...coreBan.patterns],
+        },
+      ],
+    },
   },
   prettierConfig,
 );

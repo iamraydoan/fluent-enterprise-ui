@@ -130,12 +130,6 @@
     "save": "Save",
     "search": "Search",
     "stateFilterLabel": "STATE:",
-    "stateOptions": {
-      "all": "ALL",
-      "active": "ACTIVE",
-      "draft": "DRAFT",
-      "terminated": "TERMINATED"
-    },
     "syncCompleted": "Completed",
     "syncPending": "Pending",
     "terminated": "Terminated",

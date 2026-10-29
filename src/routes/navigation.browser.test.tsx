@@ -117,11 +117,11 @@ test("state filter still works without adding tabs", async () => {
   const screen = await renderAt("/administration/entity-types");
   await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
-  await screen.getByRole("button", { name: "STATE: ALL" }).click();
+  await screen.getByRole("button", { name: "STATE: All" }).click();
   await expect.element(screen.getByRole("menuitemradio", { name: "Active" })).toBeVisible();
   await new Promise((resolve) => setTimeout(resolve, 800));
   await screen.getByRole("menuitemradio", { name: "Active" }).click();
-  await waitForText("STATE: ACTIVE");
+  await waitForText("STATE: Active");
   expect(tabCount()).toBe(1);
 });
 

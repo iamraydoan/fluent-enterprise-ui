@@ -1,26 +1,28 @@
 import { ChevronDown20Regular } from "@/components/icons";
 import { Menu, MenuItemRadio, MenuList, MenuPopover, MenuTrigger } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-interface StateFilterProps {
+interface SelectFilterOption {
   value: string;
-  options: string[];
+  labelKey: TranslationKey;
+}
+
+interface SelectFilterProps {
+  labelKey: TranslationKey;
+  value: string;
+  options: SelectFilterOption[];
   onChange: (value: string) => void;
 }
 
-export function StateFilter({ value, options, onChange }: StateFilterProps) {
+export function SelectFilter({ labelKey, value, options, onChange }: SelectFilterProps) {
   const { t } = useAppTranslation();
   const sharedStyles = useSharedStyles();
-  const labels: Record<string, string> = {
-    all: t("common.stateOptions.all"),
-    active: t("common.stateOptions.active"),
-    draft: t("common.stateOptions.draft"),
-    terminated: t("common.stateOptions.terminated"),
-  };
+  const selected = options.find((option) => option.value === value);
   return (
     <Menu
-      checkedValues={{ state: [value] }}
+      checkedValues={{ filter: [value] }}
       onCheckedValueChange={(_, d) => {
         const next = d.checkedItems[0];
         if (next) onChange(next);
@@ -28,15 +30,15 @@ export function StateFilter({ value, options, onChange }: StateFilterProps) {
     >
       <MenuTrigger disableButtonEnhancement>
         <button className={sharedStyles.dropdownButton}>
-          {t("common.stateFilterLabel")} {labels[value] ?? labels.all}
+          {t(labelKey)} {selected ? t(selected.labelKey) : ""}
           <ChevronDown20Regular />
         </button>
       </MenuTrigger>
       <MenuPopover>
         <MenuList>
           {options.map((option) => (
-            <MenuItemRadio key={option} name="state" value={option}>
-              {labels[option] ?? option}
+            <MenuItemRadio key={option.value} name="filter" value={option.value}>
+              {t(option.labelKey)}
             </MenuItemRadio>
           ))}
         </MenuList>

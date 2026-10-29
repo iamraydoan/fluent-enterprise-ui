@@ -103,7 +103,7 @@ export function AppsListPage() {
                       size="small"
                       color={STATE_COLORS[row.state] ?? "informative"}
                     >
-                      {t(RECORD_STATE_LABELS[row.state] ?? "common.active")}
+                      {t(RECORD_STATE_LABELS[row.state])}
                     </Badge>
                   </TableCell>
                 </TableRow>

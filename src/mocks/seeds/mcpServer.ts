@@ -1,35 +1,36 @@
 import type { McpServerDetail, McpServerRecord } from "@/api";
+import { RecordState } from "@/api";
 
 export const MCP_SERVER_ROWS: McpServerRecord[] = [
   {
     name: "Cubes",
     description: "Cube.js data cubes",
     url: "http://mcp-cubejs:8080/mcp",
-    state: "Active",
+    state: RecordState.Active,
   },
   {
     name: "CM MES",
     description: "MES entities, documents and attachments",
     url: "http://mcp-cm-mes:8080/mcp",
-    state: "Active",
+    state: RecordState.Active,
   },
   {
     name: "CM Portal Documentation",
     description: "Product documentation search",
     url: "http://mcp-cm-portal-documentation:8080/mcp",
-    state: "Active",
+    state: RecordState.Active,
   },
   {
     name: "CM Data ClickHouse",
     description: "ClickHouse SQL data access",
     url: "http://mcp-cm-data-clickhouse:8080/mcp",
-    state: "Active",
+    state: RecordState.Active,
   },
   {
     name: "CM Data Grafana",
     description: "Grafana dashboards and datasources",
     url: "http://mcp-cm-data-grafana:8080/mcp",
-    state: "Draft",
+    state: RecordState.Draft,
   },
 ];
 

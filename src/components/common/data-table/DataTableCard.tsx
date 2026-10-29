@@ -1,23 +1,25 @@
 import { useTable } from "@tanstack/react-table";
 import type {
-  ColumnDef,
   ColumnOrderState,
   ColumnVisibilityState,
   PaginationState,
   RowData,
   SortingState,
 } from "@tanstack/react-table";
-import { useState } from "react";
-import type { ReactElement } from "react";
-import { StateFilter } from "@/components/common/StateFilter";
+import { useMemo, useState } from "react";
+import { SelectFilter } from "@/components/common/SelectFilter";
 import { ColumnChooser } from "@/components/common/data-table/ColumnChooser";
 import type { DataTableMeta } from "@/components/common/data-table/ColumnChooser";
 import { TablePagination } from "@/components/common/data-table/TablePagination";
+import type { DataColumn } from "@/components/common/data-table/columns";
 import {
-  dataTableFeatures,
-  type DataTableFeatures,
-} from "@/components/common/data-table/tableFeatures";
-import { MoreVertical20Regular } from "@/components/icons";
+  FILTER_ALL_VALUE,
+  allOption,
+  type DataFilter,
+} from "@/components/common/data-table/filters";
+import { toColumnDefs } from "@/components/common/data-table/tableAdapter";
+import { dataTableFeatures } from "@/components/common/data-table/tableFeatures";
+import { MoreVertical20Regular, Search20Regular } from "@/components/icons";
 import {
   Button,
   Input,
@@ -37,16 +39,9 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import type { ListQueryParams } from "@/lib/listQuery";
 import { useDebouncedValue } from "@/lib/useDebouncedValue";
 import { useSharedStyles } from "@/styles/shared";
-
-interface DataTableQueryParams {
-  page: number;
-  limit: number;
-  sort?: string;
-  q?: string;
-  state?: string;
-}
 
 interface DataTableQueryResult<TRow> {
   data?: { data: TRow[]; meta: { total: number } };
@@ -56,29 +51,41 @@ interface DataTableQueryResult<TRow> {
 interface DataTableCardProps<TRow extends RowData> {
   title: (count: number) => string;
   ariaLabel: string;
-  columns: ColumnDef<DataTableFeatures, TRow>[];
-  stateOptions: string[];
-  searchIcon?: ReactElement;
-  useListQuery: (params: DataTableQueryParams) => DataTableQueryResult<TRow>;
+  columns: DataColumn<TRow>[];
+  filters?: DataFilter[];
+  useListQuery: (params: ListQueryParams) => DataTableQueryResult<TRow>;
   getRowId?: (row: TRow) => string;
   onRowClick?: (row: TRow) => void;
+}
+
+function defaultSelectValues(filters: DataFilter[]): Record<string, string> {
+  const values: Record<string, string> = {};
+  for (const filter of filters) {
+    if (filter.type === "select") {
+      values[filter.param] = filter.includeAll
+        ? FILTER_ALL_VALUE
+        : (filter.options[0]?.value ?? "");
+    }
+  }
+  return values;
 }
 
 export function DataTableCard<TRow extends RowData>({
   title,
   ariaLabel,
   columns,
-  stateOptions,
-  searchIcon,
+  filters = [],
   useListQuery,
   getRowId,
   onRowClick,
 }: DataTableCardProps<TRow>) {
   const { t } = useAppTranslation();
   const sharedStyles = useSharedStyles();
-  const [stateFilter, setStateFilter] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
-  const debouncedSearch = useDebouncedValue(searchQuery, 300);
+  const [selectValues, setSelectValues] = useState<Record<string, string>>(() =>
+    defaultSelectValues(filters),
+  );
+  const [searchValues, setSearchValues] = useState<Record<string, string>>({});
+  const debouncedSearch = useDebouncedValue(searchValues, 300);
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnVisibility, setColumnVisibility] = useState<ColumnVisibilityState>({});
   const [columnOrder, setColumnOrder] = useState<ColumnOrderState>([]);
@@ -87,19 +94,30 @@ export function DataTableCard<TRow extends RowData>({
 
   const resetPage = () => setPagination((p) => ({ ...p, pageIndex: 0 }));
 
+  const queryFilters: Record<string, string> = {};
+  for (const filter of filters) {
+    if (filter.type === "select") {
+      const value = selectValues[filter.param];
+      if (value && value !== FILTER_ALL_VALUE) queryFilters[filter.param] = value;
+    } else {
+      const value = debouncedSearch[filter.param];
+      if (value) queryFilters[filter.param] = value;
+    }
+  }
+
   const { data, isLoading } = useListQuery({
     page: pagination.pageIndex + 1,
     limit: pagination.pageSize,
     sort: sorting.length > 0 ? `${sorting[0].desc ? "-" : ""}${sorting[0].id}` : undefined,
-    q: debouncedSearch === "" ? undefined : debouncedSearch,
-    state: stateFilter === "all" ? undefined : stateFilter,
+    filters: queryFilters,
   });
   const rows = data?.data ?? emptyRows;
   const total = data?.meta.total ?? 0;
 
+  const columnDefs = useMemo(() => toColumnDefs(columns, t), [columns, t]);
   const table = useTable({
     features: dataTableFeatures,
-    columns,
+    columns: columnDefs,
     data: rows,
     rowCount: total,
     getRowId,
@@ -113,8 +131,8 @@ export function DataTableCard<TRow extends RowData>({
   });
 
   const resetAll = () => {
-    setSearchQuery("");
-    setStateFilter("all");
+    setSelectValues(defaultSelectValues(filters));
+    setSearchValues({});
     table.resetSorting();
     table.resetColumnVisibility();
     table.resetColumnOrder();
@@ -123,28 +141,38 @@ export function DataTableCard<TRow extends RowData>({
 
   return (
     <section className={sharedStyles.contentCard} aria-label={ariaLabel}>
-      <div className={sharedStyles.filterBar}>
-        <StateFilter
-          value={stateFilter}
-          options={stateOptions}
-          onChange={(value) => {
-            setStateFilter(value);
-            resetPage();
-          }}
-        />
-        <Input
-          className={sharedStyles.searchInput}
-          appearance="outline"
-          contentBefore={searchIcon}
-          placeholder={t("common.search")}
-          value={searchQuery}
-          onChange={(_, d) => {
-            setSearchQuery(d.value);
-            resetPage();
-          }}
-          aria-label={t("common.search")}
-        />
-      </div>
+      {filters.length > 0 && (
+        <div className={sharedStyles.filterBar}>
+          {filters.map((filter) =>
+            filter.type === "select" ? (
+              <SelectFilter
+                key={filter.param}
+                labelKey={filter.labelKey}
+                value={selectValues[filter.param] ?? FILTER_ALL_VALUE}
+                options={filter.includeAll ? [allOption(), ...filter.options] : filter.options}
+                onChange={(value) => {
+                  setSelectValues((prev) => ({ ...prev, [filter.param]: value }));
+                  resetPage();
+                }}
+              />
+            ) : (
+              <Input
+                key={filter.param}
+                className={sharedStyles.searchInput}
+                appearance="outline"
+                contentBefore={<Search20Regular />}
+                placeholder={filter.placeholderKey ? t(filter.placeholderKey) : t("common.search")}
+                value={searchValues[filter.param] ?? ""}
+                onChange={(_, d) => {
+                  setSearchValues((prev) => ({ ...prev, [filter.param]: d.value }));
+                  resetPage();
+                }}
+                aria-label={t("common.search")}
+              />
+            ),
+          )}
+        </div>
+      )}
       <div className={sharedStyles.titleRow}>
         <Text weight="semibold" size={400}>
           {title(total)}
@@ -188,6 +216,7 @@ export function DataTableCard<TRow extends RowData>({
                 {headerGroup.headers.map((header) => {
                   const meta = header.column.columnDef.meta as DataTableMeta | undefined;
                   const sorted = header.column.getIsSorted();
+                  const sortable = meta?.sortable !== false;
                   return (
                     <TableHeaderCell
                       key={header.id}
@@ -208,12 +237,16 @@ export function DataTableCard<TRow extends RowData>({
                             justifyContent: meta?.centered ? "center" : "flex-start",
                           }}
                         >
-                          <button
-                            className={sharedStyles.tableHeaderButton}
-                            onClick={header.column.getToggleSortingHandler()}
-                          >
+                          {sortable ? (
+                            <button
+                              className={sharedStyles.tableHeaderButton}
+                              onClick={header.column.getToggleSortingHandler()}
+                            >
+                              <table.FlexRender header={header} />
+                            </button>
+                          ) : (
                             <table.FlexRender header={header} />
-                          </button>
+                          )}
                         </div>
                       )}
                     </TableHeaderCell>

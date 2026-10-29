@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
 
@@ -6,7 +7,7 @@ export interface AppRecord {
   name: string;
   description: string;
   type: string;
-  state: string;
+  state: RecordState;
 }
 
 export interface AppListParams {

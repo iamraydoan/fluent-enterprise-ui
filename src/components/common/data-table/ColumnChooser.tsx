@@ -18,6 +18,7 @@ export interface DataTableMeta {
   locked?: boolean;
   width?: string;
   centered?: boolean;
+  sortable?: boolean;
 }
 
 interface ColumnChooserProps<TRow extends RowData> {
