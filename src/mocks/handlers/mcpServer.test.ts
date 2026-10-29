@@ -58,6 +58,14 @@ describe("queryMcpServers", () => {
     expect(result.meta.total).toBe(5);
   });
 
+  test("filters by state case-insensitively", () => {
+    const draft = queryMcpServers({ page: 1, limit: 5, state: "draft" });
+    expect(draft.meta.total).toBe(1);
+    expect(draft.data[0].name).toBe("CM Data Grafana");
+    const active = queryMcpServers({ page: 1, limit: 5, state: "ACTIVE" });
+    expect(active.meta.total).toBe(4);
+  });
+
   test("sorts by name ascending and descending", () => {
     const asc = queryMcpServers({ page: 1, limit: 5, sort: "name" });
     const names = asc.data.map((row) => row.name);

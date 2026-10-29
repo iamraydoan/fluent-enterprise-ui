@@ -10,15 +10,29 @@ import {
   Text,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { ENTITY_COLUMN_BY_KEY } from "../data";
-import type { VisibleColumn } from "../types";
+import type { TranslationKey } from "@/i18n";
 
-interface ColumnChooserProps {
-  columns: VisibleColumn[];
-  setColumns: Dispatch<SetStateAction<VisibleColumn[]>>;
+export interface ChooserColumnDefinition {
+  labelKey: TranslationKey;
+  locked?: boolean;
 }
 
-export function ColumnChooser({ columns, setColumns }: ColumnChooserProps) {
+export interface ColumnVisibility<TKey extends string> {
+  key: TKey;
+  visible: boolean;
+}
+
+interface ColumnChooserProps<TKey extends string> {
+  columns: ColumnVisibility<TKey>[];
+  definitions: Record<TKey, ChooserColumnDefinition>;
+  setColumns: Dispatch<SetStateAction<ColumnVisibility<TKey>[]>>;
+}
+
+export function ColumnChooser<TKey extends string>({
+  columns,
+  definitions,
+  setColumns,
+}: ColumnChooserProps<TKey>) {
   const { t } = useAppTranslation();
   const moveColumn = (index: number, direction: number) =>
     setColumns((previousColumns) => {
@@ -45,16 +59,16 @@ export function ColumnChooser({ columns, setColumns }: ColumnChooserProps) {
         <Divider />
         <div style={{ padding: "4px 8px" }}>
           {columns.map((column, index) => {
-            const columnDefinition = ENTITY_COLUMN_BY_KEY[column.key];
+            const definition = definitions[column.key];
             return (
               <div
                 key={column.key}
                 style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
               >
                 <Checkbox
-                  label={t(columnDefinition.chooserLabelKey)}
+                  label={t(definition.labelKey)}
                   checked={column.visible}
-                  disabled={columnDefinition.locked}
+                  disabled={definition.locked}
                   onChange={(_, eventData) =>
                     setColumns((previousColumns) =>
                       previousColumns.map((columnState, columnIndex) =>
@@ -79,7 +93,7 @@ export function ColumnChooser({ columns, setColumns }: ColumnChooserProps) {
                     appearance="subtle"
                     icon={<ArrowDown20Regular />}
                     aria-label={t("common.moveDown")}
-                    disabled={columnDefinition.locked || index === columns.length - 1}
+                    disabled={definition.locked || index === columns.length - 1}
                     onClick={() => moveColumn(index, 1)}
                   />
                 </span>

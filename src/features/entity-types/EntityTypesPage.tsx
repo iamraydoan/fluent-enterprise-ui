@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { useDebouncedValue, useEntityTypes } from "@/api";
 import type { EntityTypeRecord } from "@/api";
-import { ActionBar, PageHeader, RibbonButton, TablePagination } from "@/components/common";
+import {
+  ActionBar,
+  ColumnChooser,
+  PageHeader,
+  RibbonButton,
+  TablePagination,
+} from "@/components/common";
+import type { ChooserColumnDefinition } from "@/components/common";
 import {
   Add24Regular,
   ArrowDown16Regular,
@@ -37,7 +44,6 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { ColumnChooser } from "./components/ColumnChooser";
 import { ENTITY_COLUMN_BY_KEY, DEFAULT_VISIBLE_COLUMNS } from "./data";
 import type { EntityColumnKey, SortState, VisibleColumn } from "./types";
 
@@ -80,6 +86,12 @@ export function EntityTypesPage() {
   const pages = Math.max(1, Math.ceil(total / pageSize));
   const currentPage = Math.min(page, pages);
   const visible = columns.filter((c) => c.visible).map((c) => ENTITY_COLUMN_BY_KEY[c.key]);
+  const chooserDefinitions: Record<EntityColumnKey, ChooserColumnDefinition> = Object.fromEntries(
+    Object.entries(ENTITY_COLUMN_BY_KEY).map(([key, column]) => [
+      key,
+      { labelKey: column.chooserLabelKey, locked: column.locked },
+    ]),
+  ) as Record<EntityColumnKey, ChooserColumnDefinition>;
   const stateLabels: Record<string, string> = {
     all: t("entityTypes.stateOptions.all"),
     active: t("entityTypes.stateOptions.active"),
@@ -217,7 +229,11 @@ export function EntityTypesPage() {
             {t("entityTypes.title", { count: total })}
           </Text>
           <div>
-            <ColumnChooser columns={columns} setColumns={setColumns} />
+            <ColumnChooser
+              columns={columns}
+              definitions={chooserDefinitions}
+              setColumns={setColumns}
+            />
             <Menu>
               <MenuTrigger disableButtonEnhancement>
                 <Button

@@ -72,6 +72,14 @@ describe("queryAiAgents", () => {
     expect(draft.data[0].name).toBe("Maintenance Planner");
   });
 
+  test("filters by state case-insensitively", () => {
+    const draft = queryAiAgents({ page: 1, limit: 5, state: "draft" });
+    expect(draft.meta.total).toBe(1);
+    expect(draft.data[0].name).toBe("Maintenance Planner");
+    const active = queryAiAgents({ page: 1, limit: 5, state: "ACTIVE" });
+    expect(active.meta.total).toBe(4);
+  });
+
   test("searches English descriptions", () => {
     const result = queryAiAgents({ page: 1, limit: 5, q: "summarizes attachments" });
     expect(result.meta.total).toBe(1);

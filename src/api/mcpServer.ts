@@ -35,6 +35,7 @@ export interface McpServerListParams {
   limit: number;
   sort?: string;
   q?: string;
+  state?: string;
 }
 
 export function listMcpServers(params: McpServerListParams): Promise<Page<McpServerRecord>> {
@@ -43,6 +44,7 @@ export function listMcpServers(params: McpServerListParams): Promise<Page<McpSer
   search.set("limit", String(params.limit));
   if (params.sort) search.set("sort", params.sort);
   if (params.q) search.set("q", params.q);
+  if (params.state) search.set("state", params.state);
   return apiFetch<Page<McpServerRecord>>(`/mcp-servers?${search.toString()}`);
 }
 

@@ -9,6 +9,7 @@ export interface AiAgentListQuery {
   limit: number;
   sort?: string;
   q?: string;
+  state?: string;
 }
 
 type SortValue = string | number;
@@ -31,6 +32,10 @@ export function queryAiAgents(query: AiAgentListQuery): Page<AiAgentRecord> {
         .toLowerCase()
         .includes(needle),
     );
+  }
+  if (query.state !== undefined && query.state !== "") {
+    const state = query.state.toLowerCase();
+    rows = rows.filter((record) => record.state.toLowerCase() === state);
   }
   const sortKey = query.sort?.startsWith("-") ? query.sort.slice(1) : query.sort;
   const descending = query.sort?.startsWith("-") ?? false;
@@ -67,6 +72,7 @@ export const aiAgentHandlers = [
         limit: Number(params.get("limit") ?? 20),
         sort: readParam(params, "sort"),
         q: readParam(params, "q"),
+        state: readParam(params, "state"),
       }),
     );
   }),

@@ -26,6 +26,7 @@ export interface AiAgentListParams {
   limit: number;
   sort?: string;
   q?: string;
+  state?: string;
 }
 
 export function listAiAgents(params: AiAgentListParams): Promise<Page<AiAgentRecord>> {
@@ -34,6 +35,7 @@ export function listAiAgents(params: AiAgentListParams): Promise<Page<AiAgentRec
   search.set("limit", String(params.limit));
   if (params.sort) search.set("sort", params.sort);
   if (params.q) search.set("q", params.q);
+  if (params.state) search.set("state", params.state);
   return apiFetch<Page<AiAgentRecord>>(`/ai-agents?${search.toString()}`);
 }
 
