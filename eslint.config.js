@@ -134,6 +134,12 @@ export default tseslint.config(
     files: ["src/components/ui/index.ts"],
     rules: { "no-restricted-imports": ["error", fluentBan] },
   },
+  // Barrel exception: common/index.ts re-exports its own folder via relative paths.
+  // It still may not import Fluent directly or a common subfile by alias.
+  {
+    files: ["src/components/common/index.ts"],
+    rules: { "no-restricted-imports": ["error", fluentBan] },
+  },
   // Architecture boundaries: layer direction + ui entry-point.
   // Ui may only be imported via its barrel by non-ui elements; ui itself
   // may import its own files (index.ts re-exports them). External packages
@@ -223,7 +229,7 @@ export default tseslint.config(
             },
             {
               from: { element: { type: "layout" } },
-              allow: { to: { element: { type: "common" } } },
+              allow: { to: { element: { type: "common", fileInternalPath: "index.ts" } } },
             },
             {
               from: { element: { type: "layout" } },
@@ -231,7 +237,7 @@ export default tseslint.config(
             },
             {
               from: { element: { type: "feature" } },
-              allow: { to: { element: { type: "common" } } },
+              allow: { to: { element: { type: "common", fileInternalPath: "index.ts" } } },
             },
             {
               from: { element: { type: "feature" } },
@@ -239,7 +245,10 @@ export default tseslint.config(
             },
             { from: { element: { type: "app" } }, allow: { to: { element: { type: "layout" } } } },
             { from: { element: { type: "app" } }, allow: { to: { element: { type: "feature" } } } },
-            { from: { element: { type: "app" } }, allow: { to: { element: { type: "common" } } } },
+            {
+              from: { element: { type: "app" } },
+              allow: { to: { element: { type: "common", fileInternalPath: "index.ts" } } },
+            },
             { from: { element: { type: "app" } }, allow: { to: { element: { type: "shared" } } } },
             { from: { element: { type: "app" } }, allow: { to: { element: { type: "routes" } } } },
             {

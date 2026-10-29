@@ -1,8 +1,6 @@
 import { useState } from "react";
 import type { ReactElement, ReactNode } from "react";
-import { ActionBar } from "@/components/common/ActionBar";
-import { PageHeader } from "@/components/common/PageHeader";
-import { RibbonButton } from "@/components/common/RibbonButton";
+import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
   ArrowSync20Regular,
   ArrowSync24Regular,

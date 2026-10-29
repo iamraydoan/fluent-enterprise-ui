@@ -1,9 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ActionBar } from "@/components/common/ActionBar";
-import { PageHeader } from "@/components/common/PageHeader";
-import { RibbonButton } from "@/components/common/RibbonButton";
-import { TablePagination } from "@/components/common/data-table/TablePagination";
+import { ActionBar, PageHeader, RibbonButton, TablePagination } from "@/components/common";
 import {
   Add24Regular,
   ArrowDown16Regular,

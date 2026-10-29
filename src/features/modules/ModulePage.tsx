@@ -1,8 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { ActionBar } from "@/components/common/ActionBar";
-import { PageHeader } from "@/components/common/PageHeader";
-import { RibbonButton } from "@/components/common/RibbonButton";
+import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
   Add24Regular,
   ArrowSync24Regular,
