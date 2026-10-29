@@ -1,23 +1,16 @@
 {
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "dbaeumer.vscode-eslint",
-                "esbenp.prettier-vscode",
-                "vitest.explorer"
-            ],
-            "settings": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode",
-                "editor.formatOnSave": true
-            }
-        }
-    },
-    "forwardPorts": [
-        5173,
-        4173
-    ],
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:24-bookworm",
-    "name": "Fluent Enterprise UI",
-    "postCreateCommand": "npm install -g pnpm@10.34.9 && pnpm install",
-    "remoteUser": "node"
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "vitest.explorer"],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "forwardPorts": [5173, 4173],
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:24-bookworm",
+  "name": "Fluent Enterprise UI",
+  "postCreateCommand": "npm install -g pnpm@10.34.9 && pnpm install",
+  "remoteUser": "node"
 }
