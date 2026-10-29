@@ -1,7 +1,6 @@
 import { useState } from "react";
 import type { ReactElement, ReactNode } from "react";
 import {
-  ArrowMaximize16Regular,
   ArrowSync24Regular,
   Edit24Regular,
   MoreVertical24Regular,
@@ -19,6 +18,9 @@ import {
   tokens,
 } from "@/components/ui";
 import { useSharedStyles } from "@/styles/shared";
+import { ActionBar } from "./ActionBar";
+import { PageHeader } from "./PageHeader";
+import { RibbonButton } from "./RibbonButton";
 
 const useDetailShellStyles = makeStyles({
   tabsRow: {
@@ -253,6 +255,7 @@ export function DetailShell({
   const sharedStyles = useSharedStyles();
   const detailShellStyles = useDetailShellStyles();
   const [showLeft, setShowLeft] = useState(true);
+  const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
   const showPanel = top === "details";
   return (
     <>
@@ -266,44 +269,49 @@ export function DetailShell({
             ))}
           </TabList>
         </div>
-        <div className={sharedStyles.actionBarButtons} style={{ paddingTop: 8 }}>
-          <div className={sharedStyles.actionBarGroup}>
-            <div className={sharedStyles.actionBarGroupButtons}>
-              <button className={sharedStyles.actionBarButton}>
-                <ArrowSync24Regular />
-                <span>Refresh</span>
-              </button>
-              <span onClick={onEdit}>
-                <button className={sharedStyles.actionBarButton}>
-                  <Edit24Regular />
-                  <span>Edit</span>
-                </button>
-              </span>
+        {!actionBarCollapsed && (
+          <ActionBar style={{ paddingTop: 8 }}>
+            <div className={sharedStyles.actionBarGroup}>
+              <div className={sharedStyles.actionBarGroupButtons}>
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<ArrowSync24Regular />}
+                  label="Refresh"
+                />
+                <span onClick={onEdit}>
+                  <RibbonButton sharedStyles={sharedStyles} icon={<Edit24Regular />} label="Edit" />
+                </span>
+              </div>
+              <div className={sharedStyles.actionBarGroupLabel}>General</div>
             </div>
-            <div className={sharedStyles.actionBarGroupLabel}>General</div>
-          </div>
-          <div className={sharedStyles.actionBarGroup}>
-            <div className={sharedStyles.actionBarGroupButtons}>
-              <span onClick={onAskAi}>
-                <button className={sharedStyles.actionBarButton}>
-                  <Sparkle24Filled style={{ color: "#B24BF3" }} />
-                  <span>Ask AI</span>
-                </button>
-              </span>
+            <div className={sharedStyles.actionBarGroup}>
+              <div className={sharedStyles.actionBarGroupButtons}>
+                <span onClick={onAskAi}>
+                  <RibbonButton
+                    sharedStyles={sharedStyles}
+                    icon={<Sparkle24Filled style={{ color: "#B24BF3" }} />}
+                    label="Ask AI"
+                  />
+                </span>
+              </div>
+              <div className={sharedStyles.actionBarGroupLabel}>MES Copilot</div>
             </div>
-            <div className={sharedStyles.actionBarGroupLabel}>MES Copilot</div>
-          </div>
-          <div className={sharedStyles.actionBarGroup}>
-            <div className={sharedStyles.actionBarGroupButtons}>
-              <button className={sharedStyles.actionBarButton}>
-                <MoreVertical24Regular />
-                <span>More</span>
-              </button>
+            <div className={sharedStyles.actionBarGroup}>
+              <div className={sharedStyles.actionBarGroupButtons}>
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<MoreVertical24Regular />}
+                  label="More"
+                />
+              </div>
+              <div className={sharedStyles.actionBarGroupLabel}>Actions</div>
             </div>
-            <div className={sharedStyles.actionBarGroupLabel}>Actions</div>
-          </div>
-        </div>
-        <div className={sharedStyles.pageHeader}>
+          </ActionBar>
+        )}
+        <PageHeader
+          collapsed={actionBarCollapsed}
+          onToggle={() => setActionBarCollapsed((v) => !v)}
+        >
           <span
             style={{ display: "inline-flex", alignItems: "center", columnGap: 8, fontSize: 13 }}
           >
@@ -311,13 +319,7 @@ export function DetailShell({
             <b style={{ fontWeight: 600 }}>{title}</b>
             <span style={{ fontSize: 12 }}>(Active)</span>
           </span>
-          <Button
-            appearance="subtle"
-            size="small"
-            icon={<ArrowMaximize16Regular />}
-            aria-label="Expand"
-          />
-        </div>
+        </PageHeader>
       </div>
 
       <div className={detailShellStyles.body}>

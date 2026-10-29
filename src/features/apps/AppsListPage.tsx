@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ActionBar, RibbonButton } from "@/components/common";
+import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
   Add24Regular,
   ArrowSync24Regular,
@@ -31,31 +31,37 @@ const STATE_COLORS: Record<string, "success" | "informative" | "danger"> = {
 export function AppsListPage() {
   const sharedStyles = useSharedStyles();
   const [searchQuery, setSearchQuery] = useState("");
+  const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
   const rows = APP_ROWS.filter((row) =>
     containsIgnoreCase(`${row.name} ${row.description} ${row.type} ${row.state}`, searchQuery),
   );
   return (
     <>
       <div className={sharedStyles.headerBlock}>
-        <ActionBar>
-          <div className={sharedStyles.actionBarGroup}>
-            <div className={sharedStyles.actionBarGroupButtons}>
-              <RibbonButton sharedStyles={sharedStyles} icon={<Add24Regular />} label="Create" />
-              <RibbonButton
-                sharedStyles={sharedStyles}
-                icon={<ArrowSync24Regular />}
-                label="Refresh"
-              />
+        {!actionBarCollapsed && (
+          <ActionBar>
+            <div className={sharedStyles.actionBarGroup}>
+              <div className={sharedStyles.actionBarGroupButtons}>
+                <RibbonButton sharedStyles={sharedStyles} icon={<Add24Regular />} label="Create" />
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<ArrowSync24Regular />}
+                  label="Refresh"
+                />
+              </div>
+              <div className={sharedStyles.actionBarGroupLabel}>General</div>
             </div>
-            <div className={sharedStyles.actionBarGroupLabel}>General</div>
-          </div>
-        </ActionBar>
-        <div className={sharedStyles.pageHeader}>
+          </ActionBar>
+        )}
+        <PageHeader
+          collapsed={actionBarCollapsed}
+          onToggle={() => setActionBarCollapsed((v) => !v)}
+        >
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 12 }}>
             <Window20Regular />
             <Text size={300}>Apps</Text>
           </span>
-        </div>
+        </PageHeader>
       </div>
 
       <section className={sharedStyles.contentCard} aria-label="Apps">

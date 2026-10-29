@@ -1,6 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { ActionBar, RibbonButton } from "@/components/common";
+import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
   Add24Regular,
   ArrowSync24Regular,
@@ -35,6 +35,7 @@ export function McpServerListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
   const rows = MCP_SERVER_ROWS.filter((row) =>
     containsIgnoreCase(`${row.name} ${row.description} ${row.url} ${row.state}`, searchQuery),
   );
@@ -46,25 +47,30 @@ export function McpServerListPage() {
   return (
     <>
       <div className={sharedStyles.headerBlock}>
-        <ActionBar>
-          <div className={sharedStyles.actionBarGroup}>
-            <div className={sharedStyles.actionBarGroupButtons}>
-              <RibbonButton sharedStyles={sharedStyles} icon={<Add24Regular />} label="Create" />
-              <RibbonButton
-                sharedStyles={sharedStyles}
-                icon={<ArrowSync24Regular />}
-                label="Refresh"
-              />
+        {!actionBarCollapsed && (
+          <ActionBar>
+            <div className={sharedStyles.actionBarGroup}>
+              <div className={sharedStyles.actionBarGroupButtons}>
+                <RibbonButton sharedStyles={sharedStyles} icon={<Add24Regular />} label="Create" />
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<ArrowSync24Regular />}
+                  label="Refresh"
+                />
+              </div>
+              <div className={sharedStyles.actionBarGroupLabel}>General</div>
             </div>
-            <div className={sharedStyles.actionBarGroupLabel}>General</div>
-          </div>
-        </ActionBar>
-        <div className={sharedStyles.pageHeader}>
+          </ActionBar>
+        )}
+        <PageHeader
+          collapsed={actionBarCollapsed}
+          onToggle={() => setActionBarCollapsed((v) => !v)}
+        >
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 12 }}>
             <PlugConnected20Regular />
             <Text size={300}>AI MCP Servers</Text>
           </span>
-        </div>
+        </PageHeader>
       </div>
 
       <section className={sharedStyles.contentCard} aria-label="AI MCP Servers">

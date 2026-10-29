@@ -171,6 +171,14 @@ export default tseslint.config(
     files: ["src/components/common/index.ts"],
     rules: { "no-restricted-imports": ["error", fluentBan] },
   },
+  // DetailShell composes sibling common components. It imports them via
+  // relative paths, not the common barrel, to avoid a barrel self-cycle,
+  // which dependency-cruiser forbids as circular. Fluent stays banned,
+  // and boundaries still requires ui/icons imports via their barrels.
+  {
+    files: ["src/components/common/DetailShell.tsx"],
+    rules: { "no-restricted-imports": ["error", fluentBan] },
+  },
   // Barrel exception: icons/index.ts re-exports its own folder via relative paths.
   // It still may not import Fluent directly or an icons subfile by alias.
   {
