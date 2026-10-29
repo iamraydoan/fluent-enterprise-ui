@@ -60,7 +60,7 @@ test("sidebar navigation opens the AI chat without adding a tab", async () => {
   await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByRole("button", { name: "AI", exact: true }).click();
-  await waitForText("Acts as a general MES assistant");
+  await waitForText("Answers questions about MES documents and entity revisions");
   expect(tabCount()).toBe(1);
 });
 
@@ -167,8 +167,8 @@ test("search filters the AI Agents list", async () => {
 
 test("chat send appends a demo reply with tool chips and new chat resets", async () => {
   const screen = renderAt("/ai");
-  await waitForText("Acts as a general MES assistant");
-  await screen.getByRole("textbox", { name: "Message MES Agent" }).fill("Hello demo");
+  await waitForText("Answers questions about MES documents and entity revisions");
+  await screen.getByRole("textbox", { name: "Message CM MES Agent" }).fill("Hello demo");
   await screen.getByRole("button", { name: "Send" }).click();
   await waitForText("get_object_by_name");
   await expect.element(screen.getByText("Hello demo", { exact: true })).toBeVisible();

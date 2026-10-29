@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
-import { useSendChat } from "@/api";
+import { useAiAgents, useSendChat } from "@/api";
 import {
   ArrowUp20Regular,
   Attach20Regular,
@@ -28,7 +28,7 @@ import {
   Tooltip,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { CHAT_AGENTS, CHAT_EXAMPLES, SEED_CHATS } from "./data";
+import { CHAT_EXAMPLES, SEED_CHATS } from "./data";
 import type { ChatSession } from "./data";
 
 const useChatStyles = makeStyles({
@@ -267,19 +267,23 @@ export function AiChatPage() {
   const { t } = useAppTranslation();
   const [chats, setChats] = useState<ChatSession[]>(SEED_CHATS);
   const [currentChatId, setCurrentChatId] = useState<string | null>(null);
-  const [agentId, setAgentId] = useState("cm");
+  const [agentName, setAgentName] = useState("");
   const [showHistory, setShowHistory] = useState(false);
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
   const { mutate: sendChat } = useSendChat();
-  const agent = CHAT_AGENTS.find((candidate) => candidate.id === agentId) ?? CHAT_AGENTS[0];
+  const { data: agentsData } = useAiAgents({ page: 1, limit: 200 });
+  const agents = agentsData?.data ?? [];
+  const agent = agents.find((candidate) => candidate.name === agentName) ?? agents[0];
   const chat = chats.find((candidate) => candidate.id === currentChatId);
   const messages = chat?.messages ?? [];
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ block: "end" });
   }, [messages.length, busy]);
+
+  if (agent === undefined) return null;
 
   const newChat = () => {
     setCurrentChatId(null);
@@ -304,7 +308,7 @@ export function AiChatPage() {
             {
               id,
               title: messageText.length > 44 ? `${messageText.slice(0, 44)}…` : messageText,
-              agent: agentId,
+              agent: agent.name,
               messages: [{ role: "user", text: messageText }],
             },
             ...previous,
@@ -314,7 +318,7 @@ export function AiChatPage() {
     setText("");
     setBusy(true);
     sendChat(
-      { message: messageText, agentId: sendingAgent.id },
+      { message: messageText, agentId: sendingAgent.name },
       {
         onSuccess: (data) => {
           setChats((previous) =>
@@ -359,10 +363,10 @@ export function AiChatPage() {
           className={chatStyles.textarea}
           rows={Math.min(6, text.split("\n").length)}
           value={text}
-          placeholder={t("aiChat.messageAgent", { agent: agent.title })}
+          placeholder={t("aiChat.messageAgent", { agent: agent.name })}
           onChange={(event) => setText(event.target.value)}
           onKeyDown={onKeyDown}
-          aria-label={t("aiChat.messageAgent", { agent: agent.title })}
+          aria-label={t("aiChat.messageAgent", { agent: agent.name })}
         />
         <div className={chatStyles.composerRow}>
           <Button
@@ -396,10 +400,10 @@ export function AiChatPage() {
     <>
       <div className={chatStyles.bar}>
         <Menu
-          checkedValues={{ agent: [agentId] }}
+          checkedValues={{ agent: [agent.name] }}
           onCheckedValueChange={(_, d) => {
             const next = d.checkedItems[0];
-            if (next) setAgentId(next);
+            if (next) setAgentName(next);
           }}
         >
           <MenuTrigger disableButtonEnhancement>
@@ -411,8 +415,8 @@ export function AiChatPage() {
           </MenuTrigger>
           <MenuPopover>
             <MenuList>
-              {CHAT_AGENTS.map((candidate) => (
-                <MenuItemRadio key={candidate.id} name="agent" value={candidate.id}>
+              {agents.map((candidate) => (
+                <MenuItemRadio key={candidate.name} name="agent" value={candidate.name}>
                   {candidate.name}
                 </MenuItemRadio>
               ))}
@@ -472,14 +476,14 @@ export function AiChatPage() {
                 )}
                 onClick={() => {
                   setCurrentChatId(candidate.id);
-                  setAgentId(candidate.agent);
+                  setAgentName(candidate.agent);
                 }}
               >
                 <Text size={300} truncate wrap={false} style={{ maxWidth: 210 }}>
                   {candidate.title}
                 </Text>
                 <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>
-                  {CHAT_AGENTS.find((item) => item.id === candidate.agent)?.name}
+                  {candidate.agent}
                 </Caption1>
               </button>
             ))}
@@ -493,7 +497,7 @@ export function AiChatPage() {
                 <span className={chatStyles.heroIcon}>
                   <Bot24Regular />
                 </span>
-                {agent.title}
+                {agent.name}
               </div>
               <Text size={300} style={{ maxWidth: 460, lineHeight: "21px" }}>
                 {agent.description}
@@ -543,7 +547,7 @@ export function AiChatPage() {
                         <Bot20Regular />
                       </span>
                       <Caption1 style={{ lineHeight: "28px" }}>
-                        {t("aiChat.thinking", { agent: agent.title })}
+                        {t("aiChat.thinking", { agent: agent.name })}
                       </Caption1>
                     </div>
                   )}

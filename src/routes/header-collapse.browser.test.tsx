@@ -210,6 +210,6 @@ test("administration hub has no header collapse toggle", async () => {
 
 test("ai chat has no header collapse toggle", async () => {
   renderAt("/ai");
-  await waitForText("Acts as a general MES assistant");
+  await waitForText("Answers questions about MES documents and entity revisions");
   expect(toggleButton()).toBeNull();
 });
