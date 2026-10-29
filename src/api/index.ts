@@ -1,5 +1,4 @@
 export { API_BASE_URL, ApiError, apiFetch } from "./client";
-export { useDebouncedValue } from "./hooks";
 export type { Page, PageMeta } from "./types";
 export { listEntityTypes, useEntityTypes } from "./entityTypes";
 export type { EntityTypeListParams, EntityTypeRecord, EntityTypeState } from "./entityTypes";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useConfigurations, useDebouncedValue } from "@/api";
+import { useConfigurations } from "@/api";
 import type { ConfigurationRecord } from "@/api";
 import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
@@ -20,6 +20,7 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { useDebouncedValue } from "@/lib/useDebouncedValue";
 import { useSharedStyles } from "@/styles/shared";
 
 export function ConfigurationListPage() {

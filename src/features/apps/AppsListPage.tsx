@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useApps, useDebouncedValue } from "@/api";
+import { useApps } from "@/api";
 import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
   Add24Regular,
@@ -20,6 +20,7 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation, type TranslationKey } from "@/i18n";
+import { useDebouncedValue } from "@/lib/useDebouncedValue";
 import { useSharedStyles } from "@/styles/shared";
 
 const STATE_COLORS: Record<string, "success" | "informative" | "danger"> = {
