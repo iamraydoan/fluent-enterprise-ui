@@ -27,6 +27,8 @@ export {
   Eye20Filled,
   Flow20Regular,
   Globe20Regular,
+  Info20Regular,
+  Mic20Regular,
   MoreVertical20Regular,
   MoreVertical24Regular,
   Navigation24Regular,

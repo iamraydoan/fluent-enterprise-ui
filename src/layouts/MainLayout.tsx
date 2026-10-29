@@ -1,7 +1,7 @@
 import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Button, makeStyles, Text, tokens } from "@/components/ui";
-import { NAVIGATION_ITEMS, getNavigationItem, routeForNav, routeForTab } from "@/data/navigation";
+import { NAVIGATION_SECTIONS, routeForSection, sectionForRoute } from "@/data/navigation";
 import { PageTabs } from "@/layouts/PageTabs";
 import { Sidebar } from "@/layouts/Sidebar";
 import { useTabsStore } from "@/stores/tabs-store";
@@ -41,10 +41,10 @@ export function MainLayout() {
   const [expanded, setExpanded] = useState(false);
   const tabs = useTabsStore((state) => state.tabs);
   const active = useTabsStore((state) => state.active);
-  const openNav = useTabsStore((state) => state.openNav);
+  const openRoute = useTabsStore((state) => state.openRoute);
   const addTab = useTabsStore((state) => state.addTab);
   const closeTab = useTabsStore((state) => state.closeTab);
-  const backFromDetail = useTabsStore((state) => state.backFromDetail);
+  const backFromTab = useTabsStore((state) => state.backFromTab);
   const setActive = useTabsStore((state) => state.setActive);
   const syncRoute = useTabsStore((state) => state.syncRoute);
   const location = useLocation();
@@ -55,44 +55,39 @@ export function MainLayout() {
   }, [location.pathname, syncRoute]);
 
   const currentTab = tabs.find((tab) => tab.id === active);
+  const currentSection = currentTab ? sectionForRoute(currentTab.route) : undefined;
 
-  const handleNavigate = (navigationId: string) => {
-    if (!getNavigationItem(navigationId)) return;
-    openNav(navigationId);
-    navigate({ to: routeForNav(navigationId) });
+  const handleNavigate = (sectionId: string) => {
+    const route = routeForSection(sectionId);
+    if (!route) return;
+    openRoute(route);
+    navigate({ to: route });
   };
   const handleSelect = (id: string) => {
     const tab = tabs.find((candidate) => candidate.id === id);
     if (!tab) return;
     setActive(id);
-    navigate({ to: routeForTab(tab) });
+    navigate({ to: tab.route });
   };
   const handleNewTab = () => {
     addTab();
-    navigate({ to: "/" });
+    navigate({ to: "/administration" });
   };
   const handleClose = (id: string) => {
     const nextActive = closeTab(id);
     if (!nextActive) {
-      navigate({ to: "/" });
+      navigate({ to: "/administration" });
       return;
     }
     const nextTab = useTabsStore.getState().tabs.find((candidate) => candidate.id === nextActive);
-    if (nextTab) navigate({ to: routeForTab(nextTab) });
+    if (nextTab) navigate({ to: nextTab.route });
   };
   const handleBack = (tab: PageTab) => {
-    if (tab.type !== "detail") return;
-    const parent = backFromDetail(tab);
-    if (!parent) {
-      navigate({ to: "/" });
-      return;
-    }
+    if (!tab.parentRoute) return;
+    const parent = backFromTab(tab);
+    if (!parent) return;
     const parentTab = useTabsStore.getState().tabs.find((candidate) => candidate.id === parent);
-    if (parentTab) {
-      navigate({ to: routeForTab(parentTab) });
-      return;
-    }
-    navigate({ to: "/entity-types" });
+    if (parentTab) navigate({ to: parentTab.route });
   };
 
   return (
@@ -103,15 +98,14 @@ export function MainLayout() {
       <Sidebar
         expanded={expanded}
         onToggleExpanded={() => setExpanded((e) => !e)}
-        items={NAVIGATION_ITEMS}
-        currentNav={currentTab?.nav}
+        items={NAVIGATION_SECTIONS}
+        currentNav={currentSection?.id}
         onNavigate={handleNavigate}
       />
       <div className={layoutStyles.mainColumn}>
         <PageTabs
           tabs={tabs}
           active={active}
-          navigation={NAVIGATION_ITEMS}
           onSelect={handleSelect}
           onBack={handleBack}
           onClose={handleClose}
@@ -122,8 +116,8 @@ export function MainLayout() {
             <Text weight="semibold" size={400}>
               No open tabs
             </Text>
-            <Button appearance="primary" onClick={() => handleNavigate("entities")}>
-              Open Entity Types
+            <Button appearance="primary" onClick={() => handleNavigate("administration")}>
+              Open Administration
             </Button>
           </div>
         )}

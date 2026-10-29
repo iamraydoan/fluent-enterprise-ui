@@ -1,4 +1,3 @@
-import { useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ActionBar, PageHeader, RibbonButton, TablePagination } from "@/components/common";
 import {
@@ -35,7 +34,6 @@ import {
   tokens,
 } from "@/components/ui";
 import { containsIgnoreCase } from "@/lib/utils";
-import { useTabsStore } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
 import { ColumnChooser } from "./components/ColumnChooser";
 import { ENTITY_COLUMN_BY_KEY, ENTITY_TYPES, DEFAULT_VISIBLE_COLUMNS } from "./data";
@@ -43,12 +41,6 @@ import type { EntityColumnKey, SortState, VisibleColumn } from "./types";
 
 export function EntityTypesPage() {
   const sharedStyles = useSharedStyles();
-  const openDetail = useTabsStore((state) => state.openDetail);
-  const navigate = useNavigate();
-  const openDetailPage = (name: string) => {
-    openDetail(name);
-    navigate({ to: "/detail/$name", params: { name } });
-  };
   const [stateFilter, setStateFilter] = useState<{ state: string[] }>({ state: ["all"] });
   const [searchQuery, setSearchQuery] = useState("");
   const [columns, setColumns] = useState<VisibleColumn[]>(DEFAULT_VISIBLE_COLUMNS);
@@ -257,18 +249,7 @@ export function EntityTypesPage() {
                   {visible.map((c) => (
                     <TableCell key={c.key} className={sharedStyles.tableCell}>
                       {c.key === "name" ? (
-                        <TableCellLayout truncate>
-                          <a
-                            className={sharedStyles.tableLink}
-                            href="#"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              openDetailPage(r.name);
-                            }}
-                          >
-                            {r.name}
-                          </a>
-                        </TableCellLayout>
+                        <TableCellLayout truncate>{r.name}</TableCellLayout>
                       ) : c.key === "description" ? (
                         <TableCellLayout truncate title={r.description}>
                           {r.description}

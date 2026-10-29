@@ -10,63 +10,152 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as EntityTypesRouteImport } from './routes/entity-types'
-import { Route as DetailNameRouteImport } from './routes/detail.$name'
-import { Route as ModulesNavIdRouteImport } from './routes/modules.$navId'
+import { Route as SectionRouteImport } from './routes/$section'
+import { Route as AdministrationRouteImport } from './routes/administration'
+import { Route as AiRouteImport } from './routes/ai'
+import { Route as AdministrationTileRouteImport } from './routes/administration.$tile'
+import { Route as AdministrationAiAgentRouteImport } from './routes/administration.ai-agent'
+import { Route as AdministrationAiMcpServerRouteImport } from './routes/administration.ai-mcp-server'
+import { Route as AdministrationEntityTypesRouteImport } from './routes/administration.entity-types'
+import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
+import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EntityTypesRoute = EntityTypesRouteImport.update({
-  id: '/entity-types',
-  path: '/entity-types',
+const SectionRoute = SectionRouteImport.update({
+  id: '/$section',
+  path: '/$section',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DetailNameRoute = DetailNameRouteImport.update({
-  id: '/detail/$name',
-  path: '/detail/$name',
+const AdministrationRoute = AdministrationRouteImport.update({
+  id: '/administration',
+  path: '/administration',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ModulesNavIdRoute = ModulesNavIdRouteImport.update({
-  id: '/modules/$navId',
-  path: '/modules/$navId',
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdministrationTileRoute = AdministrationTileRouteImport.update({
+  id: '/$tile',
+  path: '/$tile',
+  getParentRoute: () => AdministrationRoute,
+} as any)
+const AdministrationAiAgentRoute = AdministrationAiAgentRouteImport.update({
+  id: '/ai-agent',
+  path: '/ai-agent',
+  getParentRoute: () => AdministrationRoute,
+} as any)
+const AdministrationAiMcpServerRoute =
+  AdministrationAiMcpServerRouteImport.update({
+    id: '/ai-mcp-server',
+    path: '/ai-mcp-server',
+    getParentRoute: () => AdministrationRoute,
+  } as any)
+const AdministrationEntityTypesRoute =
+  AdministrationEntityTypesRouteImport.update({
+    id: '/entity-types',
+    path: '/entity-types',
+    getParentRoute: () => AdministrationRoute,
+  } as any)
+const AdministrationAiAgentNameRoute =
+  AdministrationAiAgentNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => AdministrationAiAgentRoute,
+  } as any)
+const AdministrationAiMcpServerNameRoute =
+  AdministrationAiMcpServerNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => AdministrationAiMcpServerRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/entity-types': typeof EntityTypesRoute
-  '/detail/$name': typeof DetailNameRoute
-  '/modules/$navId': typeof ModulesNavIdRoute
+  '/$section': typeof SectionRoute
+  '/administration': typeof AdministrationRouteWithChildren
+  '/ai': typeof AiRoute
+  '/administration/$tile': typeof AdministrationTileRoute
+  '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
+  '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
+  '/administration/entity-types': typeof AdministrationEntityTypesRoute
+  '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
+  '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/entity-types': typeof EntityTypesRoute
-  '/detail/$name': typeof DetailNameRoute
-  '/modules/$navId': typeof ModulesNavIdRoute
+  '/$section': typeof SectionRoute
+  '/administration': typeof AdministrationRouteWithChildren
+  '/ai': typeof AiRoute
+  '/administration/$tile': typeof AdministrationTileRoute
+  '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
+  '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
+  '/administration/entity-types': typeof AdministrationEntityTypesRoute
+  '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
+  '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/entity-types': typeof EntityTypesRoute
-  '/detail/$name': typeof DetailNameRoute
-  '/modules/$navId': typeof ModulesNavIdRoute
+  '/$section': typeof SectionRoute
+  '/administration': typeof AdministrationRouteWithChildren
+  '/ai': typeof AiRoute
+  '/administration/$tile': typeof AdministrationTileRoute
+  '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
+  '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
+  '/administration/entity-types': typeof AdministrationEntityTypesRoute
+  '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
+  '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/entity-types' | '/detail/$name' | '/modules/$navId'
+  fullPaths:
+    | '/'
+    | '/$section'
+    | '/administration'
+    | '/ai'
+    | '/administration/$tile'
+    | '/administration/ai-agent'
+    | '/administration/ai-mcp-server'
+    | '/administration/entity-types'
+    | '/administration/ai-agent/$name'
+    | '/administration/ai-mcp-server/$name'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/entity-types' | '/detail/$name' | '/modules/$navId'
-  id: '__root__' | '/' | '/entity-types' | '/detail/$name' | '/modules/$navId'
+  to:
+    | '/'
+    | '/$section'
+    | '/administration'
+    | '/ai'
+    | '/administration/$tile'
+    | '/administration/ai-agent'
+    | '/administration/ai-mcp-server'
+    | '/administration/entity-types'
+    | '/administration/ai-agent/$name'
+    | '/administration/ai-mcp-server/$name'
+  id:
+    | '__root__'
+    | '/'
+    | '/$section'
+    | '/administration'
+    | '/ai'
+    | '/administration/$tile'
+    | '/administration/ai-agent'
+    | '/administration/ai-mcp-server'
+    | '/administration/entity-types'
+    | '/administration/ai-agent/$name'
+    | '/administration/ai-mcp-server/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  EntityTypesRoute: typeof EntityTypesRoute
-  DetailNameRoute: typeof DetailNameRoute
-  ModulesNavIdRoute: typeof ModulesNavIdRoute
+  SectionRoute: typeof SectionRoute
+  AdministrationRoute: typeof AdministrationRouteWithChildren
+  AiRoute: typeof AiRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -78,35 +167,122 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/entity-types': {
-      id: '/entity-types'
+    '/$section': {
+      id: '/$section'
+      path: '/$section'
+      fullPath: '/$section'
+      preLoaderRoute: typeof SectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/administration': {
+      id: '/administration'
+      path: '/administration'
+      fullPath: '/administration'
+      preLoaderRoute: typeof AdministrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/administration/$tile': {
+      id: '/administration/$tile'
+      path: '/$tile'
+      fullPath: '/administration/$tile'
+      preLoaderRoute: typeof AdministrationTileRouteImport
+      parentRoute: typeof AdministrationRoute
+    }
+    '/administration/ai-agent': {
+      id: '/administration/ai-agent'
+      path: '/ai-agent'
+      fullPath: '/administration/ai-agent'
+      preLoaderRoute: typeof AdministrationAiAgentRouteImport
+      parentRoute: typeof AdministrationRoute
+    }
+    '/administration/ai-mcp-server': {
+      id: '/administration/ai-mcp-server'
+      path: '/ai-mcp-server'
+      fullPath: '/administration/ai-mcp-server'
+      preLoaderRoute: typeof AdministrationAiMcpServerRouteImport
+      parentRoute: typeof AdministrationRoute
+    }
+    '/administration/entity-types': {
+      id: '/administration/entity-types'
       path: '/entity-types'
-      fullPath: '/entity-types'
-      preLoaderRoute: typeof EntityTypesRouteImport
-      parentRoute: typeof rootRouteImport
+      fullPath: '/administration/entity-types'
+      preLoaderRoute: typeof AdministrationEntityTypesRouteImport
+      parentRoute: typeof AdministrationRoute
     }
-    '/detail/$name': {
-      id: '/detail/$name'
-      path: '/detail/$name'
-      fullPath: '/detail/$name'
-      preLoaderRoute: typeof DetailNameRouteImport
-      parentRoute: typeof rootRouteImport
+    '/administration/ai-agent/$name': {
+      id: '/administration/ai-agent/$name'
+      path: '/$name'
+      fullPath: '/administration/ai-agent/$name'
+      preLoaderRoute: typeof AdministrationAiAgentNameRouteImport
+      parentRoute: typeof AdministrationAiAgentRoute
     }
-    '/modules/$navId': {
-      id: '/modules/$navId'
-      path: '/modules/$navId'
-      fullPath: '/modules/$navId'
-      preLoaderRoute: typeof ModulesNavIdRouteImport
-      parentRoute: typeof rootRouteImport
+    '/administration/ai-mcp-server/$name': {
+      id: '/administration/ai-mcp-server/$name'
+      path: '/$name'
+      fullPath: '/administration/ai-mcp-server/$name'
+      preLoaderRoute: typeof AdministrationAiMcpServerNameRouteImport
+      parentRoute: typeof AdministrationAiMcpServerRoute
     }
   }
 }
 
+interface AdministrationAiAgentRouteChildren {
+  AdministrationAiAgentNameRoute: typeof AdministrationAiAgentNameRoute
+}
+
+const AdministrationAiAgentRouteChildren: AdministrationAiAgentRouteChildren = {
+  AdministrationAiAgentNameRoute: AdministrationAiAgentNameRoute,
+}
+
+const AdministrationAiAgentRouteWithChildren =
+  AdministrationAiAgentRoute._addFileChildren(
+    AdministrationAiAgentRouteChildren,
+  )
+
+interface AdministrationAiMcpServerRouteChildren {
+  AdministrationAiMcpServerNameRoute: typeof AdministrationAiMcpServerNameRoute
+}
+
+const AdministrationAiMcpServerRouteChildren: AdministrationAiMcpServerRouteChildren =
+  {
+    AdministrationAiMcpServerNameRoute: AdministrationAiMcpServerNameRoute,
+  }
+
+const AdministrationAiMcpServerRouteWithChildren =
+  AdministrationAiMcpServerRoute._addFileChildren(
+    AdministrationAiMcpServerRouteChildren,
+  )
+
+interface AdministrationRouteChildren {
+  AdministrationTileRoute: typeof AdministrationTileRoute
+  AdministrationAiAgentRoute: typeof AdministrationAiAgentRouteWithChildren
+  AdministrationAiMcpServerRoute: typeof AdministrationAiMcpServerRouteWithChildren
+  AdministrationEntityTypesRoute: typeof AdministrationEntityTypesRoute
+}
+
+const AdministrationRouteChildren: AdministrationRouteChildren = {
+  AdministrationTileRoute: AdministrationTileRoute,
+  AdministrationAiAgentRoute: AdministrationAiAgentRouteWithChildren,
+  AdministrationAiMcpServerRoute: AdministrationAiMcpServerRouteWithChildren,
+  AdministrationEntityTypesRoute: AdministrationEntityTypesRoute,
+}
+
+const AdministrationRouteWithChildren = AdministrationRoute._addFileChildren(
+  AdministrationRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  EntityTypesRoute: EntityTypesRoute,
-  DetailNameRoute: DetailNameRoute,
-  ModulesNavIdRoute: ModulesNavIdRoute,
+  SectionRoute: SectionRoute,
+  AdministrationRoute: AdministrationRouteWithChildren,
+  AiRoute: AiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

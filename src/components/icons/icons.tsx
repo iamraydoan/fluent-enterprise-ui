@@ -27,6 +27,8 @@ import {
   Eye20Filled as FluentEye20Filled,
   Flow20Regular as FluentFlow20Regular,
   Globe20Regular as FluentGlobe20Regular,
+  Info20Regular as FluentInfo20Regular,
+  Mic20Regular as FluentMic20Regular,
   MoreVertical20Regular as FluentMoreVertical20Regular,
   MoreVertical24Regular as FluentMoreVertical24Regular,
   Navigation24Regular as FluentNavigation24Regular,
@@ -295,6 +297,23 @@ export const Globe20Regular = forwardRef<
 >(function Globe20Regular(props, ref) {
   return <FluentGlobe20Regular ref={ref} {...props} />;
 });
+
+export type Info20RegularProps = ComponentProps<typeof FluentInfo20Regular>;
+
+export const Info20Regular = forwardRef<
+  ComponentRef<typeof FluentInfo20Regular>,
+  Info20RegularProps
+>(function Info20Regular(props, ref) {
+  return <FluentInfo20Regular ref={ref} {...props} />;
+});
+
+export type Mic20RegularProps = ComponentProps<typeof FluentMic20Regular>;
+
+export const Mic20Regular = forwardRef<ComponentRef<typeof FluentMic20Regular>, Mic20RegularProps>(
+  function Mic20Regular(props, ref) {
+    return <FluentMic20Regular ref={ref} {...props} />;
+  },
+);
 
 export type MoreVertical20RegularProps = ComponentProps<typeof FluentMoreVertical20Regular>;
 

@@ -1,6 +1,6 @@
 import { Navigation24Regular } from "@/components/icons";
 import { makeStyles, mergeClasses, Tooltip } from "@/components/ui";
-import type { NavigationItem } from "@/data/navigation";
+import type { NavigationSection } from "@/data/navigation";
 
 const useStyles = makeStyles({
   sidebar: {
@@ -45,9 +45,9 @@ const useStyles = makeStyles({
 interface SidebarProps {
   expanded: boolean;
   onToggleExpanded: () => void;
-  items: NavigationItem[];
+  items: NavigationSection[];
   currentNav: string | undefined;
-  onNavigate: (navigationId: string) => void;
+  onNavigate: (sectionId: string) => void;
 }
 
 export function Sidebar({

@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { EntityTypesPage } from "@/features/entity-types/EntityTypesPage";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
-  component: EntityTypesPage,
+  beforeLoad: () => {
+    throw redirect({ to: "/administration" });
+  },
 });

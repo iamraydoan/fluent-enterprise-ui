@@ -1,6 +1,5 @@
 import {
   Add24Regular,
-  Bot20Regular,
   Chat20Regular,
   ChevronDown20Regular,
   ChevronLeft20Regular,
@@ -10,7 +9,7 @@ import {
   Warning12Filled,
 } from "@/components/icons";
 import { Avatar, Button, makeStyles, mergeClasses, Text, Tooltip } from "@/components/ui";
-import type { NavigationItem } from "@/data/navigation";
+import { iconForRoute } from "@/data/navigation";
 import type { PageTab } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
 
@@ -41,26 +40,15 @@ const useStyles = makeStyles({
 interface PageTabsProps {
   tabs: PageTab[];
   active: string | null;
-  navigation: NavigationItem[];
   onSelect: (id: string) => void;
   onBack: (tab: PageTab) => void;
   onClose: (id: string) => void;
   onNewTab: () => void;
 }
 
-export function PageTabs({
-  tabs,
-  active,
-  navigation,
-  onSelect,
-  onBack,
-  onClose,
-  onNewTab,
-}: PageTabsProps) {
+export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: PageTabsProps) {
   const pageTabsStyles = useStyles();
   const sharedStyles = useSharedStyles();
-  const getNavigationItem = (navigationId: string) =>
-    navigation.find((item) => item.id === navigationId);
   return (
     <div className={sharedStyles.pageTabsBar}>
       <div className={pageTabsStyles.tabList} role="tablist">
@@ -88,7 +76,7 @@ export function PageTabs({
                   onBack(tab);
                 }}
               />
-              {tab.type === "detail" ? <Bot20Regular /> : getNavigationItem(tab.nav)?.icon}
+              {iconForRoute(tab.route)}
               <Text size={300} truncate wrap={false} style={{ flexGrow: 1 }}>
                 {tab.title}
               </Text>

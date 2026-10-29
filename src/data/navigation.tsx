@@ -1,10 +1,20 @@
 import type { ReactElement } from "react";
 import {
   Apps20Regular,
+  ArrowDownload24Regular,
+  ArrowExportUp24Regular,
+  Bot20Regular,
+  Chat20Regular,
+  Checkmark20Filled,
+  ColumnTriple20Regular,
   DataBarVertical20Regular,
   Database20Regular,
+  DocumentBulletList20Regular,
+  Eye20Filled,
   Flow20Regular,
   Globe20Regular,
+  PlugConnected20Regular,
+  Search20Regular,
   Settings20Regular,
   Sparkle20Filled,
   Target20Regular,
@@ -12,158 +22,306 @@ import {
   Wrench20Regular,
 } from "@/components/icons";
 
-export interface NavigationItem {
+export interface NavigationSection {
   id: string;
   label: string;
   icon: ReactElement;
-  opens?: "detail";
-  columns?: string[];
-  tableRows?: string[][];
+  route: string;
 }
 
-export const DETAIL_TITLE_BY_NAME: Record<string, string> = { AIAgent: "CM MES Agent" };
-
-export function getNavigationItem(navigationId: string) {
-  return NAVIGATION_ITEMS.find((item) => item.id === navigationId);
+export interface AdministrationTile {
+  id: string;
+  label: string;
+  icon: ReactElement;
+  route: string;
 }
 
-export function routeForNav(navigationId: string) {
-  return navigationId === "entities" ? "/entity-types" : `/modules/${navigationId}`;
-}
-
-export function routeForTab(tab: { id: string; type: string; nav: string }) {
-  if (tab.type === "list") return "/entity-types";
-  if (tab.type === "page") return `/modules/${tab.nav}`;
-  return `/detail/${encodeURIComponent(tab.id.slice(2))}`;
-}
-
-export type RouteTab =
-  | { kind: "list" }
-  | { kind: "page"; nav: string }
-  | { kind: "detail"; name: string }
-  | { kind: "none" };
-
-export function tabFromPath(pathname: string): RouteTab {
-  const path = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
-  if (path === "/" || path === "/entity-types") return { kind: "list" };
-  if (path.startsWith("/modules/")) {
-    const nav = decodeURIComponent(path.slice("/modules/".length));
-    return nav ? { kind: "page", nav } : { kind: "none" };
-  }
-  if (path.startsWith("/detail/")) {
-    const name = decodeURIComponent(path.slice("/detail/".length));
-    return name ? { kind: "detail", name } : { kind: "none" };
-  }
-  return { kind: "none" };
-}
-
-export const NAVIGATION_ITEMS: NavigationItem[] = [
+export const NAVIGATION_SECTIONS: NavigationSection[] = [
+  { id: "ai", label: "AI", icon: <Sparkle20Filled style={{ color: "#4F8CFF" }} />, route: "/ai" },
   {
-    id: "ai",
-    label: "AI Agents",
-    icon: <Sparkle20Filled style={{ color: "#4F8CFF" }} />,
-    opens: "detail",
-    columns: ["AGENT", "DESCRIPTION", "MCP SERVERS", "STATE"],
-    tableRows: [
-      ["CM MES Agent", "Answers questions about MES documents and entity revisions", "2", "Active"],
-      ["Quality Assistant", "Helps review non-conformance reports", "1", "Active"],
-      ["Document Summarizer", "Summarizes attachments and documents", "1", "Active"],
-      ["Maintenance Planner", "Suggests maintenance schedules", "0", "Draft"],
-    ],
+    id: "administration",
+    label: "Administration",
+    icon: <Settings20Regular />,
+    route: "/administration",
+  },
+  { id: "low-code", label: "Low Code", icon: <Flow20Regular />, route: "/low-code" },
+  {
+    id: "business-data",
+    label: "Business Data",
+    icon: <Database20Regular />,
+    route: "/business-data",
   },
   {
-    id: "tools",
-    label: "Tools",
+    id: "manufacturing",
+    label: "Manufacturing",
     icon: <Wrench20Regular />,
-    columns: ["TOOL", "TYPE", "OWNER", "STATE"],
-    tableRows: [
-      ["Label Printer", "Integration", "Operations", "Active"],
-      ["Barcode Scanner", "Device", "Warehouse", "Active"],
-      ["Report Exporter", "Utility", "IT", "Active"],
-      ["Data Importer", "Utility", "IT", "Terminated"],
-    ],
+    route: "/manufacturing",
+  },
+  { id: "maintenance", label: "Maintenance", icon: <Target20Regular />, route: "/maintenance" },
+  { id: "quality", label: "Quality", icon: <Checkmark20Filled />, route: "/quality" },
+  {
+    id: "planning-and-logistics",
+    label: "Planning and Logistics",
+    icon: <Globe20Regular />,
+    route: "/planning-and-logistics",
   },
   {
-    id: "apps",
-    label: "Apps",
-    icon: <Apps20Regular />,
-    columns: ["APP", "DESCRIPTION", "TYPE", "STATE"],
-    tableRows: [
-      ["Shop Floor", "Operator console for work orders", "System", "Active"],
-      ["Quality", "Inspection and NCR handling", "System", "Active"],
-      ["Maintenance", "Equipment maintenance app", "User defined", "Active"],
-      ["Traceability", "Genealogy and lot tracking", "System", "Active"],
-    ],
+    id: "business-intelligence",
+    label: "Business Intelligence",
+    icon: <DataBarVertical20Regular />,
+    route: "/business-intelligence",
   },
-  { id: "entities", label: "Entity Types", icon: <Database20Regular /> },
+  { id: "automation", label: "Automation", icon: <Bot20Regular />, route: "/automation" },
   {
-    id: "settings",
+    id: "data-platform",
+    label: "Data Platform",
+    icon: <ColumnTriple20Regular />,
+    route: "/data-platform",
+  },
+  { id: "apps", label: "Apps", icon: <Apps20Regular />, route: "/apps" },
+];
+
+export const ADMINISTRATION_TILES: AdministrationTile[] = [
+  { id: "ai-agent", label: "AI Agent", icon: <Bot20Regular />, route: "/administration/ai-agent" },
+  {
+    id: "ai-mcp-server",
+    label: "AI MCP Server",
+    icon: <PlugConnected20Regular />,
+    route: "/administration/ai-mcp-server",
+  },
+  { id: "apps", label: "Apps", icon: <Apps20Regular />, route: "/administration/apps" },
+  {
+    id: "augmented-reality",
+    label: "Augmented Reality",
+    icon: <Eye20Filled />,
+    route: "/administration/augmented-reality",
+  },
+  {
+    id: "change-package",
+    label: "Change Package",
+    icon: <Window20Regular />,
+    route: "/administration/change-package",
+  },
+  {
+    id: "configuration",
     label: "Configuration",
     icon: <Settings20Regular />,
-    columns: ["SETTING", "VALUE", "SCOPE", "MODIFIED"],
-    tableRows: [
-      ["Default language", "English", "Global", "12/10/2026"],
-      ["Time zone", "UTC+07:00", "Global", "12/10/2026"],
-      ["Session timeout", "30 min", "Security", "03/09/2026"],
-      ["Audit logging", "Enabled", "Security", "03/09/2026"],
-    ],
+    route: "/administration/configuration",
   },
   {
-    id: "targets",
-    label: "Targets",
-    icon: <Target20Regular />,
-    columns: ["TARGET", "METRIC", "VALUE", "PERIOD"],
-    tableRows: [
-      ["Yield", "First pass yield", "98.5%", "Monthly"],
-      ["OEE", "Overall equipment effectiveness", "82%", "Monthly"],
-      ["Scrap rate", "Scrap per 1000 units", "1.2", "Weekly"],
-      ["On-time delivery", "Orders shipped on time", "96%", "Quarterly"],
-    ],
-  },
-  {
-    id: "flow",
-    label: "Workflows",
+    id: "data-orchestrator",
+    label: "Data Orchestrator",
     icon: <Flow20Regular />,
-    columns: ["WORKFLOW", "TRIGGER", "STEPS", "STATE"],
-    tableRows: [
-      ["Release work order", "Manual", "6", "Active"],
-      ["NCR approval", "On create", "4", "Active"],
-      ["Document sign-off", "On submit", "5", "Active"],
-      ["Lot hold", "On inspection fail", "3", "Draft"],
-    ],
+    route: "/administration/data-orchestrator",
   },
   {
-    id: "reports",
-    label: "Reports",
-    icon: <DataBarVertical20Regular />,
-    columns: ["REPORT", "CATEGORY", "LAST RUN", "OWNER"],
-    tableRows: [
-      ["Production summary", "Operations", "28/10/2026", "Operations"],
-      ["Quality trends", "Quality", "27/10/2026", "Quality"],
-      ["Downtime analysis", "Maintenance", "25/10/2026", "Maintenance"],
-      ["Inventory aging", "Warehouse", "20/10/2026", "Warehouse"],
-    ],
+    id: "dee-actions",
+    label: "DEE Actions",
+    icon: <Wrench20Regular />,
+    route: "/administration/dee-actions",
   },
   {
-    id: "web",
-    label: "Portal",
+    id: "entity-types",
+    label: "Entity Types",
+    icon: <Database20Regular />,
+    route: "/administration/entity-types",
+  },
+  {
+    id: "event-rules",
+    label: "Event Rules",
+    icon: <Checkmark20Filled />,
+    route: "/administration/event-rules",
+  },
+  {
+    id: "fablives",
+    label: "FabLives",
     icon: <Globe20Regular />,
-    columns: ["PORTAL", "URL", "AUDIENCE", "STATE"],
-    tableRows: [
-      ["Supplier portal", "/portal/suppliers", "External", "Active"],
-      ["Customer portal", "/portal/customers", "External", "Active"],
-      ["Employee portal", "/portal/employees", "Internal", "Active"],
-    ],
+    route: "/administration/fablives",
   },
   {
-    id: "win",
-    label: "Windows",
+    id: "global-shortcuts",
+    label: "Global Shortcuts",
     icon: <Window20Regular />,
-    columns: ["WINDOW", "DESCRIPTION", "MODULE", "STATE"],
-    tableRows: [
-      ["Work Order Entry", "Create and edit work orders", "Shop Floor", "Active"],
-      ["Inspection Form", "Record inspection results", "Quality", "Active"],
-      ["Material Receipt", "Receive materials into stock", "Warehouse", "Active"],
-    ],
+    route: "/administration/global-shortcuts",
   },
+  {
+    id: "licenses",
+    label: "Licenses",
+    icon: <DocumentBulletList20Regular />,
+    route: "/administration/licenses",
+  },
+  {
+    id: "localized-messages",
+    label: "Localized Messages",
+    icon: <Chat20Regular />,
+    route: "/administration/localized-messages",
+  },
+  {
+    id: "master-data-export",
+    label: "Master Data Export",
+    icon: <ArrowExportUp24Regular />,
+    route: "/administration/master-data-export",
+  },
+  {
+    id: "master-data-package",
+    label: "Master Data Package",
+    icon: <ArrowDownload24Regular />,
+    route: "/administration/master-data-package",
+  },
+  {
+    id: "message-bus",
+    label: "Message Bus",
+    icon: <Chat20Regular />,
+    route: "/administration/message-bus",
+  },
+  {
+    id: "multimedia",
+    label: "Multimedia",
+    icon: <Eye20Filled />,
+    route: "/administration/multimedia",
+  },
+  {
+    id: "name-generators",
+    label: "Name Generators",
+    icon: <DocumentBulletList20Regular />,
+    route: "/administration/name-generators",
+  },
+  {
+    id: "printing-integration",
+    label: "Printing Integration",
+    icon: <Window20Regular />,
+    route: "/administration/printing-integration",
+  },
+  { id: "queries", label: "Queries", icon: <Search20Regular />, route: "/administration/queries" },
+  { id: "rules", label: "Rules", icon: <Checkmark20Filled />, route: "/administration/rules" },
+  {
+    id: "security",
+    label: "Security",
+    icon: <Window20Regular />,
+    route: "/administration/security",
+  },
+  {
+    id: "state-models",
+    label: "State Models",
+    icon: <Flow20Regular />,
+    route: "/administration/state-models",
+  },
+  {
+    id: "system-integrations",
+    label: "System Integrations",
+    icon: <PlugConnected20Regular />,
+    route: "/administration/system-integrations",
+  },
+  {
+    id: "system-monitoring",
+    label: "System Monitoring",
+    icon: <DataBarVertical20Regular />,
+    route: "/administration/system-monitoring",
+  },
+  {
+    id: "tables",
+    label: "Tables",
+    icon: <ColumnTriple20Regular />,
+    route: "/administration/tables",
+  },
+  { id: "timers", label: "Timers", icon: <Window20Regular />, route: "/administration/timers" },
+  { id: "uipages", label: "UIPages", icon: <Window20Regular />, route: "/administration/uipages" },
 ];
+
+export function getNavigationSection(sectionId: string) {
+  return NAVIGATION_SECTIONS.find((section) => section.id === sectionId);
+}
+
+export function getAdministrationTile(tileId: string) {
+  return ADMINISTRATION_TILES.find((tile) => tile.id === tileId);
+}
+
+export function routeForSection(sectionId: string) {
+  return getNavigationSection(sectionId)?.route;
+}
+
+export function sectionForRoute(route: string) {
+  if (route === "/ai") return getNavigationSection("ai");
+  if (route === "/administration" || route.startsWith("/administration/")) {
+    return getNavigationSection("administration");
+  }
+  return NAVIGATION_SECTIONS.find((section) => section.route === route);
+}
+
+export interface BreadcrumbItem {
+  label: string;
+  route: string;
+}
+
+export interface RouteTabInfo {
+  id: string;
+  route: string;
+  title: string;
+  parentRoute: string | null;
+}
+
+function normalizeRoute(route: string) {
+  if (route.length > 1 && route.endsWith("/")) return route.slice(0, -1);
+  return route;
+}
+
+export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
+  const path = normalizeRoute(route);
+  if (path === "/" || path === "/administration") {
+    return [{ label: "Administration", route: "/administration" }];
+  }
+  if (path === "/ai") return [{ label: "AI", route: "/ai" }];
+  const section = NAVIGATION_SECTIONS.find((candidate) => candidate.route === path);
+  if (section) return [{ label: section.label, route: section.route }];
+  if (path.startsWith("/administration/")) {
+    const rest = path.slice("/administration/".length);
+    const segments = rest.split("/");
+    const tile = getAdministrationTile(segments[0]);
+    if (!tile) return [];
+    if (segments.length === 1) {
+      return [
+        { label: "Administration", route: "/administration" },
+        { label: tile.label, route: tile.route },
+      ];
+    }
+    if (
+      (segments[0] === "ai-agent" || segments[0] === "ai-mcp-server") &&
+      segments.length === 2 &&
+      segments[1].length > 0
+    ) {
+      return [
+        { label: "Administration", route: "/administration" },
+        { label: tile.label, route: tile.route },
+        { label: decodeURIComponent(segments[1]), route: path },
+      ];
+    }
+  }
+  return [];
+}
+
+export function tabForRoute(route: string): RouteTabInfo | null {
+  const path = normalizeRoute(route);
+  const crumbs = breadcrumbsForRoute(path);
+  if (crumbs.length === 0) return null;
+  const leaf = crumbs[crumbs.length - 1];
+  const parentRoute = crumbs.length > 1 ? crumbs[crumbs.length - 2].route : null;
+  const id = path === "/administration" || path === "/" ? "administration" : path.slice(1);
+  return { id, route: leaf.route, title: leaf.label, parentRoute };
+}
+
+export function parentRouteForRoute(route: string) {
+  return tabForRoute(route)?.parentRoute ?? null;
+}
+
+export function iconForRoute(route: string): ReactElement {
+  const path = normalizeRoute(route);
+  if (path.startsWith("/administration/ai-agent/")) return <Bot20Regular />;
+  if (path.startsWith("/administration/ai-mcp-server/")) return <PlugConnected20Regular />;
+  if (path.startsWith("/administration/")) {
+    const tile = getAdministrationTile(path.slice("/administration/".length).split("/")[0]);
+    if (tile) return tile.icon;
+  }
+  const section = sectionForRoute(path);
+  if (section) return section.icon;
+  return <Window20Regular />;
+}

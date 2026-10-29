@@ -1,34 +1,33 @@
 import { create } from "zustand";
-import { DETAIL_TITLE_BY_NAME, getNavigationItem, tabFromPath } from "@/data/navigation";
+import { tabForRoute } from "@/data/navigation";
 
 export interface PageTab {
   id: string;
-  type: "list" | "page" | "detail";
-  nav: string;
+  route: string;
   title: string;
+  parentRoute: string | null;
 }
 
 interface TabsState {
   tabs: PageTab[];
   active: string | null;
-  openNav: (navigationId: string) => void;
-  openDetail: (name: string) => void;
+  openRoute: (route: string) => void;
   addTab: () => string;
   closeTab: (id: string) => string | null;
-  backFromDetail: (tab: PageTab) => string | null;
+  backFromTab: (tab: PageTab) => string | null;
   setActive: (id: string) => void;
   syncRoute: (pathname: string) => void;
 }
 
 function homeTab(id: string): PageTab {
-  return { id, type: "list", nav: "entities", title: "Entity Types" };
+  return { id, route: "/administration", title: "Administration", parentRoute: null };
 }
 
 function nextHomeId(tabs: PageTab[]): string {
-  if (!tabs.some((tab) => tab.id === "list")) return "list";
+  if (!tabs.some((tab) => tab.id === "administration")) return "administration";
   let suffix = 2;
-  while (tabs.some((tab) => tab.id === `list:${suffix}`)) suffix += 1;
-  return `list:${suffix}`;
+  while (tabs.some((tab) => tab.id === `administration:${suffix}`)) suffix += 1;
+  return `administration:${suffix}`;
 }
 
 function replaceActive(tabs: PageTab[], active: string | null, next: PageTab): PageTab[] {
@@ -50,43 +49,13 @@ function activateOrNavigate(
   return { tabs: replaceActive(tabs, active, next), active: next.id };
 }
 
-function listTarget(tabs: PageTab[], active: string | null): { tabs: PageTab[]; active: string } {
-  const activeTab = tabs.find((tab) => tab.id === active);
-  if (activeTab?.type === "list") return { tabs, active: activeTab.id };
-  const existing = tabs.find((tab) => tab.type === "list");
-  if (existing) return { tabs, active: existing.id };
-  if (tabs.length === 0) return { tabs: [homeTab("list")], active: "list" };
-  return { tabs: replaceActive(tabs, active, homeTab("list")), active: "list" };
-}
-
 export const useTabsStore = create<TabsState>()((set, get) => ({
   tabs: [],
   active: null,
-  openNav: (navigationId) => {
-    const navigationItem = getNavigationItem(navigationId);
-    if (!navigationItem) return;
+  openRoute: (route) => {
+    const next = tabForRoute(route);
+    if (!next) return;
     const { tabs, active } = get();
-    if (navigationId === "entities") {
-      set(listTarget(tabs, active));
-      return;
-    }
-    const next: PageTab = {
-      id: `p:${navigationId}`,
-      type: "page",
-      nav: navigationId,
-      title: navigationItem.label,
-    };
-    set(activateOrNavigate(tabs, active, next));
-  },
-  openDetail: (name) => {
-    const { tabs, active } = get();
-    const nav = tabs.find((tab) => tab.id === active)?.nav ?? "entities";
-    const next: PageTab = {
-      id: `d:${name}`,
-      type: "detail",
-      nav,
-      title: DETAIL_TITLE_BY_NAME[name] ?? name,
-    };
     set(activateOrNavigate(tabs, active, next));
   },
   addTab: () => {
@@ -105,80 +74,33 @@ export const useTabsStore = create<TabsState>()((set, get) => ({
       return active;
     }
     if (next.length === 0) {
-      set({ tabs: [homeTab("list")], active: "list" });
-      return "list";
+      set({ tabs: [homeTab("administration")], active: "administration" });
+      return "administration";
     }
     const nextActive = next[Math.max(0, index - 1)].id;
     set({ tabs: next, active: nextActive });
     return nextActive;
   },
-  backFromDetail: (tab) => {
-    if (tab.type !== "detail") return get().active;
+  backFromTab: (tab) => {
+    if (!tab.parentRoute) return get().active;
+    const parent = tabForRoute(tab.parentRoute);
+    if (!parent) return get().active;
     const { tabs } = get();
-    if (tab.nav === "entities") {
-      const existing = tabs.find((candidate) => candidate.type === "list");
-      if (existing) {
-        set({ tabs: tabs.filter((candidate) => candidate.id !== tab.id), active: existing.id });
-        return existing.id;
-      }
-      const replaced = replaceActive(tabs, tab.id, homeTab("list"));
-      set({ tabs: replaced, active: "list" });
-      return "list";
-    }
-    const parent = `p:${tab.nav}`;
-    const existing = tabs.find((candidate) => candidate.id === parent);
+    const existing = tabs.find((candidate) => candidate.route === parent.route);
     if (existing) {
-      set({ tabs: tabs.filter((candidate) => candidate.id !== tab.id), active: parent });
-      return parent;
+      set({ tabs: tabs.filter((candidate) => candidate.id !== tab.id), active: existing.id });
+      return existing.id;
     }
-    const navigationItem = getNavigationItem(tab.nav);
-    if (!navigationItem) {
-      const existingList = tabs.find((candidate) => candidate.type === "list");
-      if (existingList) {
-        set({ tabs: tabs.filter((candidate) => candidate.id !== tab.id), active: existingList.id });
-        return existingList.id;
-      }
-      set({ tabs: replaceActive(tabs, tab.id, homeTab("list")), active: "list" });
-      return "list";
-    }
-    const next: PageTab = {
-      id: parent,
-      type: "page",
-      nav: tab.nav,
-      title: navigationItem.label,
-    };
-    set({ tabs: replaceActive(tabs, tab.id, next), active: parent });
-    return parent;
+    set({ tabs: replaceActive(tabs, tab.id, parent), active: parent.id });
+    return parent.id;
   },
   setActive: (id) => {
     set({ active: id });
   },
   syncRoute: (pathname) => {
-    const parsed = tabFromPath(pathname);
-    if (parsed.kind === "none") return;
+    const next = tabForRoute(pathname);
+    if (!next) return;
     const { tabs, active } = get();
-    if (parsed.kind === "list") {
-      set(listTarget(tabs, active));
-      return;
-    }
-    if (parsed.kind === "page") {
-      const navigationItem = getNavigationItem(parsed.nav);
-      if (!navigationItem) return;
-      const next: PageTab = {
-        id: `p:${parsed.nav}`,
-        type: "page",
-        nav: parsed.nav,
-        title: navigationItem.label,
-      };
-      set(activateOrNavigate(tabs, active, next));
-      return;
-    }
-    const next: PageTab = {
-      id: `d:${parsed.name}`,
-      type: "detail",
-      nav: parsed.name === "AIAgent" ? "ai" : "entities",
-      title: DETAIL_TITLE_BY_NAME[parsed.name] ?? parsed.name,
-    };
     set(activateOrNavigate(tabs, active, next));
   },
 }));

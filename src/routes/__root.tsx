@@ -12,8 +12,8 @@ function NotFound() {
       <Text weight="semibold" size={400}>
         Page not found
       </Text>
-      <Button appearance="primary" onClick={() => navigate({ to: "/entity-types" })}>
-        Open Entity Types
+      <Button appearance="primary" onClick={() => navigate({ to: "/administration" })}>
+        Open Administration
       </Button>
     </section>
   );
