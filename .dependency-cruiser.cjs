@@ -37,6 +37,14 @@ module.exports = {
       from: { path: "^src/stores/" },
       to: { path: "^src/", pathNot: "^src/(stores|data|styles|theme|lib)/" },
     },
+    {
+      name: "no-mocks-outside-entry",
+      severity: "error",
+      from: {
+        path: "^src/(features|routes|layouts|components|stores|data|lib|styles|theme|api|i18n)/",
+      },
+      to: { path: "^src/mocks/" },
+    },
   ],
   options: {
     doNotFollow: { path: "node_modules" },

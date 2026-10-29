@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useSendChat } from "@/api";
 import {
   ArrowUp20Regular,
   Attach20Regular,
@@ -27,7 +28,7 @@ import {
   Tooltip,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { CHAT_AGENTS, CHAT_EXAMPLES, pickTools, SEED_CHATS } from "./data";
+import { CHAT_AGENTS, CHAT_EXAMPLES, SEED_CHATS } from "./data";
 import type { ChatSession } from "./data";
 
 const useChatStyles = makeStyles({
@@ -271,6 +272,7 @@ export function AiChatPage() {
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
+  const { mutate: sendChat } = useSendChat();
   const agent = CHAT_AGENTS.find((candidate) => candidate.id === agentId) ?? CHAT_AGENTS[0];
   const chat = chats.find((candidate) => candidate.id === currentChatId);
   const messages = chat?.messages ?? [];
@@ -311,26 +313,37 @@ export function AiChatPage() {
     setCurrentChatId(id);
     setText("");
     setBusy(true);
-    window.setTimeout(() => {
-      setChats((previous) =>
-        previous.map((candidate) =>
-          candidate.id === id
-            ? {
-                ...candidate,
-                messages: [
-                  ...candidate.messages,
-                  {
-                    role: "bot",
-                    tools: pickTools(messageText),
-                    text: t("aiChat.demoReply", { text: messageText, agent: sendingAgent.name }),
-                  },
-                ],
-              }
-            : candidate,
-        ),
-      );
-      setBusy(false);
-    }, 900);
+    sendChat(
+      { message: messageText, agentId: sendingAgent.id },
+      {
+        onSuccess: (data) => {
+          setChats((previous) =>
+            previous.map((candidate) =>
+              candidate.id === id
+                ? {
+                    ...candidate,
+                    messages: [
+                      ...candidate.messages,
+                      {
+                        role: "bot",
+                        tools: data.tools,
+                        text: t("aiChat.demoReply", {
+                          text: messageText,
+                          agent: sendingAgent.name,
+                        }),
+                      },
+                    ],
+                  }
+                : candidate,
+            ),
+          );
+          setBusy(false);
+        },
+        onError: () => {
+          setBusy(false);
+        },
+      },
+    );
   };
   const onKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && !event.shiftKey) {
@@ -346,10 +359,10 @@ export function AiChatPage() {
           className={chatStyles.textarea}
           rows={Math.min(6, text.split("\n").length)}
           value={text}
-          placeholder={t("aiChat.messageAgent", { agent: t(agent.titleKey) })}
+          placeholder={t("aiChat.messageAgent", { agent: agent.title })}
           onChange={(event) => setText(event.target.value)}
           onKeyDown={onKeyDown}
-          aria-label={t("aiChat.messageAgent", { agent: t(agent.titleKey) })}
+          aria-label={t("aiChat.messageAgent", { agent: agent.title })}
         />
         <div className={chatStyles.composerRow}>
           <Button
@@ -463,7 +476,7 @@ export function AiChatPage() {
                 }}
               >
                 <Text size={300} truncate wrap={false} style={{ maxWidth: 210 }}>
-                  {candidate.titleKey ? t(candidate.titleKey) : candidate.title}
+                  {candidate.title}
                 </Text>
                 <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>
                   {CHAT_AGENTS.find((item) => item.id === candidate.agent)?.name}
@@ -480,10 +493,10 @@ export function AiChatPage() {
                 <span className={chatStyles.heroIcon}>
                   <Bot24Regular />
                 </span>
-                {t(agent.titleKey)}
+                {agent.title}
               </div>
               <Text size={300} style={{ maxWidth: 460, lineHeight: "21px" }}>
-                {t(agent.descriptionKey)}
+                {agent.description}
               </Text>
               <div style={{ width: "100%" }}>{composer}</div>
               <div className={chatStyles.examples}>
@@ -501,7 +514,7 @@ export function AiChatPage() {
                   {messages.map((message, index) =>
                     message.role === "user" ? (
                       <div key={index} className={chatStyles.userMsg}>
-                        {message.textKey ? t(message.textKey) : message.text}
+                        {message.text}
                       </div>
                     ) : (
                       <div key={index} className={chatStyles.botRow}>
@@ -509,7 +522,7 @@ export function AiChatPage() {
                           <Bot20Regular />
                         </span>
                         <div style={{ fontSize: 14, lineHeight: "22px" }}>
-                          {message.textKey ? t(message.textKey) : message.text}
+                          {message.text}
                           {message.tools && (
                             <div className={chatStyles.chips}>
                               {message.tools.map((tool) => (
@@ -530,7 +543,7 @@ export function AiChatPage() {
                         <Bot20Regular />
                       </span>
                       <Caption1 style={{ lineHeight: "28px" }}>
-                        {t("aiChat.thinking", { agent: t(agent.titleKey) })}
+                        {t("aiChat.thinking", { agent: agent.title })}
                       </Caption1>
                     </div>
                   )}

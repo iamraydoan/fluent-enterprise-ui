@@ -72,6 +72,7 @@ beforeEach(() => {
 
 test("entity types list header collapses and expands through the shared toggle", async () => {
   const screen = renderAt("/administration/entity-types");
+  await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   expect(titleStripBorderTop()).toBe("1px");
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
@@ -86,6 +87,7 @@ test("entity types list header collapses and expands through the shared toggle",
 
 test("ai agent list header collapses and expands through the shared toggle", async () => {
   const screen = renderAt("/administration/ai-agent");
+  await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
   await waitForAbsent("Create");
@@ -96,6 +98,7 @@ test("ai agent list header collapses and expands through the shared toggle", asy
 
 test("mcp server list header collapses and expands through the shared toggle", async () => {
   const screen = renderAt("/administration/ai-mcp-server");
+  await waitForText("AI MCP Servers (5)");
   await expect.element(screen.getByText("AI MCP Servers (5)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
   await waitForAbsent("Create");
@@ -106,6 +109,7 @@ test("mcp server list header collapses and expands through the shared toggle", a
 
 test("apps list header collapses and expands through the shared toggle", async () => {
   const screen = renderAt("/administration/apps");
+  await waitForText("Apps (4)");
   await expect.element(screen.getByText("Apps (4)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
   await waitForAbsent("Create");
@@ -116,6 +120,7 @@ test("apps list header collapses and expands through the shared toggle", async (
 
 test("configuration list header collapses and expands through the shared toggle", async () => {
   const screen = renderAt("/administration/configuration");
+  await waitForText("Configuration (4)");
   await expect.element(screen.getByText("Configuration (4)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
   await waitForAbsent("Create");
@@ -126,6 +131,7 @@ test("configuration list header collapses and expands through the shared toggle"
 
 test("ai agent detail header collapses and expands while the mini bar stays", async () => {
   const screen = renderAt("/administration/ai-agent");
+  await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByText("CM MES Agent").click();
   await waitForText("LibreChat");
@@ -146,6 +152,7 @@ test("ai agent detail header collapses and expands while the mini bar stays", as
 
 test("mcp server detail header collapses and expands while the mini bar stays", async () => {
   const screen = renderAt("/administration/ai-mcp-server");
+  await waitForText("AI MCP Servers (5)");
   await expect.element(screen.getByText("AI MCP Servers (5)")).toBeVisible();
   await screen.getByRole("link", { name: "Cubes", exact: true }).click();
   await waitForText("http://mcp-cubejs:8080/mcp");
@@ -163,6 +170,7 @@ test("mcp server detail header collapses and expands while the mini bar stays", 
 
 test("collapse state is per page for lists", async () => {
   const screen = renderAt("/administration/ai-agent");
+  await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
   await waitForAbsent("Create");
@@ -176,6 +184,7 @@ test("collapse state is per page for lists", async () => {
 
 test("collapse state is per page for details", async () => {
   const screen = renderAt("/administration/ai-agent");
+  await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByText("CM MES Agent").click();
   await waitForText("LibreChat");

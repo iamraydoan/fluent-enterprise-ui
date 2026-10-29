@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useApps, useDebouncedValue } from "@/api";
 import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
   Add24Regular,
@@ -19,9 +20,7 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation, type TranslationKey } from "@/i18n";
-import { containsIgnoreCase } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
-import { APP_ROWS } from "./data";
 
 const STATE_COLORS: Record<string, "success" | "informative" | "danger"> = {
   Active: "success",
@@ -39,15 +38,17 @@ export function AppsListPage() {
   const sharedStyles = useSharedStyles();
   const { t } = useAppTranslation();
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearch = useDebouncedValue(searchQuery, 300);
   const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
+  const { data, isLoading } = useApps({
+    page: 1,
+    limit: 100,
+    q: debouncedSearch === "" ? undefined : debouncedSearch,
+  });
+  const rows = data?.data ?? [];
+  const total = data?.meta.total ?? 0;
   const typeLabel = (type: string) =>
     t(type === "System" ? "apps.types.system" : "apps.types.userDefined");
-  const rows = APP_ROWS.filter((row) =>
-    containsIgnoreCase(
-      `${row.name} ${t(row.descriptionKey)} ${typeLabel(row.type)} ${t(STATE_LABELS[row.state] ?? "common.active")}`,
-      searchQuery,
-    ),
-  );
   return (
     <>
       <div className={sharedStyles.headerBlock}>
@@ -97,7 +98,7 @@ export function AppsListPage() {
         </div>
         <div className={sharedStyles.titleRow}>
           <Text weight="semibold" size={400}>
-            {t("apps.listTitle", { count: rows.length })}
+            {t("apps.listTitle", { count: total })}
           </Text>
         </div>
         <div className={sharedStyles.tableScroll} style={{ flexGrow: 0 }}>
@@ -123,7 +124,7 @@ export function AppsListPage() {
               {rows.map((row) => (
                 <TableRow key={row.name}>
                   <TableCell className={sharedStyles.tableCell}>{row.name}</TableCell>
-                  <TableCell className={sharedStyles.tableCell}>{t(row.descriptionKey)}</TableCell>
+                  <TableCell className={sharedStyles.tableCell}>{row.description}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>{typeLabel(row.type)}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>
                     <Badge
@@ -139,7 +140,7 @@ export function AppsListPage() {
               ))}
             </TableBody>
           </Table>
-          {rows.length === 0 && (
+          {!isLoading && rows.length === 0 && (
             <div
               style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}
             >

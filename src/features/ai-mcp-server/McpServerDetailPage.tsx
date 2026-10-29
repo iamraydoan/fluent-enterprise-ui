@@ -1,5 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useMcpServer } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "@/components/common";
 import type { DetailTab, MiniBarGroup } from "@/components/common";
 import {
@@ -34,7 +35,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useTabsStore } from "@/stores/tabs-store";
-import { MCP_SERVER_SECTIONS, mcpDetail } from "./data";
+import { MCP_SERVER_SECTIONS } from "./data";
 
 const useMcpDetailStyles = makeStyles({
   tile: {
@@ -104,19 +105,23 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
   const { t } = useAppTranslation();
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
-  const detail = mcpDetail(name);
+  const { data: detail, isLoading } = useMcpServer(name);
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState("mcpServer.sections.details");
   const [pageSize, setPageSize] = useState(100);
-  const [lastSync, setLastSync] = useState(detail.lastSync);
+  const [lastSyncOverride, setLastSyncOverride] = useState<string | null>(null);
   const synchronize = () => {
     const now = new Date();
     const pad = (value: number) => String(value).padStart(2, "0");
     const hour = now.getHours() % 12 || 12;
-    setLastSync(
+    setLastSyncOverride(
       `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(hour)}:${pad(now.getMinutes())} ${now.getHours() >= 12 ? "PM" : "AM"}`,
     );
   };
+  if (isLoading || detail === undefined) {
+    return null;
+  }
+  const lastSync = lastSyncOverride ?? detail.lastSync;
   const askAi = () => {
     openRoute("/ai");
     navigate({ to: "/ai" });

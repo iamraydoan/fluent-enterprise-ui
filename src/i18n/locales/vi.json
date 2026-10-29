@@ -29,14 +29,6 @@
     },
     "createdBy": "Được tạo ngày 12/10/2026 bởi Nguyen Minh Anh",
     "deferred": "Tạm hoãn",
-    "descriptions": {
-      "analyticsView": "Xây dựng và tinh chỉnh bảng phân tích cho Chế độ xem phân tích",
-      "cmMes": "Trả lời câu hỏi về tài liệu MES và các phiên bản thực thể",
-      "docSummarizer": "Tóm tắt tệp đính kèm và tài liệu",
-      "maintenance": "Đề xuất lịch bảo trì",
-      "quality": "Hỗ trợ xem xét báo cáo không phù hợp"
-    },
-    "detailDescription": "Đóng vai trò trợ lý MES tổng quát, điểm khởi đầu cho các câu hỏi về sản phẩm, nguồn lực hoặc tài liệu.",
     "fields": {
       "dataGroup": "Nhóm dữ liệu",
       "description": "Mô tả",
@@ -79,24 +71,6 @@
     "viewDescription": "Xem mô tả của {{tool}}"
   },
   "aiChat": {
-    "agents": {
-      "cm": {
-        "description": "Đóng vai trò trợ lý MES tổng quát, điểm khởi đầu cho các câu hỏi về sản phẩm, nguồn lực hoặc tài liệu, giúp bạn tìm đúng câu trả lời.",
-        "title": "Tác tử MES"
-      },
-      "doc": {
-        "description": "Tóm tắt tài liệu và tệp đính kèm, trích xuất các ý chính theo yêu cầu của bạn.",
-        "title": "Tóm tắt tài liệu"
-      },
-      "mp": {
-        "description": "Đề xuất lịch bảo trì và tra cứu lịch sử thiết bị của một nguồn lực.",
-        "title": "Lập kế hoạch bảo trì"
-      },
-      "qa": {
-        "description": "Hỗ trợ xem xét báo cáo không phù hợp và kết quả kiểm tra, chỉ ra các bản ghi cần lưu ý.",
-        "title": "Trợ lý chất lượng"
-      }
-    },
     "attachFile": "Đính kèm tệp",
     "chatHistory": "Lịch sử trò chuyện",
     "chats": "Cuộc trò chuyện",
@@ -109,18 +83,6 @@
     },
     "messageAgent": "Nhắn cho {{agent}}",
     "newChat": "Cuộc trò chuyện mới",
-    "seeds": {
-      "first": {
-        "botText": "Tôi tìm thấy 3 tài liệu tham chiếu đến phiên bản công thức mới nhất. Tài liệu gần đây nhất được cập nhật ngày 28/10/2026.",
-        "title": "Tài liệu nào tham chiếu đến công thức mới nhất?",
-        "userText": "Tài liệu nào tham chiếu đến công thức mới nhất?"
-      },
-      "second": {
-        "botText": "Phiên bản 3 thêm bước kiểm tra mô-men xoắn ở bước 5 và loại bỏ bước vệ sinh tùy chọn.",
-        "title": "So sánh phiên bản 2 và 3 của hướng dẫn công việc",
-        "userText": "So sánh phiên bản 2 và 3 của hướng dẫn công việc"
-      }
-    },
     "send": "Gửi",
     "thinking": "{{agent}} đang suy nghĩ…",
     "toggleHistory": "Bật/tắt lịch sử"
@@ -131,12 +93,6 @@
       "description": "Mô tả",
       "state": "Trạng thái",
       "type": "Loại"
-    },
-    "descriptions": {
-      "maintenance": "Ứng dụng bảo trì thiết bị",
-      "quality": "Kiểm tra và xử lý NCR",
-      "shopFloor": "Bảng điều khiển vận hành cho lệnh sản xuất",
-      "traceability": "Truy xuất nguồn gốc và theo dõi lô"
     },
     "listTitle": "Ứng dụng ({{count}})",
     "pageLabel": "Ứng dụng",
@@ -184,22 +140,7 @@
       "value": "Giá trị"
     },
     "listTitle": "Cấu hình ({{count}})",
-    "pageLabel": "Cấu hình",
-    "scopes": {
-      "global": "Toàn cục",
-      "security": "Bảo mật"
-    },
-    "settings": {
-      "auditLogging": "Ghi nhật ký kiểm tra",
-      "defaultLanguage": "Ngôn ngữ mặc định",
-      "sessionTimeout": "Thời gian chờ phiên",
-      "timeZone": "Múi giờ"
-    },
-    "values": {
-      "enabled": "Đã bật",
-      "english": "Tiếng Anh",
-      "minutes": "{{count}} phút"
-    }
+    "pageLabel": "Cấu hình"
   },
   "detailShell": {
     "tabs": {
@@ -313,13 +254,6 @@
       "name": "Tên",
       "state": "Trạng thái",
       "url": "URL"
-    },
-    "descriptions": {
-      "clickhouse": "Truy cập dữ liệu SQL ClickHouse",
-      "cmMes": "Thực thể, tài liệu và tệp đính kèm MES",
-      "cubes": "Khối dữ liệu Cube.js",
-      "grafana": "Bảng điều khiển và nguồn dữ liệu Grafana",
-      "portalDocs": "Tìm kiếm tài liệu sản phẩm"
     },
     "fields": {
       "authMode": "Chế độ xác thực",

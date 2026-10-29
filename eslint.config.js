@@ -271,6 +271,8 @@ export default tseslint.config(
         { type: "icons", pattern: "src/components/icons/**" },
         { type: "common", pattern: "src/components/common/**" },
         { type: "i18n", pattern: "src/i18n/**" },
+        { type: "api", pattern: "src/api/**" },
+        { type: "mocks", pattern: "src/mocks/**" },
         { type: "layout", pattern: "src/layouts/**" },
         { type: "feature", pattern: "src/features/*/**", capture: ["feature"] },
         { type: "routes", pattern: "src/routes/**" },
@@ -298,6 +300,34 @@ export default tseslint.config(
             {
               from: { element: { type: "i18n" } },
               allow: { to: { element: { type: "i18n" } } },
+            },
+            {
+              from: { element: { type: "api" } },
+              allow: { to: { element: { type: "api" } } },
+            },
+            {
+              from: { element: { type: "mocks" } },
+              allow: { to: { element: { type: "mocks" } } },
+            },
+            {
+              from: { element: { type: "mocks" } },
+              allow: { to: { element: { type: "api", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "feature" } },
+              allow: { to: { element: { type: "api", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "routes" } },
+              allow: { to: { element: { type: "api", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "layout" } },
+              allow: { to: { element: { type: "api", fileInternalPath: "index.ts" } } },
+            },
+            {
+              from: { element: { type: "app" } },
+              allow: { to: { element: { type: "mocks", fileInternalPath: "browser.ts" } } },
             },
             {
               from: { element: { type: "common" } },

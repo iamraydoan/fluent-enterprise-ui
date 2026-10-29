@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useConfigurations, useDebouncedValue } from "@/api";
+import type { ConfigurationRecord } from "@/api";
 import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
   Add24Regular,
@@ -18,25 +20,22 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { containsIgnoreCase } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
-import { CONFIGURATION_ROWS, type ConfigurationRow } from "./data";
 
 export function ConfigurationListPage() {
   const sharedStyles = useSharedStyles();
   const { t } = useAppTranslation();
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearch = useDebouncedValue(searchQuery, 300);
   const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
-  const getValueLabel = (row: ConfigurationRow) =>
-    row.valueKey
-      ? t(row.valueKey, row.valueCount === null ? undefined : { count: row.valueCount })
-      : (row.valueText ?? "");
-  const rows = CONFIGURATION_ROWS.filter((row) =>
-    containsIgnoreCase(
-      `${t(row.settingKey)} ${getValueLabel(row)} ${t(row.scopeKey)} ${row.modified}`,
-      searchQuery,
-    ),
-  );
+  const { data } = useConfigurations({
+    page: 1,
+    limit: 100,
+    q: debouncedSearch === "" ? undefined : debouncedSearch,
+  });
+  const rows = data?.data ?? [];
+  const total = data?.meta.total ?? 0;
+  const getValueLabel = (row: ConfigurationRecord) => row.value;
   return (
     <>
       <div className={sharedStyles.headerBlock}>
@@ -86,7 +85,7 @@ export function ConfigurationListPage() {
         </div>
         <div className={sharedStyles.titleRow}>
           <Text weight="semibold" size={400}>
-            {t("configuration.listTitle", { count: rows.length })}
+            {t("configuration.listTitle", { count: total })}
           </Text>
         </div>
         <div className={sharedStyles.tableScroll} style={{ flexGrow: 0 }}>
@@ -110,10 +109,10 @@ export function ConfigurationListPage() {
             </TableHeader>
             <TableBody>
               {rows.map((row) => (
-                <TableRow key={row.settingKey}>
-                  <TableCell className={sharedStyles.tableCell}>{t(row.settingKey)}</TableCell>
+                <TableRow key={row.setting}>
+                  <TableCell className={sharedStyles.tableCell}>{row.setting}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>{getValueLabel(row)}</TableCell>
-                  <TableCell className={sharedStyles.tableCell}>{t(row.scopeKey)}</TableCell>
+                  <TableCell className={sharedStyles.tableCell}>{row.scope}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>{row.modified}</TableCell>
                 </TableRow>
               ))}

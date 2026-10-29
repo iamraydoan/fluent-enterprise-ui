@@ -1,5 +1,7 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useDebouncedValue, useMcpServers } from "@/api";
+import type { McpServerRecord } from "@/api";
 import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
   Add24Regular,
@@ -21,10 +23,8 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { containsIgnoreCase } from "@/lib/utils";
 import { useTabsStore } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
-import { MCP_SERVER_ROWS } from "./data";
 
 const STATE_COLORS: Record<string, "success" | "informative" | "danger"> = {
   Active: "success",
@@ -44,10 +44,15 @@ export function McpServerListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearch = useDebouncedValue(searchQuery, 300);
   const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
-  const rows = MCP_SERVER_ROWS.filter((row) =>
-    containsIgnoreCase(`${row.name} ${t(row.descriptionKey)} ${row.url} ${row.state}`, searchQuery),
-  );
+  const { data, isLoading } = useMcpServers({
+    page: 1,
+    limit: 100,
+    q: debouncedSearch === "" ? undefined : debouncedSearch,
+  });
+  const rows: McpServerRecord[] = data?.data ?? [];
+  const total = data?.meta.total ?? 0;
   const openDetail = (name: string) => {
     const route = `/administration/ai-mcp-server/${encodeURIComponent(name)}`;
     openRoute(route);
@@ -102,7 +107,7 @@ export function McpServerListPage() {
         </div>
         <div className={sharedStyles.titleRow}>
           <Text weight="semibold" size={400}>
-            {t("mcpServer.listTitle", { count: rows.length })}
+            {t("mcpServer.listTitle", { count: total })}
           </Text>
         </div>
         <div className={sharedStyles.tableScroll} style={{ flexGrow: 0 }}>
@@ -139,7 +144,7 @@ export function McpServerListPage() {
                       {row.name}
                     </a>
                   </TableCell>
-                  <TableCell className={sharedStyles.tableCell}>{t(row.descriptionKey)}</TableCell>
+                  <TableCell className={sharedStyles.tableCell}>{row.description}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>{row.url}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>
                     <Badge
@@ -155,7 +160,7 @@ export function McpServerListPage() {
               ))}
             </TableBody>
           </Table>
-          {rows.length === 0 && (
+          {!isLoading && rows.length === 0 && (
             <div
               style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}
             >

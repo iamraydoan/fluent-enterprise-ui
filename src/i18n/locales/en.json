@@ -29,14 +29,6 @@
     },
     "createdBy": "Created 12/10/2026 by Nguyen Minh Anh",
     "deferred": "Deferred",
-    "descriptions": {
-      "analyticsView": "Builds and refines analytics dashboards for Analytics Views",
-      "cmMes": "Answers questions about MES documents and entity revisions",
-      "docSummarizer": "Summarizes attachments and documents",
-      "maintenance": "Suggests maintenance schedules",
-      "quality": "Helps review non-conformance reports"
-    },
-    "detailDescription": "Acts as a general MES assistant, a starting point for questions about products, resources or documents.",
     "fields": {
       "dataGroup": "Data Group",
       "description": "Description",
@@ -79,24 +71,6 @@
     "viewDescription": "View description of {{tool}}"
   },
   "aiChat": {
-    "agents": {
-      "cm": {
-        "description": "Acts as a general MES assistant, a starting point for questions about products, resources or documents, guiding to the right answer.",
-        "title": "MES Agent"
-      },
-      "doc": {
-        "description": "Summarizes documents and attachments and extracts the key points you ask for.",
-        "title": "Document Summarizer"
-      },
-      "mp": {
-        "description": "Suggests maintenance schedules and finds equipment history for a resource.",
-        "title": "Maintenance Planner"
-      },
-      "qa": {
-        "description": "Helps review non-conformance reports and inspection results, and points to the records that matter.",
-        "title": "Quality Assistant"
-      }
-    },
     "attachFile": "Attach file",
     "chatHistory": "Chat history",
     "chats": "Chats",
@@ -109,18 +83,6 @@
     },
     "messageAgent": "Message {{agent}}",
     "newChat": "New chat",
-    "seeds": {
-      "first": {
-        "botText": "I found 3 documents that reference the latest recipe revision. The most recent one was updated on 28/10/2026.",
-        "title": "Which documents reference the latest recipe?",
-        "userText": "Which documents reference the latest recipe?"
-      },
-      "second": {
-        "botText": "Revision 3 adds a torque check at step 5 and removes the optional cleaning step.",
-        "title": "Compare revision 2 and 3 of the work instruction",
-        "userText": "Compare revision 2 and 3 of the work instruction"
-      }
-    },
     "send": "Send",
     "thinking": "{{agent}} is thinking…",
     "toggleHistory": "Toggle history"
@@ -131,12 +93,6 @@
       "description": "Description",
       "state": "State",
       "type": "Type"
-    },
-    "descriptions": {
-      "maintenance": "Equipment maintenance app",
-      "quality": "Inspection and NCR handling",
-      "shopFloor": "Operator console for work orders",
-      "traceability": "Genealogy and lot tracking"
     },
     "listTitle": "Apps ({{count}})",
     "pageLabel": "Apps",
@@ -184,22 +140,7 @@
       "value": "Value"
     },
     "listTitle": "Configuration ({{count}})",
-    "pageLabel": "Configuration",
-    "scopes": {
-      "global": "Global",
-      "security": "Security"
-    },
-    "settings": {
-      "auditLogging": "Audit logging",
-      "defaultLanguage": "Default language",
-      "sessionTimeout": "Session timeout",
-      "timeZone": "Time zone"
-    },
-    "values": {
-      "enabled": "Enabled",
-      "english": "English",
-      "minutes": "{{count}} min"
-    }
+    "pageLabel": "Configuration"
   },
   "detailShell": {
     "tabs": {
@@ -313,13 +254,6 @@
       "name": "Name",
       "state": "State",
       "url": "URL"
-    },
-    "descriptions": {
-      "clickhouse": "ClickHouse SQL data access",
-      "cmMes": "MES entities, documents and attachments",
-      "cubes": "Cube.js data cubes",
-      "grafana": "Grafana dashboards and datasources",
-      "portalDocs": "Product documentation search"
     },
     "fields": {
       "authMode": "Authentication Mode",

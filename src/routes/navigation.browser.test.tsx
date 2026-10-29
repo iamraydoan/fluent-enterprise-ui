@@ -57,6 +57,7 @@ test("administration hub renders tiles and a tile opens its list without adding 
 
 test("sidebar navigation opens the AI chat without adding a tab", async () => {
   const screen = renderAt("/administration/ai-agent");
+  await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByRole("button", { name: "AI", exact: true }).click();
   await waitForText("Acts as a general MES assistant");
@@ -76,6 +77,7 @@ test("the new tab button adds a home tab on every click", async () => {
 
 test("an AI Agent list link opens the detail in the current tab and back returns to the list", async () => {
   const screen = renderAt("/administration/ai-agent");
+  await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByText("CM MES Agent").click();
   await waitForText("LibreChat");
@@ -89,6 +91,7 @@ test("an AI Agent list link opens the detail in the current tab and back returns
 
 test("an MCP Server list link opens the Cubes detail and back returns to the list", async () => {
   const screen = renderAt("/administration/ai-mcp-server");
+  await waitForText("AI MCP Servers (5)");
   await expect.element(screen.getByText("AI MCP Servers (5)")).toBeVisible();
   await screen.getByRole("link", { name: "Cubes", exact: true }).click();
   await waitForText("http://mcp-cubejs:8080/mcp");
@@ -102,6 +105,7 @@ test("an MCP Server list link opens the Cubes detail and back returns to the lis
 
 test("an Entity Types list row click does nothing", async () => {
   const screen = renderAt("/administration/entity-types");
+  await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   await screen.getByText("AIAgent", { exact: true }).click();
   await new Promise((resolve) => setTimeout(resolve, 500));
@@ -111,6 +115,7 @@ test("an Entity Types list row click does nothing", async () => {
 
 test("state filter still works without adding tabs", async () => {
   const screen = renderAt("/administration/entity-types");
+  await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   await screen.getByRole("button", { name: "STATE: ALL" }).click();
   await expect.element(screen.getByRole("menuitemradio", { name: "Active" })).toBeVisible();
@@ -122,6 +127,7 @@ test("state filter still works without adding tabs", async () => {
 
 test("pagination still works without adding tabs", async () => {
   const screen = renderAt("/administration/entity-types");
+  await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   await screen.getByRole("button", { name: "Next page" }).click();
   await waitForText("Page 2 of 16");
@@ -151,6 +157,7 @@ test("hub tiles open the Apps and Configuration lists and a placeholder tile sho
 
 test("search filters the AI Agents list", async () => {
   const screen = renderAt("/administration/ai-agent");
+  await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByRole("textbox", { name: "Search" }).fill("Quality");
   await waitForText("AI Agents (1)");
@@ -172,6 +179,7 @@ test("chat send appends a demo reply with tool chips and new chat resets", async
 
 test("agent detail dialogs open for instructions, MCP servers and tool descriptions", async () => {
   const screen = renderAt("/administration/ai-agent");
+  await waitForText("AI Agents (5)");
   await expect.element(screen.getByText("AI Agents (5)")).toBeVisible();
   await screen.getByText("CM MES Agent").click();
   await waitForText("LibreChat");
@@ -196,6 +204,7 @@ test("agent detail dialogs open for instructions, MCP servers and tool descripti
 
 test("MCP detail shows tools and synchronizes", async () => {
   const screen = renderAt("/administration/ai-mcp-server");
+  await waitForText("AI MCP Servers (5)");
   await expect.element(screen.getByText("AI MCP Servers (5)")).toBeVisible();
   await screen.getByRole("link", { name: "Cubes", exact: true }).click();
   await waitForText("http://mcp-cubejs:8080/mcp");

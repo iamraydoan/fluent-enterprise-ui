@@ -29,14 +29,6 @@
     },
     "createdBy": "Nguyen Minh Anh が 12/10/2026 に作成",
     "deferred": "延期",
-    "descriptions": {
-      "analyticsView": "Analyticsビューの分析ダッシュボードを構築・改善します",
-      "cmMes": "MESドキュメントやエンティティのリビジョンに関する質問に回答します",
-      "docSummarizer": "添付ファイルやドキュメントを要約します",
-      "maintenance": "メンテナンススケジュールを提案します",
-      "quality": "不適合レポートのレビューを支援します"
-    },
-    "detailDescription": "製品、リソース、ドキュメントに関する質問の出発点となる、汎用MESアシスタントとして動作します。",
     "fields": {
       "dataGroup": "データグループ",
       "description": "説明",
@@ -79,24 +71,6 @@
     "viewDescription": "{{tool}} の説明を表示"
   },
   "aiChat": {
-    "agents": {
-      "cm": {
-        "description": "製品、リソース、ドキュメントに関する質問の出発点となる汎用MESアシスタントとして、適切な回答へ案内します。",
-        "title": "MESエージェント"
-      },
-      "doc": {
-        "description": "ドキュメントや添付ファイルを要約し、求める要点を抽出します。",
-        "title": "ドキュメント要約"
-      },
-      "mp": {
-        "description": "メンテナンススケジュールを提案し、リソースの設備履歴を検索します。",
-        "title": "メンテナンスプランナー"
-      },
-      "qa": {
-        "description": "不適合レポートや検査結果のレビューを支援し、重要なレコードを示します。",
-        "title": "品質アシスタント"
-      }
-    },
     "attachFile": "ファイルを添付",
     "chatHistory": "チャット履歴",
     "chats": "チャット",
@@ -109,18 +83,6 @@
     },
     "messageAgent": "{{agent}} にメッセージを送信",
     "newChat": "新規チャット",
-    "seeds": {
-      "first": {
-        "botText": "最新のレシピリビジョンを参照するドキュメントを3件見つけました。最新のものは28/10/2026に更新されました。",
-        "title": "最新のレシピを参照するドキュメントはどれですか？",
-        "userText": "最新のレシピを参照するドキュメントはどれですか？"
-      },
-      "second": {
-        "botText": "リビジョン3ではステップ5にトルクチェックが追加され、オプションの清掃ステップが削除されています。",
-        "title": "作業指示書のリビジョン2と3を比較",
-        "userText": "作業指示書のリビジョン2と3を比較"
-      }
-    },
     "send": "送信",
     "thinking": "{{agent}} が考えています…",
     "toggleHistory": "履歴の切り替え"
@@ -131,12 +93,6 @@
       "description": "説明",
       "state": "状態",
       "type": "種類"
-    },
-    "descriptions": {
-      "maintenance": "設備メンテナンスアプリ",
-      "quality": "検査とNCR対応",
-      "shopFloor": "作業指示用のオペレーターコンソール",
-      "traceability": "系譜とロット追跡"
     },
     "listTitle": "アプリ ({{count}})",
     "pageLabel": "アプリ",
@@ -184,22 +140,7 @@
       "value": "値"
     },
     "listTitle": "構成 ({{count}})",
-    "pageLabel": "構成",
-    "scopes": {
-      "global": "グローバル",
-      "security": "セキュリティ"
-    },
-    "settings": {
-      "auditLogging": "監査ログ",
-      "defaultLanguage": "既定の言語",
-      "sessionTimeout": "セッションタイムアウト",
-      "timeZone": "タイムゾーン"
-    },
-    "values": {
-      "enabled": "有効",
-      "english": "英語",
-      "minutes": "{{count}} 分"
-    }
+    "pageLabel": "構成"
   },
   "detailShell": {
     "tabs": {
@@ -313,13 +254,6 @@
       "name": "名前",
       "state": "状態",
       "url": "URL"
-    },
-    "descriptions": {
-      "clickhouse": "ClickHouse SQLデータアクセス",
-      "cmMes": "MESエンティティ、ドキュメント、添付ファイル",
-      "cubes": "Cube.jsデータキューブ",
-      "grafana": "Grafanaダッシュボードとデータソース",
-      "portalDocs": "製品ドキュメント検索"
     },
     "fields": {
       "authMode": "認証モード",

@@ -6,6 +6,13 @@ import { routeTree } from "@/routeTree.gen";
 
 initI18n();
 
+async function startMocks(): Promise<void> {
+  if (import.meta.env.VITE_USE_MOCK === "true") {
+    const { worker } = await import("@/mocks/browser");
+    await worker.start();
+  }
+}
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -28,8 +35,12 @@ declare module "@tanstack/react-router" {
   }
 }
 
-createRoot(document.getElementById("root") as HTMLElement).render(
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-  </QueryClientProvider>,
-);
+const rootElement = document.getElementById("root") as HTMLElement;
+
+void startMocks().then(() => {
+  createRoot(rootElement).render(
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>,
+  );
+});

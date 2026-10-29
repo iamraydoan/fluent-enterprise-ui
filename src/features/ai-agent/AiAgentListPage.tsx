@@ -1,5 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useAiAgents, useDebouncedValue } from "@/api";
 import { ActionBar, PageHeader, RibbonButton } from "@/components/common";
 import {
   Add24Regular,
@@ -21,10 +22,8 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { containsIgnoreCase } from "@/lib/utils";
 import { useTabsStore } from "@/stores/tabs-store";
 import { useSharedStyles } from "@/styles/shared";
-import { AI_AGENT_ROWS } from "./data";
 
 const STATE_COLORS: Record<string, "success" | "informative" | "danger"> = {
   Active: "success",
@@ -44,13 +43,15 @@ export function AiAgentListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearch = useDebouncedValue(searchQuery, 300);
   const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
-  const rows = AI_AGENT_ROWS.filter((row) =>
-    containsIgnoreCase(
-      `${row.name} ${t(row.descriptionKey)} ${row.mcpServers} ${row.state}`,
-      searchQuery,
-    ),
-  );
+  const { data, isLoading } = useAiAgents({
+    page: 1,
+    limit: 200,
+    q: debouncedSearch === "" ? undefined : debouncedSearch,
+  });
+  const rows = data?.data ?? [];
+  const total = data?.meta.total ?? 0;
   const headers = [
     t("aiAgent.columns.agent"),
     t("aiAgent.columns.description"),
@@ -111,7 +112,7 @@ export function AiAgentListPage() {
         </div>
         <div className={sharedStyles.titleRow}>
           <Text weight="semibold" size={400}>
-            {t("aiAgent.listTitle", { count: rows.length })}
+            {t("aiAgent.listTitle", { count: total })}
           </Text>
         </div>
         <div className={sharedStyles.tableScroll} style={{ flexGrow: 0 }}>
@@ -143,7 +144,7 @@ export function AiAgentListPage() {
                       {row.name}
                     </a>
                   </TableCell>
-                  <TableCell className={sharedStyles.tableCell}>{t(row.descriptionKey)}</TableCell>
+                  <TableCell className={sharedStyles.tableCell}>{row.description}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>{row.mcpServers}</TableCell>
                   <TableCell className={sharedStyles.tableCell}>
                     <Badge
@@ -159,7 +160,7 @@ export function AiAgentListPage() {
               ))}
             </TableBody>
           </Table>
-          {rows.length === 0 && (
+          {!isLoading && rows.length === 0 && (
             <div
               style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}
             >

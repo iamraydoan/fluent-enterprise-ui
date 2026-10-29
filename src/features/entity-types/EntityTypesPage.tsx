@@ -1,4 +1,6 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import { useDebouncedValue, useEntityTypes } from "@/api";
+import type { EntityTypeRecord } from "@/api";
 import { ActionBar, PageHeader, RibbonButton, TablePagination } from "@/components/common";
 import {
   Add24Regular,
@@ -34,47 +36,49 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { containsIgnoreCase } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
 import { ColumnChooser } from "./components/ColumnChooser";
-import { ENTITY_COLUMN_BY_KEY, ENTITY_TYPES, DEFAULT_VISIBLE_COLUMNS } from "./data";
+import { ENTITY_COLUMN_BY_KEY, DEFAULT_VISIBLE_COLUMNS } from "./data";
 import type { EntityColumnKey, SortState, VisibleColumn } from "./types";
+
+const booleanCellValue = (record: EntityTypeRecord, key: EntityColumnKey): boolean => {
+  switch (key) {
+    case "relation":
+      return record.isRelation;
+    case "system":
+      return record.system;
+    case "versioned":
+      return record.versioned;
+    default:
+      return false;
+  }
+};
 
 export function EntityTypesPage() {
   const sharedStyles = useSharedStyles();
   const { t } = useAppTranslation();
   const [stateFilter, setStateFilter] = useState<{ state: string[] }>({ state: ["all"] });
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearch = useDebouncedValue(searchQuery, 300);
   const [columns, setColumns] = useState<VisibleColumn[]>(DEFAULT_VISIBLE_COLUMNS);
   const [sort, setSort] = useState<SortState | null>(null);
   const [pageSize, setPageSize] = useState(25);
   const [page, setPage] = useState(1);
   const [actionBarCollapsed, setActionBarCollapsed] = useState(false);
 
-  const rows = useMemo(() => {
-    const st = stateFilter.state[0];
-    const r = ENTITY_TYPES.filter(
-      (d) =>
-        (st === "all" || d.state.toLowerCase() === st) &&
-        containsIgnoreCase(`${d.name} ${d.description}`, searchQuery),
-    );
-    if (sort) {
-      return [...r].sort((a, b) => {
-        const x = a[sort.key];
-        const y = b[sort.key];
-        const c =
-          typeof x === "boolean" && typeof y === "boolean"
-            ? Number(x) - Number(y)
-            : String(x).localeCompare(String(y), "en", { sensitivity: "base" });
-        return sort.dir === "asc" ? c : -c;
-      });
-    }
-    return r;
-  }, [stateFilter, searchQuery, sort]);
+  const stateParam = stateFilter.state[0] === "all" ? undefined : stateFilter.state[0];
+  const { data, isLoading } = useEntityTypes({
+    page,
+    limit: pageSize,
+    sort: sort ? `${sort.dir === "desc" ? "-" : ""}${sort.key}` : undefined,
+    q: debouncedSearch === "" ? undefined : debouncedSearch,
+    state: stateParam,
+  });
+  const rows = data?.data ?? [];
+  const total = data?.meta.total ?? 0;
 
-  const pages = Math.max(1, Math.ceil(rows.length / pageSize));
+  const pages = Math.max(1, Math.ceil(total / pageSize));
   const currentPage = Math.min(page, pages);
-  const slice = rows.slice((currentPage - 1) * pageSize, currentPage * pageSize);
   const visible = columns.filter((c) => c.visible).map((c) => ENTITY_COLUMN_BY_KEY[c.key]);
   const stateLabels: Record<string, string> = {
     all: t("entityTypes.stateOptions.all"),
@@ -88,6 +92,32 @@ export function EntityTypesPage() {
   };
   const reset = () => {
     setPage(1);
+  };
+  const renderCell = (record: EntityTypeRecord, key: EntityColumnKey) => {
+    switch (key) {
+      case "name":
+        return <TableCellLayout truncate>{record.name}</TableCellLayout>;
+      case "description":
+        return (
+          <TableCellLayout truncate title={record.description}>
+            {record.description}
+          </TableCellLayout>
+        );
+      case "state":
+        return columnStateLabels[record.state] ?? record.state;
+      case "system":
+      case "relation":
+      case "versioned":
+        return (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            {booleanCellValue(record, key) ? (
+              <Checkmark20Filled aria-label={t("common.yes")} />
+            ) : (
+              <Dismiss20Filled aria-label={t("common.no")} style={{ color: "#8A8A8A" }} />
+            )}
+          </div>
+        );
+    }
   };
   const onSort = (key: EntityColumnKey) => {
     setSort((p) =>
@@ -184,7 +214,7 @@ export function EntityTypesPage() {
 
         <div className={sharedStyles.titleRow}>
           <Text weight="semibold" size={400}>
-            {t("entityTypes.title", { count: rows.length })}
+            {t("entityTypes.title", { count: total })}
           </Text>
           <div>
             <ColumnChooser columns={columns} setColumns={setColumns} />
@@ -259,39 +289,18 @@ export function EntityTypesPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {slice.map((r) => (
+              {rows.map((r) => (
                 <TableRow key={r.id}>
                   {visible.map((c) => (
                     <TableCell key={c.key} className={sharedStyles.tableCell}>
-                      {c.key === "name" ? (
-                        <TableCellLayout truncate>{r.name}</TableCellLayout>
-                      ) : c.key === "description" ? (
-                        <TableCellLayout truncate title={r.description}>
-                          {r.description}
-                        </TableCellLayout>
-                      ) : c.isBoolean ? (
-                        <div style={{ display: "flex", justifyContent: "center" }}>
-                          {r[c.key] ? (
-                            <Checkmark20Filled aria-label={t("common.yes")} />
-                          ) : (
-                            <Dismiss20Filled
-                              aria-label={t("common.no")}
-                              style={{ color: "#8A8A8A" }}
-                            />
-                          )}
-                        </div>
-                      ) : c.key === "state" ? (
-                        (columnStateLabels[r.state] ?? r.state)
-                      ) : (
-                        r[c.key]
-                      )}
+                      {renderCell(r, c.key)}
                     </TableCell>
                   ))}
                 </TableRow>
               ))}
             </TableBody>
           </Table>
-          {slice.length === 0 && (
+          {!isLoading && rows.length === 0 && (
             <div
               style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}
             >
@@ -308,7 +317,7 @@ export function EntityTypesPage() {
           }}
           currentPage={currentPage}
           pages={pages}
-          total={rows.length}
+          total={total}
           onPageChange={setPage}
         />
       </section>

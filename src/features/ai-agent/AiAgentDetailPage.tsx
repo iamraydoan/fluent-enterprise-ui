@@ -1,5 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useAiAgent } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "@/components/common";
 import type { DetailTab, MiniBarButton, MiniBarGroup } from "@/components/common";
 import {
@@ -41,9 +42,7 @@ import { ManageMcpDialog } from "./ManageMcpDialog";
 import { ToolDescriptionDialog } from "./ToolDescriptionDialog";
 import type { ToolSelection } from "./data";
 import {
-  AI_AGENT_HISTORY,
   AI_AGENT_SECTIONS,
-  agentData,
   countSelectedTools,
   INITIAL_TOOL_SELECTION,
   toolDescription,
@@ -252,13 +251,19 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
   const detailStyles = useDetailStyles();
   const openRoute = useTabsStore((state) => state.openRoute);
   const navigate = useNavigate();
-  const data = agentData(name);
+  const { data, isLoading } = useAiAgent(name);
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState("aiAgent.sections.details");
-  const [instructions, setInstructions] = useState(data.instructions);
+  const [instructionEdits, setInstructionEdits] = useState<string | undefined>(undefined);
   const [selection, setSelection] = useState<ToolSelection>(INITIAL_TOOL_SELECTION);
   const [dialog, setDialog] = useState<"instr" | "mcp" | null>(null);
   const [view, setView] = useState<{ server: string; tool: string } | null>(null);
+
+  if (isLoading || data === undefined) {
+    return null;
+  }
+
+  const instructions = instructionEdits ?? data.instructions;
 
   const editInstructions = () => setDialog("instr");
   const editMcp = () => setDialog("mcp");
@@ -284,7 +289,7 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
     navigate({ to: "/ai" });
   };
 
-  const description = data.descriptionKey ? t(data.descriptionKey) : data.description;
+  const description = data.description;
   const historyHeaders = [
     t("aiAgent.historyColumns.date"),
     t("aiAgent.historyColumns.user"),
@@ -306,11 +311,11 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
     content = (
       <Panel>
         <div className={detailStyles.titleRow}>
-          <Text size={400}>{t("aiAgent.historyTitle", { count: AI_AGENT_HISTORY.length })}</Text>
+          <Text size={400}>{t("aiAgent.historyTitle", { count: data.history.length })}</Text>
         </div>
         <div className={detailStyles.scroll}>
           <Table
-            aria-label={t("aiAgent.historyTitle", { count: AI_AGENT_HISTORY.length })}
+            aria-label={t("aiAgent.historyTitle", { count: data.history.length })}
             style={{ tableLayout: "fixed", width: "100%" }}
           >
             <TableHeader>
@@ -323,7 +328,7 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {AI_AGENT_HISTORY.map((row) => (
+              {data.history.map((row) => (
                 <TableRow key={row[0]}>
                   {row.map((cell, index) => (
                     <TableCell key={index} className={detailStyles.td}>
@@ -439,7 +444,7 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
           value={instructions}
           onClose={() => setDialog(null)}
           onSave={(next) => {
-            setInstructions(next);
+            setInstructionEdits(next);
             setDialog(null);
           }}
         />
