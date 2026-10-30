@@ -751,6 +751,70 @@
         "message": "Unterminate Shift Definition '{{name}}'? Referenced generic/smart table rows will not be recovered.",
         "confirm": "Unterminate"
       }
+    },
+    "shiftLogbook": {
+      "addEntry": {
+        "add": "Add Entry",
+        "category": "Category:",
+        "comments": "Comments:",
+        "description": "Description:",
+        "resource": "Resource:",
+        "severity": "Severity:",
+        "title": "Add Shift Logbook Entry",
+        "titleLabel": "Title:"
+      },
+      "cancel": "Cancel",
+      "columns": {
+        "area": "Area",
+        "name": "Name",
+        "shift": "Shift",
+        "shiftDefinition": "Shift Definition",
+        "state": "State",
+        "systemState": "System State"
+      },
+      "detail": {
+        "area": "Area:",
+        "calendarDay": "Calendar Day:",
+        "dataGroup": "Data Group:",
+        "name": "Name:",
+        "shift": "Shift:",
+        "shiftDefinition": "Shift Definition:",
+        "shiftInfo": "Shift Information",
+        "state": "Universal State:",
+        "systemState": "System State:",
+        "team": "Team:"
+      },
+      "editEntry": {
+        "title": "Edit Shift Logbook Entry",
+        "update": "Update"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Shift Logbooks ({{count}})",
+      "noAttachments": "No attachments.",
+      "notFound": "Shift Logbook not found.",
+      "pageLabel": "Shift Logbook",
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details",
+        "entries": "Entries"
+      },
+      "signOff": {
+        "comment": "Comment:",
+        "menuLabel": "Sign-Off",
+        "reviewEntries": "Review entries:",
+        "signOff": "Sign-Off",
+        "title": "Sign-Off Shift Logbook"
+      },
+      "summary": {
+        "content": "AI-generated summary for {{area}} {{shift}} covering {{count}} logbook entries, area activities, OEE trends, produced quantity vs plan, yield, scrap pareto and holds.",
+        "menuLabel": "Generate Handover Summary",
+        "title": "Shift Handover Summary"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      }
     }
   }
 }

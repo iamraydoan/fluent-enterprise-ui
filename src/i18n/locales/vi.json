@@ -751,6 +751,70 @@
         "message": "Hủy kết thúc định nghĩa ca '{{name}}'? Các dòng bảng tham chiếu sẽ không được khôi phục.",
         "confirm": "Hủy kết thúc"
       }
+    },
+    "shiftLogbook": {
+      "addEntry": {
+        "add": "Thêm mục",
+        "category": "Danh mục:",
+        "comments": "Ghi chú:",
+        "description": "Mô tả:",
+        "resource": "Tài nguyên:",
+        "severity": "Mức độ:",
+        "title": "Thêm mục nhật ký ca",
+        "titleLabel": "Tiêu đề:"
+      },
+      "cancel": "Hủy",
+      "columns": {
+        "area": "Khu vực",
+        "name": "Tên",
+        "shift": "Ca",
+        "shiftDefinition": "Định nghĩa ca",
+        "state": "Trạng thái",
+        "systemState": "Trạng thái hệ thống"
+      },
+      "detail": {
+        "area": "Khu vực:",
+        "calendarDay": "Ngày lịch:",
+        "dataGroup": "Nhóm dữ liệu:",
+        "name": "Tên:",
+        "shift": "Ca:",
+        "shiftDefinition": "Định nghĩa ca:",
+        "shiftInfo": "Thông tin ca",
+        "state": "Trạng thái chung:",
+        "systemState": "Trạng thái hệ thống:",
+        "team": "Nhóm:"
+      },
+      "editEntry": {
+        "title": "Sửa mục nhật ký ca",
+        "update": "Cập nhật"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Sổ nhật ký ca ({{count}})",
+      "noAttachments": "Không có tệp đính kèm.",
+      "notFound": "Không tìm thấy sổ nhật ký ca.",
+      "pageLabel": "Sổ nhật ký ca",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "entries": "Mục ghi"
+      },
+      "signOff": {
+        "comment": "Ghi chú:",
+        "menuLabel": "Ký duyệt",
+        "reviewEntries": "Xem lại các mục:",
+        "signOff": "Ký duyệt",
+        "title": "Ký duyệt sổ nhật ký ca"
+      },
+      "summary": {
+        "content": "Tóm tắt do AI tạo cho {{area}} {{shift}} gồm {{count}} mục nhật ký, hoạt động khu vực, xu hướng OEE, sản lượng so với kế hoạch, tỷ lệ đạt, phế phẩm và giữ hàng.",
+        "menuLabel": "Tạo tóm tắt bàn giao",
+        "title": "Tóm tắt bàn giao ca"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      }
     }
   }
 }

@@ -24,6 +24,7 @@ import { Route as AdministrationQueriesRouteImport } from './routes/administrati
 import { Route as AdministrationTablesRouteImport } from './routes/administration.tables'
 import { Route as AdministrationUipagesRouteImport } from './routes/administration.uipages'
 import { Route as BusinessDataShiftDefinitionRouteImport } from './routes/business-data.shift-definition'
+import { Route as BusinessDataShiftLogbookRouteImport } from './routes/business-data.shift-logbook'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -31,6 +32,7 @@ import { Route as AdministrationEntityTypesNameRouteImport } from './routes/admi
 import { Route as AdministrationQueriesNameRouteImport } from './routes/administration.queries.$name'
 import { Route as AdministrationTablesNameRouteImport } from './routes/administration.tables.$name'
 import { Route as BusinessDataShiftDefinitionNameRouteImport } from './routes/business-data.shift-definition.$name'
+import { Route as BusinessDataShiftLogbookNameRouteImport } from './routes/business-data.shift-logbook.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -111,6 +113,12 @@ const BusinessDataShiftDefinitionRoute =
     path: '/shift-definition',
     getParentRoute: () => BusinessDataRoute,
   } as any)
+const BusinessDataShiftLogbookRoute =
+  BusinessDataShiftLogbookRouteImport.update({
+    id: '/shift-logbook',
+    path: '/shift-logbook',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -153,6 +161,12 @@ const BusinessDataShiftDefinitionNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataShiftDefinitionRoute,
   } as any)
+const BusinessDataShiftLogbookNameRoute =
+  BusinessDataShiftLogbookNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataShiftLogbookRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -170,6 +184,7 @@ export interface FileRoutesByFullPath {
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/shift-definition': typeof BusinessDataShiftDefinitionRouteWithChildren
+  '/business-data/shift-logbook': typeof BusinessDataShiftLogbookRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -177,6 +192,7 @@ export interface FileRoutesByFullPath {
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/shift-definition/$name': typeof BusinessDataShiftDefinitionNameRoute
+  '/business-data/shift-logbook/$name': typeof BusinessDataShiftLogbookNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -194,6 +210,7 @@ export interface FileRoutesByTo {
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/shift-definition': typeof BusinessDataShiftDefinitionRouteWithChildren
+  '/business-data/shift-logbook': typeof BusinessDataShiftLogbookRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -201,6 +218,7 @@ export interface FileRoutesByTo {
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/shift-definition/$name': typeof BusinessDataShiftDefinitionNameRoute
+  '/business-data/shift-logbook/$name': typeof BusinessDataShiftLogbookNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -219,6 +237,7 @@ export interface FileRoutesById {
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/shift-definition': typeof BusinessDataShiftDefinitionRouteWithChildren
+  '/business-data/shift-logbook': typeof BusinessDataShiftLogbookRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -226,6 +245,7 @@ export interface FileRoutesById {
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/shift-definition/$name': typeof BusinessDataShiftDefinitionNameRoute
+  '/business-data/shift-logbook/$name': typeof BusinessDataShiftLogbookNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -245,6 +265,7 @@ export interface FileRouteTypes {
     | '/administration/tables'
     | '/administration/uipages'
     | '/business-data/shift-definition'
+    | '/business-data/shift-logbook'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -252,6 +273,7 @@ export interface FileRouteTypes {
     | '/administration/queries/$name'
     | '/administration/tables/$name'
     | '/business-data/shift-definition/$name'
+    | '/business-data/shift-logbook/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -269,6 +291,7 @@ export interface FileRouteTypes {
     | '/administration/tables'
     | '/administration/uipages'
     | '/business-data/shift-definition'
+    | '/business-data/shift-logbook'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -276,6 +299,7 @@ export interface FileRouteTypes {
     | '/administration/queries/$name'
     | '/administration/tables/$name'
     | '/business-data/shift-definition/$name'
+    | '/business-data/shift-logbook/$name'
   id:
     | '__root__'
     | '/'
@@ -293,6 +317,7 @@ export interface FileRouteTypes {
     | '/administration/tables'
     | '/administration/uipages'
     | '/business-data/shift-definition'
+    | '/business-data/shift-logbook'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -300,6 +325,7 @@ export interface FileRouteTypes {
     | '/administration/queries/$name'
     | '/administration/tables/$name'
     | '/business-data/shift-definition/$name'
+    | '/business-data/shift-logbook/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -417,6 +443,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataShiftDefinitionRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/shift-logbook': {
+      id: '/business-data/shift-logbook'
+      path: '/shift-logbook'
+      fullPath: '/business-data/shift-logbook'
+      preLoaderRoute: typeof BusinessDataShiftLogbookRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -465,6 +498,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/shift-definition/$name'
       preLoaderRoute: typeof BusinessDataShiftDefinitionNameRouteImport
       parentRoute: typeof BusinessDataShiftDefinitionRoute
+    }
+    '/business-data/shift-logbook/$name': {
+      id: '/business-data/shift-logbook/$name'
+      path: '/$name'
+      fullPath: '/business-data/shift-logbook/$name'
+      preLoaderRoute: typeof BusinessDataShiftLogbookNameRouteImport
+      parentRoute: typeof BusinessDataShiftLogbookRoute
     }
   }
 }
@@ -591,13 +631,29 @@ const BusinessDataShiftDefinitionRouteWithChildren =
     BusinessDataShiftDefinitionRouteChildren,
   )
 
+interface BusinessDataShiftLogbookRouteChildren {
+  BusinessDataShiftLogbookNameRoute: typeof BusinessDataShiftLogbookNameRoute
+}
+
+const BusinessDataShiftLogbookRouteChildren: BusinessDataShiftLogbookRouteChildren =
+  {
+    BusinessDataShiftLogbookNameRoute: BusinessDataShiftLogbookNameRoute,
+  }
+
+const BusinessDataShiftLogbookRouteWithChildren =
+  BusinessDataShiftLogbookRoute._addFileChildren(
+    BusinessDataShiftLogbookRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataShiftDefinitionRoute: typeof BusinessDataShiftDefinitionRouteWithChildren
+  BusinessDataShiftLogbookRoute: typeof BusinessDataShiftLogbookRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataShiftDefinitionRoute:
     BusinessDataShiftDefinitionRouteWithChildren,
+  BusinessDataShiftLogbookRoute: BusinessDataShiftLogbookRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

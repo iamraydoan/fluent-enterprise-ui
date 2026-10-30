@@ -88,3 +88,15 @@ export type {
   ShiftDefinitionRecord,
   ShiftDefinitionShift,
 } from "./businessData/shiftDefinition";
+export {
+  getShiftLogbook,
+  listShiftLogbooks,
+  useShiftLogbookDetail,
+  useShiftLogbooks,
+} from "./businessData/shiftLogbook";
+export type {
+  ShiftLogbookDetail,
+  ShiftLogbookEntry,
+  ShiftLogbookListParams,
+  ShiftLogbookRecord,
+} from "./businessData/shiftLogbook";

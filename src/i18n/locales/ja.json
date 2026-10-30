@@ -751,6 +751,70 @@
         "message": "シフト定義「{{name}}」の終了を取り消しますか? 参照行は復元されません。",
         "confirm": "終了取消"
       }
+    },
+    "shiftLogbook": {
+      "addEntry": {
+        "add": "エントリを追加",
+        "category": "カテゴリ:",
+        "comments": "コメント:",
+        "description": "説明:",
+        "resource": "リソース:",
+        "severity": "重要度:",
+        "title": "シフト日誌エントリの追加",
+        "titleLabel": "タイトル:"
+      },
+      "cancel": "キャンセル",
+      "columns": {
+        "area": "エリア",
+        "name": "名前",
+        "shift": "シフト",
+        "shiftDefinition": "シフト定義",
+        "state": "状態",
+        "systemState": "システム状態"
+      },
+      "detail": {
+        "area": "エリア:",
+        "calendarDay": "カレンダー日:",
+        "dataGroup": "データグループ:",
+        "name": "名前:",
+        "shift": "シフト:",
+        "shiftDefinition": "シフト定義:",
+        "shiftInfo": "シフト情報",
+        "state": "ユニバーサル状態:",
+        "systemState": "システム状態:",
+        "team": "チーム:"
+      },
+      "editEntry": {
+        "title": "シフト日誌エントリの編集",
+        "update": "更新"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "シフト日誌 ({{count}})",
+      "noAttachments": "添付ファイルがありません。",
+      "notFound": "シフト日誌が見つかりません。",
+      "pageLabel": "シフト日誌",
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "entries": "エントリ"
+      },
+      "signOff": {
+        "comment": "コメント:",
+        "menuLabel": "承認",
+        "reviewEntries": "エントリの確認:",
+        "signOff": "承認",
+        "title": "シフト日誌の承認"
+      },
+      "summary": {
+        "content": "{{area}} {{shift}} のAI生成サマリー。{{count}}件の日誌エントリ、エリア活動、OEEトレンド、計画対実績、歩留まり、不良パレート、保留を含む。",
+        "menuLabel": "引継ぎサマリー生成",
+        "title": "シフト引継ぎサマリー"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      }
     }
   }
 }

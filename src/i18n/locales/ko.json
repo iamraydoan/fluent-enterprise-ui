@@ -751,6 +751,70 @@
         "message": "교대 정의 '{{name}}'의 종료를 취소하시겠습니까? 참조 행은 복원되지 않습니다.",
         "confirm": "종료 취소"
       }
+    },
+    "shiftLogbook": {
+      "addEntry": {
+        "add": "항목 추가",
+        "category": "범주:",
+        "comments": "설명:",
+        "description": "설명:",
+        "resource": "리소스:",
+        "severity": "심각도:",
+        "title": "교대 일지 항목 추가",
+        "titleLabel": "제목:"
+      },
+      "cancel": "취소",
+      "columns": {
+        "area": "구역",
+        "name": "이름",
+        "shift": "교대",
+        "shiftDefinition": "교대 정의",
+        "state": "상태",
+        "systemState": "시스템 상태"
+      },
+      "detail": {
+        "area": "구역:",
+        "calendarDay": "달력 일:",
+        "dataGroup": "데이터 그룹:",
+        "name": "이름:",
+        "shift": "교대:",
+        "shiftDefinition": "교대 정의:",
+        "shiftInfo": "교대 정보",
+        "state": "범용 상태:",
+        "systemState": "시스템 상태:",
+        "team": "팀:"
+      },
+      "editEntry": {
+        "title": "교대 일지 항목 편집",
+        "update": "업데이트"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "교대 일지 ({{count}})",
+      "noAttachments": "첨부 파일이 없습니다.",
+      "notFound": "교대 일지를 찾을 수 없습니다.",
+      "pageLabel": "교대 일지",
+      "sections": {
+        "attachments": "첨부 파일",
+        "details": "세부 정보",
+        "entries": "항목"
+      },
+      "signOff": {
+        "comment": "설명:",
+        "menuLabel": "승인",
+        "reviewEntries": "항목 검토:",
+        "signOff": "승인",
+        "title": "교대 일지 승인"
+      },
+      "summary": {
+        "content": "{{area}} {{shift}}에 대한 AI 생성 요약. {{count}}개의 일지 항목, 구역 활동, OEE 추세, 계획 대비 생산량, 수율, 불량 파레토 및 보류를 포함합니다.",
+        "menuLabel": "인계 요약 생성",
+        "title": "교대 인계 요약"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      }
     }
   }
 }
