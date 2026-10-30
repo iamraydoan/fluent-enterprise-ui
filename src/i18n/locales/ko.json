@@ -134,17 +134,72 @@
     "syncPending": "대기 중",
     "terminated": "종료",
     "update": "업데이트",
-    "yes": "예"
+    "yes": "예",
+    "expandPanel": "패널 확장"
   },
   "configuration": {
+    "pageLabel": "구성",
+    "listTitle": "항목 ({{count}})",
     "columns": {
-      "modified": "수정됨",
-      "scope": "범위",
-      "setting": "설정",
+      "path": "경로",
+      "name": "이름",
+      "value": "값",
+      "type": "유형",
+      "description": "설명",
+      "modifiedOn": "수정한 날짜",
+      "modifiedBy": "수정한 사람",
+      "createdOn": "만든 날짜",
+      "createdBy": "만든 사람"
+    },
+    "filters": {
+      "userConfigs": "사용자 구성",
+      "displayBy": "표시 기준:",
+      "type": "유형:",
+      "searchFields": "검색 필드:"
+    },
+    "displayBy": {
+      "latestChanges": "최근 변경",
+      "path": "경로",
+      "name": "이름"
+    },
+    "searchFields": {
+      "path": "경로",
+      "name": "이름",
       "value": "값"
     },
-    "listTitle": "구성 ({{count}})",
-    "pageLabel": "구성"
+    "entryTypes": {
+      "boolean": "부울",
+      "dateTime": "날짜/시간",
+      "decimal": "소수",
+      "enum": "열거형",
+      "int16": "16비트 정수",
+      "int32": "32비트 정수",
+      "int64": "64비트 정수",
+      "string": "문자열"
+    },
+    "tree": {
+      "title": "구성 항목",
+      "allEntries": "모든 항목"
+    },
+    "sections": {
+      "generalData": "일반 데이터",
+      "information": "정보"
+    },
+    "fields": {
+      "path": "경로",
+      "name": "이름",
+      "description": "설명",
+      "type": "유형",
+      "referenceName": "참조 이름",
+      "value": "값",
+      "confidential": "기밀",
+      "createdBy": "만든 사람",
+      "createdOn": "만든 날짜",
+      "modifiedBy": "수정한 사람",
+      "modifiedOn": "수정한 날짜"
+    },
+    "resetFilters": "필터 초기화",
+    "resetColumns": "열 초기화"
   },
   "detailShell": {
     "tabs": {

@@ -16,5 +16,12 @@ export { sendChatMessage, useSendChat } from "./aiChat";
 export type { SendChatRequest, SendChatResponse } from "./aiChat";
 export { listApps, useApps } from "./apps";
 export type { AppListParams, AppRecord } from "./apps";
-export { listConfigurations, useConfigurations } from "./configuration";
-export type { ConfigurationListParams, ConfigurationRecord } from "./configuration";
+export {
+  getConfiguration,
+  listConfigurationTree,
+  listConfigurations,
+  useConfiguration,
+  useConfigurationTree,
+  useConfigurations,
+} from "./configuration";
+export type { ConfigurationEntry, ConfigurationListParams } from "./configuration";

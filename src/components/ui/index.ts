@@ -26,5 +26,6 @@ export { Tab, TabList } from "./tabs";
 export { Checkbox } from "./checkbox";
 export { Divider } from "./divider";
 export { Badge } from "./badge";
+export { Tree, TreeItem, TreeItemLayout } from "./tree";
 export { FluentProvider } from "./provider";
 export { makeStyles, mergeClasses, tokens } from "./styles";

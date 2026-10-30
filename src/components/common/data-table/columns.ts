@@ -8,6 +8,8 @@ export interface DataColumn<TRow> {
   align?: "left" | "center";
   sortable?: boolean;
   locked?: boolean;
+  defaultHidden?: boolean;
+  truncate?: boolean;
   getValue?: (row: TRow) => unknown;
   render?: (row: TRow) => ReactNode;
 }

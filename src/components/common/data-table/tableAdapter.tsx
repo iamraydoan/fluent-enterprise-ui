@@ -4,6 +4,7 @@ import type { DataTableMeta } from "@/components/common/data-table/ColumnChooser
 import type { DataColumn } from "@/components/common/data-table/columns";
 import { defaultCellText, getColumnValue } from "@/components/common/data-table/columns";
 import type { DataTableFeatures } from "@/components/common/data-table/tableFeatures";
+import { TableCellLayout } from "@/components/ui";
 import type { TranslationKey } from "@/i18n";
 
 export type TranslateFn = (key: TranslationKey) => string;
@@ -20,7 +21,17 @@ export function toColumnDefs<TRow extends RowData>(
         header: () => t(column.labelKey),
         cell: (info) => {
           const custom = column.render?.(info.row.original);
-          return custom === undefined ? defaultCellText(info.getValue()) : custom;
+          const content = custom === undefined ? defaultCellText(info.getValue()) : custom;
+          if (!column.truncate) return content;
+          const raw = info.getValue();
+          return (
+            <TableCellLayout
+              truncate
+              title={raw === null || raw === undefined ? undefined : String(raw)}
+            >
+              {content}
+            </TableCellLayout>
+          );
         },
         meta: {
           labelKey: column.labelKey,

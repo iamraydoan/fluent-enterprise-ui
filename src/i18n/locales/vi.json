@@ -134,17 +134,72 @@
     "syncPending": "Đang chờ",
     "terminated": "Đã kết thúc",
     "update": "Cập nhật",
-    "yes": "Có"
+    "yes": "Có",
+    "expandPanel": "Mở rộng bảng"
   },
   "configuration": {
+    "pageLabel": "Cấu hình",
+    "listTitle": "Mục ({{count}})",
     "columns": {
-      "modified": "Đã sửa đổi",
-      "scope": "Phạm vi",
-      "setting": "Cài đặt",
+      "path": "Đường dẫn",
+      "name": "Tên",
+      "value": "Giá trị",
+      "type": "Kiểu",
+      "description": "Mô tả",
+      "modifiedOn": "Ngày sửa",
+      "modifiedBy": "Người sửa",
+      "createdOn": "Ngày tạo",
+      "createdBy": "Người tạo"
+    },
+    "filters": {
+      "userConfigs": "Cấu hình người dùng",
+      "displayBy": "Hiển thị theo:",
+      "type": "Kiểu:",
+      "searchFields": "Trường tìm kiếm:"
+    },
+    "displayBy": {
+      "latestChanges": "Mới thay đổi nhất",
+      "path": "Đường dẫn",
+      "name": "Tên"
+    },
+    "searchFields": {
+      "path": "Đường dẫn",
+      "name": "Tên",
       "value": "Giá trị"
     },
-    "listTitle": "Cấu hình ({{count}})",
-    "pageLabel": "Cấu hình"
+    "entryTypes": {
+      "boolean": "Boolean",
+      "dateTime": "DateTime",
+      "decimal": "Decimal",
+      "enum": "Enum",
+      "int16": "Int16",
+      "int32": "Int32",
+      "int64": "Int64",
+      "string": "String"
+    },
+    "tree": {
+      "title": "Các mục cấu hình",
+      "allEntries": "Tất cả mục"
+    },
+    "sections": {
+      "generalData": "Dữ liệu chung",
+      "information": "Thông tin"
+    },
+    "fields": {
+      "path": "Đường dẫn",
+      "name": "Tên",
+      "description": "Mô tả",
+      "type": "Kiểu",
+      "referenceName": "Tên tham chiếu",
+      "value": "Giá trị",
+      "confidential": "Bảo mật",
+      "createdBy": "Người tạo",
+      "createdOn": "Ngày tạo",
+      "modifiedBy": "Người sửa",
+      "modifiedOn": "Ngày sửa"
+    },
+    "resetFilters": "Đặt lại bộ lọc",
+    "resetColumns": "Đặt lại cột"
   },
   "detailShell": {
     "tabs": {

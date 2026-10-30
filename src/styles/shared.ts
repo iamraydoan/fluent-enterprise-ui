@@ -1,5 +1,10 @@
 import { makeStyles, tokens } from "@/components/ui";
 
+export const cardSurface = {
+  backgroundColor: "#FAFAFA",
+  borderRadius: "12px",
+};
+
 export const useSharedStyles = makeStyles({
   pageTabsBar: {
     display: "flex",
@@ -77,8 +82,7 @@ export const useSharedStyles = makeStyles({
     flexGrow: 1,
     minHeight: 0,
     marginTop: "10px",
-    backgroundColor: "#FAFAFA",
-    borderRadius: "12px",
+    ...cardSurface,
     display: "flex",
     flexDirection: "column",
     padding: "8px 16px 0",

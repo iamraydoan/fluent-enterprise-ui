@@ -1,10 +1,11 @@
 import type { ReactElement, ReactNode } from "react";
 import { ListPageHeader } from "@/components/common/ListPageHeader";
+import type { HeaderAction } from "@/components/common/ListPageHeader";
 
 interface ListPageHeaderConfig {
   icon: ReactElement;
   title: string;
-  actions: { icon: ReactElement; label: string }[];
+  actions: HeaderAction[];
 }
 
 interface ListPageProps {

@@ -134,17 +134,72 @@
     "syncPending": "保留中",
     "terminated": "終了",
     "update": "更新",
-    "yes": "はい"
+    "yes": "はい",
+    "expandPanel": "パネルを展開する"
   },
   "configuration": {
+    "pageLabel": "構成",
+    "listTitle": "エントリ ({{count}})",
     "columns": {
-      "modified": "更新日時",
-      "scope": "スコープ",
-      "setting": "設定",
+      "path": "パス",
+      "name": "名前",
+      "value": "値",
+      "type": "種類",
+      "description": "説明",
+      "modifiedOn": "更新日時",
+      "modifiedBy": "更新者",
+      "createdOn": "作成日時",
+      "createdBy": "作成者"
+    },
+    "filters": {
+      "userConfigs": "ユーザー構成",
+      "displayBy": "表示順:",
+      "type": "種類:",
+      "searchFields": "検索フィールド:"
+    },
+    "displayBy": {
+      "latestChanges": "最新の変更",
+      "path": "パス",
+      "name": "名前"
+    },
+    "searchFields": {
+      "path": "パス",
+      "name": "名前",
       "value": "値"
     },
-    "listTitle": "構成 ({{count}})",
-    "pageLabel": "構成"
+    "entryTypes": {
+      "boolean": "ブール値",
+      "dateTime": "日時",
+      "decimal": "10進数",
+      "enum": "列挙型",
+      "int16": "16ビット整数",
+      "int32": "32ビット整数",
+      "int64": "64ビット整数",
+      "string": "文字列"
+    },
+    "tree": {
+      "title": "構成エントリ",
+      "allEntries": "すべてのエントリ"
+    },
+    "sections": {
+      "generalData": "一般データ",
+      "information": "情報"
+    },
+    "fields": {
+      "path": "パス",
+      "name": "名前",
+      "description": "説明",
+      "type": "種類",
+      "referenceName": "参照名",
+      "value": "値",
+      "confidential": "機密",
+      "createdBy": "作成者",
+      "createdOn": "作成日時",
+      "modifiedBy": "更新者",
+      "modifiedOn": "更新日時"
+    },
+    "resetFilters": "フィルターをリセット",
+    "resetColumns": "列をリセット"
   },
   "detailShell": {
     "tabs": {

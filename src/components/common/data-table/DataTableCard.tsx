@@ -6,7 +6,7 @@ import type {
   RowData,
   SortingState,
 } from "@tanstack/react-table";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SelectFilter } from "@/components/common/SelectFilter";
 import { ColumnChooser } from "@/components/common/data-table/ColumnChooser";
 import type { DataTableMeta } from "@/components/common/data-table/ColumnChooser";
@@ -22,6 +22,7 @@ import { dataTableFeatures } from "@/components/common/data-table/tableFeatures"
 import { MoreVertical20Regular, Search20Regular } from "@/components/icons";
 import {
   Button,
+  Checkbox,
   Input,
   Menu,
   MenuDivider,
@@ -43,6 +44,11 @@ import type { ListQueryParams, ListQueryResult } from "@/lib/listQuery";
 import { useDebouncedValue } from "@/lib/useDebouncedValue";
 import { useSharedStyles } from "@/styles/shared";
 
+export interface DataTableCardApi {
+  resetFilters: () => void;
+  resetColumns: () => void;
+}
+
 interface DataTableCardProps<TRow extends RowData> {
   title: (count: number) => string;
   ariaLabel: string;
@@ -51,6 +57,7 @@ interface DataTableCardProps<TRow extends RowData> {
   useListQuery: (params: ListQueryParams) => ListQueryResult<TRow>;
   getRowId?: (row: TRow) => string;
   onRowClick?: (row: TRow) => void;
+  apiRef?: { current: DataTableCardApi | null };
 }
 
 function defaultSelectValues(filters: DataFilter[]): Record<string, string> {
@@ -65,6 +72,26 @@ function defaultSelectValues(filters: DataFilter[]): Record<string, string> {
   return values;
 }
 
+function defaultCheckboxValues(filters: DataFilter[]): Record<string, boolean> {
+  const values: Record<string, boolean> = {};
+  for (const filter of filters) {
+    if (filter.type === "checkbox") {
+      values[filter.param] = filter.defaultChecked ?? false;
+    }
+  }
+  return values;
+}
+
+function initialColumnVisibility<TRow extends RowData>(
+  columns: DataColumn<TRow>[],
+): ColumnVisibilityState {
+  const visibility: ColumnVisibilityState = {};
+  for (const column of columns) {
+    if (column.defaultHidden) visibility[column.key] = false;
+  }
+  return visibility;
+}
+
 export function DataTableCard<TRow extends RowData>({
   title,
   ariaLabel,
@@ -73,16 +100,22 @@ export function DataTableCard<TRow extends RowData>({
   useListQuery,
   getRowId,
   onRowClick,
+  apiRef,
 }: DataTableCardProps<TRow>) {
   const { t } = useAppTranslation();
   const sharedStyles = useSharedStyles();
   const [selectValues, setSelectValues] = useState<Record<string, string>>(() =>
     defaultSelectValues(filters),
   );
+  const [checkboxValues, setCheckboxValues] = useState<Record<string, boolean>>(() =>
+    defaultCheckboxValues(filters),
+  );
   const [searchValues, setSearchValues] = useState<Record<string, string>>({});
   const debouncedSearch = useDebouncedValue(searchValues, 300);
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<ColumnVisibilityState>({});
+  const [columnVisibility, setColumnVisibility] = useState<ColumnVisibilityState>(() =>
+    initialColumnVisibility(columns),
+  );
   const [columnOrder, setColumnOrder] = useState<ColumnOrderState>([]);
   const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 25 });
   const [emptyRows] = useState<TRow[]>([]);
@@ -94,6 +127,11 @@ export function DataTableCard<TRow extends RowData>({
     if (filter.type === "select") {
       const value = selectValues[filter.param];
       if (value && value !== FILTER_ALL_VALUE) queryFilters[filter.param] = value;
+    } else if (filter.type === "checkbox") {
+      const checked = checkboxValues[filter.param] ?? false;
+      if (checked !== (filter.defaultChecked ?? false)) {
+        queryFilters[filter.param] = String(checked);
+      }
     } else {
       const value = debouncedSearch[filter.param];
       if (value) queryFilters[filter.param] = value;
@@ -117,6 +155,7 @@ export function DataTableCard<TRow extends RowData>({
     rowCount: total,
     getRowId,
     state: { sorting, columnVisibility, columnOrder, pagination },
+    initialState: { columnVisibility: initialColumnVisibility(columns) },
     onSortingChange: setSorting,
     onColumnVisibilityChange: setColumnVisibility,
     onColumnOrderChange: setColumnOrder,
@@ -125,14 +164,29 @@ export function DataTableCard<TRow extends RowData>({
     manualPagination: true,
   });
 
-  const resetAll = () => {
+  const resetFilters = () => {
     setSelectValues(defaultSelectValues(filters));
+    setCheckboxValues(defaultCheckboxValues(filters));
     setSearchValues({});
-    table.resetSorting();
-    table.resetColumnVisibility();
-    table.resetColumnOrder();
     table.setPageIndex(0);
   };
+
+  const resetColumns = () => {
+    table.resetColumnVisibility();
+    table.resetColumnOrder();
+  };
+
+  const resetAll = () => {
+    resetFilters();
+    table.resetSorting();
+    resetColumns();
+  };
+
+  useEffect(() => {
+    if (apiRef) {
+      apiRef.current = { resetFilters, resetColumns };
+    }
+  });
 
   return (
     <section className={sharedStyles.contentCard} aria-label={ariaLabel}>
@@ -149,6 +203,16 @@ export function DataTableCard<TRow extends RowData>({
                   setSelectValues((prev) => ({ ...prev, [filter.param]: value }));
                   resetPage();
                 }}
+              />
+            ) : filter.type === "checkbox" ? (
+              <Checkbox
+                key={filter.param}
+                checked={checkboxValues[filter.param] ?? false}
+                onChange={(_, d) => {
+                  setCheckboxValues((prev) => ({ ...prev, [filter.param]: !!d.checked }));
+                  resetPage();
+                }}
+                label={t(filter.labelKey)}
               />
             ) : (
               <Input

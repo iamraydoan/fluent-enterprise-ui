@@ -146,8 +146,9 @@ test("hub tiles open the Apps and Configuration lists and a placeholder tile sho
   await screen.getByRole("button", { name: "Back" }).click();
   await waitForText("Configuration");
   await screen.getByText("Configuration").click();
-  await waitForText("Configuration (4)");
-  await expect.element(screen.getByText("Default language")).toBeVisible();
+  await waitForText("Entries (");
+  await expect.element(screen.getByText(/Entries \(\d+\)/)).toBeVisible();
+  await expect.element(screen.getByText("ObjectLevel")).toBeVisible();
   await screen.getByRole("button", { name: "Back" }).click();
   await waitForText("Augmented Reality");
   await screen.getByText("Augmented Reality").click();

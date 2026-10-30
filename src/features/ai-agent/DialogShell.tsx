@@ -8,6 +8,7 @@ import {
 } from "@/components/icons";
 import { Button, makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { cardSurface } from "@/styles/shared";
 
 const useDialogShellStyles = makeStyles({
   overlay: {
@@ -26,8 +27,7 @@ const useDialogShellStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
-    borderRadius: "12px",
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
   },
   head: {
     display: "flex",

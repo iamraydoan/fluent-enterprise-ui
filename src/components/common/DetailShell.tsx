@@ -19,7 +19,7 @@ import {
 } from "@/components/ui";
 import type { TranslationKey } from "@/i18n";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
+import { useSharedStyles, cardSurface } from "@/styles/shared";
 import { ActionBar } from "./ActionBar";
 import { PageHeader } from "./PageHeader";
 import { RibbonButton } from "./RibbonButton";
@@ -34,8 +34,7 @@ const useDetailShellStyles = makeStyles({
   left: {
     width: "256px",
     flexShrink: 0,
-    backgroundColor: "#FAFAFA",
-    borderRadius: "12px",
+    ...cardSurface,
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
@@ -77,8 +76,7 @@ const useDetailShellStyles = makeStyles({
     flexGrow: 1,
     minWidth: 0,
     minHeight: 0,
-    backgroundColor: "#FAFAFA",
-    borderRadius: "12px",
+    ...cardSurface,
     display: "flex",
     flexDirection: "column",
     padding: "10px 14px 0",
@@ -91,8 +89,7 @@ const useDetailShellStyles = makeStyles({
     alignItems: "start",
   },
   card: {
-    backgroundColor: "#FAFAFA",
-    borderRadius: "10px",
+    ...cardSurface,
     padding: "16px 18px 20px",
     minWidth: 0,
   },
@@ -238,6 +235,7 @@ interface DetailShellProps {
   onLeft: (value: string) => void;
   onEdit: () => void;
   onAskAi: () => void;
+  showState?: boolean;
   children: ReactNode;
 }
 
@@ -252,6 +250,7 @@ export function DetailShell({
   onLeft,
   onEdit,
   onAskAi,
+  showState = true,
   children,
 }: DetailShellProps) {
   const { t } = useAppTranslation();
@@ -330,7 +329,7 @@ export function DetailShell({
           >
             {icon}
             <b style={{ fontWeight: 600 }}>{title}</b>
-            <span style={{ fontSize: 12 }}>{t("common.activeState")}</span>
+            {showState && <span style={{ fontSize: 12 }}>{t("common.activeState")}</span>}
           </span>
         </PageHeader>
       </div>

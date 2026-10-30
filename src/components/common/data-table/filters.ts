@@ -22,6 +22,12 @@ export type DataFilter =
       labelKey: TranslationKey;
       includeAll?: boolean;
       options: EnumOption<string>[];
+    }
+  | {
+      type: "checkbox";
+      param: string;
+      labelKey: TranslationKey;
+      defaultChecked?: boolean;
     };
 
 export function stateFilter(states: readonly RecordState[]): DataFilter {

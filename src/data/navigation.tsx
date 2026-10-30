@@ -340,6 +340,12 @@ function normalizeRoute(route: string) {
   return route;
 }
 
+function lastPathSegment(decoded: string): string {
+  const trimmed = decoded.endsWith("/") ? decoded.slice(0, -1) : decoded;
+  const index = trimmed.lastIndexOf("/");
+  return index >= 0 ? trimmed.slice(index + 1) : trimmed;
+}
+
 export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
   const path = normalizeRoute(route);
   if (path === "/" || path === "/administration") {
@@ -360,14 +366,18 @@ export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
       ];
     }
     if (
-      (segments[0] === "ai-agent" || segments[0] === "ai-mcp-server") &&
+      (segments[0] === "ai-agent" ||
+        segments[0] === "ai-mcp-server" ||
+        segments[0] === "configuration") &&
       segments.length === 2 &&
       segments[1].length > 0
     ) {
+      const decoded = decodeURIComponent(segments[1]);
+      const label = segments[0] === "configuration" ? lastPathSegment(decoded) : decoded;
       return [
         { labelKey: "nav.sections.administration", label: null, route: "/administration" },
         { labelKey: tile.labelKey, label: null, route: tile.route },
-        { labelKey: null, label: decodeURIComponent(segments[1]), route: path },
+        { labelKey: null, label, route: path },
       ];
     }
   }

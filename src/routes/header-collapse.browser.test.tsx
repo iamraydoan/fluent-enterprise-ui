@@ -120,11 +120,11 @@ test("apps list header collapses and expands through the shared toggle", async (
 
 test("configuration list header collapses and expands through the shared toggle", async () => {
   const screen = await renderAt("/administration/configuration");
-  await waitForText("Configuration (4)");
-  await expect.element(screen.getByText("Configuration (4)")).toBeVisible();
+  await waitForText("Entries (");
+  await expect.element(screen.getByText(/Entries \(\d+\)/)).toBeVisible();
   await screen.getByRole("button", { name: "Collapse action bar" }).click();
   await waitForAbsent("Create");
-  await expect.element(screen.getByText("Configuration (4)")).toBeVisible();
+  await expect.element(screen.getByText(/Entries \(\d+\)/)).toBeVisible();
   await screen.getByRole("button", { name: "Expand action bar" }).click();
   await waitForText("Create");
 });

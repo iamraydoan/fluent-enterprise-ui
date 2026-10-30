@@ -134,17 +134,72 @@
     "syncPending": "Pending",
     "terminated": "Terminated",
     "update": "Update",
-    "yes": "Yes"
+    "yes": "Yes",
+    "expandPanel": "Expand panel"
   },
   "configuration": {
+    "pageLabel": "Configuration",
+    "listTitle": "Entries ({{count}})",
     "columns": {
-      "modified": "Modified",
-      "scope": "Scope",
-      "setting": "Setting",
+      "path": "Path",
+      "name": "Name",
+      "value": "Value",
+      "type": "Type",
+      "description": "Description",
+      "modifiedOn": "Modified on",
+      "modifiedBy": "Modified by",
+      "createdOn": "Created on",
+      "createdBy": "Created by"
+    },
+    "filters": {
+      "userConfigs": "User Configs",
+      "displayBy": "Display By:",
+      "type": "Type:",
+      "searchFields": "Search Fields:"
+    },
+    "displayBy": {
+      "latestChanges": "Latest changes",
+      "path": "Path",
+      "name": "Name"
+    },
+    "searchFields": {
+      "path": "Path",
+      "name": "Name",
       "value": "Value"
     },
-    "listTitle": "Configuration ({{count}})",
-    "pageLabel": "Configuration"
+    "entryTypes": {
+      "boolean": "Boolean",
+      "dateTime": "DateTime",
+      "decimal": "Decimal",
+      "enum": "Enum",
+      "int16": "Int16",
+      "int32": "Int32",
+      "int64": "Int64",
+      "string": "String"
+    },
+    "tree": {
+      "title": "Configuration entries",
+      "allEntries": "All Entries"
+    },
+    "sections": {
+      "generalData": "General Data",
+      "information": "Information"
+    },
+    "fields": {
+      "path": "Path",
+      "name": "Name",
+      "description": "Description",
+      "type": "Type",
+      "referenceName": "Reference Name",
+      "value": "Value",
+      "confidential": "Confidential",
+      "createdBy": "Created by",
+      "createdOn": "Created on",
+      "modifiedBy": "Modified by",
+      "modifiedOn": "Modified on"
+    },
+    "resetFilters": "Reset filters",
+    "resetColumns": "Reset columns"
   },
   "detailShell": {
     "tabs": {

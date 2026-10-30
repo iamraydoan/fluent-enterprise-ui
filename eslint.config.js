@@ -273,6 +273,7 @@ export default tseslint.config(
               "command",
               "checked",
               "sortDirection",
+              "itemType",
             ],
           },
           "object-properties": {
