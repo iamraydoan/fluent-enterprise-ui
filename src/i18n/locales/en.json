@@ -1526,6 +1526,122 @@
           "state": "State",
           "startDate": "Start Date"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Plan",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Plan",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Plan cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Plan",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Plan",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "adjustTargets": {
+          "title": "Adjust Plan Targets",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Adjust the target quantities for Plan Items and Time Frames.",
+          "columns": {
+            "item": "Item",
+            "timeFrame": "Time Frame",
+            "target": "Target"
+          },
+          "empty": "No items to display."
+        },
+        "manageItems": {
+          "title": "Manage Plan Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the items that will be included in the Plan.",
+          "columns": {
+            "item": "Item",
+            "product": "Product"
+          },
+          "empty": "No items to display."
+        },
+        "manageSteps": {
+          "title": "Manage Plan Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Steps where the volumes are counted toward the planned volume.",
+          "columns": {
+            "step": "Step"
+          },
+          "empty": "No steps to display."
+        },
+        "manageExcludedTypes": {
+          "title": "Manage Plan Excluded Material Types",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Material Types excluded from the Plan."
+        },
+        "createScenario": {
+          "title": "Create Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name"
+          }
+        },
+        "releaseScenario": {
+          "title": "Release Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to update the Effective Plan with the Scenario."
+        },
+        "synchronizeScenario": {
+          "title": "Synchronize Scenario with Parent Plan",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "confirmText": "Select Synchronize to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "steps": "Steps",
+        "timeFrames": "Time Frames",
+        "scenarios": "Scenarios",
+        "attachments": "Attachments"
       }
     },
     "printableDocument": {
