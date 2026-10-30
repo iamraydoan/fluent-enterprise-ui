@@ -29,6 +29,7 @@ import { Route as BusinessDataReasonRouteImport } from './routes/business-data.r
 import { Route as BusinessDataRecipeRouteImport } from './routes/business-data.recipe'
 import { Route as BusinessDataResourceRouteImport } from './routes/business-data.resource'
 import { Route as BusinessDataResourceJobRouteImport } from './routes/business-data.resource-job'
+import { Route as BusinessDataSamplingPatternRouteImport } from './routes/business-data.sampling-pattern'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -41,6 +42,7 @@ import { Route as BusinessDataReasonNameRouteImport } from './routes/business-da
 import { Route as BusinessDataRecipeNameRouteImport } from './routes/business-data.recipe.$name'
 import { Route as BusinessDataResourceJobNameRouteImport } from './routes/business-data.resource-job.$name'
 import { Route as BusinessDataResourceNameRouteImport } from './routes/business-data.resource.$name'
+import { Route as BusinessDataSamplingPatternNameRouteImport } from './routes/business-data.sampling-pattern.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -147,6 +149,12 @@ const BusinessDataResourceJobRoute = BusinessDataResourceJobRouteImport.update({
   path: '/resource-job',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataSamplingPatternRoute =
+  BusinessDataSamplingPatternRouteImport.update({
+    id: '/sampling-pattern',
+    path: '/sampling-pattern',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -217,6 +225,12 @@ const BusinessDataResourceNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataResourceRoute,
   } as any)
+const BusinessDataSamplingPatternNameRoute =
+  BusinessDataSamplingPatternNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataSamplingPatternRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -239,6 +253,7 @@ export interface FileRoutesByFullPath {
   '/business-data/recipe': typeof BusinessDataRecipeRouteWithChildren
   '/business-data/resource': typeof BusinessDataResourceRouteWithChildren
   '/business-data/resource-job': typeof BusinessDataResourceJobRouteWithChildren
+  '/business-data/sampling-pattern': typeof BusinessDataSamplingPatternRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -251,6 +266,7 @@ export interface FileRoutesByFullPath {
   '/business-data/recipe/$name': typeof BusinessDataRecipeNameRoute
   '/business-data/resource-job/$name': typeof BusinessDataResourceJobNameRoute
   '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
+  '/business-data/sampling-pattern/$name': typeof BusinessDataSamplingPatternNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -273,6 +289,7 @@ export interface FileRoutesByTo {
   '/business-data/recipe': typeof BusinessDataRecipeRouteWithChildren
   '/business-data/resource': typeof BusinessDataResourceRouteWithChildren
   '/business-data/resource-job': typeof BusinessDataResourceJobRouteWithChildren
+  '/business-data/sampling-pattern': typeof BusinessDataSamplingPatternRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -285,6 +302,7 @@ export interface FileRoutesByTo {
   '/business-data/recipe/$name': typeof BusinessDataRecipeNameRoute
   '/business-data/resource-job/$name': typeof BusinessDataResourceJobNameRoute
   '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
+  '/business-data/sampling-pattern/$name': typeof BusinessDataSamplingPatternNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -308,6 +326,7 @@ export interface FileRoutesById {
   '/business-data/recipe': typeof BusinessDataRecipeRouteWithChildren
   '/business-data/resource': typeof BusinessDataResourceRouteWithChildren
   '/business-data/resource-job': typeof BusinessDataResourceJobRouteWithChildren
+  '/business-data/sampling-pattern': typeof BusinessDataSamplingPatternRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -320,6 +339,7 @@ export interface FileRoutesById {
   '/business-data/recipe/$name': typeof BusinessDataRecipeNameRoute
   '/business-data/resource-job/$name': typeof BusinessDataResourceJobNameRoute
   '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
+  '/business-data/sampling-pattern/$name': typeof BusinessDataSamplingPatternNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -344,6 +364,7 @@ export interface FileRouteTypes {
     | '/business-data/recipe'
     | '/business-data/resource'
     | '/business-data/resource-job'
+    | '/business-data/sampling-pattern'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -356,6 +377,7 @@ export interface FileRouteTypes {
     | '/business-data/recipe/$name'
     | '/business-data/resource-job/$name'
     | '/business-data/resource/$name'
+    | '/business-data/sampling-pattern/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -378,6 +400,7 @@ export interface FileRouteTypes {
     | '/business-data/recipe'
     | '/business-data/resource'
     | '/business-data/resource-job'
+    | '/business-data/sampling-pattern'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -390,6 +413,7 @@ export interface FileRouteTypes {
     | '/business-data/recipe/$name'
     | '/business-data/resource-job/$name'
     | '/business-data/resource/$name'
+    | '/business-data/sampling-pattern/$name'
   id:
     | '__root__'
     | '/'
@@ -412,6 +436,7 @@ export interface FileRouteTypes {
     | '/business-data/recipe'
     | '/business-data/resource'
     | '/business-data/resource-job'
+    | '/business-data/sampling-pattern'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -424,6 +449,7 @@ export interface FileRouteTypes {
     | '/business-data/recipe/$name'
     | '/business-data/resource-job/$name'
     | '/business-data/resource/$name'
+    | '/business-data/sampling-pattern/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -576,6 +602,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataResourceJobRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/sampling-pattern': {
+      id: '/business-data/sampling-pattern'
+      path: '/sampling-pattern'
+      fullPath: '/business-data/sampling-pattern'
+      preLoaderRoute: typeof BusinessDataSamplingPatternRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -659,6 +692,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/resource/$name'
       preLoaderRoute: typeof BusinessDataResourceNameRouteImport
       parentRoute: typeof BusinessDataResourceRoute
+    }
+    '/business-data/sampling-pattern/$name': {
+      id: '/business-data/sampling-pattern/$name'
+      path: '/$name'
+      fullPath: '/business-data/sampling-pattern/$name'
+      preLoaderRoute: typeof BusinessDataSamplingPatternNameRouteImport
+      parentRoute: typeof BusinessDataSamplingPatternRoute
     }
   }
 }
@@ -847,6 +887,20 @@ const BusinessDataResourceJobRouteWithChildren =
     BusinessDataResourceJobRouteChildren,
   )
 
+interface BusinessDataSamplingPatternRouteChildren {
+  BusinessDataSamplingPatternNameRoute: typeof BusinessDataSamplingPatternNameRoute
+}
+
+const BusinessDataSamplingPatternRouteChildren: BusinessDataSamplingPatternRouteChildren =
+  {
+    BusinessDataSamplingPatternNameRoute: BusinessDataSamplingPatternNameRoute,
+  }
+
+const BusinessDataSamplingPatternRouteWithChildren =
+  BusinessDataSamplingPatternRoute._addFileChildren(
+    BusinessDataSamplingPatternRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataQualificationRoute: typeof BusinessDataQualificationRouteWithChildren
   BusinessDataQualificationCheckRoute: typeof BusinessDataQualificationCheckRouteWithChildren
@@ -854,6 +908,7 @@ interface BusinessDataRouteChildren {
   BusinessDataRecipeRoute: typeof BusinessDataRecipeRouteWithChildren
   BusinessDataResourceRoute: typeof BusinessDataResourceRouteWithChildren
   BusinessDataResourceJobRoute: typeof BusinessDataResourceJobRouteWithChildren
+  BusinessDataSamplingPatternRoute: typeof BusinessDataSamplingPatternRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -864,6 +919,8 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataRecipeRoute: BusinessDataRecipeRouteWithChildren,
   BusinessDataResourceRoute: BusinessDataResourceRouteWithChildren,
   BusinessDataResourceJobRoute: BusinessDataResourceJobRouteWithChildren,
+  BusinessDataSamplingPatternRoute:
+    BusinessDataSamplingPatternRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

@@ -1656,6 +1656,88 @@
           "start": "Start"
         }
       }
+    },
+    "samplingPattern": {
+      "pageLabel": "Sampling Pattern",
+      "listTitle": "Sampling Patterns",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPattern": "Sampling Pattern",
+        "configuration": "Configuration"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "samplingSelection": "Sampling Selection",
+        "rule": "Rule",
+        "sourceForm": "Source Form",
+        "materialCount": "Material Count",
+        "selectionMethod": "Selection Method",
+        "sequencingMethod": "Sequencing Method"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Pattern",
+          "editTitle": "Edit Sampling Pattern",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "mode": "Mode",
+          "samplingSelection": "Sampling Selection",
+          "rule": "Rule",
+          "sourceForm": "Source Form",
+          "materialCount": "Material Count",
+          "countIsPercentage": "Count Is Percentage",
+          "selectionMethod": "Selection Method",
+          "sequencingMethod": "Sequencing Method",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Sampling Pattern",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Pattern",
+          "message": "Are you sure you want to terminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Pattern",
+          "message": "Are you sure you want to unterminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Unterminate"
+        }
+      }
     }
   }
 }

@@ -147,3 +147,15 @@ export type {
   ResourceJobRecord,
   ResourceJobSystemState,
 } from "./businessData/resourceJob";
+export {
+  getSamplingPattern,
+  listSamplingPatterns,
+  useSamplingPatternDetail,
+  useSamplingPatterns,
+} from "./businessData/samplingPattern";
+export type {
+  SamplingPatternDetail,
+  SamplingPatternListParams,
+  SamplingPatternMode,
+  SamplingPatternRecord,
+} from "./businessData/samplingPattern";
