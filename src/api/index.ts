@@ -156,7 +156,12 @@ export {
   useSetCalendarState,
   useUpdateCalendar,
 } from "./businessData/calendar";
-export type { CalendarDetail, CalendarRecord, CalendarUpsertInput, WeekDay } from "./businessData/calendar";
+export type {
+  CalendarDetail,
+  CalendarRecord,
+  CalendarUpsertInput,
+  WeekDay,
+} from "./businessData/calendar";
 export {
   createCertificationRecord,
   setCertificationRecordState,
@@ -191,13 +196,58 @@ export type {
   ChangeSetSubscriber,
   ChangeSetUpsertInput,
 } from "./businessData/changeSet";
-export { useChartDetail, useCharts } from "./businessData/chart";
-export type { ChartDetail, ChartRecord } from "./businessData/chart";
+export {
+  useAddLogicalChart,
+  useChartDetail,
+  useCharts,
+  useCreateChart,
+  useOpenDataPointProtocol,
+  usePostDataPoint,
+  useRecalculateCenterlines,
+  useRemoveLogicalChart,
+  useSetChartEnabled,
+  useSetChartLimits,
+  useSetChartState,
+  useSetDataPointStatus,
+  useUpdateChart,
+  useUpdateChartRules,
+  useUpdateDataPoint,
+  useUpdateLogicalChart,
+} from "./businessData/chart";
+export type {
+  ChartContextElement,
+  ChartDataPoint,
+  ChartDataPointStatus,
+  ChartDetail,
+  ChartLimit,
+  ChartRecord,
+  ChartRuleRow,
+  ChartUpsertInput,
+  LogicalChartDetail,
+  LogicalChartUpsertInput,
+  PostDataPointInput,
+} from "./businessData/chart";
 export { useChecklistDetail, useChecklists } from "./businessData/checklist";
-export type { ChecklistDetail, ChecklistInstance, ChecklistItem, ChecklistRecord } from "./businessData/checklist";
+export type {
+  ChecklistDetail,
+  ChecklistInstance,
+  ChecklistItem,
+  ChecklistRecord,
+} from "./businessData/checklist";
 export { useContainerDetail, useContainers } from "./businessData/container";
 export type { ContainerDetail, ContainerPosition, ContainerRecord } from "./businessData/container";
 export { useDataCollectionDetail, useDataCollections } from "./businessData/dataCollection";
-export type { DataCollectionDetail, DataCollectionParameter, DataCollectionRecord } from "./businessData/dataCollection";
-export { useDataCollectionLimitSetDetail, useDataCollectionLimitSets } from "./businessData/dataCollectionLimitSet";
-export type { DataCollectionLimitSetDetail, DataCollectionLimitSetRecord, ParameterLimit } from "./businessData/dataCollectionLimitSet";
+export type {
+  DataCollectionDetail,
+  DataCollectionParameter,
+  DataCollectionRecord,
+} from "./businessData/dataCollection";
+export {
+  useDataCollectionLimitSetDetail,
+  useDataCollectionLimitSets,
+} from "./businessData/dataCollectionLimitSet";
+export type {
+  DataCollectionLimitSetDetail,
+  DataCollectionLimitSetRecord,
+  ParameterLimit,
+} from "./businessData/dataCollectionLimitSet";
