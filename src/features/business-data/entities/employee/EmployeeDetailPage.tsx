@@ -29,6 +29,12 @@ import {
   ClockOutDialog,
 } from "./EmployeeAttendanceDialogs";
 import { ManageDelegatesDialog, ManageTraineesDialog } from "./EmployeeDelegatesDialogs";
+import {
+  RemoveNonWorkingTimesDialog,
+  RemoveWorkAvailabilityDialog,
+  SetNonWorkingTimeDialog,
+  SetWorkAvailabilityDialog,
+} from "./EmployeeCalendarDaysDialogs";
 
 
 const TOP_TABS: DetailTab[] = [
@@ -98,6 +104,14 @@ export function EmployeeDetailPage({ name }: { name: string }) {
     {assignTeamOpen && <AssignTeamWorkgroupDialog name={name} onClose={() => setAssignTeamOpen(false)} />}
     {manageDelegatesOpen && <ManageDelegatesDialog name={name} onClose={() => setManageDelegatesOpen(false)} />}
     {manageTraineesOpen && <ManageTraineesDialog name={name} onClose={() => setManageTraineesOpen(false)} />}
+    {setNonWorkingOpen && <SetNonWorkingTimeDialog name={name} onClose={() => setSetNonWorkingOpen(false)} />}
+    {setAvailabilityOpen && <SetWorkAvailabilityDialog name={name} onClose={() => setSetAvailabilityOpen(false)} />}
+    {removeNonWorkingOpen && (
+      <RemoveNonWorkingTimesDialog name={name} onClose={() => setRemoveNonWorkingOpen(false)} />
+    )}
+    {removeAvailabilityOpen && (
+      <RemoveWorkAvailabilityDialog name={name} onClose={() => setRemoveAvailabilityOpen(false)} />
+    )}
     </>
   );
 
@@ -204,6 +218,20 @@ export function EmployeeDetailPage({ name }: { name: string }) {
           </Button>
           <Button size="small" onClick={() => setManageTraineesOpen(true)}>
             {t(tk("businessData.employee.delegates.checkOut"))}
+          </Button>
+        </div>
+        <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <Button size="small" onClick={() => setSetNonWorkingOpen(true)}>
+            {t(tk("businessData.employee.calendarDays.set"))}
+          </Button>
+          <Button size="small" onClick={() => setSetAvailabilityOpen(true)}>
+            {t(tk("businessData.employee.calendarDays.set"))}
+          </Button>
+          <Button size="small" onClick={() => setRemoveNonWorkingOpen(true)}>
+            {t(tk("businessData.employee.calendarDays.remove"))}
+          </Button>
+          <Button size="small" onClick={() => setRemoveAvailabilityOpen(true)}>
+            {t(tk("businessData.employee.calendarDays.remove"))}
           </Button>
         </div>
       </Card>
