@@ -1165,6 +1165,63 @@
       "unterminate": {
         "menuLabel": "終了取消"
       }
+    },
+    "task": {
+      "cancel": {
+        "menuLabel": "タスクのキャンセル"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "owner": "所有者",
+        "state": "状態",
+        "taskState": "タスク状態"
+      },
+      "detail": {
+        "assignment": "割当",
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "dueDate": "期限:",
+        "name": "名前:",
+        "owner": "所有者:",
+        "requester": "要求者:",
+        "state": "ユニバーサル状態:",
+        "taskState": "タスク状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "タスク ({{count}})",
+      "markCompleted": {
+        "menuLabel": "タスクを完了としてマーク"
+      },
+      "notFound": "タスクが見つかりません。",
+      "pageLabel": "タスク",
+      "perform": {
+        "menuLabel": "タスクの実行"
+      },
+      "reassign": {
+        "menuLabel": "タスクの再割当"
+      },
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細"
+      },
+      "sendReminder": {
+        "menuLabel": "タスクリマインダーの送信"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
     }
   }
 }

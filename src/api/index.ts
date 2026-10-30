@@ -152,3 +152,5 @@ export type {
   SubstrateMapMaskListParams,
   SubstrateMapMaskRecord,
 } from "./businessData/substrateMapMask";
+export { getTask, listTasks, useTaskDetail, useTasks } from "./businessData/task";
+export type { TaskDetail, TaskListParams, TaskRecord } from "./businessData/task";

@@ -1165,6 +1165,63 @@
       "unterminate": {
         "menuLabel": "Hủy kết thúc"
       }
+    },
+    "task": {
+      "cancel": {
+        "menuLabel": "Hủy nhiệm vụ"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "owner": "Chủ sở hữu",
+        "state": "Trạng thái",
+        "taskState": "Trạng thái nhiệm vụ"
+      },
+      "detail": {
+        "assignment": "Phân công",
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "dueDate": "Hạn chót:",
+        "name": "Tên:",
+        "owner": "Chủ sở hữu:",
+        "requester": "Người yêu cầu:",
+        "state": "Trạng thái chung:",
+        "taskState": "Trạng thái nhiệm vụ:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Nhiệm vụ ({{count}})",
+      "markCompleted": {
+        "menuLabel": "Đánh dấu hoàn thành"
+      },
+      "notFound": "Không tìm thấy nhiệm vụ.",
+      "pageLabel": "Nhiệm vụ",
+      "perform": {
+        "menuLabel": "Thực hiện nhiệm vụ"
+      },
+      "reassign": {
+        "menuLabel": "Giao lại nhiệm vụ"
+      },
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết"
+      },
+      "sendReminder": {
+        "menuLabel": "Gửi nhắc nhở"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
     }
   }
 }

@@ -1165,6 +1165,63 @@
       "unterminate": {
         "menuLabel": "Unterminate"
       }
+    },
+    "task": {
+      "cancel": {
+        "menuLabel": "Cancel Task"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "owner": "Owner",
+        "state": "State",
+        "taskState": "Task State"
+      },
+      "detail": {
+        "assignment": "Assignment",
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "dueDate": "Due Date:",
+        "name": "Name:",
+        "owner": "Owner:",
+        "requester": "Requester:",
+        "state": "Universal State:",
+        "taskState": "Task State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Tasks ({{count}})",
+      "markCompleted": {
+        "menuLabel": "Mark Task As Completed"
+      },
+      "notFound": "Task not found.",
+      "pageLabel": "Task",
+      "perform": {
+        "menuLabel": "Perform Task"
+      },
+      "reassign": {
+        "menuLabel": "Reassign Task"
+      },
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details"
+      },
+      "sendReminder": {
+        "menuLabel": "Send Task Reminder"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
     }
   }
 }
