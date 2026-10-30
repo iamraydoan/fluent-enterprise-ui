@@ -963,6 +963,165 @@
           "update": "Cập nhật"
         }
       }
+    },
+    "recipe": {
+      "pageLabel": "Recipe",
+      "listTitle": "Recipes",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "isEnabled": "Bật",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "contexts": "Ngữ cảnh",
+        "compare": "So sánh",
+        "references": "Tham chiếu",
+        "history": "Lịch sử"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "parameters": "Tham số",
+        "body": "Body",
+        "subRecipes": "Sub-Recipes",
+        "resources": "Tài nguyên",
+        "activeInstances": "Phiên bản đang chạy",
+        "attachments": "Đính kèm",
+        "empty": "Không có dữ liệu",
+        "emptyBody": "Mục này chưa có nội dung."
+      },
+      "cards": {
+        "recipe": "Recipe",
+        "information": "Thông tin"
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "dataGroup": "Nhóm dữ liệu",
+        "isEnabled": "Bật",
+        "isExecutable": "Thực thi",
+        "resourceRecipeName": "Tên Recipe tài nguyên",
+        "userInformation": "Thông tin người dùng",
+        "supplierInformation": "Thông tin nhà cung cấp"
+      },
+      "more": {
+        "clone": "Nhân bản",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc",
+        "disable": "Vô hiệu hóa",
+        "enable": "Kích hoạt",
+        "manageBody": "Quản lý Recipe Body",
+        "manageParameters": "Quản lý tham số",
+        "manageSubRecipes": "Quản lý Sub-Recipes",
+        "uploadToResource": "Tải Recipe lên tài nguyên"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Tạo Recipe",
+          "editTitle": "Sửa Recipe",
+          "changeSet": "Change Set",
+          "generalData": "Dữ liệu chung",
+          "changeSet2": "Change Set",
+          "createNew": "Tạo mới",
+          "approverRole": "Vai trò phê duyệt",
+          "useAutomaticChangeSet": "Dùng Automatic Change Set",
+          "name": "Tên",
+          "revision": "Revision",
+          "description": "Mô tả",
+          "type": "Loại",
+          "isEnabled": "Bật",
+          "isExecutable": "Thực thi",
+          "resourceRecipeName": "Tên Recipe tài nguyên",
+          "userInformation": "Thông tin người dùng",
+          "supplierInformation": "Thông tin nhà cung cấp",
+          "comments": "Ghi chú"
+        },
+        "clone": {
+          "title": "Nhân bản Recipe",
+          "cloneMode": "Chế độ nhân bản",
+          "entity": "Entity",
+          "revision": "Revision",
+          "clones": "Bản sao ({{count}})",
+          "name": "Tên",
+          "revisionName": "Tên Revision",
+          "changeSet": "Change Set",
+          "source": "Nguồn: {{name}}",
+          "comments": "Ghi chú",
+          "clone": "Nhân bản"
+        },
+        "terminate": {
+          "title": "Kết thúc Recipe",
+          "message": "Bạn có chắc muốn kết thúc Recipe '{{name}}'?",
+          "confirm": "Kết thúc"
+        },
+        "unterminate": {
+          "title": "Hủy kết thúc Recipe",
+          "changeSet": "Change Set",
+          "details": "Chi tiết",
+          "createNew": "Tạo mới",
+          "approverRole": "Vai trò phê duyệt",
+          "useAutomaticChangeSet": "Dùng Automatic Change Set",
+          "message": "Chọn Hủy kết thúc để thực hiện. Các dòng bảng generic/smart tham chiếu đối tượng này sẽ không được khôi phục.",
+          "confirm": "Hủy kết thúc"
+        },
+        "disable": {
+          "title": "Vô hiệu hóa Recipe",
+          "message": "Bạn có chắc muốn vô hiệu hóa Recipe '{{name}}'?",
+          "confirm": "Vô hiệu hóa"
+        },
+        "enable": {
+          "title": "Kích hoạt Recipe",
+          "message": "Bạn có chắc muốn kích hoạt Recipe '{{name}}'?",
+          "confirm": "Kích hoạt"
+        },
+        "body": {
+          "title": "Quản lý Recipe Body",
+          "source": "Nguồn",
+          "format": "Định dạng",
+          "fileName": "Tên file",
+          "uploadBody": "Tải Body",
+          "body": "Body",
+          "size": "Kích thước",
+          "comments": "Ghi chú",
+          "update": "Cập nhật"
+        },
+        "parameters": {
+          "title": "Quản lý tham số",
+          "parameters": "Tham số",
+          "detailsTitle": "Chi tiết tham số",
+          "parameter": "Tham số",
+          "units": "Đơn vị",
+          "parameterGroup": "Nhóm tham số",
+          "type": "Loại",
+          "value": "Giá trị",
+          "overridable": "Ghi đè được",
+          "comments": "Ghi chú",
+          "update": "Cập nhật"
+        },
+        "subRecipes": {
+          "title": "Quản lý Sub-Recipes",
+          "subRecipes": "Sub-Recipes",
+          "detailsTitle": "Chi tiết Recipe",
+          "recipe": "Recipe",
+          "displayName": "Tên hiển thị",
+          "parametersMapping": "Ánh xạ tham số (Biểu thức)",
+          "clearAllExpressions": "Xóa tất cả biểu thức",
+          "comments": "Ghi chú",
+          "update": "Cập nhật"
+        },
+        "upload": {
+          "title": "Tải Recipe lên tài nguyên",
+          "resources": "Tài nguyên",
+          "resource": "Tài nguyên",
+          "lastUploadDate": "Ngày tải cuối",
+          "comments": "Ghi chú",
+          "upload": "Tải lên"
+        }
+      }
     }
   }
 }

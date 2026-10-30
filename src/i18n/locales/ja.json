@@ -963,6 +963,165 @@
           "update": "更新"
         }
       }
+    },
+    "recipe": {
+      "pageLabel": "Recipe",
+      "listTitle": "Recipes",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "isEnabled": "有効",
+        "state": "状態"
+      },
+      "tabs": {
+        "details": "詳細",
+        "contexts": "コンテキスト",
+        "compare": "比較",
+        "references": "参照",
+        "history": "履歴"
+      },
+      "sections": {
+        "details": "詳細",
+        "parameters": "パラメータ",
+        "body": "Body",
+        "subRecipes": "Sub-Recipes",
+        "resources": "リソース",
+        "activeInstances": "アクティブインスタンス",
+        "attachments": "添付",
+        "empty": "データなし",
+        "emptyBody": "このセクションにはまだコンテンツがありません。"
+      },
+      "cards": {
+        "recipe": "Recipe",
+        "information": "情報"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態",
+        "dataGroup": "データグループ",
+        "isEnabled": "有効",
+        "isExecutable": "実行可能",
+        "resourceRecipeName": "リソースレシピ名",
+        "userInformation": "ユーザー情報",
+        "supplierInformation": "サプライヤー情報"
+      },
+      "more": {
+        "clone": "複製",
+        "terminate": "終了",
+        "unterminate": "終了取消",
+        "disable": "無効化",
+        "enable": "有効化",
+        "manageBody": "Recipe Body管理",
+        "manageParameters": "パラメータ管理",
+        "manageSubRecipes": "Sub-Recipes管理",
+        "uploadToResource": "リソースへアップロード"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Recipe作成",
+          "editTitle": "Recipe編集",
+          "changeSet": "Change Set",
+          "generalData": "一般データ",
+          "changeSet2": "Change Set",
+          "createNew": "新規作成",
+          "approverRole": "承認ロール",
+          "useAutomaticChangeSet": "自動Change Set使用",
+          "name": "名前",
+          "revision": "リビジョン",
+          "description": "説明",
+          "type": "タイプ",
+          "isEnabled": "有効",
+          "isExecutable": "実行可能",
+          "resourceRecipeName": "リソースレシピ名",
+          "userInformation": "ユーザー情報",
+          "supplierInformation": "サプライヤー情報",
+          "comments": "コメント"
+        },
+        "clone": {
+          "title": "Recipe複製",
+          "cloneMode": "複製モード",
+          "entity": "Entity",
+          "revision": "Revision",
+          "clones": "複製 ({{count}})",
+          "name": "名前",
+          "revisionName": "リビジョン名",
+          "changeSet": "Change Set",
+          "source": "ソース: {{name}}",
+          "comments": "コメント",
+          "clone": "複製"
+        },
+        "terminate": {
+          "title": "Recipe終了",
+          "message": "Recipe '{{name}}' を終了しますか?",
+          "confirm": "終了"
+        },
+        "unterminate": {
+          "title": "Recipe終了取消",
+          "changeSet": "Change Set",
+          "details": "詳細",
+          "createNew": "新規作成",
+          "approverRole": "承認ロール",
+          "useAutomaticChangeSet": "自動Change Set使用",
+          "message": "Unterminateを選択して操作を実行します。参照する汎用/スマートテーブル行は復元されません。",
+          "confirm": "終了取消"
+        },
+        "disable": {
+          "title": "Recipe無効化",
+          "message": "Recipe '{{name}}' を無効化しますか?",
+          "confirm": "無効化"
+        },
+        "enable": {
+          "title": "Recipe有効化",
+          "message": "Recipe '{{name}}' を有効化しますか?",
+          "confirm": "有効化"
+        },
+        "body": {
+          "title": "Recipe Body管理",
+          "source": "ソース",
+          "format": "形式",
+          "fileName": "ファイル名",
+          "uploadBody": "Bodyアップロード",
+          "body": "Body",
+          "size": "サイズ",
+          "comments": "コメント",
+          "update": "更新"
+        },
+        "parameters": {
+          "title": "パラメータ管理",
+          "parameters": "パラメータ",
+          "detailsTitle": "パラメータ詳細",
+          "parameter": "パラメータ",
+          "units": "単位",
+          "parameterGroup": "パラメータグループ",
+          "type": "タイプ",
+          "value": "値",
+          "overridable": "上書き可能",
+          "comments": "コメント",
+          "update": "更新"
+        },
+        "subRecipes": {
+          "title": "Sub-Recipes管理",
+          "subRecipes": "Sub-Recipes",
+          "detailsTitle": "レシピ詳細",
+          "recipe": "レシピ",
+          "displayName": "表示名",
+          "parametersMapping": "パラメータマッピング（式）",
+          "clearAllExpressions": "全式クリア",
+          "comments": "コメント",
+          "update": "更新"
+        },
+        "upload": {
+          "title": "リソースへRecipeアップロード",
+          "resources": "リソース",
+          "resource": "リソース",
+          "lastUploadDate": "最終アップロード日",
+          "comments": "コメント",
+          "upload": "アップロード"
+        }
+      }
     }
   }
 }

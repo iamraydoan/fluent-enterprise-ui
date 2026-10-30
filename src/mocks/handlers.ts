@@ -4,6 +4,7 @@ import { appHandlers } from "./handlers/apps";
 import { qualificationHandlers } from "./handlers/businessData/qualification";
 import { qualificationCheckHandlers } from "./handlers/businessData/qualificationCheck";
 import { reasonHandlers } from "./handlers/businessData/reason";
+import { recipeHandlers } from "./handlers/businessData/recipe";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -24,4 +25,5 @@ export const handlers = [
   ...qualificationHandlers,
   ...qualificationCheckHandlers,
   ...reasonHandlers,
+  ...recipeHandlers,
 ];

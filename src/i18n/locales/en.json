@@ -963,6 +963,165 @@
           "update": "Update"
         }
       }
+    },
+    "recipe": {
+      "pageLabel": "Recipe",
+      "listTitle": "Recipes",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "isEnabled": "Is Enabled",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "body": "Body",
+        "subRecipes": "Sub-Recipes",
+        "resources": "Resources",
+        "activeInstances": "Active Instances",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "recipe": "Recipe",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "isEnabled": "Is Enabled",
+        "isExecutable": "Is Executable",
+        "resourceRecipeName": "Resource Recipe Name",
+        "userInformation": "User Information",
+        "supplierInformation": "Supplier Information"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "disable": "Disable",
+        "enable": "Enable",
+        "manageBody": "Manage Recipe Body",
+        "manageParameters": "Manage Recipe Parameters",
+        "manageSubRecipes": "Manage Recipe Sub-Recipes",
+        "uploadToResource": "Upload Recipe to Resource"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Recipe",
+          "editTitle": "Edit Recipe",
+          "changeSet": "Change Set",
+          "generalData": "General Data",
+          "changeSet2": "Change Set",
+          "createNew": "Create New",
+          "approverRole": "Approver Role",
+          "useAutomaticChangeSet": "Use Automatic Change Set",
+          "name": "Name",
+          "revision": "Revision",
+          "description": "Description",
+          "type": "Type",
+          "isEnabled": "Is Enabled",
+          "isExecutable": "Is Executable",
+          "resourceRecipeName": "Resource Recipe Name",
+          "userInformation": "User Information",
+          "supplierInformation": "Supplier Information",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Recipe",
+          "cloneMode": "Clone Mode",
+          "entity": "Entity",
+          "revision": "Revision",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "revisionName": "Revision Name",
+          "changeSet": "Change Set",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Recipe",
+          "message": "Are you sure you want to terminate the Recipe '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Recipe",
+          "changeSet": "Change Set",
+          "details": "Details",
+          "createNew": "Create New",
+          "approverRole": "Approver Role",
+          "useAutomaticChangeSet": "Use Automatic Change Set",
+          "message": "Select Unterminate to perform the operation. All generic/smart table rows that reference this object will not be recovered.",
+          "confirm": "Unterminate"
+        },
+        "disable": {
+          "title": "Disable Recipe",
+          "message": "Are you sure you want to disable the Recipe '{{name}}'?",
+          "confirm": "Disable"
+        },
+        "enable": {
+          "title": "Enable Recipe",
+          "message": "Are you sure you want to enable the Recipe '{{name}}'?",
+          "confirm": "Enable"
+        },
+        "body": {
+          "title": "Manage Recipe Body",
+          "source": "Source",
+          "format": "Format",
+          "fileName": "File Name",
+          "uploadBody": "Upload Body",
+          "body": "Body",
+          "size": "Size",
+          "comments": "Comments",
+          "update": "Update"
+        },
+        "parameters": {
+          "title": "Manage Parameters",
+          "parameters": "Parameters",
+          "detailsTitle": "Parameter Details",
+          "parameter": "Parameter",
+          "units": "Units",
+          "parameterGroup": "Parameter Group",
+          "type": "Type",
+          "value": "Value",
+          "overridable": "Overridable",
+          "comments": "Comments",
+          "update": "Update"
+        },
+        "subRecipes": {
+          "title": "Manage Sub-Recipes",
+          "subRecipes": "Sub-Recipes",
+          "detailsTitle": "Recipe Details",
+          "recipe": "Recipe",
+          "displayName": "Display Name",
+          "parametersMapping": "Parameters Mapping (Expressions)",
+          "clearAllExpressions": "Clear All Expressions",
+          "comments": "Comments",
+          "update": "Update"
+        },
+        "upload": {
+          "title": "Upload Recipe to Resource",
+          "resources": "Resources",
+          "resource": "Resource",
+          "lastUploadDate": "Last Upload Date",
+          "comments": "Comments",
+          "upload": "Upload"
+        }
+      }
     }
   }
 }
