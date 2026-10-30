@@ -25,6 +25,7 @@ import { Route as AdministrationTablesRouteImport } from './routes/administratio
 import { Route as AdministrationUipagesRouteImport } from './routes/administration.uipages'
 import { Route as BusinessDataDataSiloRouteImport } from './routes/business-data.data-silo'
 import { Route as BusinessDataDocumentRouteImport } from './routes/business-data.document'
+import { Route as BusinessDataEmployeeRouteImport } from './routes/business-data.employee'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -33,6 +34,7 @@ import { Route as AdministrationQueriesNameRouteImport } from './routes/administ
 import { Route as AdministrationTablesNameRouteImport } from './routes/administration.tables.$name'
 import { Route as BusinessDataDataSiloNameRouteImport } from './routes/business-data.data-silo.$name'
 import { Route as BusinessDataDocumentNameRouteImport } from './routes/business-data.document.$name'
+import { Route as BusinessDataEmployeeNameRouteImport } from './routes/business-data.employee.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -117,6 +119,11 @@ const BusinessDataDocumentRoute = BusinessDataDocumentRouteImport.update({
   path: '/document',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataEmployeeRoute = BusinessDataEmployeeRouteImport.update({
+  id: '/employee',
+  path: '/employee',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -165,6 +172,12 @@ const BusinessDataDocumentNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataDocumentRoute,
   } as any)
+const BusinessDataEmployeeNameRoute =
+  BusinessDataEmployeeNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataEmployeeRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -183,6 +196,7 @@ export interface FileRoutesByFullPath {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/data-silo': typeof BusinessDataDataSiloRouteWithChildren
   '/business-data/document': typeof BusinessDataDocumentRouteWithChildren
+  '/business-data/employee': typeof BusinessDataEmployeeRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -191,6 +205,7 @@ export interface FileRoutesByFullPath {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/data-silo/$name': typeof BusinessDataDataSiloNameRoute
   '/business-data/document/$name': typeof BusinessDataDocumentNameRoute
+  '/business-data/employee/$name': typeof BusinessDataEmployeeNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -209,6 +224,7 @@ export interface FileRoutesByTo {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/data-silo': typeof BusinessDataDataSiloRouteWithChildren
   '/business-data/document': typeof BusinessDataDocumentRouteWithChildren
+  '/business-data/employee': typeof BusinessDataEmployeeRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -217,6 +233,7 @@ export interface FileRoutesByTo {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/data-silo/$name': typeof BusinessDataDataSiloNameRoute
   '/business-data/document/$name': typeof BusinessDataDocumentNameRoute
+  '/business-data/employee/$name': typeof BusinessDataEmployeeNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -236,6 +253,7 @@ export interface FileRoutesById {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/data-silo': typeof BusinessDataDataSiloRouteWithChildren
   '/business-data/document': typeof BusinessDataDocumentRouteWithChildren
+  '/business-data/employee': typeof BusinessDataEmployeeRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -244,6 +262,7 @@ export interface FileRoutesById {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/data-silo/$name': typeof BusinessDataDataSiloNameRoute
   '/business-data/document/$name': typeof BusinessDataDocumentNameRoute
+  '/business-data/employee/$name': typeof BusinessDataEmployeeNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -264,6 +283,7 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/data-silo'
     | '/business-data/document'
+    | '/business-data/employee'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -272,6 +292,7 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/data-silo/$name'
     | '/business-data/document/$name'
+    | '/business-data/employee/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -290,6 +311,7 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/data-silo'
     | '/business-data/document'
+    | '/business-data/employee'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -298,6 +320,7 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/data-silo/$name'
     | '/business-data/document/$name'
+    | '/business-data/employee/$name'
   id:
     | '__root__'
     | '/'
@@ -316,6 +339,7 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/data-silo'
     | '/business-data/document'
+    | '/business-data/employee'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -324,6 +348,7 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/data-silo/$name'
     | '/business-data/document/$name'
+    | '/business-data/employee/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -448,6 +473,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataDocumentRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/employee': {
+      id: '/business-data/employee'
+      path: '/employee'
+      fullPath: '/business-data/employee'
+      preLoaderRoute: typeof BusinessDataEmployeeRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -503,6 +535,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/document/$name'
       preLoaderRoute: typeof BusinessDataDocumentNameRouteImport
       parentRoute: typeof BusinessDataDocumentRoute
+    }
+    '/business-data/employee/$name': {
+      id: '/business-data/employee/$name'
+      path: '/$name'
+      fullPath: '/business-data/employee/$name'
+      preLoaderRoute: typeof BusinessDataEmployeeNameRouteImport
+      parentRoute: typeof BusinessDataEmployeeRoute
     }
   }
 }
@@ -637,14 +676,27 @@ const BusinessDataDocumentRouteChildren: BusinessDataDocumentRouteChildren = {
 const BusinessDataDocumentRouteWithChildren =
   BusinessDataDocumentRoute._addFileChildren(BusinessDataDocumentRouteChildren)
 
+interface BusinessDataEmployeeRouteChildren {
+  BusinessDataEmployeeNameRoute: typeof BusinessDataEmployeeNameRoute
+}
+
+const BusinessDataEmployeeRouteChildren: BusinessDataEmployeeRouteChildren = {
+  BusinessDataEmployeeNameRoute: BusinessDataEmployeeNameRoute,
+}
+
+const BusinessDataEmployeeRouteWithChildren =
+  BusinessDataEmployeeRoute._addFileChildren(BusinessDataEmployeeRouteChildren)
+
 interface BusinessDataRouteChildren {
   BusinessDataDataSiloRoute: typeof BusinessDataDataSiloRouteWithChildren
   BusinessDataDocumentRoute: typeof BusinessDataDocumentRouteWithChildren
+  BusinessDataEmployeeRoute: typeof BusinessDataEmployeeRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataDataSiloRoute: BusinessDataDataSiloRouteWithChildren,
   BusinessDataDocumentRoute: BusinessDataDocumentRouteWithChildren,
+  BusinessDataEmployeeRoute: BusinessDataEmployeeRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

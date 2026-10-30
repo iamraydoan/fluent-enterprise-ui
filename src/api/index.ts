@@ -94,3 +94,13 @@ export type {
   DocumentRecord,
   DocumentTrackingEntry,
 } from "./businessData/document";
+export {
+  getEmployee,
+  listEmployees,
+  useEmployeeDetail,
+  useEmployees,
+} from "./businessData/employee";
+export type {
+  EmployeeDetail,
+  EmployeeRecord,
+} from "./businessData/employee";
