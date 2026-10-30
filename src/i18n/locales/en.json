@@ -1261,6 +1261,183 @@
           "state": "State",
           "isActive": "Is Active"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Product",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "You must associate the Product Version to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Product",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Product",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "createBOM": {
+          "title": "Create BOM For Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Create a Bill-Of-Materials for the Product."
+        },
+        "importInfo": {
+          "title": "Import Product Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Import Product information from an external source."
+        },
+        "manageBinningTree": {
+          "title": "Manage Binning Tree",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Binning Tree for the Product."
+        },
+        "manageCharacteristics": {
+          "title": "Manage Characteristics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Characteristics for the Product."
+        },
+        "manageCosts": {
+          "title": "Manage Costs",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Costs for the Product."
+        },
+        "manageLogistics": {
+          "title": "Manage Material Logistics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Material Logistics for the Product."
+        },
+        "manageParameters": {
+          "title": "Manage Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Parameters for the Product."
+        },
+        "managePlanning": {
+          "title": "Manage Planning",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Planning settings for the Product."
+        },
+        "manageComponentInfo": {
+          "title": "Manage Product Component Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Component Information for the Product."
+        },
+        "manageManufacturers": {
+          "title": "Manage Product Manufacturers",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Manufacturers for the Product."
+        },
+        "manageRepairPolicy": {
+          "title": "Manage Repair Policy",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Repair Policy for the Product."
+        },
+        "manageRules": {
+          "title": "Manage Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Rules for the Product."
+        },
+        "manageSafetyInfo": {
+          "title": "Manage Safety Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Safety Information for the Product."
+        },
+        "manageScheduling": {
+          "title": "Manage Scheduling",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Scheduling settings for the Product."
+        },
+        "manageSubProducts": {
+          "title": "Manage Sub-Products",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Sub-Products for the Product."
+        },
+        "manageTransferInfo": {
+          "title": "Manage Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Transfer Information for the Product."
+        },
+        "manageUnitConversion": {
+          "title": "Manage Unit Conversion Factors",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Unit Conversion Factors for the Product."
+        },
+        "previewRules": {
+          "title": "Preview Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Preview the Rules for the Product."
+        },
+        "viewReports": {
+          "title": "View Product Reports",
+          "close": "Close",
+          "description": "View Product Reports: Product Standard Cost Report, Product Standard Flow Report."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "attachments": "Attachments"
       }
     },
     "productionOrder": {
