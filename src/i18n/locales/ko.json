@@ -661,5 +661,59 @@
       "send": "보내기"
     },
     "listTitle": "쿼리 ({{count}})"
+  },
+  "businessData": {
+    "area": {
+      "columns": {
+        "description": "설명",
+        "facility": "시설",
+        "name": "이름",
+        "state": "상태",
+        "type": "유형"
+      },
+      "detail": {
+        "addFilter": "필터 추가",
+        "area": "구역",
+        "areaType": "구역 유형",
+        "calendar": "달력",
+        "costCenter": "코스트 센터",
+        "dataGroup": "데이터 그룹",
+        "description": "설명",
+        "displayOrder": "표시 순서",
+        "enableShiftLogbook": "교대 로그북 활성화",
+        "facility": "시설",
+        "generalData": "일반 데이터",
+        "historyEmpty": "기록을 찾을 수 없습니다.",
+        "information": "정보",
+        "name": "이름",
+        "no": "아니요",
+        "planning": "계획",
+        "relations": "관계",
+        "schedule": "일정",
+        "sections": {
+          "attachments": "첨부 파일",
+          "details": "세부 정보",
+          "resources": "리소스",
+          "steps": "단계",
+          "subAreas": "하위 구역"
+        },
+        "shiftLogbooks": "교대 로그북",
+        "tabs": {
+          "areaView": "구역 보기",
+          "details": "세부 정보",
+          "history": "기록",
+          "maintenance": "유지보수",
+          "references": "참조"
+        },
+        "type": "유형",
+        "universalState": "통합 상태",
+        "whereUsed": "사용 위치",
+        "yes": "예",
+        "loading": "로딩 중...",
+        "emptyValue": "—"
+      },
+      "listTitle": "구역",
+      "pageLabel": "구역"
+    }
   }
 }

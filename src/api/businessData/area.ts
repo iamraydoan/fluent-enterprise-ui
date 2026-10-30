@@ -1,0 +1,54 @@
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { apiFetch } from "@/api/client";
+import type { Page } from "@/api/types";
+import type { ListQueryParams } from "@/lib/listQuery";
+
+export interface AreaRecord {
+  name: string;
+  description: string;
+  facility: string;
+  type: string;
+  state: string;
+}
+
+export interface AreaDetail extends AreaRecord {
+  universalState: string;
+  dataGroup: string;
+  displayOrder: number;
+  areaType: string;
+  calendar: string;
+  schedule: string;
+  costCenter: string;
+  enableShiftLogbook: boolean;
+  steps: string[];
+  resources: string[];
+  subAreas: string[];
+}
+
+export function listAreas(params: ListQueryParams): Promise<Page<AreaRecord>> {
+  const search = new URLSearchParams();
+  search.set("page", String(params.page));
+  search.set("limit", String(params.limit));
+  if (params.filters?.q) search.set("q", params.filters.q);
+  if (params.filters?.state) search.set("state", params.filters.state);
+  return apiFetch<Page<AreaRecord>>(`/business-data/areas?${search.toString()}`);
+}
+
+export function useAreas(params: ListQueryParams) {
+  return useQuery({
+    queryKey: ["business-data", "areas", params],
+    queryFn: () => listAreas(params),
+    placeholderData: keepPreviousData,
+  });
+}
+
+export function getArea(name: string): Promise<AreaDetail> {
+  return apiFetch<AreaDetail>(`/business-data/areas/${encodeURIComponent(name)}`);
+}
+
+export function useAreaDetail(name: string) {
+  return useQuery({
+    queryKey: ["business-data", "areas", name],
+    queryFn: () => getArea(name),
+  });
+}

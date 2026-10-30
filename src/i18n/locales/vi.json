@@ -661,5 +661,59 @@
       "send": "Gửi"
     },
     "listTitle": "Truy vấn ({{count}})"
+  },
+  "businessData": {
+    "area": {
+      "columns": {
+        "description": "Mô tả",
+        "facility": "Nhà máy",
+        "name": "Tên",
+        "state": "Trạng thái",
+        "type": "Loại"
+      },
+      "detail": {
+        "addFilter": "Thêm bộ lọc",
+        "area": "Khu vực",
+        "areaType": "Loại khu vực",
+        "calendar": "Lịch",
+        "costCenter": "Trung tâm chi phí",
+        "dataGroup": "Nhóm dữ liệu",
+        "description": "Mô tả",
+        "displayOrder": "Thứ tự hiển thị",
+        "enableShiftLogbook": "Bật nhật ký ca",
+        "facility": "Nhà máy",
+        "generalData": "Dữ liệu chung",
+        "historyEmpty": "Không tìm thấy lịch sử.",
+        "information": "Thông tin",
+        "name": "Tên",
+        "no": "Không",
+        "planning": "Kế hoạch",
+        "relations": "Quan hệ",
+        "schedule": "Lịch trình",
+        "sections": {
+          "attachments": "Tệp đính kèm",
+          "details": "Chi tiết",
+          "resources": "Tài nguyên",
+          "steps": "Công đoạn",
+          "subAreas": "Khu vực con"
+        },
+        "shiftLogbooks": "Nhật ký ca",
+        "tabs": {
+          "areaView": "Xem khu vực",
+          "details": "Chi tiết",
+          "history": "Lịch sử",
+          "maintenance": "Bảo trì",
+          "references": "Tham chiếu"
+        },
+        "type": "Loại",
+        "universalState": "Trạng thái chung",
+        "whereUsed": "Nơi sử dụng",
+        "yes": "Có",
+        "loading": "Đang tải...",
+        "emptyValue": "—"
+      },
+      "listTitle": "Khu vực",
+      "pageLabel": "Khu vực"
+    }
   }
 }

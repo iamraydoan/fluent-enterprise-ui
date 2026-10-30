@@ -661,5 +661,59 @@
       "send": "送信"
     },
     "listTitle": "クエリ ({{count}})"
+  },
+  "businessData": {
+    "area": {
+      "columns": {
+        "description": "説明",
+        "facility": "施設",
+        "name": "名前",
+        "state": "状態",
+        "type": "タイプ"
+      },
+      "detail": {
+        "addFilter": "フィルターを追加",
+        "area": "エリア",
+        "areaType": "エリアタイプ",
+        "calendar": "カレンダー",
+        "costCenter": "コストセンター",
+        "dataGroup": "データグループ",
+        "description": "説明",
+        "displayOrder": "表示順",
+        "enableShiftLogbook": "シフトログブックを有効化",
+        "facility": "施設",
+        "generalData": "一般データ",
+        "historyEmpty": "履歴レコードが見つかりません。",
+        "information": "情報",
+        "name": "名前",
+        "no": "いいえ",
+        "planning": "計画",
+        "relations": "関係",
+        "schedule": "スケジュール",
+        "sections": {
+          "attachments": "添付ファイル",
+          "details": "詳細",
+          "resources": "リソース",
+          "steps": "ステップ",
+          "subAreas": "サブエリア"
+        },
+        "shiftLogbooks": "シフトログブック",
+        "tabs": {
+          "areaView": "エリアビュー",
+          "details": "詳細",
+          "history": "履歴",
+          "maintenance": "メンテナンス",
+          "references": "参照"
+        },
+        "type": "タイプ",
+        "universalState": "ユニバーサル状態",
+        "whereUsed": "使用場所",
+        "yes": "はい",
+        "loading": "読み込み中...",
+        "emptyValue": "—"
+      },
+      "listTitle": "エリア",
+      "pageLabel": "エリア"
+    }
   }
 }

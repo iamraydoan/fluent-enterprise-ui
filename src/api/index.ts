@@ -76,3 +76,5 @@ export type {
   UIPageScope,
   UIPageType,
 } from "./uiPages";
+export { getArea, listAreas, useAreaDetail, useAreas } from "./businessData/area";
+export type { AreaDetail, AreaRecord } from "./businessData/area";

@@ -661,5 +661,59 @@
       "send": "Send"
     },
     "listTitle": "Queries ({{count}})"
+  },
+  "businessData": {
+    "area": {
+      "columns": {
+        "description": "Description",
+        "facility": "Facility",
+        "name": "Name",
+        "state": "State",
+        "type": "Type"
+      },
+      "detail": {
+        "addFilter": "Add Filter",
+        "area": "Area",
+        "areaType": "Area Type",
+        "calendar": "Calendar",
+        "costCenter": "Cost Center",
+        "dataGroup": "Data Group",
+        "description": "Description",
+        "displayOrder": "Display Order",
+        "enableShiftLogbook": "Enable Shift Logbook",
+        "facility": "Facility",
+        "generalData": "General Data",
+        "historyEmpty": "No history records found.",
+        "information": "Information",
+        "name": "Name",
+        "no": "No",
+        "planning": "Planning",
+        "relations": "Relations",
+        "schedule": "Schedule",
+        "sections": {
+          "attachments": "Attachments",
+          "details": "Details",
+          "resources": "Resources",
+          "steps": "Steps",
+          "subAreas": "Sub-Areas"
+        },
+        "shiftLogbooks": "Shift Logbooks",
+        "tabs": {
+          "areaView": "Area View",
+          "details": "Details",
+          "history": "History",
+          "maintenance": "Maintenance",
+          "references": "References"
+        },
+        "type": "Type",
+        "universalState": "Universal State",
+        "whereUsed": "Where Used",
+        "yes": "Yes",
+        "loading": "Loading...",
+        "emptyValue": "—"
+      },
+      "listTitle": "Areas",
+      "pageLabel": "Areas"
+    }
   }
 }
