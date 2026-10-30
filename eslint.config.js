@@ -258,6 +258,8 @@ export default tseslint.config(
               "checked",
               "sortDirection",
               "itemType",
+              "titleKey",
+              "listTitleKey",
             ],
           },
           "object-properties": {

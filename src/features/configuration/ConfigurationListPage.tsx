@@ -1,13 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { useConfigurationTree, useConfigurations } from "@/api";
 import type { ConfigurationEntry } from "@/api";
-import {
-  createAction,
-  DataTableCard,
-  ListPage,
-  refreshAction,
-  SidePanel,
-} from "@/components/common";
+import { createAction, DataListPage, refreshAction, SidePanel } from "@/components/common";
 import type { DataColumn, DataFilter, DataTableCardApi, HeaderAction } from "@/components/common";
 import { MoreVertical24Regular, Wrench20Regular } from "@/components/icons";
 import { makeStyles, mergeClasses, tokens } from "@/components/ui";
@@ -18,23 +12,6 @@ import { ConfigurationTree } from "./ConfigurationTree";
 import { CONFIG_ENTRY_TYPE_LABELS, CONFIG_ENTRY_TYPES, entryName, maskedValue } from "./data";
 
 const usePageStyles = makeStyles({
-  body: {
-    display: "flex",
-    columnGap: "10px",
-    flexGrow: 1,
-    minHeight: 0,
-  },
-  panelWrap: {
-    display: "flex",
-    flexDirection: "column",
-    minHeight: 0,
-  },
-  cardWrap: {
-    flexGrow: 1,
-    minWidth: 0,
-    display: "flex",
-    flexDirection: "column",
-  },
   allEntries: {
     display: "flex",
     alignItems: "center",
@@ -116,6 +93,47 @@ const COLUMNS: DataColumn<ConfigurationEntry>[] = [
   },
 ];
 
+const FILTERS: DataFilter[] = [
+  {
+    type: "checkbox",
+    param: "userConfigs",
+    labelKey: "configuration.filters.userConfigs",
+    defaultChecked: true,
+  },
+  {
+    type: "select",
+    param: "displayBy",
+    labelKey: "configuration.filters.displayBy",
+    options: [
+      { value: "latest", labelKey: "configuration.displayBy.latestChanges" },
+      { value: "path", labelKey: "configuration.displayBy.path" },
+      { value: "name", labelKey: "configuration.displayBy.name" },
+    ],
+  },
+  {
+    type: "select",
+    param: "type",
+    labelKey: "configuration.filters.type",
+    includeAll: true,
+    options: CONFIG_ENTRY_TYPES.map((type) => ({
+      value: type,
+      labelKey: CONFIG_ENTRY_TYPE_LABELS[type],
+    })),
+  },
+  {
+    type: "select",
+    param: "searchFields",
+    labelKey: "configuration.filters.searchFields",
+    options: [
+      { value: "all", labelKey: "common.all" },
+      { value: "path", labelKey: "configuration.searchFields.path" },
+      { value: "name", labelKey: "configuration.searchFields.name" },
+      { value: "value", labelKey: "configuration.searchFields.value" },
+    ],
+  },
+  { type: "search", param: "q" },
+];
+
 export function ConfigurationListPage() {
   const { t } = useAppTranslation();
   const styles = usePageStyles();
@@ -124,50 +142,6 @@ export function ConfigurationListPage() {
   const tableApi = useRef<DataTableCardApi | null>(null);
   const [showTree, setShowTree] = useState(true);
   const { data: branchPaths } = useConfigurationTree();
-
-  const filters = useMemo<DataFilter[]>(
-    () => [
-      {
-        type: "checkbox",
-        param: "userConfigs",
-        labelKey: "configuration.filters.userConfigs",
-        defaultChecked: true,
-      },
-      {
-        type: "select",
-        param: "displayBy",
-        labelKey: "configuration.filters.displayBy",
-        options: [
-          { value: "latest", labelKey: "configuration.displayBy.latestChanges" },
-          { value: "path", labelKey: "configuration.displayBy.path" },
-          { value: "name", labelKey: "configuration.displayBy.name" },
-        ],
-      },
-      {
-        type: "select",
-        param: "type",
-        labelKey: "configuration.filters.type",
-        includeAll: true,
-        options: CONFIG_ENTRY_TYPES.map((type) => ({
-          value: type,
-          labelKey: CONFIG_ENTRY_TYPE_LABELS[type],
-        })),
-      },
-      {
-        type: "select",
-        param: "searchFields",
-        labelKey: "configuration.filters.searchFields",
-        options: [
-          { value: "all", labelKey: "common.all" },
-          { value: "path", labelKey: "configuration.searchFields.path" },
-          { value: "name", labelKey: "configuration.searchFields.name" },
-          { value: "value", labelKey: "configuration.searchFields.value" },
-        ],
-      },
-      { type: "search", param: "q" },
-    ],
-    [],
-  );
 
   const actions = useMemo<HeaderAction[]>(
     () => [
@@ -194,46 +168,36 @@ export function ConfigurationListPage() {
   );
 
   return (
-    <ListPage
-      header={{
-        icon: <Wrench20Regular />,
-        title: t("configuration.pageLabel"),
-        actions,
-      }}
-    >
-      <div className={styles.body}>
-        <div className={styles.panelWrap}>
-          <SidePanel
-            title={t("configuration.tree.title")}
-            collapsed={!showTree}
-            onToggle={() => setShowTree((visible) => !visible)}
+    <DataListPage
+      icon={<Wrench20Regular />}
+      titleKey="configuration.pageLabel"
+      listTitleKey="configuration.listTitle"
+      actions={actions}
+      columns={COLUMNS}
+      filters={FILTERS}
+      useListQuery={useConfigurations}
+      getRowId={(entry) => entry.path}
+      onRowClick={(entry) => openDetail(entry.path)}
+      apiRef={tableApi}
+      sidebar={
+        <SidePanel
+          title={t("configuration.tree.title")}
+          collapsed={!showTree}
+          onToggle={() => setShowTree((visible) => !visible)}
+        >
+          <button
+            className={mergeClasses(styles.allEntries, styles.allEntriesActive)}
+            onClick={() => tableApi.current?.resetFilters()}
           >
-            <button
-              className={mergeClasses(styles.allEntries, styles.allEntriesActive)}
-              onClick={() => tableApi.current?.resetFilters()}
-            >
-              {t("configuration.tree.allEntries")}
-            </button>
-            <ConfigurationTree
-              branchPaths={branchPaths ?? []}
-              selectedPath={null}
-              onSelect={openDetail}
-            />
-          </SidePanel>
-        </div>
-        <div className={styles.cardWrap}>
-          <DataTableCard
-            title={(count) => t("configuration.listTitle", { count })}
-            ariaLabel={t("configuration.pageLabel")}
-            columns={COLUMNS}
-            filters={filters}
-            useListQuery={useConfigurations}
-            getRowId={(entry) => entry.path}
-            onRowClick={(entry) => openDetail(entry.path)}
-            apiRef={tableApi}
+            {t("configuration.tree.allEntries")}
+          </button>
+          <ConfigurationTree
+            branchPaths={branchPaths ?? []}
+            selectedPath={null}
+            onSelect={openDetail}
           />
-        </div>
-      </div>
-    </ListPage>
+        </SidePanel>
+      }
+    />
   );
 }

@@ -1,5 +1,6 @@
 export { DataTableCard } from "./data-table/DataTableCard";
 export type { DataTableCardApi } from "./data-table/DataTableCard";
+export { DataListPage } from "./data-table/DataListPage";
 export type { DataColumn } from "./data-table/columns";
 export { defaultListFilters, searchFilter, stateFilter } from "./data-table/filters";
 export type { DataFilter } from "./data-table/filters";

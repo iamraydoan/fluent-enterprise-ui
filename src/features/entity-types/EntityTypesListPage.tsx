@@ -2,17 +2,14 @@ import { useEntityTypes } from "@/api";
 import type { EntityTypeRecord } from "@/api";
 import {
   createAction,
-  DataTableCard,
-  defaultListFilters,
+  DataListPage,
   downloadLbosAction,
   exportAction,
-  ListPage,
   RECORD_STATE_COLUMN_OPTIONS,
   refreshAction,
 } from "@/components/common";
 import type { DataColumn } from "@/components/common";
 import { DocumentBulletList20Regular } from "@/components/icons";
-import { useAppTranslation } from "@/i18n";
 
 const COLUMNS: DataColumn<EntityTypeRecord>[] = [
   {
@@ -59,23 +56,15 @@ const COLUMNS: DataColumn<EntityTypeRecord>[] = [
 ];
 
 export function EntityTypesListPage() {
-  const { t } = useAppTranslation();
   return (
-    <ListPage
-      header={{
-        icon: <DocumentBulletList20Regular />,
-        title: t("entityTypes.pageLabel"),
-        actions: [createAction, refreshAction, exportAction, downloadLbosAction],
-      }}
-    >
-      <DataTableCard
-        title={(count) => t("entityTypes.title", { count })}
-        ariaLabel={t("entityTypes.pageLabel")}
-        columns={COLUMNS}
-        filters={defaultListFilters}
-        useListQuery={useEntityTypes}
-        getRowId={(row) => row.id}
-      />
-    </ListPage>
+    <DataListPage
+      icon={<DocumentBulletList20Regular />}
+      titleKey="entityTypes.pageLabel"
+      listTitleKey="entityTypes.title"
+      actions={[createAction, refreshAction, exportAction, downloadLbosAction]}
+      columns={COLUMNS}
+      useListQuery={useEntityTypes}
+      getRowId={(row) => row.id}
+    />
   );
 }
