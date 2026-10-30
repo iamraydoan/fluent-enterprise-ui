@@ -92,3 +92,5 @@ export { useCertificationDetail, useCertifications } from "./businessData/certif
 export type { CertificationDetail, CertificationEmployee, CertificationQualification, CertificationRecord } from "./businessData/certification";
 export { useChangeSetDetail, useChangeSets } from "./businessData/changeSet";
 export type { ChangeSetDetail, ChangeSetItem, ChangeSetRecord, ChangeSetSubscriber } from "./businessData/changeSet";
+export { useChartDetail, useCharts } from "./businessData/chart";
+export type { ChartDetail, ChartRecord } from "./businessData/chart";

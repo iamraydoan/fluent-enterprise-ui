@@ -1094,6 +1094,69 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "chart": {
+      "pageLabel": "Charts",
+      "listTitle": "Charts",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "chartType": "Chart Type",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "chart": "Chart",
+        "properties": "Properties",
+        "retention": "Retention",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "universalState": "Universal State",
+        "enabled": "Enabled",
+        "parameter": "Parameter",
+        "chartType": "Chart Type",
+        "minimumSampleReadings": "Minimum Sample Readings",
+        "maximumSampleReadings": "Maximum Sample Readings",
+        "dataPoints": "Data Points",
+        "limitsTitle": "Limits ({{count}})",
+        "limitColumns": {
+          "limit": "Limit",
+          "value": "Value"
+        },
+        "contextsTitle": "Contexts ({{count}})",
+        "contextColumns": {
+          "contextKey": "Context Key",
+          "mandatory": "Mandatory"
+        },
+        "rulesTitle": "Rules ({{count}})",
+        "ruleColumns": {
+          "rule": "Rule",
+          "enabled": "Enabled"
+        },
+        "logicalChartsTitle": "Logical Charts ({{count}})",
+        "logicalColumns": {
+          "name": "Name",
+          "dataPoints": "Data Points"
+        },
+        "tabs": {
+          "details": "Details",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "limits": "Limits",
+          "contexts": "Contexts",
+          "rules": "Rules",
+          "logicalCharts": "Logical Charts",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

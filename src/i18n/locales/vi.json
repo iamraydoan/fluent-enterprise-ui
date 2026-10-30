@@ -1094,6 +1094,69 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "chart": {
+      "pageLabel": "Biểu đồ",
+      "listTitle": "Biểu đồ",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "chartType": "Loại biểu đồ",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "chart": "Chart",
+        "properties": "Properties",
+        "retention": "Retention",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Type",
+        "universalState": "Universal State",
+        "enabled": "Enabled",
+        "parameter": "Parameter",
+        "chartType": "Loại biểu đồ",
+        "minimumSampleReadings": "Minimum Sample Readings",
+        "maximumSampleReadings": "Maximum Sample Readings",
+        "dataPoints": "Data Points",
+        "limitsTitle": "Limits ({{count}})",
+        "limitColumns": {
+          "limit": "Limit",
+          "value": "Value"
+        },
+        "contextsTitle": "Contexts ({{count}})",
+        "contextColumns": {
+          "contextKey": "Context Key",
+          "mandatory": "Mandatory"
+        },
+        "rulesTitle": "Rules ({{count}})",
+        "ruleColumns": {
+          "rule": "Rule",
+          "enabled": "Enabled"
+        },
+        "logicalChartsTitle": "Logical Charts ({{count}})",
+        "logicalColumns": {
+          "name": "Tên",
+          "dataPoints": "Data Points"
+        },
+        "tabs": {
+          "details": "Chi tiết",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "limits": "Giới hạn",
+          "contexts": "Ngữ cảnh",
+          "rules": "Quy tắc",
+          "logicalCharts": "Biểu đồ logic",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

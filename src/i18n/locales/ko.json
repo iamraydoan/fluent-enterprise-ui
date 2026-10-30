@@ -1094,6 +1094,69 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "chart": {
+      "pageLabel": "차트",
+      "listTitle": "차트",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "chartType": "차트 유형",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "chart": "Chart",
+        "properties": "Properties",
+        "retention": "Retention",
+        "name": "이름",
+        "description": "설명",
+        "type": "Type",
+        "universalState": "Universal State",
+        "enabled": "Enabled",
+        "parameter": "Parameter",
+        "chartType": "차트 유형",
+        "minimumSampleReadings": "Minimum Sample Readings",
+        "maximumSampleReadings": "Maximum Sample Readings",
+        "dataPoints": "Data Points",
+        "limitsTitle": "Limits ({{count}})",
+        "limitColumns": {
+          "limit": "Limit",
+          "value": "Value"
+        },
+        "contextsTitle": "Contexts ({{count}})",
+        "contextColumns": {
+          "contextKey": "Context Key",
+          "mandatory": "Mandatory"
+        },
+        "rulesTitle": "Rules ({{count}})",
+        "ruleColumns": {
+          "rule": "Rule",
+          "enabled": "Enabled"
+        },
+        "logicalChartsTitle": "Logical Charts ({{count}})",
+        "logicalColumns": {
+          "name": "이름",
+          "dataPoints": "Data Points"
+        },
+        "tabs": {
+          "details": "세부 정보",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "limits": "한도",
+          "contexts": "컨텍스트",
+          "rules": "규칙",
+          "logicalCharts": "논리 차트",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

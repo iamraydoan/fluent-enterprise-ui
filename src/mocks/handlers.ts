@@ -7,6 +7,7 @@ import { businessPartnerHandlers } from "./handlers/businessData/businessPartner
 import { calendarHandlers } from "./handlers/businessData/calendar";
 import { certificationHandlers } from "./handlers/businessData/certification";
 import { changeSetHandlers } from "./handlers/businessData/changeSet";
+import { chartHandlers } from "./handlers/businessData/chart";
 import { aiChatHandlers } from "./handlers/aiChat";
 import { appHandlers } from "./handlers/apps";
 import { configurationHandlers } from "./handlers/configuration";
@@ -27,6 +28,7 @@ export const handlers = [
   ...calendarHandlers,
   ...certificationHandlers,
   ...changeSetHandlers,
+  ...chartHandlers,
   ...aiChatHandlers,
   ...appHandlers,
   ...configurationHandlers,

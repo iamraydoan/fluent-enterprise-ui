@@ -31,6 +31,7 @@ import { Route as BusinessDataBusinessPartnerRouteImport } from './routes/busine
 import { Route as BusinessDataCalendarRouteImport } from './routes/business-data.calendar'
 import { Route as BusinessDataCertificationRouteImport } from './routes/business-data.certification'
 import { Route as BusinessDataChangeSetRouteImport } from './routes/business-data.change-set'
+import { Route as BusinessDataChartRouteImport } from './routes/business-data.chart'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -45,6 +46,7 @@ import { Route as BusinessDataBusinessPartnerNameRouteImport } from './routes/bu
 import { Route as BusinessDataCalendarNameRouteImport } from './routes/business-data.calendar.$name'
 import { Route as BusinessDataCertificationNameRouteImport } from './routes/business-data.certification.$name'
 import { Route as BusinessDataChangeSetNameRouteImport } from './routes/business-data.change-set.$name'
+import { Route as BusinessDataChartNameRouteImport } from './routes/business-data.chart.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -162,6 +164,11 @@ const BusinessDataChangeSetRoute = BusinessDataChangeSetRouteImport.update({
   path: '/change-set',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataChartRoute = BusinessDataChartRouteImport.update({
+  id: '/chart',
+  path: '/chart',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -243,6 +250,11 @@ const BusinessDataChangeSetNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataChangeSetRoute,
   } as any)
+const BusinessDataChartNameRoute = BusinessDataChartNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataChartRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -267,6 +279,7 @@ export interface FileRoutesByFullPath {
   '/business-data/calendar': typeof BusinessDataCalendarRouteWithChildren
   '/business-data/certification': typeof BusinessDataCertificationRouteWithChildren
   '/business-data/change-set': typeof BusinessDataChangeSetRouteWithChildren
+  '/business-data/chart': typeof BusinessDataChartRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -281,6 +294,7 @@ export interface FileRoutesByFullPath {
   '/business-data/calendar/$name': typeof BusinessDataCalendarNameRoute
   '/business-data/certification/$name': typeof BusinessDataCertificationNameRoute
   '/business-data/change-set/$name': typeof BusinessDataChangeSetNameRoute
+  '/business-data/chart/$name': typeof BusinessDataChartNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -305,6 +319,7 @@ export interface FileRoutesByTo {
   '/business-data/calendar': typeof BusinessDataCalendarRouteWithChildren
   '/business-data/certification': typeof BusinessDataCertificationRouteWithChildren
   '/business-data/change-set': typeof BusinessDataChangeSetRouteWithChildren
+  '/business-data/chart': typeof BusinessDataChartRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -319,6 +334,7 @@ export interface FileRoutesByTo {
   '/business-data/calendar/$name': typeof BusinessDataCalendarNameRoute
   '/business-data/certification/$name': typeof BusinessDataCertificationNameRoute
   '/business-data/change-set/$name': typeof BusinessDataChangeSetNameRoute
+  '/business-data/chart/$name': typeof BusinessDataChartNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -344,6 +360,7 @@ export interface FileRoutesById {
   '/business-data/calendar': typeof BusinessDataCalendarRouteWithChildren
   '/business-data/certification': typeof BusinessDataCertificationRouteWithChildren
   '/business-data/change-set': typeof BusinessDataChangeSetRouteWithChildren
+  '/business-data/chart': typeof BusinessDataChartRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -358,6 +375,7 @@ export interface FileRoutesById {
   '/business-data/calendar/$name': typeof BusinessDataCalendarNameRoute
   '/business-data/certification/$name': typeof BusinessDataCertificationNameRoute
   '/business-data/change-set/$name': typeof BusinessDataChangeSetNameRoute
+  '/business-data/chart/$name': typeof BusinessDataChartNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -384,6 +402,7 @@ export interface FileRouteTypes {
     | '/business-data/calendar'
     | '/business-data/certification'
     | '/business-data/change-set'
+    | '/business-data/chart'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -398,6 +417,7 @@ export interface FileRouteTypes {
     | '/business-data/calendar/$name'
     | '/business-data/certification/$name'
     | '/business-data/change-set/$name'
+    | '/business-data/chart/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -422,6 +442,7 @@ export interface FileRouteTypes {
     | '/business-data/calendar'
     | '/business-data/certification'
     | '/business-data/change-set'
+    | '/business-data/chart'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -436,6 +457,7 @@ export interface FileRouteTypes {
     | '/business-data/calendar/$name'
     | '/business-data/certification/$name'
     | '/business-data/change-set/$name'
+    | '/business-data/chart/$name'
   id:
     | '__root__'
     | '/'
@@ -460,6 +482,7 @@ export interface FileRouteTypes {
     | '/business-data/calendar'
     | '/business-data/certification'
     | '/business-data/change-set'
+    | '/business-data/chart'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -474,6 +497,7 @@ export interface FileRouteTypes {
     | '/business-data/calendar/$name'
     | '/business-data/certification/$name'
     | '/business-data/change-set/$name'
+    | '/business-data/chart/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -640,6 +664,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataChangeSetRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/chart': {
+      id: '/business-data/chart'
+      path: '/chart'
+      fullPath: '/business-data/chart'
+      preLoaderRoute: typeof BusinessDataChartRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -737,6 +768,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/change-set/$name'
       preLoaderRoute: typeof BusinessDataChangeSetNameRouteImport
       parentRoute: typeof BusinessDataChangeSetRoute
+    }
+    '/business-data/chart/$name': {
+      id: '/business-data/chart/$name'
+      path: '/$name'
+      fullPath: '/business-data/chart/$name'
+      preLoaderRoute: typeof BusinessDataChartNameRouteImport
+      parentRoute: typeof BusinessDataChartRoute
     }
   }
 }
@@ -949,6 +987,17 @@ const BusinessDataChangeSetRouteWithChildren =
     BusinessDataChangeSetRouteChildren,
   )
 
+interface BusinessDataChartRouteChildren {
+  BusinessDataChartNameRoute: typeof BusinessDataChartNameRoute
+}
+
+const BusinessDataChartRouteChildren: BusinessDataChartRouteChildren = {
+  BusinessDataChartNameRoute: BusinessDataChartNameRoute,
+}
+
+const BusinessDataChartRouteWithChildren =
+  BusinessDataChartRoute._addFileChildren(BusinessDataChartRouteChildren)
+
 interface BusinessDataRouteChildren {
   BusinessDataAreaRoute: typeof BusinessDataAreaRouteWithChildren
   BusinessDataBatchRoute: typeof BusinessDataBatchRouteWithChildren
@@ -958,6 +1007,7 @@ interface BusinessDataRouteChildren {
   BusinessDataCalendarRoute: typeof BusinessDataCalendarRouteWithChildren
   BusinessDataCertificationRoute: typeof BusinessDataCertificationRouteWithChildren
   BusinessDataChangeSetRoute: typeof BusinessDataChangeSetRouteWithChildren
+  BusinessDataChartRoute: typeof BusinessDataChartRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -970,6 +1020,7 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataCalendarRoute: BusinessDataCalendarRouteWithChildren,
   BusinessDataCertificationRoute: BusinessDataCertificationRouteWithChildren,
   BusinessDataChangeSetRoute: BusinessDataChangeSetRouteWithChildren,
+  BusinessDataChartRoute: BusinessDataChartRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(
