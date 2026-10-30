@@ -3,7 +3,8 @@ import { PrintableDocumentListPage } from "@/features/business-data/entities/pri
 
 function PrintableDocumentRoute() {
   const location = useLocation();
-  if (location.pathname === "/business-data/printable-document") return <PrintableDocumentListPage />;
+  if (location.pathname === "/business-data/printable-document")
+    return <PrintableDocumentListPage />;
   return <Outlet />;
 }
 

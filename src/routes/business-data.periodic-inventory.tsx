@@ -3,7 +3,8 @@ import { PeriodicInventoryListPage } from "@/features/business-data/entities/per
 
 function PeriodicInventoryRoute() {
   const location = useLocation();
-  if (location.pathname === "/business-data/periodic-inventory") return <PeriodicInventoryListPage />;
+  if (location.pathname === "/business-data/periodic-inventory")
+    return <PeriodicInventoryListPage />;
   return <Outlet />;
 }
 
