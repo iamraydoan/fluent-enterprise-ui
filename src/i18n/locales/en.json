@@ -970,6 +970,24 @@
           "conversions": "Conversions",
           "attachments": "Attachments"
         }
+      },
+      "entityName": "Bin Converter",
+      "operations": {
+        "createTitle": "Create Bin Converter",
+        "editTitle": "Edit Bin Converter",
+        "cloneTitle": "Clone Bin Converter",
+        "terminateTitle": "Terminate Bin Converter",
+        "terminateMessage": "Terminate {{name}}?",
+        "unterminateTitle": "Unterminate Bin Converter",
+        "unterminateMessage": "Unterminate {{name}}?",
+        "binConversions": "Bin Conversions",
+        "conversionsHint": "Add, update or remove bin conversion records.",
+        "noConversions": "No conversions added.",
+        "fromBinCode": "From Bin Code",
+        "toBinCode": "To Bin Code",
+        "toBinDescription": "To Bin Description",
+        "toBinQuality": "To Bin Quality",
+        "toBinColor": "To Bin Color"
       }
     },
     "businessPartner": {

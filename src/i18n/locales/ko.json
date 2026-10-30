@@ -970,6 +970,24 @@
           "conversions": "변환",
           "attachments": "첨부 파일"
         }
+      },
+      "entityName": "Bin Converter",
+      "operations": {
+        "createTitle": "Bin Converter 만들기",
+        "editTitle": "Bin Converter 편집",
+        "cloneTitle": "Bin Converter 복제",
+        "terminateTitle": "Bin Converter 종료",
+        "terminateMessage": "{{name}}을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Bin Converter 재개",
+        "unterminateMessage": "{{name}}을(를) 재개하시겠습니까?",
+        "binConversions": "Bin Conversions",
+        "conversionsHint": "Bin 변환 추가/업데이트/삭제",
+        "noConversions": "변환이 없습니다.",
+        "fromBinCode": "From Bin Code",
+        "toBinCode": "To Bin Code",
+        "toBinDescription": "To Bin Description",
+        "toBinQuality": "To Bin Quality",
+        "toBinColor": "To Bin Color"
       }
     },
     "businessPartner": {

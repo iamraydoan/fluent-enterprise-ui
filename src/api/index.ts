@@ -115,8 +115,22 @@ export {
   useUpdateBom,
 } from "./businessData/bom";
 export type { BomDetail, BomItem, BomRecord, BomUpsertInput } from "./businessData/bom";
-export { useBinConverterDetail, useBinConverters } from "./businessData/binConverter";
-export type { BinConversion, BinConverterDetail, BinConverterRecord } from "./businessData/binConverter";
+export {
+  createBinConverterRecord,
+  setBinConverterRecordState,
+  updateBinConverterRecord,
+  useBinConverterDetail,
+  useBinConverters,
+  useCreateBinConverter,
+  useSetBinConverterState,
+  useUpdateBinConverter,
+} from "./businessData/binConverter";
+export type {
+  BinConversion,
+  BinConverterDetail,
+  BinConverterRecord,
+  BinConverterUpsertInput,
+} from "./businessData/binConverter";
 export { useBusinessPartnerDetail, useBusinessPartners } from "./businessData/businessPartner";
 export type { BusinessPartnerDetail, BusinessPartnerRecord } from "./businessData/businessPartner";
 export { useCalendarDetail, useCalendars } from "./businessData/calendar";

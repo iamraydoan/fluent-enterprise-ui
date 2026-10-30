@@ -1,4 +1,4 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiFetch } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
@@ -46,5 +46,74 @@ export function useBinConverterDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "bin-converters", name],
     queryFn: () => apiFetch<BinConverterDetail>(`/business-data/bin-converters/${encodeURIComponent(name)}`),
+  });
+}
+
+export interface BinConverterUpsertInput extends Partial<BinConverterDetail> {
+  name: string;
+}
+
+function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
+  return apiFetch<T>(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export function createBinConverterRecord(input: BinConverterUpsertInput): Promise<BinConverterDetail> {
+  return postJson<BinConverterDetail>("/business-data/bin-converters", "POST", input);
+}
+
+export function updateBinConverterRecord(
+  name: string,
+  input: Partial<BinConverterDetail>,
+): Promise<BinConverterDetail> {
+  return postJson<BinConverterDetail>(
+    `/business-data/bin-converters/${encodeURIComponent(name)}`,
+    "PUT",
+    input,
+  );
+}
+
+export function setBinConverterRecordState(name: string, state: string): Promise<BinConverterDetail> {
+  return postJson<BinConverterDetail>(
+    `/business-data/bin-converters/${encodeURIComponent(name)}/state`,
+    "PATCH",
+    { state },
+  );
+}
+
+const BIN_CONVERTER_QUERY_KEY = ["business-data", "bin-converters"];
+
+export function useCreateBinConverter() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: createBinConverterRecord,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BIN_CONVERTER_QUERY_KEY });
+    },
+  });
+}
+
+export function useUpdateBinConverter() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, input }: { name: string; input: Partial<BinConverterDetail> }) =>
+      updateBinConverterRecord(name, input),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BIN_CONVERTER_QUERY_KEY });
+    },
+  });
+}
+
+export function useSetBinConverterState() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, state }: { name: string; state: string }) =>
+      setBinConverterRecordState(name, state),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BIN_CONVERTER_QUERY_KEY });
+    },
   });
 }

@@ -970,6 +970,24 @@
           "conversions": "変換",
           "attachments": "添付ファイル"
         }
+      },
+      "entityName": "Bin Converter",
+      "operations": {
+        "createTitle": "Bin Converterの作成",
+        "editTitle": "Bin Converterの編集",
+        "cloneTitle": "Bin Converterの複製",
+        "terminateTitle": "Bin Converterの終了",
+        "terminateMessage": "{{name}}を終了しますか？",
+        "unterminateTitle": "Bin Converterの再開",
+        "unterminateMessage": "{{name}}を再開しますか？",
+        "binConversions": "Bin Conversions",
+        "conversionsHint": "Bin変換を追加・更新・削除",
+        "noConversions": "変換がありません。",
+        "fromBinCode": "From Bin Code",
+        "toBinCode": "To Bin Code",
+        "toBinDescription": "To Bin Description",
+        "toBinQuality": "To Bin Quality",
+        "toBinColor": "To Bin Color"
       }
     },
     "businessPartner": {

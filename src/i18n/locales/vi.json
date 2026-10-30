@@ -970,6 +970,24 @@
           "conversions": "Chuyển đổi",
           "attachments": "Tệp đính kèm"
         }
+      },
+      "entityName": "Bin Converter",
+      "operations": {
+        "createTitle": "Tạo Bin Converter",
+        "editTitle": "Sửa Bin Converter",
+        "cloneTitle": "Nhân bản Bin Converter",
+        "terminateTitle": "Kết thúc Bin Converter",
+        "terminateMessage": "Kết thúc {{name}}?",
+        "unterminateTitle": "Mở lại Bin Converter",
+        "unterminateMessage": "Mở lại {{name}}?",
+        "binConversions": "Bin Conversions",
+        "conversionsHint": "Thêm/sửa/xóa bin conversions.",
+        "noConversions": "Chưa có conversion.",
+        "fromBinCode": "From Bin Code",
+        "toBinCode": "To Bin Code",
+        "toBinDescription": "To Bin Description",
+        "toBinQuality": "To Bin Quality",
+        "toBinColor": "To Bin Color"
       }
     },
     "businessPartner": {

@@ -12,6 +12,7 @@ import type { DataColumn } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { useBinConverterDialogs } from "./useBinConverterDialogs";
 
 const COLUMNS: DataColumn<BinConverterRecord>[] = [
   { field: "name", headerName: "businessData.binConverter.columns.name", type: "link", locked: true, width: "25%" },
@@ -24,17 +25,21 @@ const COLUMNS: DataColumn<BinConverterRecord>[] = [
 export function BinConverterListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/business-data/bin-converter/$name", openRoute);
+  const { dialogs, openCreate } = useBinConverterDialogs();
   return (
+    <>
     <DataListPage
       icon={<Box24Regular />}
       titleKey="businessData.binConverter.pageLabel"
       listTitleKey="businessData.binConverter.listTitle"
-      actions={[createAction, refreshAction, importAction, exportAction]}
+      actions={[{ ...createAction, onClick: openCreate }, refreshAction, importAction, exportAction]}
       columns={COLUMNS}
       filters={defaultListFilters}
       useListQuery={useBinConverters}
       getRowId={(row) => row.name}
       onRowClick={(row) => openDetail(row.name)}
     />
+    {dialogs}
+    </>
   );
 }
