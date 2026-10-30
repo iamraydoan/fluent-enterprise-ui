@@ -1156,6 +1156,95 @@
           "state": "状態",
           "scheduledOn": "予定日"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Periodic Inventory cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Periodic Inventory",
+          "confirmText": "Select Terminate to perform the operation.",
+          "submit": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Periodic Inventory",
+          "confirmText": "Select Unterminate to perform the operation.",
+          "submit": "Unterminate"
+        },
+        "begin": {
+          "title": "Begin Periodic Inventory",
+          "confirmText": "Select Begin to perform the operation.",
+          "submit": "Begin"
+        },
+        "cancel": {
+          "title": "Cancel Periodic Inventory",
+          "confirmText": "Select Cancel to perform the operation.",
+          "submit": "Cancel"
+        },
+        "complete": {
+          "title": "Complete Periodic Inventory",
+          "confirmText": "Select Complete to perform the operation.",
+          "submit": "Complete"
+        },
+        "perform": {
+          "title": "Perform Periodic Inventory",
+          "confirmText": "Select Perform to perform the operation.",
+          "submit": "Perform"
+        },
+        "takeOwnership": {
+          "title": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation.",
+          "submit": "Take Ownership"
+        },
+        "viewReport": {
+          "title": "Periodic Inventory Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Periodic Inventory."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "resources": "Resources",
+        "materials": "Materials",
+        "attachments": "Attachments"
       }
     },
     "pickList": {
