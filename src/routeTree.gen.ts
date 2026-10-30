@@ -30,6 +30,7 @@ import { Route as BusinessDataSiteRouteImport } from './routes/business-data.sit
 import { Route as BusinessDataSortRuleSetRouteImport } from './routes/business-data.sort-rule-set'
 import { Route as BusinessDataStepRouteImport } from './routes/business-data.step'
 import { Route as BusinessDataSubstrateMapRouteImport } from './routes/business-data.substrate-map'
+import { Route as BusinessDataSubstrateMapMaskRouteImport } from './routes/business-data.substrate-map-mask'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -42,6 +43,7 @@ import { Route as BusinessDataShiftPlanNameRouteImport } from './routes/business
 import { Route as BusinessDataSiteNameRouteImport } from './routes/business-data.site.$name'
 import { Route as BusinessDataSortRuleSetNameRouteImport } from './routes/business-data.sort-rule-set.$name'
 import { Route as BusinessDataStepNameRouteImport } from './routes/business-data.step.$name'
+import { Route as BusinessDataSubstrateMapMaskNameRouteImport } from './routes/business-data.substrate-map-mask.$name'
 import { Route as BusinessDataSubstrateMapNameRouteImport } from './routes/business-data.substrate-map.$name'
 
 const IndexRoute = IndexRouteImport.update({
@@ -155,6 +157,12 @@ const BusinessDataSubstrateMapRoute =
     path: '/substrate-map',
     getParentRoute: () => BusinessDataRoute,
   } as any)
+const BusinessDataSubstrateMapMaskRoute =
+  BusinessDataSubstrateMapMaskRouteImport.update({
+    id: '/substrate-map-mask',
+    path: '/substrate-map-mask',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -225,6 +233,12 @@ const BusinessDataStepNameRoute = BusinessDataStepNameRouteImport.update({
   path: '/$name',
   getParentRoute: () => BusinessDataStepRoute,
 } as any)
+const BusinessDataSubstrateMapMaskNameRoute =
+  BusinessDataSubstrateMapMaskNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataSubstrateMapMaskRoute,
+  } as any)
 const BusinessDataSubstrateMapNameRoute =
   BusinessDataSubstrateMapNameRouteImport.update({
     id: '/$name',
@@ -254,6 +268,7 @@ export interface FileRoutesByFullPath {
   '/business-data/sort-rule-set': typeof BusinessDataSortRuleSetRouteWithChildren
   '/business-data/step': typeof BusinessDataStepRouteWithChildren
   '/business-data/substrate-map': typeof BusinessDataSubstrateMapRouteWithChildren
+  '/business-data/substrate-map-mask': typeof BusinessDataSubstrateMapMaskRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -266,6 +281,7 @@ export interface FileRoutesByFullPath {
   '/business-data/site/$name': typeof BusinessDataSiteNameRoute
   '/business-data/sort-rule-set/$name': typeof BusinessDataSortRuleSetNameRoute
   '/business-data/step/$name': typeof BusinessDataStepNameRoute
+  '/business-data/substrate-map-mask/$name': typeof BusinessDataSubstrateMapMaskNameRoute
   '/business-data/substrate-map/$name': typeof BusinessDataSubstrateMapNameRoute
 }
 export interface FileRoutesByTo {
@@ -290,6 +306,7 @@ export interface FileRoutesByTo {
   '/business-data/sort-rule-set': typeof BusinessDataSortRuleSetRouteWithChildren
   '/business-data/step': typeof BusinessDataStepRouteWithChildren
   '/business-data/substrate-map': typeof BusinessDataSubstrateMapRouteWithChildren
+  '/business-data/substrate-map-mask': typeof BusinessDataSubstrateMapMaskRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -302,6 +319,7 @@ export interface FileRoutesByTo {
   '/business-data/site/$name': typeof BusinessDataSiteNameRoute
   '/business-data/sort-rule-set/$name': typeof BusinessDataSortRuleSetNameRoute
   '/business-data/step/$name': typeof BusinessDataStepNameRoute
+  '/business-data/substrate-map-mask/$name': typeof BusinessDataSubstrateMapMaskNameRoute
   '/business-data/substrate-map/$name': typeof BusinessDataSubstrateMapNameRoute
 }
 export interface FileRoutesById {
@@ -327,6 +345,7 @@ export interface FileRoutesById {
   '/business-data/sort-rule-set': typeof BusinessDataSortRuleSetRouteWithChildren
   '/business-data/step': typeof BusinessDataStepRouteWithChildren
   '/business-data/substrate-map': typeof BusinessDataSubstrateMapRouteWithChildren
+  '/business-data/substrate-map-mask': typeof BusinessDataSubstrateMapMaskRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -339,6 +358,7 @@ export interface FileRoutesById {
   '/business-data/site/$name': typeof BusinessDataSiteNameRoute
   '/business-data/sort-rule-set/$name': typeof BusinessDataSortRuleSetNameRoute
   '/business-data/step/$name': typeof BusinessDataStepNameRoute
+  '/business-data/substrate-map-mask/$name': typeof BusinessDataSubstrateMapMaskNameRoute
   '/business-data/substrate-map/$name': typeof BusinessDataSubstrateMapNameRoute
 }
 export interface FileRouteTypes {
@@ -365,6 +385,7 @@ export interface FileRouteTypes {
     | '/business-data/sort-rule-set'
     | '/business-data/step'
     | '/business-data/substrate-map'
+    | '/business-data/substrate-map-mask'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -377,6 +398,7 @@ export interface FileRouteTypes {
     | '/business-data/site/$name'
     | '/business-data/sort-rule-set/$name'
     | '/business-data/step/$name'
+    | '/business-data/substrate-map-mask/$name'
     | '/business-data/substrate-map/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -401,6 +423,7 @@ export interface FileRouteTypes {
     | '/business-data/sort-rule-set'
     | '/business-data/step'
     | '/business-data/substrate-map'
+    | '/business-data/substrate-map-mask'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -413,6 +436,7 @@ export interface FileRouteTypes {
     | '/business-data/site/$name'
     | '/business-data/sort-rule-set/$name'
     | '/business-data/step/$name'
+    | '/business-data/substrate-map-mask/$name'
     | '/business-data/substrate-map/$name'
   id:
     | '__root__'
@@ -437,6 +461,7 @@ export interface FileRouteTypes {
     | '/business-data/sort-rule-set'
     | '/business-data/step'
     | '/business-data/substrate-map'
+    | '/business-data/substrate-map-mask'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -449,6 +474,7 @@ export interface FileRouteTypes {
     | '/business-data/site/$name'
     | '/business-data/sort-rule-set/$name'
     | '/business-data/step/$name'
+    | '/business-data/substrate-map-mask/$name'
     | '/business-data/substrate-map/$name'
   fileRoutesById: FileRoutesById
 }
@@ -609,6 +635,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataSubstrateMapRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/substrate-map-mask': {
+      id: '/business-data/substrate-map-mask'
+      path: '/substrate-map-mask'
+      fullPath: '/business-data/substrate-map-mask'
+      preLoaderRoute: typeof BusinessDataSubstrateMapMaskRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -692,6 +725,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/step/$name'
       preLoaderRoute: typeof BusinessDataStepNameRouteImport
       parentRoute: typeof BusinessDataStepRoute
+    }
+    '/business-data/substrate-map-mask/$name': {
+      id: '/business-data/substrate-map-mask/$name'
+      path: '/$name'
+      fullPath: '/business-data/substrate-map-mask/$name'
+      preLoaderRoute: typeof BusinessDataSubstrateMapMaskNameRouteImport
+      parentRoute: typeof BusinessDataSubstrateMapMaskRoute
     }
     '/business-data/substrate-map/$name': {
       id: '/business-data/substrate-map/$name'
@@ -902,6 +942,21 @@ const BusinessDataSubstrateMapRouteWithChildren =
     BusinessDataSubstrateMapRouteChildren,
   )
 
+interface BusinessDataSubstrateMapMaskRouteChildren {
+  BusinessDataSubstrateMapMaskNameRoute: typeof BusinessDataSubstrateMapMaskNameRoute
+}
+
+const BusinessDataSubstrateMapMaskRouteChildren: BusinessDataSubstrateMapMaskRouteChildren =
+  {
+    BusinessDataSubstrateMapMaskNameRoute:
+      BusinessDataSubstrateMapMaskNameRoute,
+  }
+
+const BusinessDataSubstrateMapMaskRouteWithChildren =
+  BusinessDataSubstrateMapMaskRoute._addFileChildren(
+    BusinessDataSubstrateMapMaskRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataShiftDefinitionRoute: typeof BusinessDataShiftDefinitionRouteWithChildren
   BusinessDataShiftLogbookRoute: typeof BusinessDataShiftLogbookRouteWithChildren
@@ -910,6 +965,7 @@ interface BusinessDataRouteChildren {
   BusinessDataSortRuleSetRoute: typeof BusinessDataSortRuleSetRouteWithChildren
   BusinessDataStepRoute: typeof BusinessDataStepRouteWithChildren
   BusinessDataSubstrateMapRoute: typeof BusinessDataSubstrateMapRouteWithChildren
+  BusinessDataSubstrateMapMaskRoute: typeof BusinessDataSubstrateMapMaskRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -921,6 +977,8 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataSortRuleSetRoute: BusinessDataSortRuleSetRouteWithChildren,
   BusinessDataStepRoute: BusinessDataStepRouteWithChildren,
   BusinessDataSubstrateMapRoute: BusinessDataSubstrateMapRouteWithChildren,
+  BusinessDataSubstrateMapMaskRoute:
+    BusinessDataSubstrateMapMaskRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

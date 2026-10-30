@@ -13,6 +13,7 @@ import { siteHandlers } from "./handlers/businessData/site";
 import { sortRuleSetHandlers } from "./handlers/businessData/sortRuleSet";
 import { stepHandlers } from "./handlers/businessData/step";
 import { substrateMapHandlers } from "./handlers/businessData/substrateMap";
+import { substrateMapMaskHandlers } from "./handlers/businessData/substrateMapMask";
 import { uiPageHandlers } from "./handlers/uiPages";
 
 export const handlers = [
@@ -32,4 +33,5 @@ export const handlers = [
   ...sortRuleSetHandlers,
   ...stepHandlers,
   ...substrateMapHandlers,
+  ...substrateMapMaskHandlers,
 ];

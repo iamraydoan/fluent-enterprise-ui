@@ -1114,6 +1114,57 @@
       "viewHistory": {
         "menuLabel": "View Device Bin Code History"
       }
+    },
+    "substrateMapMask": {
+      "apply": {
+        "menuLabel": "Apply Substrate Map Mask"
+      },
+      "changeInfo": {
+        "menuLabel": "Change Substrate Map Mask Information"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "state": "State",
+        "substrateType": "Substrate Type"
+      },
+      "content": {
+        "empty": "Visual mask representation will appear here.",
+        "hint": "Visual representation of the Substrate Map Mask contents.",
+        "title": "Substrate Map Mask Content"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "state": "Universal State:",
+        "substrateType": "Substrate Type:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Substrate Map Masks ({{count}})",
+      "notFound": "Substrate Map Mask not found.",
+      "pageLabel": "Substrate Map Mask",
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details"
+      },
+      "tabs": {
+        "compare": "Compare",
+        "content": "Content",
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate Substrate Map Mask"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
     }
   }
 }

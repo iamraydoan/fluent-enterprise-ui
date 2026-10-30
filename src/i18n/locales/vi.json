@@ -1114,6 +1114,57 @@
       "viewHistory": {
         "menuLabel": "Xem lịch sử mã bin thiết bị"
       }
+    },
+    "substrateMapMask": {
+      "apply": {
+        "menuLabel": "Áp dụng mặt nạ bản đồ đế"
+      },
+      "changeInfo": {
+        "menuLabel": "Thay đổi thông tin mặt nạ bản đồ đế"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái",
+        "substrateType": "Loại đế"
+      },
+      "content": {
+        "empty": "Biểu diễn mặt nạ trực quan sẽ hiện ở đây.",
+        "hint": "Biểu diễn trực quan nội dung mặt nạ bản đồ đế.",
+        "title": "Nội dung mặt nạ bản đồ đế"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "state": "Trạng thái chung:",
+        "substrateType": "Loại đế:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Mặt nạ bản đồ đế ({{count}})",
+      "notFound": "Không tìm thấy mặt nạ bản đồ đế.",
+      "pageLabel": "Mặt nạ bản đồ đế",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết"
+      },
+      "tabs": {
+        "compare": "So sánh",
+        "content": "Nội dung",
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc mặt nạ bản đồ đế"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
     }
   }
 }

@@ -1114,6 +1114,57 @@
       "viewHistory": {
         "menuLabel": "デバイスビンコード履歴の表示"
       }
+    },
+    "substrateMapMask": {
+      "apply": {
+        "menuLabel": "基板マップマスクの適用"
+      },
+      "changeInfo": {
+        "menuLabel": "基板マップマスク情報の変更"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "state": "状態",
+        "substrateType": "基板タイプ"
+      },
+      "content": {
+        "empty": "視覚的なマスク表示がここに表示されます。",
+        "hint": "基板マップマスク内容の視覚的表現。",
+        "title": "基板マップマスクコンテンツ"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "state": "ユニバーサル状態:",
+        "substrateType": "基板タイプ:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "基板マップマスク ({{count}})",
+      "notFound": "基板マップマスクが見つかりません。",
+      "pageLabel": "基板マップマスク",
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細"
+      },
+      "tabs": {
+        "compare": "比較",
+        "content": "コンテンツ",
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "基板マップマスクの終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
     }
   }
 }

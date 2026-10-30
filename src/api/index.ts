@@ -141,3 +141,14 @@ export type {
   SubstrateMapOverlay,
   SubstrateMapRecord,
 } from "./businessData/substrateMap";
+export {
+  getSubstrateMapMask,
+  listSubstrateMapMasks,
+  useSubstrateMapMaskDetail,
+  useSubstrateMapMasks,
+} from "./businessData/substrateMapMask";
+export type {
+  SubstrateMapMaskDetail,
+  SubstrateMapMaskListParams,
+  SubstrateMapMaskRecord,
+} from "./businessData/substrateMapMask";
