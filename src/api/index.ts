@@ -264,11 +264,28 @@ export type {
   ContainerRecord,
   ContainerUpsertInput,
 } from "./businessData/container";
-export { useDataCollectionDetail, useDataCollections } from "./businessData/dataCollection";
+export {
+  useCorrectDataCollectionInstance,
+  useCreateDataCollection,
+  useDataCollectionDetail,
+  useDataCollections,
+  useManageDataCollectionParameters,
+  useOpenDataCollectionInstance,
+  usePerformImmediateDataCollection,
+  usePostDataCollectionInstance,
+  useResetDataCollectionInstance,
+  useSetDataCollectionState,
+  useUpdateDataCollection,
+  useUpdateDataCollectionInstance,
+} from "./businessData/dataCollection";
 export type {
   DataCollectionDetail,
+  DataCollectionInstance,
   DataCollectionParameter,
   DataCollectionRecord,
+  DataCollectionUpsertInput,
+  OpenDataCollectionInstanceInput,
+  PerformImmediateInput,
 } from "./businessData/dataCollection";
 export {
   useDataCollectionLimitSetDetail,

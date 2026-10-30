@@ -268,6 +268,7 @@ export default tseslint.config(
               "valueKey",
               "namePlaceholderKey",
               "extraPlaceholderKey",
+              "fieldKey",
             ],
           },
           "object-properties": {
