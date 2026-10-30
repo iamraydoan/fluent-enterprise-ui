@@ -4,14 +4,13 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  editTitle: tk("businessData.maintenanceActivityOrder.dialog.editTitle"),
-  description: tk("businessData.maintenanceActivityOrder.dialog.description"),
-  dataGroup: tk("businessData.maintenanceActivityOrder.dialog.dataGroup"),
-  cancel: tk("businessData.maintenanceActivityOrder.dialog.cancel"),
-  save: tk("businessData.maintenanceActivityOrder.dialog.save"),
+const L: Record<string, TranslationKey> = {
+  editTitle: "businessData.maintenanceActivityOrder.dialog.editTitle",
+  description: "businessData.maintenanceActivityOrder.dialog.description",
+  dataGroup: "businessData.maintenanceActivityOrder.dialog.dataGroup",
+  cancel: "businessData.maintenanceActivityOrder.dialog.cancel",
+  save: "businessData.maintenanceActivityOrder.dialog.save",
 };
 
 const useDialogStyles = makeStyles({

@@ -6,7 +6,15 @@ import { Wrench24Regular } from "@/components/icons";
 import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { Button } from "@/components/ui";
 import { useBooleanLabel } from "../propertyLabels";
+import { MaintenancePlanDialog } from "./MaintenancePlanDialog";
+import {
+  MaintenancePlanTerminateDialog,
+  SetMaintenancePlanEffectiveDialog,
+} from "./MaintenancePlanTerminateDialog";
+import { AssociateMaintenancePlanDialog } from "./AssociateMaintenancePlanDialog";
+import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
 
 const TOP_TABS: DetailTab[] = [
@@ -32,6 +40,7 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
   const booleanLabel = useBooleanLabel();
 
   const shell = (content: React.ReactNode) => (
+    <>
     <DetailShell
       title={name}
       icon={<Wrench24Regular />}
@@ -41,11 +50,27 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
       leftItems={LEFT_ITEMS}
       left={left}
       onLeft={setLeft}
-      onEdit={() => undefined}
+      onEdit={() => setEditOpen(true)}
+      onClone={() => setCloneOpen(true)}
+      onTerminate={() => setTerminateOpen(true)}
+      onUnterminate={() => setUnterminateOpen(true)}
       onAskAi={() => undefined}
     >
       {content}
     </DetailShell>
+    {editOpen && <MaintenancePlanDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />}
+    {cloneOpen && (
+      <MaintenancePlanDialog mode={MODE_CLONE} initialName={`${name} (Copy)`} onClose={() => setCloneOpen(false)} />
+    )}
+    {terminateOpen && (
+      <MaintenancePlanTerminateDialog name={name} mode={TERMINATE} onClose={() => setTerminateOpen(false)} />
+    )}
+    {unterminateOpen && (
+      <MaintenancePlanTerminateDialog name={name} mode={UNTERMINATE} onClose={() => setUnterminateOpen(false)} />
+    )}
+    {setEffectiveOpen && <SetMaintenancePlanEffectiveDialog name={name} onClose={() => setSetEffectiveOpen(false)} />}
+    {associateOpen && <AssociateMaintenancePlanDialog name={name} onClose={() => setAssociateOpen(false)} />}
+    </>
   );
 
   if (isLoading || !data) {
@@ -128,6 +153,14 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
             [t("businessData.maintenancePlan.details.dataGroup"), data.dataGroup],
           ]}
         />
+        <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
+          <Button onClick={() => setSetEffectiveOpen(true)}>
+            {t(tk("businessData.maintenancePlan.terminateDialog.setEffective"))}
+          </Button>
+          <Button onClick={() => setAssociateOpen(true)}>
+            {t(tk("businessData.maintenancePlan.associate.associate"))}
+          </Button>
+        </div>
       </Card>
     </CardGrid>,
   );

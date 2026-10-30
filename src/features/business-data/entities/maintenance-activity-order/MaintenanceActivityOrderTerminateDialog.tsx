@@ -6,30 +6,29 @@ import { useState } from "react";
 import { TERMINATE } from "./wizardMode";
 import type { MaoAction, TerminateMode } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  terminateTitle: tk("businessData.maintenanceActivityOrder.terminateDialog.title"),
-  terminateMessage: tk("businessData.maintenanceActivityOrder.terminateDialog.message"),
-  unterminateTitle: tk("businessData.maintenanceActivityOrder.terminateDialog.unterminateTitle"),
-  unterminateMessage: tk("businessData.maintenanceActivityOrder.terminateDialog.unterminateMessage"),
-  cancel: tk("businessData.maintenanceActivityOrder.terminateDialog.cancel"),
-  terminate: tk("businessData.maintenanceActivityOrder.terminateDialog.terminate"),
-  unterminate: tk("businessData.maintenanceActivityOrder.terminateDialog.unterminate"),
-  changeStateTitle: tk("businessData.maintenanceActivityOrder.changeState.title"),
-  changeStateMessage: tk("businessData.maintenanceActivityOrder.changeState.message"),
-  comment: tk("businessData.maintenanceActivityOrder.changeState.comment"),
-  confirm: tk("businessData.maintenanceActivityOrder.changeState.confirm"),
-  approve: tk("businessData.maintenanceActivityOrder.changeState.approve"),
-  release: tk("businessData.maintenanceActivityOrder.changeState.release"),
-  begin: tk("businessData.maintenanceActivityOrder.changeState.begin"),
-  complete: tk("businessData.maintenanceActivityOrder.changeState.complete"),
-  accept: tk("businessData.maintenanceActivityOrder.changeState.accept"),
-  reject: tk("businessData.maintenanceActivityOrder.changeState.reject"),
-  cancelAction: tk("businessData.maintenanceActivityOrder.changeState.cancelAction"),
-  skip: tk("businessData.maintenanceActivityOrder.changeState.skip"),
-  abort: tk("businessData.maintenanceActivityOrder.changeState.abort"),
-  rework: tk("businessData.maintenanceActivityOrder.changeState.rework"),
+const L: Record<string, TranslationKey> = {
+  terminateTitle: "businessData.maintenanceActivityOrder.terminateDialog.title",
+  terminateMessage: "businessData.maintenanceActivityOrder.terminateDialog.message",
+  unterminateTitle: "businessData.maintenanceActivityOrder.terminateDialog.unterminateTitle",
+  unterminateMessage: "businessData.maintenanceActivityOrder.terminateDialog.unterminateMessage",
+  cancel: "businessData.maintenanceActivityOrder.terminateDialog.cancel",
+  terminate: "businessData.maintenanceActivityOrder.terminateDialog.terminate",
+  unterminate: "businessData.maintenanceActivityOrder.terminateDialog.unterminate",
+  changeStateTitle: "businessData.maintenanceActivityOrder.changeState.title",
+  changeStateMessage: "businessData.maintenanceActivityOrder.changeState.message",
+  comment: "businessData.maintenanceActivityOrder.changeState.comment",
+  confirm: "businessData.maintenanceActivityOrder.changeState.confirm",
+  approve: "businessData.maintenanceActivityOrder.changeState.approve",
+  release: "businessData.maintenanceActivityOrder.changeState.release",
+  begin: "businessData.maintenanceActivityOrder.changeState.begin",
+  complete: "businessData.maintenanceActivityOrder.changeState.complete",
+  accept: "businessData.maintenanceActivityOrder.changeState.accept",
+  reject: "businessData.maintenanceActivityOrder.changeState.reject",
+  cancelAction: "businessData.maintenanceActivityOrder.changeState.cancelAction",
+  skip: "businessData.maintenanceActivityOrder.changeState.skip",
+  abort: "businessData.maintenanceActivityOrder.changeState.abort",
+  rework: "businessData.maintenanceActivityOrder.changeState.rework",
 };
 
 const useDialogStyles = makeStyles({

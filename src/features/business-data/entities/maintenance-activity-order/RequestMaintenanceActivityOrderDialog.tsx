@@ -4,20 +4,19 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  title: tk("businessData.maintenanceActivityOrder.request.title"),
-  step1: tk("businessData.maintenanceActivityOrder.request.step1"),
-  step2: tk("businessData.maintenanceActivityOrder.request.step2"),
-  entityType: tk("businessData.maintenanceActivityOrder.request.entityType"),
-  entity: tk("businessData.maintenanceActivityOrder.request.entity"),
-  scheduleDate: tk("businessData.maintenanceActivityOrder.request.scheduleDate"),
-  comment: tk("businessData.maintenanceActivityOrder.request.comment"),
-  cancel: tk("businessData.maintenanceActivityOrder.request.cancel"),
-  request: tk("businessData.maintenanceActivityOrder.request.request"),
-  back: tk("businessData.maintenanceActivityOrder.request.back"),
-  next: tk("businessData.maintenanceActivityOrder.request.next"),
+const L: Record<string, TranslationKey> = {
+  title: "businessData.maintenanceActivityOrder.request.title",
+  step1: "businessData.maintenanceActivityOrder.request.step1",
+  step2: "businessData.maintenanceActivityOrder.request.step2",
+  entityType: "businessData.maintenanceActivityOrder.request.entityType",
+  entity: "businessData.maintenanceActivityOrder.request.entity",
+  scheduleDate: "businessData.maintenanceActivityOrder.request.scheduleDate",
+  comment: "businessData.maintenanceActivityOrder.request.comment",
+  cancel: "businessData.maintenanceActivityOrder.request.cancel",
+  request: "businessData.maintenanceActivityOrder.request.request",
+  back: "businessData.maintenanceActivityOrder.request.back",
+  next: "businessData.maintenanceActivityOrder.request.next",
 };
 
 const useDialogStyles = makeStyles({

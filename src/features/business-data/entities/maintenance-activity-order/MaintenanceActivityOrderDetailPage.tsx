@@ -147,31 +147,31 @@ export function MaintenanceActivityOrderDetailPage({ name }: { name: string }) {
         />
         <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
           <Button size="small" onClick={() => setChangeStateAction("approve")}>
-            {t(tk("businessData.maintenanceActivityOrder.changeState.approve"))}
+            {t("businessData.maintenanceActivityOrder.changeState.approve")}
           </Button>
           <Button size="small" onClick={() => setChangeStateAction("release")}>
-            {t(tk("businessData.maintenanceActivityOrder.changeState.release"))}
+            {t("businessData.maintenanceActivityOrder.changeState.release")}
           </Button>
           <Button size="small" onClick={() => setChangeStateAction("begin")}>
-            {t(tk("businessData.maintenanceActivityOrder.changeState.begin"))}
+            {t("businessData.maintenanceActivityOrder.changeState.begin")}
           </Button>
           <Button size="small" onClick={() => setChangeStateAction("complete")}>
-            {t(tk("businessData.maintenanceActivityOrder.changeState.complete"))}
+            {t("businessData.maintenanceActivityOrder.changeState.complete")}
           </Button>
           <Button size="small" onClick={() => setChangeStateAction("accept")}>
-            {t(tk("businessData.maintenanceActivityOrder.changeState.accept"))}
+            {t("businessData.maintenanceActivityOrder.changeState.accept")}
           </Button>
           <Button size="small" onClick={() => setChangeStateAction("reject")}>
-            {t(tk("businessData.maintenanceActivityOrder.changeState.reject"))}
+            {t("businessData.maintenanceActivityOrder.changeState.reject")}
           </Button>
           <Button size="small" onClick={() => setChangeStateAction("skip")}>
-            {t(tk("businessData.maintenanceActivityOrder.changeState.skip"))}
+            {t("businessData.maintenanceActivityOrder.changeState.skip")}
           </Button>
           <Button size="small" onClick={() => setChangeStateAction("abort")}>
-            {t(tk("businessData.maintenanceActivityOrder.changeState.abort"))}
+            {t("businessData.maintenanceActivityOrder.changeState.abort")}
           </Button>
           <Button size="small" onClick={() => setChangeStateAction("rework")}>
-            {t(tk("businessData.maintenanceActivityOrder.changeState.rework"))}
+            {t("businessData.maintenanceActivityOrder.changeState.rework")}
           </Button>
         </div>
       </Card>
