@@ -18,8 +18,15 @@ export function queryChangeSets(page: number, limit: number, q?: string, state?:
   return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
 }
 
+const CHANGE_SET_OVERLAYS: Record<string, Partial<ChangeSetDetail>> = {};
+
+export interface ChangeSetUpsertInput extends Partial<ChangeSetDetail> {
+  name: string;
+}
+
 export function buildChangeSetDetail(name: string): ChangeSetDetail {
   const r = RECORDS.find((x) => x.name === name) ?? { name, description: name, type: "General", state: "Active", systemState: "Created" };
+  const overlay = CHANGE_SET_OVERLAYS[r.name] ?? {};
   return {
     ...r,
     universalState: r.state,
@@ -40,5 +47,45 @@ export function buildChangeSetDetail(name: string): ChangeSetDetail {
       { name: "Cookie BOM [A.1]", type: "BOM", approvalRole: "", approver: "", approvalDate: "" },
     ],
     subscribers: [{ name: "john.doe" }],
+    ...overlay,
   };
+}
+
+export function createChangeSetDetail(input: ChangeSetUpsertInput): ChangeSetDetail {
+  const record: ChangeSetRecord = {
+    name: input.name,
+    description: input.description ?? "",
+    type: input.type ?? "General",
+    state: "Active",
+    systemState: "Created",
+  };
+  RECORDS.push(record);
+  const overlay: Partial<ChangeSetDetail> = { ...input };
+  delete overlay.name;
+  delete overlay.description;
+  delete overlay.type;
+  delete overlay.state;
+  delete overlay.systemState;
+  CHANGE_SET_OVERLAYS[input.name] = overlay;
+  return buildChangeSetDetail(input.name);
+}
+
+export function updateChangeSetDetail(
+  name: string,
+  input: Partial<ChangeSetDetail>,
+): ChangeSetDetail | undefined {
+  const record = RECORDS.find((x) => x.name === name);
+  if (!record) return undefined;
+  if (input.description !== undefined) record.description = input.description;
+  if (input.type !== undefined) record.type = input.type;
+  if (input.systemState !== undefined) record.systemState = input.systemState;
+  CHANGE_SET_OVERLAYS[name] = { ...CHANGE_SET_OVERLAYS[name], ...input };
+  return buildChangeSetDetail(name);
+}
+
+export function setChangeSetState(name: string, state: string): ChangeSetDetail | undefined {
+  const record = RECORDS.find((x) => x.name === name);
+  if (!record) return undefined;
+  record.state = state;
+  return buildChangeSetDetail(name);
 }

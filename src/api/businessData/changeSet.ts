@@ -1,4 +1,4 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiFetch } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
@@ -57,5 +57,82 @@ export function useChangeSetDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "change-sets", name],
     queryFn: () => apiFetch<ChangeSetDetail>(`/business-data/change-sets/${encodeURIComponent(name)}`),
+  });
+}
+
+export interface ChangeSetUpsertInput extends Partial<ChangeSetDetail> {
+  name: string;
+}
+
+function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
+  return apiFetch<T>(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export function createChangeSetRecord(input: ChangeSetUpsertInput): Promise<ChangeSetDetail> {
+  return postJson<ChangeSetDetail>("/business-data/change-sets", "POST", input);
+}
+
+export function updateChangeSetRecord(
+  name: string,
+  input: Partial<ChangeSetDetail>,
+): Promise<ChangeSetDetail> {
+  return postJson<ChangeSetDetail>(
+    `/business-data/change-sets/${encodeURIComponent(name)}`,
+    "PUT",
+    input,
+  );
+}
+
+export function setChangeSetRecordState(
+  name: string,
+  patch: { state?: string; systemState?: string },
+): Promise<ChangeSetDetail> {
+  return postJson<ChangeSetDetail>(
+    `/business-data/change-sets/${encodeURIComponent(name)}/state`,
+    "PATCH",
+    patch,
+  );
+}
+
+const CHANGE_SET_QUERY_KEY = ["business-data", "change-sets"];
+
+export function useCreateChangeSet() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: createChangeSetRecord,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: CHANGE_SET_QUERY_KEY });
+    },
+  });
+}
+
+export function useUpdateChangeSet() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, input }: { name: string; input: Partial<ChangeSetDetail> }) =>
+      updateChangeSetRecord(name, input),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: CHANGE_SET_QUERY_KEY });
+    },
+  });
+}
+
+export function useSetChangeSetState() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({
+      name,
+      patch,
+    }: {
+      name: string;
+      patch: { state?: string; systemState?: string };
+    }) => setChangeSetRecordState(name, patch),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: CHANGE_SET_QUERY_KEY });
+    },
   });
 }

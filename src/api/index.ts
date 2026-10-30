@@ -174,8 +174,23 @@ export type {
   CertificationRecord,
   CertificationUpsertInput,
 } from "./businessData/certification";
-export { useChangeSetDetail, useChangeSets } from "./businessData/changeSet";
-export type { ChangeSetDetail, ChangeSetItem, ChangeSetRecord, ChangeSetSubscriber } from "./businessData/changeSet";
+export {
+  createChangeSetRecord,
+  setChangeSetRecordState,
+  updateChangeSetRecord,
+  useChangeSetDetail,
+  useChangeSets,
+  useCreateChangeSet,
+  useSetChangeSetState,
+  useUpdateChangeSet,
+} from "./businessData/changeSet";
+export type {
+  ChangeSetDetail,
+  ChangeSetItem,
+  ChangeSetRecord,
+  ChangeSetSubscriber,
+  ChangeSetUpsertInput,
+} from "./businessData/changeSet";
 export { useChartDetail, useCharts } from "./businessData/chart";
 export type { ChartDetail, ChartRecord } from "./businessData/chart";
 export { useChecklistDetail, useChecklists } from "./businessData/checklist";

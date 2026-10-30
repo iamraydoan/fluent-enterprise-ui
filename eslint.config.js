@@ -265,6 +265,9 @@ export default tseslint.config(
               "messageKey",
               "confirmLabelKey",
               "top",
+              "valueKey",
+              "namePlaceholderKey",
+              "extraPlaceholderKey",
             ],
           },
           "object-properties": {

@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
 import { useChangeSetDetail } from "@/api";
-import { DetailShell, ListPage, editAction, refreshAction } from "@/components/common";
-import { Box24Regular } from "@/components/icons";
+import { DetailShell, ListPage, cloneAction, editAction, refreshAction, terminateAction } from "@/components/common";
+import type { HeaderAction } from "@/components/common";
+import { Box24Regular, Checkmark16Filled, MoreVertical24Regular, Send24Regular } from "@/components/icons";
 import {
   Table,
   TableBody,
@@ -17,6 +18,7 @@ import {
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { useChangeSetDialogs } from "./useChangeSetDialogs";
 
 const useDetailStyles = makeStyles({
   cards: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "12px" },
@@ -48,6 +50,22 @@ export function ChangeSetDetailPage() {
   const { name } = useParams({ strict: false }) as { name: string };
   const displayName = decodeURIComponent(name);
   const { data: cs, isLoading } = useChangeSetDetail(displayName);
+  const {
+    dialogs,
+    openEdit,
+    openClone,
+    openTerminate,
+    openTransition,
+    openManageItems,
+    openCreateItems,
+    openApproveItems,
+    openCompareItems,
+    openTransferItems,
+    openManageReviewers,
+    openManageSubscribers,
+    openTakeOwnership,
+    openChange,
+  } = useChangeSetDialogs(cs);
 
   if (isLoading || !cs) {
     return (
@@ -57,11 +75,52 @@ export function ChangeSetDetailPage() {
     );
   }
 
+  const detailActions: HeaderAction[] = [
+    refreshAction,
+    { ...editAction, onClick: openEdit },
+    { ...cloneAction, onClick: openClone },
+    { ...terminateAction, onClick: openTerminate },
+    {
+      id: "requestApproval",
+      icon: <Send24Regular />,
+      labelKey: "businessData.changeSet.operations.requestApproval",
+      onClick: () => openTransition("requestApproval"),
+    },
+    {
+      id: "approve",
+      icon: <Checkmark16Filled />,
+      labelKey: "businessData.changeSet.operations.approve",
+      onClick: () => openTransition("approve"),
+    },
+    {
+      id: "more",
+      icon: <MoreVertical24Regular />,
+      labelKey: "actionBar.more",
+      menu: [
+        { label: t("businessData.changeSet.operations.reject"), onClick: () => openTransition("reject") },
+        { label: t("businessData.changeSet.operations.rework"), onClick: () => openTransition("rework") },
+        { label: t("businessData.changeSet.operations.cancel"), onClick: () => openTransition("cancel") },
+        { label: t("businessData.changeSet.operations.manageItems"), onClick: openManageItems },
+        { label: t("businessData.changeSet.operations.createItems"), onClick: openCreateItems },
+        { label: t("businessData.changeSet.operations.approveItems"), onClick: openApproveItems },
+        { label: t("businessData.changeSet.operations.compareItems"), onClick: openCompareItems },
+        { label: t("businessData.changeSet.operations.transferItems"), onClick: openTransferItems },
+        { label: t("businessData.changeSet.operations.manageStateReviewers"), onClick: openManageReviewers },
+        { label: t("businessData.changeSet.operations.manageSubscribers"), onClick: openManageSubscribers },
+        { label: t("businessData.changeSet.operations.takeOwnership"), onClick: openTakeOwnership },
+        { label: t("businessData.changeSet.operations.change"), onClick: openChange },
+      ],
+    },
+  ];
+
   const showItems = left === "businessData.changeSet.detail.sections.items";
   const showSubscribers = left === "businessData.changeSet.detail.sections.subscribers";
 
   return (
-    <ListPage header={{ icon: <Box24Regular />, title: `${cs.name} (${cs.state})`, actions: [refreshAction, editAction] }}>
+    <ListPage
+      header={{ icon: <Box24Regular />, title: `${cs.name} (${cs.state})`, actions: detailActions }}
+    >
+      {dialogs}
       <div className={styles.tabs} role="tablist">
         {TABS.map((value) => (
           <button key={value} role="tab" aria-selected={tab === value}
