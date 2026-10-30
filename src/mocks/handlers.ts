@@ -4,6 +4,7 @@ import { appHandlers } from "./handlers/apps";
 import { dataSiloHandlers } from "./handlers/businessData/dataSilo";
 import { documentHandlers } from "./handlers/businessData/document";
 import { employeeHandlers } from "./handlers/businessData/employee";
+import { enterpriseHandlers } from "./handlers/businessData/enterprise";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -20,6 +21,7 @@ export const handlers = [
   ...dataSiloHandlers,
   ...documentHandlers,
   ...employeeHandlers,
+  ...enterpriseHandlers,
   ...genericTableHandlers,
   ...uiPageHandlers,
   ...mcpServerHandlers,

@@ -104,3 +104,13 @@ export type {
   EmployeeDetail,
   EmployeeRecord,
 } from "./businessData/employee";
+export {
+  getEnterprise,
+  listEnterprises,
+  useEnterpriseDetail,
+  useEnterprises,
+} from "./businessData/enterprise";
+export type {
+  EnterpriseDetail,
+  EnterpriseRecord,
+} from "./businessData/enterprise";
