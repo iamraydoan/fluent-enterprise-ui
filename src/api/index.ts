@@ -83,3 +83,14 @@ export {
   useDataSilos,
 } from "./businessData/dataSilo";
 export type { DataSiloDetail, DataSiloRecord } from "./businessData/dataSilo";
+export {
+  getDocument,
+  listDocuments,
+  useDocumentDetail,
+  useDocuments,
+} from "./businessData/document";
+export type {
+  DocumentDetail,
+  DocumentRecord,
+  DocumentTrackingEntry,
+} from "./businessData/document";

@@ -1,0 +1,71 @@
+import { useDocuments } from "@/api";
+import type { DocumentRecord } from "@/api";
+import {
+  RECORD_STATE_COLUMN_OPTIONS,
+  DataListPage,
+  createAction,
+  defaultListFilters,
+  exportAction,
+  importAction,
+  refreshAction,
+} from "@/components/common";
+import type { DataColumn } from "@/components/common";
+import { DocumentBulletList24Regular } from "@/components/icons";
+import type { TranslationKey } from "@/i18n";
+import type { ListQueryParams } from "@/lib/listQuery";
+import { useDetailNavigation } from "@/lib/useDetailNavigation";
+import { useTabsStore } from "@/stores/tabs-store";
+
+const tk = (key: string) => key as TranslationKey;
+
+const COLUMNS: DataColumn<DocumentRecord>[] = [
+  {
+    field: "name",
+    headerName: tk("businessData.document.columns.name"),
+    type: "link",
+    locked: true,
+    width: "30%",
+  },
+  {
+    field: "description",
+    headerName: tk("businessData.document.columns.description"),
+    width: "25%",
+  },
+  { field: "type", headerName: tk("businessData.document.columns.type"), width: "12%" },
+  { field: "author", headerName: tk("businessData.document.columns.author"), width: "13%" },
+  {
+    field: "creationDate",
+    headerName: tk("businessData.document.columns.creationDate"),
+    type: "dateTime",
+    width: "12%",
+  },
+  {
+    field: "state",
+    headerName: tk("businessData.document.columns.state"),
+    type: "enum",
+    enumOptions: RECORD_STATE_COLUMN_OPTIONS,
+    width: "8%",
+  },
+];
+
+function useDocumentListQuery(params: ListQueryParams) {
+  return useDocuments(params);
+}
+
+export function DocumentListPage() {
+  const openRoute = useTabsStore((state) => state.openRoute);
+  const openDetail = useDetailNavigation("/business-data/document/$name", openRoute);
+  return (
+    <DataListPage
+      icon={<DocumentBulletList24Regular />}
+      titleKey={tk("businessData.document.pageLabel")}
+      listTitleKey={tk("businessData.document.listTitle")}
+      actions={[createAction, refreshAction, importAction, exportAction]}
+      columns={COLUMNS}
+      filters={defaultListFilters}
+      useListQuery={useDocumentListQuery}
+      getRowId={(row) => row.name}
+      onRowClick={(row) => openDetail(row.name)}
+    />
+  );
+}
