@@ -20,7 +20,20 @@ type DetailRoute =
   | "/business-data/checklist/$name"
   | "/business-data/container/$name"
   | "/business-data/data-collection/$name"
-  | "/business-data/data-collection-limit-set/$name";
+  | "/business-data/data-collection-limit-set/$name"
+  | "/business-data/data-silo/$name"
+  | "/business-data/document/$name"
+  | "/business-data/employee/$name"
+  | "/business-data/enterprise/$name"
+  | "/business-data/experiment-definition/$name"
+  | "/business-data/facility/$name"
+  | "/business-data/flow/$name"
+  | "/business-data/inspection-plan/$name"
+  | "/business-data/kpi/$name"
+  | "/business-data/maintenance-activity-order/$name"
+  | "/business-data/maintenance-plan/$name"
+  | "/business-data/map/$name"
+  | "/business-data/map-definition/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

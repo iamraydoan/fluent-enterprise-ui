@@ -14,6 +14,19 @@ import { dataCollectionHandlers } from "./handlers/businessData/dataCollection";
 import { dataCollectionLimitSetHandlers } from "./handlers/businessData/dataCollectionLimitSet";
 import { aiChatHandlers } from "./handlers/aiChat";
 import { appHandlers } from "./handlers/apps";
+import { dataSiloHandlers } from "./handlers/businessData/dataSilo";
+import { documentHandlers } from "./handlers/businessData/document";
+import { employeeHandlers } from "./handlers/businessData/employee";
+import { enterpriseHandlers } from "./handlers/businessData/enterprise";
+import { experimentDefinitionHandlers } from "./handlers/businessData/experimentDefinition";
+import { facilityHandlers } from "./handlers/businessData/facility";
+import { flowHandlers } from "./handlers/businessData/flow";
+import { inspectionPlanHandlers } from "./handlers/businessData/inspectionPlan";
+import { kpiHandlers } from "./handlers/businessData/kpi";
+import { maintenanceActivityOrderHandlers } from "./handlers/businessData/maintenanceActivityOrder";
+import { maintenancePlanHandlers } from "./handlers/businessData/maintenancePlan";
+import { mapHandlers } from "./handlers/businessData/map";
+import { mapDefinitionHandlers } from "./handlers/businessData/mapDefinition";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -40,6 +53,19 @@ export const handlers = [
   ...aiChatHandlers,
   ...appHandlers,
   ...configurationHandlers,
+  ...dataSiloHandlers,
+  ...documentHandlers,
+  ...employeeHandlers,
+  ...enterpriseHandlers,
+  ...experimentDefinitionHandlers,
+  ...facilityHandlers,
+  ...flowHandlers,
+  ...inspectionPlanHandlers,
+  ...kpiHandlers,
+  ...maintenanceActivityOrderHandlers,
+  ...maintenancePlanHandlers,
+  ...mapHandlers,
+  ...mapDefinitionHandlers,
   ...genericTableHandlers,
   ...uiPageHandlers,
   ...mcpServerHandlers,
