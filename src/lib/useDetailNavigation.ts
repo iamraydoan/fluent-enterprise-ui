@@ -16,7 +16,8 @@ type DetailRoute =
   | "/business-data/step/$name"
   | "/business-data/substrate-map/$name"
   | "/business-data/substrate-map-mask/$name"
-  | "/business-data/task/$name";
+  | "/business-data/task/$name"
+  | "/business-data/team/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

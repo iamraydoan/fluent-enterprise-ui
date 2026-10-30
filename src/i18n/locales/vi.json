@@ -1222,6 +1222,45 @@
       "unterminate": {
         "menuLabel": "Hủy kết thúc"
       }
+    },
+    "team": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "calendar": "Lịch",
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "calendar": "Lịch:",
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Nhóm ({{count}})",
+      "notFound": "Không tìm thấy nhóm.",
+      "pageLabel": "Nhóm",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "calendarDays": "Ngày lịch",
+        "details": "Chi tiết",
+        "employees": "Nhân viên"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
     }
   }
 }

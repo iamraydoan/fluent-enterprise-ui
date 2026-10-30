@@ -1222,6 +1222,45 @@
       "unterminate": {
         "menuLabel": "終了取消"
       }
+    },
+    "team": {
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "calendar": "カレンダー",
+        "description": "説明",
+        "name": "名前",
+        "state": "状態"
+      },
+      "detail": {
+        "calendar": "カレンダー:",
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "チーム ({{count}})",
+      "notFound": "チームが見つかりません。",
+      "pageLabel": "チーム",
+      "sections": {
+        "attachments": "添付ファイル",
+        "calendarDays": "カレンダー日",
+        "details": "詳細",
+        "employees": "従業員"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
     }
   }
 }

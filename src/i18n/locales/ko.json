@@ -1222,6 +1222,45 @@
       "unterminate": {
         "menuLabel": "종료 취소"
       }
+    },
+    "team": {
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "calendar": "달력",
+        "description": "설명",
+        "name": "이름",
+        "state": "상태"
+      },
+      "detail": {
+        "calendar": "달력:",
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "팀 ({{count}})",
+      "notFound": "팀을 찾을 수 없습니다.",
+      "pageLabel": "팀",
+      "sections": {
+        "attachments": "첨부 파일",
+        "calendarDays": "달력 일",
+        "details": "세부 정보",
+        "employees": "직원"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
     }
   }
 }

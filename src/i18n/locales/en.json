@@ -1222,6 +1222,45 @@
       "unterminate": {
         "menuLabel": "Unterminate"
       }
+    },
+    "team": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "calendar": "Calendar",
+        "description": "Description",
+        "name": "Name",
+        "state": "State"
+      },
+      "detail": {
+        "calendar": "Calendar:",
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Teams ({{count}})",
+      "notFound": "Team not found.",
+      "pageLabel": "Team",
+      "sections": {
+        "attachments": "Attachments",
+        "calendarDays": "Calendar Days",
+        "details": "Details",
+        "employees": "Employees"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
     }
   }
 }
