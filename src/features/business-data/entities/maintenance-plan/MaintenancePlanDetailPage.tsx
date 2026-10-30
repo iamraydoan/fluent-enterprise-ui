@@ -155,10 +155,10 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
         />
         <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
           <Button onClick={() => setSetEffectiveOpen(true)}>
-            {t(tk("businessData.maintenancePlan.terminateDialog.setEffective"))}
+            {t("businessData.maintenancePlan.terminateDialog.setEffective")}
           </Button>
           <Button onClick={() => setAssociateOpen(true)}>
-            {t(tk("businessData.maintenancePlan.associate.associate"))}
+            {t("businessData.maintenancePlan.associate.associate")}
           </Button>
         </div>
       </Card>

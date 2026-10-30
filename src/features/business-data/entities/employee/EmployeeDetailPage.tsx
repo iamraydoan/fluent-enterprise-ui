@@ -179,59 +179,59 @@ export function EmployeeDetailPage({ name }: { name: string }) {
         />
         <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
           <Button onClick={() => setManageCertOpen(true)}>
-            {t(tk("businessData.employee.certifications.manage"))}
+            {t("businessData.employee.certifications.manage")}
           </Button>
           <Button onClick={() => setGrantCertOpen(true)}>
-            {t(tk("businessData.employee.certifications.grant"))}
+            {t("businessData.employee.certifications.grant")}
           </Button>
           <Button onClick={() => setAssignCertOpen(true)}>
-            {t(tk("businessData.employee.certifications.assign"))}
+            {t("businessData.employee.certifications.assign")}
           </Button>
           <Button onClick={() => setManageQualOpen(true)}>
-            {t(tk("businessData.employee.qualifications.manage"))}
+            {t("businessData.employee.qualifications.manage")}
           </Button>
           <Button onClick={() => setAssignQualOpen(true)}>
-            {t(tk("businessData.employee.qualifications.assign"))}
+            {t("businessData.employee.qualifications.assign")}
           </Button>
         </div>
         <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
           <Button size="small" onClick={() => setCheckInOpen(true)}>
-            {t(tk("businessData.employee.attendance.checkIn"))}
+            {t("businessData.employee.attendance.checkIn")}
           </Button>
           <Button size="small" onClick={() => setCheckOutOpen(true)}>
-            {t(tk("businessData.employee.attendance.checkOut"))}
+            {t("businessData.employee.attendance.checkOut")}
           </Button>
           <Button size="small" onClick={() => setClockInOpen(true)}>
-            {t(tk("businessData.employee.attendance.clockIn"))}
+            {t("businessData.employee.attendance.clockIn")}
           </Button>
           <Button size="small" onClick={() => setClockOutOpen(true)}>
-            {t(tk("businessData.employee.attendance.clockOut"))}
+            {t("businessData.employee.attendance.clockOut")}
           </Button>
           <Button size="small" onClick={() => setAssignSubOpen(true)}>
-            {t(tk("businessData.employee.attendance.assign"))}
+            {t("businessData.employee.attendance.assign")}
           </Button>
           <Button size="small" onClick={() => setAssignTeamOpen(true)}>
-            {t(tk("businessData.employee.attendance.save"))}
+            {t("businessData.employee.attendance.save")}
           </Button>
           <Button size="small" onClick={() => setManageDelegatesOpen(true)}>
-            {t(tk("businessData.employee.delegates.manage"))}
+            {t("businessData.employee.delegates.manage")}
           </Button>
           <Button size="small" onClick={() => setManageTraineesOpen(true)}>
-            {t(tk("businessData.employee.delegates.checkOut"))}
+            {t("businessData.employee.delegates.checkOut")}
           </Button>
         </div>
         <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
           <Button size="small" onClick={() => setSetNonWorkingOpen(true)}>
-            {t(tk("businessData.employee.calendarDays.set"))}
+            {t("businessData.employee.calendarDays.set")}
           </Button>
           <Button size="small" onClick={() => setSetAvailabilityOpen(true)}>
-            {t(tk("businessData.employee.calendarDays.set"))}
+            {t("businessData.employee.calendarDays.set")}
           </Button>
           <Button size="small" onClick={() => setRemoveNonWorkingOpen(true)}>
-            {t(tk("businessData.employee.calendarDays.remove"))}
+            {t("businessData.employee.calendarDays.remove")}
           </Button>
           <Button size="small" onClick={() => setRemoveAvailabilityOpen(true)}>
-            {t(tk("businessData.employee.calendarDays.remove"))}
+            {t("businessData.employee.calendarDays.remove")}
           </Button>
         </div>
       </Card>

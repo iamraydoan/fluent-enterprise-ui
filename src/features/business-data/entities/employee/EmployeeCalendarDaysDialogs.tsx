@@ -4,23 +4,21 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
-
-const L = {
-  setNonWorkingTimeTitle: tk("businessData.employee.calendarDays.setNonWorkingTimeTitle"),
-  setWorkAvailabilityTitle: tk("businessData.employee.calendarDays.setWorkAvailabilityTitle"),
-  removeNonWorkingTimesTitle: tk("businessData.employee.calendarDays.removeNonWorkingTimesTitle"),
-  removeWorkAvailabilityTitle: tk("businessData.employee.calendarDays.removeWorkAvailabilityTitle"),
-  removeNonWorkingTimesMessage: tk("businessData.employee.calendarDays.removeNonWorkingTimesMessage"),
-  removeWorkAvailabilityMessage: tk("businessData.employee.calendarDays.removeWorkAvailabilityMessage"),
-  description: tk("businessData.employee.calendarDays.description"),
-  nonWorkingTimeType: tk("businessData.employee.calendarDays.nonWorkingTimeType"),
-  startTime: tk("businessData.employee.calendarDays.startTime"),
-  endTime: tk("businessData.employee.calendarDays.endTime"),
-  comment: tk("businessData.employee.calendarDays.comment"),
-  cancel: tk("businessData.employee.calendarDays.cancel"),
-  set: tk("businessData.employee.calendarDays.set"),
-  remove: tk("businessData.employee.calendarDays.remove"),
+const L: Record<string, TranslationKey> = {
+  setNonWorkingTimeTitle: "businessData.employee.calendarDays.setNonWorkingTimeTitle",
+  setWorkAvailabilityTitle: "businessData.employee.calendarDays.setWorkAvailabilityTitle",
+  removeNonWorkingTimesTitle: "businessData.employee.calendarDays.removeNonWorkingTimesTitle",
+  removeWorkAvailabilityTitle: "businessData.employee.calendarDays.removeWorkAvailabilityTitle",
+  removeNonWorkingTimesMessage: "businessData.employee.calendarDays.removeNonWorkingTimesMessage",
+  removeWorkAvailabilityMessage: "businessData.employee.calendarDays.removeWorkAvailabilityMessage",
+  description: "businessData.employee.calendarDays.description",
+  nonWorkingTimeType: "businessData.employee.calendarDays.nonWorkingTimeType",
+  startTime: "businessData.employee.calendarDays.startTime",
+  endTime: "businessData.employee.calendarDays.endTime",
+  comment: "businessData.employee.calendarDays.comment",
+  cancel: "businessData.employee.calendarDays.cancel",
+  set: "businessData.employee.calendarDays.set",
+  remove: "businessData.employee.calendarDays.remove",
 };
 
 const useDialogStyles = makeStyles({
