@@ -19,7 +19,10 @@
     "generate": "生成",
     "execute": "実行",
     "aiEditor": "AI エディター",
-    "endpoint": "エンドポイント"
+    "endpoint": "エンドポイント",
+    "clone": "複製",
+    "terminate": "終了",
+    "unterminate": "終了取消"
   },
   "administration": {
     "pageLabel": "管理"
@@ -933,6 +936,106 @@
         "cancel": "キャンセル",
         "create": "作成",
         "typeDefault": "汎用"
+      }
+    },
+    "kpi": {
+      "pageLabel": "KPI",
+      "listTitle": "KPI ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "状態"
+      },
+      "sections": {
+        "details": "詳細",
+        "dimensionsAndTimeFrames": "ディメンションと時間枠",
+        "attachments": "添付ファイル",
+        "kpi": "KPI",
+        "settings": "設定",
+        "defaultValues": "既定値",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "sourceType": "ソースタイプ",
+        "entityType": "エンティティタイプ",
+        "parameter": "パラメーター",
+        "kpiType": "KPIタイプ",
+        "frequency": "頻度",
+        "ownerRole": "所有者ロール",
+        "closeToTargetMinimumValue": "ターゲットに近い最小値",
+        "inTargetMinimumValue": "ターゲット内の最小値",
+        "targetValue": "ターゲット値"
+      },
+      "actions": {
+        "manageDimensions": "ディメンションと時間枠の管理"
+      },
+      "dialog": {
+        "cancel": "キャンセル",
+        "clone": "複製",
+        "cloneTitle": "KPIの複製",
+        "create": "作成",
+        "createTitle": "KPIの作成",
+        "description": "説明",
+        "editTitle": "KPIの編集",
+        "entityType": "エンティティタイプ",
+        "frequency": "頻度",
+        "frequencyDaily": "毎日",
+        "frequencyMonthly": "毎月",
+        "frequencyWeekly": "毎週",
+        "frequencyYearly": "毎年",
+        "kpiType": "KPIタイプ",
+        "kpiTypeDeviation": "偏差",
+        "kpiTypeMaximum": "最大",
+        "kpiTypeMinimum": "最小",
+        "name": "名前",
+        "ownerRole": "所有者ロール",
+        "parameter": "パラメータ",
+        "save": "保存",
+        "sourceType": "ソースタイプ",
+        "sourceTypeDynamic": "動的",
+        "sourceTypeStatic": "静的",
+        "type": "タイプ"
+      },
+      "dimensionsDialog": {
+        "addDimension": "ディメンションの追加",
+        "addTimeFrame": "時間枠の追加",
+        "back": "戻る",
+        "cancel": "キャンセル",
+        "dimensions": "ディメンション",
+        "from": "開始",
+        "isDefault": "デフォルト",
+        "next": "次へ",
+        "remove": "削除",
+        "source": "ソース",
+        "sourceBusinessRule": "ビジネスルール",
+        "sourceCommand": "ソースコマンド",
+        "sourceCubes": "キューブ",
+        "sourceDwh": "データウェアハウス",
+        "sourceOds": "オペレーショナルデータストア",
+        "step1": "ステップ1: ディメンションの管理",
+        "step2": "ステップ2: 時間枠の管理",
+        "timeFrameName": "時間枠名",
+        "timeFrames": "時間枠",
+        "title": "ディメンションと時間枠の管理",
+        "to": "終了",
+        "update": "更新",
+        "valueType": "値タイプ",
+        "valueTypeSeries": "データシリーズ",
+        "valueTypeSingle": "単一値"
+      },
+      "terminateDialog": {
+        "cancel": "キャンセル",
+        "message": "KPI「{{name}}」を終了しますか?",
+        "terminate": "終了",
+        "title": "KPIの終了",
+        "warning": "KPIオブジェクトは終了を取り消すことができません。終了すると完全に失われます。"
       }
     }
   }

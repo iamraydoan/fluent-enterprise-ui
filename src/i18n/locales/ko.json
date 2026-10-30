@@ -19,7 +19,10 @@
     "generate": "생성",
     "execute": "실행",
     "aiEditor": "AI 편집기",
-    "endpoint": "엔드포인트"
+    "endpoint": "엔드포인트",
+    "clone": "복제",
+    "terminate": "종료",
+    "unterminate": "종료 취소"
   },
   "administration": {
     "pageLabel": "관리"
@@ -933,6 +936,106 @@
         "cancel": "취소",
         "create": "만들기",
         "typeDefault": "일반"
+      }
+    },
+    "kpi": {
+      "pageLabel": "KPI",
+      "listTitle": "KPI ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "dimensionsAndTimeFrames": "차원 및 기간",
+        "attachments": "첨부 파일",
+        "kpi": "KPI",
+        "settings": "설정",
+        "defaultValues": "기본값",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "dataGroup": "데이터 그룹",
+        "sourceType": "소스 유형",
+        "entityType": "엔터티 유형",
+        "parameter": "매개변수",
+        "kpiType": "KPI 유형",
+        "frequency": "빈도",
+        "ownerRole": "소유자 역할",
+        "closeToTargetMinimumValue": "목표 근접 최소값",
+        "inTargetMinimumValue": "목표 내 최소값",
+        "targetValue": "목표값"
+      },
+      "actions": {
+        "manageDimensions": "차원 및 기간 관리"
+      },
+      "dialog": {
+        "cancel": "취소",
+        "clone": "복제",
+        "cloneTitle": "KPI 복제",
+        "create": "생성",
+        "createTitle": "KPI 생성",
+        "description": "설명",
+        "editTitle": "KPI 편집",
+        "entityType": "엔터티 유형",
+        "frequency": "빈도",
+        "frequencyDaily": "매일",
+        "frequencyMonthly": "매월",
+        "frequencyWeekly": "매주",
+        "frequencyYearly": "매년",
+        "kpiType": "KPI 유형",
+        "kpiTypeDeviation": "편차",
+        "kpiTypeMaximum": "최대",
+        "kpiTypeMinimum": "최소",
+        "name": "이름",
+        "ownerRole": "소유자 역할",
+        "parameter": "매개변수",
+        "save": "저장",
+        "sourceType": "소스 유형",
+        "sourceTypeDynamic": "동적",
+        "sourceTypeStatic": "정적",
+        "type": "유형"
+      },
+      "dimensionsDialog": {
+        "addDimension": "차원 추가",
+        "addTimeFrame": "기간 추가",
+        "back": "뒤로",
+        "cancel": "취소",
+        "dimensions": "차원",
+        "from": "시작",
+        "isDefault": "기본값",
+        "next": "다음",
+        "remove": "제거",
+        "source": "소스",
+        "sourceBusinessRule": "비즈니스 규칙",
+        "sourceCommand": "소스 명령",
+        "sourceCubes": "큐브",
+        "sourceDwh": "데이터 웨어하우스",
+        "sourceOds": "운영 데이터 스토어",
+        "step1": "1단계: 차원 관리",
+        "step2": "2단계: 기간 관리",
+        "timeFrameName": "기간 이름",
+        "timeFrames": "기간",
+        "title": "차원 및 기간 관리",
+        "to": "종료",
+        "update": "업데이트",
+        "valueType": "값 유형",
+        "valueTypeSeries": "데이터 시리즈",
+        "valueTypeSingle": "단일 값"
+      },
+      "terminateDialog": {
+        "cancel": "취소",
+        "message": "KPI \"{{name}}\"을(를) 종료하시겠습니까?",
+        "terminate": "종료",
+        "title": "KPI 종료",
+        "warning": "KPI 개체는 종료를 취소할 수 없습니다. 종료하면 영구적으로 손실됩니다."
       }
     }
   }

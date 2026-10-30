@@ -3,9 +3,13 @@ import { useKpiDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Target24Regular } from "@/components/icons";
-import { Text } from "@/components/ui";
+import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { KpiDialog } from "./KpiDialog";
+import { KpiDimensionsDialog } from "./KpiDimensionsDialog";
+import { KpiTerminateDialog } from "./KpiTerminateDialog";
+import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
 
 const tk = (key: string) => key as TranslationKey;
 
@@ -25,23 +29,43 @@ export function KpiDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<string>(tk("businessData.kpi.sections.details"));
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
+  const [terminateOpen, setTerminateOpen] = useState(false);
+  const [dimensionsOpen, setDimensionsOpen] = useState(false);
   const { data, isLoading } = useKpiDetail(name);
 
   const shell = (content: React.ReactNode) => (
-    <DetailShell
-      title={name}
-      icon={<Target24Regular />}
-      topTabs={TOP_TABS}
-      top={top}
-      onTop={setTop}
-      leftItems={LEFT_ITEMS}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => undefined}
-      onAskAi={() => undefined}
-    >
-      {content}
-    </DetailShell>
+    <>
+      <DetailShell
+        title={name}
+        icon={<Target24Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={LEFT_ITEMS}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onClone={() => setCloneOpen(true)}
+        onTerminate={() => setTerminateOpen(true)}
+        onAskAi={() => undefined}
+      >
+        {content}
+      </DetailShell>
+      {editOpen && (
+        <KpiDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />
+      )}
+      {cloneOpen && (
+        <KpiDialog
+          mode={MODE_CLONE}
+          initialName={`${name} (Copy)`}
+          onClose={() => setCloneOpen(false)}
+        />
+      )}
+      {terminateOpen && <KpiTerminateDialog name={name} onClose={() => setTerminateOpen(false)} />}
+      {dimensionsOpen && <KpiDimensionsDialog onClose={() => setDimensionsOpen(false)} />}
+    </>
   );
 
   if (isLoading || !data) {
@@ -49,6 +73,16 @@ export function KpiDetailPage({ name }: { name: string }) {
       <Empty>
         <Text>{t(tk("businessData.kpi.sections.emptyBody"))}</Text>
       </Empty>,
+    );
+  }
+
+  if (top === "details" && left === tk("businessData.kpi.sections.dimensionsAndTimeFrames")) {
+    return shell(
+      <Card title={t(tk("businessData.kpi.sections.dimensionsAndTimeFrames"))}>
+        <Button appearance="primary" onClick={() => setDimensionsOpen(true)}>
+          {t(tk("businessData.kpi.actions.manageDimensions"))}
+        </Button>
+      </Card>,
     );
   }
 
@@ -88,8 +122,14 @@ export function KpiDetailPage({ name }: { name: string }) {
       <Card title={t(tk("businessData.kpi.sections.defaultValues"))}>
         <KV
           rows={[
-            [t(tk("businessData.kpi.details.closeToTargetMinimumValue")), String(data.closeToTargetMinimumValue)],
-            [t(tk("businessData.kpi.details.inTargetMinimumValue")), String(data.inTargetMinimumValue)],
+            [
+              t(tk("businessData.kpi.details.closeToTargetMinimumValue")),
+              String(data.closeToTargetMinimumValue),
+            ],
+            [
+              t(tk("businessData.kpi.details.inTargetMinimumValue")),
+              String(data.inTargetMinimumValue),
+            ],
             [t(tk("businessData.kpi.details.targetValue")), String(data.targetValue)],
           ]}
         />

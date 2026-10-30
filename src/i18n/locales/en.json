@@ -19,7 +19,10 @@
     "generate": "Generate",
     "execute": "Execute",
     "aiEditor": "AI Editor",
-    "endpoint": "Endpoint"
+    "endpoint": "Endpoint",
+    "clone": "Clone",
+    "terminate": "Terminate",
+    "unterminate": "Unterminate"
   },
   "administration": {
     "pageLabel": "Administration"
@@ -933,6 +936,106 @@
         "cancel": "Cancel",
         "create": "Create",
         "typeDefault": "Generic"
+      }
+    },
+    "kpi": {
+      "pageLabel": "KPI",
+      "listTitle": "KPIs ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State"
+      },
+      "sections": {
+        "details": "Details",
+        "dimensionsAndTimeFrames": "Dimensions and Time Frames",
+        "attachments": "Attachments",
+        "kpi": "KPI",
+        "settings": "Settings",
+        "defaultValues": "Default Values",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "sourceType": "Source Type",
+        "entityType": "Entity Type",
+        "parameter": "Parameter",
+        "kpiType": "KPI Type",
+        "frequency": "Frequency",
+        "ownerRole": "Owner Role",
+        "closeToTargetMinimumValue": "Close to Target Minimum Value",
+        "inTargetMinimumValue": "In Target Minimum Value",
+        "targetValue": "Target Value"
+      },
+      "actions": {
+        "manageDimensions": "Manage Dimensions and Time Frames"
+      },
+      "dialog": {
+        "cancel": "Cancel",
+        "clone": "Clone",
+        "cloneTitle": "Clone KPI",
+        "create": "Create",
+        "createTitle": "Create KPI",
+        "description": "Description",
+        "editTitle": "Edit KPI",
+        "entityType": "Entity Type",
+        "frequency": "Frequency",
+        "frequencyDaily": "Daily",
+        "frequencyMonthly": "Monthly",
+        "frequencyWeekly": "Weekly",
+        "frequencyYearly": "Yearly",
+        "kpiType": "KPI Type",
+        "kpiTypeDeviation": "Deviation",
+        "kpiTypeMaximum": "Maximum",
+        "kpiTypeMinimum": "Minimum",
+        "name": "Name",
+        "ownerRole": "Owner Role",
+        "parameter": "Parameter",
+        "save": "Save",
+        "sourceType": "Source Type",
+        "sourceTypeDynamic": "Dynamic",
+        "sourceTypeStatic": "Static",
+        "type": "Type"
+      },
+      "dimensionsDialog": {
+        "addDimension": "Add Dimension",
+        "addTimeFrame": "Add Time Frame",
+        "back": "Back",
+        "cancel": "Cancel",
+        "dimensions": "Dimensions",
+        "from": "From",
+        "isDefault": "Default",
+        "next": "Next",
+        "remove": "Remove",
+        "source": "Source",
+        "sourceBusinessRule": "Business Rule",
+        "sourceCommand": "Source Command",
+        "sourceCubes": "Cubes",
+        "sourceDwh": "Data Warehouse",
+        "sourceOds": "Operational Data Store",
+        "step1": "Step 1: Manage Dimensions",
+        "step2": "Step 2: Manage Time Frames",
+        "timeFrameName": "Time Frame Name",
+        "timeFrames": "Time Frames",
+        "title": "Manage Dimensions and Time Frames",
+        "to": "To",
+        "update": "Update",
+        "valueType": "Value Type",
+        "valueTypeSeries": "Data Series",
+        "valueTypeSingle": "Single Value"
+      },
+      "terminateDialog": {
+        "cancel": "Cancel",
+        "message": "Terminate KPI \"{{name}}\"?",
+        "terminate": "Terminate",
+        "title": "Terminate KPI",
+        "warning": "KPI objects cannot be unterminated. If you terminate a KPI object, it will be permanently lost."
       }
     }
   }

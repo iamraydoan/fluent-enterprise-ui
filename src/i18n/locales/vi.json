@@ -19,7 +19,10 @@
     "generate": "Tạo mã",
     "execute": "Thực thi",
     "aiEditor": "AI Editor",
-    "endpoint": "Endpoint"
+    "endpoint": "Endpoint",
+    "clone": "Nhân bản",
+    "terminate": "Kết thúc",
+    "unterminate": "Hủy kết thúc"
   },
   "administration": {
     "pageLabel": "Quản trị"
@@ -933,6 +936,106 @@
         "cancel": "Hủy",
         "create": "Tạo",
         "typeDefault": "Chung"
+      }
+    },
+    "kpi": {
+      "pageLabel": "KPI",
+      "listTitle": "KPI ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "dimensionsAndTimeFrames": "Chiều và khung thời gian",
+        "attachments": "Tệp đính kèm",
+        "kpi": "KPI",
+        "settings": "Cài đặt",
+        "defaultValues": "Giá trị mặc định",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "sourceType": "Loại nguồn",
+        "entityType": "Loại thực thể",
+        "parameter": "Tham số",
+        "kpiType": "Loại KPI",
+        "frequency": "Tần suất",
+        "ownerRole": "Vai trò chủ sở hữu",
+        "closeToTargetMinimumValue": "Giá trị tối thiểu gần mục tiêu",
+        "inTargetMinimumValue": "Giá trị tối thiểu trong mục tiêu",
+        "targetValue": "Giá trị mục tiêu"
+      },
+      "actions": {
+        "manageDimensions": "Quản lý Dimensions và Time Frames"
+      },
+      "dialog": {
+        "cancel": "Hủy",
+        "clone": "Nhân bản",
+        "cloneTitle": "Nhân bản KPI",
+        "create": "Tạo",
+        "createTitle": "Tạo KPI",
+        "description": "Mô tả",
+        "editTitle": "Sửa KPI",
+        "entityType": "Loại thực thể",
+        "frequency": "Tần suất",
+        "frequencyDaily": "Hàng ngày",
+        "frequencyMonthly": "Hàng tháng",
+        "frequencyWeekly": "Hàng tuần",
+        "frequencyYearly": "Hàng năm",
+        "kpiType": "Loại KPI",
+        "kpiTypeDeviation": "Độ lệch",
+        "kpiTypeMaximum": "Tối đa",
+        "kpiTypeMinimum": "Tối thiểu",
+        "name": "Tên",
+        "ownerRole": "Vai trò chủ sở hữu",
+        "parameter": "Tham số",
+        "save": "Lưu",
+        "sourceType": "Loại nguồn",
+        "sourceTypeDynamic": "Động",
+        "sourceTypeStatic": "Tĩnh",
+        "type": "Loại"
+      },
+      "dimensionsDialog": {
+        "addDimension": "Thêm Dimension",
+        "addTimeFrame": "Thêm Time Frame",
+        "back": "Quay lại",
+        "cancel": "Hủy",
+        "dimensions": "Dimensions",
+        "from": "Từ",
+        "isDefault": "Mặc định",
+        "next": "Tiếp",
+        "remove": "Xóa",
+        "source": "Nguồn",
+        "sourceBusinessRule": "Business Rule",
+        "sourceCommand": "Source Command",
+        "sourceCubes": "Cubes",
+        "sourceDwh": "Data Warehouse",
+        "sourceOds": "Operational Data Store",
+        "step1": "Bước 1: Quản lý Dimensions",
+        "step2": "Bước 2: Quản lý Time Frames",
+        "timeFrameName": "Tên Time Frame",
+        "timeFrames": "Time Frames",
+        "title": "Quản lý Dimensions và Time Frames",
+        "to": "Đến",
+        "update": "Cập nhật",
+        "valueType": "Loại giá trị",
+        "valueTypeSeries": "Chuỗi dữ liệu",
+        "valueTypeSingle": "Giá trị đơn"
+      },
+      "terminateDialog": {
+        "cancel": "Hủy",
+        "message": "Kết thúc KPI \"{{name}}\"?",
+        "terminate": "Kết thúc",
+        "title": "Kết thúc KPI",
+        "warning": "Đối tượng KPI không thể hủy kết thúc. Nếu bạn kết thúc một KPI, nó sẽ bị mất vĩnh viễn."
       }
     }
   }
