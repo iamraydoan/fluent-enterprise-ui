@@ -2015,6 +2015,77 @@
           "message": "Are you sure you want to perform '{{operation}}' on Schedule Scenario '{{name}}'?"
         }
       }
+    },
+    "sendAheadRun": {
+      "pageLabel": "Send-Ahead Run",
+      "listTitle": "Send-Ahead Runs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "sendAheadRun": "Send-Ahead Run"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "resultsCaptureMode": "Results Capture Mode"
+      },
+      "more": {
+        "cancel": "Cancel Send-Ahead Run",
+        "extend": "Extend Send-Ahead Run",
+        "release": "Release Send-Ahead Run Waiting Materials",
+        "changeMaterials": "Change Send-Ahead Run Materials",
+        "clearResult": "Clear Send-Ahead Run Result",
+        "ignoreResult": "Ignore Send-Ahead Run Result",
+        "createSplit": "Create Split Send-Ahead Run",
+        "manageMaterials": "Manage Send-Ahead Run Materials",
+        "recordResult": "Record Send-Ahead Run Result"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Send-Ahead Run",
+          "editTitle": "Edit Send-Ahead Run",
+          "step1": "General Data",
+          "step2": "Waiting Materials",
+          "step3": "Experiment",
+          "step4": "Sub-Materials to Send-Ahead",
+          "step5": "Send-Ahead Materials",
+          "step6": "Details",
+          "name": "Name",
+          "description": "Description",
+          "dataGroup": "Data Group",
+          "comments": "Comments",
+          "stepBody": "This section will only be displayed when the step's preconditions are met: {{step}}."
+        },
+        "record": {
+          "title": "Record Send-Ahead Run Result",
+          "resultBody": "Select the result for the selected send-ahead Materials.",
+          "result": "Result",
+          "remarks": "Remarks",
+          "record": "Record"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Send-Ahead Run '{{name}}'?"
+        }
+      }
     }
   }
 }

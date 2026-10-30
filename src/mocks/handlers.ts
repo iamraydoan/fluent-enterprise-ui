@@ -11,6 +11,7 @@ import { samplingPatternHandlers } from "./handlers/businessData/samplingPattern
 import { samplingPlanHandlers } from "./handlers/businessData/samplingPlan";
 import { scheduleHandlers } from "./handlers/businessData/schedule";
 import { scheduleScenarioHandlers } from "./handlers/businessData/scheduleScenario";
+import { sendAheadRunHandlers } from "./handlers/businessData/sendAheadRun";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -38,4 +39,5 @@ export const handlers = [
   ...samplingPlanHandlers,
   ...scheduleHandlers,
   ...scheduleScenarioHandlers,
+  ...sendAheadRunHandlers,
 ];
