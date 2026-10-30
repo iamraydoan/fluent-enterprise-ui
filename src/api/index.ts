@@ -155,3 +155,13 @@ export type {
   InspectionPlanDetail,
   InspectionPlanRecord,
 } from "./businessData/inspectionPlan";
+export {
+  getKpi,
+  listKpis,
+  useKpiDetail,
+  useKpis,
+} from "./businessData/kpi";
+export type {
+  KpiDetail,
+  KpiRecord,
+} from "./businessData/kpi";

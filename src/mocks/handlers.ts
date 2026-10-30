@@ -9,6 +9,7 @@ import { experimentDefinitionHandlers } from "./handlers/businessData/experiment
 import { facilityHandlers } from "./handlers/businessData/facility";
 import { flowHandlers } from "./handlers/businessData/flow";
 import { inspectionPlanHandlers } from "./handlers/businessData/inspectionPlan";
+import { kpiHandlers } from "./handlers/businessData/kpi";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -30,6 +31,7 @@ export const handlers = [
   ...facilityHandlers,
   ...flowHandlers,
   ...inspectionPlanHandlers,
+  ...kpiHandlers,
   ...genericTableHandlers,
   ...uiPageHandlers,
   ...mcpServerHandlers,
