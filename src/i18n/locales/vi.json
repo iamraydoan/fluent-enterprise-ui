@@ -1647,6 +1647,52 @@
         "completionAcceptanceMode": "Chế độ chấp nhận hoàn thành",
         "beginAndCompleteMode": "Chế độ bắt đầu và hoàn thành",
         "cost": "Chi phí"
+      },
+      "dialog": {
+        "editTitle": "Sửa Maintenance Activity Order",
+        "description": "Mô tả",
+        "dataGroup": "Nhóm dữ liệu",
+        "cancel": "Hủy",
+        "save": "Lưu"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Maintenance Activity Order",
+        "message": "Kết thúc Maintenance Activity Order \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Maintenance Activity Order",
+        "unterminateMessage": "Hủy kết thúc Maintenance Activity Order \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "request": {
+        "title": "Yêu cầu Maintenance Activity Order",
+        "step1": "Bước 1: Entity",
+        "step2": "Bước 2: Maintenance Activity Order",
+        "entityType": "Loại Entity",
+        "entity": "Entity",
+        "scheduleDate": "Ngày lên lịch",
+        "comment": "Bình luận",
+        "cancel": "Hủy",
+        "request": "Yêu cầu",
+        "back": "Quay lại",
+        "next": "Tiếp"
+      },
+      "changeState": {
+        "title": "{{action}} Maintenance Activity Order",
+        "message": "{{action}} Maintenance Activity Order \"{{name}}\"?",
+        "comment": "Bình luận",
+        "cancel": "Hủy",
+        "confirm": "Xác nhận",
+        "approve": "Phê duyệt",
+        "release": "Phát hành",
+        "begin": "Bắt đầu",
+        "complete": "Hoàn thành",
+        "accept": "Chấp nhận",
+        "reject": "Từ chối",
+        "cancelAction": "Hủy",
+        "skip": "Bỏ qua",
+        "abort": "Hủy bỏ",
+        "rework": "Làm lại"
       }
     },
     "maintenancePlan": {

@@ -1647,6 +1647,52 @@
         "completionAcceptanceMode": "Completion Acceptance Mode",
         "beginAndCompleteMode": "Begin and Complete Mode",
         "cost": "Cost"
+      },
+      "dialog": {
+        "editTitle": "Edit Maintenance Activity Order",
+        "description": "Description",
+        "dataGroup": "Data Group",
+        "cancel": "Cancel",
+        "save": "Save"
+      },
+      "terminateDialog": {
+        "title": "Terminate Maintenance Activity Order",
+        "message": "Terminate Maintenance Activity Order \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Maintenance Activity Order",
+        "unterminateMessage": "Unterminate Maintenance Activity Order \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "request": {
+        "title": "Request Maintenance Activity Order",
+        "step1": "Step 1: Entity",
+        "step2": "Step 2: Maintenance Activity Order",
+        "entityType": "Entity Type",
+        "entity": "Entity",
+        "scheduleDate": "Schedule Date",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "request": "Request",
+        "back": "Back",
+        "next": "Next"
+      },
+      "changeState": {
+        "title": "{{action}} Maintenance Activity Order",
+        "message": "{{action}} Maintenance Activity Order \"{{name}}\"?",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "approve": "Approve",
+        "release": "Release",
+        "begin": "Begin",
+        "complete": "Complete",
+        "accept": "Accept",
+        "reject": "Reject",
+        "cancelAction": "Cancel",
+        "skip": "Skip",
+        "abort": "Abort",
+        "rework": "Rework"
       }
     },
     "maintenancePlan": {

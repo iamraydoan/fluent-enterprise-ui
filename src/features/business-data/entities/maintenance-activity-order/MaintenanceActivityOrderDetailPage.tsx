@@ -34,6 +34,7 @@ export function MaintenanceActivityOrderDetailPage({ name }: { name: string }) {
   const { data, isLoading } = useMaintenanceActivityOrderDetail(name);
 
   const shell = (content: React.ReactNode) => (
+    <>
     <DetailShell
       title={name}
       icon={<Wrench24Regular />}
@@ -43,11 +44,24 @@ export function MaintenanceActivityOrderDetailPage({ name }: { name: string }) {
       leftItems={LEFT_ITEMS}
       left={left}
       onLeft={setLeft}
-      onEdit={() => undefined}
+      onEdit={() => setEditOpen(true)}
+      onTerminate={() => setTerminateOpen(true)}
+      onUnterminate={() => setUnterminateOpen(true)}
       onAskAi={() => undefined}
     >
       {content}
     </DetailShell>
+    {editOpen && <MaintenanceActivityOrderDialog name={name} onClose={() => setEditOpen(false)} />}
+    {terminateOpen && (
+      <MaintenanceActivityOrderTerminateDialog name={name} mode={TERMINATE} onClose={() => setTerminateOpen(false)} />
+    )}
+    {unterminateOpen && (
+      <MaintenanceActivityOrderTerminateDialog name={name} mode={UNTERMINATE} onClose={() => setUnterminateOpen(false)} />
+    )}
+    {changeStateAction && (
+      <MaoChangeStateDialog name={name} action={changeStateAction} onClose={() => setChangeStateAction(null)} />
+    )}
+    </>
   );
 
   if (isLoading || !data) {
@@ -131,6 +145,35 @@ export function MaintenanceActivityOrderDetailPage({ name }: { name: string }) {
             [t("businessData.maintenanceActivityOrder.details.cost"), `$${data.cost.toFixed(2)}`],
           ]}
         />
+        <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <Button size="small" onClick={() => setChangeStateAction("approve")}>
+            {t(tk("businessData.maintenanceActivityOrder.changeState.approve"))}
+          </Button>
+          <Button size="small" onClick={() => setChangeStateAction("release")}>
+            {t(tk("businessData.maintenanceActivityOrder.changeState.release"))}
+          </Button>
+          <Button size="small" onClick={() => setChangeStateAction("begin")}>
+            {t(tk("businessData.maintenanceActivityOrder.changeState.begin"))}
+          </Button>
+          <Button size="small" onClick={() => setChangeStateAction("complete")}>
+            {t(tk("businessData.maintenanceActivityOrder.changeState.complete"))}
+          </Button>
+          <Button size="small" onClick={() => setChangeStateAction("accept")}>
+            {t(tk("businessData.maintenanceActivityOrder.changeState.accept"))}
+          </Button>
+          <Button size="small" onClick={() => setChangeStateAction("reject")}>
+            {t(tk("businessData.maintenanceActivityOrder.changeState.reject"))}
+          </Button>
+          <Button size="small" onClick={() => setChangeStateAction("skip")}>
+            {t(tk("businessData.maintenanceActivityOrder.changeState.skip"))}
+          </Button>
+          <Button size="small" onClick={() => setChangeStateAction("abort")}>
+            {t(tk("businessData.maintenanceActivityOrder.changeState.abort"))}
+          </Button>
+          <Button size="small" onClick={() => setChangeStateAction("rework")}>
+            {t(tk("businessData.maintenanceActivityOrder.changeState.rework"))}
+          </Button>
+        </div>
       </Card>
     </CardGrid>,
   );

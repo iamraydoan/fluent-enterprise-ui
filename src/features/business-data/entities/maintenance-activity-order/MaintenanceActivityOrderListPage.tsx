@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useMaintenanceActivityOrders } from "@/api";
 import type { MaintenanceActivityOrderRecord } from "@/api";
 import {
@@ -14,6 +15,7 @@ import { Wrench24Regular } from "@/components/icons";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { RequestMaintenanceActivityOrderDialog } from "./RequestMaintenanceActivityOrderDialog";
 
 
 const COLUMNS: DataColumn<MaintenanceActivityOrderRecord>[] = [
@@ -35,17 +37,26 @@ export function MaintenanceActivityOrderListPage() {
     "/business-data/maintenance-activity-order/$name",
     openRoute,
   );
+  const [requestOpen, setRequestOpen] = useState(false);
   return (
+    <>
     <DataListPage
       icon={<Wrench24Regular />}
       titleKey={"businessData.maintenanceActivityOrder.pageLabel"}
       listTitleKey={"businessData.maintenanceActivityOrder.listTitle"}
-      actions={[createAction, refreshAction, importAction, exportAction]}
+      actions={[
+        { ...createAction, labelKey: "businessData.maintenanceActivityOrder.request.request", onClick: () => setRequestOpen(true) },
+        refreshAction,
+        importAction,
+        exportAction,
+      ]}
       columns={COLUMNS}
       filters={defaultListFilters}
       useListQuery={useMaintenanceActivityOrderListQuery}
       getRowId={(row) => row.name}
       onRowClick={(row) => openDetail(row.name)}
     />
+    {requestOpen && <RequestMaintenanceActivityOrderDialog onClose={() => setRequestOpen(false)} />}
+    </>
   );
 }

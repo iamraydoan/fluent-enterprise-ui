@@ -1647,6 +1647,52 @@
         "completionAcceptanceMode": "完了承認モード",
         "beginAndCompleteMode": "開始および完了モード",
         "cost": "コスト"
+      },
+      "dialog": {
+        "editTitle": "Maintenance Activity Orderの編集",
+        "description": "説明",
+        "dataGroup": "データグループ",
+        "cancel": "キャンセル",
+        "save": "保存"
+      },
+      "terminateDialog": {
+        "title": "Maintenance Activity Orderの終了",
+        "message": "Maintenance Activity Order「{{name}}」を終了しますか?",
+        "unterminateTitle": "Maintenance Activity Orderの終了取消",
+        "unterminateMessage": "Maintenance Activity Order「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "request": {
+        "title": "Maintenance Activity Orderのリクエスト",
+        "step1": "ステップ1: エンティティ",
+        "step2": "ステップ2: Maintenance Activity Order",
+        "entityType": "エンティティタイプ",
+        "entity": "エンティティ",
+        "scheduleDate": "スケジュール日",
+        "comment": "コメント",
+        "cancel": "キャンセル",
+        "request": "リクエスト",
+        "back": "戻る",
+        "next": "次へ"
+      },
+      "changeState": {
+        "title": "Maintenance Activity Orderの{{action}}",
+        "message": "Maintenance Activity Order「{{name}}」を{{action}}しますか?",
+        "comment": "コメント",
+        "cancel": "キャンセル",
+        "confirm": "確認",
+        "approve": "承認",
+        "release": "リリース",
+        "begin": "開始",
+        "complete": "完了",
+        "accept": "受諾",
+        "reject": "却下",
+        "cancelAction": "キャンセル",
+        "skip": "スキップ",
+        "abort": "中止",
+        "rework": "再作業"
       }
     },
     "maintenancePlan": {
