@@ -1,5 +1,6 @@
 import { aiAgentHandlers } from "./handlers/aiAgent";
 import { areaHandlers } from "./handlers/businessData/area";
+import { batchHandlers } from "./handlers/businessData/batch";
 import { aiChatHandlers } from "./handlers/aiChat";
 import { appHandlers } from "./handlers/apps";
 import { configurationHandlers } from "./handlers/configuration";
@@ -13,6 +14,7 @@ export const handlers = [
   ...entityTypeHandlers,
   ...aiAgentHandlers,
   ...areaHandlers,
+  ...batchHandlers,
   ...aiChatHandlers,
   ...appHandlers,
   ...configurationHandlers,

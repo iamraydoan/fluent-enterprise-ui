@@ -714,6 +714,67 @@
       },
       "listTitle": "Areas",
       "pageLabel": "Areas"
+    },
+    "batch": {
+      "pageLabel": "Batches",
+      "listTitle": "Batches",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "systemState": "System State",
+        "loadState": "Load State",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "batch": "Batch",
+        "information": "Information",
+        "resourceInformation": "Resource Information",
+        "materialInformation": "Material Information",
+        "containerInformation": "Container Information",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "universalState": "Universal State",
+        "systemState": "System State",
+        "dataGroup": "Data Group",
+        "resource": "Resource",
+        "loadState": "Load State",
+        "step": "Step",
+        "resourceJob": "Resource Job",
+        "priority": "Priority",
+        "resourceType": "Type",
+        "facility": "Facility",
+        "loadStartMode": "Load Start Mode",
+        "loadMode": "Load Mode",
+        "materialSplitMode": "Material Split Mode",
+        "allowProductMix": "Allow Product Mix",
+        "minimumBatchSize": "Minimum Batch Size",
+        "mainMaterial": "Main Material",
+        "service": "Service",
+        "product": "Product",
+        "productDescription": "Product Description",
+        "capacityClass": "Capacity Class",
+        "quantity": "Quantity",
+        "batchSize": "Batch Size",
+        "containerType": "Container Type",
+        "tabs": {
+          "details": "Details",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "materials": "Materials",
+          "containers": "Containers",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

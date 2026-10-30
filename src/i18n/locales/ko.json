@@ -714,6 +714,67 @@
       },
       "listTitle": "구역",
       "pageLabel": "구역"
+    },
+    "batch": {
+      "pageLabel": "배치",
+      "listTitle": "배치",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "resource": "리소스",
+        "systemState": "시스템 상태",
+        "loadState": "로드 상태",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "batch": "Batch",
+        "information": "Information",
+        "resourceInformation": "Resource Information",
+        "materialInformation": "Material Information",
+        "containerInformation": "Container Information",
+        "name": "이름",
+        "description": "설명",
+        "type": "Type",
+        "universalState": "Universal State",
+        "systemState": "시스템 상태",
+        "dataGroup": "Data Group",
+        "resource": "리소스",
+        "loadState": "로드 상태",
+        "step": "Step",
+        "resourceJob": "Resource Job",
+        "priority": "Priority",
+        "resourceType": "Type",
+        "facility": "Facility",
+        "loadStartMode": "Load Start Mode",
+        "loadMode": "Load Mode",
+        "materialSplitMode": "Material Split Mode",
+        "allowProductMix": "Allow Product Mix",
+        "minimumBatchSize": "Minimum Batch Size",
+        "mainMaterial": "Main Material",
+        "service": "Service",
+        "product": "Product",
+        "productDescription": "Product Description",
+        "capacityClass": "Capacity Class",
+        "quantity": "Quantity",
+        "batchSize": "Batch Size",
+        "containerType": "Container Type",
+        "tabs": {
+          "details": "세부 정보",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "materials": "자재",
+          "containers": "컨테이너",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

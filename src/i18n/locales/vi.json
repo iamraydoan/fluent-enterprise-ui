@@ -714,6 +714,67 @@
       },
       "listTitle": "Khu vực",
       "pageLabel": "Khu vực"
+    },
+    "batch": {
+      "pageLabel": "Lô hàng",
+      "listTitle": "Lô hàng",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "resource": "Tài nguyên",
+        "systemState": "Trạng thái hệ thống",
+        "loadState": "Trạng thái tải",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "batch": "Batch",
+        "information": "Information",
+        "resourceInformation": "Resource Information",
+        "materialInformation": "Material Information",
+        "containerInformation": "Container Information",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Type",
+        "universalState": "Universal State",
+        "systemState": "Trạng thái hệ thống",
+        "dataGroup": "Data Group",
+        "resource": "Tài nguyên",
+        "loadState": "Trạng thái tải",
+        "step": "Step",
+        "resourceJob": "Resource Job",
+        "priority": "Priority",
+        "resourceType": "Type",
+        "facility": "Facility",
+        "loadStartMode": "Load Start Mode",
+        "loadMode": "Load Mode",
+        "materialSplitMode": "Material Split Mode",
+        "allowProductMix": "Allow Product Mix",
+        "minimumBatchSize": "Minimum Batch Size",
+        "mainMaterial": "Main Material",
+        "service": "Service",
+        "product": "Product",
+        "productDescription": "Product Description",
+        "capacityClass": "Capacity Class",
+        "quantity": "Quantity",
+        "batchSize": "Batch Size",
+        "containerType": "Container Type",
+        "tabs": {
+          "details": "Chi tiết",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "materials": "Nguyên vật liệu",
+          "containers": "Thùng chứa",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

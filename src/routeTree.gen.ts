@@ -24,6 +24,7 @@ import { Route as AdministrationQueriesRouteImport } from './routes/administrati
 import { Route as AdministrationTablesRouteImport } from './routes/administration.tables'
 import { Route as AdministrationUipagesRouteImport } from './routes/administration.uipages'
 import { Route as BusinessDataAreaRouteImport } from './routes/business-data.area'
+import { Route as BusinessDataBatchRouteImport } from './routes/business-data.batch'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -31,6 +32,7 @@ import { Route as AdministrationEntityTypesNameRouteImport } from './routes/admi
 import { Route as AdministrationQueriesNameRouteImport } from './routes/administration.queries.$name'
 import { Route as AdministrationTablesNameRouteImport } from './routes/administration.tables.$name'
 import { Route as BusinessDataAreaNameRouteImport } from './routes/business-data.area.$name'
+import { Route as BusinessDataBatchNameRouteImport } from './routes/business-data.batch.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -110,6 +112,11 @@ const BusinessDataAreaRoute = BusinessDataAreaRouteImport.update({
   path: '/area',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataBatchRoute = BusinessDataBatchRouteImport.update({
+  id: '/batch',
+  path: '/batch',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -151,6 +158,11 @@ const BusinessDataAreaNameRoute = BusinessDataAreaNameRouteImport.update({
   path: '/$name',
   getParentRoute: () => BusinessDataAreaRoute,
 } as any)
+const BusinessDataBatchNameRoute = BusinessDataBatchNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataBatchRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -168,6 +180,7 @@ export interface FileRoutesByFullPath {
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/area': typeof BusinessDataAreaRouteWithChildren
+  '/business-data/batch': typeof BusinessDataBatchRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -175,6 +188,7 @@ export interface FileRoutesByFullPath {
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/area/$name': typeof BusinessDataAreaNameRoute
+  '/business-data/batch/$name': typeof BusinessDataBatchNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -192,6 +206,7 @@ export interface FileRoutesByTo {
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/area': typeof BusinessDataAreaRouteWithChildren
+  '/business-data/batch': typeof BusinessDataBatchRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -199,6 +214,7 @@ export interface FileRoutesByTo {
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/area/$name': typeof BusinessDataAreaNameRoute
+  '/business-data/batch/$name': typeof BusinessDataBatchNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -217,6 +233,7 @@ export interface FileRoutesById {
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/area': typeof BusinessDataAreaRouteWithChildren
+  '/business-data/batch': typeof BusinessDataBatchRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -224,6 +241,7 @@ export interface FileRoutesById {
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/area/$name': typeof BusinessDataAreaNameRoute
+  '/business-data/batch/$name': typeof BusinessDataBatchNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -243,6 +261,7 @@ export interface FileRouteTypes {
     | '/administration/tables'
     | '/administration/uipages'
     | '/business-data/area'
+    | '/business-data/batch'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -250,6 +269,7 @@ export interface FileRouteTypes {
     | '/administration/queries/$name'
     | '/administration/tables/$name'
     | '/business-data/area/$name'
+    | '/business-data/batch/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -267,6 +287,7 @@ export interface FileRouteTypes {
     | '/administration/tables'
     | '/administration/uipages'
     | '/business-data/area'
+    | '/business-data/batch'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -274,6 +295,7 @@ export interface FileRouteTypes {
     | '/administration/queries/$name'
     | '/administration/tables/$name'
     | '/business-data/area/$name'
+    | '/business-data/batch/$name'
   id:
     | '__root__'
     | '/'
@@ -291,6 +313,7 @@ export interface FileRouteTypes {
     | '/administration/tables'
     | '/administration/uipages'
     | '/business-data/area'
+    | '/business-data/batch'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -298,6 +321,7 @@ export interface FileRouteTypes {
     | '/administration/queries/$name'
     | '/administration/tables/$name'
     | '/business-data/area/$name'
+    | '/business-data/batch/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -415,6 +439,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataAreaRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/batch': {
+      id: '/business-data/batch'
+      path: '/batch'
+      fullPath: '/business-data/batch'
+      preLoaderRoute: typeof BusinessDataBatchRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -463,6 +494,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/area/$name'
       preLoaderRoute: typeof BusinessDataAreaNameRouteImport
       parentRoute: typeof BusinessDataAreaRoute
+    }
+    '/business-data/batch/$name': {
+      id: '/business-data/batch/$name'
+      path: '/$name'
+      fullPath: '/business-data/batch/$name'
+      preLoaderRoute: typeof BusinessDataBatchNameRouteImport
+      parentRoute: typeof BusinessDataBatchRoute
     }
   }
 }
@@ -586,12 +624,25 @@ const BusinessDataAreaRouteChildren: BusinessDataAreaRouteChildren = {
 const BusinessDataAreaRouteWithChildren =
   BusinessDataAreaRoute._addFileChildren(BusinessDataAreaRouteChildren)
 
+interface BusinessDataBatchRouteChildren {
+  BusinessDataBatchNameRoute: typeof BusinessDataBatchNameRoute
+}
+
+const BusinessDataBatchRouteChildren: BusinessDataBatchRouteChildren = {
+  BusinessDataBatchNameRoute: BusinessDataBatchNameRoute,
+}
+
+const BusinessDataBatchRouteWithChildren =
+  BusinessDataBatchRoute._addFileChildren(BusinessDataBatchRouteChildren)
+
 interface BusinessDataRouteChildren {
   BusinessDataAreaRoute: typeof BusinessDataAreaRouteWithChildren
+  BusinessDataBatchRoute: typeof BusinessDataBatchRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataAreaRoute: BusinessDataAreaRouteWithChildren,
+  BusinessDataBatchRoute: BusinessDataBatchRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(
