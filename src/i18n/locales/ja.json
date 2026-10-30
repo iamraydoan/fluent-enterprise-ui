@@ -1533,6 +1533,165 @@
         "update": "更新",
         "manage": "管理"
       }
+    },
+    "employee": {
+      "pageLabel": "従業員",
+      "listTitle": "従業員 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "user": "ユーザー",
+        "number": "番号",
+        "team": "チーム",
+        "state": "状態"
+      },
+      "tabs": {
+        "calendar": "カレンダー"
+      },
+      "sections": {
+        "details": "詳細",
+        "subordinates": "部下",
+        "delegates": "代理",
+        "certifications": "認定",
+        "qualifications": "資格",
+        "timeSheetEntries": "タイムシート項目",
+        "checkInInformation": "チェックイン情報",
+        "attachments": "添付ファイル",
+        "employee": "従業員",
+        "clockInOut": "出退勤",
+        "information": "情報",
+        "costing": "コスト",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "状態",
+        "dataGroup": "データグループ",
+        "requireClockIn": "出勤登録を要求",
+        "enableAutomaticClockIn": "自動出勤登録を有効化",
+        "lastClockInDate": "最終出勤日",
+        "clockedState": "出勤状態",
+        "automaticClockOutAtEndOfShift": "シフト終了時の自動退勤",
+        "user": "ユーザー",
+        "number": "番号",
+        "area": "エリア",
+        "calendar": "カレンダー",
+        "team": "チーム",
+        "manager": "マネージャー",
+        "position": "役職",
+        "workgroup": "ワークグループ",
+        "shiftplan": "シフトプラン",
+        "costCenter": "コストセンター",
+        "costPerHour": "時間単価"
+      }
+    },
+    "maintenanceActivityOrder": {
+      "pageLabel": "メンテナンス作業指示",
+      "listTitle": "メンテナンス作業指示 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "executionState": "実行状態",
+        "scheduleType": "スケジュールタイプ",
+        "state": "状態"
+      },
+      "sections": {
+        "details": "詳細",
+        "parts": "部品",
+        "labor": "労働",
+        "personnel": "人員",
+        "transferRequirements": "移転要件",
+        "documents": "ドキュメント",
+        "pastMaos": "過去のMAO",
+        "joinedMaos": "結合されたMAO",
+        "attachments": "添付ファイル",
+        "order": "メンテナンス作業指示",
+        "scheduling": "スケジューリング",
+        "requestInformation": "リクエスト情報",
+        "definition": "定義",
+        "execution": "実行",
+        "information": "情報",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "scheduleDate": "スケジュール日",
+        "requestedBy": "リクエスト者",
+        "requestDate": "リクエスト日",
+        "comment": "コメント",
+        "maintenancePlanInstance": "メンテナンスプランインスタンス",
+        "resource": "リソース",
+        "ownerRole": "所有者ロール",
+        "maintenanceActivity": "メンテナンス作業",
+        "role": "ロール",
+        "beginDate": "開始日",
+        "endDate": "終了日",
+        "scheduleType": "スケジュールタイプ",
+        "expectedDuration": "予想所要時間",
+        "executionState": "実行状態",
+        "reworkCount": "再作業回数",
+        "requestApprovalMode": "リクエスト承認モード",
+        "maintenanceType": "メンテナンスタイプ",
+        "materialTypeRestrictionMode": "材料タイプ制限モード",
+        "materialType": "材料タイプ",
+        "orderReleaseMode": "指示リリースモード",
+        "completionAcceptanceMode": "完了承認モード",
+        "beginAndCompleteMode": "開始および完了モード",
+        "cost": "コスト"
+      }
+    },
+    "maintenancePlan": {
+      "pageLabel": "メンテナンスプラン",
+      "listTitle": "メンテナンスプラン ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "scope": "スコープ",
+        "state": "状態"
+      },
+      "tabs": {
+        "maintenanceActivities": "メンテナンス作業",
+        "compare": "比較"
+      },
+      "sections": {
+        "details": "詳細",
+        "instances": "インスタンス",
+        "attachments": "添付ファイル",
+        "maintenancePlan": "メンテナンスプラン",
+        "activities": "作業",
+        "generalData": "一般データ",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "scope": "スコープ",
+        "dataGroup": "データグループ",
+        "scheduleType": "スケジュールタイプ",
+        "expectedDurationHours": "予想所要時間 (時間)",
+        "executionRole": "実行ロール",
+        "requestApprovalMode": "リクエスト承認モード",
+        "maintenanceType": "メンテナンスタイプ",
+        "materialTypeRestrictionMode": "材料タイプ制限モード",
+        "orderReleaseMode": "指示リリースモード",
+        "acceptanceMode": "承認モード",
+        "ignoreInScheduling": "スケジューリングで無視",
+        "autoDisableAfterLateDue": "遅延後の自動無効化",
+        "postMaintenanceActivity": "ポストメンテナンス作業"
+      }
     }
   }
 }

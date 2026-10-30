@@ -1533,6 +1533,165 @@
         "update": "Cập nhật",
         "manage": "Quản lý"
       }
+    },
+    "employee": {
+      "pageLabel": "Nhân viên",
+      "listTitle": "Nhân viên ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "user": "Người dùng",
+        "number": "Số",
+        "team": "Đội",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "calendar": "Lịch"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "subordinates": "Cấp dưới",
+        "delegates": "Đại diện",
+        "certifications": "Chứng chỉ",
+        "qualifications": "Chứng nhận",
+        "timeSheetEntries": "Mục chấm công",
+        "checkInInformation": "Thông tin Check-In",
+        "attachments": "Tệp đính kèm",
+        "employee": "Nhân viên",
+        "clockInOut": "Clock-In và Clock-Out",
+        "information": "Thông tin",
+        "costing": "Chi phí",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "dataGroup": "Nhóm dữ liệu",
+        "requireClockIn": "Yêu cầu Clock-In",
+        "enableAutomaticClockIn": "Bật tự động Clock-In",
+        "lastClockInDate": "Ngày Clock-In cuối",
+        "clockedState": "Trạng thái Clocked",
+        "automaticClockOutAtEndOfShift": "Tự động Clock-Out khi hết ca",
+        "user": "Người dùng",
+        "number": "Số",
+        "area": "Khu vực",
+        "calendar": "Lịch",
+        "team": "Đội",
+        "manager": "Quản lý",
+        "position": "Vị trí",
+        "workgroup": "Nhóm làm việc",
+        "shiftplan": "Kế hoạch ca",
+        "costCenter": "Trung tâm chi phí",
+        "costPerHour": "Chi phí mỗi giờ"
+      }
+    },
+    "maintenanceActivityOrder": {
+      "pageLabel": "Lệnh hoạt động bảo trì",
+      "listTitle": "Lệnh hoạt động bảo trì ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "executionState": "Trạng thái thực hiện",
+        "scheduleType": "Loại lịch",
+        "state": "Trạng thái"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "parts": "Linh kiện",
+        "labor": "Nhân công",
+        "personnel": "Nhân sự",
+        "transferRequirements": "Yêu cầu chuyển",
+        "documents": "Tài liệu",
+        "pastMaos": "MAO cũ",
+        "joinedMaos": "MAO đã gộp",
+        "attachments": "Tệp đính kèm",
+        "order": "Lệnh hoạt động bảo trì",
+        "scheduling": "Lập lịch",
+        "requestInformation": "Thông tin yêu cầu",
+        "definition": "Định nghĩa",
+        "execution": "Thực hiện",
+        "information": "Thông tin",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "scheduleDate": "Ngày lập lịch",
+        "requestedBy": "Người yêu cầu",
+        "requestDate": "Ngày yêu cầu",
+        "comment": "Bình luận",
+        "maintenancePlanInstance": "Phiên bản kế hoạch bảo trì",
+        "resource": "Tài nguyên",
+        "ownerRole": "Vai trò chủ sở hữu",
+        "maintenanceActivity": "Hoạt động bảo trì",
+        "role": "Vai trò",
+        "beginDate": "Ngày bắt đầu",
+        "endDate": "Ngày kết thúc",
+        "scheduleType": "Loại lịch",
+        "expectedDuration": "Thời lượng dự kiến",
+        "executionState": "Trạng thái thực hiện",
+        "reworkCount": "Số lần làm lại",
+        "requestApprovalMode": "Chế độ phê duyệt yêu cầu",
+        "maintenanceType": "Loại bảo trì",
+        "materialTypeRestrictionMode": "Chế độ giới hạn loại vật liệu",
+        "materialType": "Loại vật liệu",
+        "orderReleaseMode": "Chế độ phát hành lệnh",
+        "completionAcceptanceMode": "Chế độ chấp nhận hoàn thành",
+        "beginAndCompleteMode": "Chế độ bắt đầu và hoàn thành",
+        "cost": "Chi phí"
+      }
+    },
+    "maintenancePlan": {
+      "pageLabel": "Kế hoạch bảo trì",
+      "listTitle": "Kế hoạch bảo trì ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "scope": "Phạm vi",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "maintenanceActivities": "Hoạt động bảo trì",
+        "compare": "So sánh"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "instances": "Phiên bản",
+        "attachments": "Tệp đính kèm",
+        "maintenancePlan": "Kế hoạch bảo trì",
+        "activities": "Hoạt động",
+        "generalData": "Dữ liệu chung",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "scope": "Phạm vi",
+        "dataGroup": "Nhóm dữ liệu",
+        "scheduleType": "Loại lịch",
+        "expectedDurationHours": "Thời lượng dự kiến (giờ)",
+        "executionRole": "Vai trò thực hiện",
+        "requestApprovalMode": "Chế độ phê duyệt yêu cầu",
+        "maintenanceType": "Loại bảo trì",
+        "materialTypeRestrictionMode": "Chế độ giới hạn loại vật liệu",
+        "orderReleaseMode": "Chế độ phát hành lệnh",
+        "acceptanceMode": "Chế độ chấp nhận",
+        "ignoreInScheduling": "Bỏ qua trong lập lịch",
+        "autoDisableAfterLateDue": "Tự động vô hiệu khi quá hạn",
+        "postMaintenanceActivity": "Hoạt động bảo trì tiếp theo"
+      }
     }
   }
 }

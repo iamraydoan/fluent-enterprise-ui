@@ -1533,6 +1533,165 @@
         "update": "Update",
         "manage": "Manage"
       }
+    },
+    "employee": {
+      "pageLabel": "Employee",
+      "listTitle": "Employees ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "user": "User",
+        "number": "Number",
+        "team": "Team",
+        "state": "State"
+      },
+      "tabs": {
+        "calendar": "Calendar"
+      },
+      "sections": {
+        "details": "Details",
+        "subordinates": "Subordinates",
+        "delegates": "Delegates",
+        "certifications": "Certifications",
+        "qualifications": "Qualifications",
+        "timeSheetEntries": "Time Sheet Entries",
+        "checkInInformation": "Check-In Information",
+        "attachments": "Attachments",
+        "employee": "Employee",
+        "clockInOut": "Clock-In and Clock-Out",
+        "information": "Information",
+        "costing": "Costing",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State",
+        "dataGroup": "Data Group",
+        "requireClockIn": "Require Clock-In",
+        "enableAutomaticClockIn": "Enable Automatic Clock-In",
+        "lastClockInDate": "Last Clock-In Date",
+        "clockedState": "Clocked State",
+        "automaticClockOutAtEndOfShift": "Automatic Clock-Out At End Of Shift",
+        "user": "User",
+        "number": "Number",
+        "area": "Area",
+        "calendar": "Calendar",
+        "team": "Team",
+        "manager": "Manager",
+        "position": "Position",
+        "workgroup": "Workgroup",
+        "shiftplan": "Shiftplan",
+        "costCenter": "Cost Center",
+        "costPerHour": "Cost Per Hour"
+      }
+    },
+    "maintenanceActivityOrder": {
+      "pageLabel": "Maintenance Activity Order",
+      "listTitle": "Maintenance Activity Orders ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "executionState": "Execution State",
+        "scheduleType": "Schedule Type",
+        "state": "State"
+      },
+      "sections": {
+        "details": "Details",
+        "parts": "Parts",
+        "labor": "Labor",
+        "personnel": "Personnel",
+        "transferRequirements": "Transfer Requirements",
+        "documents": "Documents",
+        "pastMaos": "Past MAOS",
+        "joinedMaos": "Joined MAOS",
+        "attachments": "Attachments",
+        "order": "Maintenance Activity Order",
+        "scheduling": "Scheduling",
+        "requestInformation": "Request Information",
+        "definition": "Definition",
+        "execution": "Execution",
+        "information": "Information",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "scheduleDate": "Schedule Date",
+        "requestedBy": "Requested By",
+        "requestDate": "Request Date",
+        "comment": "Comment",
+        "maintenancePlanInstance": "Maintenance Plan Instance",
+        "resource": "Resource",
+        "ownerRole": "Owner Role",
+        "maintenanceActivity": "Maintenance Activity",
+        "role": "Role",
+        "beginDate": "Begin Date",
+        "endDate": "End Date",
+        "scheduleType": "Schedule Type",
+        "expectedDuration": "Expected Duration",
+        "executionState": "Execution State",
+        "reworkCount": "Rework Count",
+        "requestApprovalMode": "Request Approval Mode",
+        "maintenanceType": "Maintenance Type",
+        "materialTypeRestrictionMode": "Material Type Restriction Mode",
+        "materialType": "Material Type",
+        "orderReleaseMode": "Order Release Mode",
+        "completionAcceptanceMode": "Completion Acceptance Mode",
+        "beginAndCompleteMode": "Begin and Complete Mode",
+        "cost": "Cost"
+      }
+    },
+    "maintenancePlan": {
+      "pageLabel": "Maintenance Plan",
+      "listTitle": "Maintenance Plans ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "scope": "Scope",
+        "state": "State"
+      },
+      "tabs": {
+        "maintenanceActivities": "Maintenance Activities",
+        "compare": "Compare"
+      },
+      "sections": {
+        "details": "Details",
+        "instances": "Instances",
+        "attachments": "Attachments",
+        "maintenancePlan": "Maintenance Plan",
+        "activities": "Activities",
+        "generalData": "General Data",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "scope": "Scope",
+        "dataGroup": "Data Group",
+        "scheduleType": "Schedule Type",
+        "expectedDurationHours": "Expected Duration (Hours)",
+        "executionRole": "Execution Role",
+        "requestApprovalMode": "Request Approval Mode",
+        "maintenanceType": "Maintenance Type",
+        "materialTypeRestrictionMode": "Material Type Restriction Mode",
+        "orderReleaseMode": "Order Release Mode",
+        "acceptanceMode": "Acceptance Mode",
+        "ignoreInScheduling": "Ignore in Scheduling",
+        "autoDisableAfterLateDue": "Auto Disable After Late Due",
+        "postMaintenanceActivity": "Post Maintenance Activity"
+      }
     }
   }
 }
