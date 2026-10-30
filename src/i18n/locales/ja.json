@@ -815,6 +815,67 @@
         "history": "履歴",
         "references": "参照"
       }
+    },
+    "shiftPlan": {
+      "calendar": {
+        "empty": "シフト計画カレンダー日を生成すると、ここにカレンダーの視覚化が表示されます。",
+        "hint": "シフト計画を構成するカレンダー日の視覚情報。",
+        "title": "シフト計画カレンダー"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "calendar": "カレンダー",
+        "description": "説明",
+        "name": "名前",
+        "state": "状態",
+        "type": "タイプ"
+      },
+      "detail": {
+        "calendar": "カレンダー:",
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "ownerRole": "所有者ロール:",
+        "ownership": "所有権",
+        "state": "ユニバーサル状態:",
+        "type": "タイプ:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "generateDays": {
+        "menuLabel": "シフト計画カレンダー日の生成"
+      },
+      "listTitle": "シフト計画 ({{count}})",
+      "manageCalendarDays": {
+        "menuLabel": "シフト計画カレンダー日の管理"
+      },
+      "manageEmployees": "従業員チームとワークグループの管理",
+      "notFound": "シフト計画が見つかりません。",
+      "pageLabel": "シフト計画",
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細",
+        "employees": "従業員",
+        "workgroups": "ワークグループ"
+      },
+      "tabs": {
+        "calendar": "カレンダー",
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      },
+      "workgroup": {
+        "ownerRole": "所有者ロール",
+        "resources": "リソース"
+      }
     }
   }
 }

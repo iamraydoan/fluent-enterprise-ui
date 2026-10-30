@@ -815,6 +815,67 @@
         "history": "Lịch sử",
         "references": "Tham chiếu"
       }
+    },
+    "shiftPlan": {
+      "calendar": {
+        "empty": "Hình ảnh lịch sẽ hiện ở đây sau khi tạo ngày lịch kế hoạch ca.",
+        "hint": "Thông tin trực quan về các ngày lịch tạo nên kế hoạch ca.",
+        "title": "Lịch kế hoạch ca"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "calendar": "Lịch",
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái",
+        "type": "Loại"
+      },
+      "detail": {
+        "calendar": "Lịch:",
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "ownerRole": "Vai trò chủ sở hữu:",
+        "ownership": "Quyền sở hữu",
+        "state": "Trạng thái chung:",
+        "type": "Loại:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "generateDays": {
+        "menuLabel": "Tạo ngày lịch kế hoạch ca"
+      },
+      "listTitle": "Kế hoạch ca ({{count}})",
+      "manageCalendarDays": {
+        "menuLabel": "Quản lý ngày lịch kế hoạch ca"
+      },
+      "manageEmployees": "Quản lý nhóm và tổ nhân viên",
+      "notFound": "Không tìm thấy kế hoạch ca.",
+      "pageLabel": "Kế hoạch ca",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết",
+        "employees": "Nhân viên",
+        "workgroups": "Tổ công việc"
+      },
+      "tabs": {
+        "calendar": "Lịch",
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      },
+      "workgroup": {
+        "ownerRole": "Vai trò chủ sở hữu",
+        "resources": "Tài nguyên"
+      }
     }
   }
 }

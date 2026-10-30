@@ -8,6 +8,7 @@ import { mcpServerHandlers } from "./handlers/mcpServer";
 import { queryHandlers } from "./handlers/queries";
 import { shiftDefinitionHandlers } from "./handlers/businessData/shiftDefinition";
 import { shiftLogbookHandlers } from "./handlers/businessData/shiftLogbook";
+import { shiftPlanHandlers } from "./handlers/businessData/shiftPlan";
 import { uiPageHandlers } from "./handlers/uiPages";
 
 export const handlers = [
@@ -22,4 +23,5 @@ export const handlers = [
   ...queryHandlers,
   ...shiftDefinitionHandlers,
   ...shiftLogbookHandlers,
+  ...shiftPlanHandlers,
 ];

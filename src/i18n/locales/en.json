@@ -815,6 +815,67 @@
         "history": "History",
         "references": "References"
       }
+    },
+    "shiftPlan": {
+      "calendar": {
+        "empty": "Calendar visualization will appear here after generating Shift Plan Calendar Days.",
+        "hint": "Visual information on the calendar days that compose the Shift Plan.",
+        "title": "Shift Plan Calendar"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "calendar": "Calendar",
+        "description": "Description",
+        "name": "Name",
+        "state": "State",
+        "type": "Type"
+      },
+      "detail": {
+        "calendar": "Calendar:",
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "ownerRole": "Owner Role:",
+        "ownership": "Ownership",
+        "state": "Universal State:",
+        "type": "Type:"
+      },
+      "emptySection": "No data available for this section.",
+      "generateDays": {
+        "menuLabel": "Generate Shift Plan Calendar Days"
+      },
+      "listTitle": "Shift Plans ({{count}})",
+      "manageCalendarDays": {
+        "menuLabel": "Manage Shift Plan Calendar Days"
+      },
+      "manageEmployees": "Manage Employee Teams and Workgroups",
+      "notFound": "Shift Plan not found.",
+      "pageLabel": "Shift Plan",
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details",
+        "employees": "Employees",
+        "workgroups": "Workgroups"
+      },
+      "tabs": {
+        "calendar": "Calendar",
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      },
+      "workgroup": {
+        "ownerRole": "Owner Role",
+        "resources": "Resources"
+      }
     }
   }
 }

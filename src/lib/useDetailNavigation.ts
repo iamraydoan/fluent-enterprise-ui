@@ -9,7 +9,8 @@ type DetailRoute =
   | "/administration/queries/$name"
   | "/administration/tables/$name"
   | "/business-data/shift-definition/$name"
-  | "/business-data/shift-logbook/$name";
+  | "/business-data/shift-logbook/$name"
+  | "/business-data/shift-plan/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();
