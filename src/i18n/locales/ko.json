@@ -919,6 +919,61 @@
           "packedQuantity": "포장 수량",
           "contentType": "콘텐츠 유형"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "terminate": {
+          "title": "Terminate Package",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Package",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "ship": {
+          "title": "Ship Packages",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "fields": {
+            "facility": "Facility",
+            "shippingLabel": "Shipping Label",
+            "shipContainers": "Ship Containers",
+            "comment": "Comment"
+          },
+          "hints": {
+            "facility": "Select the Facility to which the Material should be shipped.",
+            "shippingLabel": "Optionally, enter or select an existing shipping label.",
+            "shipContainers": "Ship the Containers along with the Material (applies to all Containers of the Sub-Materials as well)."
+          }
+        },
+        "report": {
+          "title": "Package Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Package.",
+          "fields": {
+            "level1": "Fields for Level 1",
+            "level2": "Fields for Level 2"
+          },
+          "level1Fields": "Package Qty/ID, Content Product, Content Product Description, Material, Packed Qty",
+          "level2Fields": "Package, Package Qty, Content Product, Content Product Description"
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "contents": "Contents",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
       }
     },
     "parameter": {
