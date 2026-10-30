@@ -26,7 +26,48 @@ export function queryBusinessPartners(page: number, limit: number, q?: string, s
   return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
 }
 
+const BUSINESS_PARTNER_OVERLAYS: Record<string, Partial<BusinessPartnerDetail>> = {};
+
+export interface BusinessPartnerUpsertInput extends Partial<BusinessPartnerDetail> {
+  name: string;
+}
+
 export function buildBusinessPartnerDetail(name: string): BusinessPartnerDetail {
   const r = RECORDS.find((x) => x.name === name) ?? { name, description: name, role: "", state: "Active" };
-  return { ...r, ...EMPTY_DETAIL, universalState: r.state, labelSpecification: "GS1", isSupplier: r.role === "Supplier", isCustomer: r.role === "Customer", isContractor: r.role === "Contractor" };
+  const overlay = BUSINESS_PARTNER_OVERLAYS[r.name] ?? {};
+  return { ...r, ...overlay, ...EMPTY_DETAIL, universalState: r.state, labelSpecification: "GS1", isSupplier: r.role === "Supplier", isCustomer: r.role === "Customer", isContractor: r.role === "Contractor" };
+}
+
+export function createBusinessPartnerDetail(input: BusinessPartnerUpsertInput): BusinessPartnerDetail {
+  const record = { name: input.name, description: input.description ?? "", role: input.role ?? "", state: "Active" };
+  RECORDS.push(record);
+  const overlay: Partial<BusinessPartnerDetail> = { ...input };
+  delete overlay.name;
+  delete overlay.description;
+  delete overlay.role;
+  delete overlay.state;
+  BUSINESS_PARTNER_OVERLAYS[input.name] = overlay;
+  return buildBusinessPartnerDetail(input.name);
+}
+
+export function updateBusinessPartnerDetail(
+  name: string,
+  input: Partial<BusinessPartnerDetail>,
+): BusinessPartnerDetail | undefined {
+  const record = RECORDS.find((x) => x.name === name);
+  if (!record) return undefined;
+  if (input.description !== undefined) record.description = input.description;
+  if (input.role !== undefined) record.role = input.role;
+  BUSINESS_PARTNER_OVERLAYS[name] = { ...BUSINESS_PARTNER_OVERLAYS[name], ...input };
+  return buildBusinessPartnerDetail(name);
+}
+
+export function setBusinessPartnerState(
+  name: string,
+  state: string,
+): BusinessPartnerDetail | undefined {
+  const record = RECORDS.find((x) => x.name === name);
+  if (!record) return undefined;
+  record.state = state;
+  return buildBusinessPartnerDetail(name);
 }

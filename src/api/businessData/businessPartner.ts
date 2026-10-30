@@ -1,4 +1,4 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiFetch } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
@@ -50,5 +50,79 @@ export function useBusinessPartnerDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "business-partners", name],
     queryFn: () => apiFetch<BusinessPartnerDetail>(`/business-data/business-partners/${encodeURIComponent(name)}`),
+  });
+}
+
+export interface BusinessPartnerUpsertInput extends Partial<BusinessPartnerDetail> {
+  name: string;
+}
+
+function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
+  return apiFetch<T>(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export function createBusinessPartnerRecord(
+  input: BusinessPartnerUpsertInput,
+): Promise<BusinessPartnerDetail> {
+  return postJson<BusinessPartnerDetail>("/business-data/business-partners", "POST", input);
+}
+
+export function updateBusinessPartnerRecord(
+  name: string,
+  input: Partial<BusinessPartnerDetail>,
+): Promise<BusinessPartnerDetail> {
+  return postJson<BusinessPartnerDetail>(
+    `/business-data/business-partners/${encodeURIComponent(name)}`,
+    "PUT",
+    input,
+  );
+}
+
+export function setBusinessPartnerRecordState(
+  name: string,
+  state: string,
+): Promise<BusinessPartnerDetail> {
+  return postJson<BusinessPartnerDetail>(
+    `/business-data/business-partners/${encodeURIComponent(name)}/state`,
+    "PATCH",
+    { state },
+  );
+}
+
+const BUSINESS_PARTNER_QUERY_KEY = ["business-data", "business-partners"];
+
+export function useCreateBusinessPartner() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: createBusinessPartnerRecord,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BUSINESS_PARTNER_QUERY_KEY });
+    },
+  });
+}
+
+export function useUpdateBusinessPartner() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, input }: { name: string; input: Partial<BusinessPartnerDetail> }) =>
+      updateBusinessPartnerRecord(name, input),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BUSINESS_PARTNER_QUERY_KEY });
+    },
+  });
+}
+
+export function useSetBusinessPartnerState() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, state }: { name: string; state: string }) =>
+      setBusinessPartnerRecordState(name, state),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BUSINESS_PARTNER_QUERY_KEY });
+    },
   });
 }

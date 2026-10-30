@@ -1,12 +1,14 @@
-import { useState } from "react";
 import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
 import { useBusinessPartnerDetail } from "@/api";
-import { DetailShell, ListPage, editAction, refreshAction } from "@/components/common";
+import { DetailShell, ListPage, cloneAction, editAction, refreshAction, terminateAction, unterminateAction } from "@/components/common";
+import type { HeaderAction } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { useBusinessPartnerDialogs } from "./useBusinessPartnerDialogs";
 
 const useDetailStyles = makeStyles({
   cards: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "12px" },
@@ -36,6 +38,8 @@ export function BusinessPartnerDetailPage() {
   const { name } = useParams({ strict: false }) as { name: string };
   const displayName = decodeURIComponent(name);
   const { data: bp, isLoading } = useBusinessPartnerDetail(displayName);
+  const { dialogs, openEdit, openClone, openTerminate, openUnterminate } =
+    useBusinessPartnerDialogs(bp);
 
   if (isLoading || !bp) {
     return (
@@ -45,8 +49,20 @@ export function BusinessPartnerDetailPage() {
     );
   }
 
+  const detailActions: HeaderAction[] = [
+    refreshAction,
+    { ...editAction, onClick: openEdit },
+    { ...cloneAction, onClick: openClone },
+    bp?.state === "Terminated"
+      ? { ...unterminateAction, onClick: openUnterminate }
+      : { ...terminateAction, onClick: openTerminate },
+  ];
+
   return (
-    <ListPage header={{ icon: <Box24Regular />, title: `${bp.name} (${bp.state})`, actions: [refreshAction, editAction] }}>
+    <ListPage
+      header={{ icon: <Box24Regular />, title: `${bp.name} (${bp.state})`, actions: detailActions }}
+    >
+      {dialogs}
       <div className={styles.tabs} role="tablist">
         {TABS.map((value) => (
           <button key={value} role="tab" aria-selected={tab === value}

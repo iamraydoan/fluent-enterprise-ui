@@ -1041,6 +1041,18 @@
           "details": "세부 정보",
           "attachments": "첨부 파일"
         }
+      },
+      "entityName": "Business Partner",
+      "operations": {
+        "createTitle": "Business Partner 만들기",
+        "editTitle": "Business Partner 편집",
+        "cloneTitle": "Business Partner 복제",
+        "terminateTitle": "Business Partner 종료",
+        "terminateMessage": "{{name}}을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Business Partner 재개",
+        "unterminateMessage": "{{name}}을(를) 재개하시겠습니까?",
+        "address": "주소",
+        "contact": "연락처"
       }
     },
     "calendar": {

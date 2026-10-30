@@ -1041,6 +1041,18 @@
           "details": "Details",
           "attachments": "Attachments"
         }
+      },
+      "entityName": "Business Partner",
+      "operations": {
+        "createTitle": "Create Business Partner",
+        "editTitle": "Edit Business Partner",
+        "cloneTitle": "Clone Business Partner",
+        "terminateTitle": "Terminate Business Partner",
+        "terminateMessage": "Terminate {{name}}?",
+        "unterminateTitle": "Unterminate Business Partner",
+        "unterminateMessage": "Unterminate {{name}}?",
+        "address": "Address",
+        "contact": "Contact"
       }
     },
     "calendar": {

@@ -1041,6 +1041,18 @@
           "details": "詳細",
           "attachments": "添付ファイル"
         }
+      },
+      "entityName": "Business Partner",
+      "operations": {
+        "createTitle": "Business Partnerの作成",
+        "editTitle": "Business Partnerの編集",
+        "cloneTitle": "Business Partnerの複製",
+        "terminateTitle": "Business Partnerの終了",
+        "terminateMessage": "{{name}}を終了しますか？",
+        "unterminateTitle": "Business Partnerの再開",
+        "unterminateMessage": "{{name}}を再開しますか？",
+        "address": "住所",
+        "contact": "連絡先"
       }
     },
     "calendar": {

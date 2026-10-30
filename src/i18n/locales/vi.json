@@ -1041,6 +1041,18 @@
           "details": "Chi tiết",
           "attachments": "Tệp đính kèm"
         }
+      },
+      "entityName": "Business Partner",
+      "operations": {
+        "createTitle": "Tạo Business Partner",
+        "editTitle": "Sửa Business Partner",
+        "cloneTitle": "Nhân bản Business Partner",
+        "terminateTitle": "Kết thúc Business Partner",
+        "terminateMessage": "Kết thúc {{name}}?",
+        "unterminateTitle": "Mở lại Business Partner",
+        "unterminateMessage": "Mở lại {{name}}?",
+        "address": "Địa chỉ",
+        "contact": "Liên hệ"
       }
     },
     "calendar": {

@@ -131,8 +131,21 @@ export type {
   BinConverterRecord,
   BinConverterUpsertInput,
 } from "./businessData/binConverter";
-export { useBusinessPartnerDetail, useBusinessPartners } from "./businessData/businessPartner";
-export type { BusinessPartnerDetail, BusinessPartnerRecord } from "./businessData/businessPartner";
+export {
+  createBusinessPartnerRecord,
+  setBusinessPartnerRecordState,
+  updateBusinessPartnerRecord,
+  useBusinessPartnerDetail,
+  useBusinessPartners,
+  useCreateBusinessPartner,
+  useSetBusinessPartnerState,
+  useUpdateBusinessPartner,
+} from "./businessData/businessPartner";
+export type {
+  BusinessPartnerDetail,
+  BusinessPartnerRecord,
+  BusinessPartnerUpsertInput,
+} from "./businessData/businessPartner";
 export { useCalendarDetail, useCalendars } from "./businessData/calendar";
 export type { CalendarDetail, CalendarRecord, WeekDay } from "./businessData/calendar";
 export { useCertificationDetail, useCertifications } from "./businessData/certification";
