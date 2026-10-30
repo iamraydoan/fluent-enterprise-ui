@@ -19,7 +19,9 @@
     "generate": "생성",
     "execute": "실행",
     "aiEditor": "AI 편집기",
-    "endpoint": "엔드포인트"
+    "endpoint": "엔드포인트",
+    "newTemplate": "새 템플릿",
+    "newFromTemplate": "템플릿에서 만들기"
   },
   "administration": {
     "pageLabel": "관리"
@@ -661,5 +663,53 @@
       "send": "보내기"
     },
     "listTitle": "쿼리 ({{count}})"
+  },
+  "businessData": {
+    "shiftDefinition": {
+      "cancel": "취소",
+      "columns": {
+        "calendar": "달력",
+        "description": "설명",
+        "name": "이름",
+        "startTime": "시작 시간",
+        "state": "상태"
+      },
+      "detail": {
+        "calendar": "달력",
+        "dataGroup": "데이터 그룹",
+        "description": "설명",
+        "information": "정보",
+        "name": "이름",
+        "startTime": "시작 시간",
+        "state": "범용 상태"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "교대 정의 ({{count}})",
+      "manage": "관리",
+      "manageTitle": "교대 정의 교대 관리",
+      "noAttachments": "첨부 파일이 없습니다.",
+      "notFound": "교대 정의를 찾을 수 없습니다.",
+      "pageLabel": "교대 정의",
+      "sections": {
+        "attachments": "첨부 파일",
+        "details": "세부 정보",
+        "shifts": "교대"
+      },
+      "shiftForm": {
+        "code": "코드",
+        "costOvertimeFactor": "초과 근무 비용 계수",
+        "endTime": "종료 시간",
+        "name": "이름",
+        "startTime": "시작 시간",
+        "teamPattern": "팀 패턴"
+      },
+      "shiftTimeRange": "{{start}}부터 {{end}}까지",
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "update": "업데이트"
+    }
   }
 }

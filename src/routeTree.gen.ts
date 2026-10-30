@@ -23,12 +23,14 @@ import { Route as AdministrationEntityTypesRouteImport } from './routes/administ
 import { Route as AdministrationQueriesRouteImport } from './routes/administration.queries'
 import { Route as AdministrationTablesRouteImport } from './routes/administration.tables'
 import { Route as AdministrationUipagesRouteImport } from './routes/administration.uipages'
+import { Route as BusinessDataShiftDefinitionRouteImport } from './routes/business-data.shift-definition'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
 import { Route as AdministrationEntityTypesNameRouteImport } from './routes/administration.entity-types.$name'
 import { Route as AdministrationQueriesNameRouteImport } from './routes/administration.queries.$name'
 import { Route as AdministrationTablesNameRouteImport } from './routes/administration.tables.$name'
+import { Route as BusinessDataShiftDefinitionNameRouteImport } from './routes/business-data.shift-definition.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -103,6 +105,12 @@ const AdministrationUipagesRoute = AdministrationUipagesRouteImport.update({
   path: '/uipages',
   getParentRoute: () => AdministrationRoute,
 } as any)
+const BusinessDataShiftDefinitionRoute =
+  BusinessDataShiftDefinitionRouteImport.update({
+    id: '/shift-definition',
+    path: '/shift-definition',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -139,13 +147,19 @@ const AdministrationTablesNameRoute =
     path: '/$name',
     getParentRoute: () => AdministrationTablesRoute,
   } as any)
+const BusinessDataShiftDefinitionNameRoute =
+  BusinessDataShiftDefinitionNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataShiftDefinitionRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$section': typeof SectionRoute
   '/administration': typeof AdministrationRouteWithChildren
   '/ai': typeof AiRoute
-  '/business-data': typeof BusinessDataRoute
+  '/business-data': typeof BusinessDataRouteWithChildren
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
@@ -155,19 +169,21 @@ export interface FileRoutesByFullPath {
   '/administration/queries': typeof AdministrationQueriesRouteWithChildren
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
+  '/business-data/shift-definition': typeof BusinessDataShiftDefinitionRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
   '/administration/entity-types/$name': typeof AdministrationEntityTypesNameRoute
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
+  '/business-data/shift-definition/$name': typeof BusinessDataShiftDefinitionNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$section': typeof SectionRoute
   '/administration': typeof AdministrationRouteWithChildren
   '/ai': typeof AiRoute
-  '/business-data': typeof BusinessDataRoute
+  '/business-data': typeof BusinessDataRouteWithChildren
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
@@ -177,12 +193,14 @@ export interface FileRoutesByTo {
   '/administration/queries': typeof AdministrationQueriesRouteWithChildren
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
+  '/business-data/shift-definition': typeof BusinessDataShiftDefinitionRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
   '/administration/entity-types/$name': typeof AdministrationEntityTypesNameRoute
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
+  '/business-data/shift-definition/$name': typeof BusinessDataShiftDefinitionNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -190,7 +208,7 @@ export interface FileRoutesById {
   '/$section': typeof SectionRoute
   '/administration': typeof AdministrationRouteWithChildren
   '/ai': typeof AiRoute
-  '/business-data': typeof BusinessDataRoute
+  '/business-data': typeof BusinessDataRouteWithChildren
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
@@ -200,12 +218,14 @@ export interface FileRoutesById {
   '/administration/queries': typeof AdministrationQueriesRouteWithChildren
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
+  '/business-data/shift-definition': typeof BusinessDataShiftDefinitionRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
   '/administration/entity-types/$name': typeof AdministrationEntityTypesNameRoute
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
+  '/business-data/shift-definition/$name': typeof BusinessDataShiftDefinitionNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -224,12 +244,14 @@ export interface FileRouteTypes {
     | '/administration/queries'
     | '/administration/tables'
     | '/administration/uipages'
+    | '/business-data/shift-definition'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
     | '/administration/entity-types/$name'
     | '/administration/queries/$name'
     | '/administration/tables/$name'
+    | '/business-data/shift-definition/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -246,12 +268,14 @@ export interface FileRouteTypes {
     | '/administration/queries'
     | '/administration/tables'
     | '/administration/uipages'
+    | '/business-data/shift-definition'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
     | '/administration/entity-types/$name'
     | '/administration/queries/$name'
     | '/administration/tables/$name'
+    | '/business-data/shift-definition/$name'
   id:
     | '__root__'
     | '/'
@@ -268,12 +292,14 @@ export interface FileRouteTypes {
     | '/administration/queries'
     | '/administration/tables'
     | '/administration/uipages'
+    | '/business-data/shift-definition'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
     | '/administration/entity-types/$name'
     | '/administration/queries/$name'
     | '/administration/tables/$name'
+    | '/business-data/shift-definition/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -281,7 +307,7 @@ export interface RootRouteChildren {
   SectionRoute: typeof SectionRoute
   AdministrationRoute: typeof AdministrationRouteWithChildren
   AiRoute: typeof AiRoute
-  BusinessDataRoute: typeof BusinessDataRoute
+  BusinessDataRoute: typeof BusinessDataRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -384,6 +410,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdministrationUipagesRouteImport
       parentRoute: typeof AdministrationRoute
     }
+    '/business-data/shift-definition': {
+      id: '/business-data/shift-definition'
+      path: '/shift-definition'
+      fullPath: '/business-data/shift-definition'
+      preLoaderRoute: typeof BusinessDataShiftDefinitionRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -425,6 +458,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/administration/tables/$name'
       preLoaderRoute: typeof AdministrationTablesNameRouteImport
       parentRoute: typeof AdministrationTablesRoute
+    }
+    '/business-data/shift-definition/$name': {
+      id: '/business-data/shift-definition/$name'
+      path: '/$name'
+      fullPath: '/business-data/shift-definition/$name'
+      preLoaderRoute: typeof BusinessDataShiftDefinitionNameRouteImport
+      parentRoute: typeof BusinessDataShiftDefinitionRoute
     }
   }
 }
@@ -537,12 +577,39 @@ const AdministrationRouteWithChildren = AdministrationRoute._addFileChildren(
   AdministrationRouteChildren,
 )
 
+interface BusinessDataShiftDefinitionRouteChildren {
+  BusinessDataShiftDefinitionNameRoute: typeof BusinessDataShiftDefinitionNameRoute
+}
+
+const BusinessDataShiftDefinitionRouteChildren: BusinessDataShiftDefinitionRouteChildren =
+  {
+    BusinessDataShiftDefinitionNameRoute: BusinessDataShiftDefinitionNameRoute,
+  }
+
+const BusinessDataShiftDefinitionRouteWithChildren =
+  BusinessDataShiftDefinitionRoute._addFileChildren(
+    BusinessDataShiftDefinitionRouteChildren,
+  )
+
+interface BusinessDataRouteChildren {
+  BusinessDataShiftDefinitionRoute: typeof BusinessDataShiftDefinitionRouteWithChildren
+}
+
+const BusinessDataRouteChildren: BusinessDataRouteChildren = {
+  BusinessDataShiftDefinitionRoute:
+    BusinessDataShiftDefinitionRouteWithChildren,
+}
+
+const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(
+  BusinessDataRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SectionRoute: SectionRoute,
   AdministrationRoute: AdministrationRouteWithChildren,
   AiRoute: AiRoute,
-  BusinessDataRoute: BusinessDataRoute,
+  BusinessDataRoute: BusinessDataRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -19,7 +19,9 @@
     "generate": "生成",
     "execute": "実行",
     "aiEditor": "AI エディター",
-    "endpoint": "エンドポイント"
+    "endpoint": "エンドポイント",
+    "newTemplate": "新規テンプレート",
+    "newFromTemplate": "テンプレートから作成"
   },
   "administration": {
     "pageLabel": "管理"
@@ -661,5 +663,53 @@
       "send": "送信"
     },
     "listTitle": "クエリ ({{count}})"
+  },
+  "businessData": {
+    "shiftDefinition": {
+      "cancel": "キャンセル",
+      "columns": {
+        "calendar": "カレンダー",
+        "description": "説明",
+        "name": "名前",
+        "startTime": "開始時刻",
+        "state": "状態"
+      },
+      "detail": {
+        "calendar": "カレンダー",
+        "dataGroup": "データグループ",
+        "description": "説明",
+        "information": "情報",
+        "name": "名前",
+        "startTime": "開始時刻",
+        "state": "ユニバーサル状態"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "シフト定義 ({{count}})",
+      "manage": "管理",
+      "manageTitle": "シフト定義のシフト管理",
+      "noAttachments": "添付ファイルがありません。",
+      "notFound": "シフト定義が見つかりません。",
+      "pageLabel": "シフト定義",
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "shifts": "シフト"
+      },
+      "shiftForm": {
+        "code": "コード",
+        "costOvertimeFactor": "残業コスト係数",
+        "endTime": "終了時刻",
+        "name": "名前",
+        "startTime": "開始時刻",
+        "teamPattern": "チームパターン"
+      },
+      "shiftTimeRange": "{{start}}から{{end}}まで",
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "update": "更新"
+    }
   }
 }

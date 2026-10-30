@@ -76,3 +76,15 @@ export type {
   UIPageScope,
   UIPageType,
 } from "./uiPages";
+export {
+  getShiftDefinition,
+  listShiftDefinitions,
+  useShiftDefinitionDetail,
+  useShiftDefinitions,
+} from "./businessData/shiftDefinition";
+export type {
+  ShiftDefinitionDetail,
+  ShiftDefinitionListParams,
+  ShiftDefinitionRecord,
+  ShiftDefinitionShift,
+} from "./businessData/shiftDefinition";

@@ -39,6 +39,8 @@ export {
   Dismiss20Regular,
   Dismiss20Filled,
   DocumentAdd20Regular,
+  DocumentAdd24Regular,
+  DocumentCopy24Regular,
   DocumentBulletList20Regular,
   DocumentBulletList24Regular,
   DocumentSearch24Regular,

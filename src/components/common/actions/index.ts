@@ -8,6 +8,8 @@ export { executeAction } from "./execute";
 export { exportAction } from "./export";
 export { generateAction } from "./generate";
 export { importAction } from "./import";
+export { newFromTemplateAction } from "./newFromTemplate";
+export { newTemplateAction } from "./newTemplate";
 export { refreshAction } from "./refresh";
 export { saveAction } from "./save";
 export { settingsAction } from "./settings";

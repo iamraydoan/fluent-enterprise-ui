@@ -7,7 +7,8 @@ type DetailRoute =
   | "/administration/configuration/$path"
   | "/administration/entity-types/$name"
   | "/administration/queries/$name"
-  | "/administration/tables/$name";
+  | "/administration/tables/$name"
+  | "/business-data/shift-definition/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

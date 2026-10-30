@@ -16,6 +16,8 @@ export {
   exportAction,
   generateAction,
   importAction,
+  newFromTemplateAction,
+  newTemplateAction,
   refreshAction,
   saveAction,
   settingsAction,

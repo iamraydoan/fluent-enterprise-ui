@@ -19,7 +19,9 @@
     "generate": "Generate",
     "execute": "Execute",
     "aiEditor": "AI Editor",
-    "endpoint": "Endpoint"
+    "endpoint": "Endpoint",
+    "newTemplate": "New Template",
+    "newFromTemplate": "New from Template"
   },
   "administration": {
     "pageLabel": "Administration"
@@ -661,5 +663,53 @@
       "send": "Send"
     },
     "listTitle": "Queries ({{count}})"
+  },
+  "businessData": {
+    "shiftDefinition": {
+      "cancel": "Cancel",
+      "columns": {
+        "calendar": "Calendar",
+        "description": "Description",
+        "name": "Name",
+        "startTime": "Start Time",
+        "state": "State"
+      },
+      "detail": {
+        "calendar": "Calendar",
+        "dataGroup": "Data Group",
+        "description": "Description",
+        "information": "Information",
+        "name": "Name",
+        "startTime": "Start Time",
+        "state": "Universal State"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Shift Definitions ({{count}})",
+      "manage": "Manage",
+      "manageTitle": "Manage Shift Definition Shifts",
+      "noAttachments": "No attachments.",
+      "notFound": "Shift Definition not found.",
+      "pageLabel": "Shift Definition",
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details",
+        "shifts": "Shifts"
+      },
+      "shiftForm": {
+        "code": "Code",
+        "costOvertimeFactor": "Cost Overtime Factor",
+        "endTime": "End Time",
+        "name": "Name",
+        "startTime": "Start Time",
+        "teamPattern": "Team Pattern"
+      },
+      "shiftTimeRange": "From {{start}} to {{end}}",
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "update": "Update"
+    }
   }
 }

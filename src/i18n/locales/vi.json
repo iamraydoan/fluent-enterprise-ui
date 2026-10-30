@@ -19,7 +19,9 @@
     "generate": "Tạo mã",
     "execute": "Thực thi",
     "aiEditor": "AI Editor",
-    "endpoint": "Endpoint"
+    "endpoint": "Endpoint",
+    "newTemplate": "Mẫu mới",
+    "newFromTemplate": "Tạo từ mẫu"
   },
   "administration": {
     "pageLabel": "Quản trị"
@@ -661,5 +663,53 @@
       "send": "Gửi"
     },
     "listTitle": "Truy vấn ({{count}})"
+  },
+  "businessData": {
+    "shiftDefinition": {
+      "cancel": "Hủy",
+      "columns": {
+        "calendar": "Lịch",
+        "description": "Mô tả",
+        "name": "Tên",
+        "startTime": "Giờ bắt đầu",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "calendar": "Lịch",
+        "dataGroup": "Nhóm dữ liệu",
+        "description": "Mô tả",
+        "information": "Thông tin",
+        "name": "Tên",
+        "startTime": "Giờ bắt đầu",
+        "state": "Trạng thái chung"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Định nghĩa ca ({{count}})",
+      "manage": "Quản lý",
+      "manageTitle": "Quản lý ca làm việc",
+      "noAttachments": "Không có tệp đính kèm.",
+      "notFound": "Không tìm thấy định nghĩa ca.",
+      "pageLabel": "Định nghĩa ca",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "shifts": "Ca làm việc"
+      },
+      "shiftForm": {
+        "code": "Mã",
+        "costOvertimeFactor": "Hệ số làm thêm",
+        "endTime": "Giờ kết thúc",
+        "name": "Tên",
+        "startTime": "Giờ bắt đầu",
+        "teamPattern": "Mẫu nhóm"
+      },
+      "shiftTimeRange": "Từ {{start}} đến {{end}}",
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "update": "Cập nhật"
+    }
   }
 }
