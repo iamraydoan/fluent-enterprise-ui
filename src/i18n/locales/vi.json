@@ -904,6 +904,30 @@
           "instances": "Phiên bản",
           "attachments": "Tệp đính kèm"
         }
+      },
+      "entityName": "BOM",
+      "operations": {
+        "createTitle": "Tạo BOM",
+        "editTitle": "Sửa BOM",
+        "cloneTitle": "Nhân bản BOM",
+        "terminateTitle": "Kết thúc BOM",
+        "terminateMessage": "Kết thúc {{name}}?",
+        "unterminateTitle": "Mở lại BOM",
+        "unterminateMessage": "Mở lại {{name}}?",
+        "changeSet": "Change Set",
+        "changeSetName": "Change Set",
+        "useAutomaticChangeSet": "Dùng Automatic Change Set",
+        "approvalRole": "Approval Role",
+        "makeEffectiveOnApproval": "Effective khi Approve",
+        "manageItems": "Quản lý BOM Items",
+        "manageItemsHint": "BOM items cho {{name}}.",
+        "itemsHint": "Thêm products.",
+        "noItems": "Chưa có item.",
+        "product": "Product",
+        "quantity": "Số lượng",
+        "units": "Đơn vị",
+        "position": "Vị trí",
+        "makeEffective": "Đặt effective"
       }
     },
     "binConverter": {

@@ -1,4 +1,4 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiFetch } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
@@ -56,4 +56,64 @@ export function getBom(name: string): Promise<BomDetail> {
 
 export function useBomDetail(name: string) {
   return useQuery({ queryKey: ["business-data", "boms", name], queryFn: () => getBom(name) });
+}
+
+export interface BomUpsertInput extends Partial<BomDetail> {
+  name: string;
+}
+
+function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
+  return apiFetch<T>(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export function createBomRecord(input: BomUpsertInput): Promise<BomDetail> {
+  return postJson<BomDetail>("/business-data/boms", "POST", input);
+}
+
+export function updateBomRecord(name: string, input: Partial<BomDetail>): Promise<BomDetail> {
+  return postJson<BomDetail>(`/business-data/boms/${encodeURIComponent(name)}`, "PUT", input);
+}
+
+export function setBomRecordState(name: string, state: string): Promise<BomDetail> {
+  return postJson<BomDetail>(`/business-data/boms/${encodeURIComponent(name)}/state`, "PATCH", {
+    state,
+  });
+}
+
+const BOM_QUERY_KEY = ["business-data", "boms"];
+
+export function useCreateBom() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: createBomRecord,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BOM_QUERY_KEY });
+    },
+  });
+}
+
+export function useUpdateBom() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, input }: { name: string; input: Partial<BomDetail> }) =>
+      updateBomRecord(name, input),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BOM_QUERY_KEY });
+    },
+  });
+}
+
+export function useSetBomState() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, state }: { name: string; state: string }) =>
+      setBomRecordState(name, state),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BOM_QUERY_KEY });
+    },
+  });
 }

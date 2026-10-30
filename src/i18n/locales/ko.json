@@ -904,6 +904,30 @@
           "instances": "인스턴스",
           "attachments": "첨부 파일"
         }
+      },
+      "entityName": "BOM",
+      "operations": {
+        "createTitle": "BOM 만들기",
+        "editTitle": "BOM 편집",
+        "cloneTitle": "BOM 복제",
+        "terminateTitle": "BOM 종료",
+        "terminateMessage": "{{name}}을(를) 종료하시겠습니까?",
+        "unterminateTitle": "BOM 재개",
+        "unterminateMessage": "{{name}}을(를) 재개하시겠습니까?",
+        "changeSet": "Change Set",
+        "changeSetName": "Change Set",
+        "useAutomaticChangeSet": "자동 Change Set 사용",
+        "approvalRole": "승인 역할",
+        "makeEffectiveOnApproval": "승인 시 유효화",
+        "manageItems": "BOM 품목 관리",
+        "manageItemsHint": "{{name}}의 BOM 품목",
+        "itemsHint": "제품 추가",
+        "noItems": "품목이 없습니다.",
+        "product": "제품",
+        "quantity": "수량",
+        "units": "단위",
+        "position": "위치",
+        "makeEffective": "유효화"
       }
     },
     "binConverter": {

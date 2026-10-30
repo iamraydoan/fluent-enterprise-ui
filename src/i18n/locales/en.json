@@ -904,6 +904,30 @@
           "instances": "Instances",
           "attachments": "Attachments"
         }
+      },
+      "entityName": "BOM",
+      "operations": {
+        "createTitle": "Create BOM",
+        "editTitle": "Edit BOM",
+        "cloneTitle": "Clone BOM",
+        "terminateTitle": "Terminate BOM",
+        "terminateMessage": "Terminate {{name}}?",
+        "unterminateTitle": "Unterminate BOM",
+        "unterminateMessage": "Unterminate {{name}}?",
+        "changeSet": "Change Set",
+        "changeSetName": "Change Set",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "approvalRole": "Approval Role",
+        "makeEffectiveOnApproval": "Make Change Set Items Effective on Approval",
+        "manageItems": "Manage BOM Items",
+        "manageItemsHint": "BOM items for {{name}}. Add, update or remove items, then press Update.",
+        "itemsHint": "Add products consumed by this BOM.",
+        "noItems": "No items added.",
+        "product": "Product",
+        "quantity": "Quantity",
+        "units": "Units",
+        "position": "Position",
+        "makeEffective": "Make items effective"
       }
     },
     "binConverter": {

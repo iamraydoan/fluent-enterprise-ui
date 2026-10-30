@@ -102,8 +102,19 @@ export {
   useUpdateBatch,
 } from "./businessData/batch";
 export type { BatchDetail, BatchRecord, BatchUpsertInput } from "./businessData/batch";
-export { getBom, listBoms, useBomDetail, useBoms } from "./businessData/bom";
-export type { BomDetail, BomItem, BomRecord } from "./businessData/bom";
+export {
+  createBomRecord,
+  getBom,
+  listBoms,
+  setBomRecordState,
+  updateBomRecord,
+  useBomDetail,
+  useBoms,
+  useCreateBom,
+  useSetBomState,
+  useUpdateBom,
+} from "./businessData/bom";
+export type { BomDetail, BomItem, BomRecord, BomUpsertInput } from "./businessData/bom";
 export { useBinConverterDetail, useBinConverters } from "./businessData/binConverter";
 export type { BinConversion, BinConverterDetail, BinConverterRecord } from "./businessData/binConverter";
 export { useBusinessPartnerDetail, useBusinessPartners } from "./businessData/businessPartner";

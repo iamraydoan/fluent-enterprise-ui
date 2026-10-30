@@ -904,6 +904,30 @@
           "instances": "インスタンス",
           "attachments": "添付ファイル"
         }
+      },
+      "entityName": "BOM",
+      "operations": {
+        "createTitle": "BOMの作成",
+        "editTitle": "BOMの編集",
+        "cloneTitle": "BOMの複製",
+        "terminateTitle": "BOMの終了",
+        "terminateMessage": "{{name}}を終了しますか？",
+        "unterminateTitle": "BOMの再開",
+        "unterminateMessage": "{{name}}を再開しますか？",
+        "changeSet": "Change Set",
+        "changeSetName": "Change Set",
+        "useAutomaticChangeSet": "自動Change Setを使用",
+        "approvalRole": "承認ロール",
+        "makeEffectiveOnApproval": "承認時に有効化",
+        "manageItems": "BOM品目の管理",
+        "manageItemsHint": "{{name}}のBOM品目",
+        "itemsHint": "製品を追加",
+        "noItems": "品目がありません。",
+        "product": "製品",
+        "quantity": "数量",
+        "units": "単位",
+        "position": "位置",
+        "makeEffective": "有効化"
       }
     },
     "binConverter": {
