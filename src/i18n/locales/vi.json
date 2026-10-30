@@ -19,7 +19,10 @@
     "generate": "Tạo mã",
     "execute": "Thực thi",
     "aiEditor": "AI Editor",
-    "endpoint": "Endpoint"
+    "endpoint": "Endpoint",
+    "clone": "Nhân bản",
+    "terminate": "Chấm dứt",
+    "unterminate": "Bỏ chấm dứt"
   },
   "administration": {
     "pageLabel": "Quản trị"
@@ -143,7 +146,12 @@
     "terminated": "Đã kết thúc",
     "update": "Cập nhật",
     "yes": "Có",
-    "expandPanel": "Mở rộng bảng"
+    "expandPanel": "Mở rộng bảng",
+    "back": "Quay lại",
+    "next": "Tiếp",
+    "create": "Tạo",
+    "add": "Thêm",
+    "remove": "Xóa"
   },
   "configuration": {
     "pageLabel": "Cấu hình",
@@ -713,7 +721,35 @@
         "emptyValue": "—"
       },
       "listTitle": "Khu vực",
-      "pageLabel": "Khu vực"
+      "pageLabel": "Khu vực",
+      "entityName": "Area",
+      "operations": {
+        "createTitle": "Tạo Area",
+        "editTitle": "Sửa Area",
+        "cloneTitle": "Nhân bản Area",
+        "terminateTitle": "Chấm dứt Area",
+        "unterminateTitle": "Bỏ chấm dứt Area",
+        "terminateMessage": "Bạn có chắc muốn chấm dứt {{name}}?",
+        "unterminateMessage": "Bạn có chắc muốn bỏ chấm dứt {{name}}?",
+        "parentArea": "Parent Area",
+        "additionalInformation": "Thông tin bổ sung",
+        "newName": "Tên mới",
+        "manageSupplyAreas": "Quản lý Supply Areas",
+        "manageSupplyAreasHint": "Supply areas cho {{name}}.",
+        "noSupplyAreas": "Chưa có supply area.",
+        "supplyAreaName": "Tên",
+        "supplyArea": "Supply Area",
+        "manageTransferTypes": "Quản lý Transfer Requirement Types",
+        "manageTransferTypesHint": "Transfer requirement types cho {{name}}.",
+        "noTransferTypes": "Chưa có transfer requirement type.",
+        "sourceLocation": "Source Location",
+        "viewDashboards": "Xem Area Dashboards",
+        "dashboards": {
+          "maintenanceKpi": "Maintenance KPI",
+          "oee": "OEE",
+          "production": "Production"
+        }
+      }
     },
     "batch": {
       "pageLabel": "Lô hàng",
@@ -1385,6 +1421,10 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "operations": {
+      "fieldRequired": "Vui lòng điền đầy đủ các trường bắt buộc.",
+      "selectOption": "Chọn một giá trị"
     }
   }
 }

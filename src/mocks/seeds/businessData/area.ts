@@ -67,6 +67,7 @@ export function buildAreaDetail(name: string): AreaDetail {
     type: "Process",
     state: "Active",
   };
+  const overlay = AREA_DETAIL_OVERLAYS[record.name] ?? {};
   return {
     ...record,
     universalState: record.state,
@@ -80,5 +81,48 @@ export function buildAreaDetail(name: string): AreaDetail {
     steps: ["Mixing", "Moulding", "Baking"],
     resources: ["Mixer-01", "Mixer-02", "Moulder-01", "Baker-01"],
     subAreas: ["Mixing", "Moulding", "Baking"],
+    ...overlay,
   };
+}
+
+const AREA_DETAIL_OVERLAYS: Record<string, Partial<AreaDetail>> = {};
+
+export interface AreaUpsertInput extends Partial<AreaDetail> {
+  name: string;
+}
+
+export function createAreaDetail(input: AreaUpsertInput): AreaDetail {
+  const record: AreaRecord = {
+    name: input.name,
+    description: input.description ?? "",
+    facility: input.facility ?? "",
+    type: input.type ?? "",
+    state: "Active",
+  };
+  AREAS.push(record);
+  const overlay: Partial<AreaDetail> = { ...input };
+  delete overlay.name;
+  delete overlay.description;
+  delete overlay.facility;
+  delete overlay.type;
+  delete overlay.state;
+  AREA_DETAIL_OVERLAYS[input.name] = overlay;
+  return buildAreaDetail(input.name);
+}
+
+export function updateAreaDetail(name: string, input: Partial<AreaDetail>): AreaDetail | undefined {
+  const record = AREAS.find((area) => area.name === name);
+  if (!record) return undefined;
+  if (input.description !== undefined) record.description = input.description;
+  if (input.facility !== undefined) record.facility = input.facility;
+  if (input.type !== undefined) record.type = input.type;
+  AREA_DETAIL_OVERLAYS[name] = { ...AREA_DETAIL_OVERLAYS[name], ...input };
+  return buildAreaDetail(name);
+}
+
+export function setAreaState(name: string, state: string): AreaDetail | undefined {
+  const record = AREAS.find((area) => area.name === name);
+  if (!record) return undefined;
+  record.state = state;
+  return buildAreaDetail(name);
 }

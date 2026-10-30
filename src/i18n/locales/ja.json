@@ -19,7 +19,10 @@
     "generate": "生成",
     "execute": "実行",
     "aiEditor": "AI エディター",
-    "endpoint": "エンドポイント"
+    "endpoint": "エンドポイント",
+    "clone": "複製",
+    "terminate": "終了",
+    "unterminate": "終了取消"
   },
   "administration": {
     "pageLabel": "管理"
@@ -143,7 +146,12 @@
     "terminated": "終了",
     "update": "更新",
     "yes": "はい",
-    "expandPanel": "パネルを展開する"
+    "expandPanel": "パネルを展開する",
+    "back": "戻る",
+    "next": "次へ",
+    "create": "作成",
+    "add": "追加",
+    "remove": "削除"
   },
   "configuration": {
     "pageLabel": "構成",
@@ -713,7 +721,35 @@
         "emptyValue": "—"
       },
       "listTitle": "エリア",
-      "pageLabel": "エリア"
+      "pageLabel": "エリア",
+      "entityName": "Area",
+      "operations": {
+        "createTitle": "Areaの作成",
+        "editTitle": "Areaの編集",
+        "cloneTitle": "Areaの複製",
+        "terminateTitle": "Areaの終了",
+        "unterminateTitle": "Areaの終了取消",
+        "terminateMessage": "{{name}}を終了しますか？",
+        "unterminateMessage": "{{name}}の終了を取り消しますか？",
+        "parentArea": "Parent Area",
+        "additionalInformation": "追加情報",
+        "newName": "新しい名前",
+        "manageSupplyAreas": "Supply Areasの管理",
+        "manageSupplyAreasHint": "{{name}}のSupply Areas",
+        "noSupplyAreas": "Supply Areasがありません。",
+        "supplyAreaName": "名前",
+        "supplyArea": "Supply Area",
+        "manageTransferTypes": "Transfer Requirement Typesの管理",
+        "manageTransferTypesHint": "{{name}}のTransfer Requirement Types",
+        "noTransferTypes": "Transfer Requirement Typesがありません。",
+        "sourceLocation": "Source Location",
+        "viewDashboards": "Areaダッシュボードの表示",
+        "dashboards": {
+          "maintenanceKpi": "Maintenance KPI",
+          "oee": "OEE",
+          "production": "Production"
+        }
+      }
     },
     "batch": {
       "pageLabel": "バッチ",
@@ -1385,6 +1421,10 @@
           "attachments": "添付ファイル"
         }
       }
+    },
+    "operations": {
+      "fieldRequired": "必須フィールドを入力してください。",
+      "selectOption": "選択してください"
     }
   }
 }

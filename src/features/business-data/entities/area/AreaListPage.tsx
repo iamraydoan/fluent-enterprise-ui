@@ -12,6 +12,7 @@ import type { DataColumn } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { useAreaDialogs } from "./useAreaDialogs";
 
 const COLUMNS: DataColumn<AreaRecord>[] = [
   { field: "name", headerName: "businessData.area.columns.name", type: "link", locked: true, width: "25%" },
@@ -24,18 +25,27 @@ const COLUMNS: DataColumn<AreaRecord>[] = [
 export function AreaListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/business-data/area/$name", openRoute);
+  const { dialogs, openCreate } = useAreaDialogs();
 
   return (
-    <DataListPage
-      icon={<Box24Regular />}
-      titleKey="businessData.area.pageLabel"
-      listTitleKey="businessData.area.listTitle"
-      actions={[createAction, refreshAction, importAction, exportAction]}
-      columns={COLUMNS}
-      filters={defaultListFilters}
-      useListQuery={useAreas}
-      getRowId={(row) => row.name}
-      onRowClick={(row) => openDetail(row.name)}
-    />
+    <>
+      <DataListPage
+        icon={<Box24Regular />}
+        titleKey="businessData.area.pageLabel"
+        listTitleKey="businessData.area.listTitle"
+        actions={[
+          { ...createAction, onClick: openCreate },
+          refreshAction,
+          importAction,
+          exportAction,
+        ]}
+        columns={COLUMNS}
+        filters={defaultListFilters}
+        useListQuery={useAreas}
+        getRowId={(row) => row.name}
+        onRowClick={(row) => openDetail(row.name)}
+      />
+      {dialogs}
+    </>
   );
 }

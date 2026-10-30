@@ -4,14 +4,19 @@ import { useAreaDetail } from "@/api";
 import {
   DetailShell,
   ListPage,
+  cloneAction,
   editAction,
   refreshAction,
+  terminateAction,
+  unterminateAction,
 } from "@/components/common";
-import { Box24Regular } from "@/components/icons";
+import type { HeaderAction } from "@/components/common";
+import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import { Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { useAreaDialogs } from "./useAreaDialogs";
 
 const useDetailStyles = makeStyles({
   cards: {
@@ -66,6 +71,35 @@ export function AreaDetailPage() {
   const [tab, setTab] = useState<AreaTab>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { data: area, isLoading } = useAreaDetail(decodeURIComponent(name));
+  const {
+    dialogs,
+    openEdit,
+    openClone,
+    openTerminate,
+    openUnterminate,
+    openSupplyAreas,
+    openTransferTypes,
+    openDashboards,
+  } = useAreaDialogs(area);
+
+  const detailActions: HeaderAction[] = [
+    refreshAction,
+    { ...editAction, onClick: openEdit },
+    { ...cloneAction, onClick: openClone },
+    area?.state === "Terminated"
+      ? { ...unterminateAction, onClick: openUnterminate }
+      : { ...terminateAction, onClick: openTerminate },
+    {
+      id: "more",
+      icon: <MoreVertical24Regular />,
+      labelKey: "actionBar.more",
+      menu: [
+        { label: t("businessData.area.operations.manageSupplyAreas"), onClick: openSupplyAreas },
+        { label: t("businessData.area.operations.manageTransferTypes"), onClick: openTransferTypes },
+        { label: t("businessData.area.operations.viewDashboards"), onClick: openDashboards },
+      ],
+    },
+  ];
 
   if (isLoading || !area) {
     return (
@@ -82,13 +116,14 @@ export function AreaDetailPage() {
   }
 
   return (
-    <ListPage
-      header={{
-        icon: <Box24Regular />,
-        title: `${area.name} (${area.state})`,
-        actions: [refreshAction, editAction],
-      }}
-    >
+    <>
+      <ListPage
+        header={{
+          icon: <Box24Regular />,
+          title: `${area.name} (${area.state})`,
+          actions: detailActions,
+        }}
+      >
       <div className={styles.tabs} role="tablist">
         {TABS.map((value) => (
           <button
@@ -158,7 +193,9 @@ export function AreaDetailPage() {
           <div className={styles.empty}>{t("businessData.area.detail.historyEmpty")}</div>
         )}
       </div>
-    </ListPage>
+      </ListPage>
+      {dialogs}
+    </>
   );
 }
 

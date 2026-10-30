@@ -19,7 +19,10 @@
     "generate": "Generate",
     "execute": "Execute",
     "aiEditor": "AI Editor",
-    "endpoint": "Endpoint"
+    "endpoint": "Endpoint",
+    "clone": "Clone",
+    "terminate": "Terminate",
+    "unterminate": "Unterminate"
   },
   "administration": {
     "pageLabel": "Administration"
@@ -143,7 +146,12 @@
     "terminated": "Terminated",
     "update": "Update",
     "yes": "Yes",
-    "expandPanel": "Expand panel"
+    "expandPanel": "Expand panel",
+    "back": "Back",
+    "next": "Next",
+    "create": "Create",
+    "add": "Add",
+    "remove": "Remove"
   },
   "configuration": {
     "pageLabel": "Configuration",
@@ -713,7 +721,35 @@
         "emptyValue": "—"
       },
       "listTitle": "Areas",
-      "pageLabel": "Areas"
+      "pageLabel": "Areas",
+      "entityName": "Area",
+      "operations": {
+        "createTitle": "Create Area",
+        "editTitle": "Edit Area",
+        "cloneTitle": "Clone Area",
+        "terminateTitle": "Terminate Area",
+        "unterminateTitle": "Unterminate Area",
+        "terminateMessage": "Are you sure you want to terminate {{name}}?",
+        "unterminateMessage": "Are you sure you want to unterminate {{name}}?",
+        "parentArea": "Parent Area",
+        "additionalInformation": "Additional Information",
+        "newName": "New Name",
+        "manageSupplyAreas": "Manage Supply Areas",
+        "manageSupplyAreasHint": "Supply areas for {{name}}. Add rows and press Update.",
+        "noSupplyAreas": "No supply areas defined.",
+        "supplyAreaName": "Name",
+        "supplyArea": "Supply Area",
+        "manageTransferTypes": "Manage Transfer Requirement Types",
+        "manageTransferTypesHint": "Transfer requirement types for {{name}}. Add rows and press Update.",
+        "noTransferTypes": "No transfer requirement types defined.",
+        "sourceLocation": "Source Location",
+        "viewDashboards": "View Area Dashboards",
+        "dashboards": {
+          "maintenanceKpi": "Maintenance KPI",
+          "oee": "OEE",
+          "production": "Production"
+        }
+      }
     },
     "batch": {
       "pageLabel": "Batches",
@@ -1385,6 +1421,10 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "operations": {
+      "fieldRequired": "Please fill in all required fields.",
+      "selectOption": "Select an option"
     }
   }
 }
