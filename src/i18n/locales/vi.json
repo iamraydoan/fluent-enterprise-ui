@@ -919,6 +919,46 @@
       "unterminate": {
         "menuLabel": "Hủy kết thúc"
       }
+    },
+    "sortRuleSet": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "scope": "Phạm vi",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "scope": "Phạm vi:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Bộ quy tắc sắp xếp ({{count}})",
+      "manageRules": "Quản lý quy tắc",
+      "notFound": "Không tìm thấy bộ quy tắc sắp xếp.",
+      "pageLabel": "Bộ quy tắc sắp xếp",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết",
+        "rules": "Quy tắc"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
     }
   }
 }

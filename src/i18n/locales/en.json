@@ -919,6 +919,46 @@
       "unterminate": {
         "menuLabel": "Unterminate"
       }
+    },
+    "sortRuleSet": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "scope": "Scope",
+        "state": "State"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "scope": "Scope:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Sort Rule Sets ({{count}})",
+      "manageRules": "Manage Rules",
+      "notFound": "Sort Rule Set not found.",
+      "pageLabel": "Sort Rule Set",
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details",
+        "rules": "Rules"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
     }
   }
 }

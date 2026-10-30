@@ -11,7 +11,8 @@ type DetailRoute =
   | "/business-data/shift-definition/$name"
   | "/business-data/shift-logbook/$name"
   | "/business-data/shift-plan/$name"
-  | "/business-data/site/$name";
+  | "/business-data/site/$name"
+  | "/business-data/sort-rule-set/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

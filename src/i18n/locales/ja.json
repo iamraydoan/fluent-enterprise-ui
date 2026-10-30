@@ -919,6 +919,46 @@
       "unterminate": {
         "menuLabel": "終了取消"
       }
+    },
+    "sortRuleSet": {
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "scope": "スコープ",
+        "state": "状態"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "scope": "スコープ:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "ソートルールセット ({{count}})",
+      "manageRules": "ルールの管理",
+      "notFound": "ソートルールセットが見つかりません。",
+      "pageLabel": "ソートルールセット",
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細",
+        "rules": "ルール"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
     }
   }
 }

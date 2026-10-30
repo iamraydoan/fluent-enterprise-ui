@@ -919,6 +919,46 @@
       "unterminate": {
         "menuLabel": "종료 취소"
       }
+    },
+    "sortRuleSet": {
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "scope": "범위",
+        "state": "상태"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "scope": "범위:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "정렬 규칙 집합 ({{count}})",
+      "manageRules": "규칙 관리",
+      "notFound": "정렬 규칙 집합을 찾을 수 없습니다.",
+      "pageLabel": "정렬 규칙 집합",
+      "sections": {
+        "attachments": "첨부 파일",
+        "attributes": "특성",
+        "details": "세부 정보",
+        "rules": "규칙"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
     }
   }
 }
