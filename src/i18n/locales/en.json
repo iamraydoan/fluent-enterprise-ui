@@ -1028,8 +1028,171 @@
           "description": "Description",
           "state": "State",
           "productCount": "Products"
+        },
+        "information": "Information"
+      },
+      "operations": {
+        "create": {
+          "title": "Create Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "changeSet": "Change Set",
+            "generalData": "General Data"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set",
+            "name": "Name",
+            "revision": "Revision",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity",
+            "flowPath": "Flow Path",
+            "comments": "Comments"
+          },
+          "hints": {
+            "changeSet": "Select an existing Change Set or click Create to create a new one.",
+            "revision": "Name can be automatically generated or you can enter a name of your choice.",
+            "type": "The list of possible values is taken from the lookup table ProductGroupType.",
+            "defaultUnits": "The list of possible values is taken from the lookup table Units.",
+            "maturity": "The list of possible values is taken from the lookup table ProductGroupMaturity.",
+            "flowPath": "Optionally specify the default flow path for all the Products of this Product Group."
+          },
+          "placeholders": {
+            "selectChangeSet": "Select a Change Set",
+            "selectApprovalRole": "Select an Approval Role (optional)",
+            "enterName": "Enter Product Group name",
+            "revisionHint": "Name can be automatically generated or you can enter a name of your choice",
+            "enterDescription": "Enter description",
+            "selectType": "Select type",
+            "selectUnits": "Select units",
+            "selectMaturity": "Select maturity",
+            "selectFlowPath": "Select default Flow Path",
+            "enterComments": "Enter comments (optional)",
+            "selectParameter": "Select a Parameter",
+            "newRowName": "Name",
+            "newRowRevision": "Revision",
+            "enterComment": "Enter a comment for the operation (optional)"
+          }
+        },
+        "edit": {
+          "title": "Edit Product Group",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product Group cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product Group",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "newInstances": "New Product Groups",
+          "add": "Add",
+          "fields": {
+            "name": "Name",
+            "revision": "Revision",
+            "comment": "Comment"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured for the Entity Type, you can leave the name blank and a new name will be automatically generated."
+          },
+          "placeholders": {
+            "newRowName": "Name",
+            "newRowRevision": "Revision"
+          },
+          "removeRow": "Remove row"
+        },
+        "terminate": {
+          "title": "Terminate Product Group",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "fields": {
+            "level": "Level"
+          },
+          "warning": "All generic/smart table rows that reference the current object will be removed and will not be recovered if the object is unterminated at a later point."
+        },
+        "unterminate": {
+          "title": "Unterminate Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Unterminate",
+          "steps": {
+            "changeSet": "Change Set",
+            "details": "Details"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set"
+          },
+          "detailsText": "Select Unterminate to perform the operation. All generic/smart table rows that reference this object will not be recovered."
+        },
+        "manageParameters": {
+          "title": "Manage Product Group Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "parameters": "Parameters",
+          "parameterDetails": "Parameter Details",
+          "empty": "No parameters. Press + to add.",
+          "selectPrompt": "Select a parameter on the left to edit its details.",
+          "types": {
+            "characteristic": "Characteristic",
+            "specification": "Specification"
+          },
+          "fields": {
+            "parameter": "Parameter",
+            "unit": "Unit",
+            "type": "Type",
+            "value": "Value",
+            "lowerSpec": "Lower Specification Value",
+            "targetSpec": "Target Specification Value",
+            "upperSpec": "Upper Specification Value",
+            "reportingType": "Reporting Type",
+            "reportingInfo": "Reporting Information",
+            "comments": "Comments"
+          },
+          "hints": {
+            "reportingType": "The values for Reporting Type are taken from the lookup table ProductParameterReportingType."
+          },
+          "newParam": "(new)"
+        },
+        "_shared": {
+          "close": "Close"
         }
-      }
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "products": "Products",
+        "attachments": "Attachments"
+      },
+      "paramsHint": "Parameters shared across several Products. Use Manage Product Group Parameters to define them.",
+      "productsHint": "Products that are part of this Product Group.",
+      "contextsHint": "Context resolution tables on which the current Product Group is used as an element.",
+      "compareHint": "Visual comparison between the selected entity version and any other version.",
+      "referencesHint": "Relations and Where Used for the current Product Group.",
+      "historyHint": "Change Set History and History of operations for the current Product Group."
     }
   }
 }
