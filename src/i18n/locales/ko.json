@@ -775,6 +775,60 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "bom": {
+      "pageLabel": "BOM",
+      "listTitle": "BOM",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "product": "제품",
+        "version": "버전",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "bom": "BOM",
+        "changeSet": "Change Set",
+        "changeSetLabel": "Change Set",
+        "information": "Information",
+        "name": "이름",
+        "description": "설명",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "Scope",
+        "product": "제품",
+        "baseQuantity": "Base Quantity",
+        "units": "Units",
+        "useTolerances": "Use Tolerances",
+        "useMixedAssembly": "Use Mixed Assembly",
+        "bomItemsTitle": "BOM Items ({{count}})",
+        "itemColumns": {
+          "item": "Item",
+          "product": "제품",
+          "quantity": "Quantity",
+          "units": "Units",
+          "position": "Position",
+          "source": "Source"
+        },
+        "tabs": {
+          "details": "세부 정보",
+          "compare": "비교",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "bomItems": "BOM 항목",
+          "instances": "인스턴스",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

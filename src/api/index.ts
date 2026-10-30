@@ -80,3 +80,5 @@ export { getArea, listAreas, useAreaDetail, useAreas } from "./businessData/area
 export type { AreaDetail, AreaRecord } from "./businessData/area";
 export { getBatch, listBatches, useBatchDetail, useBatches } from "./businessData/batch";
 export type { BatchDetail, BatchRecord } from "./businessData/batch";
+export { getBom, listBoms, useBomDetail, useBoms } from "./businessData/bom";
+export type { BomDetail, BomItem, BomRecord } from "./businessData/bom";

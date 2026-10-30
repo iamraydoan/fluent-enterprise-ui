@@ -775,6 +775,60 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "bom": {
+      "pageLabel": "BOMs",
+      "listTitle": "BOMs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "product": "Product",
+        "version": "Version",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "bom": "BOM",
+        "changeSet": "Change Set",
+        "changeSetLabel": "Change Set",
+        "information": "Information",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "Scope",
+        "product": "Product",
+        "baseQuantity": "Base Quantity",
+        "units": "Units",
+        "useTolerances": "Use Tolerances",
+        "useMixedAssembly": "Use Mixed Assembly",
+        "bomItemsTitle": "BOM Items ({{count}})",
+        "itemColumns": {
+          "item": "Item",
+          "product": "Product",
+          "quantity": "Quantity",
+          "units": "Units",
+          "position": "Position",
+          "source": "Source"
+        },
+        "tabs": {
+          "details": "Details",
+          "compare": "Compare",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "bomItems": "BOM Items",
+          "instances": "Instances",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

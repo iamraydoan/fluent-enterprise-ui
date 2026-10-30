@@ -775,6 +775,60 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "bom": {
+      "pageLabel": "Định mức",
+      "listTitle": "Định mức",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "product": "Sản phẩm",
+        "version": "Phiên bản",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "bom": "BOM",
+        "changeSet": "Change Set",
+        "changeSetLabel": "Change Set",
+        "information": "Information",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "Scope",
+        "product": "Sản phẩm",
+        "baseQuantity": "Base Quantity",
+        "units": "Units",
+        "useTolerances": "Use Tolerances",
+        "useMixedAssembly": "Use Mixed Assembly",
+        "bomItemsTitle": "BOM Items ({{count}})",
+        "itemColumns": {
+          "item": "Item",
+          "product": "Sản phẩm",
+          "quantity": "Quantity",
+          "units": "Units",
+          "position": "Position",
+          "source": "Source"
+        },
+        "tabs": {
+          "details": "Chi tiết",
+          "compare": "So sánh",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "bomItems": "Mục định mức",
+          "instances": "Phiên bản",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

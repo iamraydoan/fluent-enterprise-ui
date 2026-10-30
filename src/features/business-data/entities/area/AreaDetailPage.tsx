@@ -108,7 +108,7 @@ export function AreaDetailPage() {
             title={area.name}
             icon={<Box24Regular />}
             topTabs={[]}
-            top=""
+            top="details"
             onTop={() => undefined}
             leftItems={[...LEFT_SECTIONS]}
             left={left}
