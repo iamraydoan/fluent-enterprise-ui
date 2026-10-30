@@ -215,3 +215,14 @@ export type {
   ServiceListParams,
   ServiceRecord,
 } from "./businessData/service";
+export {
+  getSetupMatrix,
+  listSetupMatrices,
+  useSetupMatrixDetail,
+  useSetupMatrices,
+} from "./businessData/setupMatrix";
+export type {
+  SetupMatrixDetail,
+  SetupMatrixListParams,
+  SetupMatrixRecord,
+} from "./businessData/setupMatrix";

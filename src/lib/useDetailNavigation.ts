@@ -19,7 +19,8 @@ type DetailRoute =
   | "/business-data/schedule/$name"
   | "/business-data/schedule-scenario/$name"
   | "/business-data/send-ahead-run/$name"
-  | "/business-data/service/$name";
+  | "/business-data/service/$name"
+  | "/business-data/setup-matrix/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

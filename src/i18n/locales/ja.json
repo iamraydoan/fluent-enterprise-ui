@@ -2196,6 +2196,81 @@
           "update": "Update"
         }
       }
+    },
+    "setupMatrix": {
+      "pageLabel": "Setup Matrix",
+      "listTitle": "Setup Matrices",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "setupMatrix": "Setup Matrix",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "setupMatrix": "Setup Matrix"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "useZeroInDiagonal": "Use Zero In Diagonal",
+        "state": "Universal State"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manage": "Manage Setup Matrix"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Setup Matrix",
+          "editTitle": "Edit Setup Matrix",
+          "step1": "General Data",
+          "step2": "Services",
+          "step3": "Setup Matrix",
+          "name": "Name",
+          "description": "Description",
+          "timeScale": "Time Scale",
+          "useZeroInDiagonal": "Use Zero In Diagonal",
+          "comments": "Comments",
+          "step2Body": "To add Services manually, select them from the panel on the left-hand side and they will be added to the list of the Selected Services on the right-hand side. You can filter the list to make it easier to add the Services.",
+          "step3Body": "Each Service selected in the previous panel is added to the list on the left hand side of the panel (From Services) and each of them have a relation to the services listed in the center part of the dialog (To Services). Select the From and the To services and enter the desired value in the specified time scale."
+        },
+        "clone": {
+          "title": "Clone Setup Matrix",
+          "message": "Clone the Setup Matrix '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Setup Matrix",
+          "message": "Are you sure you want to terminate the Setup Matrix '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Setup Matrix",
+          "message": "Are you sure you want to unterminate the Setup Matrix '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "manage": {
+          "title": "Manage Setup Matrix",
+          "message": "Open the Manage Setup Matrix wizard for '{{name}}'?",
+          "confirm": "Manage"
+        }
+      }
     }
   }
 }
