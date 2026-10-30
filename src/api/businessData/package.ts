@@ -39,5 +39,8 @@ export function getPackage(name: string): Promise<PackageDetail> {
 }
 
 export function usePackageDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "package", name], queryFn: () => getPackage(name) });
+  return useQuery({
+    queryKey: ["business-data", "package", name],
+    queryFn: () => getPackage(name),
+  });
 }

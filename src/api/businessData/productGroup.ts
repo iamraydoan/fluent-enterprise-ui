@@ -36,5 +36,8 @@ export function getProductGroup(name: string): Promise<ProductGroupDetail> {
 }
 
 export function useProductGroupDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "product-group", name], queryFn: () => getProductGroup(name) });
+  return useQuery({
+    queryKey: ["business-data", "product-group", name],
+    queryFn: () => getProductGroup(name),
+  });
 }

@@ -793,6 +793,243 @@
         "reject": "Reject",
         "send": "Send"
       }
+    },
+    "notification": {
+      "pageLabel": "Notification",
+      "listTitle": "Notifications ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "severity": "Severity",
+        "type": "Type",
+        "state": "State",
+        "validTo": "Valid To"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "severity": "Severity",
+          "type": "Type",
+          "state": "State",
+          "validTo": "Valid To",
+          "tracking": "Tracking"
+        }
+      }
+    },
+    "package": {
+      "pageLabel": "Package",
+      "listTitle": "Packages ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "product": "Product",
+        "level": "Level",
+        "state": "State",
+        "packedQuantity": "Packed Quantity"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "product": "Product",
+          "level": "Level",
+          "state": "State",
+          "packedQuantity": "Packed Quantity",
+          "contentType": "Content Type"
+        }
+      }
+    },
+    "parameter": {
+      "pageLabel": "Parameter",
+      "listTitle": "Parameters ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "dataType": "Data Type",
+        "value": "Value",
+        "state": "State"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "dataType": "Data Type",
+          "value": "Value",
+          "state": "State"
+        }
+      }
+    },
+    "product": {
+      "pageLabel": "Product",
+      "listTitle": "Products ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "productType": "Product Type",
+        "state": "State",
+        "isActive": "Is Active"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "productType": "Product Type",
+          "state": "State",
+          "isActive": "Is Active"
+        }
+      }
+    },
+    "productionOrder": {
+      "pageLabel": "Production Order",
+      "listTitle": "Production Orders ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "product": "Product",
+        "quantity": "Quantity",
+        "state": "State",
+        "priority": "Priority"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "product": "Product",
+          "quantity": "Quantity",
+          "state": "State",
+          "priority": "Priority"
+        }
+      }
+    },
+    "protocol": {
+      "pageLabel": "Protocol",
+      "listTitle": "Protocols ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State",
+        "version": "Version"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "state": "State",
+          "version": "Version"
+        }
+      }
+    },
+    "periodicInventory": {
+      "pageLabel": "Periodic Inventory",
+      "listTitle": "Periodic Inventories ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "facility": "Facility",
+        "state": "State",
+        "scheduledOn": "Scheduled On"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "facility": "Facility",
+          "state": "State",
+          "scheduledOn": "Scheduled On"
+        }
+      }
+    },
+    "pickList": {
+      "pageLabel": "Pick List",
+      "listTitle": "Pick Lists ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State",
+        "itemCount": "Items",
+        "createdOn": "Created On"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "state": "State",
+          "itemCount": "Items",
+          "createdOn": "Created On"
+        }
+      }
+    },
+    "plan": {
+      "pageLabel": "Plan",
+      "listTitle": "Plans ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State",
+        "startDate": "Start Date"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "state": "State",
+          "startDate": "Start Date"
+        }
+      }
+    },
+    "printableDocument": {
+      "pageLabel": "Printable Document",
+      "listTitle": "Printable Documents ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "documentType": "Document Type",
+        "state": "State",
+        "version": "Version"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "documentType": "Document Type",
+          "state": "State",
+          "version": "Version"
+        }
+      }
+    },
+    "productGroup": {
+      "pageLabel": "Product Group",
+      "listTitle": "Product Groups ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State",
+        "productCount": "Products"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "state": "State",
+          "productCount": "Products"
+        }
+      }
     }
   }
 }

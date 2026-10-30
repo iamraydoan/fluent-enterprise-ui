@@ -14,9 +14,23 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const COLUMNS: DataColumn<PrintableDocumentRecord>[] = [
-  { field: "name", headerName: "businessData.printableDocument.columns.name", type: "link", locked: true, width: "24%" },
-  { field: "description", headerName: "businessData.printableDocument.columns.description", width: "30%" },
-  { field: "documentType", headerName: "businessData.printableDocument.columns.documentType", width: "20%" },
+  {
+    field: "name",
+    headerName: "businessData.printableDocument.columns.name",
+    type: "link",
+    locked: true,
+    width: "24%",
+  },
+  {
+    field: "description",
+    headerName: "businessData.printableDocument.columns.description",
+    width: "30%",
+  },
+  {
+    field: "documentType",
+    headerName: "businessData.printableDocument.columns.documentType",
+    width: "20%",
+  },
   { field: "state", headerName: "businessData.printableDocument.columns.state", width: "13%" },
   { field: "version", headerName: "businessData.printableDocument.columns.version", width: "13%" },
 ];

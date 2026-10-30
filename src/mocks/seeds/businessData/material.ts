@@ -30,7 +30,12 @@ const RECORDS: MaterialRecord[] = [
   },
 ];
 
-export function queryMaterials(page: number, limit: number, q?: string, state?: string): Page<MaterialRecord> {
+export function queryMaterials(
+  page: number,
+  limit: number,
+  q?: string,
+  state?: string,
+): Page<MaterialRecord> {
   let rows = RECORDS;
   if (q !== undefined && q !== "") {
     const needle = q.toLowerCase();

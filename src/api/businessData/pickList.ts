@@ -37,5 +37,8 @@ export function getPickList(name: string): Promise<PickListDetail> {
 }
 
 export function usePickListDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "pick-list", name], queryFn: () => getPickList(name) });
+  return useQuery({
+    queryKey: ["business-data", "pick-list", name],
+    queryFn: () => getPickList(name),
+  });
 }

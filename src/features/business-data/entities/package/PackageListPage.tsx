@@ -14,12 +14,22 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const COLUMNS: DataColumn<PackageRecord>[] = [
-  { field: "name", headerName: "businessData.package.columns.name", type: "link", locked: true, width: "20%" },
+  {
+    field: "name",
+    headerName: "businessData.package.columns.name",
+    type: "link",
+    locked: true,
+    width: "20%",
+  },
   { field: "description", headerName: "businessData.package.columns.description", width: "25%" },
   { field: "product", headerName: "businessData.package.columns.product", width: "20%" },
   { field: "level", headerName: "businessData.package.columns.level", width: "12%" },
   { field: "state", headerName: "businessData.package.columns.state", width: "11%" },
-  { field: "packedQuantity", headerName: "businessData.package.columns.packedQuantity", width: "12%" },
+  {
+    field: "packedQuantity",
+    headerName: "businessData.package.columns.packedQuantity",
+    width: "12%",
+  },
 ];
 
 export function PackageListPage() {

@@ -14,11 +14,29 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const COLUMNS: DataColumn<PeriodicInventoryRecord>[] = [
-  { field: "name", headerName: "businessData.periodicInventory.columns.name", type: "link", locked: true, width: "22%" },
-  { field: "description", headerName: "businessData.periodicInventory.columns.description", width: "28%" },
-  { field: "facility", headerName: "businessData.periodicInventory.columns.facility", width: "20%" },
+  {
+    field: "name",
+    headerName: "businessData.periodicInventory.columns.name",
+    type: "link",
+    locked: true,
+    width: "22%",
+  },
+  {
+    field: "description",
+    headerName: "businessData.periodicInventory.columns.description",
+    width: "28%",
+  },
+  {
+    field: "facility",
+    headerName: "businessData.periodicInventory.columns.facility",
+    width: "20%",
+  },
   { field: "state", headerName: "businessData.periodicInventory.columns.state", width: "15%" },
-  { field: "scheduledOn", headerName: "businessData.periodicInventory.columns.scheduledOn", width: "15%" },
+  {
+    field: "scheduledOn",
+    headerName: "businessData.periodicInventory.columns.scheduledOn",
+    width: "15%",
+  },
 ];
 
 export function PeriodicInventoryListPage() {

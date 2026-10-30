@@ -48,5 +48,8 @@ export function getMaterial(name: string): Promise<MaterialDetail> {
 }
 
 export function useMaterialDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "material", name], queryFn: () => getMaterial(name) });
+  return useQuery({
+    queryKey: ["business-data", "material", name],
+    queryFn: () => getMaterial(name),
+  });
 }

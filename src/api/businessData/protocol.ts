@@ -37,5 +37,8 @@ export function getProtocol(name: string): Promise<ProtocolDetail> {
 }
 
 export function useProtocolDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "protocol", name], queryFn: () => getProtocol(name) });
+  return useQuery({
+    queryKey: ["business-data", "protocol", name],
+    queryFn: () => getProtocol(name),
+  });
 }

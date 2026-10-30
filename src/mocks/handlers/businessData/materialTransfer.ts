@@ -1,5 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { buildMaterialTransferDetail, queryMaterialTransfers } from "../../seeds/businessData/materialTransfer";
+import {
+  buildMaterialTransferDetail,
+  queryMaterialTransfers,
+} from "../../seeds/businessData/materialTransfer";
 
 export const materialTransferHandlers = [
   http.get("/business-data/material-transfers", ({ request }) => {

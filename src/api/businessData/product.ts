@@ -37,5 +37,8 @@ export function getProduct(name: string): Promise<ProductDetail> {
 }
 
 export function useProductDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "product", name], queryFn: () => getProduct(name) });
+  return useQuery({
+    queryKey: ["business-data", "product", name],
+    queryFn: () => getProduct(name),
+  });
 }

@@ -14,13 +14,27 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const COLUMNS: DataColumn<MaterialTransferRecord>[] = [
-  { field: "name", headerName: "businessData.materialTransfer.columns.name", type: "link", locked: true, width: "15%" },
+  {
+    field: "name",
+    headerName: "businessData.materialTransfer.columns.name",
+    type: "link",
+    locked: true,
+    width: "15%",
+  },
   { field: "type", headerName: "businessData.materialTransfer.columns.type", width: "15%" },
   { field: "state", headerName: "businessData.materialTransfer.columns.state", width: "12%" },
   { field: "material", headerName: "businessData.materialTransfer.columns.material", width: "15%" },
   { field: "quantity", headerName: "businessData.materialTransfer.columns.quantity", width: "12%" },
-  { field: "fromFacility", headerName: "businessData.materialTransfer.columns.fromFacility", width: "15%" },
-  { field: "toFacility", headerName: "businessData.materialTransfer.columns.toFacility", width: "16%" },
+  {
+    field: "fromFacility",
+    headerName: "businessData.materialTransfer.columns.fromFacility",
+    width: "15%",
+  },
+  {
+    field: "toFacility",
+    headerName: "businessData.materialTransfer.columns.toFacility",
+    width: "16%",
+  },
 ];
 
 export function MaterialTransferListPage() {

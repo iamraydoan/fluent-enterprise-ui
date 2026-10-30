@@ -25,6 +25,17 @@ import { Route as AdministrationTablesRouteImport } from './routes/administratio
 import { Route as AdministrationUipagesRouteImport } from './routes/administration.uipages'
 import { Route as BusinessDataMaterialRouteImport } from './routes/business-data.material'
 import { Route as BusinessDataMaterialTransferRouteImport } from './routes/business-data.material-transfer'
+import { Route as BusinessDataNotificationRouteImport } from './routes/business-data.notification'
+import { Route as BusinessDataPackageRouteImport } from './routes/business-data.package'
+import { Route as BusinessDataParameterRouteImport } from './routes/business-data.parameter'
+import { Route as BusinessDataPeriodicInventoryRouteImport } from './routes/business-data.periodic-inventory'
+import { Route as BusinessDataPickListRouteImport } from './routes/business-data.pick-list'
+import { Route as BusinessDataPlanRouteImport } from './routes/business-data.plan'
+import { Route as BusinessDataPrintableDocumentRouteImport } from './routes/business-data.printable-document'
+import { Route as BusinessDataProductRouteImport } from './routes/business-data.product'
+import { Route as BusinessDataProductGroupRouteImport } from './routes/business-data.product-group'
+import { Route as BusinessDataProductionOrderRouteImport } from './routes/business-data.production-order'
+import { Route as BusinessDataProtocolRouteImport } from './routes/business-data.protocol'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -33,6 +44,17 @@ import { Route as AdministrationQueriesNameRouteImport } from './routes/administ
 import { Route as AdministrationTablesNameRouteImport } from './routes/administration.tables.$name'
 import { Route as BusinessDataMaterialTransferNameRouteImport } from './routes/business-data.material-transfer.$name'
 import { Route as BusinessDataMaterialNameRouteImport } from './routes/business-data.material.$name'
+import { Route as BusinessDataNotificationNameRouteImport } from './routes/business-data.notification.$name'
+import { Route as BusinessDataPackageNameRouteImport } from './routes/business-data.package.$name'
+import { Route as BusinessDataParameterNameRouteImport } from './routes/business-data.parameter.$name'
+import { Route as BusinessDataPeriodicInventoryNameRouteImport } from './routes/business-data.periodic-inventory.$name'
+import { Route as BusinessDataPickListNameRouteImport } from './routes/business-data.pick-list.$name'
+import { Route as BusinessDataPlanNameRouteImport } from './routes/business-data.plan.$name'
+import { Route as BusinessDataPrintableDocumentNameRouteImport } from './routes/business-data.printable-document.$name'
+import { Route as BusinessDataProductGroupNameRouteImport } from './routes/business-data.product-group.$name'
+import { Route as BusinessDataProductNameRouteImport } from './routes/business-data.product.$name'
+import { Route as BusinessDataProductionOrderNameRouteImport } from './routes/business-data.production-order.$name'
+import { Route as BusinessDataProtocolNameRouteImport } from './routes/business-data.protocol.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -118,6 +140,66 @@ const BusinessDataMaterialTransferRoute =
     path: '/material-transfer',
     getParentRoute: () => BusinessDataRoute,
   } as any)
+const BusinessDataNotificationRoute =
+  BusinessDataNotificationRouteImport.update({
+    id: '/notification',
+    path: '/notification',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataPackageRoute = BusinessDataPackageRouteImport.update({
+  id: '/package',
+  path: '/package',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataParameterRoute = BusinessDataParameterRouteImport.update({
+  id: '/parameter',
+  path: '/parameter',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataPeriodicInventoryRoute =
+  BusinessDataPeriodicInventoryRouteImport.update({
+    id: '/periodic-inventory',
+    path: '/periodic-inventory',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataPickListRoute = BusinessDataPickListRouteImport.update({
+  id: '/pick-list',
+  path: '/pick-list',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataPlanRoute = BusinessDataPlanRouteImport.update({
+  id: '/plan',
+  path: '/plan',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataPrintableDocumentRoute =
+  BusinessDataPrintableDocumentRouteImport.update({
+    id: '/printable-document',
+    path: '/printable-document',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataProductRoute = BusinessDataProductRouteImport.update({
+  id: '/product',
+  path: '/product',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataProductGroupRoute =
+  BusinessDataProductGroupRouteImport.update({
+    id: '/product-group',
+    path: '/product-group',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataProductionOrderRoute =
+  BusinessDataProductionOrderRouteImport.update({
+    id: '/production-order',
+    path: '/production-order',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataProtocolRoute = BusinessDataProtocolRouteImport.update({
+  id: '/protocol',
+  path: '/protocol',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -166,6 +248,69 @@ const BusinessDataMaterialNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataMaterialRoute,
   } as any)
+const BusinessDataNotificationNameRoute =
+  BusinessDataNotificationNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataNotificationRoute,
+  } as any)
+const BusinessDataPackageNameRoute = BusinessDataPackageNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataPackageRoute,
+} as any)
+const BusinessDataParameterNameRoute =
+  BusinessDataParameterNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataParameterRoute,
+  } as any)
+const BusinessDataPeriodicInventoryNameRoute =
+  BusinessDataPeriodicInventoryNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataPeriodicInventoryRoute,
+  } as any)
+const BusinessDataPickListNameRoute =
+  BusinessDataPickListNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataPickListRoute,
+  } as any)
+const BusinessDataPlanNameRoute = BusinessDataPlanNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataPlanRoute,
+} as any)
+const BusinessDataPrintableDocumentNameRoute =
+  BusinessDataPrintableDocumentNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataPrintableDocumentRoute,
+  } as any)
+const BusinessDataProductGroupNameRoute =
+  BusinessDataProductGroupNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataProductGroupRoute,
+  } as any)
+const BusinessDataProductNameRoute = BusinessDataProductNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataProductRoute,
+} as any)
+const BusinessDataProductionOrderNameRoute =
+  BusinessDataProductionOrderNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataProductionOrderRoute,
+  } as any)
+const BusinessDataProtocolNameRoute =
+  BusinessDataProtocolNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataProtocolRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -184,6 +329,17 @@ export interface FileRoutesByFullPath {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/material': typeof BusinessDataMaterialRouteWithChildren
   '/business-data/material-transfer': typeof BusinessDataMaterialTransferRouteWithChildren
+  '/business-data/notification': typeof BusinessDataNotificationRouteWithChildren
+  '/business-data/package': typeof BusinessDataPackageRouteWithChildren
+  '/business-data/parameter': typeof BusinessDataParameterRouteWithChildren
+  '/business-data/periodic-inventory': typeof BusinessDataPeriodicInventoryRouteWithChildren
+  '/business-data/pick-list': typeof BusinessDataPickListRouteWithChildren
+  '/business-data/plan': typeof BusinessDataPlanRouteWithChildren
+  '/business-data/printable-document': typeof BusinessDataPrintableDocumentRouteWithChildren
+  '/business-data/product': typeof BusinessDataProductRouteWithChildren
+  '/business-data/product-group': typeof BusinessDataProductGroupRouteWithChildren
+  '/business-data/production-order': typeof BusinessDataProductionOrderRouteWithChildren
+  '/business-data/protocol': typeof BusinessDataProtocolRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -192,6 +348,17 @@ export interface FileRoutesByFullPath {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/material-transfer/$name': typeof BusinessDataMaterialTransferNameRoute
   '/business-data/material/$name': typeof BusinessDataMaterialNameRoute
+  '/business-data/notification/$name': typeof BusinessDataNotificationNameRoute
+  '/business-data/package/$name': typeof BusinessDataPackageNameRoute
+  '/business-data/parameter/$name': typeof BusinessDataParameterNameRoute
+  '/business-data/periodic-inventory/$name': typeof BusinessDataPeriodicInventoryNameRoute
+  '/business-data/pick-list/$name': typeof BusinessDataPickListNameRoute
+  '/business-data/plan/$name': typeof BusinessDataPlanNameRoute
+  '/business-data/printable-document/$name': typeof BusinessDataPrintableDocumentNameRoute
+  '/business-data/product-group/$name': typeof BusinessDataProductGroupNameRoute
+  '/business-data/product/$name': typeof BusinessDataProductNameRoute
+  '/business-data/production-order/$name': typeof BusinessDataProductionOrderNameRoute
+  '/business-data/protocol/$name': typeof BusinessDataProtocolNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -210,6 +377,17 @@ export interface FileRoutesByTo {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/material': typeof BusinessDataMaterialRouteWithChildren
   '/business-data/material-transfer': typeof BusinessDataMaterialTransferRouteWithChildren
+  '/business-data/notification': typeof BusinessDataNotificationRouteWithChildren
+  '/business-data/package': typeof BusinessDataPackageRouteWithChildren
+  '/business-data/parameter': typeof BusinessDataParameterRouteWithChildren
+  '/business-data/periodic-inventory': typeof BusinessDataPeriodicInventoryRouteWithChildren
+  '/business-data/pick-list': typeof BusinessDataPickListRouteWithChildren
+  '/business-data/plan': typeof BusinessDataPlanRouteWithChildren
+  '/business-data/printable-document': typeof BusinessDataPrintableDocumentRouteWithChildren
+  '/business-data/product': typeof BusinessDataProductRouteWithChildren
+  '/business-data/product-group': typeof BusinessDataProductGroupRouteWithChildren
+  '/business-data/production-order': typeof BusinessDataProductionOrderRouteWithChildren
+  '/business-data/protocol': typeof BusinessDataProtocolRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -218,6 +396,17 @@ export interface FileRoutesByTo {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/material-transfer/$name': typeof BusinessDataMaterialTransferNameRoute
   '/business-data/material/$name': typeof BusinessDataMaterialNameRoute
+  '/business-data/notification/$name': typeof BusinessDataNotificationNameRoute
+  '/business-data/package/$name': typeof BusinessDataPackageNameRoute
+  '/business-data/parameter/$name': typeof BusinessDataParameterNameRoute
+  '/business-data/periodic-inventory/$name': typeof BusinessDataPeriodicInventoryNameRoute
+  '/business-data/pick-list/$name': typeof BusinessDataPickListNameRoute
+  '/business-data/plan/$name': typeof BusinessDataPlanNameRoute
+  '/business-data/printable-document/$name': typeof BusinessDataPrintableDocumentNameRoute
+  '/business-data/product-group/$name': typeof BusinessDataProductGroupNameRoute
+  '/business-data/product/$name': typeof BusinessDataProductNameRoute
+  '/business-data/production-order/$name': typeof BusinessDataProductionOrderNameRoute
+  '/business-data/protocol/$name': typeof BusinessDataProtocolNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -237,6 +426,17 @@ export interface FileRoutesById {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/material': typeof BusinessDataMaterialRouteWithChildren
   '/business-data/material-transfer': typeof BusinessDataMaterialTransferRouteWithChildren
+  '/business-data/notification': typeof BusinessDataNotificationRouteWithChildren
+  '/business-data/package': typeof BusinessDataPackageRouteWithChildren
+  '/business-data/parameter': typeof BusinessDataParameterRouteWithChildren
+  '/business-data/periodic-inventory': typeof BusinessDataPeriodicInventoryRouteWithChildren
+  '/business-data/pick-list': typeof BusinessDataPickListRouteWithChildren
+  '/business-data/plan': typeof BusinessDataPlanRouteWithChildren
+  '/business-data/printable-document': typeof BusinessDataPrintableDocumentRouteWithChildren
+  '/business-data/product': typeof BusinessDataProductRouteWithChildren
+  '/business-data/product-group': typeof BusinessDataProductGroupRouteWithChildren
+  '/business-data/production-order': typeof BusinessDataProductionOrderRouteWithChildren
+  '/business-data/protocol': typeof BusinessDataProtocolRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -245,6 +445,17 @@ export interface FileRoutesById {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/material-transfer/$name': typeof BusinessDataMaterialTransferNameRoute
   '/business-data/material/$name': typeof BusinessDataMaterialNameRoute
+  '/business-data/notification/$name': typeof BusinessDataNotificationNameRoute
+  '/business-data/package/$name': typeof BusinessDataPackageNameRoute
+  '/business-data/parameter/$name': typeof BusinessDataParameterNameRoute
+  '/business-data/periodic-inventory/$name': typeof BusinessDataPeriodicInventoryNameRoute
+  '/business-data/pick-list/$name': typeof BusinessDataPickListNameRoute
+  '/business-data/plan/$name': typeof BusinessDataPlanNameRoute
+  '/business-data/printable-document/$name': typeof BusinessDataPrintableDocumentNameRoute
+  '/business-data/product-group/$name': typeof BusinessDataProductGroupNameRoute
+  '/business-data/product/$name': typeof BusinessDataProductNameRoute
+  '/business-data/production-order/$name': typeof BusinessDataProductionOrderNameRoute
+  '/business-data/protocol/$name': typeof BusinessDataProtocolNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -265,6 +476,17 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/material'
     | '/business-data/material-transfer'
+    | '/business-data/notification'
+    | '/business-data/package'
+    | '/business-data/parameter'
+    | '/business-data/periodic-inventory'
+    | '/business-data/pick-list'
+    | '/business-data/plan'
+    | '/business-data/printable-document'
+    | '/business-data/product'
+    | '/business-data/product-group'
+    | '/business-data/production-order'
+    | '/business-data/protocol'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -273,6 +495,17 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/material-transfer/$name'
     | '/business-data/material/$name'
+    | '/business-data/notification/$name'
+    | '/business-data/package/$name'
+    | '/business-data/parameter/$name'
+    | '/business-data/periodic-inventory/$name'
+    | '/business-data/pick-list/$name'
+    | '/business-data/plan/$name'
+    | '/business-data/printable-document/$name'
+    | '/business-data/product-group/$name'
+    | '/business-data/product/$name'
+    | '/business-data/production-order/$name'
+    | '/business-data/protocol/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -291,6 +524,17 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/material'
     | '/business-data/material-transfer'
+    | '/business-data/notification'
+    | '/business-data/package'
+    | '/business-data/parameter'
+    | '/business-data/periodic-inventory'
+    | '/business-data/pick-list'
+    | '/business-data/plan'
+    | '/business-data/printable-document'
+    | '/business-data/product'
+    | '/business-data/product-group'
+    | '/business-data/production-order'
+    | '/business-data/protocol'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -299,6 +543,17 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/material-transfer/$name'
     | '/business-data/material/$name'
+    | '/business-data/notification/$name'
+    | '/business-data/package/$name'
+    | '/business-data/parameter/$name'
+    | '/business-data/periodic-inventory/$name'
+    | '/business-data/pick-list/$name'
+    | '/business-data/plan/$name'
+    | '/business-data/printable-document/$name'
+    | '/business-data/product-group/$name'
+    | '/business-data/product/$name'
+    | '/business-data/production-order/$name'
+    | '/business-data/protocol/$name'
   id:
     | '__root__'
     | '/'
@@ -317,6 +572,17 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/material'
     | '/business-data/material-transfer'
+    | '/business-data/notification'
+    | '/business-data/package'
+    | '/business-data/parameter'
+    | '/business-data/periodic-inventory'
+    | '/business-data/pick-list'
+    | '/business-data/plan'
+    | '/business-data/printable-document'
+    | '/business-data/product'
+    | '/business-data/product-group'
+    | '/business-data/production-order'
+    | '/business-data/protocol'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -325,6 +591,17 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/material-transfer/$name'
     | '/business-data/material/$name'
+    | '/business-data/notification/$name'
+    | '/business-data/package/$name'
+    | '/business-data/parameter/$name'
+    | '/business-data/periodic-inventory/$name'
+    | '/business-data/pick-list/$name'
+    | '/business-data/plan/$name'
+    | '/business-data/printable-document/$name'
+    | '/business-data/product-group/$name'
+    | '/business-data/product/$name'
+    | '/business-data/production-order/$name'
+    | '/business-data/protocol/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -449,6 +726,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataMaterialTransferRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/notification': {
+      id: '/business-data/notification'
+      path: '/notification'
+      fullPath: '/business-data/notification'
+      preLoaderRoute: typeof BusinessDataNotificationRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/package': {
+      id: '/business-data/package'
+      path: '/package'
+      fullPath: '/business-data/package'
+      preLoaderRoute: typeof BusinessDataPackageRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/parameter': {
+      id: '/business-data/parameter'
+      path: '/parameter'
+      fullPath: '/business-data/parameter'
+      preLoaderRoute: typeof BusinessDataParameterRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/periodic-inventory': {
+      id: '/business-data/periodic-inventory'
+      path: '/periodic-inventory'
+      fullPath: '/business-data/periodic-inventory'
+      preLoaderRoute: typeof BusinessDataPeriodicInventoryRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/pick-list': {
+      id: '/business-data/pick-list'
+      path: '/pick-list'
+      fullPath: '/business-data/pick-list'
+      preLoaderRoute: typeof BusinessDataPickListRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/plan': {
+      id: '/business-data/plan'
+      path: '/plan'
+      fullPath: '/business-data/plan'
+      preLoaderRoute: typeof BusinessDataPlanRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/printable-document': {
+      id: '/business-data/printable-document'
+      path: '/printable-document'
+      fullPath: '/business-data/printable-document'
+      preLoaderRoute: typeof BusinessDataPrintableDocumentRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/product': {
+      id: '/business-data/product'
+      path: '/product'
+      fullPath: '/business-data/product'
+      preLoaderRoute: typeof BusinessDataProductRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/product-group': {
+      id: '/business-data/product-group'
+      path: '/product-group'
+      fullPath: '/business-data/product-group'
+      preLoaderRoute: typeof BusinessDataProductGroupRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/production-order': {
+      id: '/business-data/production-order'
+      path: '/production-order'
+      fullPath: '/business-data/production-order'
+      preLoaderRoute: typeof BusinessDataProductionOrderRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/protocol': {
+      id: '/business-data/protocol'
+      path: '/protocol'
+      fullPath: '/business-data/protocol'
+      preLoaderRoute: typeof BusinessDataProtocolRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -504,6 +858,83 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/material/$name'
       preLoaderRoute: typeof BusinessDataMaterialNameRouteImport
       parentRoute: typeof BusinessDataMaterialRoute
+    }
+    '/business-data/notification/$name': {
+      id: '/business-data/notification/$name'
+      path: '/$name'
+      fullPath: '/business-data/notification/$name'
+      preLoaderRoute: typeof BusinessDataNotificationNameRouteImport
+      parentRoute: typeof BusinessDataNotificationRoute
+    }
+    '/business-data/package/$name': {
+      id: '/business-data/package/$name'
+      path: '/$name'
+      fullPath: '/business-data/package/$name'
+      preLoaderRoute: typeof BusinessDataPackageNameRouteImport
+      parentRoute: typeof BusinessDataPackageRoute
+    }
+    '/business-data/parameter/$name': {
+      id: '/business-data/parameter/$name'
+      path: '/$name'
+      fullPath: '/business-data/parameter/$name'
+      preLoaderRoute: typeof BusinessDataParameterNameRouteImport
+      parentRoute: typeof BusinessDataParameterRoute
+    }
+    '/business-data/periodic-inventory/$name': {
+      id: '/business-data/periodic-inventory/$name'
+      path: '/$name'
+      fullPath: '/business-data/periodic-inventory/$name'
+      preLoaderRoute: typeof BusinessDataPeriodicInventoryNameRouteImport
+      parentRoute: typeof BusinessDataPeriodicInventoryRoute
+    }
+    '/business-data/pick-list/$name': {
+      id: '/business-data/pick-list/$name'
+      path: '/$name'
+      fullPath: '/business-data/pick-list/$name'
+      preLoaderRoute: typeof BusinessDataPickListNameRouteImport
+      parentRoute: typeof BusinessDataPickListRoute
+    }
+    '/business-data/plan/$name': {
+      id: '/business-data/plan/$name'
+      path: '/$name'
+      fullPath: '/business-data/plan/$name'
+      preLoaderRoute: typeof BusinessDataPlanNameRouteImport
+      parentRoute: typeof BusinessDataPlanRoute
+    }
+    '/business-data/printable-document/$name': {
+      id: '/business-data/printable-document/$name'
+      path: '/$name'
+      fullPath: '/business-data/printable-document/$name'
+      preLoaderRoute: typeof BusinessDataPrintableDocumentNameRouteImport
+      parentRoute: typeof BusinessDataPrintableDocumentRoute
+    }
+    '/business-data/product-group/$name': {
+      id: '/business-data/product-group/$name'
+      path: '/$name'
+      fullPath: '/business-data/product-group/$name'
+      preLoaderRoute: typeof BusinessDataProductGroupNameRouteImport
+      parentRoute: typeof BusinessDataProductGroupRoute
+    }
+    '/business-data/product/$name': {
+      id: '/business-data/product/$name'
+      path: '/$name'
+      fullPath: '/business-data/product/$name'
+      preLoaderRoute: typeof BusinessDataProductNameRouteImport
+      parentRoute: typeof BusinessDataProductRoute
+    }
+    '/business-data/production-order/$name': {
+      id: '/business-data/production-order/$name'
+      path: '/$name'
+      fullPath: '/business-data/production-order/$name'
+      preLoaderRoute: typeof BusinessDataProductionOrderNameRouteImport
+      parentRoute: typeof BusinessDataProductionOrderRoute
+    }
+    '/business-data/protocol/$name': {
+      id: '/business-data/protocol/$name'
+      path: '/$name'
+      fullPath: '/business-data/protocol/$name'
+      preLoaderRoute: typeof BusinessDataProtocolNameRouteImport
+      parentRoute: typeof BusinessDataProtocolRoute
     }
   }
 }
@@ -642,15 +1073,180 @@ const BusinessDataMaterialTransferRouteWithChildren =
     BusinessDataMaterialTransferRouteChildren,
   )
 
+interface BusinessDataNotificationRouteChildren {
+  BusinessDataNotificationNameRoute: typeof BusinessDataNotificationNameRoute
+}
+
+const BusinessDataNotificationRouteChildren: BusinessDataNotificationRouteChildren =
+  {
+    BusinessDataNotificationNameRoute: BusinessDataNotificationNameRoute,
+  }
+
+const BusinessDataNotificationRouteWithChildren =
+  BusinessDataNotificationRoute._addFileChildren(
+    BusinessDataNotificationRouteChildren,
+  )
+
+interface BusinessDataPackageRouteChildren {
+  BusinessDataPackageNameRoute: typeof BusinessDataPackageNameRoute
+}
+
+const BusinessDataPackageRouteChildren: BusinessDataPackageRouteChildren = {
+  BusinessDataPackageNameRoute: BusinessDataPackageNameRoute,
+}
+
+const BusinessDataPackageRouteWithChildren =
+  BusinessDataPackageRoute._addFileChildren(BusinessDataPackageRouteChildren)
+
+interface BusinessDataParameterRouteChildren {
+  BusinessDataParameterNameRoute: typeof BusinessDataParameterNameRoute
+}
+
+const BusinessDataParameterRouteChildren: BusinessDataParameterRouteChildren = {
+  BusinessDataParameterNameRoute: BusinessDataParameterNameRoute,
+}
+
+const BusinessDataParameterRouteWithChildren =
+  BusinessDataParameterRoute._addFileChildren(
+    BusinessDataParameterRouteChildren,
+  )
+
+interface BusinessDataPeriodicInventoryRouteChildren {
+  BusinessDataPeriodicInventoryNameRoute: typeof BusinessDataPeriodicInventoryNameRoute
+}
+
+const BusinessDataPeriodicInventoryRouteChildren: BusinessDataPeriodicInventoryRouteChildren =
+  {
+    BusinessDataPeriodicInventoryNameRoute:
+      BusinessDataPeriodicInventoryNameRoute,
+  }
+
+const BusinessDataPeriodicInventoryRouteWithChildren =
+  BusinessDataPeriodicInventoryRoute._addFileChildren(
+    BusinessDataPeriodicInventoryRouteChildren,
+  )
+
+interface BusinessDataPickListRouteChildren {
+  BusinessDataPickListNameRoute: typeof BusinessDataPickListNameRoute
+}
+
+const BusinessDataPickListRouteChildren: BusinessDataPickListRouteChildren = {
+  BusinessDataPickListNameRoute: BusinessDataPickListNameRoute,
+}
+
+const BusinessDataPickListRouteWithChildren =
+  BusinessDataPickListRoute._addFileChildren(BusinessDataPickListRouteChildren)
+
+interface BusinessDataPlanRouteChildren {
+  BusinessDataPlanNameRoute: typeof BusinessDataPlanNameRoute
+}
+
+const BusinessDataPlanRouteChildren: BusinessDataPlanRouteChildren = {
+  BusinessDataPlanNameRoute: BusinessDataPlanNameRoute,
+}
+
+const BusinessDataPlanRouteWithChildren =
+  BusinessDataPlanRoute._addFileChildren(BusinessDataPlanRouteChildren)
+
+interface BusinessDataPrintableDocumentRouteChildren {
+  BusinessDataPrintableDocumentNameRoute: typeof BusinessDataPrintableDocumentNameRoute
+}
+
+const BusinessDataPrintableDocumentRouteChildren: BusinessDataPrintableDocumentRouteChildren =
+  {
+    BusinessDataPrintableDocumentNameRoute:
+      BusinessDataPrintableDocumentNameRoute,
+  }
+
+const BusinessDataPrintableDocumentRouteWithChildren =
+  BusinessDataPrintableDocumentRoute._addFileChildren(
+    BusinessDataPrintableDocumentRouteChildren,
+  )
+
+interface BusinessDataProductRouteChildren {
+  BusinessDataProductNameRoute: typeof BusinessDataProductNameRoute
+}
+
+const BusinessDataProductRouteChildren: BusinessDataProductRouteChildren = {
+  BusinessDataProductNameRoute: BusinessDataProductNameRoute,
+}
+
+const BusinessDataProductRouteWithChildren =
+  BusinessDataProductRoute._addFileChildren(BusinessDataProductRouteChildren)
+
+interface BusinessDataProductGroupRouteChildren {
+  BusinessDataProductGroupNameRoute: typeof BusinessDataProductGroupNameRoute
+}
+
+const BusinessDataProductGroupRouteChildren: BusinessDataProductGroupRouteChildren =
+  {
+    BusinessDataProductGroupNameRoute: BusinessDataProductGroupNameRoute,
+  }
+
+const BusinessDataProductGroupRouteWithChildren =
+  BusinessDataProductGroupRoute._addFileChildren(
+    BusinessDataProductGroupRouteChildren,
+  )
+
+interface BusinessDataProductionOrderRouteChildren {
+  BusinessDataProductionOrderNameRoute: typeof BusinessDataProductionOrderNameRoute
+}
+
+const BusinessDataProductionOrderRouteChildren: BusinessDataProductionOrderRouteChildren =
+  {
+    BusinessDataProductionOrderNameRoute: BusinessDataProductionOrderNameRoute,
+  }
+
+const BusinessDataProductionOrderRouteWithChildren =
+  BusinessDataProductionOrderRoute._addFileChildren(
+    BusinessDataProductionOrderRouteChildren,
+  )
+
+interface BusinessDataProtocolRouteChildren {
+  BusinessDataProtocolNameRoute: typeof BusinessDataProtocolNameRoute
+}
+
+const BusinessDataProtocolRouteChildren: BusinessDataProtocolRouteChildren = {
+  BusinessDataProtocolNameRoute: BusinessDataProtocolNameRoute,
+}
+
+const BusinessDataProtocolRouteWithChildren =
+  BusinessDataProtocolRoute._addFileChildren(BusinessDataProtocolRouteChildren)
+
 interface BusinessDataRouteChildren {
   BusinessDataMaterialRoute: typeof BusinessDataMaterialRouteWithChildren
   BusinessDataMaterialTransferRoute: typeof BusinessDataMaterialTransferRouteWithChildren
+  BusinessDataNotificationRoute: typeof BusinessDataNotificationRouteWithChildren
+  BusinessDataPackageRoute: typeof BusinessDataPackageRouteWithChildren
+  BusinessDataParameterRoute: typeof BusinessDataParameterRouteWithChildren
+  BusinessDataPeriodicInventoryRoute: typeof BusinessDataPeriodicInventoryRouteWithChildren
+  BusinessDataPickListRoute: typeof BusinessDataPickListRouteWithChildren
+  BusinessDataPlanRoute: typeof BusinessDataPlanRouteWithChildren
+  BusinessDataPrintableDocumentRoute: typeof BusinessDataPrintableDocumentRouteWithChildren
+  BusinessDataProductRoute: typeof BusinessDataProductRouteWithChildren
+  BusinessDataProductGroupRoute: typeof BusinessDataProductGroupRouteWithChildren
+  BusinessDataProductionOrderRoute: typeof BusinessDataProductionOrderRouteWithChildren
+  BusinessDataProtocolRoute: typeof BusinessDataProtocolRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataMaterialRoute: BusinessDataMaterialRouteWithChildren,
   BusinessDataMaterialTransferRoute:
     BusinessDataMaterialTransferRouteWithChildren,
+  BusinessDataNotificationRoute: BusinessDataNotificationRouteWithChildren,
+  BusinessDataPackageRoute: BusinessDataPackageRouteWithChildren,
+  BusinessDataParameterRoute: BusinessDataParameterRouteWithChildren,
+  BusinessDataPeriodicInventoryRoute:
+    BusinessDataPeriodicInventoryRouteWithChildren,
+  BusinessDataPickListRoute: BusinessDataPickListRouteWithChildren,
+  BusinessDataPlanRoute: BusinessDataPlanRouteWithChildren,
+  BusinessDataPrintableDocumentRoute:
+    BusinessDataPrintableDocumentRouteWithChildren,
+  BusinessDataProductRoute: BusinessDataProductRouteWithChildren,
+  BusinessDataProductGroupRoute: BusinessDataProductGroupRouteWithChildren,
+  BusinessDataProductionOrderRoute:
+    BusinessDataProductionOrderRouteWithChildren,
+  BusinessDataProtocolRoute: BusinessDataProtocolRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

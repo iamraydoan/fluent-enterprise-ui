@@ -18,13 +18,17 @@ export interface MaterialTransferDetail extends MaterialTransferRecord {
   urgency: string;
 }
 
-export function listMaterialTransfers(params: ListQueryParams): Promise<Page<MaterialTransferRecord>> {
+export function listMaterialTransfers(
+  params: ListQueryParams,
+): Promise<Page<MaterialTransferRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<MaterialTransferRecord>>(`/business-data/material-transfers?${search.toString()}`);
+  return apiFetch<Page<MaterialTransferRecord>>(
+    `/business-data/material-transfers?${search.toString()}`,
+  );
 }
 
 export function useMaterialTransfers(params: ListQueryParams) {
@@ -36,7 +40,9 @@ export function useMaterialTransfers(params: ListQueryParams) {
 }
 
 export function getMaterialTransfer(name: string): Promise<MaterialTransferDetail> {
-  return apiFetch<MaterialTransferDetail>(`/business-data/material-transfers/${encodeURIComponent(name)}`);
+  return apiFetch<MaterialTransferDetail>(
+    `/business-data/material-transfers/${encodeURIComponent(name)}`,
+  );
 }
 
 export function useMaterialTransferDetail(name: string) {

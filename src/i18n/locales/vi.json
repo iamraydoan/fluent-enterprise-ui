@@ -793,6 +793,243 @@
         "reject": "Bác bỏ",
         "send": "Gửi"
       }
+    },
+    "notification": {
+      "pageLabel": "Thông báo",
+      "listTitle": "Thông báo ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "severity": "Mức độ",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "validTo": "Hiệu lực đến"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "severity": "Mức độ",
+          "type": "Loại",
+          "state": "Trạng thái",
+          "validTo": "Hiệu lực đến",
+          "tracking": "Theo dõi"
+        }
+      }
+    },
+    "package": {
+      "pageLabel": "Kiện hàng",
+      "listTitle": "Kiện hàng ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "product": "Sản phẩm",
+        "level": "Cấp",
+        "state": "Trạng thái",
+        "packedQuantity": "Số lượng đóng gói"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "product": "Sản phẩm",
+          "level": "Cấp",
+          "state": "Trạng thái",
+          "packedQuantity": "Số lượng đóng gói",
+          "contentType": "Loại nội dung"
+        }
+      }
+    },
+    "parameter": {
+      "pageLabel": "Tham số",
+      "listTitle": "Tham số ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "dataType": "Kiểu dữ liệu",
+        "value": "Giá trị",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "dataType": "Kiểu dữ liệu",
+          "value": "Giá trị",
+          "state": "Trạng thái"
+        }
+      }
+    },
+    "product": {
+      "pageLabel": "Sản phẩm",
+      "listTitle": "Sản phẩm ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "productType": "Loại sản phẩm",
+        "state": "Trạng thái",
+        "isActive": "Đang hoạt động"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "productType": "Loại sản phẩm",
+          "state": "Trạng thái",
+          "isActive": "Đang hoạt động"
+        }
+      }
+    },
+    "productionOrder": {
+      "pageLabel": "Lệnh sản xuất",
+      "listTitle": "Lệnh sản xuất ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "product": "Sản phẩm",
+        "quantity": "Số lượng",
+        "state": "Trạng thái",
+        "priority": "Ưu tiên"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "product": "Sản phẩm",
+          "quantity": "Số lượng",
+          "state": "Trạng thái",
+          "priority": "Ưu tiên"
+        }
+      }
+    },
+    "protocol": {
+      "pageLabel": "Quy trình",
+      "listTitle": "Quy trình ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "version": "Phiên bản"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "type": "Loại",
+          "state": "Trạng thái",
+          "version": "Phiên bản"
+        }
+      }
+    },
+    "periodicInventory": {
+      "pageLabel": "Kiểm kê định kỳ",
+      "listTitle": "Kiểm kê ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "facility": "Nhà máy",
+        "state": "Trạng thái",
+        "scheduledOn": "Ngày lên lịch"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "facility": "Nhà máy",
+          "state": "Trạng thái",
+          "scheduledOn": "Ngày lên lịch"
+        }
+      }
+    },
+    "pickList": {
+      "pageLabel": "Phiếu lấy hàng",
+      "listTitle": "Phiếu lấy hàng ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái",
+        "itemCount": "Số mục",
+        "createdOn": "Ngày tạo"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "state": "Trạng thái",
+          "itemCount": "Số mục",
+          "createdOn": "Ngày tạo"
+        }
+      }
+    },
+    "plan": {
+      "pageLabel": "Kế hoạch",
+      "listTitle": "Kế hoạch ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "startDate": "Ngày bắt đầu"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "type": "Loại",
+          "state": "Trạng thái",
+          "startDate": "Ngày bắt đầu"
+        }
+      }
+    },
+    "printableDocument": {
+      "pageLabel": "Tài liệu in",
+      "listTitle": "Tài liệu in ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "documentType": "Loại tài liệu",
+        "state": "Trạng thái",
+        "version": "Phiên bản"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "documentType": "Loại tài liệu",
+          "state": "Trạng thái",
+          "version": "Phiên bản"
+        }
+      }
+    },
+    "productGroup": {
+      "pageLabel": "Nhóm sản phẩm",
+      "listTitle": "Nhóm sản phẩm ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái",
+        "productCount": "Sản phẩm"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "state": "Trạng thái",
+          "productCount": "Sản phẩm"
+        }
+      }
     }
   }
 }

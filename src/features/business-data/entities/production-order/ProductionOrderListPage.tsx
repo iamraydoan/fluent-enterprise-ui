@@ -14,8 +14,18 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const COLUMNS: DataColumn<ProductionOrderRecord>[] = [
-  { field: "name", headerName: "businessData.productionOrder.columns.name", type: "link", locked: true, width: "20%" },
-  { field: "description", headerName: "businessData.productionOrder.columns.description", width: "22%" },
+  {
+    field: "name",
+    headerName: "businessData.productionOrder.columns.name",
+    type: "link",
+    locked: true,
+    width: "20%",
+  },
+  {
+    field: "description",
+    headerName: "businessData.productionOrder.columns.description",
+    width: "22%",
+  },
   { field: "product", headerName: "businessData.productionOrder.columns.product", width: "18%" },
   { field: "quantity", headerName: "businessData.productionOrder.columns.quantity", width: "14%" },
   { field: "state", headerName: "businessData.productionOrder.columns.state", width: "13%" },

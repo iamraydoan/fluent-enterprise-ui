@@ -40,5 +40,8 @@ export function getNotification(name: string): Promise<NotificationDetail> {
 }
 
 export function useNotificationDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "notification", name], queryFn: () => getNotification(name) });
+  return useQuery({
+    queryKey: ["business-data", "notification", name],
+    queryFn: () => getNotification(name),
+  });
 }

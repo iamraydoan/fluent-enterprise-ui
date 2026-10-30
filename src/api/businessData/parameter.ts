@@ -37,5 +37,8 @@ export function getParameter(name: string): Promise<ParameterDetail> {
 }
 
 export function useParameterDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "parameter", name], queryFn: () => getParameter(name) });
+  return useQuery({
+    queryKey: ["business-data", "parameter", name],
+    queryFn: () => getParameter(name),
+  });
 }

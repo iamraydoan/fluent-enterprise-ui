@@ -15,13 +15,17 @@ export interface PeriodicInventoryDetail extends PeriodicInventoryRecord {
   detailNote?: string;
 }
 
-export function listPeriodicInventorys(params: ListQueryParams): Promise<Page<PeriodicInventoryRecord>> {
+export function listPeriodicInventorys(
+  params: ListQueryParams,
+): Promise<Page<PeriodicInventoryRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<PeriodicInventoryRecord>>(`/business-data/periodic-inventorys?${search.toString()}`);
+  return apiFetch<Page<PeriodicInventoryRecord>>(
+    `/business-data/periodic-inventorys?${search.toString()}`,
+  );
 }
 
 export function usePeriodicInventorys(params: ListQueryParams) {
@@ -33,9 +37,14 @@ export function usePeriodicInventorys(params: ListQueryParams) {
 }
 
 export function getPeriodicInventory(name: string): Promise<PeriodicInventoryDetail> {
-  return apiFetch<PeriodicInventoryDetail>(`/business-data/periodic-inventorys/${encodeURIComponent(name)}`);
+  return apiFetch<PeriodicInventoryDetail>(
+    `/business-data/periodic-inventorys/${encodeURIComponent(name)}`,
+  );
 }
 
 export function usePeriodicInventoryDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "periodic-inventory", name], queryFn: () => getPeriodicInventory(name) });
+  return useQuery({
+    queryKey: ["business-data", "periodic-inventory", name],
+    queryFn: () => getPeriodicInventory(name),
+  });
 }

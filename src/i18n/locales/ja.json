@@ -793,6 +793,243 @@
         "reject": "却下",
         "send": "送信"
       }
+    },
+    "notification": {
+      "pageLabel": "通知",
+      "listTitle": "通知 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "severity": "重要度",
+        "type": "タイプ",
+        "state": "状態",
+        "validTo": "有効期限"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "severity": "重要度",
+          "type": "タイプ",
+          "state": "状態",
+          "validTo": "有効期限",
+          "tracking": "トラッキング"
+        }
+      }
+    },
+    "package": {
+      "pageLabel": "パッケージ",
+      "listTitle": "パッケージ ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "product": "製品",
+        "level": "レベル",
+        "state": "状態",
+        "packedQuantity": "梱包数量"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "product": "製品",
+          "level": "レベル",
+          "state": "状態",
+          "packedQuantity": "梱包数量",
+          "contentType": "コンテンツタイプ"
+        }
+      }
+    },
+    "parameter": {
+      "pageLabel": "パラメーター",
+      "listTitle": "パラメーター ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "dataType": "データ型",
+        "value": "値",
+        "state": "状態"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "dataType": "データ型",
+          "value": "値",
+          "state": "状態"
+        }
+      }
+    },
+    "product": {
+      "pageLabel": "製品",
+      "listTitle": "製品 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "productType": "製品タイプ",
+        "state": "状態",
+        "isActive": "アクティブ"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "productType": "製品タイプ",
+          "state": "状態",
+          "isActive": "アクティブ"
+        }
+      }
+    },
+    "productionOrder": {
+      "pageLabel": "製造オーダー",
+      "listTitle": "製造オーダー ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "product": "製品",
+        "quantity": "数量",
+        "state": "状態",
+        "priority": "優先度"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "product": "製品",
+          "quantity": "数量",
+          "state": "状態",
+          "priority": "優先度"
+        }
+      }
+    },
+    "protocol": {
+      "pageLabel": "プロトコル",
+      "listTitle": "プロトコル ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態",
+        "version": "バージョン"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "type": "タイプ",
+          "state": "状態",
+          "version": "バージョン"
+        }
+      }
+    },
+    "periodicInventory": {
+      "pageLabel": "定期棚卸",
+      "listTitle": "定期棚卸 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "facility": "工場",
+        "state": "状態",
+        "scheduledOn": "予定日"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "facility": "工場",
+          "state": "状態",
+          "scheduledOn": "予定日"
+        }
+      }
+    },
+    "pickList": {
+      "pageLabel": "ピックリスト",
+      "listTitle": "ピックリスト ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態",
+        "itemCount": "品目数",
+        "createdOn": "作成日"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "state": "状態",
+          "itemCount": "品目数",
+          "createdOn": "作成日"
+        }
+      }
+    },
+    "plan": {
+      "pageLabel": "計画",
+      "listTitle": "計画 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態",
+        "startDate": "開始日"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "type": "タイプ",
+          "state": "状態",
+          "startDate": "開始日"
+        }
+      }
+    },
+    "printableDocument": {
+      "pageLabel": "印刷ドキュメント",
+      "listTitle": "印刷ドキュメント ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "documentType": "ドキュメントタイプ",
+        "state": "状態",
+        "version": "バージョン"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "documentType": "ドキュメントタイプ",
+          "state": "状態",
+          "version": "バージョン"
+        }
+      }
+    },
+    "productGroup": {
+      "pageLabel": "製品グループ",
+      "listTitle": "製品グループ ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態",
+        "productCount": "製品数"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "state": "状態",
+          "productCount": "製品数"
+        }
+      }
     }
   }
 }

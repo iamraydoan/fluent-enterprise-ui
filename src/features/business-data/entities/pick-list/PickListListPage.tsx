@@ -14,7 +14,13 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const COLUMNS: DataColumn<PickListRecord>[] = [
-  { field: "name", headerName: "businessData.pickList.columns.name", type: "link", locked: true, width: "22%" },
+  {
+    field: "name",
+    headerName: "businessData.pickList.columns.name",
+    type: "link",
+    locked: true,
+    width: "22%",
+  },
   { field: "description", headerName: "businessData.pickList.columns.description", width: "28%" },
   { field: "state", headerName: "businessData.pickList.columns.state", width: "15%" },
   { field: "itemCount", headerName: "businessData.pickList.columns.itemCount", width: "15%" },

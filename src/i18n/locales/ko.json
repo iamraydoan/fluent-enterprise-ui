@@ -793,6 +793,243 @@
         "reject": "기각",
         "send": "발송"
       }
+    },
+    "notification": {
+      "pageLabel": "알림",
+      "listTitle": "알림 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "severity": "심각도",
+        "type": "유형",
+        "state": "상태",
+        "validTo": "유효 기한"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "severity": "심각도",
+          "type": "유형",
+          "state": "상태",
+          "validTo": "유효 기한",
+          "tracking": "추적"
+        }
+      }
+    },
+    "package": {
+      "pageLabel": "패키지",
+      "listTitle": "패키지 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "product": "제품",
+        "level": "레벨",
+        "state": "상태",
+        "packedQuantity": "포장 수량"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "product": "제품",
+          "level": "레벨",
+          "state": "상태",
+          "packedQuantity": "포장 수량",
+          "contentType": "콘텐츠 유형"
+        }
+      }
+    },
+    "parameter": {
+      "pageLabel": "매개변수",
+      "listTitle": "매개변수 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "dataType": "데이터 유형",
+        "value": "값",
+        "state": "상태"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "dataType": "데이터 유형",
+          "value": "값",
+          "state": "상태"
+        }
+      }
+    },
+    "product": {
+      "pageLabel": "제품",
+      "listTitle": "제품 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "productType": "제품 유형",
+        "state": "상태",
+        "isActive": "활성"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "productType": "제품 유형",
+          "state": "상태",
+          "isActive": "활성"
+        }
+      }
+    },
+    "productionOrder": {
+      "pageLabel": "생산 오더",
+      "listTitle": "생산 오더 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "product": "제품",
+        "quantity": "수량",
+        "state": "상태",
+        "priority": "우선순위"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "product": "제품",
+          "quantity": "수량",
+          "state": "상태",
+          "priority": "우선순위"
+        }
+      }
+    },
+    "protocol": {
+      "pageLabel": "프로토콜",
+      "listTitle": "프로토콜 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태",
+        "version": "버전"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "type": "유형",
+          "state": "상태",
+          "version": "버전"
+        }
+      }
+    },
+    "periodicInventory": {
+      "pageLabel": "정기 재고조사",
+      "listTitle": "정기 재고조사 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "facility": "공장",
+        "state": "상태",
+        "scheduledOn": "예정일"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "facility": "공장",
+          "state": "상태",
+          "scheduledOn": "예정일"
+        }
+      }
+    },
+    "pickList": {
+      "pageLabel": "피킹 목록",
+      "listTitle": "피킹 목록 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "state": "상태",
+        "itemCount": "품목 수",
+        "createdOn": "생성일"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "state": "상태",
+          "itemCount": "품목 수",
+          "createdOn": "생성일"
+        }
+      }
+    },
+    "plan": {
+      "pageLabel": "계획",
+      "listTitle": "계획 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태",
+        "startDate": "시작일"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "type": "유형",
+          "state": "상태",
+          "startDate": "시작일"
+        }
+      }
+    },
+    "printableDocument": {
+      "pageLabel": "인쇄 문서",
+      "listTitle": "인쇄 문서 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "documentType": "문서 유형",
+        "state": "상태",
+        "version": "버전"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "documentType": "문서 유형",
+          "state": "상태",
+          "version": "버전"
+        }
+      }
+    },
+    "productGroup": {
+      "pageLabel": "제품 그룹",
+      "listTitle": "제품 그룹 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "state": "상태",
+        "productCount": "제품 수"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "state": "상태",
+          "productCount": "제품 수"
+        }
+      }
     }
   }
 }

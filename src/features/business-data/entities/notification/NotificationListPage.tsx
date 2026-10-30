@@ -14,8 +14,18 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const COLUMNS: DataColumn<NotificationRecord>[] = [
-  { field: "name", headerName: "businessData.notification.columns.name", type: "link", locked: true, width: "20%" },
-  { field: "description", headerName: "businessData.notification.columns.description", width: "25%" },
+  {
+    field: "name",
+    headerName: "businessData.notification.columns.name",
+    type: "link",
+    locked: true,
+    width: "20%",
+  },
+  {
+    field: "description",
+    headerName: "businessData.notification.columns.description",
+    width: "25%",
+  },
   { field: "severity", headerName: "businessData.notification.columns.severity", width: "15%" },
   { field: "type", headerName: "businessData.notification.columns.type", width: "15%" },
   { field: "state", headerName: "businessData.notification.columns.state", width: "12%" },

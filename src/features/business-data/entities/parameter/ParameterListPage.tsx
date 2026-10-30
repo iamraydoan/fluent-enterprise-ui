@@ -14,7 +14,13 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const COLUMNS: DataColumn<ParameterRecord>[] = [
-  { field: "name", headerName: "businessData.parameter.columns.name", type: "link", locked: true, width: "22%" },
+  {
+    field: "name",
+    headerName: "businessData.parameter.columns.name",
+    type: "link",
+    locked: true,
+    width: "22%",
+  },
   { field: "description", headerName: "businessData.parameter.columns.description", width: "28%" },
   { field: "dataType", headerName: "businessData.parameter.columns.dataType", width: "18%" },
   { field: "value", headerName: "businessData.parameter.columns.value", width: "20%" },

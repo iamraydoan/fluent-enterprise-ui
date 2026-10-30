@@ -15,13 +15,17 @@ export interface PrintableDocumentDetail extends PrintableDocumentRecord {
   detailNote?: string;
 }
 
-export function listPrintableDocuments(params: ListQueryParams): Promise<Page<PrintableDocumentRecord>> {
+export function listPrintableDocuments(
+  params: ListQueryParams,
+): Promise<Page<PrintableDocumentRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<PrintableDocumentRecord>>(`/business-data/printable-documents?${search.toString()}`);
+  return apiFetch<Page<PrintableDocumentRecord>>(
+    `/business-data/printable-documents?${search.toString()}`,
+  );
 }
 
 export function usePrintableDocuments(params: ListQueryParams) {
@@ -33,9 +37,14 @@ export function usePrintableDocuments(params: ListQueryParams) {
 }
 
 export function getPrintableDocument(name: string): Promise<PrintableDocumentDetail> {
-  return apiFetch<PrintableDocumentDetail>(`/business-data/printable-documents/${encodeURIComponent(name)}`);
+  return apiFetch<PrintableDocumentDetail>(
+    `/business-data/printable-documents/${encodeURIComponent(name)}`,
+  );
 }
 
 export function usePrintableDocumentDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "printable-document", name], queryFn: () => getPrintableDocument(name) });
+  return useQuery({
+    queryKey: ["business-data", "printable-document", name],
+    queryFn: () => getPrintableDocument(name),
+  });
 }

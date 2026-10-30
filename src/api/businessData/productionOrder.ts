@@ -16,13 +16,17 @@ export interface ProductionOrderDetail extends ProductionOrderRecord {
   detailNote?: string;
 }
 
-export function listProductionOrders(params: ListQueryParams): Promise<Page<ProductionOrderRecord>> {
+export function listProductionOrders(
+  params: ListQueryParams,
+): Promise<Page<ProductionOrderRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<ProductionOrderRecord>>(`/business-data/production-orders?${search.toString()}`);
+  return apiFetch<Page<ProductionOrderRecord>>(
+    `/business-data/production-orders?${search.toString()}`,
+  );
 }
 
 export function useProductionOrders(params: ListQueryParams) {
@@ -34,9 +38,14 @@ export function useProductionOrders(params: ListQueryParams) {
 }
 
 export function getProductionOrder(name: string): Promise<ProductionOrderDetail> {
-  return apiFetch<ProductionOrderDetail>(`/business-data/production-orders/${encodeURIComponent(name)}`);
+  return apiFetch<ProductionOrderDetail>(
+    `/business-data/production-orders/${encodeURIComponent(name)}`,
+  );
 }
 
 export function useProductionOrderDetail(name: string) {
-  return useQuery({ queryKey: ["business-data", "production-order", name], queryFn: () => getProductionOrder(name) });
+  return useQuery({
+    queryKey: ["business-data", "production-order", name],
+    queryFn: () => getProductionOrder(name),
+  });
 }

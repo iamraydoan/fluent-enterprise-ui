@@ -1,5 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { buildPeriodicInventoryDetail, queryPeriodicInventorys } from "../../seeds/businessData/periodicInventory";
+import {
+  buildPeriodicInventoryDetail,
+  queryPeriodicInventorys,
+} from "../../seeds/businessData/periodicInventory";
 
 export const periodicInventoryHandlers = [
   http.get("/business-data/periodic-inventorys", ({ request }) => {

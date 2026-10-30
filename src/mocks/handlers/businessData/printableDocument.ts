@@ -1,5 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { buildPrintableDocumentDetail, queryPrintableDocuments } from "../../seeds/businessData/printableDocument";
+import {
+  buildPrintableDocumentDetail,
+  queryPrintableDocuments,
+} from "../../seeds/businessData/printableDocument";
 
 export const printableDocumentHandlers = [
   http.get("/business-data/printable-documents", ({ request }) => {
