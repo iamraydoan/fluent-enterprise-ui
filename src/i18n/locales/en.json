@@ -1215,6 +1215,74 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "container": {
+      "pageLabel": "Containers",
+      "listTitle": "Containers",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "container": "Container",
+        "information": "Information",
+        "positions": "Positions",
+        "positionsView": "Positions View",
+        "positionDetails": "Position Details",
+        "selectPosition": "Select a position to view details.",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "universalState": "Universal State",
+        "systemState": "System State",
+        "dataGroup": "Data Group",
+        "facility": "Facility",
+        "parent": "Parent",
+        "onHold": "On Hold",
+        "positionUnitType": "Position Unit Type",
+        "allowMixedTypes": "Allow Mixed Types",
+        "usedPositions": "Used Positions",
+        "totalPositions": "Total Positions",
+        "capacityValidationMode": "Capacity Validation Mode",
+        "capacityUnit": "Capacity Unit",
+        "capacityPerPosition": "Capacity per Position",
+        "positionSorting": "Position Sorting",
+        "materialsTitle": "Materials ({{count}})",
+        "materialColumns": {
+          "position": "Position",
+          "material": "Material",
+          "product": "Product",
+          "step": "Step",
+          "quantity": "Quantity"
+        },
+        "position": "Position",
+        "material": "Material",
+        "product": "Product",
+        "step": "Step",
+        "quantity": "Quantity",
+        "unit": "Unit",
+        "tabs": {
+          "details": "Details",
+          "container": "Container",
+          "maintenance": "Maintenance",
+          "compare": "Compare",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "materials": "Materials",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

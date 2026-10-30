@@ -1215,6 +1215,74 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "container": {
+      "pageLabel": "컨테이너",
+      "listTitle": "컨테이너",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "systemState": "시스템 상태",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "container": "컨테이너",
+        "information": "Information",
+        "positions": "Positions",
+        "positionsView": "Positions View",
+        "positionDetails": "Position Details",
+        "selectPosition": "Select a position to view details.",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "universalState": "Universal State",
+        "systemState": "시스템 상태",
+        "dataGroup": "Data Group",
+        "facility": "Facility",
+        "parent": "Parent",
+        "onHold": "On Hold",
+        "positionUnitType": "Position Unit Type",
+        "allowMixedTypes": "Allow Mixed Types",
+        "usedPositions": "Used Positions",
+        "totalPositions": "Total Positions",
+        "capacityValidationMode": "Capacity Validation Mode",
+        "capacityUnit": "Capacity Unit",
+        "capacityPerPosition": "Capacity per Position",
+        "positionSorting": "Position Sorting",
+        "materialsTitle": "Materials ({{count}})",
+        "materialColumns": {
+          "position": "Position",
+          "material": "Material",
+          "product": "Product",
+          "step": "Step",
+          "quantity": "Quantity"
+        },
+        "position": "Position",
+        "material": "Material",
+        "product": "Product",
+        "step": "Step",
+        "quantity": "Quantity",
+        "unit": "Unit",
+        "tabs": {
+          "details": "세부 정보",
+          "container": "컨테이너",
+          "maintenance": "유지보수",
+          "compare": "비교",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "materials": "자재",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

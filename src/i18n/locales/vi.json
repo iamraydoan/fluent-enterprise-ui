@@ -1215,6 +1215,74 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "container": {
+      "pageLabel": "Hộp đựng",
+      "listTitle": "Hộp đựng",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "systemState": "Trạng thái hệ thống",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "container": "Hộp đựng",
+        "information": "Information",
+        "positions": "Positions",
+        "positionsView": "Positions View",
+        "positionDetails": "Position Details",
+        "selectPosition": "Select a position to view details.",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "universalState": "Universal State",
+        "systemState": "Trạng thái hệ thống",
+        "dataGroup": "Data Group",
+        "facility": "Facility",
+        "parent": "Parent",
+        "onHold": "On Hold",
+        "positionUnitType": "Position Unit Type",
+        "allowMixedTypes": "Allow Mixed Types",
+        "usedPositions": "Used Positions",
+        "totalPositions": "Total Positions",
+        "capacityValidationMode": "Capacity Validation Mode",
+        "capacityUnit": "Capacity Unit",
+        "capacityPerPosition": "Capacity per Position",
+        "positionSorting": "Position Sorting",
+        "materialsTitle": "Materials ({{count}})",
+        "materialColumns": {
+          "position": "Position",
+          "material": "Material",
+          "product": "Product",
+          "step": "Step",
+          "quantity": "Quantity"
+        },
+        "position": "Position",
+        "material": "Material",
+        "product": "Product",
+        "step": "Step",
+        "quantity": "Quantity",
+        "unit": "Unit",
+        "tabs": {
+          "details": "Chi tiết",
+          "container": "Hộp đựng",
+          "maintenance": "Bảo trì",
+          "compare": "So sánh",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "materials": "Nguyên liệu",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }
