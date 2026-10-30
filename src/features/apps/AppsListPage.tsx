@@ -1,56 +1,66 @@
 import { useMemo } from "react";
-import { RecordState, useApps } from "@/api";
+import { AppType, RecordState, useApps } from "@/api";
 import type { AppRecord } from "@/api";
-import { ListPage, RECORD_STATE_LABELS, SimpleTableCard } from "@/components/common";
-import type { DataColumn } from "@/components/common";
-import { Add24Regular, ArrowSync24Regular, Window20Regular } from "@/components/icons";
-import { Badge } from "@/components/ui";
+import {
+  createAction,
+  DataTableCard,
+  ListPage,
+  RECORD_STATE_LABELS,
+  refreshAction,
+  searchFilter,
+  stateFilter,
+} from "@/components/common";
+import type { DataColumn, DataFilter } from "@/components/common";
+import { Window20Regular } from "@/components/icons";
 import { useAppTranslation } from "@/i18n";
 
-const STATE_COLORS: Record<RecordState, "success" | "informative" | "danger"> = {
-  [RecordState.Active]: "success",
-  [RecordState.Draft]: "informative",
-  [RecordState.Terminated]: "danger",
-};
+const APP_TYPE_OPTIONS = {
+  [AppType.System]: { labelKey: "apps.types.system", color: "brand" },
+  [AppType.UserDefined]: { labelKey: "apps.types.userDefined", color: "neutral" },
+} as const;
+
+const APP_STATE_OPTIONS = {
+  [RecordState.Active]: { labelKey: RECORD_STATE_LABELS[RecordState.Active], color: "success" },
+  [RecordState.Draft]: { labelKey: RECORD_STATE_LABELS[RecordState.Draft], color: "warning" },
+  [RecordState.Terminated]: {
+    labelKey: RECORD_STATE_LABELS[RecordState.Terminated],
+    color: "danger",
+  },
+} as const;
 
 export function AppsListPage() {
   const { t } = useAppTranslation();
   const columns = useMemo<DataColumn<AppRecord>[]>(
     () => [
-      { key: "name", labelKey: "apps.columns.app" },
-      { key: "description", labelKey: "apps.columns.description" },
+      { field: "name", headerName: "apps.columns.app" },
+      { field: "description", headerName: "apps.columns.description" },
       {
-        key: "type",
-        labelKey: "apps.columns.type",
-        render: (row) => t(row.type === "System" ? "apps.types.system" : "apps.types.userDefined"),
+        field: "type",
+        headerName: "apps.columns.type",
+        enumOptions: APP_TYPE_OPTIONS,
       },
       {
-        key: "state",
-        labelKey: "apps.columns.state",
-        render: (row) => (
-          <Badge appearance="tint" shape="rounded" size="small" color={STATE_COLORS[row.state]}>
-            {t(RECORD_STATE_LABELS[row.state])}
-          </Badge>
-        ),
+        field: "state",
+        headerName: "apps.columns.state",
+        enumOptions: APP_STATE_OPTIONS,
       },
     ],
-    [t],
+    [],
   );
+  const filters = useMemo<DataFilter[]>(() => [stateFilter(), searchFilter()], []);
   return (
     <ListPage
       header={{
         icon: <Window20Regular />,
         title: t("apps.pageLabel"),
-        actions: [
-          { icon: <Add24Regular />, label: t("actionBar.create") },
-          { icon: <ArrowSync24Regular />, label: t("actionBar.refresh") },
-        ],
+        actions: [createAction, refreshAction],
       }}
     >
-      <SimpleTableCard
+      <DataTableCard
         title={(count) => t("apps.listTitle", { count })}
         ariaLabel={t("apps.pageLabel")}
         columns={columns}
+        filters={filters}
         useListQuery={useApps}
         getRowId={(row) => row.name}
       />

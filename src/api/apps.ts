@@ -4,10 +4,15 @@ import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
 
+export enum AppType {
+  System = "System",
+  UserDefined = "User defined",
+}
+
 export interface AppRecord {
   name: string;
   description: string;
-  type: string;
+  type: AppType;
   state: RecordState;
 }
 

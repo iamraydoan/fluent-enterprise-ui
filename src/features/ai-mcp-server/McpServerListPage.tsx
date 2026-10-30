@@ -1,16 +1,18 @@
 import { useMemo } from "react";
-import { RecordState, useMcpServers } from "@/api";
+import { useMcpServers } from "@/api";
 import type { McpServerRecord } from "@/api";
 import {
+  createAction,
   DataTableCard,
   ListPage,
-  RECORD_STATE_LABELS,
+  RECORD_STATE_COLUMN_OPTIONS,
+  refreshAction,
   RowLink,
   searchFilter,
   stateFilter,
 } from "@/components/common";
 import type { DataColumn, DataFilter } from "@/components/common";
-import { Add24Regular, ArrowSync24Regular, PlugConnected20Regular } from "@/components/icons";
+import { PlugConnected20Regular } from "@/components/icons";
 import { useAppTranslation } from "@/i18n";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
@@ -22,39 +24,30 @@ export function McpServerListPage() {
   const columns = useMemo<DataColumn<McpServerRecord>[]>(
     () => [
       {
-        key: "name",
-        labelKey: "mcpServer.columns.name",
+        field: "name",
+        headerName: "mcpServer.columns.name",
         locked: true,
         width: "25%",
-        render: (row) => <RowLink onOpen={() => openDetail(row.name)}>{row.name}</RowLink>,
+        cellRenderer: (row) => <RowLink onOpen={() => openDetail(row.name)}>{row.name}</RowLink>,
       },
-      { key: "description", labelKey: "mcpServer.columns.description", width: "30%" },
-      { key: "url", labelKey: "mcpServer.columns.url", width: "30%" },
+      { field: "description", headerName: "mcpServer.columns.description", width: "30%" },
+      { field: "url", headerName: "mcpServer.columns.url", width: "30%" },
       {
-        key: "state",
-        labelKey: "mcpServer.columns.state",
+        field: "state",
+        headerName: "mcpServer.columns.state",
         width: "15%",
-        render: (row) => t(RECORD_STATE_LABELS[row.state]),
+        enumOptions: RECORD_STATE_COLUMN_OPTIONS,
       },
     ],
-    [t, openDetail],
+    [openDetail],
   );
-  const filters = useMemo<DataFilter[]>(
-    () => [
-      stateFilter([RecordState.Active, RecordState.Draft, RecordState.Terminated]),
-      searchFilter(),
-    ],
-    [],
-  );
+  const filters = useMemo<DataFilter[]>(() => [stateFilter(), searchFilter()], []);
   return (
     <ListPage
       header={{
         icon: <PlugConnected20Regular />,
         title: t("mcpServer.pageLabel"),
-        actions: [
-          { icon: <Add24Regular />, label: t("actionBar.create") },
-          { icon: <ArrowSync24Regular />, label: t("actionBar.refresh") },
-        ],
+        actions: [createAction, refreshAction],
       }}
     >
       <DataTableCard

@@ -1,21 +1,29 @@
 import type { ReactNode } from "react";
 import type { TranslationKey } from "@/i18n";
 
-export interface DataColumn<TRow> {
-  key: string;
+export interface EnumColumnOption {
   labelKey: TranslationKey;
+  color?: "brand" | "success" | "warning" | "danger" | "neutral";
+}
+
+export interface DataColumn<TRow> {
+  field: Extract<keyof TRow, string> | (string & {});
+  headerName: TranslationKey;
+  valueGetter?: (row: TRow) => unknown;
+  cellRenderer?: (row: TRow) => ReactNode;
+  enumOptions?: Readonly<Record<string, EnumColumnOption>>;
   width?: string;
   align?: "left" | "center";
   sortable?: boolean;
   locked?: boolean;
   defaultHidden?: boolean;
   truncate?: boolean;
-  getValue?: (row: TRow) => unknown;
-  render?: (row: TRow) => ReactNode;
 }
 
 export function getColumnValue<TRow>(column: DataColumn<TRow>, row: TRow): unknown {
-  return column.getValue ? column.getValue(row) : (row as Record<string, unknown>)[column.key];
+  return column.valueGetter
+    ? column.valueGetter(row)
+    : (row as Record<string, unknown>)[column.field];
 }
 
 export function defaultCellText(value: unknown): ReactNode {

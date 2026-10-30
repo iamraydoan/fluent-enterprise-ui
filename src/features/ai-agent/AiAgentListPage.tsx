@@ -1,16 +1,18 @@
 import { useMemo } from "react";
-import { RecordState, useAiAgents } from "@/api";
+import { useAiAgents } from "@/api";
 import type { AiAgentRecord } from "@/api";
 import {
+  createAction,
   DataTableCard,
   ListPage,
-  RECORD_STATE_LABELS,
+  RECORD_STATE_COLUMN_OPTIONS,
+  refreshAction,
   RowLink,
   searchFilter,
   stateFilter,
 } from "@/components/common";
 import type { DataColumn, DataFilter } from "@/components/common";
-import { Add24Regular, ArrowSync24Regular, Bot20Regular } from "@/components/icons";
+import { Bot20Regular } from "@/components/icons";
 import { useAppTranslation } from "@/i18n";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
@@ -22,39 +24,30 @@ export function AiAgentListPage() {
   const columns = useMemo<DataColumn<AiAgentRecord>[]>(
     () => [
       {
-        key: "name",
-        labelKey: "aiAgent.columns.agent",
+        field: "name",
+        headerName: "aiAgent.columns.agent",
         locked: true,
         width: "25%",
-        render: (row) => <RowLink onOpen={() => openDetail(row.name)}>{row.name}</RowLink>,
+        cellRenderer: (row) => <RowLink onOpen={() => openDetail(row.name)}>{row.name}</RowLink>,
       },
-      { key: "description", labelKey: "aiAgent.columns.description", width: "40%" },
-      { key: "mcpServers", labelKey: "aiAgent.columns.mcpServers", width: "15%" },
+      { field: "description", headerName: "aiAgent.columns.description", width: "40%" },
+      { field: "mcpServers", headerName: "aiAgent.columns.mcpServers", width: "15%" },
       {
-        key: "state",
-        labelKey: "aiAgent.columns.state",
+        field: "state",
+        headerName: "aiAgent.columns.state",
         width: "20%",
-        render: (row) => t(RECORD_STATE_LABELS[row.state]),
+        enumOptions: RECORD_STATE_COLUMN_OPTIONS,
       },
     ],
-    [t, openDetail],
+    [openDetail],
   );
-  const filters = useMemo<DataFilter[]>(
-    () => [
-      stateFilter([RecordState.Active, RecordState.Draft, RecordState.Terminated]),
-      searchFilter(),
-    ],
-    [],
-  );
+  const filters = useMemo<DataFilter[]>(() => [stateFilter(), searchFilter()], []);
   return (
     <ListPage
       header={{
         icon: <Bot20Regular />,
         title: t("aiAgent.pageLabel"),
-        actions: [
-          { icon: <Add24Regular />, label: t("actionBar.create") },
-          { icon: <ArrowSync24Regular />, label: t("actionBar.refresh") },
-        ],
+        actions: [createAction, refreshAction],
       }}
     >
       <DataTableCard

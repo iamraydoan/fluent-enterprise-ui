@@ -6,11 +6,14 @@ import { RibbonButton } from "@/components/common/RibbonButton";
 import type { RibbonMenuItem } from "@/components/common/RibbonButton";
 import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
 export interface HeaderAction {
+  id: string;
   icon: ReactElement;
-  label: string;
+  label?: string;
+  labelKey?: TranslationKey;
   onClick?: () => void;
   menu?: RibbonMenuItem[];
   group?: "general" | "actions";
@@ -19,7 +22,7 @@ export interface HeaderAction {
 interface ListPageHeaderProps {
   icon: ReactElement;
   title: string;
-  actions: HeaderAction[];
+  actions: readonly HeaderAction[];
 }
 
 const GROUP_LABEL_KEYS = {
@@ -42,16 +45,21 @@ export function ListPageHeader({ icon, title, actions }: ListPageHeaderProps) {
             return (
               <div key={group} className={sharedStyles.actionBarGroup}>
                 <div className={sharedStyles.actionBarGroupButtons}>
-                  {groupActions.map((action) => (
-                    <RibbonButton
-                      key={action.label}
-                      sharedStyles={sharedStyles}
-                      icon={action.icon}
-                      label={action.label}
-                      onClick={action.onClick}
-                      menu={action.menu}
-                    />
-                  ))}
+                  {groupActions.map((action) => {
+                    const label =
+                      action.label ?? (action.labelKey ? t(action.labelKey) : undefined);
+                    if (!label) return null;
+                    return (
+                      <RibbonButton
+                        key={action.id}
+                        sharedStyles={sharedStyles}
+                        icon={action.icon}
+                        label={label}
+                        onClick={action.onClick}
+                        menu={action.menu}
+                      />
+                    );
+                  })}
                 </div>
                 <div className={sharedStyles.actionBarGroupLabel}>{t(GROUP_LABEL_KEYS[group])}</div>
               </div>

@@ -38,8 +38,6 @@ const i18nBan = [
   { name: "react-i18next", message: "Import i18n only from @/i18n." },
 ];
 
-// TanStack Table is an implementation detail of the data-table adapter.
-// Pages must use the pure DataColumn / DataFilter configs from @/components/common.
 const tanstackTableBan = {
   paths: [
     {
@@ -119,7 +117,6 @@ export default tseslint.config(
     },
     linterOptions: { reportUnusedDisableDirectives: "error" },
   },
-  // Core-only: alias-only imports, plus the Fluent ban for core files.
   {
     files: [
       "src/components/**/*.{ts,tsx}",
@@ -144,8 +141,6 @@ export default tseslint.config(
     files: ["src/routes/**/*.{ts,tsx}"],
     rules: { "react-refresh/only-export-components": "off" },
   },
-  // i18n layer: only src/i18n may import i18next/react-i18next directly.
-  // Everything else imports the wrapper from @/i18n.
   {
     files: ["src/i18n/**/*.{ts,tsx}"],
     rules: {
@@ -155,10 +150,6 @@ export default tseslint.config(
       ],
     },
   },
-  // Wrapper layers + theme: ui and theme may import Fluent components directly
-  // but not Fluent icons; icons may import Fluent icons directly but not
-  // Fluent components. They still may not use relative imports, except for
-  // their own barrel index.ts files (next).
   {
     files: ["src/components/ui/**/*.{ts,tsx}", "src/theme/**/*.ts"],
     ignores: ["src/components/ui/index.ts"],
@@ -197,28 +188,26 @@ export default tseslint.config(
       ],
     },
   },
-  // Barrel exception: ui/index.ts re-exports its own folder via relative paths.
-  // It still may not import Fluent directly or a ui subfile by alias.
   {
     files: ["src/components/ui/index.ts"],
     rules: { "no-restricted-imports": ["error", fluentBan] },
   },
-  // Barrel exception: common/index.ts re-exports its own folder via relative paths.
-  // It still may not import Fluent directly or a common subfile by alias.
   {
     files: ["src/components/common/index.ts"],
     rules: { "no-restricted-imports": ["error", fluentBan] },
   },
-  // DetailShell composes sibling common components. It imports them via
-  // relative paths, not the common barrel, to avoid a barrel self-cycle,
-  // which dependency-cruiser forbids as circular. Fluent stays banned,
-  // and boundaries still requires ui/icons imports via their barrels.
+  {
+    files: ["src/components/common/actions/index.ts"],
+    rules: { "no-restricted-imports": ["error", fluentBan] },
+  },
+  {
+    files: ["src/components/**/*.{ts,tsx}"],
+    rules: { "no-restricted-imports": "off" },
+  },
   {
     files: ["src/components/common/DetailShell.tsx"],
     rules: { "no-restricted-imports": ["error", fluentBan] },
   },
-  // Barrel exception: icons/index.ts is the approved boundary for Fluent icons.
-  // It may re-export icon implementations directly, but not Fluent components.
   {
     files: ["src/components/icons/index.ts"],
     rules: {
@@ -236,11 +225,6 @@ export default tseslint.config(
       ],
     },
   },
-  // i18n enforcement: user-visible strings must go through t().
-  // Only JSX text and JSX attributes are checked (mode jsx-only); plain
-  // TypeScript strings (routes, ids, data) are not. Technical JSX props and
-  // the words below are excluded; test files, the i18n layer itself and the
-  // generated route tree are not checked.
   {
     files: ["src/**/*.{ts,tsx}"],
     ignores: ["src/i18n/**", "src/routeTree.gen.ts", "**/*.test.{ts,tsx}"],
@@ -294,11 +278,6 @@ export default tseslint.config(
       ],
     },
   },
-  // Architecture boundaries: layer direction + ui entry-point.
-  // Ui may only be imported via its barrel by non-ui elements; ui itself
-  // may import its own files (index.ts re-exports them). External packages
-  // (react, etc.) are allowed for all elements; Fluent itself is still
-  // gated by no-restricted-imports above, not by boundaries.
   {
     files: ["src/**/*.{ts,tsx}"],
     plugins: { boundaries },
@@ -548,8 +527,6 @@ export default tseslint.config(
     plugins: { local: noCommentsPlugin },
     rules: { "local/no-comments": "error" },
   },
-  // Exception: the data-table adapter itself may import TanStack Table.
-  // This restores the core-only rule (without the TanStack ban) for the adapter.
   {
     files: ["src/components/common/data-table/**/*.{ts,tsx}"],
     rules: {

@@ -1,14 +1,15 @@
 import { useMemo, useRef, useState } from "react";
 import { useConfigurationTree, useConfigurations } from "@/api";
 import type { ConfigurationEntry } from "@/api";
-import { DataTableCard, ListPage, SidePanel } from "@/components/common";
-import type { DataColumn, DataFilter, DataTableCardApi, HeaderAction } from "@/components/common";
 import {
-  Add24Regular,
-  ArrowSync24Regular,
-  MoreVertical24Regular,
-  Wrench20Regular,
-} from "@/components/icons";
+  createAction,
+  DataTableCard,
+  ListPage,
+  refreshAction,
+  SidePanel,
+} from "@/components/common";
+import type { DataColumn, DataFilter, DataTableCardApi, HeaderAction } from "@/components/common";
+import { MoreVertical24Regular, Wrench20Regular } from "@/components/icons";
 import { makeStyles, mergeClasses, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
@@ -78,55 +79,55 @@ export function ConfigurationListPage() {
   const columns = useMemo<DataColumn<ConfigurationEntry>[]>(
     () => [
       {
-        key: "path",
-        labelKey: "configuration.columns.path",
+        field: "path",
+        headerName: "configuration.columns.path",
         locked: true,
         width: "38%",
         truncate: true,
       },
       {
-        key: "name",
-        labelKey: "configuration.columns.name",
+        field: "name",
+        headerName: "configuration.columns.name",
         width: "30%",
         truncate: true,
-        getValue: (entry) => entryName(entry.path),
+        valueGetter: (entry) => entryName(entry.path),
       },
       {
-        key: "value",
-        labelKey: "configuration.columns.value",
+        field: "value",
+        headerName: "configuration.columns.value",
         truncate: true,
-        getValue: maskedValue,
+        valueGetter: maskedValue,
       },
       {
-        key: "type",
-        labelKey: "configuration.columns.type",
+        field: "type",
+        headerName: "configuration.columns.type",
         defaultHidden: true,
       },
       {
-        key: "description",
-        labelKey: "configuration.columns.description",
+        field: "description",
+        headerName: "configuration.columns.description",
         defaultHidden: true,
       },
       {
-        key: "modifiedOn",
-        labelKey: "configuration.columns.modifiedOn",
+        field: "modifiedOn",
+        headerName: "configuration.columns.modifiedOn",
         defaultHidden: true,
-        getValue: (entry) => formatDateTime(entry.modifiedOn),
+        valueGetter: (entry) => formatDateTime(entry.modifiedOn),
       },
       {
-        key: "modifiedBy",
-        labelKey: "configuration.columns.modifiedBy",
+        field: "modifiedBy",
+        headerName: "configuration.columns.modifiedBy",
         defaultHidden: true,
       },
       {
-        key: "createdOn",
-        labelKey: "configuration.columns.createdOn",
+        field: "createdOn",
+        headerName: "configuration.columns.createdOn",
         defaultHidden: true,
-        getValue: (entry) => formatDateTime(entry.createdOn),
+        valueGetter: (entry) => formatDateTime(entry.createdOn),
       },
       {
-        key: "createdBy",
-        labelKey: "configuration.columns.createdBy",
+        field: "createdBy",
+        headerName: "configuration.columns.createdBy",
         defaultHidden: true,
       },
     ],
@@ -179,11 +180,12 @@ export function ConfigurationListPage() {
 
   const actions = useMemo<HeaderAction[]>(
     () => [
-      { icon: <ArrowSync24Regular />, label: t("actionBar.refresh") },
-      { icon: <Add24Regular />, label: t("actionBar.create") },
+      refreshAction,
+      createAction,
       {
+        id: "more",
         icon: <MoreVertical24Regular />,
-        label: t("actionBar.more"),
+        labelKey: "actionBar.more",
         group: "actions",
         menu: [
           {

@@ -87,7 +87,7 @@ function initialColumnVisibility<TRow extends RowData>(
 ): ColumnVisibilityState {
   const visibility: ColumnVisibilityState = {};
   for (const column of columns) {
-    if (column.defaultHidden) visibility[column.key] = false;
+    if (column.defaultHidden) visibility[column.field] = false;
   }
   return visibility;
 }

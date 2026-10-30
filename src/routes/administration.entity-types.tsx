@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { EntityTypesPage } from "@/features/entity-types/EntityTypesPage";
+import { EntityTypesListPage } from "@/features/entity-types/EntityTypesListPage";
 
 export const Route = createFileRoute("/administration/entity-types")({
-  component: EntityTypesPage,
+  component: EntityTypesListPage,
 });

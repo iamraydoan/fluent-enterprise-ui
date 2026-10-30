@@ -15,6 +15,7 @@ export type {
 export { sendChatMessage, useSendChat } from "./aiChat";
 export type { SendChatRequest, SendChatResponse } from "./aiChat";
 export { listApps, useApps } from "./apps";
+export { AppType } from "./apps";
 export type { AppListParams, AppRecord } from "./apps";
 export {
   getConfiguration,

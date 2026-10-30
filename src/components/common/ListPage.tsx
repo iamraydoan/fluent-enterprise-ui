@@ -5,7 +5,7 @@ import type { HeaderAction } from "@/components/common/ListPageHeader";
 interface ListPageHeaderConfig {
   icon: ReactElement;
   title: string;
-  actions: HeaderAction[];
+  actions: readonly HeaderAction[];
 }
 
 interface ListPageProps {

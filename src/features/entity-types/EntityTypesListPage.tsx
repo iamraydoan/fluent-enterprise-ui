@@ -1,19 +1,19 @@
 import { useCallback, useMemo } from "react";
-import { RecordState, useEntityTypes } from "@/api";
+import { useEntityTypes } from "@/api";
 import type { EntityTypeRecord } from "@/api";
 import {
+  createAction,
   DataTableCard,
+  downloadLbosAction,
+  exportAction,
   ListPage,
-  RECORD_STATE_LABELS,
+  RECORD_STATE_COLUMN_OPTIONS,
+  refreshAction,
   searchFilter,
   stateFilter,
 } from "@/components/common";
 import type { DataColumn, DataFilter } from "@/components/common";
 import {
-  Add24Regular,
-  ArrowDownload24Regular,
-  ArrowExportUp24Regular,
-  ArrowSync24Regular,
   Checkmark20Filled,
   Dismiss20Filled,
   DocumentBulletList20Regular,
@@ -21,7 +21,7 @@ import {
 import { TableCellLayout } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
-export function EntityTypesPage() {
+export function EntityTypesListPage() {
   const { t } = useAppTranslation();
   const renderBoolean = useCallback(
     (value: boolean) => (
@@ -38,71 +38,60 @@ export function EntityTypesPage() {
   const columns = useMemo<DataColumn<EntityTypeRecord>[]>(
     () => [
       {
-        key: "name",
-        labelKey: "entityTypes.columns.name",
+        field: "name",
+        headerName: "entityTypes.columns.name",
         locked: true,
         width: "22%",
-        render: (row) => <TableCellLayout truncate>{row.name}</TableCellLayout>,
+        cellRenderer: (row) => <TableCellLayout truncate>{row.name}</TableCellLayout>,
       },
       {
-        key: "description",
-        labelKey: "entityTypes.columns.description",
+        field: "description",
+        headerName: "entityTypes.columns.description",
         width: "22%",
-        render: (row) => (
+        cellRenderer: (row) => (
           <TableCellLayout truncate title={row.description}>
             {row.description}
           </TableCellLayout>
         ),
       },
       {
-        key: "system",
-        labelKey: "entityTypes.columns.system",
+        field: "system",
+        headerName: "entityTypes.columns.system",
         width: "14%",
         align: "center",
-        render: (row) => renderBoolean(row.system),
+        cellRenderer: (row) => renderBoolean(row.system),
       },
       {
-        key: "relation",
-        labelKey: "entityTypes.columns.relation",
+        field: "relation",
+        headerName: "entityTypes.columns.relation",
         width: "14%",
         align: "center",
-        getValue: (row) => row.isRelation,
-        render: (row) => renderBoolean(row.isRelation),
+        valueGetter: (row) => row.isRelation,
+        cellRenderer: (row) => renderBoolean(row.isRelation),
       },
       {
-        key: "versioned",
-        labelKey: "entityTypes.columns.versioned",
+        field: "versioned",
+        headerName: "entityTypes.columns.versioned",
         width: "14%",
         align: "center",
-        render: (row) => renderBoolean(row.versioned),
+        cellRenderer: (row) => renderBoolean(row.versioned),
       },
       {
-        key: "state",
-        labelKey: "entityTypes.columns.state",
+        field: "state",
+        headerName: "entityTypes.columns.state",
         width: "14%",
-        render: (row) => t(RECORD_STATE_LABELS[row.state]),
+        enumOptions: RECORD_STATE_COLUMN_OPTIONS,
       },
     ],
-    [t, renderBoolean],
+    [renderBoolean],
   );
-  const filters = useMemo<DataFilter[]>(
-    () => [stateFilter([RecordState.Active, RecordState.Terminated]), searchFilter()],
-    [],
-  );
+  const filters = useMemo<DataFilter[]>(() => [stateFilter(), searchFilter()], []);
   return (
     <ListPage
       header={{
         icon: <DocumentBulletList20Regular />,
         title: t("entityTypes.pageLabel"),
-        actions: [
-          { icon: <Add24Regular />, label: t("actionBar.create") },
-          { icon: <ArrowSync24Regular />, label: t("actionBar.refresh") },
-          {
-            icon: <ArrowExportUp24Regular style={{ transform: "rotate(180deg)" }} />,
-            label: t("actionBar.export"),
-          },
-          { icon: <ArrowDownload24Regular />, label: t("actionBar.downloadLbos") },
-        ],
+        actions: [createAction, refreshAction, exportAction, downloadLbosAction],
       }}
     >
       <DataTableCard
