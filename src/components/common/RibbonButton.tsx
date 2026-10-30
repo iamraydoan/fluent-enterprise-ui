@@ -1,10 +1,12 @@
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import { Menu, MenuItem, MenuList, MenuPopover, MenuTrigger } from "@/components/ui";
 import type { SharedStyles } from "@/styles/shared";
 
 export interface RibbonMenuItem {
   label: string;
   onClick: () => void;
+  icon?: ReactElement;
+  disabled?: boolean;
 }
 
 interface RibbonButtonProps {
@@ -29,7 +31,12 @@ export function RibbonButton({ sharedStyles, icon, label, onClick, menu }: Ribbo
       <MenuPopover>
         <MenuList>
           {menu.map((item) => (
-            <MenuItem key={item.label} onClick={item.onClick}>
+            <MenuItem
+              key={item.label}
+              icon={item.icon}
+              disabled={item.disabled}
+              onClick={item.onClick}
+            >
               {item.label}
             </MenuItem>
           ))}

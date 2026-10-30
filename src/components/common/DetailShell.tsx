@@ -11,11 +11,6 @@ import {
 import {
   Body1Strong,
   Button,
-  Menu,
-  MenuItem,
-  MenuList,
-  MenuPopover,
-  MenuTrigger,
   makeStyles,
   mergeClasses,
   Tab,
@@ -315,24 +310,19 @@ export function DetailShell({
             </div>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
-                <Menu>
-                  <MenuTrigger disableButtonEnhancement>
-                    <RibbonButton
-                      sharedStyles={sharedStyles}
-                      icon={<MoreVertical24Regular />}
-                      label={t("actionBar.more")}
-                    />
-                  </MenuTrigger>
-                  <MenuPopover>
-                    <MenuList>
-                      {(moreActions ?? []).map((action) => (
-                        <MenuItem key={action.id} onClick={action.onClick}>
-                          {t(action.labelKey)}
-                        </MenuItem>
-                      ))}
-                    </MenuList>
-                  </MenuPopover>
-                </Menu>
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<MoreVertical24Regular />}
+                  label={t("actionBar.more")}
+                  menu={
+                    moreActions && moreActions.length > 0
+                      ? moreActions.map((action) => ({
+                          label: t(action.labelKey),
+                          onClick: action.onClick,
+                        }))
+                      : undefined
+                  }
+                />
               </div>
               <div className={sharedStyles.actionBarGroupLabel}>
                 {t("actionBar.groups.actions")}
