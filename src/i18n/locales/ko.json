@@ -924,6 +924,54 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "calendar": {
+      "pageLabel": "캘린더",
+      "listTitle": "캘린더",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "calendar": "Calendar",
+        "information": "Information",
+        "name": "이름",
+        "description": "설명",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "timeZone": "Time Zone",
+        "clockInEarlyStart": "Clock-In Early Start (Minutes)",
+        "enterpriseReporting": "Enterprise Wide Reporting Dimension",
+        "fiscalStartDay": "Fiscal Start Day",
+        "fiscalStartMonth": "Fiscal Start Month",
+        "weekStartDay": "Week Start Day",
+        "dayStartTime": "Day Start Time",
+        "weekDaysTitle": "Week Days ({{count}})",
+        "weekColumns": {
+          "day": "Day",
+          "shiftDefinition": "Shift Definition",
+          "costOvertimeFactor": "Cost Overtime Factor"
+        },
+        "legendWorking": "Working Day",
+        "legendNonWorking": "Non-Working Day",
+        "tabs": {
+          "details": "세부 정보",
+          "calendarDays": "캘린더 날짜",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "weekDefinition": "주 정의",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

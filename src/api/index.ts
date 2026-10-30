@@ -86,3 +86,5 @@ export { useBinConverterDetail, useBinConverters } from "./businessData/binConve
 export type { BinConversion, BinConverterDetail, BinConverterRecord } from "./businessData/binConverter";
 export { useBusinessPartnerDetail, useBusinessPartners } from "./businessData/businessPartner";
 export type { BusinessPartnerDetail, BusinessPartnerRecord } from "./businessData/businessPartner";
+export { useCalendarDetail, useCalendars } from "./businessData/calendar";
+export type { CalendarDetail, CalendarRecord, WeekDay } from "./businessData/calendar";

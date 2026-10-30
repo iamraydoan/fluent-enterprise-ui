@@ -28,6 +28,7 @@ import { Route as BusinessDataBatchRouteImport } from './routes/business-data.ba
 import { Route as BusinessDataBinConverterRouteImport } from './routes/business-data.bin-converter'
 import { Route as BusinessDataBomRouteImport } from './routes/business-data.bom'
 import { Route as BusinessDataBusinessPartnerRouteImport } from './routes/business-data.business-partner'
+import { Route as BusinessDataCalendarRouteImport } from './routes/business-data.calendar'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -39,6 +40,7 @@ import { Route as BusinessDataBatchNameRouteImport } from './routes/business-dat
 import { Route as BusinessDataBinConverterNameRouteImport } from './routes/business-data.bin-converter.$name'
 import { Route as BusinessDataBomNameRouteImport } from './routes/business-data.bom.$name'
 import { Route as BusinessDataBusinessPartnerNameRouteImport } from './routes/business-data.business-partner.$name'
+import { Route as BusinessDataCalendarNameRouteImport } from './routes/business-data.calendar.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -140,6 +142,11 @@ const BusinessDataBusinessPartnerRoute =
     path: '/business-partner',
     getParentRoute: () => BusinessDataRoute,
   } as any)
+const BusinessDataCalendarRoute = BusinessDataCalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -203,6 +210,12 @@ const BusinessDataBusinessPartnerNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataBusinessPartnerRoute,
   } as any)
+const BusinessDataCalendarNameRoute =
+  BusinessDataCalendarNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataCalendarRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -224,6 +237,7 @@ export interface FileRoutesByFullPath {
   '/business-data/bin-converter': typeof BusinessDataBinConverterRouteWithChildren
   '/business-data/bom': typeof BusinessDataBomRouteWithChildren
   '/business-data/business-partner': typeof BusinessDataBusinessPartnerRouteWithChildren
+  '/business-data/calendar': typeof BusinessDataCalendarRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -235,6 +249,7 @@ export interface FileRoutesByFullPath {
   '/business-data/bin-converter/$name': typeof BusinessDataBinConverterNameRoute
   '/business-data/bom/$name': typeof BusinessDataBomNameRoute
   '/business-data/business-partner/$name': typeof BusinessDataBusinessPartnerNameRoute
+  '/business-data/calendar/$name': typeof BusinessDataCalendarNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -256,6 +271,7 @@ export interface FileRoutesByTo {
   '/business-data/bin-converter': typeof BusinessDataBinConverterRouteWithChildren
   '/business-data/bom': typeof BusinessDataBomRouteWithChildren
   '/business-data/business-partner': typeof BusinessDataBusinessPartnerRouteWithChildren
+  '/business-data/calendar': typeof BusinessDataCalendarRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -267,6 +283,7 @@ export interface FileRoutesByTo {
   '/business-data/bin-converter/$name': typeof BusinessDataBinConverterNameRoute
   '/business-data/bom/$name': typeof BusinessDataBomNameRoute
   '/business-data/business-partner/$name': typeof BusinessDataBusinessPartnerNameRoute
+  '/business-data/calendar/$name': typeof BusinessDataCalendarNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -289,6 +306,7 @@ export interface FileRoutesById {
   '/business-data/bin-converter': typeof BusinessDataBinConverterRouteWithChildren
   '/business-data/bom': typeof BusinessDataBomRouteWithChildren
   '/business-data/business-partner': typeof BusinessDataBusinessPartnerRouteWithChildren
+  '/business-data/calendar': typeof BusinessDataCalendarRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -300,6 +318,7 @@ export interface FileRoutesById {
   '/business-data/bin-converter/$name': typeof BusinessDataBinConverterNameRoute
   '/business-data/bom/$name': typeof BusinessDataBomNameRoute
   '/business-data/business-partner/$name': typeof BusinessDataBusinessPartnerNameRoute
+  '/business-data/calendar/$name': typeof BusinessDataCalendarNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -323,6 +342,7 @@ export interface FileRouteTypes {
     | '/business-data/bin-converter'
     | '/business-data/bom'
     | '/business-data/business-partner'
+    | '/business-data/calendar'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -334,6 +354,7 @@ export interface FileRouteTypes {
     | '/business-data/bin-converter/$name'
     | '/business-data/bom/$name'
     | '/business-data/business-partner/$name'
+    | '/business-data/calendar/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -355,6 +376,7 @@ export interface FileRouteTypes {
     | '/business-data/bin-converter'
     | '/business-data/bom'
     | '/business-data/business-partner'
+    | '/business-data/calendar'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -366,6 +388,7 @@ export interface FileRouteTypes {
     | '/business-data/bin-converter/$name'
     | '/business-data/bom/$name'
     | '/business-data/business-partner/$name'
+    | '/business-data/calendar/$name'
   id:
     | '__root__'
     | '/'
@@ -387,6 +410,7 @@ export interface FileRouteTypes {
     | '/business-data/bin-converter'
     | '/business-data/bom'
     | '/business-data/business-partner'
+    | '/business-data/calendar'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -398,6 +422,7 @@ export interface FileRouteTypes {
     | '/business-data/bin-converter/$name'
     | '/business-data/bom/$name'
     | '/business-data/business-partner/$name'
+    | '/business-data/calendar/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -543,6 +568,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataBusinessPartnerRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/calendar': {
+      id: '/business-data/calendar'
+      path: '/calendar'
+      fullPath: '/business-data/calendar'
+      preLoaderRoute: typeof BusinessDataCalendarRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -619,6 +651,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/business-partner/$name'
       preLoaderRoute: typeof BusinessDataBusinessPartnerNameRouteImport
       parentRoute: typeof BusinessDataBusinessPartnerRoute
+    }
+    '/business-data/calendar/$name': {
+      id: '/business-data/calendar/$name'
+      path: '/$name'
+      fullPath: '/business-data/calendar/$name'
+      preLoaderRoute: typeof BusinessDataCalendarNameRouteImport
+      parentRoute: typeof BusinessDataCalendarRoute
     }
   }
 }
@@ -793,12 +832,24 @@ const BusinessDataBusinessPartnerRouteWithChildren =
     BusinessDataBusinessPartnerRouteChildren,
   )
 
+interface BusinessDataCalendarRouteChildren {
+  BusinessDataCalendarNameRoute: typeof BusinessDataCalendarNameRoute
+}
+
+const BusinessDataCalendarRouteChildren: BusinessDataCalendarRouteChildren = {
+  BusinessDataCalendarNameRoute: BusinessDataCalendarNameRoute,
+}
+
+const BusinessDataCalendarRouteWithChildren =
+  BusinessDataCalendarRoute._addFileChildren(BusinessDataCalendarRouteChildren)
+
 interface BusinessDataRouteChildren {
   BusinessDataAreaRoute: typeof BusinessDataAreaRouteWithChildren
   BusinessDataBatchRoute: typeof BusinessDataBatchRouteWithChildren
   BusinessDataBinConverterRoute: typeof BusinessDataBinConverterRouteWithChildren
   BusinessDataBomRoute: typeof BusinessDataBomRouteWithChildren
   BusinessDataBusinessPartnerRoute: typeof BusinessDataBusinessPartnerRouteWithChildren
+  BusinessDataCalendarRoute: typeof BusinessDataCalendarRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -808,6 +859,7 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataBomRoute: BusinessDataBomRouteWithChildren,
   BusinessDataBusinessPartnerRoute:
     BusinessDataBusinessPartnerRouteWithChildren,
+  BusinessDataCalendarRoute: BusinessDataCalendarRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

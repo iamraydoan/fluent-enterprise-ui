@@ -12,7 +12,8 @@ type DetailRoute =
   | "/business-data/batch/$name"
   | "/business-data/bom/$name"
   | "/business-data/bin-converter/$name"
-  | "/business-data/business-partner/$name";
+  | "/business-data/business-partner/$name"
+  | "/business-data/calendar/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

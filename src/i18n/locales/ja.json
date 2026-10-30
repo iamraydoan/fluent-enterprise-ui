@@ -924,6 +924,54 @@
           "attachments": "添付ファイル"
         }
       }
+    },
+    "calendar": {
+      "pageLabel": "カレンダー",
+      "listTitle": "カレンダー",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態"
+      },
+      "detail": {
+        "loading": "読み込み中...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "calendar": "Calendar",
+        "information": "Information",
+        "name": "名前",
+        "description": "説明",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "timeZone": "Time Zone",
+        "clockInEarlyStart": "Clock-In Early Start (Minutes)",
+        "enterpriseReporting": "Enterprise Wide Reporting Dimension",
+        "fiscalStartDay": "Fiscal Start Day",
+        "fiscalStartMonth": "Fiscal Start Month",
+        "weekStartDay": "Week Start Day",
+        "dayStartTime": "Day Start Time",
+        "weekDaysTitle": "Week Days ({{count}})",
+        "weekColumns": {
+          "day": "Day",
+          "shiftDefinition": "Shift Definition",
+          "costOvertimeFactor": "Cost Overtime Factor"
+        },
+        "legendWorking": "Working Day",
+        "legendNonWorking": "Non-Working Day",
+        "tabs": {
+          "details": "詳細",
+          "calendarDays": "カレンダー日",
+          "references": "参照",
+          "history": "履歴"
+        },
+        "sections": {
+          "details": "詳細",
+          "weekDefinition": "週定義",
+          "attachments": "添付ファイル"
+        }
+      }
     }
   }
 }

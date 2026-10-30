@@ -924,6 +924,54 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "calendar": {
+      "pageLabel": "Lịch",
+      "listTitle": "Lịch",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "calendar": "Calendar",
+        "information": "Information",
+        "name": "Tên",
+        "description": "Mô tả",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "timeZone": "Time Zone",
+        "clockInEarlyStart": "Clock-In Early Start (Minutes)",
+        "enterpriseReporting": "Enterprise Wide Reporting Dimension",
+        "fiscalStartDay": "Fiscal Start Day",
+        "fiscalStartMonth": "Fiscal Start Month",
+        "weekStartDay": "Week Start Day",
+        "dayStartTime": "Day Start Time",
+        "weekDaysTitle": "Week Days ({{count}})",
+        "weekColumns": {
+          "day": "Day",
+          "shiftDefinition": "Shift Definition",
+          "costOvertimeFactor": "Cost Overtime Factor"
+        },
+        "legendWorking": "Working Day",
+        "legendNonWorking": "Non-Working Day",
+        "tabs": {
+          "details": "Chi tiết",
+          "calendarDays": "Ngày trong lịch",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "weekDefinition": "Định nghĩa tuần",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

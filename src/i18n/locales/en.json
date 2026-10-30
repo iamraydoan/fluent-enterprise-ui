@@ -924,6 +924,54 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "calendar": {
+      "pageLabel": "Calendars",
+      "listTitle": "Calendars",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "calendar": "Calendar",
+        "information": "Information",
+        "name": "Name",
+        "description": "Description",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "timeZone": "Time Zone",
+        "clockInEarlyStart": "Clock-In Early Start (Minutes)",
+        "enterpriseReporting": "Enterprise Wide Reporting Dimension",
+        "fiscalStartDay": "Fiscal Start Day",
+        "fiscalStartMonth": "Fiscal Start Month",
+        "weekStartDay": "Week Start Day",
+        "dayStartTime": "Day Start Time",
+        "weekDaysTitle": "Week Days ({{count}})",
+        "weekColumns": {
+          "day": "Day",
+          "shiftDefinition": "Shift Definition",
+          "costOvertimeFactor": "Cost Overtime Factor"
+        },
+        "legendWorking": "Working Day",
+        "legendNonWorking": "Non-Working Day",
+        "tabs": {
+          "details": "Details",
+          "calendarDays": "Calendar Days",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "weekDefinition": "Week Definition",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

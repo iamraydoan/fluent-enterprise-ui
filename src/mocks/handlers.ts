@@ -4,6 +4,7 @@ import { batchHandlers } from "./handlers/businessData/batch";
 import { bomHandlers } from "./handlers/businessData/bom";
 import { binConverterHandlers } from "./handlers/businessData/binConverter";
 import { businessPartnerHandlers } from "./handlers/businessData/businessPartner";
+import { calendarHandlers } from "./handlers/businessData/calendar";
 import { aiChatHandlers } from "./handlers/aiChat";
 import { appHandlers } from "./handlers/apps";
 import { configurationHandlers } from "./handlers/configuration";
@@ -21,6 +22,7 @@ export const handlers = [
   ...bomHandlers,
   ...binConverterHandlers,
   ...businessPartnerHandlers,
+  ...calendarHandlers,
   ...aiChatHandlers,
   ...appHandlers,
   ...configurationHandlers,
