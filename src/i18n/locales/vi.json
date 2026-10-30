@@ -1261,6 +1261,57 @@
       "unterminate": {
         "menuLabel": "Hủy kết thúc"
       }
+    },
+    "transferOrder": {
+      "beginMovement": {
+        "menuLabel": "Bắt đầu di chuyển lệnh chuyển"
+      },
+      "cancel": {
+        "menuLabel": "Hủy lệnh chuyển"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "destinationLocation": "Nơi đến",
+        "name": "Tên",
+        "orderState": "Trạng thái lệnh",
+        "sourceLocation": "Nơi đi",
+        "state": "Trạng thái"
+      },
+      "completeMovement": {
+        "menuLabel": "Hoàn thành di chuyển lệnh chuyển"
+      },
+      "confirmItems": {
+        "menuLabel": "Xác nhận mặt hàng lệnh chuyển"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "destinationLocation": "Nơi đến:",
+        "name": "Tên:",
+        "orderState": "Trạng thái lệnh:",
+        "sourceLocation": "Nơi đi:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Lệnh chuyển ({{count}})",
+      "notFound": "Không tìm thấy lệnh chuyển.",
+      "pageLabel": "Lệnh chuyển",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "items": "Mặt hàng"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "takeOwnership": {
+        "menuLabel": "Nhận quyền sở hữu lệnh chuyển"
+      },
+      "viewReport": {
+        "menuLabel": "Xem báo cáo lệnh chuyển"
+      }
     }
   }
 }

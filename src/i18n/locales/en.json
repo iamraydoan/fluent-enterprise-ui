@@ -1261,6 +1261,57 @@
       "unterminate": {
         "menuLabel": "Unterminate"
       }
+    },
+    "transferOrder": {
+      "beginMovement": {
+        "menuLabel": "Begin Transfer Order Movement"
+      },
+      "cancel": {
+        "menuLabel": "Cancel Transfer Order"
+      },
+      "columns": {
+        "description": "Description",
+        "destinationLocation": "Destination Location",
+        "name": "Name",
+        "orderState": "Order State",
+        "sourceLocation": "Source Location",
+        "state": "State"
+      },
+      "completeMovement": {
+        "menuLabel": "Complete Transfer Order Movement"
+      },
+      "confirmItems": {
+        "menuLabel": "Confirm Transfer Order Items"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "destinationLocation": "Destination Location:",
+        "name": "Name:",
+        "orderState": "Order State:",
+        "sourceLocation": "Source Location:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Transfer Orders ({{count}})",
+      "notFound": "Transfer Order not found.",
+      "pageLabel": "Transfer Order",
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details",
+        "items": "Items"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "takeOwnership": {
+        "menuLabel": "Take Transfer Order Ownership"
+      },
+      "viewReport": {
+        "menuLabel": "View Transfer Order Report"
+      }
     }
   }
 }

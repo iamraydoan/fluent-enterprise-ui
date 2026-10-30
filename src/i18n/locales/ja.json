@@ -1261,6 +1261,57 @@
       "unterminate": {
         "menuLabel": "終了取消"
       }
+    },
+    "transferOrder": {
+      "beginMovement": {
+        "menuLabel": "転送オーダー移動の開始"
+      },
+      "cancel": {
+        "menuLabel": "転送オーダーのキャンセル"
+      },
+      "columns": {
+        "description": "説明",
+        "destinationLocation": "送付先",
+        "name": "名前",
+        "orderState": "オーダー状態",
+        "sourceLocation": "送付元",
+        "state": "状態"
+      },
+      "completeMovement": {
+        "menuLabel": "転送オーダー移動の完了"
+      },
+      "confirmItems": {
+        "menuLabel": "転送オーダー品目の確認"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "destinationLocation": "送付先:",
+        "name": "名前:",
+        "orderState": "オーダー状態:",
+        "sourceLocation": "送付元:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "転送オーダー ({{count}})",
+      "notFound": "転送オーダーが見つかりません。",
+      "pageLabel": "転送オーダー",
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "items": "品目"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "takeOwnership": {
+        "menuLabel": "転送オーダーの所有権取得"
+      },
+      "viewReport": {
+        "menuLabel": "転送オーダーレポートの表示"
+      }
     }
   }
 }
