@@ -972,6 +972,66 @@
           "attachments": "添付ファイル"
         }
       }
+    },
+    "certification": {
+      "pageLabel": "認定",
+      "listTitle": "認定",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態"
+      },
+      "detail": {
+        "loading": "読み込み中...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "certification": "Certification",
+        "info": "Info",
+        "permission": "Permission",
+        "validityPeriod": "Validity Period",
+        "training": "Training",
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "validFor": "Valid For",
+        "allowOverride": "Allow Override",
+        "ownerRole": "Owner Role",
+        "sendNotificationOnChanges": "Send Notification On Changes",
+        "sendNotificationWhenRequired": "Send Notification When Certification is Required",
+        "trainingMaximumDuration": "Training Maximum Duration",
+        "traineeByDefault": "Trainee By Default",
+        "allowManualGrants": "Allow Manual Grants",
+        "allowSelfGranting": "Allow Self-Granting",
+        "allowGrantingByManager": "Allow Granting By Manager",
+        "employeesTitle": "Employees ({{count}})",
+        "employeeColumns": {
+          "name": "名前",
+          "state": "状態",
+          "expirationDate": "Expiration Date"
+        },
+        "qualificationsTitle": "Qualifications ({{count}})",
+        "qualColumns": {
+          "qualification": "Qualification",
+          "proficiency": "Proficiency",
+          "required": "Required"
+        },
+        "tabs": {
+          "details": "詳細",
+          "references": "参照",
+          "history": "履歴"
+        },
+        "sections": {
+          "details": "詳細",
+          "employees": "従業員",
+          "qualifications": "資格",
+          "attachments": "添付ファイル"
+        }
+      }
     }
   }
 }

@@ -88,3 +88,5 @@ export { useBusinessPartnerDetail, useBusinessPartners } from "./businessData/bu
 export type { BusinessPartnerDetail, BusinessPartnerRecord } from "./businessData/businessPartner";
 export { useCalendarDetail, useCalendars } from "./businessData/calendar";
 export type { CalendarDetail, CalendarRecord, WeekDay } from "./businessData/calendar";
+export { useCertificationDetail, useCertifications } from "./businessData/certification";
+export type { CertificationDetail, CertificationEmployee, CertificationQualification, CertificationRecord } from "./businessData/certification";

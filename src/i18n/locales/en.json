@@ -972,6 +972,66 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "certification": {
+      "pageLabel": "Certifications",
+      "listTitle": "Certifications",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "certification": "Certification",
+        "info": "Info",
+        "permission": "Permission",
+        "validityPeriod": "Validity Period",
+        "training": "Training",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "validFor": "Valid For",
+        "allowOverride": "Allow Override",
+        "ownerRole": "Owner Role",
+        "sendNotificationOnChanges": "Send Notification On Changes",
+        "sendNotificationWhenRequired": "Send Notification When Certification is Required",
+        "trainingMaximumDuration": "Training Maximum Duration",
+        "traineeByDefault": "Trainee By Default",
+        "allowManualGrants": "Allow Manual Grants",
+        "allowSelfGranting": "Allow Self-Granting",
+        "allowGrantingByManager": "Allow Granting By Manager",
+        "employeesTitle": "Employees ({{count}})",
+        "employeeColumns": {
+          "name": "Name",
+          "state": "State",
+          "expirationDate": "Expiration Date"
+        },
+        "qualificationsTitle": "Qualifications ({{count}})",
+        "qualColumns": {
+          "qualification": "Qualification",
+          "proficiency": "Proficiency",
+          "required": "Required"
+        },
+        "tabs": {
+          "details": "Details",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "employees": "Employees",
+          "qualifications": "Qualifications",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

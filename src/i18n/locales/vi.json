@@ -972,6 +972,66 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "certification": {
+      "pageLabel": "Chứng nhận",
+      "listTitle": "Chứng nhận",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "certification": "Certification",
+        "info": "Info",
+        "permission": "Permission",
+        "validityPeriod": "Validity Period",
+        "training": "Training",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "validFor": "Valid For",
+        "allowOverride": "Allow Override",
+        "ownerRole": "Owner Role",
+        "sendNotificationOnChanges": "Send Notification On Changes",
+        "sendNotificationWhenRequired": "Send Notification When Certification is Required",
+        "trainingMaximumDuration": "Training Maximum Duration",
+        "traineeByDefault": "Trainee By Default",
+        "allowManualGrants": "Allow Manual Grants",
+        "allowSelfGranting": "Allow Self-Granting",
+        "allowGrantingByManager": "Allow Granting By Manager",
+        "employeesTitle": "Employees ({{count}})",
+        "employeeColumns": {
+          "name": "Tên",
+          "state": "Trạng thái",
+          "expirationDate": "Expiration Date"
+        },
+        "qualificationsTitle": "Qualifications ({{count}})",
+        "qualColumns": {
+          "qualification": "Qualification",
+          "proficiency": "Proficiency",
+          "required": "Required"
+        },
+        "tabs": {
+          "details": "Chi tiết",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "employees": "Nhân viên",
+          "qualifications": "Năng lực",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

@@ -972,6 +972,66 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "certification": {
+      "pageLabel": "인증",
+      "listTitle": "인증",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "certification": "Certification",
+        "info": "Info",
+        "permission": "Permission",
+        "validityPeriod": "Validity Period",
+        "training": "Training",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "validFor": "Valid For",
+        "allowOverride": "Allow Override",
+        "ownerRole": "Owner Role",
+        "sendNotificationOnChanges": "Send Notification On Changes",
+        "sendNotificationWhenRequired": "Send Notification When Certification is Required",
+        "trainingMaximumDuration": "Training Maximum Duration",
+        "traineeByDefault": "Trainee By Default",
+        "allowManualGrants": "Allow Manual Grants",
+        "allowSelfGranting": "Allow Self-Granting",
+        "allowGrantingByManager": "Allow Granting By Manager",
+        "employeesTitle": "Employees ({{count}})",
+        "employeeColumns": {
+          "name": "이름",
+          "state": "상태",
+          "expirationDate": "Expiration Date"
+        },
+        "qualificationsTitle": "Qualifications ({{count}})",
+        "qualColumns": {
+          "qualification": "Qualification",
+          "proficiency": "Proficiency",
+          "required": "Required"
+        },
+        "tabs": {
+          "details": "세부 정보",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "employees": "직원",
+          "qualifications": "자격",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }
