@@ -102,7 +102,7 @@ export function DataTableCard<TRow extends RowData>({
   onRowClick,
   apiRef,
 }: DataTableCardProps<TRow>) {
-  const { t } = useAppTranslation();
+  const { t, language } = useAppTranslation();
   const sharedStyles = useSharedStyles();
   const [selectValues, setSelectValues] = useState<Record<string, string>>(() =>
     defaultSelectValues(filters),
@@ -147,7 +147,10 @@ export function DataTableCard<TRow extends RowData>({
   const rows = data?.data ?? emptyRows;
   const total = data?.meta.total ?? 0;
 
-  const columnDefs = useMemo(() => toColumnDefs(columns, t), [columns, t]);
+  const columnDefs = useMemo(
+    () => toColumnDefs(columns, t, language, onRowClick),
+    [columns, t, language, onRowClick],
+  );
   const table = useTable({
     features: dataTableFeatures,
     columns: columnDefs,

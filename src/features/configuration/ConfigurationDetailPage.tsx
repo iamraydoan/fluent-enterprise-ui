@@ -11,7 +11,8 @@ import {
 import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { entryName, formatDateTime, maskedValue } from "./data";
+import { formatDateTime } from "@/lib/formatDate";
+import { entryName, maskedValue } from "./data";
 
 const useDetailStyles = makeStyles({
   tile: {

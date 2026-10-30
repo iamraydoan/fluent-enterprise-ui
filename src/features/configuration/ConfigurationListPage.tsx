@@ -15,13 +15,7 @@ import { useAppTranslation } from "@/i18n";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 import { ConfigurationTree } from "./ConfigurationTree";
-import {
-  CONFIG_ENTRY_TYPE_LABELS,
-  CONFIG_ENTRY_TYPES,
-  entryName,
-  formatDateTime,
-  maskedValue,
-} from "./data";
+import { CONFIG_ENTRY_TYPE_LABELS, CONFIG_ENTRY_TYPES, entryName, maskedValue } from "./data";
 
 const usePageStyles = makeStyles({
   body: {
@@ -67,6 +61,61 @@ const usePageStyles = makeStyles({
   },
 });
 
+const COLUMNS: DataColumn<ConfigurationEntry>[] = [
+  {
+    field: "path",
+    headerName: "configuration.columns.path",
+    locked: true,
+    width: "38%",
+    truncate: true,
+  },
+  {
+    field: "name",
+    headerName: "configuration.columns.name",
+    width: "30%",
+    truncate: true,
+    valueGetter: (entry) => entryName(entry.path),
+  },
+  {
+    field: "value",
+    headerName: "configuration.columns.value",
+    truncate: true,
+    valueGetter: maskedValue,
+  },
+  {
+    field: "type",
+    headerName: "configuration.columns.type",
+    defaultHidden: true,
+  },
+  {
+    field: "description",
+    headerName: "configuration.columns.description",
+    defaultHidden: true,
+  },
+  {
+    field: "modifiedOn",
+    headerName: "configuration.columns.modifiedOn",
+    type: "dateTime",
+    defaultHidden: true,
+  },
+  {
+    field: "modifiedBy",
+    headerName: "configuration.columns.modifiedBy",
+    defaultHidden: true,
+  },
+  {
+    field: "createdOn",
+    headerName: "configuration.columns.createdOn",
+    type: "dateTime",
+    defaultHidden: true,
+  },
+  {
+    field: "createdBy",
+    headerName: "configuration.columns.createdBy",
+    defaultHidden: true,
+  },
+];
+
 export function ConfigurationListPage() {
   const { t } = useAppTranslation();
   const styles = usePageStyles();
@@ -75,64 +124,6 @@ export function ConfigurationListPage() {
   const tableApi = useRef<DataTableCardApi | null>(null);
   const [showTree, setShowTree] = useState(true);
   const { data: branchPaths } = useConfigurationTree();
-
-  const columns = useMemo<DataColumn<ConfigurationEntry>[]>(
-    () => [
-      {
-        field: "path",
-        headerName: "configuration.columns.path",
-        locked: true,
-        width: "38%",
-        truncate: true,
-      },
-      {
-        field: "name",
-        headerName: "configuration.columns.name",
-        width: "30%",
-        truncate: true,
-        valueGetter: (entry) => entryName(entry.path),
-      },
-      {
-        field: "value",
-        headerName: "configuration.columns.value",
-        truncate: true,
-        valueGetter: maskedValue,
-      },
-      {
-        field: "type",
-        headerName: "configuration.columns.type",
-        defaultHidden: true,
-      },
-      {
-        field: "description",
-        headerName: "configuration.columns.description",
-        defaultHidden: true,
-      },
-      {
-        field: "modifiedOn",
-        headerName: "configuration.columns.modifiedOn",
-        defaultHidden: true,
-        valueGetter: (entry) => formatDateTime(entry.modifiedOn),
-      },
-      {
-        field: "modifiedBy",
-        headerName: "configuration.columns.modifiedBy",
-        defaultHidden: true,
-      },
-      {
-        field: "createdOn",
-        headerName: "configuration.columns.createdOn",
-        defaultHidden: true,
-        valueGetter: (entry) => formatDateTime(entry.createdOn),
-      },
-      {
-        field: "createdBy",
-        headerName: "configuration.columns.createdBy",
-        defaultHidden: true,
-      },
-    ],
-    [],
-  );
 
   const filters = useMemo<DataFilter[]>(
     () => [
@@ -234,7 +225,7 @@ export function ConfigurationListPage() {
           <DataTableCard
             title={(count) => t("configuration.listTitle", { count })}
             ariaLabel={t("configuration.pageLabel")}
-            columns={columns}
+            columns={COLUMNS}
             filters={filters}
             useListQuery={useConfigurations}
             getRowId={(entry) => entry.path}

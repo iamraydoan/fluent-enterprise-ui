@@ -43,3 +43,5 @@ export function stateFilter(): DataFilter {
 export function searchFilter(param = "q"): DataFilter {
   return { type: "search", param };
 }
+
+export const defaultListFilters: DataFilter[] = [stateFilter(), searchFilter()];

@@ -1,7 +1,7 @@
 export { DataTableCard } from "./data-table/DataTableCard";
 export type { DataTableCardApi } from "./data-table/DataTableCard";
 export type { DataColumn } from "./data-table/columns";
-export { searchFilter, stateFilter } from "./data-table/filters";
+export { defaultListFilters, searchFilter, stateFilter } from "./data-table/filters";
 export type { DataFilter } from "./data-table/filters";
 export { ListPage } from "./ListPage";
 export { createAction, downloadLbosAction, exportAction, refreshAction } from "./actions";
