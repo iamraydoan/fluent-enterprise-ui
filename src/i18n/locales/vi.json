@@ -1627,6 +1627,29 @@
         "cancel": "Hủy",
         "terminate": "Kết thúc",
         "unterminate": "Hủy kết thúc"
+      },
+      "certifications": {
+        "manageTitle": "Quản lý Certification của Employee",
+        "grantTitle": "Cấp Certification cho Employee",
+        "revokeTitle": "Thu hồi Certification của Employee",
+        "revokeMessage": "Thu hồi Certification \"{{certification}}\" của Employee \"{{name}}\"?",
+        "assignTitle": "Gán Certification cho Employee",
+        "unassignTitle": "Hủy gán Certification của Employee",
+        "unassignMessage": "Hủy gán Certification \"{{certification}}\" của Employee \"{{name}}\"?",
+        "certification": "Certification",
+        "plannedDate": "Ngày dự kiến",
+        "certificationDate": "Ngày chứng nhận",
+        "isTrainer": "Là Trainer",
+        "isTrainee": "Là Trainee",
+        "comment": "Bình luận",
+        "remark": "Ghi chú",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "grant": "Cấp",
+        "revoke": "Thu hồi",
+        "assign": "Gán",
+        "unassign": "Hủy gán",
+        "manage": "Quản lý"
       }
     },
     "maintenanceActivityOrder": {

@@ -11,6 +11,11 @@ import { useBooleanLabel } from "../propertyLabels";
 import { EmployeeDialog } from "./EmployeeDialog";
 import { EmployeeTerminateDialog } from "./EmployeeTerminateDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
+import {
+  AssignCertificationDialog,
+  GrantCertificationDialog,
+  ManageCertificationDialog,
+} from "./EmployeeCertificationDialogs";
 
 
 const TOP_TABS: DetailTab[] = [
@@ -67,6 +72,9 @@ export function EmployeeDetailPage({ name }: { name: string }) {
     {unterminateOpen && (
       <EmployeeTerminateDialog name={name} mode={UNTERMINATE} onClose={() => setUnterminateOpen(false)} />
     )}
+    {manageCertOpen && <ManageCertificationDialog name={name} onClose={() => setManageCertOpen(false)} />}
+    {grantCertOpen && <GrantCertificationDialog name={name} onClose={() => setGrantCertOpen(false)} />}
+    {assignCertOpen && <AssignCertificationDialog name={name} onClose={() => setAssignCertOpen(false)} />}
     </>
   );
 
@@ -132,6 +140,17 @@ export function EmployeeDetailPage({ name }: { name: string }) {
             [t("businessData.employee.details.costPerHour"), `$${data.costPerHour.toFixed(2)}`],
           ]}
         />
+        <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
+          <Button onClick={() => setManageCertOpen(true)}>
+            {t(tk("businessData.employee.certifications.manage"))}
+          </Button>
+          <Button onClick={() => setGrantCertOpen(true)}>
+            {t(tk("businessData.employee.certifications.grant"))}
+          </Button>
+          <Button onClick={() => setAssignCertOpen(true)}>
+            {t(tk("businessData.employee.certifications.assign"))}
+          </Button>
+        </div>
       </Card>
     </CardGrid>,
   );

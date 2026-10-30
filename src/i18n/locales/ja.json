@@ -1627,6 +1627,29 @@
         "cancel": "キャンセル",
         "terminate": "終了",
         "unterminate": "終了取消"
+      },
+      "certifications": {
+        "manageTitle": "Employee Certificationの管理",
+        "grantTitle": "EmployeeへのCertification付与",
+        "revokeTitle": "EmployeeからのCertification取消",
+        "revokeMessage": "Employee「{{name}}」からCertification「{{certification}}」を取り消しますか?",
+        "assignTitle": "EmployeeへのCertification割当",
+        "unassignTitle": "EmployeeからのCertification割当解除",
+        "unassignMessage": "Employee「{{name}}」からCertification「{{certification}}」の割当を解除しますか?",
+        "certification": "Certification",
+        "plannedDate": "予定日",
+        "certificationDate": "認定日",
+        "isTrainer": "トレーナー",
+        "isTrainee": "トレーニー",
+        "comment": "コメント",
+        "remark": "備考",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "grant": "付与",
+        "revoke": "取消",
+        "assign": "割当",
+        "unassign": "割当解除",
+        "manage": "管理"
       }
     },
     "maintenanceActivityOrder": {

@@ -1627,6 +1627,29 @@
         "cancel": "취소",
         "terminate": "종료",
         "unterminate": "종료 취소"
+      },
+      "certifications": {
+        "manageTitle": "Employee Certification 관리",
+        "grantTitle": "Employee에게 Certification 부여",
+        "revokeTitle": "Employee의 Certification 취소",
+        "revokeMessage": "Employee \"{{name}}\"의 Certification \"{{certification}}\"을(를) 취소하시겠습니까?",
+        "assignTitle": "Employee에게 Certification 할당",
+        "unassignTitle": "Employee의 Certification 할당 해제",
+        "unassignMessage": "Employee \"{{name}}\"의 Certification \"{{certification}}\" 할당을 해제하시겠습니까?",
+        "certification": "Certification",
+        "plannedDate": "예정일",
+        "certificationDate": "인증일",
+        "isTrainer": "트레이너",
+        "isTrainee": "수습생",
+        "comment": "설명",
+        "remark": "비고",
+        "cancel": "취소",
+        "update": "업데이트",
+        "grant": "부여",
+        "revoke": "취소",
+        "assign": "할당",
+        "unassign": "할당 해제",
+        "manage": "관리"
       }
     },
     "maintenanceActivityOrder": {

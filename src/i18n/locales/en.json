@@ -1627,6 +1627,29 @@
         "cancel": "Cancel",
         "terminate": "Terminate",
         "unterminate": "Unterminate"
+      },
+      "certifications": {
+        "manageTitle": "Manage Employee Certification",
+        "grantTitle": "Grant Certification to Employee",
+        "revokeTitle": "Revoke Certification from Employee",
+        "revokeMessage": "Revoke Certification \"{{certification}}\" from Employee \"{{name}}\"?",
+        "assignTitle": "Assign Certification to Employee",
+        "unassignTitle": "Unassign Certification from Employee",
+        "unassignMessage": "Unassign Certification \"{{certification}}\" from Employee \"{{name}}\"?",
+        "certification": "Certification",
+        "plannedDate": "Planned Date",
+        "certificationDate": "Certification Date",
+        "isTrainer": "Is Trainer",
+        "isTrainee": "Is Trainee",
+        "comment": "Comment",
+        "remark": "Remark",
+        "cancel": "Cancel",
+        "update": "Update",
+        "grant": "Grant",
+        "revoke": "Revoke",
+        "assign": "Assign",
+        "unassign": "Unassign",
+        "manage": "Manage"
       }
     },
     "maintenanceActivityOrder": {
