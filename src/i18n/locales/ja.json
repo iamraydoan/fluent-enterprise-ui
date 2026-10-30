@@ -1032,6 +1032,68 @@
           "attachments": "添付ファイル"
         }
       }
+    },
+    "changeSet": {
+      "pageLabel": "変更セット",
+      "listTitle": "変更セット",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態",
+        "systemState": "システム状態"
+      },
+      "detail": {
+        "loading": "読み込み中...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "changeSet": "Change Set",
+        "information": "Information",
+        "approval": "Approval",
+        "notification": "Notification",
+        "documentation": "Documentation",
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "universalState": "Universal State",
+        "systemState": "システム状態",
+        "dataGroup": "Data Group",
+        "category": "Category",
+        "urgency": "Urgency",
+        "owner": "Owner",
+        "requiresApproval": "Requires Approval",
+        "approvalRole": "Approval Role",
+        "makeItemsEffectiveOnApproval": "Make Change Set Items Effective on Approval",
+        "sendEmailToApprovers": "Send Email Notifications To Approvers",
+        "sendEmailToRequester": "Send Email Notifications To Requester",
+        "reasonForChange": "Reason For Change",
+        "descriptionOfChange": "Description Of Change",
+        "itemsTitle": "Change Set Items ({{count}})",
+        "itemColumns": {
+          "name": "名前",
+          "type": "タイプ",
+          "approvalRole": "Approval Role",
+          "approver": "Approver",
+          "approvalDate": "Approval Date"
+        },
+        "subscribersTitle": "Subscribers ({{count}})",
+        "subscriberColumns": {
+          "name": "名前"
+        },
+        "tabs": {
+          "details": "詳細",
+          "references": "参照",
+          "history": "履歴"
+        },
+        "sections": {
+          "details": "詳細",
+          "items": "アイテム",
+          "subscribers": "サブスクライバー",
+          "attachments": "添付ファイル"
+        }
+      }
     }
   }
 }

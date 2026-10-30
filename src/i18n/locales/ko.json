@@ -1032,6 +1032,68 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "changeSet": {
+      "pageLabel": "변경 집합",
+      "listTitle": "변경 집합",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태",
+        "systemState": "시스템 상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "changeSet": "Change Set",
+        "information": "Information",
+        "approval": "Approval",
+        "notification": "Notification",
+        "documentation": "Documentation",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "universalState": "Universal State",
+        "systemState": "시스템 상태",
+        "dataGroup": "Data Group",
+        "category": "Category",
+        "urgency": "Urgency",
+        "owner": "Owner",
+        "requiresApproval": "Requires Approval",
+        "approvalRole": "Approval Role",
+        "makeItemsEffectiveOnApproval": "Make Change Set Items Effective on Approval",
+        "sendEmailToApprovers": "Send Email Notifications To Approvers",
+        "sendEmailToRequester": "Send Email Notifications To Requester",
+        "reasonForChange": "Reason For Change",
+        "descriptionOfChange": "Description Of Change",
+        "itemsTitle": "Change Set Items ({{count}})",
+        "itemColumns": {
+          "name": "이름",
+          "type": "유형",
+          "approvalRole": "Approval Role",
+          "approver": "Approver",
+          "approvalDate": "Approval Date"
+        },
+        "subscribersTitle": "Subscribers ({{count}})",
+        "subscriberColumns": {
+          "name": "이름"
+        },
+        "tabs": {
+          "details": "세부 정보",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "items": "항목",
+          "subscribers": "구독자",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

@@ -1032,6 +1032,68 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "changeSet": {
+      "pageLabel": "Bộ thay đổi",
+      "listTitle": "Bộ thay đổi",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "systemState": "Trạng thái hệ thống"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "changeSet": "Change Set",
+        "information": "Information",
+        "approval": "Approval",
+        "notification": "Notification",
+        "documentation": "Documentation",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "universalState": "Universal State",
+        "systemState": "Trạng thái hệ thống",
+        "dataGroup": "Data Group",
+        "category": "Category",
+        "urgency": "Urgency",
+        "owner": "Owner",
+        "requiresApproval": "Requires Approval",
+        "approvalRole": "Approval Role",
+        "makeItemsEffectiveOnApproval": "Make Change Set Items Effective on Approval",
+        "sendEmailToApprovers": "Send Email Notifications To Approvers",
+        "sendEmailToRequester": "Send Email Notifications To Requester",
+        "reasonForChange": "Reason For Change",
+        "descriptionOfChange": "Description Of Change",
+        "itemsTitle": "Change Set Items ({{count}})",
+        "itemColumns": {
+          "name": "Tên",
+          "type": "Loại",
+          "approvalRole": "Approval Role",
+          "approver": "Approver",
+          "approvalDate": "Approval Date"
+        },
+        "subscribersTitle": "Subscribers ({{count}})",
+        "subscriberColumns": {
+          "name": "Tên"
+        },
+        "tabs": {
+          "details": "Chi tiết",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "items": "Mục",
+          "subscribers": "Người đăng ký",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

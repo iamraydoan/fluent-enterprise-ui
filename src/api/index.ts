@@ -90,3 +90,5 @@ export { useCalendarDetail, useCalendars } from "./businessData/calendar";
 export type { CalendarDetail, CalendarRecord, WeekDay } from "./businessData/calendar";
 export { useCertificationDetail, useCertifications } from "./businessData/certification";
 export type { CertificationDetail, CertificationEmployee, CertificationQualification, CertificationRecord } from "./businessData/certification";
+export { useChangeSetDetail, useChangeSets } from "./businessData/changeSet";
+export type { ChangeSetDetail, ChangeSetItem, ChangeSetRecord, ChangeSetSubscriber } from "./businessData/changeSet";

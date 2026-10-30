@@ -1032,6 +1032,68 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "changeSet": {
+      "pageLabel": "Change Sets",
+      "listTitle": "Change Sets",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State",
+        "systemState": "System State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "changeSet": "Change Set",
+        "information": "Information",
+        "approval": "Approval",
+        "notification": "Notification",
+        "documentation": "Documentation",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "universalState": "Universal State",
+        "systemState": "System State",
+        "dataGroup": "Data Group",
+        "category": "Category",
+        "urgency": "Urgency",
+        "owner": "Owner",
+        "requiresApproval": "Requires Approval",
+        "approvalRole": "Approval Role",
+        "makeItemsEffectiveOnApproval": "Make Change Set Items Effective on Approval",
+        "sendEmailToApprovers": "Send Email Notifications To Approvers",
+        "sendEmailToRequester": "Send Email Notifications To Requester",
+        "reasonForChange": "Reason For Change",
+        "descriptionOfChange": "Description Of Change",
+        "itemsTitle": "Change Set Items ({{count}})",
+        "itemColumns": {
+          "name": "Name",
+          "type": "Type",
+          "approvalRole": "Approval Role",
+          "approver": "Approver",
+          "approvalDate": "Approval Date"
+        },
+        "subscribersTitle": "Subscribers ({{count}})",
+        "subscriberColumns": {
+          "name": "Name"
+        },
+        "tabs": {
+          "details": "Details",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "items": "Items",
+          "subscribers": "Subscribers",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }
