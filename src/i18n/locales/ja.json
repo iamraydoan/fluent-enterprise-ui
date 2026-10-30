@@ -143,7 +143,9 @@
     "terminated": "終了",
     "update": "更新",
     "yes": "はい",
-    "expandPanel": "パネルを展開する"
+    "expandPanel": "パネルを展開する",
+    "back": "戻る",
+    "next": "次へ"
   },
   "configuration": {
     "pageLabel": "構成",
@@ -706,6 +708,90 @@
         "details": "詳細",
         "history": "履歴",
         "references": "参照"
+      },
+      "more": {
+        "clone": "複製",
+        "terminate": "終了",
+        "unterminate": "終了取消",
+        "assignEmployees": "従業員を割当",
+        "unassignEmployees": "従業員の割当解除"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Qualification作成",
+          "editTitle": "Qualification編集",
+          "generalData": "一般データ",
+          "name": "名前",
+          "description": "説明",
+          "type": "タイプ",
+          "dataGroup": "データグループ",
+          "information": "情報",
+          "ownerRole": "オーナーロール",
+          "defaultReason": "デフォルト理由",
+          "informationUrl": "情報URL",
+          "permissions": "権限",
+          "allowSelfAssignment": "自己割当を許可",
+          "allowAssignmentByManager": "マネージャーによる割当を許可",
+          "validityPeriod": "有効期間",
+          "validFor": "有効期間",
+          "scale": "単位",
+          "allowOverride": "上書きを許可",
+          "gracePeriod": "猶予期間",
+          "duration": "期間",
+          "comments": "コメント"
+        },
+        "clone": {
+          "title": "Qualification複製",
+          "clones": "複製 ({{count}})",
+          "name": "名前",
+          "type": "タイプ",
+          "description": "説明",
+          "ownerRole": "オーナーロール",
+          "source": "ソース: {{name}}",
+          "comments": "コメント",
+          "clone": "複製"
+        },
+        "terminate": {
+          "title": "Qualification終了",
+          "message": "Qualification '{{name}}' を終了しますか?",
+          "confirm": "終了"
+        },
+        "unterminate": {
+          "title": "Qualification終了取消",
+          "message": "Qualification '{{name}}' の終了を取り消しますか?",
+          "confirm": "終了取消"
+        },
+        "assign": {
+          "title": "従業員をQualificationに割当",
+          "stepEmployees": "従業員",
+          "stepQualification": "Qualification",
+          "search": "検索",
+          "employeesCount": "従業員 ({{count}})",
+          "selectedCount": "{{count}}件選択",
+          "employee": "従業員",
+          "employeeNumber": "従業員番号",
+          "type": "タイプ",
+          "team": "チーム",
+          "manager": "マネージャー",
+          "selectedEmployees": "選択された従業員 ({{count}})",
+          "employees": "従業員",
+          "qualificationDate": "資格取得日",
+          "detailsTitle": "従業員資格の詳細",
+          "validTo": "有効期限",
+          "reason": "理由",
+          "proficiency": "熟練度",
+          "remarks": "備考",
+          "evidence": "証拠",
+          "comments": "コメント",
+          "assign": "割当"
+        },
+        "unassign": {
+          "title": "従業員のQualification割当解除",
+          "message": "Qualification '{{name}}' から割当解除する従業員を確認してください。",
+          "employee": "従業員",
+          "employeeNumber": "従業員番号",
+          "unassign": "割当解除"
+        }
       }
     }
   }

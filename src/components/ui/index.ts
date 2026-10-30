@@ -24,6 +24,16 @@ export {
 } from "./table";
 export { Tab, TabList } from "./tabs";
 export { Checkbox } from "./checkbox";
+export { Switch } from "./switch";
+export {
+  Dialog,
+  DialogActions,
+  DialogBody,
+  DialogContent,
+  DialogSurface,
+  DialogTitle,
+  DialogTrigger,
+} from "./dialog";
 export { Divider } from "./divider";
 export { Badge } from "./badge";
 export { Tree, TreeItem, TreeItemLayout } from "./tree";

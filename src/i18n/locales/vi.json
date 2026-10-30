@@ -143,7 +143,9 @@
     "terminated": "Đã kết thúc",
     "update": "Cập nhật",
     "yes": "Có",
-    "expandPanel": "Mở rộng bảng"
+    "expandPanel": "Mở rộng bảng",
+    "back": "Quay lại",
+    "next": "Tiếp"
   },
   "configuration": {
     "pageLabel": "Cấu hình",
@@ -706,6 +708,90 @@
         "details": "Chi tiết",
         "history": "Lịch sử",
         "references": "Tham chiếu"
+      },
+      "more": {
+        "clone": "Nhân bản",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc",
+        "assignEmployees": "Gán nhân viên",
+        "unassignEmployees": "Bỏ gán nhân viên"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Tạo Qualification",
+          "editTitle": "Sửa Qualification",
+          "generalData": "Dữ liệu chung",
+          "name": "Tên",
+          "description": "Mô tả",
+          "type": "Loại",
+          "dataGroup": "Nhóm dữ liệu",
+          "information": "Thông tin",
+          "ownerRole": "Vai trò sở hữu",
+          "defaultReason": "Lý do mặc định",
+          "informationUrl": "URL thông tin",
+          "permissions": "Quyền",
+          "allowSelfAssignment": "Cho phép tự gán",
+          "allowAssignmentByManager": "Cho phép quản lý gán",
+          "validityPeriod": "Thời hạn hiệu lực",
+          "validFor": "Hiệu lực trong",
+          "scale": "Đơn vị",
+          "allowOverride": "Cho phép ghi đè",
+          "gracePeriod": "Thời gian ân hạn",
+          "duration": "Thời lượng",
+          "comments": "Ghi chú"
+        },
+        "clone": {
+          "title": "Nhân bản Qualification",
+          "clones": "Bản sao ({{count}})",
+          "name": "Tên",
+          "type": "Loại",
+          "description": "Mô tả",
+          "ownerRole": "Vai trò sở hữu",
+          "source": "Nguồn: {{name}}",
+          "comments": "Ghi chú",
+          "clone": "Nhân bản"
+        },
+        "terminate": {
+          "title": "Kết thúc Qualification",
+          "message": "Bạn có chắc muốn kết thúc Qualification '{{name}}'?",
+          "confirm": "Kết thúc"
+        },
+        "unterminate": {
+          "title": "Hủy kết thúc Qualification",
+          "message": "Bạn có chắc muốn hủy kết thúc Qualification '{{name}}'?",
+          "confirm": "Hủy kết thúc"
+        },
+        "assign": {
+          "title": "Gán nhân viên cho Qualification",
+          "stepEmployees": "Nhân viên",
+          "stepQualification": "Qualification",
+          "search": "Tìm kiếm",
+          "employeesCount": "Nhân viên ({{count}})",
+          "selectedCount": "Đã chọn {{count}}",
+          "employee": "Nhân viên",
+          "employeeNumber": "Mã nhân viên",
+          "type": "Loại",
+          "team": "Nhóm",
+          "manager": "Quản lý",
+          "selectedEmployees": "Nhân viên đã chọn ({{count}})",
+          "employees": "Nhân viên",
+          "qualificationDate": "Ngày đạt",
+          "detailsTitle": "Chi tiết Qualification của nhân viên",
+          "validTo": "Hiệu lực đến",
+          "reason": "Lý do",
+          "proficiency": "Trình độ",
+          "remarks": "Ghi chú",
+          "evidence": "Bằng chứng",
+          "comments": "Ghi chú",
+          "assign": "Gán"
+        },
+        "unassign": {
+          "title": "Bỏ gán nhân viên khỏi Qualification",
+          "message": "Xác nhận nhân viên cần bỏ gán khỏi Qualification '{{name}}'.",
+          "employee": "Nhân viên",
+          "employeeNumber": "Mã nhân viên",
+          "unassign": "Bỏ gán"
+        }
       }
     }
   }

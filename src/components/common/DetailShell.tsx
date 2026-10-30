@@ -224,6 +224,12 @@ export interface DetailTab {
   labelKey: TranslationKey;
 }
 
+export interface DetailShellMoreAction {
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+}
+
 interface DetailShellProps {
   title: string;
   icon: ReactNode;
@@ -235,6 +241,7 @@ interface DetailShellProps {
   onLeft: (value: string) => void;
   onEdit: () => void;
   onAskAi: () => void;
+  moreActions?: DetailShellMoreAction[];
   showState?: boolean;
   children: ReactNode;
 }
@@ -250,6 +257,7 @@ export function DetailShell({
   onLeft,
   onEdit,
   onAskAi,
+  moreActions,
   showState = true,
   children,
 }: DetailShellProps) {
@@ -312,6 +320,10 @@ export function DetailShell({
                   sharedStyles={sharedStyles}
                   icon={<MoreVertical24Regular />}
                   label={t("actionBar.more")}
+                  menu={moreActions?.map((action) => ({
+                    label: action.label,
+                    onClick: action.onClick,
+                  }))}
                 />
               </div>
               <div className={sharedStyles.actionBarGroupLabel}>

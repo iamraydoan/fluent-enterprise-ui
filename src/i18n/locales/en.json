@@ -143,7 +143,9 @@
     "terminated": "Terminated",
     "update": "Update",
     "yes": "Yes",
-    "expandPanel": "Expand panel"
+    "expandPanel": "Expand panel",
+    "back": "Back",
+    "next": "Next"
   },
   "configuration": {
     "pageLabel": "Configuration",
@@ -706,6 +708,90 @@
         "details": "Details",
         "history": "History",
         "references": "References"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "assignEmployees": "Assign Employee(s)",
+        "unassignEmployees": "Unassign Employee(s)"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Qualification",
+          "editTitle": "Edit Qualification",
+          "generalData": "General Data",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "dataGroup": "Data Group",
+          "information": "Information",
+          "ownerRole": "Owner Role",
+          "defaultReason": "Default Reason",
+          "informationUrl": "Information URL",
+          "permissions": "Permissions",
+          "allowSelfAssignment": "Allow Self-Assignment",
+          "allowAssignmentByManager": "Allow Assignment By Manager",
+          "validityPeriod": "Validity Period",
+          "validFor": "Valid For",
+          "scale": "Scale",
+          "allowOverride": "Allow Override",
+          "gracePeriod": "Grace Period",
+          "duration": "Duration",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Qualification",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "type": "Type",
+          "description": "Description",
+          "ownerRole": "Owner Role",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Qualification",
+          "message": "Are you sure you want to terminate the Qualification '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Qualification",
+          "message": "Are you sure you want to unterminate the Qualification '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "assign": {
+          "title": "Assign Employee(s) to Qualification",
+          "stepEmployees": "Employees",
+          "stepQualification": "Qualification",
+          "search": "Search",
+          "employeesCount": "Employees ({{count}})",
+          "selectedCount": "{{count}} Item Selected",
+          "employee": "Employee",
+          "employeeNumber": "Employee Number",
+          "type": "Type",
+          "team": "Team",
+          "manager": "Manager",
+          "selectedEmployees": "Selected Employees ({{count}})",
+          "employees": "Employees",
+          "qualificationDate": "Qualification Date",
+          "detailsTitle": "Employee Qualifications Details",
+          "validTo": "Valid To",
+          "reason": "Reason",
+          "proficiency": "Proficiency",
+          "remarks": "Remarks",
+          "evidence": "Evidence",
+          "comments": "Comments",
+          "assign": "Assign"
+        },
+        "unassign": {
+          "title": "Unassign Employee(s) from Qualification",
+          "message": "Confirm the Employee(s) that should be unassigned from the Qualification '{{name}}'.",
+          "employee": "Employee",
+          "employeeNumber": "Employee Number",
+          "unassign": "Unassign"
+        }
       }
     }
   }

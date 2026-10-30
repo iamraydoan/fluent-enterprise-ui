@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { useQualificationDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV, Panel } from "@/components/common";
-import type { DetailTab } from "@/components/common";
+import type { DetailTab, DetailShellMoreAction } from "@/components/common";
 import { Trophy20Regular } from "@/components/icons";
 import { Body1Strong, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { RecordState } from "@/lib/recordState";
+import { AssignEmployeesDialog } from "./dialogs/AssignEmployeesDialog";
+import { CloneQualificationDialog } from "./dialogs/CloneQualificationDialog";
+import { ConfirmOperationDialog } from "./dialogs/ConfirmOperationDialog";
+import { QualificationFormDialog } from "./dialogs/QualificationFormDialog";
+import { UnassignEmployeesDialog } from "./dialogs/UnassignEmployeesDialog";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.qualification.tabs.details" },
@@ -31,6 +36,24 @@ export function QualificationDetailPage({ name }: QualificationDetailPageProps) 
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<TranslationKey>("businessData.qualification.sections.details");
   const handleLeft = (value: string) => setLeft(value as TranslationKey);
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
+  const [terminateOpen, setTerminateOpen] = useState(false);
+  const [unterminateOpen, setUnterminateOpen] = useState(false);
+  const [assignOpen, setAssignOpen] = useState(false);
+  const [unassignOpen, setUnassignOpen] = useState(false);
+
+  const isTerminated = data?.state === RecordState.Terminated;
+  const mk = "businessData.qualification.more";
+
+  const moreActions: DetailShellMoreAction[] = [
+    { label: t(`${mk}.clone`), onClick: () => setCloneOpen(true) },
+    ...(isTerminated
+      ? [{ label: t(`${mk}.unterminate`), onClick: () => setUnterminateOpen(true) }]
+      : [{ label: t(`${mk}.terminate`), onClick: () => setTerminateOpen(true) }]),
+    { label: t(`${mk}.assignEmployees`), onClick: () => setAssignOpen(true) },
+    { label: t(`${mk}.unassignEmployees`), onClick: () => setUnassignOpen(true) },
+  ];
 
   if (isLoading || data === undefined) {
     return null;
@@ -105,19 +128,61 @@ export function QualificationDetailPage({ name }: QualificationDetailPageProps) 
   }
 
   return (
-    <DetailShell
-      title={data.name}
-      icon={<Trophy20Regular />}
-      topTabs={TOP_TABS}
-      top={top}
-      onTop={setTop}
-      leftItems={LEFT_SECTIONS}
-      left={left}
-      onLeft={handleLeft}
-      onEdit={() => {}}
-      onAskAi={() => {}}
-    >
-      {content}
-    </DetailShell>
+    <>
+      <DetailShell
+        title={data.name}
+        icon={<Trophy20Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={LEFT_SECTIONS}
+        left={left}
+        onLeft={handleLeft}
+        onEdit={() => setEditOpen(true)}
+        onAskAi={() => {}}
+        moreActions={moreActions}
+      >
+        {content}
+      </DetailShell>
+      <QualificationFormDialog
+        open={editOpen}
+        onClose={() => setEditOpen(false)}
+        title={t("businessData.qualification.dialogs.form.editTitle")}
+        initial={data}
+        nameReadOnly
+        submitLabel={t("common.save")}
+      />
+      <CloneQualificationDialog
+        open={cloneOpen}
+        onClose={() => setCloneOpen(false)}
+        sourceName={data.name}
+        sourceType={data.type}
+        sourceOwnerRole={data.ownerRole}
+      />
+      <ConfirmOperationDialog
+        open={terminateOpen}
+        onClose={() => setTerminateOpen(false)}
+        title={t("businessData.qualification.dialogs.terminate.title")}
+        message={t("businessData.qualification.dialogs.terminate.message", { name: data.name })}
+        confirmLabel={t("businessData.qualification.dialogs.terminate.confirm")}
+      />
+      <ConfirmOperationDialog
+        open={unterminateOpen}
+        onClose={() => setUnterminateOpen(false)}
+        title={t("businessData.qualification.dialogs.unterminate.title")}
+        message={t("businessData.qualification.dialogs.unterminate.message", { name: data.name })}
+        confirmLabel={t("businessData.qualification.dialogs.unterminate.confirm")}
+      />
+      <AssignEmployeesDialog
+        open={assignOpen}
+        onClose={() => setAssignOpen(false)}
+        qualificationName={data.name}
+      />
+      <UnassignEmployeesDialog
+        open={unassignOpen}
+        onClose={() => setUnassignOpen(false)}
+        qualificationName={data.name}
+      />
+    </>
   );
 }

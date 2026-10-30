@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQualifications } from "@/api";
 import type { QualificationRecord } from "@/api";
 import {
@@ -11,9 +12,11 @@ import {
 } from "@/components/common";
 import type { DataColumn } from "@/components/common";
 import { Trophy24Regular } from "@/components/icons";
+import { useAppTranslation } from "@/i18n";
 import type { ListQueryParams, ListQueryResult } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { QualificationFormDialog } from "./dialogs/QualificationFormDialog";
 
 const COLUMNS: DataColumn<QualificationRecord>[] = [
   {
@@ -50,20 +53,35 @@ function useQualificationList(params: ListQueryParams): ListQueryResult<Qualific
 }
 
 export function QualificationListPage() {
+  const { t } = useAppTranslation();
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/business-data/qualification/$name", openRoute);
+  const [createOpen, setCreateOpen] = useState(false);
 
   return (
-    <DataListPage
-      icon={<Trophy24Regular />}
-      titleKey="businessData.qualification.pageLabel"
-      listTitleKey="businessData.qualification.listTitle"
-      actions={[createAction, refreshAction, importAction, exportAction]}
-      columns={COLUMNS}
-      filters={defaultListFilters}
-      useListQuery={useQualificationList}
-      getRowId={(row) => row.name}
-      onRowClick={(row) => openDetail(row.name)}
-    />
+    <>
+      <DataListPage
+        icon={<Trophy24Regular />}
+        titleKey="businessData.qualification.pageLabel"
+        listTitleKey="businessData.qualification.listTitle"
+        actions={[
+          { ...createAction, onClick: () => setCreateOpen(true) },
+          refreshAction,
+          importAction,
+          exportAction,
+        ]}
+        columns={COLUMNS}
+        filters={defaultListFilters}
+        useListQuery={useQualificationList}
+        getRowId={(row) => row.name}
+        onRowClick={(row) => openDetail(row.name)}
+      />
+      <QualificationFormDialog
+        open={createOpen}
+        onClose={() => setCreateOpen(false)}
+        title={t("businessData.qualification.dialogs.form.createTitle")}
+        submitLabel={t("actionBar.create")}
+      />
+    </>
   );
 }
