@@ -1830,6 +1830,108 @@
           "update": "Update"
         }
       }
+    },
+    "schedule": {
+      "pageLabel": "Schedule",
+      "listTitle": "Schedules",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "scenarios": "Scenarios",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "areas": "Areas",
+        "feedSteps": "Feed Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "schedule": "Schedule"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "defaultView": "Default View",
+        "defaultFrozenPeriod": "Default Frozen Period",
+        "timeQuantum": "Time Quantum"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "createScenario": "Create Schedule Scenario",
+        "adjustJob": "Adjust Schedule Job",
+        "manageFeedSteps": "Manage Feed Steps"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule",
+          "editTitle": "Edit Schedule",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "defaultView": "Default View",
+          "defaultFrozenPeriod": "Default Frozen Period (hours)",
+          "timeQuantum": "Time Quantum (minutes)",
+          "schedulingType": "Scheduling Type",
+          "type": "Type",
+          "optimizationBody": "Choose the Scheduling Type (Forwards or Backwards) and the Optimization Criteria weights (must add up to 100): Minimize Setup Times, Minimize Total Waiting Time, Maximize Resource Utilization, etc.",
+          "untieBody": "Specify the default Untie Sort Rules (Execution Time, Material Due Date, Material Name, Priority, Quantity, Setup Time, Wait Time, etc.). Rules are used in the order they are inputted.",
+          "automaticBody": "Define specific configurations for automatic scheduling: Terminate Scenarios on Release, auto reschedule Operational Accurate/Fast/Planning Scenarios, frequency scale and start date.",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Schedule",
+          "message": "Clone the Schedule '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Schedule",
+          "message": "Are you sure you want to terminate the Schedule '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Schedule",
+          "message": "Are you sure you want to unterminate the Schedule '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "createScenario": {
+          "title": "Create Schedule Scenario",
+          "message": "Create a new Schedule Scenario for Schedule '{{name}}'?",
+          "create": "Create"
+        },
+        "adjust": {
+          "title": "Adjust Schedule Job",
+          "jobBody": "Manually adjust a Schedule Scenario Job of a released Schedule Scenario.",
+          "resource": "Resource",
+          "plannedStart": "Planned Start Time",
+          "plannedEnd": "Planned End Time",
+          "adjust": "Adjust"
+        },
+        "feedStep": {
+          "title": "Manage Feed Steps",
+          "steps": "Feed Steps ({{count}})",
+          "newStep": "New Feed Step",
+          "detailsTitle": "Feed Step Details",
+          "facility": "Facility",
+          "step": "Step",
+          "manage": "Manage"
+        }
+      }
     }
   }
 }

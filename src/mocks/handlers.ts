@@ -9,6 +9,7 @@ import { resourceHandlers } from "./handlers/businessData/resource";
 import { resourceJobHandlers } from "./handlers/businessData/resourceJob";
 import { samplingPatternHandlers } from "./handlers/businessData/samplingPattern";
 import { samplingPlanHandlers } from "./handlers/businessData/samplingPlan";
+import { scheduleHandlers } from "./handlers/businessData/schedule";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -34,4 +35,5 @@ export const handlers = [
   ...resourceJobHandlers,
   ...samplingPatternHandlers,
   ...samplingPlanHandlers,
+  ...scheduleHandlers,
 ];
