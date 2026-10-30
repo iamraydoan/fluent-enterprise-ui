@@ -6,6 +6,8 @@ import { Organization24Regular } from "@/components/icons";
 import { Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { EnterpriseDialog } from "./EnterpriseDialog";
+import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
 
 const tk = (key: string) => key as TranslationKey;
 
@@ -26,9 +28,12 @@ export function EnterpriseDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<string>(tk("businessData.enterprise.sections.details"));
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
   const { data, isLoading } = useEnterpriseDetail(name);
 
   const shell = (content: React.ReactNode) => (
+    <>
     <DetailShell
       title={name}
       icon={<Organization24Regular />}
@@ -38,11 +43,19 @@ export function EnterpriseDetailPage({ name }: { name: string }) {
       leftItems={LEFT_ITEMS}
       left={left}
       onLeft={setLeft}
-      onEdit={() => undefined}
+      onEdit={() => setEditOpen(true)}
+      onClone={() => setCloneOpen(true)}
       onAskAi={() => undefined}
     >
       {content}
     </DetailShell>
+    {editOpen && (
+      <EnterpriseDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />
+    )}
+    {cloneOpen && (
+      <EnterpriseDialog mode={MODE_CLONE} initialName={`${name} (Copy)`} onClose={() => setCloneOpen(false)} />
+    )}
+    </>
   );
 
   if (isLoading || !data) {

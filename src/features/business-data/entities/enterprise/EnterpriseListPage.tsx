@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useEnterprises } from "@/api";
 import type { EnterpriseRecord } from "@/api";
 import {
@@ -15,6 +16,8 @@ import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { EnterpriseDialog } from "./EnterpriseDialog";
+import { MODE_CREATE } from "./wizardMode";
 
 const tk = (key: string) => key as TranslationKey;
 
@@ -32,17 +35,21 @@ function useEnterpriseListQuery(params: ListQueryParams) {
 export function EnterpriseListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/business-data/enterprise/$name", openRoute);
+  const [showCreate, setShowCreate] = useState(false);
   return (
-    <DataListPage
-      icon={<Organization24Regular />}
-      titleKey={tk("businessData.enterprise.pageLabel")}
-      listTitleKey={tk("businessData.enterprise.listTitle")}
-      actions={[createAction, refreshAction, importAction, exportAction]}
-      columns={COLUMNS}
-      filters={defaultListFilters}
-      useListQuery={useEnterpriseListQuery}
-      getRowId={(row) => row.name}
-      onRowClick={(row) => openDetail(row.name)}
-    />
+    <>
+      <DataListPage
+        icon={<Organization24Regular />}
+        titleKey={tk("businessData.enterprise.pageLabel")}
+        listTitleKey={tk("businessData.enterprise.listTitle")}
+        actions={[{ ...createAction, onClick: () => setShowCreate(true) }, refreshAction, importAction, exportAction]}
+        columns={COLUMNS}
+        filters={defaultListFilters}
+        useListQuery={useEnterpriseListQuery}
+        getRowId={(row) => row.name}
+        onRowClick={(row) => openDetail(row.name)}
+      />
+      {showCreate && <EnterpriseDialog mode={MODE_CREATE} onClose={() => setShowCreate(false)} />}
+    </>
   );
 }
