@@ -10,6 +10,7 @@ import { facilityHandlers } from "./handlers/businessData/facility";
 import { flowHandlers } from "./handlers/businessData/flow";
 import { inspectionPlanHandlers } from "./handlers/businessData/inspectionPlan";
 import { kpiHandlers } from "./handlers/businessData/kpi";
+import { maintenanceActivityOrderHandlers } from "./handlers/businessData/maintenanceActivityOrder";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -32,6 +33,7 @@ export const handlers = [
   ...flowHandlers,
   ...inspectionPlanHandlers,
   ...kpiHandlers,
+  ...maintenanceActivityOrderHandlers,
   ...genericTableHandlers,
   ...uiPageHandlers,
   ...mcpServerHandlers,
