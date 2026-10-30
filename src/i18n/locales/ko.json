@@ -864,6 +864,105 @@
           "confirm": "종료 취소"
         }
       }
+    },
+    "reason": {
+      "pageLabel": "Reason",
+      "listTitle": "Reasons",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "contexts": "컨텍스트",
+        "references": "참조",
+        "history": "기록"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "images": "이미지",
+        "attributes": "속성",
+        "attachments": "첨부",
+        "empty": "데이터 없음",
+        "emptyBody": "이 섹션에는 아직 콘텐츠가 없습니다."
+      },
+      "cards": {
+        "reason": "Reason",
+        "information": "정보"
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "state": "상태",
+        "dataGroup": "데이터 그룹",
+        "type": "유형",
+        "excludeFromStepYield": "Step Yield 제외",
+        "excludeFromResourceYield": "Resource Yield 제외"
+      },
+      "more": {
+        "clone": "복제",
+        "terminate": "종료",
+        "unterminate": "종료 취소",
+        "addImages": "이미지 추가",
+        "manageRepairActions": "Repair Actions 관리"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Reason 생성",
+          "editTitle": "Reason 편집",
+          "generalData": "일반 데이터",
+          "information": "정보",
+          "name": "이름",
+          "description": "설명",
+          "type": "유형",
+          "excludeFromStepYield": "Step Yield 제외",
+          "excludeFromResourceYield": "Resource Yield 제외",
+          "category": "카테고리",
+          "comments": "설명"
+        },
+        "clone": {
+          "title": "Reason 복제",
+          "clones": "복제본 ({{count}})",
+          "name": "이름",
+          "type": "유형",
+          "source": "소스: {{name}}",
+          "comments": "설명",
+          "clone": "복제"
+        },
+        "terminate": {
+          "title": "Reason 종료",
+          "message": "Reason '{{name}}'을(를) 종료하시겠습니까?",
+          "confirm": "종료"
+        },
+        "unterminate": {
+          "title": "Reason 종료 취소",
+          "message": "Reason '{{name}}'의 종료를 취소하시겠습니까?",
+          "confirm": "종료 취소"
+        },
+        "addImages": {
+          "title": "Reason에 이미지 추가",
+          "stepImages": "이미지",
+          "stepAssessment": "평가",
+          "image": "이미지",
+          "scope": "범위",
+          "assessment": "평가",
+          "assessmentCriteria": "평가 기준",
+          "comments": "설명",
+          "add": "추가"
+        },
+        "repairActions": {
+          "title": "Repair Actions 관리",
+          "repairActions": "Repair Actions ({{count}})",
+          "detailsTitle": "Repair Action 세부 정보",
+          "repairAction": "Repair Action",
+          "description": "설명",
+          "partReplacementMode": "부품 교체 모드",
+          "comments": "설명",
+          "update": "업데이트"
+        }
+      }
     }
   }
 }

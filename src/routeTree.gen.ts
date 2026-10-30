@@ -25,6 +25,7 @@ import { Route as AdministrationTablesRouteImport } from './routes/administratio
 import { Route as AdministrationUipagesRouteImport } from './routes/administration.uipages'
 import { Route as BusinessDataQualificationRouteImport } from './routes/business-data.qualification'
 import { Route as BusinessDataQualificationCheckRouteImport } from './routes/business-data.qualification-check'
+import { Route as BusinessDataReasonRouteImport } from './routes/business-data.reason'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -33,6 +34,7 @@ import { Route as AdministrationQueriesNameRouteImport } from './routes/administ
 import { Route as AdministrationTablesNameRouteImport } from './routes/administration.tables.$name'
 import { Route as BusinessDataQualificationCheckNameRouteImport } from './routes/business-data.qualification-check.$name'
 import { Route as BusinessDataQualificationNameRouteImport } from './routes/business-data.qualification.$name'
+import { Route as BusinessDataReasonNameRouteImport } from './routes/business-data.reason.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -119,6 +121,11 @@ const BusinessDataQualificationCheckRoute =
     path: '/qualification-check',
     getParentRoute: () => BusinessDataRoute,
   } as any)
+const BusinessDataReasonRoute = BusinessDataReasonRouteImport.update({
+  id: '/reason',
+  path: '/reason',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -167,6 +174,11 @@ const BusinessDataQualificationNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataQualificationRoute,
   } as any)
+const BusinessDataReasonNameRoute = BusinessDataReasonNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataReasonRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -185,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/qualification': typeof BusinessDataQualificationRouteWithChildren
   '/business-data/qualification-check': typeof BusinessDataQualificationCheckRouteWithChildren
+  '/business-data/reason': typeof BusinessDataReasonRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -193,6 +206,7 @@ export interface FileRoutesByFullPath {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/qualification-check/$name': typeof BusinessDataQualificationCheckNameRoute
   '/business-data/qualification/$name': typeof BusinessDataQualificationNameRoute
+  '/business-data/reason/$name': typeof BusinessDataReasonNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -211,6 +225,7 @@ export interface FileRoutesByTo {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/qualification': typeof BusinessDataQualificationRouteWithChildren
   '/business-data/qualification-check': typeof BusinessDataQualificationCheckRouteWithChildren
+  '/business-data/reason': typeof BusinessDataReasonRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -219,6 +234,7 @@ export interface FileRoutesByTo {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/qualification-check/$name': typeof BusinessDataQualificationCheckNameRoute
   '/business-data/qualification/$name': typeof BusinessDataQualificationNameRoute
+  '/business-data/reason/$name': typeof BusinessDataReasonNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -238,6 +254,7 @@ export interface FileRoutesById {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/qualification': typeof BusinessDataQualificationRouteWithChildren
   '/business-data/qualification-check': typeof BusinessDataQualificationCheckRouteWithChildren
+  '/business-data/reason': typeof BusinessDataReasonRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -246,6 +263,7 @@ export interface FileRoutesById {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/qualification-check/$name': typeof BusinessDataQualificationCheckNameRoute
   '/business-data/qualification/$name': typeof BusinessDataQualificationNameRoute
+  '/business-data/reason/$name': typeof BusinessDataReasonNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -266,6 +284,7 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/qualification'
     | '/business-data/qualification-check'
+    | '/business-data/reason'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -274,6 +293,7 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/qualification-check/$name'
     | '/business-data/qualification/$name'
+    | '/business-data/reason/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -292,6 +312,7 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/qualification'
     | '/business-data/qualification-check'
+    | '/business-data/reason'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -300,6 +321,7 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/qualification-check/$name'
     | '/business-data/qualification/$name'
+    | '/business-data/reason/$name'
   id:
     | '__root__'
     | '/'
@@ -318,6 +340,7 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/qualification'
     | '/business-data/qualification-check'
+    | '/business-data/reason'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -326,6 +349,7 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/qualification-check/$name'
     | '/business-data/qualification/$name'
+    | '/business-data/reason/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -450,6 +474,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataQualificationCheckRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/reason': {
+      id: '/business-data/reason'
+      path: '/reason'
+      fullPath: '/business-data/reason'
+      preLoaderRoute: typeof BusinessDataReasonRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -505,6 +536,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/qualification/$name'
       preLoaderRoute: typeof BusinessDataQualificationNameRouteImport
       parentRoute: typeof BusinessDataQualificationRoute
+    }
+    '/business-data/reason/$name': {
+      id: '/business-data/reason/$name'
+      path: '/$name'
+      fullPath: '/business-data/reason/$name'
+      preLoaderRoute: typeof BusinessDataReasonNameRouteImport
+      parentRoute: typeof BusinessDataReasonRoute
     }
   }
 }
@@ -646,15 +684,28 @@ const BusinessDataQualificationCheckRouteWithChildren =
     BusinessDataQualificationCheckRouteChildren,
   )
 
+interface BusinessDataReasonRouteChildren {
+  BusinessDataReasonNameRoute: typeof BusinessDataReasonNameRoute
+}
+
+const BusinessDataReasonRouteChildren: BusinessDataReasonRouteChildren = {
+  BusinessDataReasonNameRoute: BusinessDataReasonNameRoute,
+}
+
+const BusinessDataReasonRouteWithChildren =
+  BusinessDataReasonRoute._addFileChildren(BusinessDataReasonRouteChildren)
+
 interface BusinessDataRouteChildren {
   BusinessDataQualificationRoute: typeof BusinessDataQualificationRouteWithChildren
   BusinessDataQualificationCheckRoute: typeof BusinessDataQualificationCheckRouteWithChildren
+  BusinessDataReasonRoute: typeof BusinessDataReasonRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataQualificationRoute: BusinessDataQualificationRouteWithChildren,
   BusinessDataQualificationCheckRoute:
     BusinessDataQualificationCheckRouteWithChildren,
+  BusinessDataReasonRoute: BusinessDataReasonRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

@@ -864,6 +864,105 @@
           "confirm": "Unterminate"
         }
       }
+    },
+    "reason": {
+      "pageLabel": "Reason",
+      "listTitle": "Reasons",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "images": "Images",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "reason": "Reason",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "type": "Type",
+        "excludeFromStepYield": "Exclude From Step Yield",
+        "excludeFromResourceYield": "Exclude From Resource Yield"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "addImages": "Add Images",
+        "manageRepairActions": "Manage Repair Actions"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Reason",
+          "editTitle": "Edit Reason",
+          "generalData": "General Data",
+          "information": "Information",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "excludeFromStepYield": "Exclude From Step Yield",
+          "excludeFromResourceYield": "Exclude From Resource Yield",
+          "category": "Category",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Reason",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "type": "Type",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Reason",
+          "message": "Are you sure you want to terminate the Reason '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Reason",
+          "message": "Are you sure you want to unterminate the Reason '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "addImages": {
+          "title": "Add Images to Reason",
+          "stepImages": "Images",
+          "stepAssessment": "Assessment",
+          "image": "Image",
+          "scope": "Scope",
+          "assessment": "Assessment",
+          "assessmentCriteria": "Assessment Criteria",
+          "comments": "Comments",
+          "add": "Add"
+        },
+        "repairActions": {
+          "title": "Manage Repair Actions",
+          "repairActions": "Repair Actions ({{count}})",
+          "detailsTitle": "Repair Action Details",
+          "repairAction": "Repair Action",
+          "description": "Description",
+          "partReplacementMode": "Part Replacement Mode",
+          "comments": "Comments",
+          "update": "Update"
+        }
+      }
     }
   }
 }

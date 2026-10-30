@@ -99,3 +99,15 @@ export type {
   QualificationCheckListParams,
   QualificationCheckRecord,
 } from "./businessData/qualificationCheck";
+export {
+  getReason,
+  listReasons,
+  useReasonDetail,
+  useReasons,
+} from "./businessData/reason";
+export type {
+  ReasonDetail,
+  ReasonListParams,
+  ReasonRecord,
+  ReasonType,
+} from "./businessData/reason";

@@ -864,6 +864,105 @@
           "confirm": "終了取消"
         }
       }
+    },
+    "reason": {
+      "pageLabel": "Reason",
+      "listTitle": "Reasons",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態"
+      },
+      "tabs": {
+        "details": "詳細",
+        "contexts": "コンテキスト",
+        "references": "参照",
+        "history": "履歴"
+      },
+      "sections": {
+        "details": "詳細",
+        "images": "画像",
+        "attributes": "属性",
+        "attachments": "添付",
+        "empty": "データなし",
+        "emptyBody": "このセクションにはまだコンテンツがありません。"
+      },
+      "cards": {
+        "reason": "Reason",
+        "information": "情報"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態",
+        "dataGroup": "データグループ",
+        "type": "タイプ",
+        "excludeFromStepYield": "Step Yieldから除外",
+        "excludeFromResourceYield": "Resource Yieldから除外"
+      },
+      "more": {
+        "clone": "複製",
+        "terminate": "終了",
+        "unterminate": "終了取消",
+        "addImages": "画像追加",
+        "manageRepairActions": "Repair Actions管理"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Reason作成",
+          "editTitle": "Reason編集",
+          "generalData": "一般データ",
+          "information": "情報",
+          "name": "名前",
+          "description": "説明",
+          "type": "タイプ",
+          "excludeFromStepYield": "Step Yieldから除外",
+          "excludeFromResourceYield": "Resource Yieldから除外",
+          "category": "カテゴリ",
+          "comments": "コメント"
+        },
+        "clone": {
+          "title": "Reason複製",
+          "clones": "複製 ({{count}})",
+          "name": "名前",
+          "type": "タイプ",
+          "source": "ソース: {{name}}",
+          "comments": "コメント",
+          "clone": "複製"
+        },
+        "terminate": {
+          "title": "Reason終了",
+          "message": "Reason '{{name}}' を終了しますか?",
+          "confirm": "終了"
+        },
+        "unterminate": {
+          "title": "Reason終了取消",
+          "message": "Reason '{{name}}' の終了を取り消しますか?",
+          "confirm": "終了取消"
+        },
+        "addImages": {
+          "title": "Reasonに画像追加",
+          "stepImages": "画像",
+          "stepAssessment": "評価",
+          "image": "画像",
+          "scope": "スコープ",
+          "assessment": "評価",
+          "assessmentCriteria": "評価基準",
+          "comments": "コメント",
+          "add": "追加"
+        },
+        "repairActions": {
+          "title": "Repair Actions管理",
+          "repairActions": "Repair Actions ({{count}})",
+          "detailsTitle": "Repair Action詳細",
+          "repairAction": "Repair Action",
+          "description": "説明",
+          "partReplacementMode": "部品交換モード",
+          "comments": "コメント",
+          "update": "更新"
+        }
+      }
     }
   }
 }

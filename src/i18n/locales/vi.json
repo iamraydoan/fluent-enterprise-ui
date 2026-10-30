@@ -864,6 +864,105 @@
           "confirm": "Hủy kết thúc"
         }
       }
+    },
+    "reason": {
+      "pageLabel": "Reason",
+      "listTitle": "Reasons",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "contexts": "Ngữ cảnh",
+        "references": "Tham chiếu",
+        "history": "Lịch sử"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "images": "Hình ảnh",
+        "attributes": "Thuộc tính",
+        "attachments": "Đính kèm",
+        "empty": "Không có dữ liệu",
+        "emptyBody": "Mục này chưa có nội dung."
+      },
+      "cards": {
+        "reason": "Reason",
+        "information": "Thông tin"
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái",
+        "dataGroup": "Nhóm dữ liệu",
+        "type": "Loại",
+        "excludeFromStepYield": "Loại khỏi Step Yield",
+        "excludeFromResourceYield": "Loại khỏi Resource Yield"
+      },
+      "more": {
+        "clone": "Nhân bản",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc",
+        "addImages": "Thêm hình ảnh",
+        "manageRepairActions": "Quản lý Repair Actions"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Tạo Reason",
+          "editTitle": "Sửa Reason",
+          "generalData": "Dữ liệu chung",
+          "information": "Thông tin",
+          "name": "Tên",
+          "description": "Mô tả",
+          "type": "Loại",
+          "excludeFromStepYield": "Loại khỏi Step Yield",
+          "excludeFromResourceYield": "Loại khỏi Resource Yield",
+          "category": "Danh mục",
+          "comments": "Ghi chú"
+        },
+        "clone": {
+          "title": "Nhân bản Reason",
+          "clones": "Bản sao ({{count}})",
+          "name": "Tên",
+          "type": "Loại",
+          "source": "Nguồn: {{name}}",
+          "comments": "Ghi chú",
+          "clone": "Nhân bản"
+        },
+        "terminate": {
+          "title": "Kết thúc Reason",
+          "message": "Bạn có chắc muốn kết thúc Reason '{{name}}'?",
+          "confirm": "Kết thúc"
+        },
+        "unterminate": {
+          "title": "Hủy kết thúc Reason",
+          "message": "Bạn có chắc muốn hủy kết thúc Reason '{{name}}'?",
+          "confirm": "Hủy kết thúc"
+        },
+        "addImages": {
+          "title": "Thêm hình ảnh cho Reason",
+          "stepImages": "Hình ảnh",
+          "stepAssessment": "Đánh giá",
+          "image": "Hình ảnh",
+          "scope": "Phạm vi",
+          "assessment": "Đánh giá",
+          "assessmentCriteria": "Tiêu chí đánh giá",
+          "comments": "Ghi chú",
+          "add": "Thêm"
+        },
+        "repairActions": {
+          "title": "Quản lý Repair Actions",
+          "repairActions": "Repair Actions ({{count}})",
+          "detailsTitle": "Chi tiết Repair Action",
+          "repairAction": "Repair Action",
+          "description": "Mô tả",
+          "partReplacementMode": "Chế độ thay thế",
+          "comments": "Ghi chú",
+          "update": "Cập nhật"
+        }
+      }
     }
   }
 }
