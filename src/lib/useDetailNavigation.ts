@@ -5,7 +5,8 @@ type DetailRoute =
   | "/administration/ai-agent/$name"
   | "/administration/ai-mcp-server/$name"
   | "/administration/configuration/$path"
-  | "/administration/entity-types/$name";
+  | "/administration/entity-types/$name"
+  | "/administration/tables/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

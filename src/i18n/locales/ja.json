@@ -474,5 +474,49 @@
     "search": "検索",
     "unreadMessages": "未読 {{count}} 件",
     "warning": "警告"
+  },
+  "genericTables": {
+    "pageLabel": "汎用テーブル",
+    "listTitle": "汎用テーブル ({{count}})",
+    "columns": {
+      "name": "名前",
+      "description": "説明",
+      "system": "システム",
+      "state": "状態"
+    },
+    "tabs": {
+      "data": "データ",
+      "definition": "定義",
+      "history": "履歴"
+    },
+    "data": {
+      "add": "追加",
+      "title": "{{name}} ({{count}})",
+      "selectAll": "すべて選択",
+      "selectRow": "行 {{row}} を選択",
+      "selected": "{{count}} 件選択",
+      "total": "{{count}} 件"
+    },
+    "definition": {
+      "definition": "汎用テーブル定義",
+      "properties": "プロパティ",
+      "generalData": "一般データ",
+      "name": "名前",
+      "description": "説明",
+      "dataGroup": "データグループ",
+      "isSystem": "システム",
+      "enableHistory": "履歴を有効化",
+      "historyDays": "デフォルト履歴日数",
+      "state": "状態",
+      "localizedKey": "ローカライズメッセージキー",
+      "columns": "列 ({{count}})",
+      "key": "キー",
+      "propertiesEmpty": "プロパティがありません",
+      "propertiesEmptyBody": "デモでは利用できません。"
+    },
+    "history": {
+      "empty": "履歴がありません",
+      "emptyBody": "デモでは利用できません。"
+    }
   }
 }

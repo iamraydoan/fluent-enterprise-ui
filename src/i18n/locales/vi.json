@@ -474,5 +474,49 @@
     "search": "Tìm kiếm",
     "unreadMessages": "{{count}} chưa đọc",
     "warning": "Cảnh báo"
+  },
+  "genericTables": {
+    "pageLabel": "Bảng chung",
+    "listTitle": "Bảng chung ({{count}})",
+    "columns": {
+      "name": "Tên",
+      "description": "Mô tả",
+      "system": "Hệ thống",
+      "state": "Trạng thái"
+    },
+    "tabs": {
+      "data": "Dữ liệu",
+      "definition": "Định nghĩa",
+      "history": "Lịch sử"
+    },
+    "data": {
+      "add": "Thêm",
+      "title": "{{name}} ({{count}})",
+      "selectAll": "Chọn tất cả",
+      "selectRow": "Chọn dòng {{row}}",
+      "selected": "Đã chọn {{count}}",
+      "total": "{{count}} bản ghi"
+    },
+    "definition": {
+      "definition": "Định nghĩa bảng chung",
+      "properties": "Thuộc tính",
+      "generalData": "Dữ liệu chung",
+      "name": "Tên",
+      "description": "Mô tả",
+      "dataGroup": "Nhóm dữ liệu",
+      "isSystem": "Là hệ thống",
+      "enableHistory": "Bật lịch sử",
+      "historyDays": "Số ngày lịch sử mặc định",
+      "state": "Trạng thái",
+      "localizedKey": "Khóa thông báo bản địa",
+      "columns": "Cột ({{count}})",
+      "key": "Khóa",
+      "propertiesEmpty": "Chưa có thuộc tính",
+      "propertiesEmptyBody": "Quản lý thuộc tính chưa có trong demo."
+    },
+    "history": {
+      "empty": "Chưa có lịch sử",
+      "emptyBody": "Lịch sử chưa có trong demo."
+    }
   }
 }

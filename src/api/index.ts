@@ -40,3 +40,15 @@ export {
   useConfigurations,
 } from "./configuration";
 export type { ConfigurationEntry, ConfigurationListParams } from "./configuration";
+export {
+  getGenericTable,
+  listGenericTables,
+  useGenericTable,
+  useGenericTables,
+} from "./genericTables";
+export type {
+  GenericTableColumnDef,
+  GenericTableColumnType,
+  GenericTableDetail,
+  GenericTableRecord,
+} from "./genericTables";

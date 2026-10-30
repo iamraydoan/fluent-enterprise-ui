@@ -474,5 +474,49 @@
     "search": "Search",
     "unreadMessages": "{{count}} unread",
     "warning": "Warning"
+  },
+  "genericTables": {
+    "pageLabel": "Generic Tables",
+    "listTitle": "Generic Tables ({{count}})",
+    "columns": {
+      "name": "Name",
+      "description": "Description",
+      "system": "System",
+      "state": "State"
+    },
+    "tabs": {
+      "data": "Data",
+      "definition": "Definition",
+      "history": "History"
+    },
+    "data": {
+      "add": "Add",
+      "title": "{{name}} ({{count}})",
+      "selectAll": "Select all rows",
+      "selectRow": "Select row {{row}}",
+      "selected": "{{count}} selected",
+      "total": "{{count}} records"
+    },
+    "definition": {
+      "definition": "Generic Table Definition",
+      "properties": "Properties",
+      "generalData": "General Data",
+      "name": "Name",
+      "description": "Description",
+      "dataGroup": "Data Group",
+      "isSystem": "Is System",
+      "enableHistory": "Enable History",
+      "historyDays": "History Days by Default",
+      "state": "State",
+      "localizedKey": "Localized Message Key",
+      "columns": "Columns ({{count}})",
+      "key": "Key",
+      "propertiesEmpty": "No properties to show",
+      "propertiesEmptyBody": "Properties management is not available in the demo."
+    },
+    "history": {
+      "empty": "No history yet",
+      "emptyBody": "History is not available in the demo."
+    }
   }
 }

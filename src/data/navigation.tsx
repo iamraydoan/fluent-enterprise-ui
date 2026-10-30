@@ -369,7 +369,8 @@ export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
       (segments[0] === "ai-agent" ||
         segments[0] === "ai-mcp-server" ||
         segments[0] === "configuration" ||
-        segments[0] === "entity-types") &&
+        segments[0] === "entity-types" ||
+        segments[0] === "tables") &&
       segments.length === 2 &&
       segments[1].length > 0
     ) {

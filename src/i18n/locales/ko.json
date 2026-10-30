@@ -474,5 +474,49 @@
     "search": "검색",
     "unreadMessages": "읽지 않음 {{count}}개",
     "warning": "경고"
+  },
+  "genericTables": {
+    "pageLabel": "일반 테이블",
+    "listTitle": "일반 테이블 ({{count}})",
+    "columns": {
+      "name": "이름",
+      "description": "설명",
+      "system": "시스템",
+      "state": "상태"
+    },
+    "tabs": {
+      "data": "데이터",
+      "definition": "정의",
+      "history": "기록"
+    },
+    "data": {
+      "add": "추가",
+      "title": "{{name}} ({{count}})",
+      "selectAll": "모두 선택",
+      "selectRow": "행 {{row}} 선택",
+      "selected": "{{count}}개 선택",
+      "total": "{{count}}개 레코드"
+    },
+    "definition": {
+      "definition": "일반 테이블 정의",
+      "properties": "속성",
+      "generalData": "일반 데이터",
+      "name": "이름",
+      "description": "설명",
+      "dataGroup": "데이터 그룹",
+      "isSystem": "시스템",
+      "enableHistory": "기록 활성화",
+      "historyDays": "기본 기록 일수",
+      "state": "상태",
+      "localizedKey": "로컬라이즈 메시지 키",
+      "columns": "열 ({{count}})",
+      "key": "키",
+      "propertiesEmpty": "속성이 없습니다",
+      "propertiesEmptyBody": "데모에서 사용할 수 없습니다."
+    },
+    "history": {
+      "empty": "기록이 없습니다",
+      "emptyBody": "데모에서 사용할 수 없습니다."
+    }
   }
 }
