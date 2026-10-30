@@ -1,9 +1,23 @@
+import { useState } from "react";
 import { usePrintableDocumentDetail } from "@/api";
+import type { DetailMoreMenuItem } from "@/components/common";
 import { DetailShell, KV } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import {
+  ClonePrintableDocumentDialog,
+  CreatePrintableDocumentDialog,
+  EditPrintableDocumentDialog,
+  LayoutCreationDialog,
+  LotTravelerDialog,
+  PrintPrintableDocumentDialog,
+  PrintersDialog,
+  TerminatePrintableDocumentDialog,
+  UnterminatePrintableDocumentDialog,
+} from "./PrintableDocumentOperations";
 
 const useStyles = makeStyles({
   cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" },
@@ -16,23 +30,96 @@ export function PrintableDocumentDetailPage({ name }: { name: string }) {
   const shared = useSharedStyles();
   const { data: detail } = usePrintableDocumentDetail(name);
 
+  const [top, setTop] = useState("details");
+  const [left, setLeft] = useState<string>("businessData.printableDocument.left.details");
+  const [createOpen, setCreateOpen] = useState(false);
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
+  const [terminateOpen, setTerminateOpen] = useState(false);
+  const [unterminateOpen, setUnterminateOpen] = useState(false);
+  const [printOpen, setPrintOpen] = useState(false);
+  const [layoutOpen, setLayoutOpen] = useState(false);
+  const [lotTravelerOpen, setLotTravelerOpen] = useState(false);
+  const [printersOpen, setPrintersOpen] = useState(false);
+
   if (!detail) {
     return <Text>{t("businessData.printableDocument.pageLabel")}</Text>;
   }
 
+  const isTerminated = detail.state === "Terminated";
+
+  const topTabs = [
+    { value: "details", labelKey: "businessData.printableDocument.tabs.details" as TranslationKey },
+    { value: "references", labelKey: "businessData.printableDocument.tabs.references" as TranslationKey },
+    { value: "history", labelKey: "businessData.printableDocument.tabs.history" as TranslationKey },
+  ];
+
+  const leftItems: TranslationKey[] = [
+    "businessData.printableDocument.left.details",
+    "businessData.printableDocument.left.layout",
+    "businessData.printableDocument.left.contextItems",
+    "businessData.printableDocument.left.printHistory",
+    "businessData.printableDocument.left.attachments",
+  ];
+
+  const moreMenuItems: DetailMoreMenuItem[] = [
+    {
+      key: "print",
+      labelKey: "businessData.printableDocument.operations.print.title" as TranslationKey,
+      onClick: () => setPrintOpen(true),
+    },
+    {
+      key: "layout",
+      labelKey: "businessData.printableDocument.operations.layoutCreation.title" as TranslationKey,
+      onClick: () => setLayoutOpen(true),
+    },
+    {
+      key: "lotTraveler",
+      labelKey: "businessData.printableDocument.operations.lotTraveler.title" as TranslationKey,
+      onClick: () => setLotTravelerOpen(true),
+    },
+    {
+      key: "printers",
+      labelKey: "businessData.printableDocument.operations.printers.title" as TranslationKey,
+      onClick: () => setPrintersOpen(true),
+    },
+    {
+      key: "clone",
+      labelKey: "businessData.printableDocument.operations.clone.title" as TranslationKey,
+      onClick: () => setCloneOpen(true),
+    },
+    ...(isTerminated
+      ? [
+          {
+            key: "unterminate",
+            labelKey: "businessData.printableDocument.operations.unterminate.title" as TranslationKey,
+            onClick: () => setUnterminateOpen(true),
+          },
+        ]
+      : [
+          {
+            key: "terminate",
+            labelKey: "businessData.printableDocument.operations.terminate.title" as TranslationKey,
+            onClick: () => setTerminateOpen(true),
+          },
+        ]),
+  ];
+
   return (
+    <>
     <DetailShell
       title={detail.name}
       icon={<Box24Regular />}
-      topTabs={[]}
-      top=""
-      onTop={() => undefined}
-      leftItems={[]}
-      left=""
-      onLeft={() => undefined}
-      onEdit={() => undefined}
+      topTabs={topTabs}
+      top={top}
+      onTop={setTop}
+      leftItems={leftItems}
+      left={left}
+      onLeft={setLeft}
+      onEdit={() => setEditOpen(true)}
       onAskAi={() => undefined}
       showState={false}
+      moreMenuItems={moreMenuItems}
     >
       <div className={styles.cards}>
         <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
@@ -51,5 +138,28 @@ export function PrintableDocumentDetailPage({ name }: { name: string }) {
         </div>
       </div>
     </DetailShell>
+      <CreatePrintableDocumentDialog
+        open={createOpen}
+        onClose={() => setCreateOpen(false)}
+      />
+      <EditPrintableDocumentDialog
+        open={editOpen}
+        onClose={() => setEditOpen(false)}
+        initialName={detail.name}
+      />
+      <ClonePrintableDocumentDialog open={cloneOpen} onClose={() => setCloneOpen(false)} />
+      <TerminatePrintableDocumentDialog
+        open={terminateOpen}
+        onClose={() => setTerminateOpen(false)}
+      />
+      <UnterminatePrintableDocumentDialog
+        open={unterminateOpen}
+        onClose={() => setUnterminateOpen(false)}
+      />
+      <PrintPrintableDocumentDialog open={printOpen} onClose={() => setPrintOpen(false)} />
+      <LayoutCreationDialog open={layoutOpen} onClose={() => setLayoutOpen(false)} />
+      <LotTravelerDialog open={lotTravelerOpen} onClose={() => setLotTravelerOpen(false)} />
+      <PrintersDialog open={printersOpen} onClose={() => setPrintersOpen(false)} />
+    </>
   );
 }

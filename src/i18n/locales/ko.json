@@ -1547,6 +1547,96 @@
           "state": "상태",
           "version": "버전"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Printable Document",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Printable Document to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Printable Document",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Printable Document cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Printable Document",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "print": {
+          "title": "Print Printable Document",
+          "cancel": "Cancel",
+          "submit": "Print",
+          "fields": {
+            "printer": "Printer",
+            "copies": "Copies"
+          }
+        },
+        "layoutCreation": {
+          "title": "Printable Document Layout Creation",
+          "close": "Close",
+          "description": "Create or Edit the Printable Document Layout, using the Layout Editor."
+        },
+        "lotTraveler": {
+          "title": "Lot Traveler",
+          "close": "Close",
+          "description": "The Lot Traveler is a specific type of Printable Document used to track a lot through production."
+        },
+        "printers": {
+          "title": "Printers and Printer Types",
+          "close": "Close",
+          "description": "Manage Printers and Printer Types for Printable Documents."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "layout": "Layout",
+        "contextItems": "Context Items",
+        "printHistory": "Print History",
+        "attachments": "Attachments"
       }
     },
     "productGroup": {
