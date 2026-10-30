@@ -46,7 +46,20 @@ type DetailRoute =
   | "/business-data/pick-list/$name"
   | "/business-data/plan/$name"
   | "/business-data/printable-document/$name"
-  | "/business-data/product-group/$name";
+  | "/business-data/product-group/$name"
+  | "/business-data/qualification/$name"
+  | "/business-data/qualification-check/$name"
+  | "/business-data/reason/$name"
+  | "/business-data/recipe/$name"
+  | "/business-data/resource/$name"
+  | "/business-data/resource-job/$name"
+  | "/business-data/sampling-pattern/$name"
+  | "/business-data/sampling-plan/$name"
+  | "/business-data/schedule/$name"
+  | "/business-data/schedule-scenario/$name"
+  | "/business-data/send-ahead-run/$name"
+  | "/business-data/service/$name"
+  | "/business-data/setup-matrix/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

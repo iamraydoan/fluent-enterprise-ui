@@ -27,6 +27,19 @@ import { maintenanceActivityOrderHandlers } from "./handlers/businessData/mainte
 import { maintenancePlanHandlers } from "./handlers/businessData/maintenancePlan";
 import { mapHandlers } from "./handlers/businessData/map";
 import { mapDefinitionHandlers } from "./handlers/businessData/mapDefinition";
+import { qualificationHandlers } from "./handlers/businessData/qualification";
+import { qualificationCheckHandlers } from "./handlers/businessData/qualificationCheck";
+import { reasonHandlers } from "./handlers/businessData/reason";
+import { recipeHandlers } from "./handlers/businessData/recipe";
+import { resourceHandlers } from "./handlers/businessData/resource";
+import { resourceJobHandlers } from "./handlers/businessData/resourceJob";
+import { samplingPatternHandlers } from "./handlers/businessData/samplingPattern";
+import { samplingPlanHandlers } from "./handlers/businessData/samplingPlan";
+import { scheduleHandlers } from "./handlers/businessData/schedule";
+import { scheduleScenarioHandlers } from "./handlers/businessData/scheduleScenario";
+import { sendAheadRunHandlers } from "./handlers/businessData/sendAheadRun";
+import { serviceHandlers } from "./handlers/businessData/service";
+import { setupMatrixHandlers } from "./handlers/businessData/setupMatrix";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -96,4 +109,19 @@ export const handlers = [
   ...planHandlers,
   ...printableDocumentHandlers,
   ...productGroupHandlers,
+
+  ...qualificationHandlers,
+  ...qualificationCheckHandlers,
+  ...reasonHandlers,
+  ...recipeHandlers,
+  ...resourceHandlers,
+  ...resourceJobHandlers,
+  ...samplingPatternHandlers,
+  ...samplingPlanHandlers,
+  ...scheduleHandlers,
+  ...scheduleScenarioHandlers,
+  ...sendAheadRunHandlers,
+  ...serviceHandlers,
+  ...setupMatrixHandlers,
+
 ];

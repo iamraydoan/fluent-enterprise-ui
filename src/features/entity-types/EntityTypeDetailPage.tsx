@@ -29,7 +29,7 @@ export function EntityTypeDetailPage({ name }: EntityTypeDetailPageProps) {
   const { data, isLoading } = useEntityType(name);
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<TranslationKey>("entityTypes.sections.properties");
-  const handleLeft = (value: string) => setLeft(value as TranslationKey);
+  const handleLeft = (value: TranslationKey) => setLeft(value);
 
   if (isLoading || data === undefined) {
     return null;

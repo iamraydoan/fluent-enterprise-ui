@@ -235,6 +235,12 @@ export interface DetailMoreMenuItem {
   disabled?: boolean;
 }
 
+export interface DetailShellMoreAction {
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+}
+
 interface DetailShellProps {
   title: string;
   icon: ReactNode;
@@ -243,7 +249,7 @@ interface DetailShellProps {
   onTop: (value: string) => void;
   leftItems: TranslationKey[];
   left: string;
-  onLeft: (value: string) => void;
+  onLeft: (value: TranslationKey) => void;
   onEdit: () => void;
   onAskAi: () => void;
   onClone?: () => void;
@@ -251,6 +257,7 @@ interface DetailShellProps {
   onUnterminate?: () => void;
   showState?: boolean;
   moreMenuItems?: DetailMoreMenuItem[];
+  moreActions?: DetailShellMoreAction[];
   children: ReactNode;
 }
 
@@ -270,6 +277,7 @@ export function DetailShell({
   onUnterminate,
   showState = true,
   moreMenuItems,
+  moreActions,
   children,
 }: DetailShellProps) {
   const { t } = useAppTranslation();
@@ -359,14 +367,23 @@ export function DetailShell({
                   icon={<MoreVertical24Regular />}
                   label={t("actionBar.more")}
                   menu={
-                    moreMenuItems && moreMenuItems.length > 0
-                      ? moreMenuItems.map((item) => ({
+                    (() => {
+                      const items = [
+                        ...(moreMenuItems ?? []).map((item) => ({
                           label: t(item.labelKey),
                           icon: item.icon,
                           disabled: item.disabled,
                           onClick: item.onClick,
-                        }))
-                      : undefined
+                        })),
+                        ...(moreActions ?? []).map((action) => ({
+                          label: action.label,
+                          icon: undefined,
+                          disabled: action.disabled,
+                          onClick: action.onClick,
+                        })),
+                      ];
+                      return items.length > 0 ? items : undefined;
+                    })()
                   }
                 />
               </div>
