@@ -1157,6 +1157,64 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "checklist": {
+      "pageLabel": "Checklists",
+      "listTitle": "Checklists",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "scope": "Scope",
+        "executionMode": "Execution Mode",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "checklist": "Checklist",
+        "information": "Information",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "Scope",
+        "executionMode": "Execution Mode",
+        "bom": "BOM",
+        "product": "Product",
+        "materialDeviationProtocol": "Material Deviation Protocol",
+        "defineStandardTimes": "Define Standard Times",
+        "trackExecutionTimes": "Track Execution Times",
+        "standardDuration": "Standard Duration",
+        "itemsTitle": "Checklist Items ({{count}})",
+        "instancesTitle": "Checklist Instances ({{count}})",
+        "itemName": "Name",
+        "activityType": "Activity Type",
+        "trackingType": "Tracking Type",
+        "optional": "Optional",
+        "floating": "Floating",
+        "subTabs": {
+          "generalData": "General Data",
+          "instructions": "Instructions",
+          "bom": "BOM",
+          "condition": "Condition"
+        },
+        "tabs": {
+          "details": "Details",
+          "checklistItems": "Checklist Items",
+          "compare": "Compare",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "instances": "Instances",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

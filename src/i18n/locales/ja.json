@@ -1157,6 +1157,64 @@
           "attachments": "添付ファイル"
         }
       }
+    },
+    "checklist": {
+      "pageLabel": "チェックリスト",
+      "listTitle": "チェックリスト",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "scope": "スコープ",
+        "executionMode": "実行モード",
+        "state": "状態"
+      },
+      "detail": {
+        "loading": "読み込み中...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "checklist": "Checklist",
+        "information": "Information",
+        "name": "名前",
+        "description": "説明",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "スコープ",
+        "executionMode": "実行モード",
+        "bom": "BOM",
+        "product": "Product",
+        "materialDeviationProtocol": "Material Deviation Protocol",
+        "defineStandardTimes": "Define Standard Times",
+        "trackExecutionTimes": "Track Execution Times",
+        "standardDuration": "Standard Duration",
+        "itemsTitle": "Checklist Items ({{count}})",
+        "instancesTitle": "Checklist Instances ({{count}})",
+        "itemName": "名前",
+        "activityType": "Activity Type",
+        "trackingType": "Tracking Type",
+        "optional": "Optional",
+        "floating": "Floating",
+        "subTabs": {
+          "generalData": "General Data",
+          "instructions": "Instructions",
+          "bom": "BOM",
+          "condition": "Condition"
+        },
+        "tabs": {
+          "details": "詳細",
+          "checklistItems": "チェックリスト項目",
+          "compare": "比較",
+          "references": "参照",
+          "history": "履歴"
+        },
+        "sections": {
+          "details": "詳細",
+          "instances": "インスタンス",
+          "attachments": "添付ファイル"
+        }
+      }
     }
   }
 }

@@ -32,6 +32,7 @@ import { Route as BusinessDataCalendarRouteImport } from './routes/business-data
 import { Route as BusinessDataCertificationRouteImport } from './routes/business-data.certification'
 import { Route as BusinessDataChangeSetRouteImport } from './routes/business-data.change-set'
 import { Route as BusinessDataChartRouteImport } from './routes/business-data.chart'
+import { Route as BusinessDataChecklistRouteImport } from './routes/business-data.checklist'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -47,6 +48,7 @@ import { Route as BusinessDataCalendarNameRouteImport } from './routes/business-
 import { Route as BusinessDataCertificationNameRouteImport } from './routes/business-data.certification.$name'
 import { Route as BusinessDataChangeSetNameRouteImport } from './routes/business-data.change-set.$name'
 import { Route as BusinessDataChartNameRouteImport } from './routes/business-data.chart.$name'
+import { Route as BusinessDataChecklistNameRouteImport } from './routes/business-data.checklist.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -169,6 +171,11 @@ const BusinessDataChartRoute = BusinessDataChartRouteImport.update({
   path: '/chart',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataChecklistRoute = BusinessDataChecklistRouteImport.update({
+  id: '/checklist',
+  path: '/checklist',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -255,6 +262,12 @@ const BusinessDataChartNameRoute = BusinessDataChartNameRouteImport.update({
   path: '/$name',
   getParentRoute: () => BusinessDataChartRoute,
 } as any)
+const BusinessDataChecklistNameRoute =
+  BusinessDataChecklistNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataChecklistRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -280,6 +293,7 @@ export interface FileRoutesByFullPath {
   '/business-data/certification': typeof BusinessDataCertificationRouteWithChildren
   '/business-data/change-set': typeof BusinessDataChangeSetRouteWithChildren
   '/business-data/chart': typeof BusinessDataChartRouteWithChildren
+  '/business-data/checklist': typeof BusinessDataChecklistRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -295,6 +309,7 @@ export interface FileRoutesByFullPath {
   '/business-data/certification/$name': typeof BusinessDataCertificationNameRoute
   '/business-data/change-set/$name': typeof BusinessDataChangeSetNameRoute
   '/business-data/chart/$name': typeof BusinessDataChartNameRoute
+  '/business-data/checklist/$name': typeof BusinessDataChecklistNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -320,6 +335,7 @@ export interface FileRoutesByTo {
   '/business-data/certification': typeof BusinessDataCertificationRouteWithChildren
   '/business-data/change-set': typeof BusinessDataChangeSetRouteWithChildren
   '/business-data/chart': typeof BusinessDataChartRouteWithChildren
+  '/business-data/checklist': typeof BusinessDataChecklistRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -335,6 +351,7 @@ export interface FileRoutesByTo {
   '/business-data/certification/$name': typeof BusinessDataCertificationNameRoute
   '/business-data/change-set/$name': typeof BusinessDataChangeSetNameRoute
   '/business-data/chart/$name': typeof BusinessDataChartNameRoute
+  '/business-data/checklist/$name': typeof BusinessDataChecklistNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -361,6 +378,7 @@ export interface FileRoutesById {
   '/business-data/certification': typeof BusinessDataCertificationRouteWithChildren
   '/business-data/change-set': typeof BusinessDataChangeSetRouteWithChildren
   '/business-data/chart': typeof BusinessDataChartRouteWithChildren
+  '/business-data/checklist': typeof BusinessDataChecklistRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -376,6 +394,7 @@ export interface FileRoutesById {
   '/business-data/certification/$name': typeof BusinessDataCertificationNameRoute
   '/business-data/change-set/$name': typeof BusinessDataChangeSetNameRoute
   '/business-data/chart/$name': typeof BusinessDataChartNameRoute
+  '/business-data/checklist/$name': typeof BusinessDataChecklistNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -403,6 +422,7 @@ export interface FileRouteTypes {
     | '/business-data/certification'
     | '/business-data/change-set'
     | '/business-data/chart'
+    | '/business-data/checklist'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -418,6 +438,7 @@ export interface FileRouteTypes {
     | '/business-data/certification/$name'
     | '/business-data/change-set/$name'
     | '/business-data/chart/$name'
+    | '/business-data/checklist/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -443,6 +464,7 @@ export interface FileRouteTypes {
     | '/business-data/certification'
     | '/business-data/change-set'
     | '/business-data/chart'
+    | '/business-data/checklist'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -458,6 +480,7 @@ export interface FileRouteTypes {
     | '/business-data/certification/$name'
     | '/business-data/change-set/$name'
     | '/business-data/chart/$name'
+    | '/business-data/checklist/$name'
   id:
     | '__root__'
     | '/'
@@ -483,6 +506,7 @@ export interface FileRouteTypes {
     | '/business-data/certification'
     | '/business-data/change-set'
     | '/business-data/chart'
+    | '/business-data/checklist'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -498,6 +522,7 @@ export interface FileRouteTypes {
     | '/business-data/certification/$name'
     | '/business-data/change-set/$name'
     | '/business-data/chart/$name'
+    | '/business-data/checklist/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -671,6 +696,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataChartRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/checklist': {
+      id: '/business-data/checklist'
+      path: '/checklist'
+      fullPath: '/business-data/checklist'
+      preLoaderRoute: typeof BusinessDataChecklistRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -775,6 +807,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/chart/$name'
       preLoaderRoute: typeof BusinessDataChartNameRouteImport
       parentRoute: typeof BusinessDataChartRoute
+    }
+    '/business-data/checklist/$name': {
+      id: '/business-data/checklist/$name'
+      path: '/$name'
+      fullPath: '/business-data/checklist/$name'
+      preLoaderRoute: typeof BusinessDataChecklistNameRouteImport
+      parentRoute: typeof BusinessDataChecklistRoute
     }
   }
 }
@@ -998,6 +1037,19 @@ const BusinessDataChartRouteChildren: BusinessDataChartRouteChildren = {
 const BusinessDataChartRouteWithChildren =
   BusinessDataChartRoute._addFileChildren(BusinessDataChartRouteChildren)
 
+interface BusinessDataChecklistRouteChildren {
+  BusinessDataChecklistNameRoute: typeof BusinessDataChecklistNameRoute
+}
+
+const BusinessDataChecklistRouteChildren: BusinessDataChecklistRouteChildren = {
+  BusinessDataChecklistNameRoute: BusinessDataChecklistNameRoute,
+}
+
+const BusinessDataChecklistRouteWithChildren =
+  BusinessDataChecklistRoute._addFileChildren(
+    BusinessDataChecklistRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataAreaRoute: typeof BusinessDataAreaRouteWithChildren
   BusinessDataBatchRoute: typeof BusinessDataBatchRouteWithChildren
@@ -1008,6 +1060,7 @@ interface BusinessDataRouteChildren {
   BusinessDataCertificationRoute: typeof BusinessDataCertificationRouteWithChildren
   BusinessDataChangeSetRoute: typeof BusinessDataChangeSetRouteWithChildren
   BusinessDataChartRoute: typeof BusinessDataChartRouteWithChildren
+  BusinessDataChecklistRoute: typeof BusinessDataChecklistRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -1021,6 +1074,7 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataCertificationRoute: BusinessDataCertificationRouteWithChildren,
   BusinessDataChangeSetRoute: BusinessDataChangeSetRouteWithChildren,
   BusinessDataChartRoute: BusinessDataChartRouteWithChildren,
+  BusinessDataChecklistRoute: BusinessDataChecklistRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

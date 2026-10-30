@@ -1157,6 +1157,64 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "checklist": {
+      "pageLabel": "체크리스트",
+      "listTitle": "체크리스트",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "scope": "범위",
+        "executionMode": "실행 모드",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "checklist": "Checklist",
+        "information": "Information",
+        "name": "이름",
+        "description": "설명",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "범위",
+        "executionMode": "실행 모드",
+        "bom": "BOM",
+        "product": "Product",
+        "materialDeviationProtocol": "Material Deviation Protocol",
+        "defineStandardTimes": "Define Standard Times",
+        "trackExecutionTimes": "Track Execution Times",
+        "standardDuration": "Standard Duration",
+        "itemsTitle": "Checklist Items ({{count}})",
+        "instancesTitle": "Checklist Instances ({{count}})",
+        "itemName": "이름",
+        "activityType": "Activity Type",
+        "trackingType": "Tracking Type",
+        "optional": "Optional",
+        "floating": "Floating",
+        "subTabs": {
+          "generalData": "General Data",
+          "instructions": "Instructions",
+          "bom": "BOM",
+          "condition": "Condition"
+        },
+        "tabs": {
+          "details": "세부 정보",
+          "checklistItems": "체크리스트 항목",
+          "compare": "비교",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "instances": "인스턴스",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

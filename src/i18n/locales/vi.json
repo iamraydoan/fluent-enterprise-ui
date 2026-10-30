@@ -1157,6 +1157,64 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "checklist": {
+      "pageLabel": "Danh sách kiểm tra",
+      "listTitle": "Danh sách kiểm tra",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "scope": "Phạm vi",
+        "executionMode": "Chế độ thực hiện",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "checklist": "Checklist",
+        "information": "Information",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "Phạm vi",
+        "executionMode": "Chế độ thực hiện",
+        "bom": "BOM",
+        "product": "Product",
+        "materialDeviationProtocol": "Material Deviation Protocol",
+        "defineStandardTimes": "Define Standard Times",
+        "trackExecutionTimes": "Track Execution Times",
+        "standardDuration": "Standard Duration",
+        "itemsTitle": "Checklist Items ({{count}})",
+        "instancesTitle": "Checklist Instances ({{count}})",
+        "itemName": "Tên",
+        "activityType": "Activity Type",
+        "trackingType": "Tracking Type",
+        "optional": "Optional",
+        "floating": "Floating",
+        "subTabs": {
+          "generalData": "General Data",
+          "instructions": "Instructions",
+          "bom": "BOM",
+          "condition": "Condition"
+        },
+        "tabs": {
+          "details": "Chi tiết",
+          "checklistItems": "Mục kiểm tra",
+          "compare": "So sánh",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "instances": "Phiên bản",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }
