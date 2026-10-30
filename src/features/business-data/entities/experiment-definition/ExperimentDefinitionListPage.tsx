@@ -18,7 +18,6 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { ExperimentDefinitionDialog } from "./ExperimentDefinitionDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<ExperimentDefinitionRecord>[] = [
   {
     field: "name",

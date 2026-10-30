@@ -8,8 +8,7 @@ export type { LanguageCode, TranslationKey };
 
 export function useAppTranslation() {
   const { t: rawT, i18n: instance } = useTranslation();
-  const t = (key: TranslationKey, options?: Record<string, unknown>) =>
-    rawT(key, options);
+  const t = (key: TranslationKey, options?: Record<string, unknown>) => rawT(key, options);
   const setLanguage = (code: LanguageCode) => {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, code);
     void instance.changeLanguage(code);

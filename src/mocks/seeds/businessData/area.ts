@@ -1,4 +1,4 @@
-import type { AreaDetail, AreaRecord, Page  } from "@/api";
+import type { AreaDetail, AreaRecord, Page } from "@/api";
 
 const AREAS: AreaRecord[] = [
   {
@@ -38,14 +38,18 @@ const AREAS: AreaRecord[] = [
   },
 ];
 
-export function queryAreas(page: number, limit: number, q?: string, state?: string): Page<AreaRecord> {
+export function queryAreas(
+  page: number,
+  limit: number,
+  q?: string,
+  state?: string,
+): Page<AreaRecord> {
   let rows = AREAS;
   if (q !== undefined && q !== "") {
     const needle = q.toLowerCase();
     rows = rows.filter(
       (area) =>
-        area.name.toLowerCase().includes(needle) ||
-        area.description.toLowerCase().includes(needle),
+        area.name.toLowerCase().includes(needle) || area.description.toLowerCase().includes(needle),
     );
   }
   if (state !== undefined && state !== "" && state !== "all") {

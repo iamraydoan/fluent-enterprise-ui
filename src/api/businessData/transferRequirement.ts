@@ -26,13 +26,17 @@ export interface TransferRequirementDetail extends TransferRequirementRecord {
 
 export type TransferRequirementListParams = ListQueryParams;
 
-export function listTransferRequirements(params: TransferRequirementListParams): Promise<Page<TransferRequirementRecord>> {
+export function listTransferRequirements(
+  params: TransferRequirementListParams,
+): Promise<Page<TransferRequirementRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<TransferRequirementRecord>>(`/business-data/transfer-requirements?${search.toString()}`);
+  return apiFetch<Page<TransferRequirementRecord>>(
+    `/business-data/transfer-requirements?${search.toString()}`,
+  );
 }
 
 export function useTransferRequirements(params: TransferRequirementListParams) {
@@ -44,7 +48,9 @@ export function useTransferRequirements(params: TransferRequirementListParams) {
 }
 
 export function getTransferRequirement(name: string): Promise<TransferRequirementDetail> {
-  return apiFetch<TransferRequirementDetail>(`/business-data/transfer-requirements/${encodeURIComponent(name)}`);
+  return apiFetch<TransferRequirementDetail>(
+    `/business-data/transfer-requirements/${encodeURIComponent(name)}`,
+  );
 }
 
 export function useTransferRequirementDetail(name: string) {

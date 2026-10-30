@@ -59,7 +59,11 @@ export function TransferRequirementDetailPage({ name }: { name: string }) {
         </Body1Strong>
         <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
           {data.items.map((item) => (
-            <div key={item.product} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
+            <div
+              key={item.product}
+              className={sharedStyles.contentCard}
+              style={{ padding: "12px" }}
+            >
               <Body1Strong>{item.product}</Body1Strong>
               <div>
                 <Caption1>{formatItemMeta(item)}</Caption1>
@@ -114,7 +118,10 @@ export function TransferRequirementDetailPage({ name }: { name: string }) {
       onLeft={handleLeft}
       onEdit={() => {}}
       onAskAi={() => {}}
-      moreActions={transferRequirementMoreActions.map((action) => ({ ...action, onClick: () => {} }))}
+      moreActions={transferRequirementMoreActions.map((action) => ({
+        ...action,
+        onClick: () => {},
+      }))}
     >
       {content}
     </DetailShell>

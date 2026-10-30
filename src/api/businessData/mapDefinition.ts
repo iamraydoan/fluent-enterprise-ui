@@ -38,17 +38,13 @@ export interface MapDefinitionDetail extends MapDefinitionRecord {
   layers: MapDefinitionLayer[];
 }
 
-export function listMapDefinitions(
-  params: ListQueryParams,
-): Promise<Page<MapDefinitionRecord>> {
+export function listMapDefinitions(params: ListQueryParams): Promise<Page<MapDefinitionRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<MapDefinitionRecord>>(
-    `/map-definitions?${search.toString()}`,
-  );
+  return apiFetch<Page<MapDefinitionRecord>>(`/map-definitions?${search.toString()}`);
 }
 
 export function useMapDefinitions(params: ListQueryParams) {
@@ -60,9 +56,7 @@ export function useMapDefinitions(params: ListQueryParams) {
 }
 
 export function getMapDefinition(name: string): Promise<MapDefinitionDetail> {
-  return apiFetch<MapDefinitionDetail>(
-    `/map-definitions/${encodeURIComponent(name)}`,
-  );
+  return apiFetch<MapDefinitionDetail>(`/map-definitions/${encodeURIComponent(name)}`);
 }
 
 export function useMapDefinitionDetail(name: string) {

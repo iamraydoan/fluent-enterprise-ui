@@ -3,19 +3,17 @@ import { useMaintenancePlanDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Wrench24Regular } from "@/components/icons";
-import { Text } from "@/components/ui";
+import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { Button } from "@/components/ui";
 import { useBooleanLabel } from "../propertyLabels";
+import { AssociateMaintenancePlanDialog } from "./AssociateMaintenancePlanDialog";
 import { MaintenancePlanDialog } from "./MaintenancePlanDialog";
 import {
   MaintenancePlanTerminateDialog,
   SetMaintenancePlanEffectiveDialog,
 } from "./MaintenancePlanTerminateDialog";
-import { AssociateMaintenancePlanDialog } from "./AssociateMaintenancePlanDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
-
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -36,40 +34,68 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<string>("businessData.maintenancePlan.sections.details");
   const [selectedActivity, setSelectedActivity] = useState(0);
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
+  const [terminateOpen, setTerminateOpen] = useState(false);
+  const [unterminateOpen, setUnterminateOpen] = useState(false);
+  const [setEffectiveOpen, setSetEffectiveOpen] = useState(false);
+  const [associateOpen, setAssociateOpen] = useState(false);
   const { data, isLoading } = useMaintenancePlanDetail(name);
   const booleanLabel = useBooleanLabel();
 
   const shell = (content: React.ReactNode) => (
     <>
-    <DetailShell
-      title={name}
-      icon={<Wrench24Regular />}
-      topTabs={TOP_TABS}
-      top={top}
-      onTop={setTop}
-      leftItems={LEFT_ITEMS}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onClone={() => setCloneOpen(true)}
-      onTerminate={() => setTerminateOpen(true)}
-      onUnterminate={() => setUnterminateOpen(true)}
-      onAskAi={() => undefined}
-    >
-      {content}
-    </DetailShell>
-    {editOpen && <MaintenancePlanDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />}
-    {cloneOpen && (
-      <MaintenancePlanDialog mode={MODE_CLONE} initialName={`${name} (Copy)`} onClose={() => setCloneOpen(false)} />
-    )}
-    {terminateOpen && (
-      <MaintenancePlanTerminateDialog name={name} mode={TERMINATE} onClose={() => setTerminateOpen(false)} />
-    )}
-    {unterminateOpen && (
-      <MaintenancePlanTerminateDialog name={name} mode={UNTERMINATE} onClose={() => setUnterminateOpen(false)} />
-    )}
-    {setEffectiveOpen && <SetMaintenancePlanEffectiveDialog name={name} onClose={() => setSetEffectiveOpen(false)} />}
-    {associateOpen && <AssociateMaintenancePlanDialog name={name} onClose={() => setAssociateOpen(false)} />}
+      <DetailShell
+        title={name}
+        icon={<Wrench24Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={LEFT_ITEMS}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onClone={() => setCloneOpen(true)}
+        onTerminate={() => setTerminateOpen(true)}
+        onUnterminate={() => setUnterminateOpen(true)}
+        onAskAi={() => undefined}
+      >
+        {content}
+      </DetailShell>
+      {editOpen && (
+        <MaintenancePlanDialog
+          mode={MODE_EDIT}
+          initialName={name}
+          onClose={() => setEditOpen(false)}
+        />
+      )}
+      {cloneOpen && (
+        <MaintenancePlanDialog
+          mode={MODE_CLONE}
+          initialName={`${name} (Copy)`}
+          onClose={() => setCloneOpen(false)}
+        />
+      )}
+      {terminateOpen && (
+        <MaintenancePlanTerminateDialog
+          name={name}
+          mode={TERMINATE}
+          onClose={() => setTerminateOpen(false)}
+        />
+      )}
+      {unterminateOpen && (
+        <MaintenancePlanTerminateDialog
+          name={name}
+          mode={UNTERMINATE}
+          onClose={() => setUnterminateOpen(false)}
+        />
+      )}
+      {setEffectiveOpen && (
+        <SetMaintenancePlanEffectiveDialog name={name} onClose={() => setSetEffectiveOpen(false)} />
+      )}
+      {associateOpen && (
+        <AssociateMaintenancePlanDialog name={name} onClose={() => setAssociateOpen(false)} />
+      )}
     </>
   );
 
@@ -114,16 +140,40 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
                 [t("businessData.maintenancePlan.details.description"), activity.description],
                 [t("businessData.maintenancePlan.details.type"), activity.type],
                 [t("businessData.maintenancePlan.details.scheduleType"), activity.scheduleType],
-                [t("businessData.maintenancePlan.details.expectedDurationHours"), String(activity.expectedDurationHours)],
+                [
+                  t("businessData.maintenancePlan.details.expectedDurationHours"),
+                  String(activity.expectedDurationHours),
+                ],
                 [t("businessData.maintenancePlan.details.executionRole"), activity.executionRole],
-                [t("businessData.maintenancePlan.details.requestApprovalMode"), activity.requestApprovalMode],
-                [t("businessData.maintenancePlan.details.maintenanceType"), activity.maintenanceType],
-                [t("businessData.maintenancePlan.details.materialTypeRestrictionMode"), activity.materialTypeRestrictionMode],
-                [t("businessData.maintenancePlan.details.orderReleaseMode"), activity.orderReleaseMode],
+                [
+                  t("businessData.maintenancePlan.details.requestApprovalMode"),
+                  activity.requestApprovalMode,
+                ],
+                [
+                  t("businessData.maintenancePlan.details.maintenanceType"),
+                  activity.maintenanceType,
+                ],
+                [
+                  t("businessData.maintenancePlan.details.materialTypeRestrictionMode"),
+                  activity.materialTypeRestrictionMode,
+                ],
+                [
+                  t("businessData.maintenancePlan.details.orderReleaseMode"),
+                  activity.orderReleaseMode,
+                ],
                 [t("businessData.maintenancePlan.details.acceptanceMode"), activity.acceptanceMode],
-                [t("businessData.maintenancePlan.details.ignoreInScheduling"), booleanLabel(activity.ignoreInScheduling)],
-                [t("businessData.maintenancePlan.details.autoDisableAfterLateDue"), booleanLabel(activity.autoDisableAfterLateDue)],
-                [t("businessData.maintenancePlan.details.postMaintenanceActivity"), activity.postMaintenanceActivity],
+                [
+                  t("businessData.maintenancePlan.details.ignoreInScheduling"),
+                  booleanLabel(activity.ignoreInScheduling),
+                ],
+                [
+                  t("businessData.maintenancePlan.details.autoDisableAfterLateDue"),
+                  booleanLabel(activity.autoDisableAfterLateDue),
+                ],
+                [
+                  t("businessData.maintenancePlan.details.postMaintenanceActivity"),
+                  activity.postMaintenanceActivity,
+                ],
               ]}
             />
           </Card>

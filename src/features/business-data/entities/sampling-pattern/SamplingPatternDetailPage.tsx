@@ -128,11 +128,7 @@ export function SamplingPatternDetailPage({ name }: SamplingPatternDetailPagePro
         nameReadOnly
         submitLabel={t("common.save")}
       />
-      <CloneSamplingPatternDialog
-        open={dlg(DLG.clone)}
-        onClose={close}
-        sourceName={data.name}
-      />
+      <CloneSamplingPatternDialog open={dlg(DLG.clone)} onClose={close} sourceName={data.name} />
       <ConfirmOperationDialog
         open={dlg(DLG.terminate)}
         onClose={close}

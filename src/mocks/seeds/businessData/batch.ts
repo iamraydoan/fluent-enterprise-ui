@@ -1,4 +1,4 @@
-import type { BatchDetail, BatchRecord, Page  } from "@/api";
+import type { BatchDetail, BatchRecord, Page } from "@/api";
 
 const BATCHES: BatchRecord[] = [
   {
@@ -27,7 +27,12 @@ const BATCHES: BatchRecord[] = [
   },
 ];
 
-export function queryBatches(page: number, limit: number, q?: string, state?: string): Page<BatchRecord> {
+export function queryBatches(
+  page: number,
+  limit: number,
+  q?: string,
+  state?: string,
+): Page<BatchRecord> {
   let rows = BATCHES;
   if (q !== undefined && q !== "") {
     const needle = q.toLowerCase();
@@ -109,7 +114,10 @@ export function createBatchDetail(input: BatchUpsertInput): BatchDetail {
   return buildBatchDetail(input.name);
 }
 
-export function updateBatchDetail(name: string, input: Partial<BatchDetail>): BatchDetail | undefined {
+export function updateBatchDetail(
+  name: string,
+  input: Partial<BatchDetail>,
+): BatchDetail | undefined {
   const record = BATCHES.find((b) => b.name === name);
   if (!record) return undefined;
   if (input.description !== undefined) record.description = input.description;

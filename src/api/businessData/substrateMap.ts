@@ -25,7 +25,9 @@ export interface SubstrateMapDetail extends SubstrateMapRecord {
 
 export type SubstrateMapListParams = ListQueryParams;
 
-export function listSubstrateMaps(params: SubstrateMapListParams): Promise<Page<SubstrateMapRecord>> {
+export function listSubstrateMaps(
+  params: SubstrateMapListParams,
+): Promise<Page<SubstrateMapRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));

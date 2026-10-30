@@ -26,7 +26,9 @@ export function listQualificationChecks(
   const search = new URLSearchParams();
   if (params.q) search.set("q", params.q);
   if (params.state) search.set("state", params.state);
-  return apiFetch<QualificationCheckRecord[]>(`/business-data/qualification-checks?${search.toString()}`);
+  return apiFetch<QualificationCheckRecord[]>(
+    `/business-data/qualification-checks?${search.toString()}`,
+  );
 }
 
 export function useQualificationChecks(params: QualificationCheckListParams) {

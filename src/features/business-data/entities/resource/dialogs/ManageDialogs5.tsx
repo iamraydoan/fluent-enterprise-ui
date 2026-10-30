@@ -42,7 +42,12 @@ function ManageDialogBase({
   listLabelKey: TranslationKey;
   detailsTitleKey: TranslationKey;
   items: ManageItem[];
-  fields: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[];
+  fields: {
+    key: string;
+    labelKey: TranslationKey;
+    type: "text" | "select" | "checkbox";
+    options?: string[];
+  }[];
   commentsKey: TranslationKey;
   updateKey: TranslationKey;
 }) {
@@ -80,20 +85,39 @@ function ManageDialogBase({
             <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
             <div style={{ display: "flex", columnGap: 16 }}>
               <div style={{ width: 320, flexShrink: 0 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: 8,
+                  }}
+                >
                   <Body1Strong>{t(listLabelKey, { count: list.length })}</Body1Strong>
                   <div style={{ display: "flex", columnGap: 4 }}>
-                    <Button size="small" appearance="subtle" onClick={addItem}>+</Button>
-                    <Button size="small" appearance="subtle" onClick={() => removeItem(selected)}>🗑</Button>
+                    <Button size="small" appearance="subtle" onClick={addItem}>
+                      +
+                    </Button>
+                    <Button size="small" appearance="subtle" onClick={() => removeItem(selected)}>
+                      🗑
+                    </Button>
                   </div>
                 </div>
-                <div style={{ border: "1px solid #ddd", borderRadius: 4, minHeight: 300, overflow: "auto" }}>
+                <div
+                  style={{
+                    border: "1px solid #ddd",
+                    borderRadius: 4,
+                    minHeight: 300,
+                    overflow: "auto",
+                  }}
+                >
                   {list.map((item, i) => (
                     <div
                       key={`${item.name}-${i}`}
                       onClick={() => selectItem(i)}
                       style={{
-                        padding: "8px 12px", cursor: "pointer",
+                        padding: "8px 12px",
+                        cursor: "pointer",
                         backgroundColor: i === selected ? "#e3f2fd" : "transparent",
                         borderBottom: "1px solid #eee",
                       }}
@@ -111,15 +135,21 @@ function ManageDialogBase({
                     {f.type === "checkbox" ? (
                       <Checkbox
                         checked={(fieldValues[f.key] as boolean) ?? false}
-                        onChange={(_, d) => setFieldValues({ ...fieldValues, [f.key]: d.checked === true })}
+                        onChange={(_, d) =>
+                          setFieldValues({ ...fieldValues, [f.key]: d.checked === true })
+                        }
                       />
                     ) : f.type === "select" ? (
                       <select
                         value={(fieldValues[f.key] as string) ?? ""}
-                        onChange={(e) => setFieldValues({ ...fieldValues, [f.key]: e.target.value })}
+                        onChange={(e) =>
+                          setFieldValues({ ...fieldValues, [f.key]: e.target.value })
+                        }
                       >
                         {(f.options ?? []).map((o) => (
-                          <option key={o} value={o}>{o}</option>
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
                         ))}
                       </select>
                     ) : (
@@ -137,8 +167,12 @@ function ManageDialogBase({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(updateKey)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(updateKey)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -166,28 +200,54 @@ const ITEMS_1: ManageItem[] = [{ name: "Jane Smith", detail: "In Training" }];
 const ITEMS_2: ManageItem[] = [{ name: "Material-001", detail: "At Risk" }];
 const ITEMS_3: ManageItem[] = [{ name: "Schedule-01", detail: "Planned" }];
 
-
-
-const FIELDS_0: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "bin", labelKey: "businessData.resource.dialogs.manage.storageBin", type: "text" },
-        { key: "description", labelKey: "businessData.resource.dialogs.manage.description", type: "text" },
-        { key: "isEnabled", labelKey: "businessData.resource.dialogs.manage.isEnabled", type: "checkbox" },
-      ];
-const FIELDS_1: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "trainee", labelKey: "businessData.resource.dialogs.manage.trainee", type: "text" },
-        { key: "trainer", labelKey: "businessData.resource.dialogs.manage.trainer", type: "text" },
-      ];
-const FIELDS_2: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "material", labelKey: "businessData.resource.dialogs.manage.material", type: "text" },
-      ];
-const FIELDS_3: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "schedule", labelKey: "businessData.resource.dialogs.manage.schedule", type: "text" },
-        { key: "startDate", labelKey: "businessData.resource.dialogs.manage.startDate", type: "text" },
-        { key: "endDate", labelKey: "businessData.resource.dialogs.manage.endDate", type: "text" },
-      ];
+const FIELDS_0: {
+  key: string;
+  labelKey: TranslationKey;
+  type: "text" | "select" | "checkbox";
+  options?: string[];
+}[] = [
+  { key: "bin", labelKey: "businessData.resource.dialogs.manage.storageBin", type: "text" },
+  {
+    key: "description",
+    labelKey: "businessData.resource.dialogs.manage.description",
+    type: "text",
+  },
+  {
+    key: "isEnabled",
+    labelKey: "businessData.resource.dialogs.manage.isEnabled",
+    type: "checkbox",
+  },
+];
+const FIELDS_1: {
+  key: string;
+  labelKey: TranslationKey;
+  type: "text" | "select" | "checkbox";
+  options?: string[];
+}[] = [
+  { key: "trainee", labelKey: "businessData.resource.dialogs.manage.trainee", type: "text" },
+  { key: "trainer", labelKey: "businessData.resource.dialogs.manage.trainer", type: "text" },
+];
+const FIELDS_2: {
+  key: string;
+  labelKey: TranslationKey;
+  type: "text" | "select" | "checkbox";
+  options?: string[];
+}[] = [
+  { key: "material", labelKey: "businessData.resource.dialogs.manage.material", type: "text" },
+];
+const FIELDS_3: {
+  key: string;
+  labelKey: TranslationKey;
+  type: "text" | "select" | "checkbox";
+  options?: string[];
+}[] = [
+  { key: "schedule", labelKey: "businessData.resource.dialogs.manage.schedule", type: "text" },
+  { key: "startDate", labelKey: "businessData.resource.dialogs.manage.startDate", type: "text" },
+  { key: "endDate", labelKey: "businessData.resource.dialogs.manage.endDate", type: "text" },
+];
 
 export function ManageResourceStorageBinsDialog(p: ManageDialogProps) {
-    return (
+  return (
     <ManageDialogBase
       {...p}
       titleKey={K2}
@@ -202,7 +262,7 @@ export function ManageResourceStorageBinsDialog(p: ManageDialogProps) {
 }
 
 export function ManageResourceTraineesDialog(p: ManageDialogProps) {
-    return (
+  return (
     <ManageDialogBase
       {...p}
       titleKey={K5}
@@ -217,7 +277,7 @@ export function ManageResourceTraineesDialog(p: ManageDialogProps) {
 }
 
 export function ManageRunAtRiskMaterialsDialog(p: ManageDialogProps) {
-    return (
+  return (
     <ManageDialogBase
       {...p}
       titleKey={K8}
@@ -232,7 +292,7 @@ export function ManageRunAtRiskMaterialsDialog(p: ManageDialogProps) {
 }
 
 export function ManageSchedulingBatchingDialog(p: ManageDialogProps) {
-    return (
+  return (
     <ManageDialogBase
       {...p}
       titleKey={K11}

@@ -26,7 +26,9 @@ export interface TransferOrderDetail extends TransferOrderRecord {
 
 export type TransferOrderListParams = ListQueryParams;
 
-export function listTransferOrders(params: TransferOrderListParams): Promise<Page<TransferOrderRecord>> {
+export function listTransferOrders(
+  params: TransferOrderListParams,
+): Promise<Page<TransferOrderRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
@@ -44,7 +46,9 @@ export function useTransferOrders(params: TransferOrderListParams) {
 }
 
 export function getTransferOrder(name: string): Promise<TransferOrderDetail> {
-  return apiFetch<TransferOrderDetail>(`/business-data/transfer-orders/${encodeURIComponent(name)}`);
+  return apiFetch<TransferOrderDetail>(
+    `/business-data/transfer-orders/${encodeURIComponent(name)}`,
+  );
 }
 
 export function useTransferOrderDetail(name: string) {

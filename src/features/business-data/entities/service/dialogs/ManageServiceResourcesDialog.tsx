@@ -25,11 +25,13 @@ interface ServiceResource {
   enabled: boolean;
 }
 
-const INITIAL: ServiceResource[] = [
-  { resource: "Litho Tool 1", enabled: true },
-];
+const INITIAL: ServiceResource[] = [{ resource: "Litho Tool 1", enabled: true }];
 
-export function ManageServiceResourcesDialog({ open, onClose, serviceName }: ManageServiceResourcesDialogProps) {
+export function ManageServiceResourcesDialog({
+  open,
+  onClose,
+  serviceName,
+}: ManageServiceResourcesDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.service.dialogs.resources";
   const [rows, setRows] = useState<ServiceResource[]>(INITIAL);
@@ -66,26 +68,47 @@ export function ManageServiceResourcesDialog({ open, onClose, serviceName }: Man
             <div style={{ marginBottom: 12, color: "#0078d4" }}>📊 {serviceName}</div>
             <div style={{ display: "flex", columnGap: 16 }}>
               <div style={{ width: 300, flexShrink: 0 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: 8,
+                  }}
+                >
                   <Body1Strong>{t(`${k}.resources`, { count: rows.length })}</Body1Strong>
                   <div style={{ display: "flex", columnGap: 4 }}>
-                    <Button size="small" appearance="subtle" onClick={addRow}>+</Button>
-                    <Button size="small" appearance="subtle" onClick={() => removeRow(selected)}>🗑</Button>
+                    <Button size="small" appearance="subtle" onClick={addRow}>
+                      +
+                    </Button>
+                    <Button size="small" appearance="subtle" onClick={() => removeRow(selected)}>
+                      🗑
+                    </Button>
                   </div>
                 </div>
-                <div style={{ border: "1px solid #ddd", borderRadius: 4, minHeight: 280, overflow: "auto" }}>
+                <div
+                  style={{
+                    border: "1px solid #ddd",
+                    borderRadius: 4,
+                    minHeight: 280,
+                    overflow: "auto",
+                  }}
+                >
                   {rows.map((r, i) => (
                     <div
                       key={`${r.resource}-${i}`}
                       onClick={() => selectRow(i)}
                       style={{
-                        padding: "8px 12px", cursor: "pointer",
+                        padding: "8px 12px",
+                        cursor: "pointer",
                         backgroundColor: i === selected ? "#e3f2fd" : "transparent",
                         borderBottom: "1px solid #eee",
                       }}
                     >
                       <div style={{ fontWeight: 600 }}>{r.resource || t(`${k}.newResource`)}</div>
-                      <div style={{ fontSize: 12, color: "#666" }}>{r.enabled ? t(`${k}.enabled`) : t(`${k}.disabled`)}</div>
+                      <div style={{ fontSize: 12, color: "#666" }}>
+                        {r.enabled ? t(`${k}.enabled`) : t(`${k}.disabled`)}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -102,8 +125,12 @@ export function ManageServiceResourcesDialog({ open, onClose, serviceName }: Man
             </div>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.update`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.update`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

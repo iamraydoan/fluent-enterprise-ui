@@ -46,8 +46,7 @@ export function MaterialListEditor({
 
   const removeRow = (id: number) => setRows(rows.filter((row) => row.id !== id));
 
-  const setMain = (id: number) =>
-    setRows(rows.map((row) => ({ ...row, isMain: row.id === id })));
+  const setMain = (id: number) => setRows(rows.map((row) => ({ ...row, isMain: row.id === id })));
 
   return (
     <div>
@@ -94,8 +93,7 @@ export function ContainerListEditor({
 
   const setRows = (next: ContainerRow[]) => onChange("containers", next as unknown as boolean);
 
-  const addRow = () =>
-    setRows([...rows, { id: Date.now() + rows.length, container: "" }]);
+  const addRow = () => setRows([...rows, { id: Date.now() + rows.length, container: "" }]);
 
   const removeRow = (id: number) => setRows(rows.filter((row) => row.id !== id));
 
@@ -126,8 +124,6 @@ export function ContainerListEditor({
     </div>
   );
 }
-
-
 
 const useManageDialogStyles = makeStyles({
   overlay: {
@@ -260,7 +256,9 @@ export function ManageBatchContainersDialog({
           </button>
         </div>
         <div className={styles.body}>
-          <Text>{t("businessData.batch.operations.manageContainersHint", { name: batchName })}</Text>
+          <Text>
+            {t("businessData.batch.operations.manageContainersHint", { name: batchName })}
+          </Text>
           <div style={{ marginTop: "12px" }}>
             <ContainerListEditor
               values={values}
@@ -339,4 +337,3 @@ export function ChangeBatchResourceDialog({
     </div>
   );
 }
-

@@ -3,7 +3,7 @@ import { useFacilityDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Organization24Regular } from "@/components/icons";
-import { Text, Button  } from "@/components/ui";
+import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useBooleanLabel } from "../propertyLabels";
@@ -11,7 +11,6 @@ import { FacilityDialog } from "./FacilityDialog";
 import { FacilityTerminateDialog } from "./FacilityTerminateDialog";
 import { ManageShippingFacilitiesDialog } from "./ManageShippingFacilitiesDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
-
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },

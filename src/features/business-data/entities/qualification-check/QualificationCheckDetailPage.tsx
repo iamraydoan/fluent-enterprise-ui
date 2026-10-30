@@ -82,12 +82,7 @@ export function QualificationCheckDetailPage({ name }: QualificationCheckDetailP
         </Card>
         <Card title={t("businessData.qualificationCheck.cards.information")}>
           <KV
-            rows={[
-              [
-                t("businessData.qualificationCheck.details.instanceType"),
-                data.instanceType,
-              ],
-            ]}
+            rows={[[t("businessData.qualificationCheck.details.instanceType"), data.instanceType]]}
           />
         </Card>
       </CardGrid>

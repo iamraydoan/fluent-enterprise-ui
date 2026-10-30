@@ -47,7 +47,8 @@ export function useCertifications(params: ListQueryParams) {
   if (params.filters?.state) search.set("state", params.filters.state);
   return useQuery<Page<CertificationRecord>>({
     queryKey: ["business-data", "certifications", params],
-    queryFn: () => apiFetch<Page<CertificationRecord>>(`/business-data/certifications?${search.toString()}`),
+    queryFn: () =>
+      apiFetch<Page<CertificationRecord>>(`/business-data/certifications?${search.toString()}`),
     placeholderData: keepPreviousData,
   });
 }
@@ -55,7 +56,8 @@ export function useCertifications(params: ListQueryParams) {
 export function useCertificationDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "certifications", name],
-    queryFn: () => apiFetch<CertificationDetail>(`/business-data/certifications/${encodeURIComponent(name)}`),
+    queryFn: () =>
+      apiFetch<CertificationDetail>(`/business-data/certifications/${encodeURIComponent(name)}`),
   });
 }
 

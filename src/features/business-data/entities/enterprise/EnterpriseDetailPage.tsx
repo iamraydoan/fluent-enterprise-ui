@@ -3,12 +3,19 @@ import { useEnterpriseDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Organization24Regular } from "@/components/icons";
-import { Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, Text } from "@/components/ui";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  Text,
+} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { EnterpriseDialog } from "./EnterpriseDialog";
 import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
-
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -33,27 +40,31 @@ export function EnterpriseDetailPage({ name }: { name: string }) {
 
   const shell = (content: React.ReactNode) => (
     <>
-    <DetailShell
-      title={name}
-      icon={<Organization24Regular />}
-      topTabs={TOP_TABS}
-      top={top}
-      onTop={setTop}
-      leftItems={LEFT_ITEMS}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onClone={() => setCloneOpen(true)}
-      onAskAi={() => undefined}
-    >
-      {content}
-    </DetailShell>
-    {editOpen && (
-      <EnterpriseDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />
-    )}
-    {cloneOpen && (
-      <EnterpriseDialog mode={MODE_CLONE} initialName={`${name} (Copy)`} onClose={() => setCloneOpen(false)} />
-    )}
+      <DetailShell
+        title={name}
+        icon={<Organization24Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={LEFT_ITEMS}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onClone={() => setCloneOpen(true)}
+        onAskAi={() => undefined}
+      >
+        {content}
+      </DetailShell>
+      {editOpen && (
+        <EnterpriseDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />
+      )}
+      {cloneOpen && (
+        <EnterpriseDialog
+          mode={MODE_CLONE}
+          initialName={`${name} (Copy)`}
+          onClose={() => setCloneOpen(false)}
+        />
+      )}
     </>
   );
 

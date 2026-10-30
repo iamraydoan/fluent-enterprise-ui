@@ -1,20 +1,12 @@
 import { useState } from "react";
 import { Grid24Regular, Dismiss20Regular } from "@/components/icons";
-import {
-  Button,
-  Checkbox,
-  Input,
-  Text,
-  makeStyles,
-  tokens,
-} from "@/components/ui";
+import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { useBooleanLabel } from "../propertyLabels";
 import { MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
-
 
 const L: Record<string, TranslationKey> = {
   createTitle: "businessData.mapDefinition.wizard.createTitle",
@@ -72,7 +64,13 @@ const useWizardStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "1100px", maxWidth: "95vw", maxHeight: "90vh", display: "flex", flexDirection: "column" },
+  surface: {
+    width: "1100px",
+    maxWidth: "95vw",
+    maxHeight: "90vh",
+    display: "flex",
+    flexDirection: "column",
+  },
   head: {
     display: "flex",
     alignItems: "center",
@@ -155,7 +153,6 @@ interface WizardProps {
   onClose: () => void;
 }
 
-
 export function MapDefinitionWizardDialog({
   mode,
   initialName = "",
@@ -194,7 +191,11 @@ export function MapDefinitionWizardDialog({
   );
 
   const title =
-    mode === MODE_CREATE ? t(L.createTitle) : mode === MODE_EDIT ? t(L.editTitle) : t(L.createTitle);
+    mode === MODE_CREATE
+      ? t(L.createTitle)
+      : mode === MODE_EDIT
+        ? t(L.editTitle)
+        : t(L.createTitle);
   const finishLabel = mode === MODE_EDIT ? t(L.update) : t(L.create);
 
   const field = (labelKey: TranslationKey, required: boolean, control: React.ReactNode) => (
@@ -246,9 +247,25 @@ export function MapDefinitionWizardDialog({
           {step === 0 && (
             <>
               <div className={styles.sectionTitle}>{t(L.generalData)}</div>
-              {field(L.name, true, <Input value={name} disabled={mode === MODE_EDIT} onChange={(_, d) => setName(d.value)} />)}
-              {field(L.description, false, <Input value={description} onChange={(_, d) => setDescription(d.value)} />)}
-              {field(L.type, true, <Input value={mapType} onChange={(_, d) => setMapType(d.value)} />)}
+              {field(
+                L.name,
+                true,
+                <Input
+                  value={name}
+                  disabled={mode === MODE_EDIT}
+                  onChange={(_, d) => setName(d.value)}
+                />,
+              )}
+              {field(
+                L.description,
+                false,
+                <Input value={description} onChange={(_, d) => setDescription(d.value)} />,
+              )}
+              {field(
+                L.type,
+                true,
+                <Input value={mapType} onChange={(_, d) => setMapType(d.value)} />,
+              )}
               <div className={styles.sectionTitle}>{t(L.information)}</div>
               {field(
                 L.layoutType,
@@ -273,10 +290,26 @@ export function MapDefinitionWizardDialog({
                 </div>,
               )}
               {field(L.rows, true, <Input value={rows} onChange={(_, d) => setRows(d.value)} />)}
-              {field(L.columns, true, <Input value={columns} onChange={(_, d) => setColumns(d.value)} />)}
-              {field(L.height, false, <Input value={height} onChange={(_, d) => setHeight(d.value)} />)}
-              {field(L.width, false, <Input value={width} onChange={(_, d) => setWidth(d.value)} />)}
-              {field(L.dimensionUnits, false, <Input value={dimensionUnits} onChange={(_, d) => setDimensionUnits(d.value)} />)}
+              {field(
+                L.columns,
+                true,
+                <Input value={columns} onChange={(_, d) => setColumns(d.value)} />,
+              )}
+              {field(
+                L.height,
+                false,
+                <Input value={height} onChange={(_, d) => setHeight(d.value)} />,
+              )}
+              {field(
+                L.width,
+                false,
+                <Input value={width} onChange={(_, d) => setWidth(d.value)} />,
+              )}
+              {field(
+                L.dimensionUnits,
+                false,
+                <Input value={dimensionUnits} onChange={(_, d) => setDimensionUnits(d.value)} />,
+              )}
               {field(
                 L.maskFile,
                 false,
@@ -292,27 +325,57 @@ export function MapDefinitionWizardDialog({
               {field(
                 L.emptyUnitsColor,
                 false,
-                <input type="color" value={emptyUnitsColor} onChange={(e) => setEmptyUnitsColor(e.target.value)} />,
+                <input
+                  type="color"
+                  value={emptyUnitsColor}
+                  onChange={(e) => setEmptyUnitsColor(e.target.value)}
+                />,
               )}
               {field(
                 L.gridLinesColor,
                 false,
-                <input type="color" value={gridLinesColor} onChange={(e) => setGridLinesColor(e.target.value)} />,
+                <input
+                  type="color"
+                  value={gridLinesColor}
+                  onChange={(e) => setGridLinesColor(e.target.value)}
+                />,
               )}
               {field(
                 L.showGridLinesByDefault,
                 false,
-                <Checkbox checked={showGridLines} onChange={(_, d) => setShowGridLines(d.checked === true)} />,
+                <Checkbox
+                  checked={showGridLines}
+                  onChange={(_, d) => setShowGridLines(d.checked === true)}
+                />,
               )}
               <div className={styles.sectionTitle}>{t(L.options)}</div>
-              {field(L.notch, false, <Input value={notch} onChange={(_, d) => setNotch(d.value)} />)}
-              {field(L.defaultRotation, false, <Input value={rotation} onChange={(_, d) => setRotation(d.value)} />)}
-              {field(L.materialUnits, false, <Input value={materialUnits} onChange={(_, d) => setMaterialUnits(d.value)} />)}
-              {field(L.rulerMode, false, <Input value={rulerMode} onChange={(_, d) => setRulerMode(d.value)} />)}
+              {field(
+                L.notch,
+                false,
+                <Input value={notch} onChange={(_, d) => setNotch(d.value)} />,
+              )}
+              {field(
+                L.defaultRotation,
+                false,
+                <Input value={rotation} onChange={(_, d) => setRotation(d.value)} />,
+              )}
+              {field(
+                L.materialUnits,
+                false,
+                <Input value={materialUnits} onChange={(_, d) => setMaterialUnits(d.value)} />,
+              )}
+              {field(
+                L.rulerMode,
+                false,
+                <Input value={rulerMode} onChange={(_, d) => setRulerMode(d.value)} />,
+              )}
               {field(
                 L.showRulerByDefault,
                 false,
-                <Checkbox checked={showRuler} onChange={(_, d) => setShowRuler(d.checked === true)} />,
+                <Checkbox
+                  checked={showRuler}
+                  onChange={(_, d) => setShowRuler(d.checked === true)}
+                />,
               )}
               {field(L.comments, false, <Input />)}
             </>
@@ -352,8 +415,8 @@ export function MapDefinitionWizardDialog({
               </Button>
               <div style={{ marginTop: 12 }}>
                 <Text size={300}>
-                  {t(L.showGridLinesByDefault)}: {booleanLabel(showGridLines)} | {t(L.showRulerByDefault)}:{" "}
-                  {booleanLabel(showRuler)}
+                  {t(L.showGridLinesByDefault)}: {booleanLabel(showGridLines)} |{" "}
+                  {t(L.showRulerByDefault)}: {booleanLabel(showRuler)}
                 </Text>
               </div>
             </>
@@ -376,7 +439,11 @@ export function MapDefinitionWizardDialog({
             </Button>
           )}
           {step < 2 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)} disabled={name.trim() === ""}>
+            <Button
+              appearance="primary"
+              onClick={() => setStep(step + 1)}
+              disabled={name.trim() === ""}
+            >
               {t(L.next)}
             </Button>
           ) : (

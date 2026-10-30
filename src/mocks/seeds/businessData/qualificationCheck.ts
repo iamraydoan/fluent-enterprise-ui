@@ -1,7 +1,4 @@
-import type {
-  QualificationCheckDetail,
-  QualificationCheckRecord,
-} from "@/api";
+import type { QualificationCheckDetail, QualificationCheckRecord } from "@/api";
 import { RecordState } from "@/api";
 
 const RECORDS: QualificationCheckRecord[] = [

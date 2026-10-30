@@ -18,14 +18,25 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { EmployeeDialog } from "./EmployeeDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<EmployeeRecord>[] = [
-  { field: "name", headerName: "businessData.employee.columns.name", type: "link", locked: true, width: "25%" },
+  {
+    field: "name",
+    headerName: "businessData.employee.columns.name",
+    type: "link",
+    locked: true,
+    width: "25%",
+  },
   { field: "description", headerName: "businessData.employee.columns.description", width: "25%" },
   { field: "user", headerName: "businessData.employee.columns.user", width: "15%" },
   { field: "number", headerName: "businessData.employee.columns.number", width: "10%" },
   { field: "team", headerName: "businessData.employee.columns.team", width: "15%" },
-  { field: "state", headerName: "businessData.employee.columns.state", type: "enum", enumOptions: RECORD_STATE_COLUMN_OPTIONS, width: "10%" },
+  {
+    field: "state",
+    headerName: "businessData.employee.columns.state",
+    type: "enum",
+    enumOptions: RECORD_STATE_COLUMN_OPTIONS,
+    width: "10%",
+  },
 ];
 
 function useEmployeeListQuery(params: ListQueryParams) {
@@ -38,23 +49,23 @@ export function EmployeeListPage() {
   const [createOpen, setCreateOpen] = useState(false);
   return (
     <>
-    <DataListPage
-      icon={<Organization24Regular />}
-      titleKey={"businessData.employee.pageLabel"}
-      listTitleKey={"businessData.employee.listTitle"}
-      actions={[
-        { ...createAction, onClick: () => setCreateOpen(true) },
-        refreshAction,
-        importAction,
-        exportAction,
-      ]}
-      columns={COLUMNS}
-      filters={defaultListFilters}
-      useListQuery={useEmployeeListQuery}
-      getRowId={(row) => row.name}
-      onRowClick={(row) => openDetail(row.name)}
-    />
-    {createOpen && <EmployeeDialog mode={MODE_CREATE} onClose={() => setCreateOpen(false)} />}
+      <DataListPage
+        icon={<Organization24Regular />}
+        titleKey={"businessData.employee.pageLabel"}
+        listTitleKey={"businessData.employee.listTitle"}
+        actions={[
+          { ...createAction, onClick: () => setCreateOpen(true) },
+          refreshAction,
+          importAction,
+          exportAction,
+        ]}
+        columns={COLUMNS}
+        filters={defaultListFilters}
+        useListQuery={useEmployeeListQuery}
+        getRowId={(row) => row.name}
+        onRowClick={(row) => openDetail(row.name)}
+      />
+      {createOpen && <EmployeeDialog mode={MODE_CREATE} onClose={() => setCreateOpen(false)} />}
     </>
   );
 }

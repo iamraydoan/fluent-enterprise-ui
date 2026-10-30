@@ -37,8 +37,7 @@ export function queryKpis(
     const needle = q.toLowerCase();
     rows = rows.filter(
       (row) =>
-        row.name.toLowerCase().includes(needle) ||
-        row.description.toLowerCase().includes(needle),
+        row.name.toLowerCase().includes(needle) || row.description.toLowerCase().includes(needle),
     );
   }
   if (state !== undefined && state !== "") {

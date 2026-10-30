@@ -36,9 +36,7 @@ export function useServices(params: ServiceListParams) {
 }
 
 export function getService(name: string): Promise<ServiceDetail> {
-  return apiFetch<ServiceDetail>(
-    `/business-data/services/${encodeURIComponent(name)}`,
-  );
+  return apiFetch<ServiceDetail>(`/business-data/services/${encodeURIComponent(name)}`);
 }
 
 export function useServiceDetail(name: string) {

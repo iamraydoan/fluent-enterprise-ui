@@ -28,7 +28,6 @@ const STEP_OPTIONS = [
   { value: "Moulding", label: "Moulding" },
 ];
 
-
 function buildBatchSteps(): WizardStep[] {
   return [
     {
@@ -60,9 +59,7 @@ function buildBatchSteps(): WizardStep[] {
           key: "materials",
           labelKey: "businessData.batch.operations.materials",
           type: "custom",
-          render: (values, onChange) => (
-            <MaterialListEditor values={values} onChange={onChange} />
-          ),
+          render: (values, onChange) => <MaterialListEditor values={values} onChange={onChange} />,
         },
       ],
     },
@@ -73,9 +70,7 @@ function buildBatchSteps(): WizardStep[] {
           key: "containers",
           labelKey: "businessData.batch.operations.containers",
           type: "custom",
-          render: (values, onChange) => (
-            <ContainerListEditor values={values} onChange={onChange} />
-          ),
+          render: (values, onChange) => <ContainerListEditor values={values} onChange={onChange} />,
         },
       ],
     },
@@ -94,8 +89,6 @@ function toUpsertInput(values: OperationValues): BatchUpsertInput {
     mainMaterial: main?.material,
   };
 }
-
-
 
 export interface BatchDialogs {
   dialogs: React.ReactNode;

@@ -18,7 +18,6 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { FlowDialog } from "./FlowDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<FlowRecord>[] = [
   {
     field: "name",

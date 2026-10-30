@@ -1,12 +1,6 @@
 import { useState } from "react";
 import { Dismiss16Regular } from "@/components/icons";
-import {
-  Button,
-  Input,
-  Text,
-  makeStyles,
-  tokens,
-} from "@/components/ui";
+import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 
@@ -100,7 +94,9 @@ function DialogShell({
         aria-label={title}
       >
         <div className={styles.header}>
-          <Text size={400} weight="semibold">{title}</Text>
+          <Text size={400} weight="semibold">
+            {title}
+          </Text>
           <Button
             appearance="subtle"
             icon={<Dismiss16Regular />}
@@ -146,7 +142,8 @@ export function CreatePlanDialog({ open, onClose, onSubmit }: DialogProps) {
   const [description, setDescription] = useState("");
 
   const handleClose = () => {
-    setName(""); setDescription("");
+    setName("");
+    setDescription("");
     onClose();
   };
 
@@ -160,7 +157,10 @@ export function CreatePlanDialog({ open, onClose, onSubmit }: DialogProps) {
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
             appearance="primary"
-            onClick={() => { onSubmit?.(); handleClose(); }}
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
             disabled={!name}
           >
             {t(`${P}.submit` as never)}
@@ -201,7 +201,13 @@ export function EditPlanDialog({
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -235,7 +241,13 @@ export function ClonePlanDialog({ open, onClose, onSubmit }: DialogProps) {
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -259,7 +271,13 @@ export function TerminatePlanDialog({ open, onClose, onSubmit }: DialogProps) {
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -283,7 +301,13 @@ export function AdjustPlanTargetsDialog({ open, onClose, onSubmit }: DialogProps
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -325,7 +349,13 @@ export function ManagePlanItemsDialog({ open, onClose, onSubmit }: DialogProps) 
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -366,7 +396,13 @@ export function ManagePlanStepsDialog({ open, onClose, onSubmit }: DialogProps) 
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -405,7 +441,13 @@ export function ManageExcludedMaterialTypesDialog({ open, onClose, onSubmit }: D
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -436,7 +478,10 @@ export function CreatePlanScenarioDialog({ open, onClose, onSubmit }: DialogProp
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
             appearance="primary"
-            onClick={() => { onSubmit?.(); handleClose(); }}
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
             disabled={!name}
           >
             {t(`${P}.submit` as never)}
@@ -462,7 +507,13 @@ export function ReleasePlanScenarioDialog({ open, onClose, onSubmit }: DialogPro
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -484,7 +535,13 @@ export function SynchronizeScenarioDialog({ open, onClose, onSubmit }: DialogPro
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>

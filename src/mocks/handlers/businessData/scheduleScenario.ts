@@ -1,5 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { buildScheduleScenarioDetail, queryScheduleScenarios } from "../../seeds/businessData/scheduleScenario";
+import {
+  buildScheduleScenarioDetail,
+  queryScheduleScenarios,
+} from "../../seeds/businessData/scheduleScenario";
 
 export const scheduleScenarioHandlers = [
   http.get("/business-data/schedule-scenarios", ({ request }) => {

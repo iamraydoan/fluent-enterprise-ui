@@ -45,7 +45,8 @@ export function useBinConverters(params: ListQueryParams) {
 export function useBinConverterDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "bin-converters", name],
-    queryFn: () => apiFetch<BinConverterDetail>(`/business-data/bin-converters/${encodeURIComponent(name)}`),
+    queryFn: () =>
+      apiFetch<BinConverterDetail>(`/business-data/bin-converters/${encodeURIComponent(name)}`),
   });
 }
 
@@ -61,7 +62,9 @@ function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
   });
 }
 
-export function createBinConverterRecord(input: BinConverterUpsertInput): Promise<BinConverterDetail> {
+export function createBinConverterRecord(
+  input: BinConverterUpsertInput,
+): Promise<BinConverterDetail> {
   return postJson<BinConverterDetail>("/business-data/bin-converters", "POST", input);
 }
 
@@ -76,7 +79,10 @@ export function updateBinConverterRecord(
   );
 }
 
-export function setBinConverterRecordState(name: string, state: string): Promise<BinConverterDetail> {
+export function setBinConverterRecordState(
+  name: string,
+  state: string,
+): Promise<BinConverterDetail> {
   return postJson<BinConverterDetail>(
     `/business-data/bin-converters/${encodeURIComponent(name)}/state`,
     "PATCH",

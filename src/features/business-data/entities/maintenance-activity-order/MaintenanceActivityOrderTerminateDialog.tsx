@@ -1,11 +1,10 @@
+import { useState } from "react";
 import { Button, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { useState } from "react";
 import { TERMINATE } from "./wizardMode";
 import type { MaoAction, TerminateMode } from "./wizardMode";
-
 
 const L: Record<string, TranslationKey> = {
   terminateTitle: "businessData.maintenanceActivityOrder.terminateDialog.title",
@@ -74,7 +73,12 @@ export function MaintenanceActivityOrderTerminateDialog({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(isTerminate ? L.terminateTitle : L.unterminateTitle)}</div>
         <div className={styles.body}>
           <div>{t(isTerminate ? L.terminateMessage : L.unterminateMessage, { name })}</div>
@@ -124,7 +128,12 @@ export function MaoChangeStateDialog({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(L.changeStateTitle, { action: actionLabel })}</div>
         <div className={styles.body}>
           <div>{t(L.changeStateMessage, { action: actionLabel, name })}</div>

@@ -8,7 +8,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useBooleanLabel } from "../propertyLabels";
 
-
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
   { value: "references", labelKey: "detailShell.tabs.references" },

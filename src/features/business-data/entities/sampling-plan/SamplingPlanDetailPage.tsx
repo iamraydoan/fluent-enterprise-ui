@@ -97,8 +97,14 @@ export function SamplingPlanDetailPage({ name }: SamplingPlanDetailPageProps) {
         <Card title={t("businessData.samplingPlan.cards.defaultSampling")}>
           <KV
             rows={[
-              [t("businessData.samplingPlan.details.defaultSamplingType"), data.defaultSamplingType],
-              [t("businessData.samplingPlan.details.counterFrequency"), String(data.counterFrequency)],
+              [
+                t("businessData.samplingPlan.details.defaultSamplingType"),
+                data.defaultSamplingType,
+              ],
+              [
+                t("businessData.samplingPlan.details.counterFrequency"),
+                String(data.counterFrequency),
+              ],
               [t("businessData.samplingPlan.details.timeFrequency"), `${data.timeFrequency} h`],
             ]}
           />

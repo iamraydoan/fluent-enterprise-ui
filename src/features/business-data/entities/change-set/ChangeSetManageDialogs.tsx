@@ -93,8 +93,7 @@ export function NameListEditor({
   const styles = useDialogStyles();
   const rows = (values[valueKey] as unknown as SimpleRow[] | undefined) ?? [];
   const setRows = (next: SimpleRow[]) => onChange(valueKey, next as unknown as boolean);
-  const addRow = () =>
-    setRows([...rows, { id: Date.now() + rows.length, name: "", extra: "" }]);
+  const addRow = () => setRows([...rows, { id: Date.now() + rows.length, name: "", extra: "" }]);
   const removeRow = (id: number) => setRows(rows.filter((r) => r.id !== id));
   const updateRow = (id: number, patch: Partial<SimpleRow>) =>
     setRows(rows.map((r) => (r.id === id ? { ...r, ...patch } : r)));
@@ -303,7 +302,9 @@ export function ManageStateReviewersDialog({
   return (
     <ListDialogShell
       title={t("businessData.changeSet.operations.manageStateReviewers")}
-      hint={t("businessData.changeSet.operations.manageStateReviewersHint", { name: changeSetName })}
+      hint={t("businessData.changeSet.operations.manageStateReviewersHint", {
+        name: changeSetName,
+      })}
       submitLabel={t("common.update")}
       valueKey="reviewers"
       namePlaceholderKey="businessData.changeSet.operations.reviewerName"

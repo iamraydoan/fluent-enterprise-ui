@@ -1,9 +1,4 @@
-export type ChangeSetTransition =
-  | "requestApproval"
-  | "approve"
-  | "reject"
-  | "rework"
-  | "cancel";
+export type ChangeSetTransition = "requestApproval" | "approve" | "reject" | "rework" | "cancel";
 
 export const CHANGE_SET_TRANSITIONS: ChangeSetTransition[] = [
   "requestApproval",

@@ -24,7 +24,11 @@ const DETAILS: Record<string, SortRuleSetDetail> = {
     state: RecordState.Active,
     dataGroup: "",
     rules: [
-      { rule: "StandardSchedulingMaterialSorting", description: "Sort by planned start date", sorting: "Ascending" },
+      {
+        rule: "StandardSchedulingMaterialSorting",
+        description: "Sort by planned start date",
+        sorting: "Ascending",
+      },
     ],
   },
   "Resource Dispatch Sort": {
@@ -34,7 +38,11 @@ const DETAILS: Record<string, SortRuleSetDetail> = {
     state: RecordState.Active,
     dataGroup: "",
     rules: [
-      { rule: "StandardSchedulingResourceSorting", description: "Prioritize assigned resource", sorting: "Ascending" },
+      {
+        rule: "StandardSchedulingResourceSorting",
+        description: "Prioritize assigned resource",
+        sorting: "Ascending",
+      },
     ],
   },
 };

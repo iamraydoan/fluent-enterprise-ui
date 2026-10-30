@@ -15,7 +15,13 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { useBomDialogs } from "./useBomDialogs";
 
 const COLUMNS: DataColumn<BomRecord>[] = [
-  { field: "name", headerName: "businessData.bom.columns.name", type: "link", locked: true, width: "25%" },
+  {
+    field: "name",
+    headerName: "businessData.bom.columns.name",
+    type: "link",
+    locked: true,
+    width: "25%",
+  },
   { field: "description", headerName: "businessData.bom.columns.description", width: "30%" },
   { field: "product", headerName: "businessData.bom.columns.product", width: "20%" },
   { field: "version", headerName: "businessData.bom.columns.version", width: "10%" },

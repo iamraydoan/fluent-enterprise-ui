@@ -57,11 +57,27 @@ export function ResourceJobFormDialog({
           <DialogTitle>{title}</DialogTitle>
           <DialogContent>
             {!nameReadOnly && (
-              <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
+              <div
+                style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}
+              >
                 {[t(`${k}.step1`), t(`${k}.step2`), t(`${k}.step3`)].map((label, i) => (
                   <span key={i} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
                     {i > 0 && <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />}
-                    <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === i + 1 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>{i + 1}</span>
+                    <span
+                      style={{
+                        width: 24,
+                        height: 24,
+                        borderRadius: "50%",
+                        backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
+                        color: "#fff",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 12,
+                      }}
+                    >
+                      {i + 1}
+                    </span>
                     <Body1Strong>{label}</Body1Strong>
                   </span>
                 ))}
@@ -71,7 +87,11 @@ export function ResourceJobFormDialog({
             {(step === 1 || nameReadOnly) && (
               <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                 <Field label={t(`${k}.name`)} required>
-                  <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+                  <Input
+                    value={name}
+                    readOnly={nameReadOnly}
+                    onChange={(_, d) => setName(d.value)}
+                  />
                 </Field>
                 <Field label={t(`${k}.description`)}>
                   <Input value={description} onChange={(_, d) => setDescription(d.value)} />
@@ -89,7 +109,9 @@ export function ResourceJobFormDialog({
                   <Field label={t(`${k}.initialSystemState`)}>
                     <select value={systemState} onChange={(e) => setSystemState(e.target.value)}>
                       {SYSTEM_STATES.map((o) => (
-                        <option key={o} value={o}>{o}</option>
+                        <option key={o} value={o}>
+                          {o}
+                        </option>
                       ))}
                     </select>
                   </Field>
@@ -97,7 +119,9 @@ export function ResourceJobFormDialog({
                 <Field label={t(`${k}.selectionMode`)}>
                   <select value={selectionMode} onChange={(e) => setSelectionMode(e.target.value)}>
                     {SELECTION_MODES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
@@ -119,15 +143,11 @@ export function ResourceJobFormDialog({
             )}
 
             {step === 2 && !nameReadOnly && (
-              <div style={{ padding: "12px 0", color: "#666" }}>
-                {t(`${k}.materialsBody`)}
-              </div>
+              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.materialsBody`)}</div>
             )}
 
             {step === 3 && !nameReadOnly && (
-              <div style={{ padding: "12px 0", color: "#666" }}>
-                {t(`${k}.containersBody`)}
-              </div>
+              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.containersBody`)}</div>
             )}
 
             <Field label={t(`${k}.comments`)}>
@@ -135,14 +155,22 @@ export function ResourceJobFormDialog({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {!nameReadOnly && step > 1 && (
-              <Button appearance="secondary" onClick={() => setStep(step - 1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+                {t("common.back")}
+              </Button>
             )}
             {!nameReadOnly && step < 3 ? (
-              <Button appearance="primary" onClick={() => setStep(step + 1)}>{t("common.next")}</Button>
+              <Button appearance="primary" onClick={() => setStep(step + 1)}>
+                {t("common.next")}
+              </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{submitLabel}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {submitLabel}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>

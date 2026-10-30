@@ -51,7 +51,9 @@ export function ScheduleScenarioDetailPage({ name }: ScheduleScenarioDetailPageP
   const { t } = useAppTranslation();
   const { data, isLoading } = useScheduleScenarioDetail(name);
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<TranslationKey>("businessData.scheduleScenario.sections.details");
+  const [left, setLeft] = useState<TranslationKey>(
+    "businessData.scheduleScenario.sections.details",
+  );
   const handleLeft = (value: TranslationKey) => setLeft(value);
   const [dialog, setDialog] = useState<string | null>(null);
   const close = () => setDialog(null);

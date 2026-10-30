@@ -60,21 +60,53 @@ export function RecipeFormDialog({
           <DialogTitle>{title}</DialogTitle>
           <DialogContent>
             {!nameReadOnly && (
-              <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-                <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === 1 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>1</span>
+              <div
+                style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}
+              >
+                <span
+                  style={{
+                    width: 24,
+                    height: 24,
+                    borderRadius: "50%",
+                    backgroundColor: step === 1 ? "#0078d4" : "#ccc",
+                    color: "#fff",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 12,
+                  }}
+                >
+                  1
+                </span>
                 <Body1Strong>{t(`${k}.changeSet`)}</Body1Strong>
                 <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />
-                <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === 2 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>2</span>
+                <span
+                  style={{
+                    width: 24,
+                    height: 24,
+                    borderRadius: "50%",
+                    backgroundColor: step === 2 ? "#0078d4" : "#ccc",
+                    color: "#fff",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 12,
+                  }}
+                >
+                  2
+                </span>
                 <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
               </div>
             )}
 
-            {(step === 1 && !nameReadOnly) && (
+            {step === 1 && !nameReadOnly && (
               <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                 <Field label={t(`${k}.changeSet`)}>
                   <div style={{ display: "flex", columnGap: 8 }}>
                     <Input value={changeSet} onChange={(_, d) => setChangeSet(d.value)} />
-                    <Button appearance="secondary" onClick={() => {}}>{t(`${k}.createNew`)}</Button>
+                    <Button appearance="secondary" onClick={() => {}}>
+                      {t(`${k}.createNew`)}
+                    </Button>
                   </div>
                 </Field>
                 <Field label={t(`${k}.approverRole`)}>
@@ -92,7 +124,11 @@ export function RecipeFormDialog({
             {(step === 2 || nameReadOnly) && (
               <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                 <Field label={t(`${k}.name`)} required>
-                  <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+                  <Input
+                    value={name}
+                    readOnly={nameReadOnly}
+                    onChange={(_, d) => setName(d.value)}
+                  />
                 </Field>
                 {!nameReadOnly && (
                   <Field label={t(`${k}.revision`)}>
@@ -105,24 +141,38 @@ export function RecipeFormDialog({
                 <Field label={t(`${k}.type`)} required>
                   <select value={type} onChange={(e) => setType(e.target.value)}>
                     {RECIPE_TYPES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
                 <Field label={t(`${k}.isEnabled`)}>
-                  <Checkbox checked={isEnabled} onChange={(_, d) => setIsEnabled(d.checked === true)} />
+                  <Checkbox
+                    checked={isEnabled}
+                    onChange={(_, d) => setIsEnabled(d.checked === true)}
+                  />
                 </Field>
                 <Field label={t(`${k}.isExecutable`)}>
-                  <Checkbox checked={isExecutable} onChange={(_, d) => setIsExecutable(d.checked === true)} />
+                  <Checkbox
+                    checked={isExecutable}
+                    onChange={(_, d) => setIsExecutable(d.checked === true)}
+                  />
                 </Field>
                 <Field label={t(`${k}.resourceRecipeName`)} required>
-                  <Input value={resourceRecipeName} onChange={(_, d) => setResourceRecipeName(d.value)} />
+                  <Input
+                    value={resourceRecipeName}
+                    onChange={(_, d) => setResourceRecipeName(d.value)}
+                  />
                 </Field>
                 <Field label={t(`${k}.userInformation`)}>
                   <Input value={userInformation} onChange={(_, d) => setUserInformation(d.value)} />
                 </Field>
                 <Field label={t(`${k}.supplierInformation`)}>
-                  <Input value={supplierInformation} onChange={(_, d) => setSupplierInformation(d.value)} />
+                  <Input
+                    value={supplierInformation}
+                    onChange={(_, d) => setSupplierInformation(d.value)}
+                  />
                 </Field>
               </div>
             )}
@@ -132,14 +182,22 @@ export function RecipeFormDialog({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {stepCount === 2 && step === 2 && (
-              <Button appearance="secondary" onClick={() => setStep(1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(1)}>
+                {t("common.back")}
+              </Button>
             )}
             {stepCount === 2 && step === 1 ? (
-              <Button appearance="primary" onClick={() => setStep(2)}>{t("common.next")}</Button>
+              <Button appearance="primary" onClick={() => setStep(2)}>
+                {t("common.next")}
+              </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{submitLabel}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {submitLabel}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>

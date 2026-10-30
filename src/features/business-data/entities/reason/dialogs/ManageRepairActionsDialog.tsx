@@ -30,7 +30,11 @@ const MODES = ["Allowed", "Not Allowed", "Required"];
 
 const INITIAL: RepairAction[] = [
   { name: "Please reinstall the component", description: "", partReplacementMode: "Not Allowed" },
-  { name: "Replace the component", description: "Replace the component action", partReplacementMode: "Allowed" },
+  {
+    name: "Replace the component",
+    description: "Replace the component action",
+    partReplacementMode: "Allowed",
+  },
 ];
 
 export function ManageRepairActionsDialog({
@@ -49,7 +53,10 @@ export function ManageRepairActionsDialog({
   const [comments, setComments] = useState("");
 
   const addAction = () => {
-    const next = [...actions, { name: `New Action ${actions.length + 1}`, description: "", partReplacementMode: "Allowed" }];
+    const next = [
+      ...actions,
+      { name: `New Action ${actions.length + 1}`, description: "", partReplacementMode: "Allowed" },
+    ];
     setActions(next);
     setSelected(next.length - 1);
     setActionName(next[next.length - 1].name);
@@ -86,20 +93,39 @@ export function ManageRepairActionsDialog({
             </div>
             <div style={{ display: "flex", columnGap: 16 }}>
               <div style={{ width: 320, flexShrink: 0 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: 8,
+                  }}
+                >
                   <Body1Strong>{t(`${k}.repairActions`, { count: actions.length })}</Body1Strong>
                   <div style={{ display: "flex", columnGap: 4 }}>
-                    <Button size="small" appearance="subtle" onClick={addAction}>+</Button>
-                    <Button size="small" appearance="subtle" onClick={() => removeAction(selected)}>🗑</Button>
+                    <Button size="small" appearance="subtle" onClick={addAction}>
+                      +
+                    </Button>
+                    <Button size="small" appearance="subtle" onClick={() => removeAction(selected)}>
+                      🗑
+                    </Button>
                   </div>
                 </div>
-                <div style={{ border: "1px solid #ddd", borderRadius: 4, minHeight: 300, overflow: "auto" }}>
+                <div
+                  style={{
+                    border: "1px solid #ddd",
+                    borderRadius: 4,
+                    minHeight: 300,
+                    overflow: "auto",
+                  }}
+                >
                   {actions.map((a, i) => (
                     <div
                       key={`${a.name}-${i}`}
                       onClick={() => selectAction(i)}
                       style={{
-                        padding: "8px 12px", cursor: "pointer",
+                        padding: "8px 12px",
+                        cursor: "pointer",
                         backgroundColor: i === selected ? "#e3f2fd" : "transparent",
                         borderBottom: "1px solid #eee",
                       }}
@@ -116,12 +142,17 @@ export function ManageRepairActionsDialog({
                   <Input value={actionName} onChange={(_, d) => setActionName(d.value)} />
                 </Field>
                 <Field label={t(`${k}.description`)}>
-                  <Input value={actionDescription} onChange={(_, d) => setActionDescription(d.value)} />
+                  <Input
+                    value={actionDescription}
+                    onChange={(_, d) => setActionDescription(d.value)}
+                  />
                 </Field>
                 <Field label={t(`${k}.partReplacementMode`)} required>
                   <select value={actionMode} onChange={(e) => setActionMode(e.target.value)}>
                     {MODES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
@@ -132,8 +163,12 @@ export function ManageRepairActionsDialog({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.update`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.update`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

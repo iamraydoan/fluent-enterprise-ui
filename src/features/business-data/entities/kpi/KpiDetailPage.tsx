@@ -11,7 +11,6 @@ import { KpiDimensionsDialog } from "./KpiDimensionsDialog";
 import { KpiTerminateDialog } from "./KpiTerminateDialog";
 import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
 
-
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
   { value: "references", labelKey: "detailShell.tabs.references" },
@@ -125,10 +124,7 @@ export function KpiDetailPage({ name }: { name: string }) {
               t("businessData.kpi.details.closeToTargetMinimumValue"),
               String(data.closeToTargetMinimumValue),
             ],
-            [
-              t("businessData.kpi.details.inTargetMinimumValue"),
-              String(data.inTargetMinimumValue),
-            ],
+            [t("businessData.kpi.details.inTargetMinimumValue"), String(data.inTargetMinimumValue)],
             [t("businessData.kpi.details.targetValue"), String(data.targetValue)],
           ]}
         />

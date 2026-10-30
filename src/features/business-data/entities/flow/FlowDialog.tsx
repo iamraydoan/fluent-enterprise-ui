@@ -6,7 +6,6 @@ import { useSharedStyles } from "@/styles/shared";
 import { MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
 
-
 const L: Record<string, TranslationKey> = {
   createTitle: "businessData.flow.dialog.createTitle",
   editTitle: "businessData.flow.dialog.editTitle",

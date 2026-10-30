@@ -73,18 +73,12 @@ export function CloneQualificationDialog({
                     marginBottom: 8,
                   }}
                 >
-                  <Body1Strong>
-                    {t(`${k}.clones`, { count: clones.length })}
-                  </Body1Strong>
+                  <Body1Strong>{t(`${k}.clones`, { count: clones.length })}</Body1Strong>
                   <div style={{ display: "flex", columnGap: 4 }}>
                     <Button size="small" appearance="subtle" onClick={addClone}>
                       +
                     </Button>
-                    <Button
-                      size="small"
-                      appearance="subtle"
-                      onClick={() => removeClone(selected)}
-                    >
+                    <Button size="small" appearance="subtle" onClick={() => removeClone(selected)}>
                       🗑
                     </Button>
                   </div>
@@ -127,10 +121,7 @@ export function CloneQualificationDialog({
                   />
                 </Field>
                 <Field label={t(`${k}.ownerRole`)}>
-                  <Input
-                    value={cloneOwnerRole}
-                    onChange={(_, d) => setCloneOwnerRole(d.value)}
-                  />
+                  <Input value={cloneOwnerRole} onChange={(_, d) => setCloneOwnerRole(d.value)} />
                 </Field>
                 <div style={{ fontSize: 12, color: "#666" }}>
                   {t(`${k}.source`, { name: sourceName })}

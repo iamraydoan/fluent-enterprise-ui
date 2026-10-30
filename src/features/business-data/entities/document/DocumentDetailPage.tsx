@@ -19,7 +19,6 @@ import { useBooleanLabel } from "../propertyLabels";
 import { DocumentWizardDialog } from "./DocumentWizardDialog";
 import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
 
-
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
   { value: "tracking", labelKey: "businessData.document.tabs.tracking" },
@@ -47,39 +46,39 @@ export function DocumentDetailPage({ name }: { name: string }) {
 
   const shell = (content: React.ReactNode) => (
     <>
-    <DetailShell
-      title={name}
-      icon={<DocumentBulletList24Regular />}
-      topTabs={TOP_TABS}
-      top={top}
-      onTop={setTop}
-      leftItems={LEFT_ITEMS}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onClone={() => setCloneOpen(true)}
-      onAskAi={() => undefined}
-    >
-      {content}
-    </DetailShell>
-    {editOpen && data && (
-      <DocumentWizardDialog
-        mode={MODE_EDIT}
-        initialName={data.name}
-        initialDescription={data.description}
-        initialType={data.type}
-        onClose={() => setEditOpen(false)}
-      />
-    )}
-    {cloneOpen && data && (
-      <DocumentWizardDialog
-        mode={MODE_CLONE}
-        initialName={`${data.name} (Copy)`}
-        initialDescription={data.description}
-        initialType={data.type}
-        onClose={() => setCloneOpen(false)}
-      />
-    )}
+      <DetailShell
+        title={name}
+        icon={<DocumentBulletList24Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={LEFT_ITEMS}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onClone={() => setCloneOpen(true)}
+        onAskAi={() => undefined}
+      >
+        {content}
+      </DetailShell>
+      {editOpen && data && (
+        <DocumentWizardDialog
+          mode={MODE_EDIT}
+          initialName={data.name}
+          initialDescription={data.description}
+          initialType={data.type}
+          onClose={() => setEditOpen(false)}
+        />
+      )}
+      {cloneOpen && data && (
+        <DocumentWizardDialog
+          mode={MODE_CLONE}
+          initialName={`${data.name} (Copy)`}
+          initialDescription={data.description}
+          initialType={data.type}
+          onClose={() => setCloneOpen(false)}
+        />
+      )}
     </>
   );
 
@@ -161,10 +160,7 @@ export function DocumentDetailPage({ name }: { name: string }) {
             [t("businessData.document.details.ownerRole"), data.ownerRole],
             [t("businessData.document.details.group"), data.group],
             [t("businessData.document.details.author"), data.author],
-            [
-              t("businessData.document.details.creationDate"),
-              formatDateTime(data.creationDate),
-            ],
+            [t("businessData.document.details.creationDate"), formatDateTime(data.creationDate)],
             [t("businessData.document.details.link"), data.link],
             [t("businessData.document.details.versionLink"), data.versionLink],
             [t("businessData.document.details.keywords"), data.keywords],

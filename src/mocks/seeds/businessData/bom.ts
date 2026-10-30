@@ -1,17 +1,41 @@
-import type { BomDetail, BomRecord } from "@/api";
-import type { Page } from "@/api";
+import type { BomDetail, BomRecord, Page } from "@/api";
 
 const BOMS: BomRecord[] = [
-  { name: "Chocolate Chip Cookies", description: "Chocolate Chip Cookies", product: "Cookie A", version: "1", state: "Active" },
-  { name: "Oatmeal Cookies", description: "Oatmeal Cookies", product: "Cookie B", version: "2", state: "Active" },
-  { name: "Sugar Cookies", description: "Sugar Cookies", product: "Cookie C", version: "1", state: "Terminated" },
+  {
+    name: "Chocolate Chip Cookies",
+    description: "Chocolate Chip Cookies",
+    product: "Cookie A",
+    version: "1",
+    state: "Active",
+  },
+  {
+    name: "Oatmeal Cookies",
+    description: "Oatmeal Cookies",
+    product: "Cookie B",
+    version: "2",
+    state: "Active",
+  },
+  {
+    name: "Sugar Cookies",
+    description: "Sugar Cookies",
+    product: "Cookie C",
+    version: "1",
+    state: "Terminated",
+  },
 ];
 
-export function queryBoms(page: number, limit: number, q?: string, state?: string): Page<BomRecord> {
+export function queryBoms(
+  page: number,
+  limit: number,
+  q?: string,
+  state?: string,
+): Page<BomRecord> {
   let rows = BOMS;
   if (q) {
     const needle = q.toLowerCase();
-    rows = rows.filter((b) => b.name.toLowerCase().includes(needle) || b.description.toLowerCase().includes(needle));
+    rows = rows.filter(
+      (b) => b.name.toLowerCase().includes(needle) || b.description.toLowerCase().includes(needle),
+    );
   }
   if (state && state !== "" && state !== "all") {
     rows = rows.filter((b) => b.state.toLowerCase() === state.toLowerCase());
@@ -22,7 +46,13 @@ export function queryBoms(page: number, limit: number, q?: string, state?: strin
 }
 
 export function buildBomDetail(name: string): BomDetail {
-  const record = BOMS.find((b) => b.name === name) ?? { name, description: name, product: "", version: "1", state: "Active" };
+  const record = BOMS.find((b) => b.name === name) ?? {
+    name,
+    description: name,
+    product: "",
+    version: "1",
+    state: "Active",
+  };
   const overlay = BOM_DETAIL_OVERLAYS[record.name] ?? {};
   return {
     ...record,
@@ -35,7 +65,9 @@ export function buildBomDetail(name: string): BomDetail {
     units: "Kg",
     useTolerances: false,
     useMixedAssembly: false,
-    items: [{ item: 1, product: "Flour [A]", quantity: 2, units: "Kg", position: 1, source: "Mixing" }],
+    items: [
+      { item: 1, product: "Flour [A]", quantity: 2, units: "Kg", position: 1, source: "Mixing" },
+    ],
     ...overlay,
   };
 }

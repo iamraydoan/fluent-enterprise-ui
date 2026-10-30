@@ -18,7 +18,6 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { FacilityDialog } from "./FacilityDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<FacilityRecord>[] = [
   {
     field: "name",

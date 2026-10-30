@@ -1,8 +1,4 @@
-import type {
-  ExperimentDefinitionDetail,
-  ExperimentDefinitionRecord,
-  Page,
-} from "@/api";
+import type { ExperimentDefinitionDetail, ExperimentDefinitionRecord, Page } from "@/api";
 import { RecordState } from "@/api";
 
 const DEFINITIONS: ExperimentDefinitionRecord[] = [
@@ -73,8 +69,7 @@ export function queryExperimentDefinitions(
     const needle = q.toLowerCase();
     rows = rows.filter(
       (row) =>
-        row.name.toLowerCase().includes(needle) ||
-        row.description.toLowerCase().includes(needle),
+        row.name.toLowerCase().includes(needle) || row.description.toLowerCase().includes(needle),
     );
   }
   if (state !== undefined && state !== "") {

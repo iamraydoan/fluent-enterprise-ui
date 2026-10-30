@@ -17,13 +17,17 @@ export interface SubstrateMapMaskDetail extends SubstrateMapMaskRecord {
 
 export type SubstrateMapMaskListParams = ListQueryParams;
 
-export function listSubstrateMapMasks(params: SubstrateMapMaskListParams): Promise<Page<SubstrateMapMaskRecord>> {
+export function listSubstrateMapMasks(
+  params: SubstrateMapMaskListParams,
+): Promise<Page<SubstrateMapMaskRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<SubstrateMapMaskRecord>>(`/business-data/substrate-map-masks?${search.toString()}`);
+  return apiFetch<Page<SubstrateMapMaskRecord>>(
+    `/business-data/substrate-map-masks?${search.toString()}`,
+  );
 }
 
 export function useSubstrateMapMasks(params: SubstrateMapMaskListParams) {
@@ -35,7 +39,9 @@ export function useSubstrateMapMasks(params: SubstrateMapMaskListParams) {
 }
 
 export function getSubstrateMapMask(name: string): Promise<SubstrateMapMaskDetail> {
-  return apiFetch<SubstrateMapMaskDetail>(`/business-data/substrate-map-masks/${encodeURIComponent(name)}`);
+  return apiFetch<SubstrateMapMaskDetail>(
+    `/business-data/substrate-map-masks/${encodeURIComponent(name)}`,
+  );
 }
 
 export function useSubstrateMapMaskDetail(name: string) {

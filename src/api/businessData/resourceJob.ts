@@ -3,12 +3,7 @@ import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 
 export type ResourceJobSystemState =
-  | "Created"
-  | "Queued"
-  | "Executing"
-  | "Completed"
-  | "Canceled"
-  | "Abort";
+  "Created" | "Queued" | "Executing" | "Completed" | "Canceled" | "Abort";
 
 export interface ResourceJobRecord {
   name: string;
@@ -50,9 +45,7 @@ export function useResourceJobs(params: ResourceJobListParams) {
 }
 
 export function getResourceJob(name: string): Promise<ResourceJobDetail> {
-  return apiFetch<ResourceJobDetail>(
-    `/business-data/resource-jobs/${encodeURIComponent(name)}`,
-  );
+  return apiFetch<ResourceJobDetail>(`/business-data/resource-jobs/${encodeURIComponent(name)}`);
 }
 
 export function useResourceJobDetail(name: string) {

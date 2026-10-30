@@ -97,7 +97,10 @@ export function ServiceDetailPage({ name }: ServiceDetailPageProps) {
               [t("businessData.service.details.description"), data.description],
               [t("businessData.service.details.type"), data.type],
               [t("businessData.service.details.processingType"), data.processingType],
-              [t("businessData.service.details.enabled"), data.enabled ? t("common.yes") : t("common.no")],
+              [
+                t("businessData.service.details.enabled"),
+                data.enabled ? t("common.yes") : t("common.no"),
+              ],
               [t("businessData.service.details.state"), stateLabel],
               [t("businessData.service.details.dataGroup"), data.dataGroup],
             ]}

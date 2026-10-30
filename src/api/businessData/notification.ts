@@ -14,7 +14,6 @@ export interface NotificationRecord {
 }
 
 export interface NotificationDetail extends NotificationRecord {
-  // detail-specific fields (if any) go here
   detailNote?: string;
 }
 

@@ -31,14 +31,26 @@ const useDialogStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "560px", maxWidth: "95vw", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+  surface: {
+    width: "560px",
+    maxWidth: "95vw",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "90vh",
+  },
   head: {
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase400,
   },
-  body: { padding: "16px", display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto" },
+  body: {
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    overflowY: "auto",
+  },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -71,7 +83,12 @@ function Shell({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>
           {t(title)} {name}
         </div>
@@ -125,7 +142,11 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
       </div>
       <div className={styles.footer}>
         <Button onClick={onClose}>{t(L.cancel)}</Button>
-        <Button appearance="primary" onClick={onClose} disabled={!nonWorkingTimeType.trim() || !startTime.trim() || !endTime.trim()}>
+        <Button
+          appearance="primary"
+          onClick={onClose}
+          disabled={!nonWorkingTimeType.trim() || !startTime.trim() || !endTime.trim()}
+        >
           {t(L.set)}
         </Button>
       </div>
@@ -163,14 +184,23 @@ export function RemoveNonWorkingTimesDialog({ name, onClose }: DialogProps) {
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(L.removeNonWorkingTimesTitle)}</div>
         <div className={styles.body}>
           <div>{t(L.removeNonWorkingTimesMessage, { name })}</div>
         </div>
         <div className={styles.footer}>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} style={{ backgroundColor: tokens.colorPaletteRedBackground3 }}>
+          <Button
+            appearance="primary"
+            onClick={onClose}
+            style={{ backgroundColor: tokens.colorPaletteRedBackground3 }}
+          >
             {t(L.remove)}
           </Button>
         </div>
@@ -186,14 +216,23 @@ export function RemoveWorkAvailabilityDialog({ name, onClose }: DialogProps) {
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(L.removeWorkAvailabilityTitle)}</div>
         <div className={styles.body}>
           <div>{t(L.removeWorkAvailabilityMessage, { name })}</div>
         </div>
         <div className={styles.footer}>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} style={{ backgroundColor: tokens.colorPaletteRedBackground3 }}>
+          <Button
+            appearance="primary"
+            onClick={onClose}
+            style={{ backgroundColor: tokens.colorPaletteRedBackground3 }}
+          >
             {t(L.remove)}
           </Button>
         </div>

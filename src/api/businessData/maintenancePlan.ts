@@ -42,9 +42,7 @@ export function listMaintenancePlans(
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<MaintenancePlanRecord>>(
-    `/maintenance-plans?${search.toString()}`,
-  );
+  return apiFetch<Page<MaintenancePlanRecord>>(`/maintenance-plans?${search.toString()}`);
 }
 
 export function useMaintenancePlans(params: ListQueryParams) {
@@ -56,9 +54,7 @@ export function useMaintenancePlans(params: ListQueryParams) {
 }
 
 export function getMaintenancePlan(name: string): Promise<MaintenancePlanDetail> {
-  return apiFetch<MaintenancePlanDetail>(
-    `/maintenance-plans/${encodeURIComponent(name)}`,
-  );
+  return apiFetch<MaintenancePlanDetail>(`/maintenance-plans/${encodeURIComponent(name)}`);
 }
 
 export function useMaintenancePlanDetail(name: string) {

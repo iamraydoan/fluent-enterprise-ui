@@ -96,7 +96,10 @@ export function ScheduleDetailPage({ name }: ScheduleDetailPageProps) {
               [t("businessData.schedule.details.description"), data.description],
               [t("businessData.schedule.details.state"), stateLabel],
               [t("businessData.schedule.details.defaultView"), data.defaultView],
-              [t("businessData.schedule.details.defaultFrozenPeriod"), `${data.defaultFrozenPeriod} h`],
+              [
+                t("businessData.schedule.details.defaultFrozenPeriod"),
+                `${data.defaultFrozenPeriod} h`,
+              ],
               [t("businessData.schedule.details.timeQuantum"), `${data.timeQuantum} min`],
             ]}
           />
@@ -158,11 +161,7 @@ export function ScheduleDetailPage({ name }: ScheduleDetailPageProps) {
         message={t("businessData.schedule.dialogs.createScenario.message", { name: data.name })}
         confirmLabel={t("businessData.schedule.dialogs.createScenario.create")}
       />
-      <AdjustScheduleJobDialog
-        open={dlg(DLG.adjustJob)}
-        onClose={close}
-        scheduleName={data.name}
-      />
+      <AdjustScheduleJobDialog open={dlg(DLG.adjustJob)} onClose={close} scheduleName={data.name} />
       <ManageFeedStepsDialog
         open={dlg(DLG.manageFeedSteps)}
         onClose={close}

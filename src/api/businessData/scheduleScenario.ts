@@ -19,11 +19,15 @@ export interface ScheduleScenarioListParams {
   state?: string;
 }
 
-export function listScheduleScenarios(params: ScheduleScenarioListParams): Promise<ScheduleScenarioRecord[]> {
+export function listScheduleScenarios(
+  params: ScheduleScenarioListParams,
+): Promise<ScheduleScenarioRecord[]> {
   const search = new URLSearchParams();
   if (params.q) search.set("q", params.q);
   if (params.state) search.set("state", params.state);
-  return apiFetch<ScheduleScenarioRecord[]>(`/business-data/schedule-scenarios?${search.toString()}`);
+  return apiFetch<ScheduleScenarioRecord[]>(
+    `/business-data/schedule-scenarios?${search.toString()}`,
+  );
 }
 
 export function useScheduleScenarios(params: ScheduleScenarioListParams) {

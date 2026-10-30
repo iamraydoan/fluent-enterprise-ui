@@ -95,7 +95,9 @@ function DialogShell({
         aria-label={title}
       >
         <div className={styles.header}>
-          <Text size={400} weight="semibold">{title}</Text>
+          <Text size={400} weight="semibold">
+            {title}
+          </Text>
           <Button
             appearance="subtle"
             icon={<Dismiss16Regular />}
@@ -153,9 +155,7 @@ function SelectField({
     <Field label={label} required={required} hint={hint}>
       <Menu>
         <MenuTrigger disableButtonEnhancement>
-          <Button style={{ width: "100%", justifyContent: "space-between" }}>
-            {value}
-          </Button>
+          <Button style={{ width: "100%", justifyContent: "space-between" }}>{value}</Button>
         </MenuTrigger>
         <MenuPopover>
           <MenuList>
@@ -186,9 +186,15 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
   const [validTo, setValidTo] = useState("");
 
   const handleClose = () => {
-    setName(""); setType(NOTIFICATION_TYPES[0]); setTitle(""); setDetails("");
-    setSeverity(NOTIFICATION_SEVERITIES[0]); setAssignment("Everyone");
-    setSendEmail(false); setVisibility("None"); setClearance("ManualSingleUser");
+    setName("");
+    setType(NOTIFICATION_TYPES[0]);
+    setTitle("");
+    setDetails("");
+    setSeverity(NOTIFICATION_SEVERITIES[0]);
+    setAssignment("Everyone");
+    setSendEmail(false);
+    setVisibility("None");
+    setClearance("ManualSingleUser");
     setValidTo("");
     onClose();
   };
@@ -201,7 +207,13 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -267,7 +279,9 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
         <Input
           value={validTo}
           onChange={(_, d) => setValidTo(d.value)}
-          placeholder={t("businessData.notification.operations.create.placeholders.validTo" as never)}
+          placeholder={t(
+            "businessData.notification.operations.create.placeholders.validTo" as never,
+          )}
         />
       </Field>
     </DialogShell>
@@ -299,7 +313,13 @@ export function EditNotificationDialog({
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -339,7 +359,13 @@ export function CloneNotificationDialog({ open, onClose, onSubmit }: DialogProps
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -364,7 +390,13 @@ export function TerminateNotificationDialog({ open, onClose, onSubmit }: DialogP
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -387,7 +419,13 @@ export function ClearNotificationDialog({ open, onClose, onSubmit }: DialogProps
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>

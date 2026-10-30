@@ -3,13 +3,20 @@ import { useMapDefinitionDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
-import { Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, Text } from "@/components/ui";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  Text,
+} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useBooleanLabel } from "../propertyLabels";
 import { MapDefinitionWizardDialog } from "./MapDefinitionWizardDialog";
 import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
-
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -65,10 +72,16 @@ export function MapDefinitionDetailPage({ name }: { name: string }) {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHeaderCell>{t("businessData.mapDefinition.wizard.layerName")}</TableHeaderCell>
-                <TableHeaderCell>{t("businessData.mapDefinition.wizard.layerType")}</TableHeaderCell>
+                <TableHeaderCell>
+                  {t("businessData.mapDefinition.wizard.layerName")}
+                </TableHeaderCell>
+                <TableHeaderCell>
+                  {t("businessData.mapDefinition.wizard.layerType")}
+                </TableHeaderCell>
                 <TableHeaderCell>{t("businessData.mapDefinition.wizard.dataType")}</TableHeaderCell>
-                <TableHeaderCell>{t("businessData.mapDefinition.wizard.isDefault")}</TableHeaderCell>
+                <TableHeaderCell>
+                  {t("businessData.mapDefinition.wizard.isDefault")}
+                </TableHeaderCell>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -122,7 +135,10 @@ export function MapDefinitionDetailPage({ name }: { name: string }) {
           <KV
             rows={[
               [t("businessData.mapDefinition.details.rulerMode"), data.rulerMode],
-              [t("businessData.mapDefinition.details.showRulerByDefault"), booleanLabel(data.showRulerByDefault)],
+              [
+                t("businessData.mapDefinition.details.showRulerByDefault"),
+                booleanLabel(data.showRulerByDefault),
+              ],
               [t("businessData.mapDefinition.details.notch"), data.notch],
               [t("businessData.mapDefinition.details.defaultRotation"), data.defaultRotation],
               [t("businessData.mapDefinition.details.materialUnits"), data.materialUnits],
@@ -148,7 +164,10 @@ export function MapDefinitionDetailPage({ name }: { name: string }) {
             rows={[
               [t("businessData.mapDefinition.details.emptyUnitsColor"), data.emptyUnitsColor],
               [t("businessData.mapDefinition.details.gridLinesColor"), data.gridLinesColor],
-              [t("businessData.mapDefinition.details.showGridLinesByDefault"), booleanLabel(data.showGridLinesByDefault)],
+              [
+                t("businessData.mapDefinition.details.showGridLinesByDefault"),
+                booleanLabel(data.showGridLinesByDefault),
+              ],
             ]}
           />
         </Card>

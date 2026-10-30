@@ -31,16 +31,18 @@ const RESOURCES = [
   { name: "Oven-02", lastUploadDate: "" },
 ];
 
-export function UploadRecipeToResourceDialog({ open, onClose, recipeName }: UploadRecipeToResourceDialogProps) {
+export function UploadRecipeToResourceDialog({
+  open,
+  onClose,
+  recipeName,
+}: UploadRecipeToResourceDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.recipe.dialogs.upload";
   const [selected, setSelected] = useState<string[]>(["Oven-01"]);
   const [comments, setComments] = useState("");
 
   const toggle = (name: string) => {
-    setSelected((prev) =>
-      prev.includes(name) ? prev.filter((n) => n !== name) : [...prev, name],
-    );
+    setSelected((prev) => (prev.includes(name) ? prev.filter((n) => n !== name) : [...prev, name]));
   };
 
   return (
@@ -63,7 +65,10 @@ export function UploadRecipeToResourceDialog({ open, onClose, recipeName }: Uplo
                 {RESOURCES.map((r) => (
                   <TableRow key={r.name}>
                     <TableCell>
-                      <Checkbox checked={selected.includes(r.name)} onChange={() => toggle(r.name)} />
+                      <Checkbox
+                        checked={selected.includes(r.name)}
+                        onChange={() => toggle(r.name)}
+                      />
                     </TableCell>
                     <TableCell>{r.name}</TableCell>
                     <TableCell>{r.lastUploadDate}</TableCell>
@@ -76,7 +81,9 @@ export function UploadRecipeToResourceDialog({ open, onClose, recipeName }: Uplo
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             <Button appearance="primary" onClick={onClose} disabled={selected.length === 0}>
               {t(`${k}.upload`)}
             </Button>

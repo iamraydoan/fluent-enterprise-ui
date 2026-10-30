@@ -77,7 +77,11 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
         </div>
         <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
           {data.overlays.map((overlay) => (
-            <div key={overlay.name} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
+            <div
+              key={overlay.name}
+              className={sharedStyles.contentCard}
+              style={{ padding: "12px" }}
+            >
               <Body1Strong>
                 {overlay.name}
                 {overlay.isActive ? ` (${t("businessData.substrateMap.active")})` : ""}

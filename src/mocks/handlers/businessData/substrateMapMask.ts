@@ -1,5 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { getSubstrateMapMaskDetail, getSubstrateMapMaskPage } from "../../seeds/businessData/substrateMapMask";
+import {
+  getSubstrateMapMaskDetail,
+  getSubstrateMapMaskPage,
+} from "../../seeds/businessData/substrateMapMask";
 
 export const substrateMapMaskHandlers = [
   http.get("/business-data/substrate-map-masks", ({ request }) => {

@@ -26,7 +26,6 @@ import { ActionBar } from "./ActionBar";
 import { PageHeader } from "./PageHeader";
 import { RibbonButton } from "./RibbonButton";
 
-
 const useDetailShellStyles = makeStyles({
   tabsRow: {
     padding: "0 12px",
@@ -367,27 +366,23 @@ export function DetailShell({
                   sharedStyles={sharedStyles}
                   icon={<MoreVertical24Regular />}
                   label={t("actionBar.more")}
-                  menu={
-                    (() => {
-                      const items = [
-                        ...(moreMenuItems ?? []).map((item) => ({
-                          label: t(item.labelKey),
-                          icon: item.icon,
-                          disabled: item.disabled,
-                          onClick: item.onClick,
-                        })),
-                        ...(moreActions ?? []).map((action) => ({
-                          label:
-                            action.label ??
-                            (action.labelKey ? t(action.labelKey) : ""),
-                          icon: undefined,
-                          disabled: action.disabled,
-                          onClick: action.onClick,
-                        })),
-                      ];
-                      return items.length > 0 ? items : undefined;
-                    })()
-                  }
+                  menu={(() => {
+                    const items = [
+                      ...(moreMenuItems ?? []).map((item) => ({
+                        label: t(item.labelKey),
+                        icon: item.icon,
+                        disabled: item.disabled,
+                        onClick: item.onClick,
+                      })),
+                      ...(moreActions ?? []).map((action) => ({
+                        label: action.label ?? (action.labelKey ? t(action.labelKey) : ""),
+                        icon: undefined,
+                        disabled: action.disabled,
+                        onClick: action.onClick,
+                      })),
+                    ];
+                    return items.length > 0 ? items : undefined;
+                  })()}
                 />
               </div>
               <div className={sharedStyles.actionBarGroupLabel}>

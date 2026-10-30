@@ -108,15 +108,9 @@ export function RecipeDetailPage({ name }: RecipeDetailPageProps) {
             rows={[
               [t("businessData.recipe.details.isEnabled"), yesNo(data.isEnabled)],
               [t("businessData.recipe.details.isExecutable"), yesNo(data.isExecutable)],
-              [
-                t("businessData.recipe.details.resourceRecipeName"),
-                data.resourceRecipeName,
-              ],
+              [t("businessData.recipe.details.resourceRecipeName"), data.resourceRecipeName],
               [t("businessData.recipe.details.userInformation"), data.userInformation],
-              [
-                t("businessData.recipe.details.supplierInformation"),
-                data.supplierInformation,
-              ],
+              [t("businessData.recipe.details.supplierInformation"), data.supplierInformation],
             ]}
           />
         </Card>

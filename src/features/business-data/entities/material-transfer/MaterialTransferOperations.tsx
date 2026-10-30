@@ -1,12 +1,6 @@
 import { useState } from "react";
 import { Dismiss16Regular } from "@/components/icons";
-import {
-  Button,
-  Input,
-  Text,
-  makeStyles,
-  tokens,
-} from "@/components/ui";
+import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 
@@ -80,7 +74,9 @@ function DialogShell({
         aria-label={title}
       >
         <div className={styles.header}>
-          <Text size={400} weight="semibold">{title}</Text>
+          <Text size={400} weight="semibold">
+            {title}
+          </Text>
           <Button
             appearance="subtle"
             icon={<Dismiss16Regular />}
@@ -119,12 +115,7 @@ function Field({
   );
 }
 
-function LifecycleDialog({
-  open,
-  onClose,
-  onSubmit,
-  opKey,
-}: DialogProps & { opKey: string }) {
+function LifecycleDialog({ open, onClose, onSubmit, opKey }: DialogProps & { opKey: string }) {
   const { t } = useAppTranslation();
   const P = `businessData.materialTransfer.operations.${opKey}`;
   const [comment, setComment] = useState("");
@@ -142,7 +133,13 @@ function LifecycleDialog({
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -236,7 +233,13 @@ export function ChangeMaterialTransferInfoDialog({ open, onClose, onSubmit }: Di
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -256,7 +259,8 @@ export function RequestMaterialTransferDialog({ open, onClose, onSubmit }: Dialo
   const [quantity, setQuantity] = useState("");
 
   const handleClose = () => {
-    setProduct(""); setQuantity("");
+    setProduct("");
+    setQuantity("");
     onClose();
   };
 
@@ -270,7 +274,10 @@ export function RequestMaterialTransferDialog({ open, onClose, onSubmit }: Dialo
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
             appearance="primary"
-            onClick={() => { onSubmit?.(); handleClose(); }}
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
             disabled={!product}
           >
             {t(`${P}.submit` as never)}
@@ -299,7 +306,13 @@ export function RequestForMAODialog({ open, onClose, onSubmit }: DialogProps) {
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -321,7 +334,13 @@ export function RequestForCostCenterDialog({ open, onClose, onSubmit }: DialogPr
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -343,7 +362,13 @@ export function ReturnInventoryDialog({ open, onClose, onSubmit }: DialogProps) 
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -365,7 +390,13 @@ export function ReturnMaterialDialog({ open, onClose, onSubmit }: DialogProps) {
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -387,7 +418,13 @@ export function SpecialRequestForMaterialDialog({ open, onClose, onSubmit }: Dia
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>

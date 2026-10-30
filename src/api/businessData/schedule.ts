@@ -35,9 +35,7 @@ export function useSchedules(params: ScheduleListParams) {
 }
 
 export function getSchedule(name: string): Promise<ScheduleDetail> {
-  return apiFetch<ScheduleDetail>(
-    `/business-data/schedules/${encodeURIComponent(name)}`,
-  );
+  return apiFetch<ScheduleDetail>(`/business-data/schedules/${encodeURIComponent(name)}`);
 }
 
 export function useScheduleDetail(name: string) {

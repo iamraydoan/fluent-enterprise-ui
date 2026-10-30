@@ -3,7 +3,8 @@ import { ExperimentDefinitionListPage } from "@/features/business-data/entities/
 
 function ExperimentDefinitionRoute() {
   const location = useLocation();
-  if (location.pathname === "/business-data/experiment-definition") return <ExperimentDefinitionListPage />;
+  if (location.pathname === "/business-data/experiment-definition")
+    return <ExperimentDefinitionListPage />;
   return <Outlet />;
 }
 

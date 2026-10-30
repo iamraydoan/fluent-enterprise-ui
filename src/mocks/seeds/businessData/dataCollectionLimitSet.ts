@@ -4,12 +4,23 @@ import type {
   DataCollectionLimitSetRecord,
   DataCollectionLimitSetUpsertInput,
   ManageLimitSetParametersInput,
-  ParameterLimit, Page 
+  ParameterLimit,
+  Page,
 } from "@/api";
 
 const RECORDS: DataCollectionLimitSetRecord[] = [
-  { name: "Cookie Inspection Limits 001", description: "", dataCollection: "Cookie Inspection 001", state: "Created" },
-  { name: "Cookie Baking Limit Set 001", description: "Baking limits", dataCollection: "Dough Mixing 001", state: "Effective" },
+  {
+    name: "Cookie Inspection Limits 001",
+    description: "",
+    dataCollection: "Cookie Inspection 001",
+    state: "Created",
+  },
+  {
+    name: "Cookie Baking Limit Set 001",
+    description: "Baking limits",
+    dataCollection: "Dough Mixing 001",
+    state: "Effective",
+  },
 ];
 
 const OVERLAYS: Record<string, Partial<DataCollectionLimitSetDetail>> = {};
@@ -28,7 +39,14 @@ const DEFAULT_PARAMETER_LIMITS: ParameterLimit[] = [
     upperWarningLimit: "450",
     upperErrorLimit: "500",
     sampleLimits: [
-      { sampleId: "Sample 1", lowerErrorLimit: "300", lowerWarningLimit: "350", target: "400", upperWarningLimit: "450", upperErrorLimit: "500" },
+      {
+        sampleId: "Sample 1",
+        lowerErrorLimit: "300",
+        lowerWarningLimit: "350",
+        target: "400",
+        upperWarningLimit: "450",
+        upperErrorLimit: "500",
+      },
     ],
   },
   {
@@ -47,20 +65,31 @@ const DEFAULT_PARAMETER_LIMITS: ParameterLimit[] = [
   },
 ];
 
-export function queryDataCollectionLimitSets(page: number, limit: number, q?: string, state?: string): Page<DataCollectionLimitSetRecord> {
+export function queryDataCollectionLimitSets(
+  page: number,
+  limit: number,
+  q?: string,
+  state?: string,
+): Page<DataCollectionLimitSetRecord> {
   let rows = RECORDS;
   if (q) {
     const n = q.toLowerCase();
     rows = rows.filter((r) => r.name.toLowerCase().includes(n));
   }
-  if (state && state !== "" && state !== "all") rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
+  if (state && state !== "" && state !== "all")
+    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
   const total = rows.length;
   const start = (page - 1) * limit;
   return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
 }
 
 export function buildDataCollectionLimitSetDetail(name: string): DataCollectionLimitSetDetail {
-  const r = RECORDS.find((x) => x.name === name) ?? { name, description: name, dataCollection: "", state: "Created" };
+  const r = RECORDS.find((x) => x.name === name) ?? {
+    name,
+    description: name,
+    dataCollection: "",
+    state: "Created",
+  };
   const overlay = OVERLAYS[name] ?? {};
   return {
     ...r,
@@ -73,9 +102,17 @@ export function buildDataCollectionLimitSetDetail(name: string): DataCollectionL
   };
 }
 
-export function createDataCollectionLimitSet(input: DataCollectionLimitSetUpsertInput): DataCollectionLimitSetDetail {
-  const name = input.name ?? `Data Collection Limit Set ${String(RECORDS.length + 1).padStart(3, "0")}`;
-  RECORDS.push({ name, description: input.description ?? "", dataCollection: input.dataCollection ?? "", state: "Created" });
+export function createDataCollectionLimitSet(
+  input: DataCollectionLimitSetUpsertInput,
+): DataCollectionLimitSetDetail {
+  const name =
+    input.name ?? `Data Collection Limit Set ${String(RECORDS.length + 1).padStart(3, "0")}`;
+  RECORDS.push({
+    name,
+    description: input.description ?? "",
+    dataCollection: input.dataCollection ?? "",
+    state: "Created",
+  });
   OVERLAYS[name] = {
     type: input.type ?? "General",
     changeSet: input.changeSet ?? "",
@@ -84,7 +121,10 @@ export function createDataCollectionLimitSet(input: DataCollectionLimitSetUpsert
   return buildDataCollectionLimitSetDetail(name);
 }
 
-export function updateDataCollectionLimitSet(name: string, input: DataCollectionLimitSetUpsertInput): DataCollectionLimitSetDetail {
+export function updateDataCollectionLimitSet(
+  name: string,
+  input: DataCollectionLimitSetUpsertInput,
+): DataCollectionLimitSetDetail {
   const rec = RECORDS.find((x) => x.name === name);
   if (rec) {
     if (input.description !== undefined) rec.description = input.description;
@@ -99,22 +139,35 @@ export function updateDataCollectionLimitSet(name: string, input: DataCollection
   return buildDataCollectionLimitSetDetail(name);
 }
 
-export function setDataCollectionLimitSetState(name: string, state: string): DataCollectionLimitSetDetail {
+export function setDataCollectionLimitSetState(
+  name: string,
+  state: string,
+): DataCollectionLimitSetDetail {
   const rec = RECORDS.find((x) => x.name === name);
   if (rec) rec.state = state;
   OVERLAYS[name] = { ...(OVERLAYS[name] ?? {}), state, universalState: state };
   return buildDataCollectionLimitSetDetail(name);
 }
 
-export function manageDataCollectionLimitSetParameters(name: string, input: ManageLimitSetParametersInput): DataCollectionLimitSetDetail {
+export function manageDataCollectionLimitSetParameters(
+  name: string,
+  input: ManageLimitSetParametersInput,
+): DataCollectionLimitSetDetail {
   OVERLAYS[name] = { ...(OVERLAYS[name] ?? {}), parameterLimits: input.parameterLimits };
   return buildDataCollectionLimitSetDetail(name);
 }
 
-export function copyDataCollectionLimitSets(input: CopyDataCollectionLimitSetsInput): DataCollectionLimitSetDetail[] {
+export function copyDataCollectionLimitSets(
+  input: CopyDataCollectionLimitSetsInput,
+): DataCollectionLimitSetDetail[] {
   return input.copies.map((copy) => {
     const source = buildDataCollectionLimitSetDetail(copy.source);
-    RECORDS.push({ name: copy.name, description: source.description, dataCollection: input.targetDataCollection, state: "Created" });
+    RECORDS.push({
+      name: copy.name,
+      description: source.description,
+      dataCollection: input.targetDataCollection,
+      state: "Created",
+    });
     OVERLAYS[copy.name] = {
       type: source.type,
       changeSet: input.changeSet ?? "",

@@ -5,7 +5,6 @@ import { useSharedStyles } from "@/styles/shared";
 import { TERMINATE } from "./wizardMode";
 import type { TerminateMode } from "./wizardMode";
 
-
 const L: Record<string, TranslationKey> = {
   terminateTitle: "businessData.employee.terminateDialog.title",
   terminateMessage: "businessData.employee.terminateDialog.message",
@@ -59,7 +58,12 @@ export function EmployeeTerminateDialog({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(isTerminate ? L.terminateTitle : L.unterminateTitle)}</div>
         <div className={styles.body}>
           <div>{t(isTerminate ? L.terminateMessage : L.unterminateMessage, { name })}</div>

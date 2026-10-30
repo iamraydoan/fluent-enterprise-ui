@@ -29,7 +29,11 @@ import { useSharedStyles } from "@/styles/shared";
 import { useBomDialogs } from "./useBomDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "12px" },
+  cards: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: "12px",
+  },
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
@@ -50,10 +54,18 @@ const useDetailStyles = makeStyles({
     borderBottom: "2px solid transparent",
     ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
   },
-  tabActive: { fontWeight: tokens.fontWeightSemibold, borderBottom: `2px solid ${tokens.colorBrandStroke1}` },
+  tabActive: {
+    fontWeight: tokens.fontWeightSemibold,
+    borderBottom: `2px solid ${tokens.colorBrandStroke1}`,
+  },
   tabContent: { padding: "16px", flexGrow: 1, minHeight: 0, overflowY: "auto" },
   empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
-  itemsHeader: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" },
+  itemsHeader: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "12px",
+  },
 });
 
 const TABS = ["details", "compare", "references", "history"] as const;
@@ -80,7 +92,13 @@ export function BomDetailPage() {
 
   if (isLoading || !bom) {
     return (
-      <ListPage header={{ icon: <Box24Regular />, title: displayName, actions: [refreshAction, editAction] }}>
+      <ListPage
+        header={{
+          icon: <Box24Regular />,
+          title: displayName,
+          actions: [refreshAction, editAction],
+        }}
+      >
         <div className={styles.empty}>{t("businessData.bom.detail.loading")}</div>
       </ListPage>
     );
@@ -150,12 +168,24 @@ export function BomDetailPage() {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHeaderCell>{t("businessData.bom.detail.itemColumns.item")}</TableHeaderCell>
-                      <TableHeaderCell>{t("businessData.bom.detail.itemColumns.product")}</TableHeaderCell>
-                      <TableHeaderCell>{t("businessData.bom.detail.itemColumns.quantity")}</TableHeaderCell>
-                      <TableHeaderCell>{t("businessData.bom.detail.itemColumns.units")}</TableHeaderCell>
-                      <TableHeaderCell>{t("businessData.bom.detail.itemColumns.position")}</TableHeaderCell>
-                      <TableHeaderCell>{t("businessData.bom.detail.itemColumns.source")}</TableHeaderCell>
+                      <TableHeaderCell>
+                        {t("businessData.bom.detail.itemColumns.item")}
+                      </TableHeaderCell>
+                      <TableHeaderCell>
+                        {t("businessData.bom.detail.itemColumns.product")}
+                      </TableHeaderCell>
+                      <TableHeaderCell>
+                        {t("businessData.bom.detail.itemColumns.quantity")}
+                      </TableHeaderCell>
+                      <TableHeaderCell>
+                        {t("businessData.bom.detail.itemColumns.units")}
+                      </TableHeaderCell>
+                      <TableHeaderCell>
+                        {t("businessData.bom.detail.itemColumns.position")}
+                      </TableHeaderCell>
+                      <TableHeaderCell>
+                        {t("businessData.bom.detail.itemColumns.source")}
+                      </TableHeaderCell>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -179,7 +209,10 @@ export function BomDetailPage() {
                   <KV label={t("businessData.bom.detail.name")} value={bom.name} />
                   <KV label={t("businessData.bom.detail.description")} value={bom.description} />
                   <KV label={t("businessData.bom.detail.type")} value={bom.type} />
-                  <KV label={t("businessData.bom.detail.universalState")} value={bom.universalState} />
+                  <KV
+                    label={t("businessData.bom.detail.universalState")}
+                    value={bom.universalState}
+                  />
                   <KV label={t("businessData.bom.detail.dataGroup")} value={bom.dataGroup} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
@@ -187,18 +220,31 @@ export function BomDetailPage() {
                   <KV label={t("businessData.bom.detail.changeSetLabel")} value={bom.changeSet} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>{t("businessData.bom.detail.information")}</Text>
+                  <Text className={styles.cardTitle}>
+                    {t("businessData.bom.detail.information")}
+                  </Text>
                   <KV label={t("businessData.bom.detail.scope")} value={bom.scope} />
                   <KV label={t("businessData.bom.detail.product")} value={bom.product} />
-                  <KV label={t("businessData.bom.detail.baseQuantity")} value={String(bom.baseQuantity)} />
+                  <KV
+                    label={t("businessData.bom.detail.baseQuantity")}
+                    value={String(bom.baseQuantity)}
+                  />
                   <KV label={t("businessData.bom.detail.units")} value={bom.units} />
                   <KV
                     label={t("businessData.bom.detail.useTolerances")}
-                    value={bom.useTolerances ? t("businessData.bom.detail.yes") : t("businessData.bom.detail.no")}
+                    value={
+                      bom.useTolerances
+                        ? t("businessData.bom.detail.yes")
+                        : t("businessData.bom.detail.no")
+                    }
                   />
                   <KV
                     label={t("businessData.bom.detail.useMixedAssembly")}
-                    value={bom.useMixedAssembly ? t("businessData.bom.detail.yes") : t("businessData.bom.detail.no")}
+                    value={
+                      bom.useMixedAssembly
+                        ? t("businessData.bom.detail.yes")
+                        : t("businessData.bom.detail.no")
+                    }
                   />
                 </div>
               </div>

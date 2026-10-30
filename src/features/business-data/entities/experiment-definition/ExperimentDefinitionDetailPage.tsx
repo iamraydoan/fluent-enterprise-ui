@@ -3,7 +3,7 @@ import { useExperimentDefinitionDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text, Button  } from "@/components/ui";
+import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
@@ -14,7 +14,6 @@ import {
   SetEffectiveDialog,
 } from "./ExperimentDefinitionTerminateDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
-
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -34,9 +33,7 @@ const LEFT_ITEMS: TranslationKey[] = [
 export function ExperimentDefinitionDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<string>(
-    "businessData.experimentDefinition.sections.details",
-  );
+  const [left, setLeft] = useState<string>("businessData.experimentDefinition.sections.details");
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
   const [terminateOpen, setTerminateOpen] = useState(false);

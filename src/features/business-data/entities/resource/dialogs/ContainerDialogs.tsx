@@ -18,7 +18,11 @@ interface ContainerDialogProps {
   resourceName: string;
 }
 
-export function AddResourceToContainerDialog({ open, onClose, resourceName }: ContainerDialogProps) {
+export function AddResourceToContainerDialog({
+  open,
+  onClose,
+  resourceName,
+}: ContainerDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.resource.dialogs.container";
   const [container, setContainer] = useState("");
@@ -45,8 +49,12 @@ export function AddResourceToContainerDialog({ open, onClose, resourceName }: Co
             </div>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.add`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.add`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -54,7 +62,11 @@ export function AddResourceToContainerDialog({ open, onClose, resourceName }: Co
   );
 }
 
-export function RemoveResourceFromContainerDialog({ open, onClose, resourceName }: ContainerDialogProps) {
+export function RemoveResourceFromContainerDialog({
+  open,
+  onClose,
+  resourceName,
+}: ContainerDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.resource.dialogs.container";
   const [comment, setComment] = useState("");
@@ -65,14 +77,20 @@ export function RemoveResourceFromContainerDialog({ open, onClose, resourceName 
         <DialogBody>
           <DialogTitle>{t(`${k}.removeTitle`)}</DialogTitle>
           <DialogContent>
-            <div style={{ padding: "12px 0" }}>{t(`${k}.removeMessage`, { name: resourceName })}</div>
+            <div style={{ padding: "12px 0" }}>
+              {t(`${k}.removeMessage`, { name: resourceName })}
+            </div>
             <Field label={t(`${k}.comment`)}>
               <Input value={comment} onChange={(_, d) => setComment(d.value)} />
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.remove`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.remove`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -80,7 +98,11 @@ export function RemoveResourceFromContainerDialog({ open, onClose, resourceName 
   );
 }
 
-export function TransferResourceBetweenContainersDialog({ open, onClose, resourceName }: ContainerDialogProps) {
+export function TransferResourceBetweenContainersDialog({
+  open,
+  onClose,
+  resourceName,
+}: ContainerDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.resource.dialogs.container";
   const [sourceContainer, setSourceContainer] = useState("");
@@ -111,8 +133,12 @@ export function TransferResourceBetweenContainersDialog({ open, onClose, resourc
             </div>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.transfer`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.transfer`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -120,7 +146,11 @@ export function TransferResourceBetweenContainersDialog({ open, onClose, resourc
   );
 }
 
-export function StoreContainersInResourceDialog({ open, onClose, resourceName }: ContainerDialogProps) {
+export function StoreContainersInResourceDialog({
+  open,
+  onClose,
+  resourceName,
+}: ContainerDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.resource.dialogs.store";
   const [container, setContainer] = useState("");
@@ -141,8 +171,12 @@ export function StoreContainersInResourceDialog({ open, onClose, resourceName }:
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.store`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.store`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -150,7 +184,11 @@ export function StoreContainersInResourceDialog({ open, onClose, resourceName }:
   );
 }
 
-export function StoreMaterialsInResourceDialog({ open, onClose, resourceName }: ContainerDialogProps) {
+export function StoreMaterialsInResourceDialog({
+  open,
+  onClose,
+  resourceName,
+}: ContainerDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.resource.dialogs.store";
   const [material, setMaterial] = useState("");
@@ -171,8 +209,12 @@ export function StoreMaterialsInResourceDialog({ open, onClose, resourceName }: 
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.store`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.store`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -201,8 +243,12 @@ export function StoreResourceDialog({ open, onClose, resourceName }: ContainerDi
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.store`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.store`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -221,14 +267,20 @@ export function RetrieveResourceDialog({ open, onClose, resourceName }: Containe
         <DialogBody>
           <DialogTitle>{t(`${k}.retrieveTitle`)}</DialogTitle>
           <DialogContent>
-            <div style={{ padding: "12px 0" }}>{t(`${k}.retrieveMessage`, { name: resourceName })}</div>
+            <div style={{ padding: "12px 0" }}>
+              {t(`${k}.retrieveMessage`, { name: resourceName })}
+            </div>
             <Field label={t(`${k}.comment`)}>
               <Input value={comment} onChange={(_, d) => setComment(d.value)} />
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.retrieve`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.retrieve`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

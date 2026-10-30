@@ -88,7 +88,12 @@ const CLONE_AREA_STEPS: WizardStep[] = [
   {
     titleKey: "businessData.area.detail.generalData",
     fields: [
-      { key: "name", labelKey: "businessData.area.operations.newName", type: "text", required: true },
+      {
+        key: "name",
+        labelKey: "businessData.area.operations.newName",
+        type: "text",
+        required: true,
+      },
     ],
   },
 ];
@@ -107,7 +112,6 @@ function toUpsertInput(values: OperationValues): AreaUpsertInput {
     enableShiftLogbook: values.enableShiftLogbook === true,
   };
 }
-
 
 export interface AreaDialogs {
   dialogs: React.ReactNode;

@@ -42,7 +42,12 @@ function ManageDialogBase({
   listLabelKey: TranslationKey;
   detailsTitleKey: TranslationKey;
   items: ManageItem[];
-  fields: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[];
+  fields: {
+    key: string;
+    labelKey: TranslationKey;
+    type: "text" | "select" | "checkbox";
+    options?: string[];
+  }[];
   commentsKey: TranslationKey;
   updateKey: TranslationKey;
 }) {
@@ -80,20 +85,39 @@ function ManageDialogBase({
             <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
             <div style={{ display: "flex", columnGap: 16 }}>
               <div style={{ width: 320, flexShrink: 0 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: 8,
+                  }}
+                >
                   <Body1Strong>{t(listLabelKey, { count: list.length })}</Body1Strong>
                   <div style={{ display: "flex", columnGap: 4 }}>
-                    <Button size="small" appearance="subtle" onClick={addItem}>+</Button>
-                    <Button size="small" appearance="subtle" onClick={() => removeItem(selected)}>🗑</Button>
+                    <Button size="small" appearance="subtle" onClick={addItem}>
+                      +
+                    </Button>
+                    <Button size="small" appearance="subtle" onClick={() => removeItem(selected)}>
+                      🗑
+                    </Button>
                   </div>
                 </div>
-                <div style={{ border: "1px solid #ddd", borderRadius: 4, minHeight: 300, overflow: "auto" }}>
+                <div
+                  style={{
+                    border: "1px solid #ddd",
+                    borderRadius: 4,
+                    minHeight: 300,
+                    overflow: "auto",
+                  }}
+                >
                   {list.map((item, i) => (
                     <div
                       key={`${item.name}-${i}`}
                       onClick={() => selectItem(i)}
                       style={{
-                        padding: "8px 12px", cursor: "pointer",
+                        padding: "8px 12px",
+                        cursor: "pointer",
                         backgroundColor: i === selected ? "#e3f2fd" : "transparent",
                         borderBottom: "1px solid #eee",
                       }}
@@ -111,15 +135,21 @@ function ManageDialogBase({
                     {f.type === "checkbox" ? (
                       <Checkbox
                         checked={(fieldValues[f.key] as boolean) ?? false}
-                        onChange={(_, d) => setFieldValues({ ...fieldValues, [f.key]: d.checked === true })}
+                        onChange={(_, d) =>
+                          setFieldValues({ ...fieldValues, [f.key]: d.checked === true })
+                        }
                       />
                     ) : f.type === "select" ? (
                       <select
                         value={(fieldValues[f.key] as string) ?? ""}
-                        onChange={(e) => setFieldValues({ ...fieldValues, [f.key]: e.target.value })}
+                        onChange={(e) =>
+                          setFieldValues({ ...fieldValues, [f.key]: e.target.value })
+                        }
                       >
                         {(f.options ?? []).map((o) => (
-                          <option key={o} value={o}>{o}</option>
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
                         ))}
                       </select>
                     ) : (
@@ -137,8 +167,12 @@ function ManageDialogBase({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(updateKey)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(updateKey)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -170,35 +204,94 @@ const ITEMS_2: ManageItem[] = [{ name: "Sub-Resource-1", detail: "Process" }];
 const ITEMS_3: ManageItem[] = [{ name: "Normal", detail: "Default" }];
 const ITEMS_4: ManageItem[] = [{ name: "Feed-01", detail: "Active" }];
 
-
-
-const FIELDS_0: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "service", labelKey: "businessData.resource.dialogs.manage.service", type: "text" },
-        { key: "priority", labelKey: "businessData.resource.dialogs.manage.priority", type: "text" },
-        { key: "requiresRunningMode", labelKey: "businessData.resource.dialogs.manage.requiresRunningMode", type: "checkbox" },
-        { key: "isEnabled", labelKey: "businessData.resource.dialogs.manage.isEnabled", type: "checkbox" },
-        { key: "qualificationCheck", labelKey: "businessData.resource.dialogs.manage.qualificationCheck", type: "text" },
-      ];
-const FIELDS_1: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "recipe", labelKey: "businessData.resource.dialogs.manage.recipe", type: "text" },
-        { key: "isEnabled", labelKey: "businessData.resource.dialogs.manage.isEnabled", type: "checkbox" },
-        { key: "qualificationCheck", labelKey: "businessData.resource.dialogs.manage.qualificationCheck", type: "text" },
-      ];
-const FIELDS_2: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "resource", labelKey: "businessData.resource.dialogs.manage.resource", type: "text" },
-        { key: "parentResource", labelKey: "businessData.resource.dialogs.manage.parentResource", type: "text" },
-      ];
-const FIELDS_3: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "runningMode", labelKey: "businessData.resource.dialogs.manage.runningMode", type: "text" },
-        { key: "description", labelKey: "businessData.resource.dialogs.manage.description", type: "text" },
-      ];
-const FIELDS_4: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "consumableFeed", labelKey: "businessData.resource.dialogs.manage.consumableFeed", type: "text" },
-        { key: "isShared", labelKey: "businessData.resource.dialogs.manage.isShared", type: "checkbox" },
-      ];
+const FIELDS_0: {
+  key: string;
+  labelKey: TranslationKey;
+  type: "text" | "select" | "checkbox";
+  options?: string[];
+}[] = [
+  { key: "service", labelKey: "businessData.resource.dialogs.manage.service", type: "text" },
+  { key: "priority", labelKey: "businessData.resource.dialogs.manage.priority", type: "text" },
+  {
+    key: "requiresRunningMode",
+    labelKey: "businessData.resource.dialogs.manage.requiresRunningMode",
+    type: "checkbox",
+  },
+  {
+    key: "isEnabled",
+    labelKey: "businessData.resource.dialogs.manage.isEnabled",
+    type: "checkbox",
+  },
+  {
+    key: "qualificationCheck",
+    labelKey: "businessData.resource.dialogs.manage.qualificationCheck",
+    type: "text",
+  },
+];
+const FIELDS_1: {
+  key: string;
+  labelKey: TranslationKey;
+  type: "text" | "select" | "checkbox";
+  options?: string[];
+}[] = [
+  { key: "recipe", labelKey: "businessData.resource.dialogs.manage.recipe", type: "text" },
+  {
+    key: "isEnabled",
+    labelKey: "businessData.resource.dialogs.manage.isEnabled",
+    type: "checkbox",
+  },
+  {
+    key: "qualificationCheck",
+    labelKey: "businessData.resource.dialogs.manage.qualificationCheck",
+    type: "text",
+  },
+];
+const FIELDS_2: {
+  key: string;
+  labelKey: TranslationKey;
+  type: "text" | "select" | "checkbox";
+  options?: string[];
+}[] = [
+  { key: "resource", labelKey: "businessData.resource.dialogs.manage.resource", type: "text" },
+  {
+    key: "parentResource",
+    labelKey: "businessData.resource.dialogs.manage.parentResource",
+    type: "text",
+  },
+];
+const FIELDS_3: {
+  key: string;
+  labelKey: TranslationKey;
+  type: "text" | "select" | "checkbox";
+  options?: string[];
+}[] = [
+  {
+    key: "runningMode",
+    labelKey: "businessData.resource.dialogs.manage.runningMode",
+    type: "text",
+  },
+  {
+    key: "description",
+    labelKey: "businessData.resource.dialogs.manage.description",
+    type: "text",
+  },
+];
+const FIELDS_4: {
+  key: string;
+  labelKey: TranslationKey;
+  type: "text" | "select" | "checkbox";
+  options?: string[];
+}[] = [
+  {
+    key: "consumableFeed",
+    labelKey: "businessData.resource.dialogs.manage.consumableFeed",
+    type: "text",
+  },
+  { key: "isShared", labelKey: "businessData.resource.dialogs.manage.isShared", type: "checkbox" },
+];
 
 export function ManageResourceServicesDialog(p: ManageDialogProps) {
-    return (
+  return (
     <ManageDialogBase
       {...p}
       titleKey={K11}
@@ -213,7 +306,7 @@ export function ManageResourceServicesDialog(p: ManageDialogProps) {
 }
 
 export function ManageResourceRecipesDialog(p: ManageDialogProps) {
-    return (
+  return (
     <ManageDialogBase
       {...p}
       titleKey={K5}
@@ -228,7 +321,7 @@ export function ManageResourceRecipesDialog(p: ManageDialogProps) {
 }
 
 export function ManageStructureDialog(p: ManageDialogProps) {
-    return (
+  return (
     <ManageDialogBase
       {...p}
       titleKey={K14}
@@ -243,7 +336,7 @@ export function ManageStructureDialog(p: ManageDialogProps) {
 }
 
 export function ManageRunningModesDialog(p: ManageDialogProps) {
-    return (
+  return (
     <ManageDialogBase
       {...p}
       titleKey={K8}
@@ -258,7 +351,7 @@ export function ManageRunningModesDialog(p: ManageDialogProps) {
 }
 
 export function ManageConsumableFeedsDialog(p: ManageDialogProps) {
-    return (
+  return (
     <ManageDialogBase
       {...p}
       titleKey={K2}

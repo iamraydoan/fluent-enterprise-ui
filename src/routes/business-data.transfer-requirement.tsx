@@ -3,7 +3,8 @@ import { TransferRequirementListPage } from "@/features/business-data/entities/t
 
 function TransferRequirementRoute() {
   const location = useLocation();
-  if (location.pathname === "/business-data/transfer-requirement") return <TransferRequirementListPage />;
+  if (location.pathname === "/business-data/transfer-requirement")
+    return <TransferRequirementListPage />;
   return <Outlet />;
 }
 

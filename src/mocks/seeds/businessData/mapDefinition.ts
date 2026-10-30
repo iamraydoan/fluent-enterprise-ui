@@ -1,8 +1,4 @@
-import type {
-  MapDefinitionDetail,
-  MapDefinitionRecord,
-  Page,
-} from "@/api";
+import type { MapDefinitionDetail, MapDefinitionRecord, Page } from "@/api";
 import { RecordState } from "@/api";
 
 const DEFINITIONS: MapDefinitionRecord[] = [
@@ -66,8 +62,7 @@ export function queryMapDefinitions(
     const needle = q.toLowerCase();
     rows = rows.filter(
       (row) =>
-        row.name.toLowerCase().includes(needle) ||
-        row.description.toLowerCase().includes(needle),
+        row.name.toLowerCase().includes(needle) || row.description.toLowerCase().includes(needle),
     );
   }
   if (state !== undefined && state !== "") {

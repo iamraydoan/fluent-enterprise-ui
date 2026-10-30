@@ -4,6 +4,7 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
+const TITLE_SEPARATOR = "—";
 
 const L: Record<string, TranslationKey> = {
   editTitle: "businessData.maintenanceActivityOrder.dialog.editTitle",
@@ -23,14 +24,26 @@ const useDialogStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "560px", maxWidth: "95vw", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+  surface: {
+    width: "560px",
+    maxWidth: "95vw",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "90vh",
+  },
   head: {
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase400,
   },
-  body: { padding: "16px", display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto" },
+  body: {
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    overflowY: "auto",
+  },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -41,7 +54,13 @@ const useDialogStyles = makeStyles({
   field: { display: "grid", gridTemplateColumns: "160px 1fr", gap: "12px", alignItems: "center" },
 });
 
-export function MaintenanceActivityOrderDialog({ name, onClose }: { name: string; onClose: () => void }) {
+export function MaintenanceActivityOrderDialog({
+  name,
+  onClose,
+}: {
+  name: string;
+  onClose: () => void;
+}) {
   const { t } = useAppTranslation();
   const shared = useSharedStyles();
   const styles = useDialogStyles();
@@ -50,9 +69,14 @@ export function MaintenanceActivityOrderDialog({ name, onClose }: { name: string
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>
-          {t(L.editTitle)} — {name}
+          {t(L.editTitle)} {TITLE_SEPARATOR} {name}
         </div>
         <div className={styles.body}>
           <div className={styles.field}>

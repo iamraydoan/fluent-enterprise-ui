@@ -86,7 +86,10 @@ export function SetupMatrixDetailPage({ name }: SetupMatrixDetailPageProps) {
               [t("businessData.setupMatrix.details.name"), data.name],
               [t("businessData.setupMatrix.details.description"), data.description],
               [t("businessData.setupMatrix.details.timeScale"), data.timeScale],
-              [t("businessData.setupMatrix.details.useZeroInDiagonal"), data.useZeroInDiagonal ? t("common.yes") : t("common.no")],
+              [
+                t("businessData.setupMatrix.details.useZeroInDiagonal"),
+                data.useZeroInDiagonal ? t("common.yes") : t("common.no"),
+              ],
               [t("businessData.setupMatrix.details.state"), stateLabel],
             ]}
           />

@@ -24,7 +24,12 @@ function buildBinConverterSteps(): WizardStep[] {
     {
       titleKey: "businessData.binConverter.detail.binConverter",
       fields: [
-        { key: "name", labelKey: "businessData.binConverter.detail.name", type: "text", required: true },
+        {
+          key: "name",
+          labelKey: "businessData.binConverter.detail.name",
+          type: "text",
+          required: true,
+        },
         {
           key: "description",
           labelKey: "businessData.binConverter.detail.description",
@@ -108,7 +113,12 @@ export function useBinConverterDialogs(converter?: BinConverterDetail): BinConve
     {
       titleKey: "businessData.binConverter.detail.binConverter",
       fields: [
-        { key: "name", labelKey: "businessData.binConverter.detail.name", type: "text", required: true },
+        {
+          key: "name",
+          labelKey: "businessData.binConverter.detail.name",
+          type: "text",
+          required: true,
+        },
         {
           key: "description",
           labelKey: "businessData.binConverter.detail.description",

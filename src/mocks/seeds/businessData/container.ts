@@ -1,8 +1,26 @@
-import type { ContainerDetail, ContainerPosition, ContainerRecord, ContainerUpsertInput, Page  } from "@/api";
+import type {
+  ContainerDetail,
+  ContainerPosition,
+  ContainerRecord,
+  ContainerUpsertInput,
+  Page,
+} from "@/api";
 
 const RECORDS: ContainerRecord[] = [
-  { name: "Container 001", description: "Container 001 of 100", type: "General", systemState: "Available", state: "Active" },
-  { name: "Container 002", description: "In transit container", type: "General", systemState: "In Transit", state: "Active" },
+  {
+    name: "Container 001",
+    description: "Container 001 of 100",
+    type: "General",
+    systemState: "Available",
+    state: "Active",
+  },
+  {
+    name: "Container 002",
+    description: "In transit container",
+    type: "General",
+    systemState: "In Transit",
+    state: "Active",
+  },
 ];
 
 const CONTAINER_OVERLAYS: Record<string, Partial<ContainerDetail>> = {};
@@ -10,7 +28,19 @@ const CONTAINER_OVERLAYS: Record<string, Partial<ContainerDetail>> = {};
 function defaultPositions(): ContainerPosition[] {
   return Array.from({ length: 10 }, (_, i) => ({
     position: i + 1,
-    material: i < 8 ? ["Cookie A1", "Cookie A1", "Cookie A5", "Cookie C3", "", "Cookie D3", "Cookie B1", "Cookie D2"][i] : "",
+    material:
+      i < 8
+        ? [
+            "Cookie A1",
+            "Cookie A1",
+            "Cookie A5",
+            "Cookie C3",
+            "",
+            "Cookie D3",
+            "Cookie B1",
+            "Cookie D2",
+          ][i]
+        : "",
     product: i < 8 ? "Cookie A [A]" : "",
     step: i < 8 ? "Mixing" : "",
     quantity: i < 8 ? [40, 40, 40, 50, 0, 70, 100, 70][i] : 0,
@@ -18,20 +48,34 @@ function defaultPositions(): ContainerPosition[] {
   }));
 }
 
-export function queryContainers(page: number, limit: number, q?: string, state?: string): Page<ContainerRecord> {
+export function queryContainers(
+  page: number,
+  limit: number,
+  q?: string,
+  state?: string,
+): Page<ContainerRecord> {
   let rows = RECORDS;
   if (q) {
     const n = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(n) || r.description.toLowerCase().includes(n));
+    rows = rows.filter(
+      (r) => r.name.toLowerCase().includes(n) || r.description.toLowerCase().includes(n),
+    );
   }
-  if (state && state !== "" && state !== "all") rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
+  if (state && state !== "" && state !== "all")
+    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
   const total = rows.length;
   const start = (page - 1) * limit;
   return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
 }
 
 export function buildContainerDetail(name: string): ContainerDetail {
-  const r = RECORDS.find((x) => x.name === name) ?? { name, description: name, type: "General", systemState: "Available", state: "Active" };
+  const r = RECORDS.find((x) => x.name === name) ?? {
+    name,
+    description: name,
+    type: "General",
+    systemState: "Available",
+    state: "Active",
+  };
   const positions = defaultPositions();
   const detail: ContainerDetail = {
     ...r,
@@ -53,9 +97,15 @@ export function buildContainerDetail(name: string): ContainerDetail {
     vendorId: "",
     autoGeneratePositions: false,
     orientation: "None",
-    materials: positions.filter((p) => p.material !== "").map((p) => ({
-      position: p.position, material: p.material, product: p.product, step: p.step, quantity: `${p.quantity} ${p.unit}`,
-    })),
+    materials: positions
+      .filter((p) => p.material !== "")
+      .map((p) => ({
+        position: p.position,
+        material: p.material,
+        product: p.product,
+        step: p.step,
+        quantity: `${p.quantity} ${p.unit}`,
+      })),
     positions,
   };
   const overlay = CONTAINER_OVERLAYS[name];
@@ -118,10 +168,19 @@ export function applyContainerOperation(
       CONTAINER_OVERLAYS[name] = { ...(CONTAINER_OVERLAYS[name] ?? {}), systemState: "Available" };
       break;
     case "make-unavailable":
-      CONTAINER_OVERLAYS[name] = { ...(CONTAINER_OVERLAYS[name] ?? {}), systemState: "Unavailable" };
+      CONTAINER_OVERLAYS[name] = {
+        ...(CONTAINER_OVERLAYS[name] ?? {}),
+        systemState: "Unavailable",
+      };
       break;
     case "empty": {
-      const cleared = current.positions.map((p) => ({ ...p, material: "", product: "", step: "", quantity: 0 }));
+      const cleared = current.positions.map((p) => ({
+        ...p,
+        material: "",
+        product: "",
+        step: "",
+        quantity: 0,
+      }));
       CONTAINER_OVERLAYS[name] = {
         ...(CONTAINER_OVERLAYS[name] ?? {}),
         positions: cleared,
@@ -140,9 +199,15 @@ export function applyContainerOperation(
         CONTAINER_OVERLAYS[name] = {
           ...(CONTAINER_OVERLAYS[name] ?? {}),
           positions,
-          materials: positions.filter((p) => p.material !== "").map((p) => ({
-            position: p.position, material: p.material, product: p.product, step: p.step, quantity: `${p.quantity} ${p.unit}`,
-          })),
+          materials: positions
+            .filter((p) => p.material !== "")
+            .map((p) => ({
+              position: p.position,
+              material: p.material,
+              product: p.product,
+              step: p.step,
+              quantity: `${p.quantity} ${p.unit}`,
+            })),
           usedPositions: positions.filter((p) => p.material !== "").length,
         };
       }

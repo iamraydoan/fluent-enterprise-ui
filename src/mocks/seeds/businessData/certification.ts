@@ -1,18 +1,30 @@
-import type { CertificationDetail, CertificationRecord } from "@/api";
-import type { Page } from "@/api";
+import type { CertificationDetail, CertificationRecord, Page } from "@/api";
 
 const RECORDS: CertificationRecord[] = [
   { name: "Cookie Baking", description: "Cookie Baking", type: "General", state: "Active" },
-  { name: "Mixing Machine Operator", description: "Operator certification", type: "Technical", state: "Active" },
+  {
+    name: "Mixing Machine Operator",
+    description: "Operator certification",
+    type: "Technical",
+    state: "Active",
+  },
 ];
 
-export function queryCertifications(page: number, limit: number, q?: string, state?: string): Page<CertificationRecord> {
+export function queryCertifications(
+  page: number,
+  limit: number,
+  q?: string,
+  state?: string,
+): Page<CertificationRecord> {
   let rows = RECORDS;
   if (q) {
     const n = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(n) || r.description.toLowerCase().includes(n));
+    rows = rows.filter(
+      (r) => r.name.toLowerCase().includes(n) || r.description.toLowerCase().includes(n),
+    );
   }
-  if (state && state !== "" && state !== "all") rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
+  if (state && state !== "" && state !== "all")
+    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
   const total = rows.length;
   const start = (page - 1) * limit;
   return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
@@ -25,7 +37,12 @@ export interface CertificationUpsertInput extends Partial<CertificationDetail> {
 }
 
 export function buildCertificationDetail(name: string): CertificationDetail {
-  const r = RECORDS.find((x) => x.name === name) ?? { name, description: name, type: "General", state: "Active" };
+  const r = RECORDS.find((x) => x.name === name) ?? {
+    name,
+    description: name,
+    type: "General",
+    state: "Active",
+  };
   const overlay = CERTIFICATION_OVERLAYS[r.name] ?? {};
   return {
     ...r,
@@ -48,7 +65,12 @@ export function buildCertificationDetail(name: string): CertificationDetail {
 }
 
 export function createCertificationDetail(input: CertificationUpsertInput): CertificationDetail {
-  const record = { name: input.name, description: input.description ?? "", type: input.type ?? "General", state: "Active" };
+  const record = {
+    name: input.name,
+    description: input.description ?? "",
+    type: input.type ?? "General",
+    state: "Active",
+  };
   RECORDS.push(record);
   const overlay: Partial<CertificationDetail> = { ...input };
   delete overlay.name;
@@ -71,7 +93,10 @@ export function updateCertificationDetail(
   return buildCertificationDetail(name);
 }
 
-export function setCertificationState(name: string, state: string): CertificationDetail | undefined {
+export function setCertificationState(
+  name: string,
+  state: string,
+): CertificationDetail | undefined {
   const record = RECORDS.find((x) => x.name === name);
   if (!record) return undefined;
   record.state = state;

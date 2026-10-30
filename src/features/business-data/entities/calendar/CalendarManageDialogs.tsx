@@ -188,7 +188,9 @@ export function EditCalendarDaysDialog({
         />
       </div>
       <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("businessData.calendar.operations.fiscalYear")}</span>
+        <span className={styles.fieldLabel}>
+          {t("businessData.calendar.operations.fiscalYear")}
+        </span>
         <Input
           value={String(values.fiscalYear ?? "")}
           onChange={(_, data) => setValues((p) => ({ ...p, fiscalYear: data.value }))}

@@ -3,7 +3,19 @@ import { useResourceJobDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailShellMoreAction, DetailTab } from "@/components/common";
 import { Wrench20Regular } from "@/components/icons";
-import { Body1Strong, Button, Caption1, Dialog, DialogActions, DialogBody, DialogContent, DialogSurface, DialogTitle, Field, Input } from "@/components/ui";
+import {
+  Body1Strong,
+  Button,
+  Caption1,
+  Dialog,
+  DialogActions,
+  DialogBody,
+  DialogContent,
+  DialogSurface,
+  DialogTitle,
+  Field,
+  Input,
+} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { RecordState } from "@/lib/recordState";
@@ -40,7 +52,8 @@ const LC_ABORT_TITLE: TranslationKey = "businessData.resourceJob.dialogs.lifecyc
 const LC_ABORT: TranslationKey = "businessData.resourceJob.dialogs.lifecycle.abort";
 const LC_CANCEL_TITLE: TranslationKey = "businessData.resourceJob.dialogs.lifecycle.cancelTitle";
 const LC_CANCEL: TranslationKey = "businessData.resourceJob.dialogs.lifecycle.cancel";
-const LC_COMPLETE_TITLE: TranslationKey = "businessData.resourceJob.dialogs.lifecycle.completeTitle";
+const LC_COMPLETE_TITLE: TranslationKey =
+  "businessData.resourceJob.dialogs.lifecycle.completeTitle";
 const LC_COMPLETE: TranslationKey = "businessData.resourceJob.dialogs.lifecycle.complete";
 const LC_DEQUEUE_TITLE: TranslationKey = "businessData.resourceJob.dialogs.lifecycle.dequeueTitle";
 const LC_DEQUEUE: TranslationKey = "businessData.resourceJob.dialogs.lifecycle.dequeue";
@@ -83,8 +96,12 @@ function LifecycleDialog({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(actionKey)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(actionKey)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -190,14 +207,62 @@ export function ResourceJobDetailPage({ name }: ResourceJobDetailPageProps) {
         nameReadOnly
         submitLabel={t("common.save")}
       />
-      <LifecycleDialog open={dlg(DLG.clone)} onClose={close} titleKey={LC_CLONE_TITLE} actionKey={LC_CLONE} jobName={data.name} />
-      <LifecycleDialog open={dlg(DLG.abort)} onClose={close} titleKey={LC_ABORT_TITLE} actionKey={LC_ABORT} jobName={data.name} />
-      <LifecycleDialog open={dlg(DLG.cancel)} onClose={close} titleKey={LC_CANCEL_TITLE} actionKey={LC_CANCEL} jobName={data.name} />
-      <LifecycleDialog open={dlg(DLG.complete)} onClose={close} titleKey={LC_COMPLETE_TITLE} actionKey={LC_COMPLETE} jobName={data.name} />
-      <LifecycleDialog open={dlg(DLG.dequeue)} onClose={close} titleKey={LC_DEQUEUE_TITLE} actionKey={LC_DEQUEUE} jobName={data.name} />
-      <LifecycleDialog open={dlg(DLG.enqueue)} onClose={close} titleKey={LC_ENQUEUE_TITLE} actionKey={LC_ENQUEUE} jobName={data.name} />
-      <LifecycleDialog open={dlg(DLG.requeue)} onClose={close} titleKey={LC_REQUEUE_TITLE} actionKey={LC_REQUEUE} jobName={data.name} />
-      <LifecycleDialog open={dlg(DLG.start)} onClose={close} titleKey={LC_START_TITLE} actionKey={LC_START} jobName={data.name} />
+      <LifecycleDialog
+        open={dlg(DLG.clone)}
+        onClose={close}
+        titleKey={LC_CLONE_TITLE}
+        actionKey={LC_CLONE}
+        jobName={data.name}
+      />
+      <LifecycleDialog
+        open={dlg(DLG.abort)}
+        onClose={close}
+        titleKey={LC_ABORT_TITLE}
+        actionKey={LC_ABORT}
+        jobName={data.name}
+      />
+      <LifecycleDialog
+        open={dlg(DLG.cancel)}
+        onClose={close}
+        titleKey={LC_CANCEL_TITLE}
+        actionKey={LC_CANCEL}
+        jobName={data.name}
+      />
+      <LifecycleDialog
+        open={dlg(DLG.complete)}
+        onClose={close}
+        titleKey={LC_COMPLETE_TITLE}
+        actionKey={LC_COMPLETE}
+        jobName={data.name}
+      />
+      <LifecycleDialog
+        open={dlg(DLG.dequeue)}
+        onClose={close}
+        titleKey={LC_DEQUEUE_TITLE}
+        actionKey={LC_DEQUEUE}
+        jobName={data.name}
+      />
+      <LifecycleDialog
+        open={dlg(DLG.enqueue)}
+        onClose={close}
+        titleKey={LC_ENQUEUE_TITLE}
+        actionKey={LC_ENQUEUE}
+        jobName={data.name}
+      />
+      <LifecycleDialog
+        open={dlg(DLG.requeue)}
+        onClose={close}
+        titleKey={LC_REQUEUE_TITLE}
+        actionKey={LC_REQUEUE}
+        jobName={data.name}
+      />
+      <LifecycleDialog
+        open={dlg(DLG.start)}
+        onClose={close}
+        titleKey={LC_START_TITLE}
+        actionKey={LC_START}
+        jobName={data.name}
+      />
     </>
   );
 }

@@ -189,9 +189,7 @@ export function useCertificationDialogs(cert?: CertificationDetail): Certificati
         open={cloneOpen}
         titleKey="businessData.certification.operations.cloneTitle"
         steps={cloneSteps}
-        initialValues={
-          cert ? { name: `${cert.name} - Clone`, description: cert.description } : {}
-        }
+        initialValues={cert ? { name: `${cert.name} - Clone`, description: cert.description } : {}}
         submitLabelKey="common.create"
         onClose={() => setCloneOpen(false)}
         onSubmit={(values) => {

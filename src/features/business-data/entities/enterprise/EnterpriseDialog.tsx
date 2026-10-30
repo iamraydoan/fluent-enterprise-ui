@@ -6,7 +6,6 @@ import { useSharedStyles } from "@/styles/shared";
 import { MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
 
-
 const L: Record<string, TranslationKey> = {
   createTitle: "businessData.enterprise.dialog.createTitle",
   editTitle: "businessData.enterprise.dialog.editTitle",
@@ -61,12 +60,18 @@ export function EnterpriseDialog({ mode, initialName, initialDescription, onClos
   const [name, setName] = useState(initialName ?? "");
   const [description, setDescription] = useState(initialDescription ?? "");
 
-  const title = mode === MODE_CREATE ? L.createTitle : mode === MODE_EDIT ? L.editTitle : L.cloneTitle;
+  const title =
+    mode === MODE_CREATE ? L.createTitle : mode === MODE_EDIT ? L.editTitle : L.cloneTitle;
   const canSubmit = name.trim().length > 0;
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(title)}</div>
         <div className={styles.body}>
           <div className={styles.field}>
@@ -74,7 +79,11 @@ export function EnterpriseDialog({ mode, initialName, initialDescription, onClos
               <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
               {t(L.name)}
             </label>
-            <Input value={name} onChange={(_, d) => setName(d.value)} disabled={mode === MODE_EDIT} />
+            <Input
+              value={name}
+              onChange={(_, d) => setName(d.value)}
+              disabled={mode === MODE_EDIT}
+            />
           </div>
           <div className={styles.field}>
             <label>{t(L.description)}</label>

@@ -60,27 +60,47 @@ export function ReasonFormDialog({
             <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
               <span
                 style={{
-                  width: 24, height: 24, borderRadius: "50%",
-                  backgroundColor: step === 1 ? "#0078d4" : "#ccc", color: "#fff",
-                  display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12,
+                  width: 24,
+                  height: 24,
+                  borderRadius: "50%",
+                  backgroundColor: step === 1 ? "#0078d4" : "#ccc",
+                  color: "#fff",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 12,
                 }}
-              >1</span>
+              >
+                1
+              </span>
               <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
               <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />
               <span
                 style={{
-                  width: 24, height: 24, borderRadius: "50%",
-                  backgroundColor: step === 2 ? "#0078d4" : "#ccc", color: "#fff",
-                  display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12,
+                  width: 24,
+                  height: 24,
+                  borderRadius: "50%",
+                  backgroundColor: step === 2 ? "#0078d4" : "#ccc",
+                  color: "#fff",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 12,
                 }}
-              >2</span>
+              >
+                2
+              </span>
               <Body1Strong>{t(`${k}.information`)}</Body1Strong>
             </div>
 
             {step === 1 && (
               <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                 <Field label={t(`${k}.name`)} required>
-                  <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+                  <Input
+                    value={name}
+                    readOnly={nameReadOnly}
+                    onChange={(_, d) => setName(d.value)}
+                  />
                 </Field>
                 <Field label={t(`${k}.description`)}>
                   <Input value={description} onChange={(_, d) => setDescription(d.value)} />
@@ -93,7 +113,9 @@ export function ReasonFormDialog({
                 <Field label={t(`${k}.type`)} required>
                   <select value={type} onChange={(e) => setType(e.target.value as ReasonType)}>
                     {REASON_TYPES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
@@ -124,14 +146,22 @@ export function ReasonFormDialog({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {step === 2 && (
-              <Button appearance="secondary" onClick={() => setStep(1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(1)}>
+                {t("common.back")}
+              </Button>
             )}
             {step === 1 ? (
-              <Button appearance="primary" onClick={() => setStep(2)}>{t("common.next")}</Button>
+              <Button appearance="primary" onClick={() => setStep(2)}>
+                {t("common.next")}
+              </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{submitLabel}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {submitLabel}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>

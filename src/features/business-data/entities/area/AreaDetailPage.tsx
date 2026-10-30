@@ -95,7 +95,10 @@ export function AreaDetailPage() {
       labelKey: "actionBar.more",
       menu: [
         { label: t("businessData.area.operations.manageSupplyAreas"), onClick: openSupplyAreas },
-        { label: t("businessData.area.operations.manageTransferTypes"), onClick: openTransferTypes },
+        {
+          label: t("businessData.area.operations.manageTransferTypes"),
+          onClick: openTransferTypes,
+        },
         { label: t("businessData.area.operations.viewDashboards"), onClick: openDashboards },
       ],
     },
@@ -124,75 +127,83 @@ export function AreaDetailPage() {
           actions: detailActions,
         }}
       >
-      <div className={styles.tabs} role="tablist">
-        {TABS.map((value) => (
-          <button
-            key={value}
-            role="tab"
-            aria-selected={tab === value}
-            className={`${styles.tab} ${tab === value ? styles.tabActive : ""}`}
-            onClick={() => setTab(value)}
-          >
-            {t(`businessData.area.detail.tabs.${value}`)}
-          </button>
-        ))}
-      </div>
-      <div className={styles.tabContent}>
-        {tab === "details" && (
-          <DetailShell
-            title={area.name}
-            icon={<Box24Regular />}
-            topTabs={[]}
-            top="details"
-            onTop={() => undefined}
-            leftItems={[...LEFT_SECTIONS]}
-            left={left}
-            onLeft={setLeft}
-            onEdit={() => undefined}
-            onAskAi={() => undefined}
-            showState={false}
-          >
-            <div className={styles.cards}>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>{t("businessData.area.detail.area")}</Text>
-                <KV label={t("businessData.area.detail.name")} value={area.name} />
-                <KV label={t("businessData.area.detail.description")} value={area.description} />
-                <KV label={t("businessData.area.detail.type")} value={area.type} />
-                <KV
-                  label={t("businessData.area.detail.universalState")}
-                  value={area.universalState}
-                />
-                <KV label={t("businessData.area.detail.dataGroup")} value={area.dataGroup} />
+        <div className={styles.tabs} role="tablist">
+          {TABS.map((value) => (
+            <button
+              key={value}
+              role="tab"
+              aria-selected={tab === value}
+              className={`${styles.tab} ${tab === value ? styles.tabActive : ""}`}
+              onClick={() => setTab(value)}
+            >
+              {t(`businessData.area.detail.tabs.${value}`)}
+            </button>
+          ))}
+        </div>
+        <div className={styles.tabContent}>
+          {tab === "details" && (
+            <DetailShell
+              title={area.name}
+              icon={<Box24Regular />}
+              topTabs={[]}
+              top="details"
+              onTop={() => undefined}
+              leftItems={[...LEFT_SECTIONS]}
+              left={left}
+              onLeft={setLeft}
+              onEdit={() => undefined}
+              onAskAi={() => undefined}
+              showState={false}
+            >
+              <div className={styles.cards}>
+                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <Text className={styles.cardTitle}>{t("businessData.area.detail.area")}</Text>
+                  <KV label={t("businessData.area.detail.name")} value={area.name} />
+                  <KV label={t("businessData.area.detail.description")} value={area.description} />
+                  <KV label={t("businessData.area.detail.type")} value={area.type} />
+                  <KV
+                    label={t("businessData.area.detail.universalState")}
+                    value={area.universalState}
+                  />
+                  <KV label={t("businessData.area.detail.dataGroup")} value={area.dataGroup} />
+                </div>
+                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <Text className={styles.cardTitle}>
+                    {t("businessData.area.detail.information")}
+                  </Text>
+                  <KV label={t("businessData.area.detail.facility")} value={area.facility} />
+                  <KV
+                    label={t("businessData.area.detail.displayOrder")}
+                    value={String(area.displayOrder)}
+                  />
+                  <KV label={t("businessData.area.detail.areaType")} value={area.areaType} />
+                </div>
+                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <Text className={styles.cardTitle}>{t("businessData.area.detail.planning")}</Text>
+                  <KV label={t("businessData.area.detail.calendar")} value={area.calendar} />
+                  <KV label={t("businessData.area.detail.schedule")} value={area.schedule} />
+                  <KV label={t("businessData.area.detail.costCenter")} value={area.costCenter} />
+                </div>
+                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <Text className={styles.cardTitle}>
+                    {t("businessData.area.detail.shiftLogbooks")}
+                  </Text>
+                  <KV
+                    label={t("businessData.area.detail.enableShiftLogbook")}
+                    value={
+                      area.enableShiftLogbook
+                        ? t("businessData.area.detail.yes")
+                        : t("businessData.area.detail.no")
+                    }
+                  />
+                </div>
               </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>{t("businessData.area.detail.information")}</Text>
-                <KV label={t("businessData.area.detail.facility")} value={area.facility} />
-                <KV
-                  label={t("businessData.area.detail.displayOrder")}
-                  value={String(area.displayOrder)}
-                />
-                <KV label={t("businessData.area.detail.areaType")} value={area.areaType} />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>{t("businessData.area.detail.planning")}</Text>
-                <KV label={t("businessData.area.detail.calendar")} value={area.calendar} />
-                <KV label={t("businessData.area.detail.schedule")} value={area.schedule} />
-                <KV label={t("businessData.area.detail.costCenter")} value={area.costCenter} />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>{t("businessData.area.detail.shiftLogbooks")}</Text>
-                <KV
-                  label={t("businessData.area.detail.enableShiftLogbook")}
-                  value={area.enableShiftLogbook ? t("businessData.area.detail.yes") : t("businessData.area.detail.no")}
-                />
-              </div>
-            </div>
-          </DetailShell>
-        )}
-        {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.area.detail.historyEmpty")}</div>
-        )}
-      </div>
+            </DetailShell>
+          )}
+          {tab !== "details" && (
+            <div className={styles.empty}>{t("businessData.area.detail.historyEmpty")}</div>
+          )}
+        </div>
       </ListPage>
       {dialogs}
     </>

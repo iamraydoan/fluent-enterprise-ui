@@ -49,11 +49,7 @@ export function QualificationCheckFormDialog({
             <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
               <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
               <Field label={t(`${k}.name`)} required>
-                <Input
-                  value={name}
-                  readOnly={nameReadOnly}
-                  onChange={(_, d) => setName(d.value)}
-                />
+                <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
               </Field>
               <Field label={t(`${k}.description`)}>
                 <Input value={description} onChange={(_, d) => setDescription(d.value)} />

@@ -32,10 +32,21 @@ interface RecipeParameter {
 const TYPES = ["Input", "Constant", "Expression", "Rule"];
 
 const INITIAL: RecipeParameter[] = [
-  { name: "Mold Temperature", units: "°C", parameterGroup: "", type: "Input", value: "100", overridable: true },
+  {
+    name: "Mold Temperature",
+    units: "°C",
+    parameterGroup: "",
+    type: "Input",
+    value: "100",
+    overridable: true,
+  },
 ];
 
-export function ManageRecipeParametersDialog({ open, onClose, recipeName }: ManageRecipeParametersDialogProps) {
+export function ManageRecipeParametersDialog({
+  open,
+  onClose,
+  recipeName,
+}: ManageRecipeParametersDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.recipe.dialogs.parameters";
   const [parameters, setParameters] = useState<RecipeParameter[]>(INITIAL);
@@ -49,7 +60,17 @@ export function ManageRecipeParametersDialog({ open, onClose, recipeName }: Mana
   const [comments, setComments] = useState("");
 
   const addParameter = () => {
-    const next = [...parameters, { name: `Parameter ${parameters.length + 1}`, units: "", parameterGroup: "", type: "Constant", value: "", overridable: false }];
+    const next = [
+      ...parameters,
+      {
+        name: `Parameter ${parameters.length + 1}`,
+        units: "",
+        parameterGroup: "",
+        type: "Constant",
+        value: "",
+        overridable: false,
+      },
+    ];
     setParameters(next);
     setSelected(next.length - 1);
     setName(next[next.length - 1].name);
@@ -62,7 +83,20 @@ export function ManageRecipeParametersDialog({ open, onClose, recipeName }: Mana
 
   const removeParameter = (index: number) => {
     const next = parameters.filter((_, i) => i !== index);
-    setParameters(next.length > 0 ? next : [{ name: "Parameter 1", units: "", parameterGroup: "", type: "Constant", value: "", overridable: false }]);
+    setParameters(
+      next.length > 0
+        ? next
+        : [
+            {
+              name: "Parameter 1",
+              units: "",
+              parameterGroup: "",
+              type: "Constant",
+              value: "",
+              overridable: false,
+            },
+          ],
+    );
     setSelected(0);
   };
 
@@ -85,20 +119,43 @@ export function ManageRecipeParametersDialog({ open, onClose, recipeName }: Mana
             <div style={{ marginBottom: 12, color: "#0078d4" }}>🎛 {recipeName}</div>
             <div style={{ display: "flex", columnGap: 16 }}>
               <div style={{ width: 320, flexShrink: 0 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: 8,
+                  }}
+                >
                   <Body1Strong>{t(`${k}.parameters`)}</Body1Strong>
                   <div style={{ display: "flex", columnGap: 4 }}>
-                    <Button size="small" appearance="subtle" onClick={addParameter}>+</Button>
-                    <Button size="small" appearance="subtle" onClick={() => removeParameter(selected)}>🗑</Button>
+                    <Button size="small" appearance="subtle" onClick={addParameter}>
+                      +
+                    </Button>
+                    <Button
+                      size="small"
+                      appearance="subtle"
+                      onClick={() => removeParameter(selected)}
+                    >
+                      🗑
+                    </Button>
                   </div>
                 </div>
-                <div style={{ border: "1px solid #ddd", borderRadius: 4, minHeight: 300, overflow: "auto" }}>
+                <div
+                  style={{
+                    border: "1px solid #ddd",
+                    borderRadius: 4,
+                    minHeight: 300,
+                    overflow: "auto",
+                  }}
+                >
                   {parameters.map((p, i) => (
                     <div
                       key={`${p.name}-${i}`}
                       onClick={() => selectParameter(i)}
                       style={{
-                        padding: "8px 12px", cursor: "pointer",
+                        padding: "8px 12px",
+                        cursor: "pointer",
                         backgroundColor: i === selected ? "#e3f2fd" : "transparent",
                         borderBottom: "1px solid #eee",
                       }}
@@ -123,7 +180,9 @@ export function ManageRecipeParametersDialog({ open, onClose, recipeName }: Mana
                 <Field label={t(`${k}.type`)} required>
                   <select value={type} onChange={(e) => setType(e.target.value)}>
                     {TYPES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
@@ -131,7 +190,10 @@ export function ManageRecipeParametersDialog({ open, onClose, recipeName }: Mana
                   <Input value={value} onChange={(_, d) => setValue(d.value)} />
                 </Field>
                 <Field label={t(`${k}.overridable`)}>
-                  <Checkbox checked={overridable} onChange={(_, d) => setOverridable(d.checked === true)} />
+                  <Checkbox
+                    checked={overridable}
+                    onChange={(_, d) => setOverridable(d.checked === true)}
+                  />
                 </Field>
               </div>
             </div>
@@ -140,8 +202,12 @@ export function ManageRecipeParametersDialog({ open, onClose, recipeName }: Mana
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.update`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.update`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

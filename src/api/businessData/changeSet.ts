@@ -48,7 +48,8 @@ export function useChangeSets(params: ListQueryParams) {
   if (params.filters?.state) search.set("state", params.filters.state);
   return useQuery<Page<ChangeSetRecord>>({
     queryKey: ["business-data", "change-sets", params],
-    queryFn: () => apiFetch<Page<ChangeSetRecord>>(`/business-data/change-sets?${search.toString()}`),
+    queryFn: () =>
+      apiFetch<Page<ChangeSetRecord>>(`/business-data/change-sets?${search.toString()}`),
     placeholderData: keepPreviousData,
   });
 }
@@ -56,7 +57,8 @@ export function useChangeSets(params: ListQueryParams) {
 export function useChangeSetDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "change-sets", name],
-    queryFn: () => apiFetch<ChangeSetDetail>(`/business-data/change-sets/${encodeURIComponent(name)}`),
+    queryFn: () =>
+      apiFetch<ChangeSetDetail>(`/business-data/change-sets/${encodeURIComponent(name)}`),
   });
 }
 

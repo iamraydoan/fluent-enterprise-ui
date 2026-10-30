@@ -12,7 +12,6 @@ import { FlowLogicalNamesDialog, FlowReworkPathsDialog } from "./FlowManageDialo
 import { FlowTerminateDialog } from "./FlowTerminateDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
-
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
   { value: "flowStructure", labelKey: "businessData.flow.tabs.flowStructure" },

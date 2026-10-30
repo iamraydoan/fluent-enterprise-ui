@@ -73,15 +73,23 @@ export function SamplingPatternFormDialog({
                 <Input value={type} onChange={(_, d) => setType(d.value)} />
               </Field>
               <Field label={t(`${k}.mode`)} required>
-                <select value={mode} onChange={(e) => setMode(e.target.value as SamplingPatternMode)}>
+                <select
+                  value={mode}
+                  onChange={(e) => setMode(e.target.value as SamplingPatternMode)}
+                >
                   {MODES.map((o) => (
-                    <option key={o} value={o}>{o}</option>
+                    <option key={o} value={o}>
+                      {o}
+                    </option>
                   ))}
                 </select>
               </Field>
               {mode === "Manual" && (
                 <Field label={t(`${k}.samplingSelection`)}>
-                  <Input value={samplingSelection} onChange={(_, d) => setSamplingSelection(d.value)} />
+                  <Input
+                    value={samplingSelection}
+                    onChange={(_, d) => setSamplingSelection(d.value)}
+                  />
                 </Field>
               )}
               {mode === "Rule" && (
@@ -98,19 +106,32 @@ export function SamplingPatternFormDialog({
                     <Input value={materialCount} onChange={(_, d) => setMaterialCount(d.value)} />
                   </Field>
                   <Field label={t(`${k}.countIsPercentage`)}>
-                    <Checkbox checked={countIsPercentage} onChange={(_, d) => setCountIsPercentage(d.checked === true)} />
+                    <Checkbox
+                      checked={countIsPercentage}
+                      onChange={(_, d) => setCountIsPercentage(d.checked === true)}
+                    />
                   </Field>
                   <Field label={t(`${k}.selectionMethod`)}>
-                    <select value={selectionMethod} onChange={(e) => setSelectionMethod(e.target.value)}>
+                    <select
+                      value={selectionMethod}
+                      onChange={(e) => setSelectionMethod(e.target.value)}
+                    >
                       {SELECTION_METHODS.map((o) => (
-                        <option key={o} value={o}>{o}</option>
+                        <option key={o} value={o}>
+                          {o}
+                        </option>
                       ))}
                     </select>
                   </Field>
                   <Field label={t(`${k}.sequencingMethod`)}>
-                    <select value={sequencingMethod} onChange={(e) => setSequencingMethod(e.target.value)}>
+                    <select
+                      value={sequencingMethod}
+                      onChange={(e) => setSequencingMethod(e.target.value)}
+                    >
                       {SEQUENCING_METHODS.map((o) => (
-                        <option key={o} value={o}>{o}</option>
+                        <option key={o} value={o}>
+                          {o}
+                        </option>
                       ))}
                     </select>
                   </Field>
@@ -122,8 +143,12 @@ export function SamplingPatternFormDialog({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{submitLabel}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {submitLabel}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

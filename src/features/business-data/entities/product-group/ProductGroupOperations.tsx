@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  Add24Regular,
-  Delete20Regular,
-  Dismiss16Regular,
-} from "@/components/icons";
+import { Add24Regular, Delete20Regular, Dismiss16Regular } from "@/components/icons";
 import {
   Button,
   Checkbox,
@@ -187,9 +183,7 @@ function WizardSteps({ steps, current }: { steps: string[]; current: number }) {
             <span
               style={{
                 color:
-                  i === current
-                    ? tokens.colorNeutralForeground1
-                    : tokens.colorNeutralForeground3,
+                  i === current ? tokens.colorNeutralForeground1 : tokens.colorNeutralForeground3,
               }}
             >
               {step}
@@ -224,9 +218,6 @@ function Field({
     </div>
   );
 }
-
-
-
 
 export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
@@ -306,10 +297,19 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
               label={t("businessData.productGroup.operations.create.fields.changeSet")}
               hint={t("businessData.productGroup.operations.create.hints.changeSet")}
             >
-              <Input placeholder={t("businessData.productGroup.operations.create.placeholders.selectChangeSet")} disabled={useAutoChangeSet} />
+              <Input
+                placeholder={t(
+                  "businessData.productGroup.operations.create.placeholders.selectChangeSet",
+                )}
+                disabled={useAutoChangeSet}
+              />
             </Field>
             <Field label={t("businessData.productGroup.operations.create.fields.approvalRole")}>
-              <Input placeholder={t("businessData.productGroup.operations.create.placeholders.selectApprovalRole")} />
+              <Input
+                placeholder={t(
+                  "businessData.productGroup.operations.create.placeholders.selectApprovalRole",
+                )}
+              />
             </Field>
             <Checkbox
               checked={useAutoChangeSet}
@@ -320,14 +320,13 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
         )}
         {step === 1 && (
           <>
-            <Field
-              label={t("businessData.productGroup.operations.create.fields.name")}
-              required
-            >
+            <Field label={t("businessData.productGroup.operations.create.fields.name")} required>
               <Input
                 value={name}
                 onChange={(_, d) => setName(d.value)}
-                placeholder={t("businessData.productGroup.operations.create.placeholders.enterName")}
+                placeholder={t(
+                  "businessData.productGroup.operations.create.placeholders.enterName",
+                )}
               />
             </Field>
             <Field
@@ -337,14 +336,18 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
               <Input
                 value={revision}
                 onChange={(_, d) => setRevision(d.value)}
-                placeholder={t("businessData.productGroup.operations.create.placeholders.revisionHint")}
+                placeholder={t(
+                  "businessData.productGroup.operations.create.placeholders.revisionHint",
+                )}
               />
             </Field>
             <Field label={t("businessData.productGroup.operations.create.fields.description")}>
               <Input
                 value={description}
                 onChange={(_, d) => setDescription(d.value)}
-                placeholder={t("businessData.productGroup.operations.create.placeholders.enterDescription")}
+                placeholder={t(
+                  "businessData.productGroup.operations.create.placeholders.enterDescription",
+                )}
               />
             </Field>
             <Field
@@ -355,7 +358,8 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
               <Menu>
                 <MenuTrigger disableButtonEnhancement>
                   <Button style={{ width: "100%", justifyContent: "space-between" }}>
-                    {type || t("businessData.productGroup.operations.create.placeholders.selectType")}
+                    {type ||
+                      t("businessData.productGroup.operations.create.placeholders.selectType")}
                   </Button>
                 </MenuTrigger>
                 <MenuPopover>
@@ -378,7 +382,8 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
                   <Menu>
                     <MenuTrigger disableButtonEnhancement>
                       <Button style={{ width: "100%", justifyContent: "space-between" }}>
-                        {defaultUnits || t("businessData.productGroup.operations.create.placeholders.selectUnits")}
+                        {defaultUnits ||
+                          t("businessData.productGroup.operations.create.placeholders.selectUnits")}
                       </Button>
                     </MenuTrigger>
                     <MenuPopover>
@@ -401,7 +406,10 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
                   <Menu>
                     <MenuTrigger disableButtonEnhancement>
                       <Button style={{ width: "100%", justifyContent: "space-between" }}>
-                        {maturity || t("businessData.productGroup.operations.create.placeholders.selectMaturity")}
+                        {maturity ||
+                          t(
+                            "businessData.productGroup.operations.create.placeholders.selectMaturity",
+                          )}
                       </Button>
                     </MenuTrigger>
                     <MenuPopover>
@@ -424,14 +432,18 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
               <Input
                 value={flowPath}
                 onChange={(_, d) => setFlowPath(d.value)}
-                placeholder={t("businessData.productGroup.operations.create.placeholders.selectFlowPath")}
+                placeholder={t(
+                  "businessData.productGroup.operations.create.placeholders.selectFlowPath",
+                )}
               />
             </Field>
             <Field label={t("businessData.productGroup.operations.create.fields.comments")}>
               <Input
                 value={comments}
                 onChange={(_, d) => setComments(d.value)}
-                placeholder={t("businessData.productGroup.operations.create.placeholders.enterComments")}
+                placeholder={t(
+                  "businessData.productGroup.operations.create.placeholders.enterComments",
+                )}
               />
             </Field>
           </>
@@ -440,7 +452,6 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
     </DialogShell>
   );
 }
-
 
 export function EditProductGroupDialog({
   open,
@@ -493,15 +504,15 @@ export function EditProductGroupDialog({
         <Input
           value={description}
           onChange={(_, d) => setDescription(d.value)}
-          placeholder={t("businessData.productGroup.operations.create.placeholders.enterDescription")}
+          placeholder={t(
+            "businessData.productGroup.operations.create.placeholders.enterDescription",
+          )}
         />
       </Field>
       <Field label={t("businessData.productGroup.operations.edit.fields.type")}>
         <Menu>
           <MenuTrigger disableButtonEnhancement>
-            <Button style={{ width: "100%", justifyContent: "space-between" }}>
-              {type}
-            </Button>
+            <Button style={{ width: "100%", justifyContent: "space-between" }}>{type}</Button>
           </MenuTrigger>
           <MenuPopover>
             <MenuList>
@@ -536,7 +547,8 @@ export function EditProductGroupDialog({
         <Menu>
           <MenuTrigger disableButtonEnhancement>
             <Button style={{ width: "100%", justifyContent: "space-between" }}>
-              {maturity || t("businessData.productGroup.operations.create.placeholders.selectMaturity")}
+              {maturity ||
+                t("businessData.productGroup.operations.create.placeholders.selectMaturity")}
             </Button>
           </MenuTrigger>
           <MenuPopover>
@@ -553,8 +565,6 @@ export function EditProductGroupDialog({
     </DialogShell>
   );
 }
-
-
 
 export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
@@ -630,7 +640,9 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
             <Input
               value={row.revision}
               onChange={(_, d) => updateRowRevision(i, d.value)}
-              placeholder={t("businessData.productGroup.operations.clone.placeholders.newRowRevision")}
+              placeholder={t(
+                "businessData.productGroup.operations.clone.placeholders.newRowRevision",
+              )}
             />
           </div>
           {rows.length > 1 && (
@@ -656,8 +668,6 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
     </DialogShell>
   );
 }
-
-
 
 export function TerminateProductGroupDialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
@@ -692,9 +702,7 @@ export function TerminateProductGroupDialog({ open, onClose, onSubmit }: DialogP
       <Field label={t("businessData.productGroup.operations.terminate.fields.level")}>
         <Menu>
           <MenuTrigger disableButtonEnhancement>
-            <Button style={{ width: "100%", justifyContent: "space-between" }}>
-              {level}
-            </Button>
+            <Button style={{ width: "100%", justifyContent: "space-between" }}>{level}</Button>
           </MenuTrigger>
           <MenuPopover>
             <MenuList>
@@ -721,8 +729,6 @@ export function TerminateProductGroupDialog({ open, onClose, onSubmit }: DialogP
     </DialogShell>
   );
 }
-
-
 
 export function UnterminateProductGroupDialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
@@ -777,15 +783,22 @@ export function UnterminateProductGroupDialog({ open, onClose, onSubmit }: Dialo
       <div style={{ paddingTop: "16px" }}>
         {step === 0 && (
           <>
-            <Field
-              label={t("businessData.productGroup.operations.unterminate.fields.changeSet")}
-            >
-              <Input placeholder={t("businessData.productGroup.operations.create.placeholders.selectChangeSet")} disabled={useAutoChangeSet} />
+            <Field label={t("businessData.productGroup.operations.unterminate.fields.changeSet")}>
+              <Input
+                placeholder={t(
+                  "businessData.productGroup.operations.create.placeholders.selectChangeSet",
+                )}
+                disabled={useAutoChangeSet}
+              />
             </Field>
             <Field
               label={t("businessData.productGroup.operations.unterminate.fields.approvalRole")}
             >
-              <Input placeholder={t("businessData.productGroup.operations.create.placeholders.selectApprovalRole")} />
+              <Input
+                placeholder={t(
+                  "businessData.productGroup.operations.create.placeholders.selectApprovalRole",
+                )}
+              />
             </Field>
             <Checkbox
               checked={useAutoChangeSet}
@@ -806,10 +819,6 @@ export function UnterminateProductGroupDialog({ open, onClose, onSubmit }: Dialo
   );
 }
 
-
-
-
-
 interface ProductGroupParameter {
   id: string;
   parameter: string;
@@ -823,11 +832,7 @@ interface ProductGroupParameter {
   reportingInfo: string;
 }
 
-export function ManageProductGroupParametersDialog({
-  open,
-  onClose,
-  onSubmit,
-}: DialogProps) {
+export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [params, setParams] = useState<ProductGroupParameter[]>([
@@ -906,7 +911,6 @@ export function ManageProductGroupParametersDialog({
       }
     >
       <div style={{ display: "flex", gap: "20px", minHeight: "420px" }}>
-        
         <div style={{ width: "300px", flexShrink: 0 }}>
           <div
             style={{
@@ -945,16 +949,17 @@ export function ManageProductGroupParametersDialog({
                   padding: "10px 12px",
                   cursor: "pointer",
                   backgroundColor:
-                    p.id === selectedId
-                      ? tokens.colorBrandBackground2
-                      : "transparent",
+                    p.id === selectedId ? tokens.colorBrandBackground2 : "transparent",
                   borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
                 }}
               >
-                <Text>{p.parameter || t("businessData.productGroup.operations.manageParameters.newParam")}</Text>
+                <Text>
+                  {p.parameter ||
+                    t("businessData.productGroup.operations.manageParameters.newParam")}
+                </Text>
                 <Button
                   appearance="subtle"
                   icon={<Delete20Regular />}
@@ -967,14 +972,19 @@ export function ManageProductGroupParametersDialog({
               </div>
             ))}
             {params.length === 0 && (
-              <div style={{ padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 }}>
+              <div
+                style={{
+                  padding: "16px",
+                  textAlign: "center",
+                  color: tokens.colorNeutralForeground3,
+                }}
+              >
                 {t("businessData.productGroup.operations.manageParameters.empty")}
               </div>
             )}
           </div>
         </div>
 
-        
         <div style={{ flex: 1 }}>
           <Text weight="semibold" style={{ marginBottom: "16px", display: "block" }}>
             {t("businessData.productGroup.operations.manageParameters.parameterDetails")}
@@ -982,32 +992,24 @@ export function ManageProductGroupParametersDialog({
           {selected ? (
             <>
               <Field
-                label={t(
-                  "businessData.productGroup.operations.manageParameters.fields.parameter",
-                )}
+                label={t("businessData.productGroup.operations.manageParameters.fields.parameter")}
                 required
               >
                 <Input
                   value={selected.parameter}
                   onChange={(_, d) => updateSelected({ parameter: d.value })}
-                  placeholder={t("businessData.productGroup.operations.create.placeholders.selectParameter")}
+                  placeholder={t(
+                    "businessData.productGroup.operations.create.placeholders.selectParameter",
+                  )}
                 />
               </Field>
-              <Field
-                label={t(
-                  "businessData.productGroup.operations.manageParameters.fields.unit",
-                )}
-              >
+              <Field label={t("businessData.productGroup.operations.manageParameters.fields.unit")}>
                 <Input
                   value={selected.unit}
                   onChange={(_, d) => updateSelected({ unit: d.value })}
                 />
               </Field>
-              <Field
-                label={t(
-                  "businessData.productGroup.operations.manageParameters.fields.type",
-                )}
-              >
+              <Field label={t("businessData.productGroup.operations.manageParameters.fields.type")}>
                 <div style={{ display: "flex", gap: "16px" }}>
                   {PARAM_TYPES.map((opt) => (
                     <label
@@ -1035,9 +1037,7 @@ export function ManageProductGroupParametersDialog({
               </Field>
               {selected.type === "Characteristic" ? (
                 <Field
-                  label={t(
-                    "businessData.productGroup.operations.manageParameters.fields.value",
-                  )}
+                  label={t("businessData.productGroup.operations.manageParameters.fields.value")}
                 >
                   <Input
                     value={selected.value}
@@ -1130,9 +1130,7 @@ export function ManageProductGroupParametersDialog({
           )}
         </div>
       </div>
-      <Field
-        label={t("businessData.productGroup.operations.manageParameters.fields.comments")}
-      >
+      <Field label={t("businessData.productGroup.operations.manageParameters.fields.comments")}>
         <Input
           value={comments}
           onChange={(_, d) => setComments(d.value)}

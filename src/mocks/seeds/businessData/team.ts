@@ -2,8 +2,18 @@ import { RecordState } from "@/api";
 import type { Page, TeamDetail, TeamRecord } from "@/api";
 
 const RECORDS: TeamRecord[] = [
-  { name: "Team A", description: "Morning shift team", calendar: "Standard", state: RecordState.Active },
-  { name: "Team B", description: "Evening shift team", calendar: "Standard", state: RecordState.Active },
+  {
+    name: "Team A",
+    description: "Morning shift team",
+    calendar: "Standard",
+    state: RecordState.Active,
+  },
+  {
+    name: "Team B",
+    description: "Evening shift team",
+    calendar: "Standard",
+    state: RecordState.Active,
+  },
 ];
 
 const DETAILS: Record<string, TeamDetail> = {

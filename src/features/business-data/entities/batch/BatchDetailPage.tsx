@@ -81,7 +81,11 @@ export function BatchDetailPage() {
   if (isLoading || !batch) {
     return (
       <ListPage
-        header={{ icon: <Box24Regular />, title: displayName, actions: [refreshAction, editAction] }}
+        header={{
+          icon: <Box24Regular />,
+          title: displayName,
+          actions: [refreshAction, editAction],
+        }}
       >
         <div className={styles.empty}>{t("businessData.batch.detail.loading")}</div>
       </ListPage>
@@ -114,11 +118,20 @@ export function BatchDetailPage() {
       icon: <MoreVertical24Regular />,
       labelKey: "actionBar.more",
       menu: [
-        { label: t("businessData.batch.operations.unrelease"), onClick: () => openTransition("unrelease") },
+        {
+          label: t("businessData.batch.operations.unrelease"),
+          onClick: () => openTransition("unrelease"),
+        },
         { label: t("businessData.batch.operations.abort"), onClick: () => openTransition("abort") },
-        { label: t("businessData.batch.operations.cancel"), onClick: () => openTransition("cancel") },
+        {
+          label: t("businessData.batch.operations.cancel"),
+          onClick: () => openTransition("cancel"),
+        },
         { label: t("businessData.batch.operations.manageMaterials"), onClick: openManageMaterials },
-        { label: t("businessData.batch.operations.manageContainers"), onClick: openManageContainers },
+        {
+          label: t("businessData.batch.operations.manageContainers"),
+          onClick: openManageContainers,
+        },
         { label: t("businessData.batch.operations.changeResource"), onClick: openChangeResource },
       ],
     },
@@ -167,44 +180,86 @@ export function BatchDetailPage() {
                 <KV label={t("businessData.batch.detail.name")} value={batch.name} />
                 <KV label={t("businessData.batch.detail.description")} value={batch.description} />
                 <KV label={t("businessData.batch.detail.type")} value={batch.type} />
-                <KV label={t("businessData.batch.detail.universalState")} value={batch.universalState} />
+                <KV
+                  label={t("businessData.batch.detail.universalState")}
+                  value={batch.universalState}
+                />
                 <KV label={t("businessData.batch.detail.systemState")} value={batch.systemState} />
                 <KV label={t("businessData.batch.detail.dataGroup")} value={batch.dataGroup} />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>{t("businessData.batch.detail.information")}</Text>
+                <Text className={styles.cardTitle}>
+                  {t("businessData.batch.detail.information")}
+                </Text>
                 <KV label={t("businessData.batch.detail.resource")} value={batch.resource} />
                 <KV label={t("businessData.batch.detail.loadState")} value={batch.loadState} />
                 <KV label={t("businessData.batch.detail.step")} value={batch.step} />
                 <KV label={t("businessData.batch.detail.resourceJob")} value={batch.resourceJob} />
-                <KV label={t("businessData.batch.detail.priority")} value={String(batch.priority)} />
+                <KV
+                  label={t("businessData.batch.detail.priority")}
+                  value={String(batch.priority)}
+                />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>{t("businessData.batch.detail.resourceInformation")}</Text>
-                <KV label={t("businessData.batch.detail.resourceType")} value={batch.resourceType} />
+                <Text className={styles.cardTitle}>
+                  {t("businessData.batch.detail.resourceInformation")}
+                </Text>
+                <KV
+                  label={t("businessData.batch.detail.resourceType")}
+                  value={batch.resourceType}
+                />
                 <KV label={t("businessData.batch.detail.facility")} value={batch.facility} />
-                <KV label={t("businessData.batch.detail.loadStartMode")} value={batch.loadStartMode} />
+                <KV
+                  label={t("businessData.batch.detail.loadStartMode")}
+                  value={batch.loadStartMode}
+                />
                 <KV label={t("businessData.batch.detail.loadMode")} value={batch.loadMode} />
-                <KV label={t("businessData.batch.detail.materialSplitMode")} value={batch.materialSplitMode} />
+                <KV
+                  label={t("businessData.batch.detail.materialSplitMode")}
+                  value={batch.materialSplitMode}
+                />
                 <KV
                   label={t("businessData.batch.detail.allowProductMix")}
-                  value={batch.allowProductMix ? t("businessData.batch.detail.yes") : t("businessData.batch.detail.no")}
+                  value={
+                    batch.allowProductMix
+                      ? t("businessData.batch.detail.yes")
+                      : t("businessData.batch.detail.no")
+                  }
                 />
-                <KV label={t("businessData.batch.detail.minimumBatchSize")} value={batch.minimumBatchSize} />
+                <KV
+                  label={t("businessData.batch.detail.minimumBatchSize")}
+                  value={batch.minimumBatchSize}
+                />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>{t("businessData.batch.detail.materialInformation")}</Text>
-                <KV label={t("businessData.batch.detail.mainMaterial")} value={batch.mainMaterial} />
+                <Text className={styles.cardTitle}>
+                  {t("businessData.batch.detail.materialInformation")}
+                </Text>
+                <KV
+                  label={t("businessData.batch.detail.mainMaterial")}
+                  value={batch.mainMaterial}
+                />
                 <KV label={t("businessData.batch.detail.service")} value={batch.service} />
                 <KV label={t("businessData.batch.detail.product")} value={batch.product} />
-                <KV label={t("businessData.batch.detail.productDescription")} value={batch.productDescription} />
-                <KV label={t("businessData.batch.detail.capacityClass")} value={batch.capacityClass} />
+                <KV
+                  label={t("businessData.batch.detail.productDescription")}
+                  value={batch.productDescription}
+                />
+                <KV
+                  label={t("businessData.batch.detail.capacityClass")}
+                  value={batch.capacityClass}
+                />
                 <KV label={t("businessData.batch.detail.quantity")} value={batch.quantity} />
                 <KV label={t("businessData.batch.detail.batchSize")} value={batch.batchSize} />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>{t("businessData.batch.detail.containerInformation")}</Text>
-                <KV label={t("businessData.batch.detail.containerType")} value={batch.containerType} />
+                <Text className={styles.cardTitle}>
+                  {t("businessData.batch.detail.containerInformation")}
+                </Text>
+                <KV
+                  label={t("businessData.batch.detail.containerType")}
+                  value={batch.containerType}
+                />
               </div>
             </div>
           </DetailShell>

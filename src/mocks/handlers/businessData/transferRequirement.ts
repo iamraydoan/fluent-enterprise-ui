@@ -1,5 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { getTransferRequirementDetail, getTransferRequirementPage } from "../../seeds/businessData/transferRequirement";
+import {
+  getTransferRequirementDetail,
+  getTransferRequirementPage,
+} from "../../seeds/businessData/transferRequirement";
 
 export const transferRequirementHandlers = [
   http.get("/business-data/transfer-requirements", ({ request }) => {

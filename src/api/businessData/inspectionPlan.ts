@@ -1,8 +1,8 @@
-import type { ListQueryParams } from "@/lib/listQuery";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import type { Page } from "../types";
-import { apiFetch } from "../client";
+import type { ListQueryParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
+import { apiFetch } from "../client";
+import type { Page } from "../types";
 
 export interface InspectionPlanRecord {
   name: string;
@@ -32,17 +32,13 @@ export interface InspectionPlanDetail extends InspectionPlanRecord {
   holdComment: string;
 }
 
-export function listInspectionPlans(
-  params: ListQueryParams,
-): Promise<Page<InspectionPlanRecord>> {
+export function listInspectionPlans(params: ListQueryParams): Promise<Page<InspectionPlanRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<InspectionPlanRecord>>(
-    `/inspection-plans?${search.toString()}`,
-  );
+  return apiFetch<Page<InspectionPlanRecord>>(`/inspection-plans?${search.toString()}`);
 }
 
 export function useInspectionPlans(params: ListQueryParams) {
@@ -54,9 +50,7 @@ export function useInspectionPlans(params: ListQueryParams) {
 }
 
 export function getInspectionPlan(name: string): Promise<InspectionPlanDetail> {
-  return apiFetch<InspectionPlanDetail>(
-    `/inspection-plans/${encodeURIComponent(name)}`,
-  );
+  return apiFetch<InspectionPlanDetail>(`/inspection-plans/${encodeURIComponent(name)}`);
 }
 
 export function useInspectionPlanDetail(name: string) {

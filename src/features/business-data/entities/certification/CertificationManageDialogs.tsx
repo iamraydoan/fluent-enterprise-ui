@@ -171,7 +171,11 @@ function EmployeeDialogShell({
             <span className={styles.fieldLabel}>
               {t("businessData.certification.operations.plannedDate")}
             </span>
-            <Input type="date" value={plannedDate} onChange={(_, data) => setPlannedDate(data.value)} />
+            <Input
+              type="date"
+              value={plannedDate}
+              onChange={(_, data) => setPlannedDate(data.value)}
+            />
           </div>
           <div className={styles.fieldRow}>
             <span className={styles.fieldLabel}>

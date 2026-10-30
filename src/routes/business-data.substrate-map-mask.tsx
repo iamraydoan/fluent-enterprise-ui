@@ -3,7 +3,8 @@ import { SubstrateMapMaskListPage } from "@/features/business-data/entities/subs
 
 function SubstrateMapMaskRoute() {
   const location = useLocation();
-  if (location.pathname === "/business-data/substrate-map-mask") return <SubstrateMapMaskListPage />;
+  if (location.pathname === "/business-data/substrate-map-mask")
+    return <SubstrateMapMaskListPage />;
   return <Outlet />;
 }
 

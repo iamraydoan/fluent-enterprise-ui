@@ -57,10 +57,26 @@ export function SetupMatrixFormDialog({
           <DialogTitle>{title}</DialogTitle>
           <DialogContent>
             {!nameReadOnly && (
-              <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
+              <div
+                style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}
+              >
                 {STEP_KEYS.map((key, i) => (
                   <span key={key} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
-                    <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === i + 1 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>{i + 1}</span>
+                    <span
+                      style={{
+                        width: 24,
+                        height: 24,
+                        borderRadius: "50%",
+                        backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
+                        color: "#fff",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 12,
+                      }}
+                    >
+                      {i + 1}
+                    </span>
                     <Body1Strong>{t(key)}</Body1Strong>
                     {i < 2 && <span style={{ width: 30, height: 1, backgroundColor: "#ccc" }} />}
                   </span>
@@ -71,7 +87,11 @@ export function SetupMatrixFormDialog({
             {(step === 1 || nameReadOnly) && (
               <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                 <Field label={t(`${k}.name`)} required>
-                  <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+                  <Input
+                    value={name}
+                    readOnly={nameReadOnly}
+                    onChange={(_, d) => setName(d.value)}
+                  />
                 </Field>
                 <Field label={t(`${k}.description`)}>
                   <Input value={description} onChange={(_, d) => setDescription(d.value)} />
@@ -79,26 +99,27 @@ export function SetupMatrixFormDialog({
                 <Field label={t(`${k}.timeScale`)}>
                   <select value={timeScale} onChange={(e) => setTimeScale(e.target.value)}>
                     {TIME_SCALES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
                 <Field label={t(`${k}.useZeroInDiagonal`)}>
-                  <Switch checked={useZeroInDiagonal} onChange={(_, d) => setUseZeroInDiagonal(d.checked)} />
+                  <Switch
+                    checked={useZeroInDiagonal}
+                    onChange={(_, d) => setUseZeroInDiagonal(d.checked)}
+                  />
                 </Field>
               </div>
             )}
 
             {step === 2 && !nameReadOnly && (
-              <div style={{ padding: "12px 0", color: "#666" }}>
-                {t(`${k}.step2Body`)}
-              </div>
+              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step2Body`)}</div>
             )}
 
             {step === 3 && !nameReadOnly && (
-              <div style={{ padding: "12px 0", color: "#666" }}>
-                {t(`${k}.step3Body`)}
-              </div>
+              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step3Body`)}</div>
             )}
 
             <Field label={t(`${k}.comments`)}>
@@ -106,14 +127,22 @@ export function SetupMatrixFormDialog({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {!nameReadOnly && step > 1 && (
-              <Button appearance="secondary" onClick={() => setStep(step - 1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+                {t("common.back")}
+              </Button>
             )}
             {!nameReadOnly && step < 3 ? (
-              <Button appearance="primary" onClick={() => setStep(step + 1)}>{t("common.next")}</Button>
+              <Button appearance="primary" onClick={() => setStep(step + 1)}>
+                {t("common.next")}
+              </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{submitLabel}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {submitLabel}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>

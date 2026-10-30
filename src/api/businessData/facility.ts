@@ -1,8 +1,8 @@
-import type { ListQueryParams } from "@/lib/listQuery";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import type { Page } from "../types";
-import { apiFetch } from "../client";
+import type { ListQueryParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
+import { apiFetch } from "../client";
+import type { Page } from "../types";
 
 export interface FacilityRecord {
   name: string;

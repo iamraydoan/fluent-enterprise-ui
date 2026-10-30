@@ -5,35 +5,77 @@ import type {
   DataCollectionRecord,
   DataCollectionUpsertInput,
   OpenDataCollectionInstanceInput,
-  PerformImmediateInput, Page 
+  PerformImmediateInput,
+  Page,
 } from "@/api";
 
 const RECORDS: DataCollectionRecord[] = [
-  { name: "Cookie Inspection 001", description: "Cookie Inspection", scope: "Inspection", state: "Created" },
-  { name: "Dough Mixing 001", description: "Mixing parameters", scope: "General", state: "Effective" },
+  {
+    name: "Cookie Inspection 001",
+    description: "Cookie Inspection",
+    scope: "Inspection",
+    state: "Created",
+  },
+  {
+    name: "Dough Mixing 001",
+    description: "Mixing parameters",
+    scope: "General",
+    state: "Effective",
+  },
 ];
 
 const DC_OVERLAYS: Record<string, Partial<DataCollectionDetail>> = {};
 
 const DEFAULT_PARAMETERS: DataCollectionParameter[] = [
-  { parameter: "Thickness", dataType: "FreeText", isOptional: false, minimumSamples: 1, maximumSamples: 5, minimumSampleReadings: 1, maximumSampleReadings: 1, limitChecking: "IndividualValue" },
-  { parameter: "Weight", dataType: "Decimal", isOptional: false, minimumSamples: 1, maximumSamples: 3, minimumSampleReadings: 1, maximumSampleReadings: 1, limitChecking: "IndividualValue" },
+  {
+    parameter: "Thickness",
+    dataType: "FreeText",
+    isOptional: false,
+    minimumSamples: 1,
+    maximumSamples: 5,
+    minimumSampleReadings: 1,
+    maximumSampleReadings: 1,
+    limitChecking: "IndividualValue",
+  },
+  {
+    parameter: "Weight",
+    dataType: "Decimal",
+    isOptional: false,
+    minimumSamples: 1,
+    maximumSamples: 3,
+    minimumSampleReadings: 1,
+    maximumSampleReadings: 1,
+    limitChecking: "IndividualValue",
+  },
 ];
 
-export function queryDataCollections(page: number, limit: number, q?: string, state?: string): Page<DataCollectionRecord> {
+export function queryDataCollections(
+  page: number,
+  limit: number,
+  q?: string,
+  state?: string,
+): Page<DataCollectionRecord> {
   let rows = RECORDS;
   if (q) {
     const n = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(n) || r.description.toLowerCase().includes(n));
+    rows = rows.filter(
+      (r) => r.name.toLowerCase().includes(n) || r.description.toLowerCase().includes(n),
+    );
   }
-  if (state && state !== "" && state !== "all") rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
+  if (state && state !== "" && state !== "all")
+    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
   const total = rows.length;
   const start = (page - 1) * limit;
   return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
 }
 
 export function buildDataCollectionDetail(name: string): DataCollectionDetail {
-  const r = RECORDS.find((x) => x.name === name) ?? { name, description: name, scope: "Inspection", state: "Created" };
+  const r = RECORDS.find((x) => x.name === name) ?? {
+    name,
+    description: name,
+    scope: "Inspection",
+    state: "Created",
+  };
   const detail: DataCollectionDetail = {
     ...r,
     type: "Generic",
@@ -45,7 +87,16 @@ export function buildDataCollectionDetail(name: string): DataCollectionDetail {
     limitCheckingMode: "On Post",
     parameters: DEFAULT_PARAMETERS,
     limitSets: [{ name: "Cookie Inspection Limits 001" }],
-    instances: [{ name: "Cookie Inspection 001 / Lot A", state: "Open", description: "", limitSet: "", material: "", postedData: [] }],
+    instances: [
+      {
+        name: "Cookie Inspection 001 / Lot A",
+        state: "Open",
+        description: "",
+        limitSet: "",
+        material: "",
+        postedData: [],
+      },
+    ],
   };
   const overlay = DC_OVERLAYS[name];
   return overlay ? { ...detail, ...overlay } : detail;
@@ -58,7 +109,12 @@ function patchOverlay(name: string, patch: Partial<DataCollectionDetail>): DataC
 
 export function createDataCollectionDetail(input: DataCollectionUpsertInput): DataCollectionDetail {
   const name = input.name ?? `Data Collection ${String(RECORDS.length + 1).padStart(3, "0")}`;
-  RECORDS.push({ name, description: input.description ?? "", scope: input.scope ?? "General", state: "Created" });
+  RECORDS.push({
+    name,
+    description: input.description ?? "",
+    scope: input.scope ?? "General",
+    state: "Created",
+  });
   DC_OVERLAYS[name] = {
     type: input.type ?? "Generic",
     dataGroup: input.dataGroup ?? "",
@@ -72,7 +128,10 @@ export function createDataCollectionDetail(input: DataCollectionUpsertInput): Da
   return buildDataCollectionDetail(name);
 }
 
-export function updateDataCollectionDetail(name: string, input: DataCollectionUpsertInput): DataCollectionDetail {
+export function updateDataCollectionDetail(
+  name: string,
+  input: DataCollectionUpsertInput,
+): DataCollectionDetail {
   const rec = RECORDS.find((x) => x.name === name);
   if (rec) {
     if (input.description !== undefined) rec.description = input.description;
@@ -82,7 +141,10 @@ export function updateDataCollectionDetail(name: string, input: DataCollectionUp
   return patchOverlay(name, rest);
 }
 
-export function setDataCollectionState(name: string, state: "Active" | "Terminated"): DataCollectionDetail {
+export function setDataCollectionState(
+  name: string,
+  state: "Active" | "Terminated",
+): DataCollectionDetail {
   const rec = RECORDS.find((x) => x.name === name);
   if (rec) rec.state = state;
   return patchOverlay(name, { state, universalState: state });
@@ -101,7 +163,10 @@ export function openDataCollectionInstance(
 ): DataCollectionDetail {
   const current = buildDataCollectionDetail(name);
   const instance: DataCollectionInstance = {
-    name: input.instanceName?.trim() !== "" ? (input.instanceName as string) : `${name} / Instance ${current.instances.length + 1}`,
+    name:
+      input.instanceName?.trim() !== ""
+        ? (input.instanceName as string)
+        : `${name} / Instance ${current.instances.length + 1}`,
     state: "Open",
     description: input.description ?? "",
     limitSet: input.limitSet ?? "",
@@ -117,7 +182,10 @@ export function performImmediateDataCollection(
 ): DataCollectionDetail {
   const current = buildDataCollectionDetail(name);
   const instance: DataCollectionInstance = {
-    name: input.instanceName?.trim() !== "" ? (input.instanceName as string) : `${name} / Immediate ${current.instances.length + 1}`,
+    name:
+      input.instanceName?.trim() !== ""
+        ? (input.instanceName as string)
+        : `${name} / Immediate ${current.instances.length + 1}`,
     state: "Closed",
     description: input.description ?? "",
     limitSet: input.limitSet ?? "",
@@ -134,7 +202,9 @@ export function updateDataCollectionInstance(
 ): DataCollectionDetail {
   const current = buildDataCollectionDetail(name);
   return patchOverlay(name, {
-    instances: current.instances.map((i) => (i.name === instance ? { ...i, state: patch.state } : i)),
+    instances: current.instances.map((i) =>
+      i.name === instance ? { ...i, state: patch.state } : i,
+    ),
   });
 }
 
@@ -165,7 +235,9 @@ export function correctDataCollectionInstance(
 ): DataCollectionDetail {
   const current = buildDataCollectionDetail(name);
   return patchOverlay(name, {
-    instances: current.instances.map((i) => (i.name === instance ? { ...i, postedData: values } : i)),
+    instances: current.instances.map((i) =>
+      i.name === instance ? { ...i, postedData: values } : i,
+    ),
   });
 }
 

@@ -57,7 +57,11 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
         </Body1Strong>
         <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
           {data.items.map((item) => (
-            <div key={item.material} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
+            <div
+              key={item.material}
+              className={sharedStyles.contentCard}
+              style={{ padding: "12px" }}
+            >
               <Body1Strong>{item.material}</Body1Strong>
               <div>
                 <Caption1>{formatItemMeta(item)}</Caption1>

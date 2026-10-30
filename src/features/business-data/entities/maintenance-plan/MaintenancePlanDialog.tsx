@@ -6,6 +6,7 @@ import { useSharedStyles } from "@/styles/shared";
 import { MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
 
+const SCHEDULE_TYPE_AD_HOC = "AdHoc";
 
 const L: Record<string, TranslationKey> = {
   createTitle: "businessData.maintenancePlan.dialog.createTitle",
@@ -53,17 +54,38 @@ const useDialogStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "720px", maxWidth: "95vw", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+  surface: {
+    width: "720px",
+    maxWidth: "95vw",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "90vh",
+  },
   head: {
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase400,
   },
-  steps: { display: "flex", gap: "16px", padding: "12px 16px", borderBottom: `1px solid ${tokens.colorNeutralStroke2}` },
+  steps: {
+    display: "flex",
+    gap: "16px",
+    padding: "12px 16px",
+    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+  },
   step: { fontSize: tokens.fontSizeBase200, color: tokens.colorNeutralForeground3 },
-  stepActive: { fontSize: tokens.fontSizeBase200, fontWeight: tokens.fontWeightSemibold, color: tokens.colorBrandForeground1 },
-  body: { padding: "16px", display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto" },
+  stepActive: {
+    fontSize: tokens.fontSizeBase200,
+    fontWeight: tokens.fontWeightSemibold,
+    color: tokens.colorBrandForeground1,
+  },
+  body: {
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    overflowY: "auto",
+  },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -105,12 +127,18 @@ export function MaintenancePlanDialog({ mode, initialName, onClose }: DialogProp
     { name: string; scheduleType: string; expectedDuration: string; executionRole: string }[]
   >([]);
 
-  const title = mode === MODE_CREATE ? L.createTitle : mode === MODE_EDIT ? L.editTitle : L.cloneTitle;
+  const title =
+    mode === MODE_CREATE ? L.createTitle : mode === MODE_EDIT ? L.editTitle : L.cloneTitle;
   const canSubmit = name.trim().length > 0;
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(title)}</div>
         <div className={styles.steps}>
           <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
@@ -122,11 +150,19 @@ export function MaintenancePlanDialog({ mode, initialName, onClose }: DialogProp
             <>
               <div className={styles.field}>
                 <label>{t(L.changeSet)}</label>
-                <Input value={changeSet} onChange={(_, d) => setChangeSet(d.value)} disabled={useAutoCs} />
+                <Input
+                  value={changeSet}
+                  onChange={(_, d) => setChangeSet(d.value)}
+                  disabled={useAutoCs}
+                />
               </div>
               <div className={styles.field}>
                 <span />
-                <Checkbox label={t(L.useAutomaticChangeSet)} checked={useAutoCs === true} onChange={(_, d) => setUseAutoCs(d.checked === true)} />
+                <Checkbox
+                  label={t(L.useAutomaticChangeSet)}
+                  checked={useAutoCs === true}
+                  onChange={(_, d) => setUseAutoCs(d.checked === true)}
+                />
               </div>
               <div className={styles.field}>
                 <label>{t(L.approvalRole)}</label>
@@ -134,7 +170,11 @@ export function MaintenancePlanDialog({ mode, initialName, onClose }: DialogProp
               </div>
               <div className={styles.field}>
                 <span />
-                <Checkbox label={t(L.makeEffectiveOnApproval)} checked={effectiveOnApproval === true} onChange={(_, d) => setEffectiveOnApproval(d.checked === true)} />
+                <Checkbox
+                  label={t(L.makeEffectiveOnApproval)}
+                  checked={effectiveOnApproval === true}
+                  onChange={(_, d) => setEffectiveOnApproval(d.checked === true)}
+                />
               </div>
             </>
           )}
@@ -145,7 +185,11 @@ export function MaintenancePlanDialog({ mode, initialName, onClose }: DialogProp
                   <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
                   {t(L.name)}
                 </label>
-                <Input value={name} onChange={(_, d) => setName(d.value)} disabled={mode === MODE_EDIT} />
+                <Input
+                  value={name}
+                  onChange={(_, d) => setName(d.value)}
+                  disabled={mode === MODE_EDIT}
+                />
               </div>
               <div className={styles.field}>
                 <label>{t(L.description)}</label>
@@ -157,7 +201,11 @@ export function MaintenancePlanDialog({ mode, initialName, onClose }: DialogProp
               </div>
               <div className={styles.field}>
                 <label>{t(L.scope)}</label>
-                <select className={styles.select} value={scope} onChange={(e) => setScope(e.target.value)}>
+                <select
+                  className={styles.select}
+                  value={scope}
+                  onChange={(e) => setScope(e.target.value)}
+                >
                   <option value="MaintenanceManagement">{t(L.scopeMaintenanceManagement)}</option>
                   <option value="InProcessVerification">{t(L.scopeInProcessVerification)}</option>
                   <option value="Qualification">{t(L.scopeQualification)}</option>
@@ -173,7 +221,12 @@ export function MaintenancePlanDialog({ mode, initialName, onClose }: DialogProp
                   onClick={() =>
                     setActivities([
                       ...activities,
-                      { name: "", scheduleType: "AdHoc", expectedDuration: "", executionRole: "" },
+                      {
+                        name: "",
+                        scheduleType: SCHEDULE_TYPE_AD_HOC,
+                        expectedDuration: "",
+                        executionRole: "",
+                      },
                     ])
                   }
                 >
@@ -185,14 +238,24 @@ export function MaintenancePlanDialog({ mode, initialName, onClose }: DialogProp
                   <Input
                     placeholder={t(L.activityName)}
                     value={a.name}
-                    onChange={(_, d) => setActivities(activities.map((x, j) => (j === i ? { ...x, name: d.value } : x)))}
+                    onChange={(_, d) =>
+                      setActivities(
+                        activities.map((x, j) => (j === i ? { ...x, name: d.value } : x)),
+                      )
+                    }
                   />
                   <select
                     className={styles.select}
                     value={a.scheduleType}
-                    onChange={(e) => setActivities(activities.map((x, j) => (j === i ? { ...x, scheduleType: e.target.value } : x)))}
+                    onChange={(e) =>
+                      setActivities(
+                        activities.map((x, j) =>
+                          j === i ? { ...x, scheduleType: e.target.value } : x,
+                        ),
+                      )
+                    }
                   >
-                    <option value="AdHoc">{t(L.scheduleAdHoc)}</option>
+                    <option value={SCHEDULE_TYPE_AD_HOC}>{t(L.scheduleAdHoc)}</option>
                     <option value="TimeBased">{t(L.scheduleTimeBased)}</option>
                     <option value="UsageBased">{t(L.scheduleUsageBased)}</option>
                     <option value="UsageAndTimeBased">{t(L.scheduleUsageAndTimeBased)}</option>
@@ -200,9 +263,18 @@ export function MaintenancePlanDialog({ mode, initialName, onClose }: DialogProp
                   <Input
                     placeholder={t(L.expectedDuration)}
                     value={a.expectedDuration}
-                    onChange={(_, d) => setActivities(activities.map((x, j) => (j === i ? { ...x, expectedDuration: d.value } : x)))}
+                    onChange={(_, d) =>
+                      setActivities(
+                        activities.map((x, j) =>
+                          j === i ? { ...x, expectedDuration: d.value } : x,
+                        ),
+                      )
+                    }
                   />
-                  <Button size="small" onClick={() => setActivities(activities.filter((_, j) => j !== i))}>
+                  <Button
+                    size="small"
+                    onClick={() => setActivities(activities.filter((_, j) => j !== i))}
+                  >
                     {t(L.remove)}
                   </Button>
                 </div>
@@ -214,7 +286,11 @@ export function MaintenancePlanDialog({ mode, initialName, onClose }: DialogProp
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 3 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)} disabled={step === 2 && !canSubmit}>
+            <Button
+              appearance="primary"
+              onClick={() => setStep(step + 1)}
+              disabled={step === 2 && !canSubmit}
+            >
               {t(L.next)}
             </Button>
           ) : (

@@ -210,7 +210,9 @@ export function ManageTransferRequirementTypesDialog({
           </Text>
           <div style={{ marginTop: "12px" }}>
             {rows.length === 0 && (
-              <div className={styles.empty}>{t("businessData.area.operations.noTransferTypes")}</div>
+              <div className={styles.empty}>
+                {t("businessData.area.operations.noTransferTypes")}
+              </div>
             )}
             {rows.map((row) => (
               <div key={row.id} className={styles.row}>
@@ -272,11 +274,7 @@ export function ViewAreaDashboardsDialog({
         </div>
         <div className={styles.body}>
           {DASHBOARDS.map((dashboard) => (
-            <button
-              key={dashboard}
-              className={styles.dashboardItem}
-              onClick={onClose}
-            >
+            <button key={dashboard} className={styles.dashboardItem} onClick={onClose}>
               {t(`businessData.area.operations.dashboards.${dashboard}`)}
             </button>
           ))}
@@ -290,4 +288,3 @@ export function ViewAreaDashboardsDialog({
     </div>
   );
 }
-

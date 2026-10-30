@@ -41,7 +41,10 @@ export function useBusinessPartners(params: ListQueryParams) {
   if (params.filters?.state) search.set("state", params.filters.state);
   return useQuery<Page<BusinessPartnerRecord>>({
     queryKey: ["business-data", "business-partners", params],
-    queryFn: () => apiFetch<Page<BusinessPartnerRecord>>(`/business-data/business-partners?${search.toString()}`),
+    queryFn: () =>
+      apiFetch<Page<BusinessPartnerRecord>>(
+        `/business-data/business-partners?${search.toString()}`,
+      ),
     placeholderData: keepPreviousData,
   });
 }
@@ -49,7 +52,10 @@ export function useBusinessPartners(params: ListQueryParams) {
 export function useBusinessPartnerDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "business-partners", name],
-    queryFn: () => apiFetch<BusinessPartnerDetail>(`/business-data/business-partners/${encodeURIComponent(name)}`),
+    queryFn: () =>
+      apiFetch<BusinessPartnerDetail>(
+        `/business-data/business-partners/${encodeURIComponent(name)}`,
+      ),
   });
 }
 

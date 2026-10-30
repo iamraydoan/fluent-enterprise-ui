@@ -7,7 +7,11 @@ import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { formatEmployeeMeta, formatWorkgroupMeta, formatWorkgroupResources } from "./shiftPlanHelpers";
+import {
+  formatEmployeeMeta,
+  formatWorkgroupMeta,
+  formatWorkgroupResources,
+} from "./shiftPlanHelpers";
 import { shiftPlanMoreActions } from "./shiftPlanMoreActions";
 
 const TOP_TABS: DetailTab[] = [

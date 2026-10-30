@@ -46,9 +46,7 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
   const [comments, setComments] = useState("");
 
   const toggle = (name: string) => {
-    setSelected((prev) =>
-      prev.includes(name) ? prev.filter((n) => n !== name) : [...prev, name],
-    );
+    setSelected((prev) => (prev.includes(name) ? prev.filter((n) => n !== name) : [...prev, name]));
   };
 
   const selectedImages = IMAGES.filter((i) => selected.includes(i.name));
@@ -60,10 +58,38 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
           <DialogTitle>{t(`${k}.title`)}</DialogTitle>
           <DialogContent>
             <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-              <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === 1 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>1</span>
+              <span
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderRadius: "50%",
+                  backgroundColor: step === 1 ? "#0078d4" : "#ccc",
+                  color: "#fff",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 12,
+                }}
+              >
+                1
+              </span>
               <Body1Strong>{t(`${k}.stepImages`)}</Body1Strong>
               <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />
-              <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === 2 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>2</span>
+              <span
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderRadius: "50%",
+                  backgroundColor: step === 2 ? "#0078d4" : "#ccc",
+                  color: "#fff",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 12,
+                }}
+              >
+                2
+              </span>
               <Body1Strong>{t(`${k}.stepAssessment`)}</Body1Strong>
             </div>
             <div style={{ marginBottom: 12, color: "#0078d4" }}>🚩 {reasonName}</div>
@@ -81,7 +107,10 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
                   {IMAGES.map((img) => (
                     <TableRow key={img.name}>
                       <TableCell>
-                        <Checkbox checked={selected.includes(img.name)} onChange={() => toggle(img.name)} />
+                        <Checkbox
+                          checked={selected.includes(img.name)}
+                          onChange={() => toggle(img.name)}
+                        />
                       </TableCell>
                       <TableCell>{img.name}</TableCell>
                       <TableCell>{img.scope}</TableCell>
@@ -94,7 +123,10 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
             {step === 2 && (
               <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
                 {selectedImages.map((img) => (
-                  <div key={img.name} style={{ border: "1px solid #ddd", borderRadius: 4, padding: 12 }}>
+                  <div
+                    key={img.name}
+                    style={{ border: "1px solid #ddd", borderRadius: 4, padding: 12 }}
+                  >
                     <Body1Strong>{img.name}</Body1Strong>
                     <div style={{ display: "flex", columnGap: 12, marginTop: 8 }}>
                       <Field label={t(`${k}.assessment`)}>
@@ -105,7 +137,9 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
                           }
                         >
                           {ASSESSMENTS.map((o) => (
-                            <option key={o} value={o}>{o}</option>
+                            <option key={o} value={o}>
+                              {o}
+                            </option>
                           ))}
                         </select>
                       </Field>
@@ -126,16 +160,26 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {step === 2 && (
-              <Button appearance="secondary" onClick={() => setStep(1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(1)}>
+                {t("common.back")}
+              </Button>
             )}
             {step === 1 ? (
-              <Button appearance="primary" onClick={() => setStep(2)} disabled={selected.length === 0}>
+              <Button
+                appearance="primary"
+                onClick={() => setStep(2)}
+                disabled={selected.length === 0}
+              >
                 {t("common.next")}
               </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{t(`${k}.add`)}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {t(`${k}.add`)}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>

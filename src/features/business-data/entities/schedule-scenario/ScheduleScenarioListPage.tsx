@@ -78,10 +78,7 @@ export function ScheduleScenarioListPage() {
         getRowId={(row) => row.name}
         onRowClick={(row) => openDetail(row.name)}
       />
-      <ScheduleScenarioFormDialog
-        open={createOpen}
-        onClose={() => setCreateOpen(false)}
-      />
+      <ScheduleScenarioFormDialog open={createOpen} onClose={() => setCreateOpen(false)} />
     </>
   );
 }

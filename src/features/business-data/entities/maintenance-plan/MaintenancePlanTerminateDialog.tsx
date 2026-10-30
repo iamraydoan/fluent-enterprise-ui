@@ -5,7 +5,6 @@ import { useSharedStyles } from "@/styles/shared";
 import { TERMINATE } from "./wizardMode";
 import type { TerminateMode } from "./wizardMode";
 
-
 const L: Record<string, TranslationKey> = {
   terminateTitle: "businessData.maintenancePlan.terminateDialog.title",
   terminateMessage: "businessData.maintenancePlan.terminateDialog.message",
@@ -62,7 +61,12 @@ export function MaintenancePlanTerminateDialog({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(isTerminate ? L.terminateTitle : L.unterminateTitle)}</div>
         <div className={styles.body}>
           <div>{t(isTerminate ? L.terminateMessage : L.unterminateMessage, { name })}</div>
@@ -82,14 +86,25 @@ export function MaintenancePlanTerminateDialog({
   );
 }
 
-export function SetMaintenancePlanEffectiveDialog({ name, onClose }: { name: string; onClose: () => void }) {
+export function SetMaintenancePlanEffectiveDialog({
+  name,
+  onClose,
+}: {
+  name: string;
+  onClose: () => void;
+}) {
   const { t } = useAppTranslation();
   const shared = useSharedStyles();
   const styles = useDialogStyles();
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(L.setEffectiveTitle)}</div>
         <div className={styles.body}>
           <div>{t(L.setEffectiveMessage, { name })}</div>

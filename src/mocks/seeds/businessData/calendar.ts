@@ -1,5 +1,4 @@
-import type { CalendarDetail, CalendarRecord, WeekDay } from "@/api";
-import type { Page } from "@/api";
+import type { CalendarDetail, CalendarRecord, WeekDay, Page } from "@/api";
 
 const RECORDS: CalendarRecord[] = [
   { name: "Standard", description: "Standard Calendar", state: "Active" },
@@ -16,13 +15,21 @@ const WEEK: WeekDay[] = [
   { day: "Sunday", shiftDefinition: "Non-Working Day", costOvertimeFactor: 1 },
 ];
 
-export function queryCalendars(page: number, limit: number, q?: string, state?: string): Page<CalendarRecord> {
+export function queryCalendars(
+  page: number,
+  limit: number,
+  q?: string,
+  state?: string,
+): Page<CalendarRecord> {
   let rows = RECORDS;
   if (q) {
     const n = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(n) || r.description.toLowerCase().includes(n));
+    rows = rows.filter(
+      (r) => r.name.toLowerCase().includes(n) || r.description.toLowerCase().includes(n),
+    );
   }
-  if (state && state !== "" && state !== "all") rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
+  if (state && state !== "" && state !== "all")
+    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
   const total = rows.length;
   const start = (page - 1) * limit;
   return { data: rows.slice(start, start + limit), meta: { total, page, limit } };

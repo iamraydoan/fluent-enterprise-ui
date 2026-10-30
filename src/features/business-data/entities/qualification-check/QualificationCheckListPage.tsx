@@ -45,7 +45,9 @@ const COLUMNS: DataColumn<QualificationCheckRecord>[] = [
   },
 ];
 
-function useQualificationCheckList(params: ListQueryParams): ListQueryResult<QualificationCheckRecord> {
+function useQualificationCheckList(
+  params: ListQueryParams,
+): ListQueryResult<QualificationCheckRecord> {
   const query = useQualificationChecks({
     q: params.filters?.q,
     state: params.filters?.state,

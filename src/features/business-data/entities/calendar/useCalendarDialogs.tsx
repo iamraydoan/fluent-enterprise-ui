@@ -41,7 +41,12 @@ function buildCalendarSteps(): WizardStep[] {
     {
       titleKey: "businessData.calendar.detail.information",
       fields: [
-        { key: "name", labelKey: "businessData.calendar.detail.name", type: "text", required: true },
+        {
+          key: "name",
+          labelKey: "businessData.calendar.detail.name",
+          type: "text",
+          required: true,
+        },
         {
           key: "description",
           labelKey: "businessData.calendar.detail.description",
@@ -80,7 +85,11 @@ function buildCalendarSteps(): WizardStep[] {
           type: "select",
           options: MONTH_OPTIONS,
         },
-        { key: "dayStartTime", labelKey: "businessData.calendar.detail.dayStartTime", type: "text" },
+        {
+          key: "dayStartTime",
+          labelKey: "businessData.calendar.detail.dayStartTime",
+          type: "text",
+        },
       ],
     },
   ];
@@ -97,8 +106,7 @@ function toUpsertInput(values: OperationValues): CalendarUpsertInput {
         : Number(values.clockInEarlyStartMinutes),
     enterpriseWideReportingDimension: values.enterpriseWideReportingDimension === true,
     weekStartDay: values.weekStartDay === undefined ? undefined : String(values.weekStartDay),
-    fiscalStartDay:
-      values.fiscalStartDay === undefined ? undefined : Number(values.fiscalStartDay),
+    fiscalStartDay: values.fiscalStartDay === undefined ? undefined : Number(values.fiscalStartDay),
     fiscalStartMonth:
       values.fiscalStartMonth === undefined ? undefined : String(values.fiscalStartMonth),
     dayStartTime: values.dayStartTime === undefined ? undefined : String(values.dayStartTime),
@@ -153,7 +161,12 @@ export function useCalendarDialogs(calendar?: CalendarDetail): CalendarDialogs {
     {
       titleKey: "businessData.calendar.detail.information",
       fields: [
-        { key: "name", labelKey: "businessData.calendar.detail.name", type: "text", required: true },
+        {
+          key: "name",
+          labelKey: "businessData.calendar.detail.name",
+          type: "text",
+          required: true,
+        },
         {
           key: "description",
           labelKey: "businessData.calendar.detail.description",

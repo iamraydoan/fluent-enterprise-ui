@@ -236,8 +236,14 @@ export function ResourceDetailPage({ name }: ResourceDetailPageProps) {
     { label: t(`${mk}.beginPreSetup`), onClick: open(DLG.beginPreSetup) },
     { label: t(`${mk}.performPreSetup`), onClick: open(DLG.performPreSetup) },
     { label: t(`${mk}.addResourceToContainer`), onClick: open(DLG.addResourceToContainer) },
-    { label: t(`${mk}.removeResourceFromContainer`), onClick: open(DLG.removeResourceFromContainer) },
-    { label: t(`${mk}.transferResourceBetweenContainers`), onClick: open(DLG.transferResourceBetweenContainers) },
+    {
+      label: t(`${mk}.removeResourceFromContainer`),
+      onClick: open(DLG.removeResourceFromContainer),
+    },
+    {
+      label: t(`${mk}.transferResourceBetweenContainers`),
+      onClick: open(DLG.transferResourceBetweenContainers),
+    },
     { label: t(`${mk}.storeContainersInResource`), onClick: open(DLG.storeContainersInResource) },
     { label: t(`${mk}.storeMaterialsInResource`), onClick: open(DLG.storeMaterialsInResource) },
     { label: t(`${mk}.storeResource`), onClick: open(DLG.storeResource) },
@@ -249,7 +255,10 @@ export function ResourceDetailPage({ name }: ResourceDetailPageProps) {
     { label: t(`${mk}.manageResourceRecipes`), onClick: open(DLG.manageResourceRecipes) },
     { label: t(`${mk}.manageRunAtRiskMaterials`), onClick: open(DLG.manageRunAtRiskMaterials) },
     { label: t(`${mk}.manageResourceInstruments`), onClick: open(DLG.manageResourceInstruments) },
-    { label: t(`${mk}.manageMeasurementCapabilities`), onClick: open(DLG.manageMeasurementCapabilities) },
+    {
+      label: t(`${mk}.manageMeasurementCapabilities`),
+      onClick: open(DLG.manageMeasurementCapabilities),
+    },
     { label: t(`${mk}.manageConsumableFeeds`), onClick: open(DLG.manageConsumableFeeds) },
     { label: t(`${mk}.manageConsumables`), onClick: open(DLG.manageConsumables) },
     { label: t(`${mk}.manageResourceLocations`), onClick: open(DLG.manageResourceLocations) },
@@ -263,8 +272,14 @@ export function ResourceDetailPage({ name }: ResourceDetailPageProps) {
     { label: t(`${mk}.manageResourceTrainees`), onClick: open(DLG.manageResourceTrainees) },
     { label: t(`${mk}.manageCosts`), onClick: open(DLG.manageCosts) },
     { label: t(`${mk}.manageDispatchQueue`), onClick: open(DLG.manageDispatchQueue) },
-    { label: t(`${mk}.manageResourceMaterialConsumables`), onClick: open(DLG.manageResourceMaterialConsumables) },
-    { label: t(`${mk}.manageResourceMaterialDurables`), onClick: open(DLG.manageResourceMaterialDurables) },
+    {
+      label: t(`${mk}.manageResourceMaterialConsumables`),
+      onClick: open(DLG.manageResourceMaterialConsumables),
+    },
+    {
+      label: t(`${mk}.manageResourceMaterialDurables`),
+      onClick: open(DLG.manageResourceMaterialDurables),
+    },
     { label: t(`${mk}.manageSchedulingBatching`), onClick: open(DLG.manageSchedulingBatching) },
     { label: t(`${mk}.setResourceRecipe`), onClick: open(DLG.setResourceRecipe) },
     { label: t(`${mk}.resourceOEEConfiguration`), onClick: open(DLG.resourceOEEConfiguration) },
@@ -365,13 +380,37 @@ export function ResourceDetailPage({ name }: ResourceDetailPageProps) {
         confirmLabel={t("businessData.resource.dialogs.unterminate.confirm")}
       />
 
-      <ChangeResourceStateDialog open={dlg(DLG.changeResourceState)} onClose={close} resourceName={data.name} />
-      <ChangeSystemStateDialog open={dlg(DLG.changeSystemState)} onClose={close} resourceName={data.name} />
-      <ChangeAutomationModeDialog open={dlg(DLG.changeAutomationMode)} onClose={close} resourceName={data.name} />
-      <ChangeInstrumentModeDialog open={dlg(DLG.changeInstrumentMode)} onClose={close} resourceName={data.name} />
-      <ChangeRunningModeDialog open={dlg(DLG.changeRunningMode)} onClose={close} resourceName={data.name} />
+      <ChangeResourceStateDialog
+        open={dlg(DLG.changeResourceState)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ChangeSystemStateDialog
+        open={dlg(DLG.changeSystemState)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ChangeAutomationModeDialog
+        open={dlg(DLG.changeAutomationMode)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ChangeInstrumentModeDialog
+        open={dlg(DLG.changeInstrumentMode)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ChangeRunningModeDialog
+        open={dlg(DLG.changeRunningMode)}
+        onClose={close}
+        resourceName={data.name}
+      />
       <ChangeProductDialog open={dlg(DLG.changeProduct)} onClose={close} resourceName={data.name} />
-      <EvaluateDispatchableRuleDialog open={dlg(DLG.evaluateDispatchableRule)} onClose={close} resourceName={data.name} />
+      <EvaluateDispatchableRuleDialog
+        open={dlg(DLG.evaluateDispatchableRule)}
+        onClose={close}
+        resourceName={data.name}
+      />
 
       <BeginSetupDialog open={dlg(DLG.beginSetup)} onClose={close} resourceName={data.name} />
       <PerformSetupDialog open={dlg(DLG.performSetup)} onClose={close} resourceName={data.name} />
@@ -379,53 +418,213 @@ export function ResourceDetailPage({ name }: ResourceDetailPageProps) {
       <CancelSetupDialog open={dlg(DLG.cancelSetup)} onClose={close} resourceName={data.name} />
       <ResetSetupDialog open={dlg(DLG.resetSetup)} onClose={close} resourceName={data.name} />
       <ViewSetupDialog open={dlg(DLG.viewSetup)} onClose={close} resourceName={data.name} />
-      <BeginLineSetupDialog open={dlg(DLG.beginLineSetup)} onClose={close} resourceName={data.name} />
-      <PerformLineSetupDialog open={dlg(DLG.performLineSetup)} onClose={close} resourceName={data.name} />
-      <CompleteLineSetupDialog open={dlg(DLG.completeLineSetup)} onClose={close} resourceName={data.name} />
-      <CancelLineSetupDialog open={dlg(DLG.cancelLineSetup)} onClose={close} resourceName={data.name} />
-      <ResetLineSetupDialog open={dlg(DLG.resetLineSetup)} onClose={close} resourceName={data.name} />
+      <BeginLineSetupDialog
+        open={dlg(DLG.beginLineSetup)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <PerformLineSetupDialog
+        open={dlg(DLG.performLineSetup)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <CompleteLineSetupDialog
+        open={dlg(DLG.completeLineSetup)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <CancelLineSetupDialog
+        open={dlg(DLG.cancelLineSetup)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ResetLineSetupDialog
+        open={dlg(DLG.resetLineSetup)}
+        onClose={close}
+        resourceName={data.name}
+      />
       <ViewLineSetupDialog open={dlg(DLG.viewLineSetup)} onClose={close} resourceName={data.name} />
       <BeginPreSetupDialog open={dlg(DLG.beginPreSetup)} onClose={close} resourceName={data.name} />
-      <PerformPreSetupDialog open={dlg(DLG.performPreSetup)} onClose={close} resourceName={data.name} />
+      <PerformPreSetupDialog
+        open={dlg(DLG.performPreSetup)}
+        onClose={close}
+        resourceName={data.name}
+      />
 
-      <AddResourceToContainerDialog open={dlg(DLG.addResourceToContainer)} onClose={close} resourceName={data.name} />
-      <RemoveResourceFromContainerDialog open={dlg(DLG.removeResourceFromContainer)} onClose={close} resourceName={data.name} />
-      <TransferResourceBetweenContainersDialog open={dlg(DLG.transferResourceBetweenContainers)} onClose={close} resourceName={data.name} />
-      <StoreContainersInResourceDialog open={dlg(DLG.storeContainersInResource)} onClose={close} resourceName={data.name} />
-      <StoreMaterialsInResourceDialog open={dlg(DLG.storeMaterialsInResource)} onClose={close} resourceName={data.name} />
+      <AddResourceToContainerDialog
+        open={dlg(DLG.addResourceToContainer)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <RemoveResourceFromContainerDialog
+        open={dlg(DLG.removeResourceFromContainer)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <TransferResourceBetweenContainersDialog
+        open={dlg(DLG.transferResourceBetweenContainers)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <StoreContainersInResourceDialog
+        open={dlg(DLG.storeContainersInResource)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <StoreMaterialsInResourceDialog
+        open={dlg(DLG.storeMaterialsInResource)}
+        onClose={close}
+        resourceName={data.name}
+      />
       <StoreResourceDialog open={dlg(DLG.storeResource)} onClose={close} resourceName={data.name} />
-      <RetrieveResourceDialog open={dlg(DLG.retrieveResource)} onClose={close} resourceName={data.name} />
+      <RetrieveResourceDialog
+        open={dlg(DLG.retrieveResource)}
+        onClose={close}
+        resourceName={data.name}
+      />
 
-      <ManageStructureDialog open={dlg(DLG.manageStructure)} onClose={close} resourceName={data.name} />
-      <ManageRunningModesDialog open={dlg(DLG.manageRunningModes)} onClose={close} resourceName={data.name} />
-      <ManageResourcePartsDialog open={dlg(DLG.manageResourceParts)} onClose={close} resourceName={data.name} />
-      <ManageRepairablePartsDialog open={dlg(DLG.manageRepairableParts)} onClose={close} resourceName={data.name} />
-      <ManageResourceRecipesDialog open={dlg(DLG.manageResourceRecipes)} onClose={close} resourceName={data.name} />
-      <ManageRunAtRiskMaterialsDialog open={dlg(DLG.manageRunAtRiskMaterials)} onClose={close} resourceName={data.name} />
-      <ManageResourceInstrumentsDialog open={dlg(DLG.manageResourceInstruments)} onClose={close} resourceName={data.name} />
-      <ManageMeasurementCapabilitiesDialog open={dlg(DLG.manageMeasurementCapabilities)} onClose={close} resourceName={data.name} />
-      <ManageConsumableFeedsDialog open={dlg(DLG.manageConsumableFeeds)} onClose={close} resourceName={data.name} />
-      <ManageConsumablesDialog open={dlg(DLG.manageConsumables)} onClose={close} resourceName={data.name} />
-      <ManageResourceLocationsDialog open={dlg(DLG.manageResourceLocations)} onClose={close} resourceName={data.name} />
-      <ManageResourceLanesDialog open={dlg(DLG.manageResourceLanes)} onClose={close} resourceName={data.name} />
-      <ManageResourceDurablesDialog open={dlg(DLG.manageResourceDurables)} onClose={close} resourceName={data.name} />
-      <ManageResourceInventoryDialog open={dlg(DLG.manageResourceInventory)} onClose={close} resourceName={data.name} />
-      <ManageResourceStorageBinsDialog open={dlg(DLG.manageResourceStorageBins)} onClose={close} resourceName={data.name} />
-      <ManageResourceServicesDialog open={dlg(DLG.manageResourceServices)} onClose={close} resourceName={data.name} />
-      <ManagePersonnelDialog open={dlg(DLG.managePersonnel)} onClose={close} resourceName={data.name} />
-      <ManageResourceEmployeesDialog open={dlg(DLG.manageResourceEmployees)} onClose={close} resourceName={data.name} />
-      <ManageResourceTraineesDialog open={dlg(DLG.manageResourceTrainees)} onClose={close} resourceName={data.name} />
+      <ManageStructureDialog
+        open={dlg(DLG.manageStructure)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageRunningModesDialog
+        open={dlg(DLG.manageRunningModes)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourcePartsDialog
+        open={dlg(DLG.manageResourceParts)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageRepairablePartsDialog
+        open={dlg(DLG.manageRepairableParts)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceRecipesDialog
+        open={dlg(DLG.manageResourceRecipes)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageRunAtRiskMaterialsDialog
+        open={dlg(DLG.manageRunAtRiskMaterials)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceInstrumentsDialog
+        open={dlg(DLG.manageResourceInstruments)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageMeasurementCapabilitiesDialog
+        open={dlg(DLG.manageMeasurementCapabilities)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageConsumableFeedsDialog
+        open={dlg(DLG.manageConsumableFeeds)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageConsumablesDialog
+        open={dlg(DLG.manageConsumables)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceLocationsDialog
+        open={dlg(DLG.manageResourceLocations)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceLanesDialog
+        open={dlg(DLG.manageResourceLanes)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceDurablesDialog
+        open={dlg(DLG.manageResourceDurables)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceInventoryDialog
+        open={dlg(DLG.manageResourceInventory)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceStorageBinsDialog
+        open={dlg(DLG.manageResourceStorageBins)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceServicesDialog
+        open={dlg(DLG.manageResourceServices)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManagePersonnelDialog
+        open={dlg(DLG.managePersonnel)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceEmployeesDialog
+        open={dlg(DLG.manageResourceEmployees)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceTraineesDialog
+        open={dlg(DLG.manageResourceTrainees)}
+        onClose={close}
+        resourceName={data.name}
+      />
       <ManageCostsDialog open={dlg(DLG.manageCosts)} onClose={close} resourceName={data.name} />
-      <ManageDispatchQueueDialog open={dlg(DLG.manageDispatchQueue)} onClose={close} resourceName={data.name} />
-      <ManageResourceMaterialConsumablesDialog open={dlg(DLG.manageResourceMaterialConsumables)} onClose={close} resourceName={data.name} />
-      <ManageResourceMaterialDurablesDialog open={dlg(DLG.manageResourceMaterialDurables)} onClose={close} resourceName={data.name} />
-      <ManageSchedulingBatchingDialog open={dlg(DLG.manageSchedulingBatching)} onClose={close} resourceName={data.name} />
+      <ManageDispatchQueueDialog
+        open={dlg(DLG.manageDispatchQueue)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceMaterialConsumablesDialog
+        open={dlg(DLG.manageResourceMaterialConsumables)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageResourceMaterialDurablesDialog
+        open={dlg(DLG.manageResourceMaterialDurables)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ManageSchedulingBatchingDialog
+        open={dlg(DLG.manageSchedulingBatching)}
+        onClose={close}
+        resourceName={data.name}
+      />
 
-      <SetResourceRecipeDialog open={dlg(DLG.setResourceRecipe)} onClose={close} resourceName={data.name} />
-      <ResourceOEEConfigurationDialog open={dlg(DLG.resourceOEEConfiguration)} onClose={close} resourceName={data.name} />
-      <ViewResourceDashboardsDialog open={dlg(DLG.viewResourceDashboards)} onClose={close} resourceName={data.name} />
-      <ViewResourceDocumentsDialog open={dlg(DLG.viewResourceDocuments)} onClose={close} resourceName={data.name} />
-      <ViewResourceReportsDialog open={dlg(DLG.viewResourceReports)} onClose={close} resourceName={data.name} />
+      <SetResourceRecipeDialog
+        open={dlg(DLG.setResourceRecipe)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ResourceOEEConfigurationDialog
+        open={dlg(DLG.resourceOEEConfiguration)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ViewResourceDashboardsDialog
+        open={dlg(DLG.viewResourceDashboards)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ViewResourceDocumentsDialog
+        open={dlg(DLG.viewResourceDocuments)}
+        onClose={close}
+        resourceName={data.name}
+      />
+      <ViewResourceReportsDialog
+        open={dlg(DLG.viewResourceReports)}
+        onClose={close}
+        resourceName={data.name}
+      />
     </>
   );
 }

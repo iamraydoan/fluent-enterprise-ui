@@ -181,7 +181,11 @@ export function EntityWizardDialog({
           <div className={styles.headTitle}>
             <Text weight="semibold">{t(titleKey)}</Text>
           </div>
-          <button className={styles.closeButton} onClick={handleClose} aria-label={t("common.close")}>
+          <button
+            className={styles.closeButton}
+            onClick={handleClose}
+            aria-label={t("common.close")}
+          >
             <Dismiss16Regular />
           </button>
         </div>
@@ -254,11 +258,7 @@ function WizardFieldInput({
   );
 
   if (field.type === "custom" && field.render) {
-    return (
-      <div>
-        {field.render(values, onChange)}
-      </div>
-    );
+    return <div>{field.render(values, onChange)}</div>;
   }
 
   if (field.type === "checkbox") {
@@ -293,9 +293,7 @@ function WizardFieldInput({
         <Menu
           positioning="below-start"
           checkedValues={{ selected: value === undefined ? [] : [String(value)] }}
-          onCheckedValueChange={(_, data) =>
-            onChange(field.key, data.checkedItems[0] ?? "")
-          }
+          onCheckedValueChange={(_, data) => onChange(field.key, data.checkedItems[0] ?? "")}
         >
           <MenuTrigger disableButtonEnhancement>
             <Button appearance="secondary" className={styles.selectButton}>

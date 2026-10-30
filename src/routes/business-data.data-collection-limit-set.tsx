@@ -3,7 +3,8 @@ import { DataCollectionLimitSetListPage } from "@/features/business-data/entitie
 
 function DataCollectionLimitSetRoute() {
   const location = useLocation();
-  if (location.pathname === "/business-data/data-collection-limit-set") return <DataCollectionLimitSetListPage />;
+  if (location.pathname === "/business-data/data-collection-limit-set")
+    return <DataCollectionLimitSetListPage />;
   return <Outlet />;
 }
 

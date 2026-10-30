@@ -73,7 +73,10 @@ export function updateAreaRecord(name: string, input: Partial<AreaDetail>): Prom
   return postJson<AreaDetail>(`/business-data/areas/${encodeURIComponent(name)}`, "PUT", input);
 }
 
-export function setAreaRecordState(name: string, state: "Active" | "Terminated"): Promise<AreaDetail> {
+export function setAreaRecordState(
+  name: string,
+  state: "Active" | "Terminated",
+): Promise<AreaDetail> {
   return postJson<AreaDetail>(`/business-data/areas/${encodeURIComponent(name)}/state`, "PATCH", {
     state,
   });

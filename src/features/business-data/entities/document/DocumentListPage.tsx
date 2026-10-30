@@ -18,7 +18,6 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { DocumentWizardDialog } from "./DocumentWizardDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<DocumentRecord>[] = [
   {
     field: "name",
@@ -59,18 +58,25 @@ export function DocumentListPage() {
   const [showCreate, setShowCreate] = useState(false);
   return (
     <>
-    <DataListPage
-      icon={<DocumentBulletList24Regular />}
-      titleKey={"businessData.document.pageLabel"}
-      listTitleKey={"businessData.document.listTitle"}
-      actions={[{ ...createAction, onClick: () => setShowCreate(true) }, refreshAction, importAction, exportAction]}
-      columns={COLUMNS}
-      filters={defaultListFilters}
-      useListQuery={useDocumentListQuery}
-      getRowId={(row) => row.name}
-      onRowClick={(row) => openDetail(row.name)}
-    />
-    {showCreate && <DocumentWizardDialog mode={MODE_CREATE} onClose={() => setShowCreate(false)} />}
+      <DataListPage
+        icon={<DocumentBulletList24Regular />}
+        titleKey={"businessData.document.pageLabel"}
+        listTitleKey={"businessData.document.listTitle"}
+        actions={[
+          { ...createAction, onClick: () => setShowCreate(true) },
+          refreshAction,
+          importAction,
+          exportAction,
+        ]}
+        columns={COLUMNS}
+        filters={defaultListFilters}
+        useListQuery={useDocumentListQuery}
+        getRowId={(row) => row.name}
+        onRowClick={(row) => openDetail(row.name)}
+      />
+      {showCreate && (
+        <DocumentWizardDialog mode={MODE_CREATE} onClose={() => setShowCreate(false)} />
+      )}
     </>
   );
 }

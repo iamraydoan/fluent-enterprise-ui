@@ -30,7 +30,11 @@ const BODIES: TranslationKey[] = [
   "businessData.scheduleScenario.dialogs.generate.step3Body",
 ];
 
-export function GenerateScheduleScenarioDialog({ open, onClose, scenarioName }: GenerateScheduleScenarioDialogProps) {
+export function GenerateScheduleScenarioDialog({
+  open,
+  onClose,
+  scenarioName,
+}: GenerateScheduleScenarioDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.scheduleScenario.dialogs.generate";
   const [step, setStep] = useState(1);
@@ -45,25 +49,45 @@ export function GenerateScheduleScenarioDialog({ open, onClose, scenarioName }: 
             <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
               {STEP_KEYS.map((key, i) => (
                 <span key={key} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
-                  <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === i + 1 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>{i + 1}</span>
+                  <span
+                    style={{
+                      width: 24,
+                      height: 24,
+                      borderRadius: "50%",
+                      backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
+                      color: "#fff",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 12,
+                    }}
+                  >
+                    {i + 1}
+                  </span>
                   <Body1Strong>{t(key)}</Body1Strong>
                   {i < 2 && <span style={{ width: 30, height: 1, backgroundColor: "#ccc" }} />}
                 </span>
               ))}
             </div>
-            <div style={{ padding: "12px 0", color: "#666" }}>
-              {t(BODIES[step - 1])}
-            </div>
+            <div style={{ padding: "12px 0", color: "#666" }}>{t(BODIES[step - 1])}</div>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {step > 1 && (
-              <Button appearance="secondary" onClick={() => setStep(step - 1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+                {t("common.back")}
+              </Button>
             )}
             {step < 3 ? (
-              <Button appearance="primary" onClick={() => setStep(step + 1)}>{t("common.next")}</Button>
+              <Button appearance="primary" onClick={() => setStep(step + 1)}>
+                {t("common.next")}
+              </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{t(`${k}.generate`)}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {t(`${k}.generate`)}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>

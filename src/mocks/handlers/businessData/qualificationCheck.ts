@@ -17,8 +17,6 @@ export const qualificationCheckHandlers = [
     );
   }),
   http.get("/business-data/qualification-checks/:name", ({ params }) =>
-    HttpResponse.json(
-      buildQualificationCheckDetail(decodeURIComponent(params.name as string)),
-    ),
+    HttpResponse.json(buildQualificationCheckDetail(decodeURIComponent(params.name as string))),
   ),
 ];

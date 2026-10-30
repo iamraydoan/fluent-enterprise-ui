@@ -3,23 +3,11 @@ import { useEmployeeDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Organization24Regular } from "@/components/icons";
-import { Text } from "@/components/ui";
+import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
 import { useBooleanLabel } from "../propertyLabels";
-import { EmployeeDialog } from "./EmployeeDialog";
-import { EmployeeTerminateDialog } from "./EmployeeTerminateDialog";
-import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
-import {
-  AssignCertificationDialog,
-  GrantCertificationDialog,
-  ManageCertificationDialog,
-} from "./EmployeeCertificationDialogs";
-import {
-  AssignQualificationDialog,
-  ManageQualificationDialog,
-} from "./EmployeeQualificationDialogs";
 import {
   AssignSubordinatesDialog,
   AssignTeamWorkgroupDialog,
@@ -28,14 +16,25 @@ import {
   ClockInDialog,
   ClockOutDialog,
 } from "./EmployeeAttendanceDialogs";
-import { ManageDelegatesDialog, ManageTraineesDialog } from "./EmployeeDelegatesDialogs";
 import {
   RemoveNonWorkingTimesDialog,
   RemoveWorkAvailabilityDialog,
   SetNonWorkingTimeDialog,
   SetWorkAvailabilityDialog,
 } from "./EmployeeCalendarDaysDialogs";
-
+import {
+  AssignCertificationDialog,
+  GrantCertificationDialog,
+  ManageCertificationDialog,
+} from "./EmployeeCertificationDialogs";
+import { ManageDelegatesDialog, ManageTraineesDialog } from "./EmployeeDelegatesDialogs";
+import { EmployeeDialog } from "./EmployeeDialog";
+import {
+  AssignQualificationDialog,
+  ManageQualificationDialog,
+} from "./EmployeeQualificationDialogs";
+import { EmployeeTerminateDialog } from "./EmployeeTerminateDialog";
+import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -59,59 +58,119 @@ export function EmployeeDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<string>("businessData.employee.sections.details");
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
+  const [terminateOpen, setTerminateOpen] = useState(false);
+  const [unterminateOpen, setUnterminateOpen] = useState(false);
+  const [assignCertOpen, setAssignCertOpen] = useState(false);
+  const [grantCertOpen, setGrantCertOpen] = useState(false);
+  const [manageCertOpen, setManageCertOpen] = useState(false);
+  const [assignQualOpen, setAssignQualOpen] = useState(false);
+  const [manageQualOpen, setManageQualOpen] = useState(false);
+  const [manageDelegatesOpen, setManageDelegatesOpen] = useState(false);
+  const [manageTraineesOpen, setManageTraineesOpen] = useState(false);
+  const [assignSubOpen, setAssignSubOpen] = useState(false);
+  const [assignTeamOpen, setAssignTeamOpen] = useState(false);
+  const [checkInOpen, setCheckInOpen] = useState(false);
+  const [checkOutOpen, setCheckOutOpen] = useState(false);
+  const [clockInOpen, setClockInOpen] = useState(false);
+  const [clockOutOpen, setClockOutOpen] = useState(false);
+  const [nonWorkingOpen, setNonWorkingOpen] = useState(false);
+  const [removeNonWorkingOpen, setRemoveNonWorkingOpen] = useState(false);
+  const [availabilityOpen, setAvailabilityOpen] = useState(false);
+  const [removeAvailabilityOpen, setRemoveAvailabilityOpen] = useState(false);
   const { data, isLoading } = useEmployeeDetail(name);
   const booleanLabel = useBooleanLabel();
 
   const shell = (content: React.ReactNode) => (
     <>
-    <DetailShell
-      title={name}
-      icon={<Organization24Regular />}
-      topTabs={TOP_TABS}
-      top={top}
-      onTop={setTop}
-      leftItems={LEFT_ITEMS}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onClone={() => setCloneOpen(true)}
-      onTerminate={() => setTerminateOpen(true)}
-      onUnterminate={() => setUnterminateOpen(true)}
-      onAskAi={() => undefined}
-    >
-      {content}
-    </DetailShell>
-    {editOpen && <EmployeeDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />}
-    {cloneOpen && (
-      <EmployeeDialog mode={MODE_CLONE} initialName={`${name} (Copy)`} onClose={() => setCloneOpen(false)} />
-    )}
-    {terminateOpen && (
-      <EmployeeTerminateDialog name={name} mode={TERMINATE} onClose={() => setTerminateOpen(false)} />
-    )}
-    {unterminateOpen && (
-      <EmployeeTerminateDialog name={name} mode={UNTERMINATE} onClose={() => setUnterminateOpen(false)} />
-    )}
-    {manageCertOpen && <ManageCertificationDialog name={name} onClose={() => setManageCertOpen(false)} />}
-    {grantCertOpen && <GrantCertificationDialog name={name} onClose={() => setGrantCertOpen(false)} />}
-    {assignCertOpen && <AssignCertificationDialog name={name} onClose={() => setAssignCertOpen(false)} />}
-    {manageQualOpen && <ManageQualificationDialog name={name} onClose={() => setManageQualOpen(false)} />}
-    {assignQualOpen && <AssignQualificationDialog name={name} onClose={() => setAssignQualOpen(false)} />}
-    {checkInOpen && <CheckInDialog name={name} onClose={() => setCheckInOpen(false)} />}
-    {checkOutOpen && <CheckOutDialog name={name} onClose={() => setCheckOutOpen(false)} />}
-    {clockInOpen && <ClockInDialog name={name} onClose={() => setClockInOpen(false)} />}
-    {clockOutOpen && <ClockOutDialog name={name} onClose={() => setClockOutOpen(false)} />}
-    {assignSubOpen && <AssignSubordinatesDialog name={name} onClose={() => setAssignSubOpen(false)} />}
-    {assignTeamOpen && <AssignTeamWorkgroupDialog name={name} onClose={() => setAssignTeamOpen(false)} />}
-    {manageDelegatesOpen && <ManageDelegatesDialog name={name} onClose={() => setManageDelegatesOpen(false)} />}
-    {manageTraineesOpen && <ManageTraineesDialog name={name} onClose={() => setManageTraineesOpen(false)} />}
-    {setNonWorkingOpen && <SetNonWorkingTimeDialog name={name} onClose={() => setSetNonWorkingOpen(false)} />}
-    {setAvailabilityOpen && <SetWorkAvailabilityDialog name={name} onClose={() => setSetAvailabilityOpen(false)} />}
-    {removeNonWorkingOpen && (
-      <RemoveNonWorkingTimesDialog name={name} onClose={() => setRemoveNonWorkingOpen(false)} />
-    )}
-    {removeAvailabilityOpen && (
-      <RemoveWorkAvailabilityDialog name={name} onClose={() => setRemoveAvailabilityOpen(false)} />
-    )}
+      <DetailShell
+        title={name}
+        icon={<Organization24Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={LEFT_ITEMS}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onClone={() => setCloneOpen(true)}
+        onTerminate={() => setTerminateOpen(true)}
+        onUnterminate={() => setUnterminateOpen(true)}
+        onAskAi={() => undefined}
+      >
+        {content}
+      </DetailShell>
+      {editOpen && (
+        <EmployeeDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />
+      )}
+      {cloneOpen && (
+        <EmployeeDialog
+          mode={MODE_CLONE}
+          initialName={`${name} (Copy)`}
+          onClose={() => setCloneOpen(false)}
+        />
+      )}
+      {terminateOpen && (
+        <EmployeeTerminateDialog
+          name={name}
+          mode={TERMINATE}
+          onClose={() => setTerminateOpen(false)}
+        />
+      )}
+      {unterminateOpen && (
+        <EmployeeTerminateDialog
+          name={name}
+          mode={UNTERMINATE}
+          onClose={() => setUnterminateOpen(false)}
+        />
+      )}
+      {manageCertOpen && (
+        <ManageCertificationDialog name={name} onClose={() => setManageCertOpen(false)} />
+      )}
+      {grantCertOpen && (
+        <GrantCertificationDialog name={name} onClose={() => setGrantCertOpen(false)} />
+      )}
+      {assignCertOpen && (
+        <AssignCertificationDialog name={name} onClose={() => setAssignCertOpen(false)} />
+      )}
+      {manageQualOpen && (
+        <ManageQualificationDialog name={name} onClose={() => setManageQualOpen(false)} />
+      )}
+      {assignQualOpen && (
+        <AssignQualificationDialog name={name} onClose={() => setAssignQualOpen(false)} />
+      )}
+      {checkInOpen && <CheckInDialog name={name} onClose={() => setCheckInOpen(false)} />}
+      {checkOutOpen && <CheckOutDialog name={name} onClose={() => setCheckOutOpen(false)} />}
+      {clockInOpen && <ClockInDialog name={name} onClose={() => setClockInOpen(false)} />}
+      {clockOutOpen && <ClockOutDialog name={name} onClose={() => setClockOutOpen(false)} />}
+      {assignSubOpen && (
+        <AssignSubordinatesDialog name={name} onClose={() => setAssignSubOpen(false)} />
+      )}
+      {assignTeamOpen && (
+        <AssignTeamWorkgroupDialog name={name} onClose={() => setAssignTeamOpen(false)} />
+      )}
+      {manageDelegatesOpen && (
+        <ManageDelegatesDialog name={name} onClose={() => setManageDelegatesOpen(false)} />
+      )}
+      {manageTraineesOpen && (
+        <ManageTraineesDialog name={name} onClose={() => setManageTraineesOpen(false)} />
+      )}
+      {nonWorkingOpen && (
+        <SetNonWorkingTimeDialog name={name} onClose={() => setNonWorkingOpen(false)} />
+      )}
+      {availabilityOpen && (
+        <SetWorkAvailabilityDialog name={name} onClose={() => setAvailabilityOpen(false)} />
+      )}
+      {removeNonWorkingOpen && (
+        <RemoveNonWorkingTimesDialog name={name} onClose={() => setRemoveNonWorkingOpen(false)} />
+      )}
+      {removeAvailabilityOpen && (
+        <RemoveWorkAvailabilityDialog
+          name={name}
+          onClose={() => setRemoveAvailabilityOpen(false)}
+        />
+      )}
     </>
   );
 
@@ -148,10 +207,19 @@ export function EmployeeDetailPage({ name }: { name: string }) {
         <KV
           rows={[
             [t("businessData.employee.details.requireClockIn"), booleanLabel(data.requireClockIn)],
-            [t("businessData.employee.details.enableAutomaticClockIn"), booleanLabel(data.enableAutomaticClockIn)],
-            [t("businessData.employee.details.lastClockInDate"), data.lastClockInDate === null ? "" : formatDateTime(data.lastClockInDate)],
+            [
+              t("businessData.employee.details.enableAutomaticClockIn"),
+              booleanLabel(data.enableAutomaticClockIn),
+            ],
+            [
+              t("businessData.employee.details.lastClockInDate"),
+              data.lastClockInDate === null ? "" : formatDateTime(data.lastClockInDate),
+            ],
             [t("businessData.employee.details.clockedState"), data.clockedState],
-            [t("businessData.employee.details.automaticClockOutAtEndOfShift"), booleanLabel(data.automaticClockOutAtEndOfShift)],
+            [
+              t("businessData.employee.details.automaticClockOutAtEndOfShift"),
+              booleanLabel(data.automaticClockOutAtEndOfShift),
+            ],
           ]}
         />
       </Card>
@@ -221,10 +289,10 @@ export function EmployeeDetailPage({ name }: { name: string }) {
           </Button>
         </div>
         <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          <Button size="small" onClick={() => setSetNonWorkingOpen(true)}>
+          <Button size="small" onClick={() => setNonWorkingOpen(true)}>
             {t("businessData.employee.calendarDays.set")}
           </Button>
-          <Button size="small" onClick={() => setSetAvailabilityOpen(true)}>
+          <Button size="small" onClick={() => setAvailabilityOpen(true)}>
             {t("businessData.employee.calendarDays.set")}
           </Button>
           <Button size="small" onClick={() => setRemoveNonWorkingOpen(true)}>

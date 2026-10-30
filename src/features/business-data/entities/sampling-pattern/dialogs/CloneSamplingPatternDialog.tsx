@@ -19,7 +19,11 @@ interface CloneSamplingPatternDialogProps {
   sourceName: string;
 }
 
-export function CloneSamplingPatternDialog({ open, onClose, sourceName }: CloneSamplingPatternDialogProps) {
+export function CloneSamplingPatternDialog({
+  open,
+  onClose,
+  sourceName,
+}: CloneSamplingPatternDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.samplingPattern.dialogs.clone";
   const [clones, setClones] = useState<string[]>(["Clone 1"]);
@@ -54,20 +58,39 @@ export function CloneSamplingPatternDialog({ open, onClose, sourceName }: CloneS
           <DialogContent>
             <div style={{ display: "flex", columnGap: 16 }}>
               <div style={{ width: 280, flexShrink: 0 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: 8,
+                  }}
+                >
                   <Body1Strong>{t(`${k}.clones`, { count: clones.length })}</Body1Strong>
                   <div style={{ display: "flex", columnGap: 4 }}>
-                    <Button size="small" appearance="subtle" onClick={addClone}>+</Button>
-                    <Button size="small" appearance="subtle" onClick={() => removeClone(selected)}>🗑</Button>
+                    <Button size="small" appearance="subtle" onClick={addClone}>
+                      +
+                    </Button>
+                    <Button size="small" appearance="subtle" onClick={() => removeClone(selected)}>
+                      🗑
+                    </Button>
                   </div>
                 </div>
-                <div style={{ border: "1px solid #ddd", borderRadius: 4, minHeight: 240, overflow: "auto" }}>
+                <div
+                  style={{
+                    border: "1px solid #ddd",
+                    borderRadius: 4,
+                    minHeight: 240,
+                    overflow: "auto",
+                  }}
+                >
                   {clones.map((name, i) => (
                     <div
                       key={`${name}-${i}`}
                       onClick={() => selectClone(i)}
                       style={{
-                        padding: "8px 12px", cursor: "pointer",
+                        padding: "8px 12px",
+                        cursor: "pointer",
                         backgroundColor: i === selected ? "#e3f2fd" : "transparent",
                         borderBottom: "1px solid #eee",
                       }}
@@ -81,7 +104,9 @@ export function CloneSamplingPatternDialog({ open, onClose, sourceName }: CloneS
                 <Field label={t(`${k}.name`)}>
                   <Input value={cloneName} onChange={(_, d) => setCloneName(d.value)} />
                 </Field>
-                <div style={{ fontSize: 12, color: "#666" }}>{t(`${k}.source`, { name: sourceName })}</div>
+                <div style={{ fontSize: 12, color: "#666" }}>
+                  {t(`${k}.source`, { name: sourceName })}
+                </div>
               </div>
             </div>
             <Field label={t(`${k}.comments`)}>
@@ -89,8 +114,12 @@ export function CloneSamplingPatternDialog({ open, onClose, sourceName }: CloneS
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.clone`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.clone`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

@@ -18,12 +18,23 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { EnterpriseDialog } from "./EnterpriseDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<EnterpriseRecord>[] = [
-  { field: "name", headerName: "businessData.enterprise.columns.name", type: "link", locked: true, width: "35%" },
+  {
+    field: "name",
+    headerName: "businessData.enterprise.columns.name",
+    type: "link",
+    locked: true,
+    width: "35%",
+  },
   { field: "description", headerName: "businessData.enterprise.columns.description", width: "30%" },
   { field: "dataGroup", headerName: "businessData.enterprise.columns.dataGroup", width: "20%" },
-  { field: "state", headerName: "businessData.enterprise.columns.state", type: "enum", enumOptions: RECORD_STATE_COLUMN_OPTIONS, width: "15%" },
+  {
+    field: "state",
+    headerName: "businessData.enterprise.columns.state",
+    type: "enum",
+    enumOptions: RECORD_STATE_COLUMN_OPTIONS,
+    width: "15%",
+  },
 ];
 
 function useEnterpriseListQuery(params: ListQueryParams) {
@@ -40,7 +51,12 @@ export function EnterpriseListPage() {
         icon={<Organization24Regular />}
         titleKey={"businessData.enterprise.pageLabel"}
         listTitleKey={"businessData.enterprise.listTitle"}
-        actions={[{ ...createAction, onClick: () => setShowCreate(true) }, refreshAction, importAction, exportAction]}
+        actions={[
+          { ...createAction, onClick: () => setShowCreate(true) },
+          refreshAction,
+          importAction,
+          exportAction,
+        ]}
         columns={COLUMNS}
         filters={defaultListFilters}
         useListQuery={useEnterpriseListQuery}

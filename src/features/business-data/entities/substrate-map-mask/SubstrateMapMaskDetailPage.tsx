@@ -28,7 +28,9 @@ export function SubstrateMapMaskDetailPage({ name }: { name: string }) {
   const sharedStyles = useSharedStyles();
   const { data, isLoading } = useSubstrateMapMaskDetail(name);
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<TranslationKey>("businessData.substrateMapMask.sections.details");
+  const [left, setLeft] = useState<TranslationKey>(
+    "businessData.substrateMapMask.sections.details",
+  );
   const handleLeft = (value: string) => setLeft(value as TranslationKey);
 
   if (isLoading || data === undefined) {

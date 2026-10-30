@@ -4,7 +4,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-
 const L: Record<string, TranslationKey> = {
   manageTitle: "businessData.employee.certifications.manageTitle",
   grantTitle: "businessData.employee.certifications.grantTitle",
@@ -38,14 +37,26 @@ const useDialogStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "560px", maxWidth: "95vw", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+  surface: {
+    width: "560px",
+    maxWidth: "95vw",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "90vh",
+  },
   head: {
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase400,
   },
-  body: { padding: "16px", display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto" },
+  body: {
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    overflowY: "auto",
+  },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -61,7 +72,13 @@ interface DialogProps {
   onClose: () => void;
 }
 
-function CertificationForm({ onClose, submitLabel }: { onClose: () => void; submitLabel: TranslationKey }) {
+function CertificationForm({
+  onClose,
+  submitLabel,
+}: {
+  onClose: () => void;
+  submitLabel: TranslationKey;
+}) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [certification, setCertification] = useState("");
@@ -91,11 +108,17 @@ function CertificationForm({ onClose, submitLabel }: { onClose: () => void; subm
         </div>
         <div className={styles.field}>
           <label>{t(L.isTrainer)}</label>
-          <Checkbox checked={isTrainer === true} onChange={(_, d) => setIsTrainer(d.checked === true)} />
+          <Checkbox
+            checked={isTrainer === true}
+            onChange={(_, d) => setIsTrainer(d.checked === true)}
+          />
         </div>
         <div className={styles.field}>
           <label>{t(L.isTrainee)}</label>
-          <Checkbox checked={isTrainee === true} onChange={(_, d) => setIsTrainee(d.checked === true)} />
+          <Checkbox
+            checked={isTrainee === true}
+            onChange={(_, d) => setIsTrainee(d.checked === true)}
+          />
         </div>
         <div className={styles.field}>
           <label>{t(L.comment)}</label>
@@ -129,7 +152,12 @@ function Shell({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>
           {t(title)} {name}
         </div>
@@ -178,14 +206,23 @@ export function RevokeCertificationDialog({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(L.revokeTitle)}</div>
         <div className={styles.body}>
           <div>{t(L.revokeMessage, { name, certification })}</div>
         </div>
         <div className={styles.footer}>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} style={{ backgroundColor: tokens.colorPaletteRedBackground3 }}>
+          <Button
+            appearance="primary"
+            onClick={onClose}
+            style={{ backgroundColor: tokens.colorPaletteRedBackground3 }}
+          >
             {t(L.revoke)}
           </Button>
         </div>
@@ -209,7 +246,12 @@ export function UnassignCertificationDialog({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(L.unassignTitle)}</div>
         <div className={styles.body}>
           <div>{t(L.unassignMessage, { name, certification })}</div>

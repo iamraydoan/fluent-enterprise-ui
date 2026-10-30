@@ -15,7 +15,12 @@ function buildBusinessPartnerSteps(): WizardStep[] {
     {
       titleKey: "businessData.businessPartner.detail.businessPartner",
       fields: [
-        { key: "name", labelKey: "businessData.businessPartner.detail.name", type: "text", required: true },
+        {
+          key: "name",
+          labelKey: "businessData.businessPartner.detail.name",
+          type: "text",
+          required: true,
+        },
         {
           key: "description",
           labelKey: "businessData.businessPartner.detail.description",
@@ -87,7 +92,11 @@ function buildBusinessPartnerSteps(): WizardStep[] {
           labelKey: "businessData.businessPartner.detail.mobilePhone",
           type: "text",
         },
-        { key: "taxNumber", labelKey: "businessData.businessPartner.detail.taxNumber", type: "text" },
+        {
+          key: "taxNumber",
+          labelKey: "businessData.businessPartner.detail.taxNumber",
+          type: "text",
+        },
         { key: "website", labelKey: "businessData.businessPartner.detail.website", type: "text" },
       ],
     },
@@ -182,7 +191,12 @@ export function useBusinessPartnerDialogs(partner?: BusinessPartnerDetail): Busi
     {
       titleKey: "businessData.businessPartner.detail.businessPartner",
       fields: [
-        { key: "name", labelKey: "businessData.businessPartner.detail.name", type: "text", required: true },
+        {
+          key: "name",
+          labelKey: "businessData.businessPartner.detail.name",
+          type: "text",
+          required: true,
+        },
         {
           key: "description",
           labelKey: "businessData.businessPartner.detail.description",
@@ -213,8 +227,7 @@ export function useBusinessPartnerDialogs(partner?: BusinessPartnerDetail): Busi
         submitLabelKey="common.save"
         onClose={() => setEditOpen(false)}
         onSubmit={(values) => {
-          if (partner)
-            updateMutation.mutate({ name: partner.name, input: toUpsertInput(values) });
+          if (partner) updateMutation.mutate({ name: partner.name, input: toUpsertInput(values) });
           setEditOpen(false);
         }}
       />

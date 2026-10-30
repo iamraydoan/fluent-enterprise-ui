@@ -6,6 +6,7 @@ import { useSharedStyles } from "@/styles/shared";
 import { MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
 
+const EMPTY_VALUE = "—";
 
 const L: Record<string, TranslationKey> = {
   createTitle: "businessData.employee.dialog.createTitle",
@@ -48,17 +49,38 @@ const useDialogStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "720px", maxWidth: "95vw", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+  surface: {
+    width: "720px",
+    maxWidth: "95vw",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "90vh",
+  },
   head: {
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase400,
   },
-  steps: { display: "flex", gap: "16px", padding: "12px 16px", borderBottom: `1px solid ${tokens.colorNeutralStroke2}` },
+  steps: {
+    display: "flex",
+    gap: "16px",
+    padding: "12px 16px",
+    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+  },
   step: { fontSize: tokens.fontSizeBase200, color: tokens.colorNeutralForeground3 },
-  stepActive: { fontSize: tokens.fontSizeBase200, fontWeight: tokens.fontWeightSemibold, color: tokens.colorBrandForeground1 },
-  body: { padding: "16px", display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto" },
+  stepActive: {
+    fontSize: tokens.fontSizeBase200,
+    fontWeight: tokens.fontWeightSemibold,
+    color: tokens.colorBrandForeground1,
+  },
+  body: {
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    overflowY: "auto",
+  },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -97,12 +119,18 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
   const [automaticClockIn, setAutomaticClockIn] = useState(false);
   const [automaticClockOut, setAutomaticClockOut] = useState(false);
 
-  const title = mode === MODE_CREATE ? L.createTitle : mode === MODE_EDIT ? L.editTitle : L.cloneTitle;
+  const title =
+    mode === MODE_CREATE ? L.createTitle : mode === MODE_EDIT ? L.editTitle : L.cloneTitle;
   const canSubmit = name.trim().length > 0 && employeeNumber.trim().length > 0;
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(title)}</div>
         <div className={styles.steps}>
           <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
@@ -141,19 +169,19 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
             <>
               <div className={styles.field}>
                 <label>{t(L.user)}</label>
-                <span>{user || "—"}</span>
+                <span>{user || EMPTY_VALUE}</span>
               </div>
               <div className={styles.field}>
                 <label>{t(L.userAccount)}</label>
-                <span>{userAccount || "—"}</span>
+                <span>{userAccount || EMPTY_VALUE}</span>
               </div>
               <div className={styles.field}>
                 <label>{t(L.userName)}</label>
-                <span>{userName || "—"}</span>
+                <span>{userName || EMPTY_VALUE}</span>
               </div>
               <div className={styles.field}>
                 <label>{t(L.userEmail)}</label>
-                <span>{userEmail || "—"}</span>
+                <span>{userEmail || EMPTY_VALUE}</span>
               </div>
             </>
           )}
@@ -164,7 +192,11 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
                   <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
                   {t(L.name)}
                 </label>
-                <Input value={name} onChange={(_, d) => setName(d.value)} disabled={mode === MODE_EDIT} />
+                <Input
+                  value={name}
+                  onChange={(_, d) => setName(d.value)}
+                  disabled={mode === MODE_EDIT}
+                />
               </div>
               <div className={styles.field}>
                 <label>{t(L.description)}</label>
@@ -199,7 +231,10 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
               </div>
               <div className={styles.field}>
                 <label>{t(L.requireClockIn)}</label>
-                <Checkbox checked={requireClockIn === true} onChange={(_, d) => setRequireClockIn(d.checked === true)} />
+                <Checkbox
+                  checked={requireClockIn === true}
+                  onChange={(_, d) => setRequireClockIn(d.checked === true)}
+                />
               </div>
               <div className={styles.field}>
                 <label>{t(L.automaticClockIn)}</label>
@@ -211,7 +246,10 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
               </div>
               <div className={styles.field}>
                 <label>{t(L.automaticClockOutAtEndOfShift)}</label>
-                <Checkbox checked={automaticClockOut === true} onChange={(_, d) => setAutomaticClockOut(d.checked === true)} />
+                <Checkbox
+                  checked={automaticClockOut === true}
+                  onChange={(_, d) => setAutomaticClockOut(d.checked === true)}
+                />
               </div>
             </>
           )}
@@ -220,7 +258,11 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 3 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)} disabled={step === 1 && !user.trim()}>
+            <Button
+              appearance="primary"
+              onClick={() => setStep(step + 1)}
+              disabled={step === 1 && !user.trim()}
+            >
               {t(L.next)}
             </Button>
           ) : (

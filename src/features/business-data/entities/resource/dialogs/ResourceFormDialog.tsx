@@ -85,11 +85,27 @@ export function ResourceFormDialog({
           <DialogTitle>{title}</DialogTitle>
           <DialogContent>
             {!nameReadOnly && (
-              <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
+              <div
+                style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}
+              >
                 {steps.map((s, i) => (
                   <span key={s} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
                     {i > 0 && <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />}
-                    <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === s ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>{s}</span>
+                    <span
+                      style={{
+                        width: 24,
+                        height: 24,
+                        borderRadius: "50%",
+                        backgroundColor: step === s ? "#0078d4" : "#ccc",
+                        color: "#fff",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 12,
+                      }}
+                    >
+                      {s}
+                    </span>
                     <Body1Strong>{stepLabels[i]}</Body1Strong>
                   </span>
                 ))}
@@ -99,7 +115,11 @@ export function ResourceFormDialog({
             {(step === 1 || nameReadOnly) && (
               <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                 <Field label={t(`${k}.name`)} required>
-                  <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+                  <Input
+                    value={name}
+                    readOnly={nameReadOnly}
+                    onChange={(_, d) => setName(d.value)}
+                  />
                 </Field>
                 <Field label={t(`${k}.description`)}>
                   <Input value={description} onChange={(_, d) => setDescription(d.value)} />
@@ -108,9 +128,14 @@ export function ResourceFormDialog({
                   <Input value={type} onChange={(_, d) => setType(d.value)} />
                 </Field>
                 <Field label={t(`${k}.processingType`)} required>
-                  <select value={processingType} onChange={(e) => setProcessingType(e.target.value as ResourceProcessingType)}>
+                  <select
+                    value={processingType}
+                    onChange={(e) => setProcessingType(e.target.value as ResourceProcessingType)}
+                  >
                     {PROCESSING_TYPES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
@@ -139,7 +164,9 @@ export function ResourceFormDialog({
                 <Field label={t(`${k}.criticality`)}>
                   <select value={criticality} onChange={(e) => setCriticality(e.target.value)}>
                     {CRITICALITIES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
@@ -153,26 +180,43 @@ export function ResourceFormDialog({
               <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                 <Body1Strong>{t(`${k}.materialTracking`)}</Body1Strong>
                 <Field label={t(`${k}.allowProductMix`)}>
-                  <Checkbox checked={allowProductMix} onChange={(_, d) => setAllowProductMix(d.checked === true)} />
+                  <Checkbox
+                    checked={allowProductMix}
+                    onChange={(_, d) => setAllowProductMix(d.checked === true)}
+                  />
                 </Field>
                 <Field label={t(`${k}.enableSubMaterialTracking`)}>
-                  <Checkbox checked={enableSubMaterialTracking} onChange={(_, d) => setEnableSubMaterialTracking(d.checked === true)} />
+                  <Checkbox
+                    checked={enableSubMaterialTracking}
+                    onChange={(_, d) => setEnableSubMaterialTracking(d.checked === true)}
+                  />
                 </Field>
                 <Field label={t(`${k}.recipeManagementEnabled`)}>
-                  <Checkbox checked={recipeManagementEnabled} onChange={(_, d) => setRecipeManagementEnabled(d.checked === true)} />
+                  <Checkbox
+                    checked={recipeManagementEnabled}
+                    onChange={(_, d) => setRecipeManagementEnabled(d.checked === true)}
+                  />
                 </Field>
                 <Field label={t(`${k}.trackResourceRecipes`)}>
-                  <Checkbox checked={trackResourceRecipes} onChange={(_, d) => setTrackResourceRecipes(d.checked === true)} />
+                  <Checkbox
+                    checked={trackResourceRecipes}
+                    onChange={(_, d) => setTrackResourceRecipes(d.checked === true)}
+                  />
                 </Field>
                 <Body1Strong>{t(`${k}.materialLogistics`)}</Body1Strong>
                 <Field label={t(`${k}.hasStorageBins`)}>
-                  <Checkbox checked={hasStorageBins} onChange={(_, d) => setHasStorageBins(d.checked === true)} />
+                  <Checkbox
+                    checked={hasStorageBins}
+                    onChange={(_, d) => setHasStorageBins(d.checked === true)}
+                  />
                 </Field>
                 <Body1Strong>{t(`${k}.setup`)}</Body1Strong>
                 <Field label={t(`${k}.setupMode`)}>
                   <select value={setupMode} onChange={(e) => setSetupMode(e.target.value)}>
                     {SETUP_MODES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
@@ -192,7 +236,10 @@ export function ResourceFormDialog({
               <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                 <Body1Strong>{t(`${k}.automation`)}</Body1Strong>
                 <Field label={t(`${k}.enableAutomationScenarios`)}>
-                  <Checkbox checked={enableAutomationScenarios} onChange={(_, d) => setEnableAutomationScenarios(d.checked === true)} />
+                  <Checkbox
+                    checked={enableAutomationScenarios}
+                    onChange={(_, d) => setEnableAutomationScenarios(d.checked === true)}
+                  />
                 </Field>
               </div>
             )}
@@ -202,14 +249,22 @@ export function ResourceFormDialog({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {!nameReadOnly && step > 1 && (
-              <Button appearance="secondary" onClick={() => setStep(step - 1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+                {t("common.back")}
+              </Button>
             )}
             {!nameReadOnly && step < 3 ? (
-              <Button appearance="primary" onClick={() => setStep(step + 1)}>{t("common.next")}</Button>
+              <Button appearance="primary" onClick={() => setStep(step + 1)}>
+                {t("common.next")}
+              </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{submitLabel}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {submitLabel}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>

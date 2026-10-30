@@ -1,17 +1,9 @@
 import { useState } from "react";
 import { Database20Regular, Dismiss20Regular } from "@/components/icons";
-import {
-  Button,
-  Checkbox,
-  Input,
-  Text,
-  makeStyles,
-  tokens,
-} from "@/components/ui";
+import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-
 
 const L: Record<string, TranslationKey> = {
   title: "businessData.dataSilo.create.title",

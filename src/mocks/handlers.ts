@@ -1,8 +1,10 @@
 import { aiAgentHandlers } from "./handlers/aiAgent";
+import { aiChatHandlers } from "./handlers/aiChat";
+import { appHandlers } from "./handlers/apps";
 import { areaHandlers } from "./handlers/businessData/area";
 import { batchHandlers } from "./handlers/businessData/batch";
-import { bomHandlers } from "./handlers/businessData/bom";
 import { binConverterHandlers } from "./handlers/businessData/binConverter";
+import { bomHandlers } from "./handlers/businessData/bom";
 import { businessPartnerHandlers } from "./handlers/businessData/businessPartner";
 import { calendarHandlers } from "./handlers/businessData/calendar";
 import { certificationHandlers } from "./handlers/businessData/certification";
@@ -12,8 +14,6 @@ import { checklistHandlers } from "./handlers/businessData/checklist";
 import { containerHandlers } from "./handlers/businessData/container";
 import { dataCollectionHandlers } from "./handlers/businessData/dataCollection";
 import { dataCollectionLimitSetHandlers } from "./handlers/businessData/dataCollectionLimitSet";
-import { aiChatHandlers } from "./handlers/aiChat";
-import { appHandlers } from "./handlers/apps";
 import { dataSiloHandlers } from "./handlers/businessData/dataSilo";
 import { documentHandlers } from "./handlers/businessData/document";
 import { employeeHandlers } from "./handlers/businessData/employee";
@@ -27,6 +27,19 @@ import { maintenanceActivityOrderHandlers } from "./handlers/businessData/mainte
 import { maintenancePlanHandlers } from "./handlers/businessData/maintenancePlan";
 import { mapHandlers } from "./handlers/businessData/map";
 import { mapDefinitionHandlers } from "./handlers/businessData/mapDefinition";
+import { materialHandlers } from "./handlers/businessData/material";
+import { materialTransferHandlers } from "./handlers/businessData/materialTransfer";
+import { notificationHandlers } from "./handlers/businessData/notification";
+import { packageHandlers } from "./handlers/businessData/package";
+import { parameterHandlers } from "./handlers/businessData/parameter";
+import { periodicInventoryHandlers } from "./handlers/businessData/periodicInventory";
+import { pickListHandlers } from "./handlers/businessData/pickList";
+import { planHandlers } from "./handlers/businessData/plan";
+import { printableDocumentHandlers } from "./handlers/businessData/printableDocument";
+import { productHandlers } from "./handlers/businessData/product";
+import { productGroupHandlers } from "./handlers/businessData/productGroup";
+import { productionOrderHandlers } from "./handlers/businessData/productionOrder";
+import { protocolHandlers } from "./handlers/businessData/protocol";
 import { qualificationHandlers } from "./handlers/businessData/qualification";
 import { qualificationCheckHandlers } from "./handlers/businessData/qualificationCheck";
 import { reasonHandlers } from "./handlers/businessData/reason";
@@ -40,11 +53,6 @@ import { scheduleScenarioHandlers } from "./handlers/businessData/scheduleScenar
 import { sendAheadRunHandlers } from "./handlers/businessData/sendAheadRun";
 import { serviceHandlers } from "./handlers/businessData/service";
 import { setupMatrixHandlers } from "./handlers/businessData/setupMatrix";
-import { configurationHandlers } from "./handlers/configuration";
-import { entityTypeHandlers } from "./handlers/entityTypes";
-import { genericTableHandlers } from "./handlers/genericTables";
-import { mcpServerHandlers } from "./handlers/mcpServer";
-import { queryHandlers } from "./handlers/queries";
 import { shiftDefinitionHandlers } from "./handlers/businessData/shiftDefinition";
 import { shiftLogbookHandlers } from "./handlers/businessData/shiftLogbook";
 import { shiftPlanHandlers } from "./handlers/businessData/shiftPlan";
@@ -58,20 +66,12 @@ import { teamHandlers } from "./handlers/businessData/team";
 import { transferOrderHandlers } from "./handlers/businessData/transferOrder";
 import { transferRequirementHandlers } from "./handlers/businessData/transferRequirement";
 import { workgroupHandlers } from "./handlers/businessData/workgroup";
+import { configurationHandlers } from "./handlers/configuration";
+import { entityTypeHandlers } from "./handlers/entityTypes";
+import { genericTableHandlers } from "./handlers/genericTables";
+import { mcpServerHandlers } from "./handlers/mcpServer";
+import { queryHandlers } from "./handlers/queries";
 import { uiPageHandlers } from "./handlers/uiPages";
-import { materialHandlers } from "./handlers/businessData/material";
-import { materialTransferHandlers } from "./handlers/businessData/materialTransfer";
-import { notificationHandlers } from "./handlers/businessData/notification";
-import { packageHandlers } from "./handlers/businessData/package";
-import { parameterHandlers } from "./handlers/businessData/parameter";
-import { productHandlers } from "./handlers/businessData/product";
-import { productionOrderHandlers } from "./handlers/businessData/productionOrder";
-import { protocolHandlers } from "./handlers/businessData/protocol";
-import { periodicInventoryHandlers } from "./handlers/businessData/periodicInventory";
-import { pickListHandlers } from "./handlers/businessData/pickList";
-import { planHandlers } from "./handlers/businessData/plan";
-import { printableDocumentHandlers } from "./handlers/businessData/printableDocument";
-import { productGroupHandlers } from "./handlers/businessData/productGroup";
 
 export const handlers = [
   ...entityTypeHandlers,
@@ -137,7 +137,6 @@ export const handlers = [
   ...serviceHandlers,
   ...setupMatrixHandlers,
 
-
   ...shiftDefinitionHandlers,
   ...shiftLogbookHandlers,
   ...shiftPlanHandlers,
@@ -151,5 +150,4 @@ export const handlers = [
   ...transferOrderHandlers,
   ...transferRequirementHandlers,
   ...workgroupHandlers,
-
 ];

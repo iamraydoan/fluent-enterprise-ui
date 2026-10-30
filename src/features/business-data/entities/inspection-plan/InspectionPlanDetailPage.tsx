@@ -12,7 +12,6 @@ import { InspectionPlanTerminateDialog } from "./InspectionPlanTerminateDialog";
 import { ManageConfigurationsDialog, ManageStepsDialog } from "./ManageInspectionPlanDialogs";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
-
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
   { value: "compare", labelKey: "businessData.inspectionPlan.tabs.compare" },

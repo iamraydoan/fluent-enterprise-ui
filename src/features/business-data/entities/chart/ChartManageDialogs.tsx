@@ -18,8 +18,8 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
-import type { OperationValues } from "../../components/operationTypes";
 import { MiniSelect } from "../../components/MiniSelect";
+import type { OperationValues } from "../../components/operationTypes";
 import {
   DATA_POINT_ACTION_KEYS,
   ELEMENT_TYPE_OPTIONS,

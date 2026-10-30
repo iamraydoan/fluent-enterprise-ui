@@ -44,21 +44,27 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
               <Field label={t(`${k}.source`)}>
                 <select value={source} onChange={(e) => setSource(e.target.value)}>
                   {SOURCES.map((o) => (
-                    <option key={o} value={o}>{o}</option>
+                    <option key={o} value={o}>
+                      {o}
+                    </option>
                   ))}
                 </select>
               </Field>
               <Field label={t(`${k}.format`)} required={!isNone}>
                 <select value={format} onChange={(e) => setFormat(e.target.value)}>
                   {FORMATS.map((o) => (
-                    <option key={o} value={o}>{o}</option>
+                    <option key={o} value={o}>
+                      {o}
+                    </option>
                   ))}
                 </select>
               </Field>
               <Field label={t(`${k}.fileName`)} required={!isNone}>
                 <div style={{ display: "flex", columnGap: 8 }}>
                   <Input value={fileName} onChange={(_, d) => setFileName(d.value)} />
-                  <Button appearance="secondary" onClick={() => {}}>{t(`${k}.uploadBody`)}</Button>
+                  <Button appearance="secondary" onClick={() => {}}>
+                    {t(`${k}.uploadBody`)}
+                  </Button>
                 </div>
               </Field>
               <Field label={t(`${k}.body`)} required={!isNone}>
@@ -78,8 +84,12 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.update`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.update`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

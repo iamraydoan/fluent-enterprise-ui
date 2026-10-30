@@ -18,7 +18,6 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { KpiDialog } from "./KpiDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<KpiRecord>[] = [
   {
     field: "name",

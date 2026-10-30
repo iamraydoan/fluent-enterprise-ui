@@ -1,18 +1,10 @@
 import { useState } from "react";
-import {
-  Button,
-  Checkbox,
-  Input,
-  Textarea,
-  makeStyles,
-  tokens,
-} from "@/components/ui";
+import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { MODE_CLONE, MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
-
 
 const SOURCE_INTERNAL = "internal";
 const SOURCE_EXTERNAL = "external";
@@ -66,7 +58,13 @@ const useWizardStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "800px", maxWidth: "95vw", maxHeight: "90vh", display: "flex", flexDirection: "column" },
+  surface: {
+    width: "800px",
+    maxWidth: "95vw",
+    maxHeight: "90vh",
+    display: "flex",
+    flexDirection: "column",
+  },
   head: {
     display: "flex",
     alignItems: "center",
@@ -82,7 +80,12 @@ const useWizardStyles = makeStyles({
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
   },
-  step: { display: "flex", alignItems: "center", gap: "8px", color: tokens.colorNeutralForeground3 },
+  step: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    color: tokens.colorNeutralForeground3,
+  },
   stepActive: { color: tokens.colorNeutralForeground1, fontWeight: tokens.fontWeightSemibold },
   stepNum: {
     width: "24px",
@@ -94,7 +97,10 @@ const useWizardStyles = makeStyles({
     justifyContent: "center",
     fontSize: tokens.fontSizeBase200,
   },
-  stepNumActive: { backgroundColor: tokens.colorBrandBackground, color: tokens.colorNeutralForegroundOnBrand },
+  stepNumActive: {
+    backgroundColor: tokens.colorBrandBackground,
+    color: tokens.colorNeutralForegroundOnBrand,
+  },
   body: { padding: "16px", overflowY: "auto", flex: 1 },
   footer: {
     display: "flex",
@@ -103,7 +109,13 @@ const useWizardStyles = makeStyles({
     padding: "12px 16px",
     borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
   },
-  field: { display: "grid", gridTemplateColumns: "200px 1fr", gap: "12px", alignItems: "center", marginBottom: "12px" },
+  field: {
+    display: "grid",
+    gridTemplateColumns: "200px 1fr",
+    gap: "12px",
+    alignItems: "center",
+    marginBottom: "12px",
+  },
   sectionTitle: {
     fontWeight: tokens.fontWeightSemibold,
     marginTop: "16px",
@@ -121,7 +133,13 @@ interface WizardProps {
   onClose: () => void;
 }
 
-export function DocumentWizardDialog({ mode, initialName, initialDescription, initialType, onClose }: WizardProps) {
+export function DocumentWizardDialog({
+  mode,
+  initialName,
+  initialDescription,
+  initialType,
+  onClose,
+}: WizardProps) {
   const { t } = useAppTranslation();
   const shared = useSharedStyles();
   const styles = useWizardStyles();
@@ -149,7 +167,8 @@ export function DocumentWizardDialog({ mode, initialName, initialDescription, in
   const [expirationDays, setExpirationDays] = useState("");
   const [comment, setComment] = useState("");
 
-  const title = mode === MODE_CREATE ? L.createTitle : mode === MODE_EDIT ? L.editTitle : L.cloneTitle;
+  const title =
+    mode === MODE_CREATE ? L.createTitle : mode === MODE_EDIT ? L.editTitle : L.cloneTitle;
   const steps = mode === MODE_CREATE ? [L.stepChangeSet, L.stepGeneral] : [L.stepGeneral];
 
   const field = (label: TranslationKey, required: boolean, control: React.ReactNode) => (
@@ -166,12 +185,19 @@ export function DocumentWizardDialog({ mode, initialName, initialDescription, in
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(title)}</div>
         <div className={styles.steps}>
           {steps.map((s, i) => (
             <div key={i} className={`${styles.step} ${i === step ? styles.stepActive : ""}`}>
-              <span className={`${styles.stepNum} ${i === step ? styles.stepNumActive : ""}`}>{i + 1}</span>
+              <span className={`${styles.stepNum} ${i === step ? styles.stepNumActive : ""}`}>
+                {i + 1}
+              </span>
               {t(s)}
             </div>
           ))}
@@ -179,36 +205,136 @@ export function DocumentWizardDialog({ mode, initialName, initialDescription, in
         <div className={styles.body}>
           {step === 0 && mode === MODE_CREATE && (
             <>
-              {field(L.changeSet, false, <Input value={changeSet} onChange={(_, d) => setChangeSet(d.value)} />)}
-              {field(L.approvalRole, false, <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />)}
-              <Checkbox label={t(L.useAutomaticChangeSet)} checked={autoChangeSet} onChange={(_, d) => setAutoChangeSet(!!d.checked)} />
+              {field(
+                L.changeSet,
+                false,
+                <Input value={changeSet} onChange={(_, d) => setChangeSet(d.value)} />,
+              )}
+              {field(
+                L.approvalRole,
+                false,
+                <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />,
+              )}
+              <Checkbox
+                label={t(L.useAutomaticChangeSet)}
+                checked={autoChangeSet}
+                onChange={(_, d) => setAutoChangeSet(!!d.checked)}
+              />
             </>
           )}
           {(step === 1 || mode !== MODE_CREATE) && (
             <>
-              {field(L.name, true, <Input value={name} onChange={(_, d) => setName(d.value)} disabled={mode === MODE_EDIT} />)}
-              {mode !== MODE_EDIT && field(L.revision, false, <Input value={revision} onChange={(_, d) => setRevision(d.value)} />)}
-              {field(L.description, false, <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />)}
+              {field(
+                L.name,
+                true,
+                <Input
+                  value={name}
+                  onChange={(_, d) => setName(d.value)}
+                  disabled={mode === MODE_EDIT}
+                />,
+              )}
+              {mode !== MODE_EDIT &&
+                field(
+                  L.revision,
+                  false,
+                  <Input value={revision} onChange={(_, d) => setRevision(d.value)} />,
+                )}
+              {field(
+                L.description,
+                false,
+                <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />,
+              )}
               {field(L.type, true, <Input value={type} onChange={(_, d) => setType(d.value)} />)}
               <div className={styles.sectionTitle}>{t(L.source)}</div>
               <div style={{ display: "flex", gap: "16px", marginBottom: "12px" }}>
-                <Checkbox label={t(L.internal)} checked={source === SOURCE_INTERNAL} onChange={() => setSource(SOURCE_INTERNAL)} />
-                <Checkbox label={t(L.external)} checked={source === SOURCE_EXTERNAL} onChange={() => setSource(SOURCE_EXTERNAL)} />
+                <Checkbox
+                  label={t(L.internal)}
+                  checked={source === SOURCE_INTERNAL}
+                  onChange={() => setSource(SOURCE_INTERNAL)}
+                />
+                <Checkbox
+                  label={t(L.external)}
+                  checked={source === SOURCE_EXTERNAL}
+                  onChange={() => setSource(SOURCE_EXTERNAL)}
+                />
               </div>
               {source === SOURCE_INTERNAL
-                ? field(L.file, false, <div style={{ display: "flex", gap: "8px" }}><Input value={file} onChange={(_, d) => setFile(d.value)} style={{ flex: 1 }} /><Button>{t(L.browse)}</Button></div>)
+                ? field(
+                    L.file,
+                    false,
+                    <div style={{ display: "flex", gap: "8px" }}>
+                      <Input
+                        value={file}
+                        onChange={(_, d) => setFile(d.value)}
+                        style={{ flex: 1 }}
+                      />
+                      <Button>{t(L.browse)}</Button>
+                    </div>,
+                  )
                 : field(L.url, false, <Input value={url} onChange={(_, d) => setUrl(d.value)} />)}
-              {field(L.changeDescription, false, <Textarea value={changeDescription} onChange={(_, d) => setChangeDescription(d.value)} />)}
-              {field(L.folder, false, <Input value={folder} onChange={(_, d) => setFolder(d.value)} />)}
-              {field(L.ownerRole, false, <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />)}
-              {field(L.group, false, <Input value={group} onChange={(_, d) => setGroup(d.value)} />)}
-              {field(L.author, false, <Input value={author} onChange={(_, d) => setAuthor(d.value)} />)}
-              {field(L.keywords, false, <Input value={keywords} onChange={(_, d) => setKeywords(d.value)} />)}
-              {field(L.distNewVersion, false, <Input value={distNewVersion} onChange={(_, d) => setDistNewVersion(d.value)} />)}
-              {field(L.distNewEffective, false, <Input value={distNewEffective} onChange={(_, d) => setDistNewEffective(d.value)} />)}
-              <Checkbox label={t(L.requireSignature)} checked={requireSignature} onChange={(_, d) => setRequireSignature(!!d.checked)} />
-              {requireSignature && field(L.expirationDays, false, <Input value={expirationDays} onChange={(_, d) => setExpirationDays(d.value)} />)}
-              {mode === MODE_CLONE && field(L.comment, false, <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />)}
+              {field(
+                L.changeDescription,
+                false,
+                <Textarea
+                  value={changeDescription}
+                  onChange={(_, d) => setChangeDescription(d.value)}
+                />,
+              )}
+              {field(
+                L.folder,
+                false,
+                <Input value={folder} onChange={(_, d) => setFolder(d.value)} />,
+              )}
+              {field(
+                L.ownerRole,
+                false,
+                <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />,
+              )}
+              {field(
+                L.group,
+                false,
+                <Input value={group} onChange={(_, d) => setGroup(d.value)} />,
+              )}
+              {field(
+                L.author,
+                false,
+                <Input value={author} onChange={(_, d) => setAuthor(d.value)} />,
+              )}
+              {field(
+                L.keywords,
+                false,
+                <Input value={keywords} onChange={(_, d) => setKeywords(d.value)} />,
+              )}
+              {field(
+                L.distNewVersion,
+                false,
+                <Input value={distNewVersion} onChange={(_, d) => setDistNewVersion(d.value)} />,
+              )}
+              {field(
+                L.distNewEffective,
+                false,
+                <Input
+                  value={distNewEffective}
+                  onChange={(_, d) => setDistNewEffective(d.value)}
+                />,
+              )}
+              <Checkbox
+                label={t(L.requireSignature)}
+                checked={requireSignature}
+                onChange={(_, d) => setRequireSignature(!!d.checked)}
+              />
+              {requireSignature &&
+                field(
+                  L.expirationDays,
+                  false,
+                  <Input value={expirationDays} onChange={(_, d) => setExpirationDays(d.value)} />,
+                )}
+              {mode === MODE_CLONE &&
+                field(
+                  L.comment,
+                  false,
+                  <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />,
+                )}
             </>
           )}
         </div>
@@ -216,7 +342,9 @@ export function DocumentWizardDialog({ mode, initialName, initialDescription, in
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step > 0 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < steps.length - 1 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)} disabled={!canNext}>{t(L.next)}</Button>
+            <Button appearance="primary" onClick={() => setStep(step + 1)} disabled={!canNext}>
+              {t(L.next)}
+            </Button>
           ) : (
             <Button appearance="primary" onClick={onClose} disabled={!canNext}>
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}

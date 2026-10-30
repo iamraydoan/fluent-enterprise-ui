@@ -102,7 +102,10 @@ export function SiteDetailPage({ name }: { name: string }) {
                 t("businessData.site.detail.isRemote"),
                 data.isRemote ? t("common.yes") : t("common.no"),
               ],
-              [t("businessData.site.detail.remoteExportAddress"), formatOptional(data.remoteExportAddress)],
+              [
+                t("businessData.site.detail.remoteExportAddress"),
+                formatOptional(data.remoteExportAddress),
+              ],
             ]}
           />
         </div>

@@ -1,12 +1,6 @@
 import { useState } from "react";
 import { Dismiss16Regular } from "@/components/icons";
-import {
-  Button,
-  Input,
-  Text,
-  makeStyles,
-  tokens,
-} from "@/components/ui";
+import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 
@@ -80,7 +74,9 @@ function DialogShell({
         aria-label={title}
       >
         <div className={styles.header}>
-          <Text size={400} weight="semibold">{title}</Text>
+          <Text size={400} weight="semibold">
+            {title}
+          </Text>
           <Button
             appearance="subtle"
             icon={<Dismiss16Regular />}
@@ -119,12 +115,7 @@ function Field({
   );
 }
 
-function GenericDialog({
-  open,
-  onClose,
-  onSubmit,
-  opKey,
-}: DialogProps & { opKey: string }) {
+function GenericDialog({ open, onClose, onSubmit, opKey }: DialogProps & { opKey: string }) {
   const { t } = useAppTranslation();
   const P = `businessData.protocol.operations.${opKey}`;
   return (
@@ -135,7 +126,13 @@ function GenericDialog({
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -154,7 +151,9 @@ export function CreateProtocolDialog({ open, onClose, onSubmit }: DialogProps) {
   const [changeSet, setChangeSet] = useState("");
 
   const handleClose = () => {
-    setName(""); setDescription(""); setChangeSet("");
+    setName("");
+    setDescription("");
+    setChangeSet("");
     onClose();
   };
 
@@ -168,7 +167,10 @@ export function CreateProtocolDialog({ open, onClose, onSubmit }: DialogProps) {
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
             appearance="primary"
-            onClick={() => { onSubmit?.(); handleClose(); }}
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
             disabled={!name}
           >
             {t(`${P}.submit` as never)}
@@ -216,7 +218,13 @@ export function EditProtocolDialog({
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -250,7 +258,13 @@ export function CloneProtocolDialog({ open, onClose, onSubmit }: DialogProps) {
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>

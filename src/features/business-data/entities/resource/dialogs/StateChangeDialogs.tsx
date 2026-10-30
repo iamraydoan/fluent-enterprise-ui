@@ -13,7 +13,14 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
-const RESOURCE_STATES = ["Standby", "Productive", "Engineering", "Scheduled Down", "Unscheduled Down", "Non-Scheduled"];
+const RESOURCE_STATES = [
+  "Standby",
+  "Productive",
+  "Engineering",
+  "Scheduled Down",
+  "Unscheduled Down",
+  "Non-Scheduled",
+];
 const SYSTEM_STATES = ["Up", "Down", "Non-Scheduled"];
 const AUTOMATION_MODES = ["Online", "Offline"];
 const RUNNING_MODES = ["Normal", "High Speed", "Eco"];
@@ -44,10 +51,30 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
           <DialogTitle>{t(`${k}.title`)}</DialogTitle>
           <DialogContent>
             <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-              {[t(`${k}.step1`), t(`${k}.step2`), t(`${k}.step3`), t(`${k}.step4`), t(`${k}.step5`)].map((label, i) => (
+              {[
+                t(`${k}.step1`),
+                t(`${k}.step2`),
+                t(`${k}.step3`),
+                t(`${k}.step4`),
+                t(`${k}.step5`),
+              ].map((label, i) => (
                 <span key={i} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
                   {i > 0 && <span style={{ width: 24, height: 1, backgroundColor: "#ccc" }} />}
-                  <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === i + 1 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>{i + 1}</span>
+                  <span
+                    style={{
+                      width: 24,
+                      height: 24,
+                      borderRadius: "50%",
+                      backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
+                      color: "#fff",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 12,
+                    }}
+                  >
+                    {i + 1}
+                  </span>
                   <Body1Strong>{label}</Body1Strong>
                 </span>
               ))}
@@ -59,7 +86,9 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
                 <Field label={t(`${k}.newState`)} required>
                   <select value={newState} onChange={(e) => setNewState(e.target.value)}>
                     {RESOURCE_STATES.map((o) => (
-                      <option key={o} value={o}>{o}</option>
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
                     ))}
                   </select>
                 </Field>
@@ -72,35 +101,35 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
               </div>
             )}
             {step === 2 && (
-              <div style={{ padding: "12px 0", color: "#666" }}>
-                {t(`${k}.step2Body`)}
-              </div>
+              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step2Body`)}</div>
             )}
             {step === 3 && (
-              <div style={{ padding: "12px 0", color: "#666" }}>
-                {t(`${k}.step3Body`)}
-              </div>
+              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step3Body`)}</div>
             )}
             {step === 4 && (
-              <div style={{ padding: "12px 0", color: "#666" }}>
-                {t(`${k}.step4Body`)}
-              </div>
+              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step4Body`)}</div>
             )}
             {step === 5 && (
-              <div style={{ padding: "12px 0", color: "#666" }}>
-                {t(`${k}.step5Body`)}
-              </div>
+              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step5Body`)}</div>
             )}
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {step > 1 && (
-              <Button appearance="secondary" onClick={() => setStep(step - 1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+                {t("common.back")}
+              </Button>
             )}
             {step < 5 ? (
-              <Button appearance="primary" onClick={() => setStep(step + 1)}>{t("common.next")}</Button>
+              <Button appearance="primary" onClick={() => setStep(step + 1)}>
+                {t("common.next")}
+              </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{t(`${k}.change`)}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {t(`${k}.change`)}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>
@@ -125,7 +154,9 @@ export function ChangeSystemStateDialog({ open, onClose, resourceName }: StateCh
             <Field label={t(`${k}.newState`)} required>
               <select value={newState} onChange={(e) => setNewState(e.target.value)}>
                 {SYSTEM_STATES.map((o) => (
-                  <option key={o} value={o}>{o}</option>
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
                 ))}
               </select>
             </Field>
@@ -134,8 +165,12 @@ export function ChangeSystemStateDialog({ open, onClose, resourceName }: StateCh
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.change`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.change`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -143,7 +178,11 @@ export function ChangeSystemStateDialog({ open, onClose, resourceName }: StateCh
   );
 }
 
-export function ChangeAutomationModeDialog({ open, onClose, resourceName }: StateChangeDialogProps) {
+export function ChangeAutomationModeDialog({
+  open,
+  onClose,
+  resourceName,
+}: StateChangeDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.resource.dialogs.changeAutomationMode";
   const [newMode, setNewMode] = useState("Online");
@@ -159,7 +198,9 @@ export function ChangeAutomationModeDialog({ open, onClose, resourceName }: Stat
             <Field label={t(`${k}.newMode`)} required>
               <select value={newMode} onChange={(e) => setNewMode(e.target.value)}>
                 {AUTOMATION_MODES.map((o) => (
-                  <option key={o} value={o}>{o}</option>
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
                 ))}
               </select>
             </Field>
@@ -168,8 +209,12 @@ export function ChangeAutomationModeDialog({ open, onClose, resourceName }: Stat
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.change`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.change`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -177,7 +222,11 @@ export function ChangeAutomationModeDialog({ open, onClose, resourceName }: Stat
   );
 }
 
-export function ChangeInstrumentModeDialog({ open, onClose, resourceName }: StateChangeDialogProps) {
+export function ChangeInstrumentModeDialog({
+  open,
+  onClose,
+  resourceName,
+}: StateChangeDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.resource.dialogs.changeInstrumentMode";
   const [newMode, setNewMode] = useState("");
@@ -198,8 +247,12 @@ export function ChangeInstrumentModeDialog({ open, onClose, resourceName }: Stat
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.change`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.change`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -223,7 +276,9 @@ export function ChangeRunningModeDialog({ open, onClose, resourceName }: StateCh
             <Field label={t(`${k}.newMode`)} required>
               <select value={newMode} onChange={(e) => setNewMode(e.target.value)}>
                 {RUNNING_MODES.map((o) => (
-                  <option key={o} value={o}>{o}</option>
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
                 ))}
               </select>
             </Field>
@@ -232,8 +287,12 @@ export function ChangeRunningModeDialog({ open, onClose, resourceName }: StateCh
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.change`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.change`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>
@@ -255,10 +314,38 @@ export function ChangeProductDialog({ open, onClose, resourceName }: StateChange
           <DialogTitle>{t(`${k}.title`)}</DialogTitle>
           <DialogContent>
             <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-              <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === 1 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>1</span>
+              <span
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderRadius: "50%",
+                  backgroundColor: step === 1 ? "#0078d4" : "#ccc",
+                  color: "#fff",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 12,
+                }}
+              >
+                1
+              </span>
               <Body1Strong>{t(`${k}.materials`)}</Body1Strong>
               <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />
-              <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === 2 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>2</span>
+              <span
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderRadius: "50%",
+                  backgroundColor: step === 2 ? "#0078d4" : "#ccc",
+                  color: "#fff",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 12,
+                }}
+              >
+                2
+              </span>
               <Body1Strong>{t(`${k}.subMaterials`)}</Body1Strong>
             </div>
             <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
@@ -272,14 +359,22 @@ export function ChangeProductDialog({ open, onClose, resourceName }: StateChange
             )}
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {step === 2 && (
-              <Button appearance="secondary" onClick={() => setStep(1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(1)}>
+                {t("common.back")}
+              </Button>
             )}
             {step === 1 ? (
-              <Button appearance="primary" onClick={() => setStep(2)}>{t("common.next")}</Button>
+              <Button appearance="primary" onClick={() => setStep(2)}>
+                {t("common.next")}
+              </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{t(`${k}.change`)}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {t(`${k}.change`)}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>
@@ -288,7 +383,11 @@ export function ChangeProductDialog({ open, onClose, resourceName }: StateChange
   );
 }
 
-export function EvaluateDispatchableRuleDialog({ open, onClose, resourceName }: StateChangeDialogProps) {
+export function EvaluateDispatchableRuleDialog({
+  open,
+  onClose,
+  resourceName,
+}: StateChangeDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.resource.dialogs.evaluateDispatchable";
   const { comment, setComment } = useDialogState();
@@ -306,8 +405,12 @@ export function EvaluateDispatchableRuleDialog({ open, onClose, resourceName }: 
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.evaluate`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.evaluate`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

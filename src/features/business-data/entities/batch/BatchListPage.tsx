@@ -15,7 +15,13 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { useBatchDialogs } from "./useBatchDialogs";
 
 const COLUMNS: DataColumn<BatchRecord>[] = [
-  { field: "name", headerName: "businessData.batch.columns.name", type: "link", locked: true, width: "20%" },
+  {
+    field: "name",
+    headerName: "businessData.batch.columns.name",
+    type: "link",
+    locked: true,
+    width: "20%",
+  },
   { field: "description", headerName: "businessData.batch.columns.description", width: "25%" },
   { field: "resource", headerName: "businessData.batch.columns.resource", width: "15%" },
   { field: "systemState", headerName: "businessData.batch.columns.systemState", width: "15%" },

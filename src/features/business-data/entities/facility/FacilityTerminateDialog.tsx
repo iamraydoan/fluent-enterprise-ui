@@ -5,7 +5,6 @@ import { useSharedStyles } from "@/styles/shared";
 import { TERMINATE } from "./wizardMode";
 import type { TerminateMode } from "./wizardMode";
 
-
 const L: Record<string, TranslationKey> = {
   terminateTitle: "businessData.facility.terminateDialog.title",
   terminateMessage: "businessData.facility.terminateDialog.message",

@@ -41,14 +41,26 @@ export const dataCollectionLimitSetHandlers = [
   }),
   http.put("/business-data/data-collection-limit-sets/:name", async ({ params, request }) => {
     const input = (await request.json()) as DataCollectionLimitSetUpsertInput;
-    return HttpResponse.json(updateDataCollectionLimitSet(decodeURIComponent(params.name as string), input));
+    return HttpResponse.json(
+      updateDataCollectionLimitSet(decodeURIComponent(params.name as string), input),
+    );
   }),
-  http.patch("/business-data/data-collection-limit-sets/:name/state", async ({ params, request }) => {
-    const body = (await request.json()) as { state: string };
-    return HttpResponse.json(setDataCollectionLimitSetState(decodeURIComponent(params.name as string), body.state));
-  }),
-  http.post("/business-data/data-collection-limit-sets/:name/parameters", async ({ params, request }) => {
-    const input = (await request.json()) as ManageLimitSetParametersInput;
-    return HttpResponse.json(manageDataCollectionLimitSetParameters(decodeURIComponent(params.name as string), input));
-  }),
+  http.patch(
+    "/business-data/data-collection-limit-sets/:name/state",
+    async ({ params, request }) => {
+      const body = (await request.json()) as { state: string };
+      return HttpResponse.json(
+        setDataCollectionLimitSetState(decodeURIComponent(params.name as string), body.state),
+      );
+    },
+  ),
+  http.post(
+    "/business-data/data-collection-limit-sets/:name/parameters",
+    async ({ params, request }) => {
+      const input = (await request.json()) as ManageLimitSetParametersInput;
+      return HttpResponse.json(
+        manageDataCollectionLimitSetParameters(decodeURIComponent(params.name as string), input),
+      );
+    },
+  ),
 ];

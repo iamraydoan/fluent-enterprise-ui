@@ -1,8 +1,4 @@
-import type {
-  MaintenancePlanDetail,
-  MaintenancePlanRecord,
-  Page,
-} from "@/api";
+import type { MaintenancePlanDetail, MaintenancePlanRecord, Page } from "@/api";
 import { RecordState } from "@/api";
 
 const PLANS: MaintenancePlanRecord[] = [
@@ -85,8 +81,7 @@ export function queryMaintenancePlans(
     const needle = q.toLowerCase();
     rows = rows.filter(
       (row) =>
-        row.name.toLowerCase().includes(needle) ||
-        row.description.toLowerCase().includes(needle),
+        row.name.toLowerCase().includes(needle) || row.description.toLowerCase().includes(needle),
     );
   }
   if (state !== undefined && state !== "") {

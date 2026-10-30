@@ -25,9 +25,7 @@ interface FeedStep {
   step: string;
 }
 
-const INITIAL: FeedStep[] = [
-  { facility: "Fab1", step: "Photolithography" },
-];
+const INITIAL: FeedStep[] = [{ facility: "Fab1", step: "Photolithography" }];
 
 const FIELDS: { key: keyof FeedStep; labelKey: TranslationKey }[] = [
   { key: "facility", labelKey: "businessData.schedule.dialogs.feedStep.facility" },
@@ -69,20 +67,39 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
             <div style={{ marginBottom: 12, color: "#0078d4" }}>📊 {scheduleName}</div>
             <div style={{ display: "flex", columnGap: 16 }}>
               <div style={{ width: 300, flexShrink: 0 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: 8,
+                  }}
+                >
                   <Body1Strong>{t(`${k}.steps`, { count: steps.length })}</Body1Strong>
                   <div style={{ display: "flex", columnGap: 4 }}>
-                    <Button size="small" appearance="subtle" onClick={addStep}>+</Button>
-                    <Button size="small" appearance="subtle" onClick={() => removeStep(selected)}>🗑</Button>
+                    <Button size="small" appearance="subtle" onClick={addStep}>
+                      +
+                    </Button>
+                    <Button size="small" appearance="subtle" onClick={() => removeStep(selected)}>
+                      🗑
+                    </Button>
                   </div>
                 </div>
-                <div style={{ border: "1px solid #ddd", borderRadius: 4, minHeight: 280, overflow: "auto" }}>
+                <div
+                  style={{
+                    border: "1px solid #ddd",
+                    borderRadius: 4,
+                    minHeight: 280,
+                    overflow: "auto",
+                  }}
+                >
                   {steps.map((fs, i) => (
                     <div
                       key={`${fs.step}-${i}`}
                       onClick={() => selectStep(i)}
                       style={{
-                        padding: "8px 12px", cursor: "pointer",
+                        padding: "8px 12px",
+                        cursor: "pointer",
                         backgroundColor: i === selected ? "#e3f2fd" : "transparent",
                         borderBottom: "1px solid #eee",
                       }}
@@ -107,8 +124,12 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
             </div>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.manage`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.manage`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

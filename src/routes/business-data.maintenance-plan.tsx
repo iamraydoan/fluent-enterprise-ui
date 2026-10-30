@@ -3,8 +3,7 @@ import { MaintenancePlanListPage } from "@/features/business-data/entities/maint
 
 function MaintenancePlanRoute() {
   const location = useLocation();
-  if (location.pathname === "/business-data/maintenance-plan")
-    return <MaintenancePlanListPage />;
+  if (location.pathname === "/business-data/maintenance-plan") return <MaintenancePlanListPage />;
   return <Outlet />;
 }
 

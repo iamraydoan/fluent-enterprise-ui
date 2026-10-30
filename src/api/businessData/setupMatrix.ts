@@ -34,9 +34,7 @@ export function useSetupMatrices(params: SetupMatrixListParams) {
 }
 
 export function getSetupMatrix(name: string): Promise<SetupMatrixDetail> {
-  return apiFetch<SetupMatrixDetail>(
-    `/business-data/setup-matrices/${encodeURIComponent(name)}`,
-  );
+  return apiFetch<SetupMatrixDetail>(`/business-data/setup-matrices/${encodeURIComponent(name)}`);
 }
 
 export function useSetupMatrixDetail(name: string) {

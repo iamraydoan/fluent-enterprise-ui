@@ -20,7 +20,6 @@ import { MapLinkDialog, MapUnlinkDialog } from "./MapLinkDialog";
 import { MapTerminateDialog } from "./MapTerminateDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
-
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
   { value: "content", labelKey: "businessData.map.tabs.content" },
@@ -120,9 +119,7 @@ export function MapDetailPage({ name }: { name: string }) {
           </TableBody>
         </Table>
         <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
-          <Button onClick={() => undefined}>
-            {t("businessData.map.actions.downloadLayer")}
-          </Button>
+          <Button onClick={() => undefined}>{t("businessData.map.actions.downloadLayer")}</Button>
           <Button onClick={() => setLinkOpen(true)}>
             {t("businessData.map.actions.linkMaterial")}
           </Button>

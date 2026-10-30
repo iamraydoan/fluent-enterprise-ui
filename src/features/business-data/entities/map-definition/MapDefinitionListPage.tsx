@@ -18,12 +18,27 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { MapDefinitionWizardDialog } from "./MapDefinitionWizardDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<MapDefinitionRecord>[] = [
-  { field: "name", headerName: "businessData.mapDefinition.columns.name", type: "link", locked: true, width: "35%" },
-  { field: "description", headerName: "businessData.mapDefinition.columns.description", width: "35%" },
+  {
+    field: "name",
+    headerName: "businessData.mapDefinition.columns.name",
+    type: "link",
+    locked: true,
+    width: "35%",
+  },
+  {
+    field: "description",
+    headerName: "businessData.mapDefinition.columns.description",
+    width: "35%",
+  },
   { field: "type", headerName: "businessData.mapDefinition.columns.type", width: "15%" },
-  { field: "state", headerName: "businessData.mapDefinition.columns.state", type: "enum", enumOptions: RECORD_STATE_COLUMN_OPTIONS, width: "15%" },
+  {
+    field: "state",
+    headerName: "businessData.mapDefinition.columns.state",
+    type: "enum",
+    enumOptions: RECORD_STATE_COLUMN_OPTIONS,
+    width: "15%",
+  },
 ];
 
 function useMapDefinitionListQuery(params: ListQueryParams) {

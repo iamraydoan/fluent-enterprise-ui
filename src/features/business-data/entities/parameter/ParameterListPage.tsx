@@ -40,22 +40,22 @@ export function ParameterListPage() {
   const [createOpen, setCreateOpen] = useState(false);
   return (
     <>
-    <DataListPage<ParameterRecord>
-      icon={<Box24Regular />}
-      titleKey="businessData.parameter.pageLabel"
-      listTitleKey="businessData.parameter.listTitle"
-      actions={[
-        { ...createParameterAction, onClick: () => setCreateOpen(true) },
-        refreshAction,
-        importAction,
-        exportAction,
-      ]}
-      columns={COLUMNS}
-      filters={defaultListFilters}
-      useListQuery={useParameters}
-      getRowId={(row) => row.name}
-      onRowClick={(row) => openDetail(row.name)}
-    />
+      <DataListPage<ParameterRecord>
+        icon={<Box24Regular />}
+        titleKey="businessData.parameter.pageLabel"
+        listTitleKey="businessData.parameter.listTitle"
+        actions={[
+          { ...createParameterAction, onClick: () => setCreateOpen(true) },
+          refreshAction,
+          importAction,
+          exportAction,
+        ]}
+        columns={COLUMNS}
+        filters={defaultListFilters}
+        useListQuery={useParameters}
+        getRowId={(row) => row.name}
+        onRowClick={(row) => openDetail(row.name)}
+      />
       <CreateParameterDialog open={createOpen} onClose={() => setCreateOpen(false)} />
     </>
   );

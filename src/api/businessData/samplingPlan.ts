@@ -39,9 +39,7 @@ export function useSamplingPlans(params: SamplingPlanListParams) {
 }
 
 export function getSamplingPlan(name: string): Promise<SamplingPlanDetail> {
-  return apiFetch<SamplingPlanDetail>(
-    `/business-data/sampling-plans/${encodeURIComponent(name)}`,
-  );
+  return apiFetch<SamplingPlanDetail>(`/business-data/sampling-plans/${encodeURIComponent(name)}`);
 }
 
 export function useSamplingPlanDetail(name: string) {

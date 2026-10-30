@@ -4,7 +4,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-
 const L: Record<string, TranslationKey> = {
   title: "businessData.maintenanceActivityOrder.request.title",
   step1: "businessData.maintenanceActivityOrder.request.step1",
@@ -29,17 +28,38 @@ const useDialogStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "640px", maxWidth: "95vw", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+  surface: {
+    width: "640px",
+    maxWidth: "95vw",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "90vh",
+  },
   head: {
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase400,
   },
-  steps: { display: "flex", gap: "16px", padding: "12px 16px", borderBottom: `1px solid ${tokens.colorNeutralStroke2}` },
+  steps: {
+    display: "flex",
+    gap: "16px",
+    padding: "12px 16px",
+    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+  },
   step: { fontSize: tokens.fontSizeBase200, color: tokens.colorNeutralForeground3 },
-  stepActive: { fontSize: tokens.fontSizeBase200, fontWeight: tokens.fontWeightSemibold, color: tokens.colorBrandForeground1 },
-  body: { padding: "16px", display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto" },
+  stepActive: {
+    fontSize: tokens.fontSizeBase200,
+    fontWeight: tokens.fontWeightSemibold,
+    color: tokens.colorBrandForeground1,
+  },
+  body: {
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    overflowY: "auto",
+  },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -71,7 +91,12 @@ export function RequestMaintenanceActivityOrderDialog({ onClose }: { onClose: ()
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(L.title)}</div>
         <div className={styles.steps}>
           <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
@@ -82,7 +107,11 @@ export function RequestMaintenanceActivityOrderDialog({ onClose }: { onClose: ()
             <>
               <div className={styles.field}>
                 <label>{t(L.entityType)}</label>
-                <select className={styles.select} value={entityType} onChange={(e) => setEntityType(e.target.value)}>
+                <select
+                  className={styles.select}
+                  value={entityType}
+                  onChange={(e) => setEntityType(e.target.value)}
+                >
                   {ENTITY_TYPES.map((et) => (
                     <option key={et} value={et}>
                       {et}
@@ -116,7 +145,11 @@ export function RequestMaintenanceActivityOrderDialog({ onClose }: { onClose: ()
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 2 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)} disabled={!entity.trim()}>
+            <Button
+              appearance="primary"
+              onClick={() => setStep(step + 1)}
+              disabled={!entity.trim()}
+            >
               {t(L.next)}
             </Button>
           ) : (

@@ -14,11 +14,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
-import {
-  PARAMETER_DATA_TYPES,
-  PARAMETER_SCOPES,
-  PARAMETER_TYPES,
-} from "./parameterOptions";
+import { PARAMETER_DATA_TYPES, PARAMETER_SCOPES, PARAMETER_TYPES } from "./parameterOptions";
 
 const useDialogStyles = makeStyles({
   overlay: {
@@ -124,7 +120,9 @@ function DialogShell({
         aria-label={title}
       >
         <div className={styles.header}>
-          <Text size={400} weight="semibold">{title}</Text>
+          <Text size={400} weight="semibold">
+            {title}
+          </Text>
           <Button
             appearance="subtle"
             icon={<Dismiss16Regular />}
@@ -182,9 +180,7 @@ function SelectField({
     <Field label={label} required={required} hint={hint}>
       <Menu>
         <MenuTrigger disableButtonEnhancement>
-          <Button style={{ width: "100%", justifyContent: "space-between" }}>
-            {value}
-          </Button>
+          <Button style={{ width: "100%", justifyContent: "space-between" }}>{value}</Button>
         </MenuTrigger>
         <MenuPopover>
           <MenuList>
@@ -214,8 +210,13 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
   const [units, setUnits] = useState("");
 
   const handleClose = () => {
-    setStep(0); setName(""); setDescription(""); setType(PARAMETER_TYPES[0]);
-    setDisplayName(""); setScope(PARAMETER_SCOPES[0]); setDataType(PARAMETER_DATA_TYPES[0]);
+    setStep(0);
+    setName("");
+    setDescription("");
+    setType(PARAMETER_TYPES[0]);
+    setDisplayName("");
+    setScope(PARAMETER_SCOPES[0]);
+    setDataType(PARAMETER_DATA_TYPES[0]);
     setUnits("");
     onClose();
   };
@@ -228,9 +229,7 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          {step > 0 && (
-            <Button onClick={() => setStep(step - 1)}>{t(`${P}.back` as never)}</Button>
-          )}
+          {step > 0 && <Button onClick={() => setStep(step - 1)}>{t(`${P}.back` as never)}</Button>}
           {step < 1 ? (
             <Button appearance="primary" onClick={() => setStep(step + 1)}>
               {t(`${P}.next` as never)}
@@ -238,7 +237,10 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
           ) : (
             <Button
               appearance="primary"
-              onClick={() => { onSubmit?.(); handleClose(); }}
+              onClick={() => {
+                onSubmit?.();
+                handleClose();
+              }}
               disabled={!name}
             >
               {t(`${P}.submit` as never)}
@@ -251,7 +253,13 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
         {[0, 1].map((i) => (
           <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             {i > 0 && (
-              <div style={{ width: "24px", height: "1px", backgroundColor: tokens.colorNeutralStroke2 }} />
+              <div
+                style={{
+                  width: "24px",
+                  height: "1px",
+                  backgroundColor: tokens.colorNeutralStroke2,
+                }}
+              />
             )}
             <div className={styles.step}>
               <span className={`${styles.stepNumber} ${i === step ? styles.stepActive : ""}`}>
@@ -283,7 +291,10 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
         )}
         {step === 1 && (
           <>
-            <Field label={t(`${P}.fields.displayName` as never)} hint={t(`${P}.hints.displayName` as never)}>
+            <Field
+              label={t(`${P}.fields.displayName` as never)}
+              hint={t(`${P}.hints.displayName` as never)}
+            >
               <Input value={displayName} onChange={(_, d) => setDisplayName(d.value)} />
             </Field>
             <SelectField
@@ -334,7 +345,13 @@ export function EditParameterDialog({
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -368,7 +385,13 @@ export function CloneParameterDialog({ open, onClose, onSubmit }: DialogProps) {
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -392,7 +415,13 @@ export function TerminateParameterDialog({ open, onClose, onSubmit }: DialogProp
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -414,7 +443,13 @@ export function UnterminateParameterDialog({ open, onClose, onSubmit }: DialogPr
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>

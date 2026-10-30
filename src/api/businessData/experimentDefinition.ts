@@ -46,9 +46,7 @@ export function listExperimentDefinitions(
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<ExperimentDefinitionRecord>>(
-    `/experiment-definitions?${search.toString()}`,
-  );
+  return apiFetch<Page<ExperimentDefinitionRecord>>(`/experiment-definitions?${search.toString()}`);
 }
 
 export function useExperimentDefinitions(params: ListQueryParams) {

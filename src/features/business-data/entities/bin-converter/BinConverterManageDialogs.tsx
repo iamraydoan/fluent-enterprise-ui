@@ -58,7 +58,9 @@ export function BinConversionListEditor({
     <div>
       <div className={styles.hint}>{t("businessData.binConverter.operations.conversionsHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.binConverter.operations.noConversions")}</div>
+        <div className={styles.empty}>
+          {t("businessData.binConverter.operations.noConversions")}
+        </div>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.row}>

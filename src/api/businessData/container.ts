@@ -97,14 +97,28 @@ export function createContainerRecord(input: ContainerUpsertInput): Promise<Cont
   return postJson<ContainerDetail>("/business-data/containers", "POST", input);
 }
 
-export function updateContainerRecord(name: string, input: ContainerUpsertInput): Promise<ContainerDetail> {
-  return postJson<ContainerDetail>(`/business-data/containers/${encodeURIComponent(name)}`, "PUT", input);
+export function updateContainerRecord(
+  name: string,
+  input: ContainerUpsertInput,
+): Promise<ContainerDetail> {
+  return postJson<ContainerDetail>(
+    `/business-data/containers/${encodeURIComponent(name)}`,
+    "PUT",
+    input,
+  );
 }
 
-export function setContainerRecordState(name: string, state: "Active" | "Terminated"): Promise<ContainerDetail> {
-  return postJson<ContainerDetail>(`/business-data/containers/${encodeURIComponent(name)}/state`, "PATCH", {
-    state,
-  });
+export function setContainerRecordState(
+  name: string,
+  state: "Active" | "Terminated",
+): Promise<ContainerDetail> {
+  return postJson<ContainerDetail>(
+    `/business-data/containers/${encodeURIComponent(name)}/state`,
+    "PATCH",
+    {
+      state,
+    },
+  );
 }
 
 export function performContainerOperation(
@@ -112,10 +126,14 @@ export function performContainerOperation(
   operation: ContainerOperationType,
   payload: Record<string, unknown>,
 ): Promise<ContainerDetail> {
-  return postJson<ContainerDetail>(`/business-data/containers/${encodeURIComponent(name)}/operations`, "POST", {
-    operation,
-    ...payload,
-  });
+  return postJson<ContainerDetail>(
+    `/business-data/containers/${encodeURIComponent(name)}/operations`,
+    "POST",
+    {
+      operation,
+      ...payload,
+    },
+  );
 }
 
 export function useCreateContainer() {
@@ -176,7 +194,8 @@ export function useContainers(params: ListQueryParams) {
   if (params.filters?.state) search.set("state", params.filters.state);
   return useQuery<Page<ContainerRecord>>({
     queryKey: ["business-data", "containers", params],
-    queryFn: () => apiFetch<Page<ContainerRecord>>(`/business-data/containers?${search.toString()}`),
+    queryFn: () =>
+      apiFetch<Page<ContainerRecord>>(`/business-data/containers?${search.toString()}`),
     placeholderData: keepPreviousData,
   });
 }
@@ -184,6 +203,7 @@ export function useContainers(params: ListQueryParams) {
 export function useContainerDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "containers", name],
-    queryFn: () => apiFetch<ContainerDetail>(`/business-data/containers/${encodeURIComponent(name)}`),
+    queryFn: () =>
+      apiFetch<ContainerDetail>(`/business-data/containers/${encodeURIComponent(name)}`),
   });
 }

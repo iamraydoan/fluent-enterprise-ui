@@ -3,7 +3,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-
 const L: Record<string, TranslationKey> = {
   title: "businessData.kpi.terminateDialog.title",
   message: "businessData.kpi.terminateDialog.message",

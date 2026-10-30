@@ -28,7 +28,9 @@ export interface SamplingPatternListParams {
   state?: string;
 }
 
-export function listSamplingPatterns(params: SamplingPatternListParams): Promise<SamplingPatternRecord[]> {
+export function listSamplingPatterns(
+  params: SamplingPatternListParams,
+): Promise<SamplingPatternRecord[]> {
   const search = new URLSearchParams();
   if (params.q) search.set("q", params.q);
   if (params.state) search.set("state", params.state);

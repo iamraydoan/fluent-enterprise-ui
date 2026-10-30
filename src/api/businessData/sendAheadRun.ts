@@ -34,9 +34,7 @@ export function useSendAheadRuns(params: SendAheadRunListParams) {
 }
 
 export function getSendAheadRun(name: string): Promise<SendAheadRunDetail> {
-  return apiFetch<SendAheadRunDetail>(
-    `/business-data/send-ahead-runs/${encodeURIComponent(name)}`,
-  );
+  return apiFetch<SendAheadRunDetail>(`/business-data/send-ahead-runs/${encodeURIComponent(name)}`);
 }
 
 export function useSendAheadRunDetail(name: string) {

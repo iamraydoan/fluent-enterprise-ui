@@ -1,5 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { getTransferOrderDetail, getTransferOrderPage } from "../../seeds/businessData/transferOrder";
+import {
+  getTransferOrderDetail,
+  getTransferOrderPage,
+} from "../../seeds/businessData/transferOrder";
 
 export const transferOrderHandlers = [
   http.get("/business-data/transfer-orders", ({ request }) => {

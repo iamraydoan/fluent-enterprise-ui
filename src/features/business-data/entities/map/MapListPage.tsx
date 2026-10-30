@@ -18,7 +18,6 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { MapDialog } from "./MapDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<MapRecord>[] = [
   {
     field: "name",

@@ -35,7 +35,13 @@ interface EmployeeRow {
 }
 
 const EMPLOYEES: EmployeeRow[] = [
-  { name: "Matthew Krazovitz", number: "10225", type: "General", team: "Team A", manager: "Administrator" },
+  {
+    name: "Matthew Krazovitz",
+    number: "10225",
+    type: "General",
+    team: "Team A",
+    manager: "Administrator",
+  },
   { name: "John Doe", number: "10226", type: "General", team: "Team A", manager: "Administrator" },
   { name: "Jane Smith", number: "10227", type: "General", team: "Team B", manager: "Supervisor" },
   { name: "Bob Wilson", number: "10228", type: "General", team: "Team B", manager: "Supervisor" },
@@ -70,9 +76,7 @@ export function AssignEmployeesDialog({
   };
 
   const filtered = EMPLOYEES.filter(
-    (e) =>
-      e.name.toLowerCase().includes(search.toLowerCase()) ||
-      e.number.includes(search),
+    (e) => e.name.toLowerCase().includes(search.toLowerCase()) || e.number.includes(search),
   );
   const selectedEmployees = EMPLOYEES.filter((e) => selected.includes(e.number));
 
@@ -246,7 +250,7 @@ export function AssignEmployeesDialog({
                   <Field label={t(`${k}.evidence`)}>
                     <Input
                       value={evidence}
-                      
+
                       onChange={(_, d) => setEvidence(d.value)}
                     />
                   </Field>
@@ -268,7 +272,11 @@ export function AssignEmployeesDialog({
               </Button>
             )}
             {step === 1 ? (
-              <Button appearance="primary" onClick={() => setStep(2)} disabled={selected.length === 0}>
+              <Button
+                appearance="primary"
+                onClick={() => setStep(2)}
+                disabled={selected.length === 0}
+              >
                 {t("common.next")}
               </Button>
             ) : (

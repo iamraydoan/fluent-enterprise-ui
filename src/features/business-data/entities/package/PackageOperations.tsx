@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { Dismiss16Regular } from "@/components/icons";
-import {
-  Button,
-  Checkbox,
-  Input,
-  Text,
-  makeStyles,
-  tokens,
-} from "@/components/ui";
+import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 
@@ -83,7 +76,9 @@ function DialogShell({
         aria-label={title}
       >
         <div className={styles.header}>
-          <Text size={400} weight="semibold">{title}</Text>
+          <Text size={400} weight="semibold">
+            {title}
+          </Text>
           <Button
             appearance="subtle"
             icon={<Dismiss16Regular />}
@@ -128,7 +123,13 @@ export function TerminatePackageDialog({ open, onClose, onSubmit }: DialogProps)
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -150,7 +151,13 @@ export function UnterminatePackageDialog({ open, onClose, onSubmit }: DialogProp
       footer={
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); onClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              onClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -170,7 +177,10 @@ export function ShipPackagesDialog({ open, onClose, onSubmit }: DialogProps) {
   const [comment, setComment] = useState("");
 
   const handleClose = () => {
-    setFacility(""); setLabel(""); setShipContainers(true); setComment("");
+    setFacility("");
+    setLabel("");
+    setShipContainers(true);
+    setComment("");
     onClose();
   };
 
@@ -182,7 +192,13 @@ export function ShipPackagesDialog({ open, onClose, onSubmit }: DialogProps) {
       footer={
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button appearance="primary" onClick={() => { onSubmit?.(); handleClose(); }}>
+          <Button
+            appearance="primary"
+            onClick={() => {
+              onSubmit?.();
+              handleClose();
+            }}
+          >
             {t(`${P}.submit` as never)}
           </Button>
         </>
@@ -191,10 +207,16 @@ export function ShipPackagesDialog({ open, onClose, onSubmit }: DialogProps) {
       <Field label={t(`${P}.fields.facility` as never)} hint={t(`${P}.hints.facility` as never)}>
         <Input value={facility} onChange={(_, d) => setFacility(d.value)} />
       </Field>
-      <Field label={t(`${P}.fields.shippingLabel` as never)} hint={t(`${P}.hints.shippingLabel` as never)}>
+      <Field
+        label={t(`${P}.fields.shippingLabel` as never)}
+        hint={t(`${P}.hints.shippingLabel` as never)}
+      >
         <Input value={label} onChange={(_, d) => setLabel(d.value)} />
       </Field>
-      <Field label={t(`${P}.fields.shipContainers` as never)} hint={t(`${P}.hints.shipContainers` as never)}>
+      <Field
+        label={t(`${P}.fields.shipContainers` as never)}
+        hint={t(`${P}.hints.shipContainers` as never)}
+      >
         <Checkbox
           checked={shipContainers}
           onChange={(_, d) => setShipContainers(d.checked === true)}

@@ -21,7 +21,11 @@ interface RecordSendAheadRunResultDialogProps {
 
 const RESULT_OPTIONS = ["Pass", "Fail"];
 
-export function RecordSendAheadRunResultDialog({ open, onClose, runName }: RecordSendAheadRunResultDialogProps) {
+export function RecordSendAheadRunResultDialog({
+  open,
+  onClose,
+  runName,
+}: RecordSendAheadRunResultDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.sendAheadRun.dialogs.record";
   const [result, setResult] = useState(RESULT_OPTIONS[0]);
@@ -39,7 +43,9 @@ export function RecordSendAheadRunResultDialog({ open, onClose, runName }: Recor
               <Field label={t(`${k}.result`)}>
                 <select value={result} onChange={(e) => setResult(e.target.value)}>
                   {RESULT_OPTIONS.map((o) => (
-                    <option key={o} value={o}>{o}</option>
+                    <option key={o} value={o}>
+                      {o}
+                    </option>
                   ))}
                 </select>
               </Field>
@@ -49,8 +55,12 @@ export function RecordSendAheadRunResultDialog({ open, onClose, runName }: Recor
             </div>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.record`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.record`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

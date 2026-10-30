@@ -4,7 +4,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-
 const L: Record<string, TranslationKey> = {
   logicalNamesTitle: "businessData.flow.manageDialog.logicalNamesTitle",
   logicalName: "businessData.flow.manageDialog.logicalName",

@@ -21,7 +21,11 @@ interface AdjustScheduleJobDialogProps {
   initial?: Partial<ScheduleDetail & ScheduleRecord>;
 }
 
-export function AdjustScheduleJobDialog({ open, onClose, scheduleName }: AdjustScheduleJobDialogProps) {
+export function AdjustScheduleJobDialog({
+  open,
+  onClose,
+  scheduleName,
+}: AdjustScheduleJobDialogProps) {
   const { t } = useAppTranslation();
   const k = "businessData.schedule.dialogs.adjust";
   const [resource, setResource] = useState("");
@@ -41,16 +45,28 @@ export function AdjustScheduleJobDialog({ open, onClose, scheduleName }: AdjustS
                 <Input value={resource} onChange={(_, d) => setResource(d.value)} />
               </Field>
               <Field label={t(`${k}.plannedStart`)}>
-                <Input value={plannedStart} type="datetime-local" onChange={(_, d) => setPlannedStart(d.value)} />
+                <Input
+                  value={plannedStart}
+                  type="datetime-local"
+                  onChange={(_, d) => setPlannedStart(d.value)}
+                />
               </Field>
               <Field label={t(`${k}.plannedEnd`)}>
-                <Input value={plannedEnd} type="datetime-local" onChange={(_, d) => setPlannedEnd(d.value)} />
+                <Input
+                  value={plannedEnd}
+                  type="datetime-local"
+                  onChange={(_, d) => setPlannedEnd(d.value)}
+                />
               </Field>
             </div>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
-            <Button appearance="primary" onClick={onClose}>{t(`${k}.adjust`)}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button appearance="primary" onClick={onClose}>
+              {t(`${k}.adjust`)}
+            </Button>
           </DialogActions>
         </DialogBody>
       </DialogSurface>

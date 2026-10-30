@@ -18,7 +18,6 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { InspectionPlanDialog } from "./InspectionPlanDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-
 const COLUMNS: DataColumn<InspectionPlanRecord>[] = [
   {
     field: "name",

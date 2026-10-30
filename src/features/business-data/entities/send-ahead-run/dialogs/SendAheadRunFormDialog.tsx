@@ -56,10 +56,26 @@ export function SendAheadRunFormDialog({
           <DialogTitle>{title}</DialogTitle>
           <DialogContent>
             {!nameReadOnly && (
-              <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
+              <div
+                style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}
+              >
                 {STEP_KEYS.map((key, i) => (
                   <span key={key} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
-                    <span style={{ width: 24, height: 24, borderRadius: "50%", backgroundColor: step === i + 1 ? "#0078d4" : "#ccc", color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>{i + 1}</span>
+                    <span
+                      style={{
+                        width: 24,
+                        height: 24,
+                        borderRadius: "50%",
+                        backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
+                        color: "#fff",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 12,
+                      }}
+                    >
+                      {i + 1}
+                    </span>
                     <Body1Strong>{t(key)}</Body1Strong>
                     {i < 5 && <span style={{ width: 20, height: 1, backgroundColor: "#ccc" }} />}
                   </span>
@@ -70,7 +86,11 @@ export function SendAheadRunFormDialog({
             {(step === 1 || nameReadOnly) && (
               <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                 <Field label={t(`${k}.name`)} required>
-                  <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+                  <Input
+                    value={name}
+                    readOnly={nameReadOnly}
+                    onChange={(_, d) => setName(d.value)}
+                  />
                 </Field>
                 <Field label={t(`${k}.description`)}>
                   <Input value={description} onChange={(_, d) => setDescription(d.value)} />
@@ -83,7 +103,9 @@ export function SendAheadRunFormDialog({
 
             {step > 1 && !nameReadOnly && (
               <div style={{ padding: "12px 0", color: "#666" }}>
-                {t("businessData.sendAheadRun.dialogs.form.stepBody", { step: t(STEP_KEYS[step - 1]) })}
+                {t("businessData.sendAheadRun.dialogs.form.stepBody", {
+                  step: t(STEP_KEYS[step - 1]),
+                })}
               </div>
             )}
 
@@ -92,14 +114,22 @@ export function SendAheadRunFormDialog({
             </Field>
           </DialogContent>
           <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>{t("common.cancel")}</Button>
+            <Button appearance="secondary" onClick={onClose}>
+              {t("common.cancel")}
+            </Button>
             {!nameReadOnly && step > 1 && (
-              <Button appearance="secondary" onClick={() => setStep(step - 1)}>{t("common.back")}</Button>
+              <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+                {t("common.back")}
+              </Button>
             )}
             {!nameReadOnly && step < 6 ? (
-              <Button appearance="primary" onClick={() => setStep(step + 1)}>{t("common.next")}</Button>
+              <Button appearance="primary" onClick={() => setStep(step + 1)}>
+                {t("common.next")}
+              </Button>
             ) : (
-              <Button appearance="primary" onClick={onClose}>{submitLabel}</Button>
+              <Button appearance="primary" onClick={onClose}>
+                {submitLabel}
+              </Button>
             )}
           </DialogActions>
         </DialogBody>

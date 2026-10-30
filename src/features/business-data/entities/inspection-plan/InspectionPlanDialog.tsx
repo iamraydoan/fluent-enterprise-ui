@@ -6,7 +6,6 @@ import { useSharedStyles } from "@/styles/shared";
 import { MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
 
-
 const L: Record<string, TranslationKey> = {
   createTitle: "businessData.inspectionPlan.dialog.createTitle",
   editTitle: "businessData.inspectionPlan.dialog.editTitle",
@@ -22,7 +21,8 @@ const L: Record<string, TranslationKey> = {
   type: "businessData.inspectionPlan.dialog.type",
   resultsRequiredBeforeTrackOut: "businessData.inspectionPlan.dialog.resultsRequiredBeforeTrackOut",
   enableMultipleSamples: "businessData.inspectionPlan.dialog.enableMultipleSamples",
-  containsSeparateInspectionSteps: "businessData.inspectionPlan.dialog.containsSeparateInspectionSteps",
+  containsSeparateInspectionSteps:
+    "businessData.inspectionPlan.dialog.containsSeparateInspectionSteps",
   closeAutomaticallyOnPass: "businessData.inspectionPlan.dialog.closeAutomaticallyOnPass",
   closeAutomaticallyOnFail: "businessData.inspectionPlan.dialog.closeAutomaticallyOnFail",
   futureHoldCreationMode: "businessData.inspectionPlan.dialog.futureHoldCreationMode",

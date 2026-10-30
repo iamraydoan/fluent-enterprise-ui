@@ -15,7 +15,13 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { useAreaDialogs } from "./useAreaDialogs";
 
 const COLUMNS: DataColumn<AreaRecord>[] = [
-  { field: "name", headerName: "businessData.area.columns.name", type: "link", locked: true, width: "25%" },
+  {
+    field: "name",
+    headerName: "businessData.area.columns.name",
+    type: "link",
+    locked: true,
+    width: "25%",
+  },
   { field: "description", headerName: "businessData.area.columns.description", width: "30%" },
   { field: "facility", headerName: "businessData.area.columns.facility", width: "20%" },
   { field: "type", headerName: "businessData.area.columns.type", width: "15%" },
