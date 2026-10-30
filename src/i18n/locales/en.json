@@ -1266,6 +1266,75 @@
           "itemCount": "Items",
           "createdOn": "Created On"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "edit": {
+          "title": "Edit Pick List",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Pick List cannot be altered."
+          }
+        },
+        "manageItems": {
+          "title": "Manage Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Edit the items of the Pick List. The Material defined for each item can be replaced by another Material, provided that the released quantity is not yet fulfilled.",
+          "columns": {
+            "material": "Material",
+            "quantity": "Quantity",
+            "picked": "Picked"
+          },
+          "empty": "No items to display.",
+          "warning": "The Quantity value to pick for every Pick List Item must be bigger than zero."
+        },
+        "pick": {
+          "title": "Pick Pick List",
+          "cancel": "Cancel",
+          "submit": "Pick",
+          "description": "Select or scan each of the items in the list and mark them as picked. Picking is a long running operation, so items can be picked separately.",
+          "columns": {
+            "item": "Item",
+            "status": "Status"
+          },
+          "empty": "No items to display."
+        },
+        "takeOwnership": {
+          "title": "Take Pick List Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation."
+        },
+        "unpick": {
+          "title": "Unpick Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Unpick",
+          "confirmText": "Select Unpick to perform the operation."
+        },
+        "viewReport": {
+          "title": "Pick List Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Pick List."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "attachments": "Attachments"
       }
     },
     "plan": {
