@@ -1711,6 +1711,23 @@
         "update": "更新",
         "checkOut": "Check-Out",
         "manage": "管理"
+      },
+      "calendarDays": {
+        "setNonWorkingTimeTitle": "Employeeの非稼働時間の設定",
+        "setWorkAvailabilityTitle": "Employeeの作業可能設定",
+        "removeNonWorkingTimesTitle": "Employeeの非稼働時間の削除",
+        "removeWorkAvailabilityTitle": "Employeeの作業可能設定の削除",
+        "removeNonWorkingTimesMessage": "Employee「{{name}}」の非稼働時間をすべて削除しますか?",
+        "removeWorkAvailabilityMessage": "Employee「{{name}}」の作業可能設定を削除しますか?",
+        "description": "説明",
+        "nonWorkingTimeType": "非稼働時間タイプ",
+        "startTime": "開始時刻",
+        "endTime": "終了時刻",
+        "comment": "コメント",
+        "cancel": "キャンセル",
+        "set": "設定",
+        "remove": "削除",
+        "manage": "管理"
       }
     },
     "maintenanceActivityOrder": {

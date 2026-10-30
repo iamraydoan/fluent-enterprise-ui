@@ -1711,6 +1711,23 @@
         "update": "Update",
         "checkOut": "Check-Out",
         "manage": "Manage"
+      },
+      "calendarDays": {
+        "setNonWorkingTimeTitle": "Set Employee Non-Working Time",
+        "setWorkAvailabilityTitle": "Set Employee Work Availability",
+        "removeNonWorkingTimesTitle": "Remove Employee Non-Working Times",
+        "removeWorkAvailabilityTitle": "Remove Employee Work Availability",
+        "removeNonWorkingTimesMessage": "Remove all Non-Working Times for Employee \"{{name}}\"?",
+        "removeWorkAvailabilityMessage": "Remove Work Availability for Employee \"{{name}}\"?",
+        "description": "Description",
+        "nonWorkingTimeType": "Non-Working Time Type",
+        "startTime": "Start Time",
+        "endTime": "End Time",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "set": "Set",
+        "remove": "Remove",
+        "manage": "Manage"
       }
     },
     "maintenanceActivityOrder": {

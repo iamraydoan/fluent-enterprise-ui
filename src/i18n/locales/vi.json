@@ -1711,6 +1711,23 @@
         "update": "Cập nhật",
         "checkOut": "Check-Out",
         "manage": "Quản lý"
+      },
+      "calendarDays": {
+        "setNonWorkingTimeTitle": "Đặt thời gian nghỉ của Employee",
+        "setWorkAvailabilityTitle": "Đặt khả năng làm việc của Employee",
+        "removeNonWorkingTimesTitle": "Xóa thời gian nghỉ của Employee",
+        "removeWorkAvailabilityTitle": "Xóa khả năng làm việc của Employee",
+        "removeNonWorkingTimesMessage": "Xóa tất cả thời gian nghỉ của Employee \"{{name}}\"?",
+        "removeWorkAvailabilityMessage": "Xóa khả năng làm việc của Employee \"{{name}}\"?",
+        "description": "Mô tả",
+        "nonWorkingTimeType": "Loại thời gian nghỉ",
+        "startTime": "Giờ bắt đầu",
+        "endTime": "Giờ kết thúc",
+        "comment": "Bình luận",
+        "cancel": "Hủy",
+        "set": "Đặt",
+        "remove": "Xóa",
+        "manage": "Quản lý"
       }
     },
     "maintenanceActivityOrder": {

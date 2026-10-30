@@ -4,20 +4,18 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
-
-const L = {
-  manageDelegatesTitle: tk("businessData.employee.delegates.manageDelegatesTitle"),
-  manageTraineesTitle: tk("businessData.employee.delegates.manageTraineesTitle"),
-  delegateEmployee: tk("businessData.employee.delegates.delegateEmployee"),
-  validFrom: tk("businessData.employee.delegates.validFrom"),
-  validTo: tk("businessData.employee.delegates.validTo"),
-  addDelegate: tk("businessData.employee.delegates.addDelegate"),
-  addTrainee: tk("businessData.employee.delegates.addTrainee"),
-  cancel: tk("businessData.employee.delegates.cancel"),
-  update: tk("businessData.employee.delegates.update"),
-  checkOut: tk("businessData.employee.delegates.checkOut"),
-  remove: tk("businessData.employee.dialog.remove"),
+const L: Record<string, TranslationKey> = {
+  manageDelegatesTitle: "businessData.employee.delegates.manageDelegatesTitle",
+  manageTraineesTitle: "businessData.employee.delegates.manageTraineesTitle",
+  delegateEmployee: "businessData.employee.delegates.delegateEmployee",
+  validFrom: "businessData.employee.delegates.validFrom",
+  validTo: "businessData.employee.delegates.validTo",
+  addDelegate: "businessData.employee.delegates.addDelegate",
+  addTrainee: "businessData.employee.delegates.addTrainee",
+  cancel: "businessData.employee.delegates.cancel",
+  update: "businessData.employee.delegates.update",
+  checkOut: "businessData.employee.delegates.checkOut",
+  remove: "businessData.employee.dialog.remove",
 };
 
 const useDialogStyles = makeStyles({
@@ -30,14 +28,26 @@ const useDialogStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "720px", maxWidth: "95vw", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+  surface: {
+    width: "720px",
+    maxWidth: "95vw",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "90vh",
+  },
   head: {
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase400,
   },
-  body: { padding: "16px", display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto" },
+  body: {
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    overflowY: "auto",
+  },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -57,11 +67,18 @@ export function ManageDelegatesDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
   const shared = useSharedStyles();
   const styles = useDialogStyles();
-  const [delegates, setDelegates] = useState<{ employee: string; validFrom: string; validTo: string }[]>([]);
+  const [delegates, setDelegates] = useState<
+    { employee: string; validFrom: string; validTo: string }[]
+  >([]);
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>
           {t(L.manageDelegatesTitle)} {name}
         </div>
@@ -69,7 +86,9 @@ export function ManageDelegatesDialog({ name, onClose }: DialogProps) {
           <div className={styles.row}>
             <Button
               size="small"
-              onClick={() => setDelegates([...delegates, { employee: "", validFrom: "", validTo: "" }])}
+              onClick={() =>
+                setDelegates([...delegates, { employee: "", validFrom: "", validTo: "" }])
+              }
             >
               + {t(L.addDelegate)}
             </Button>
@@ -79,19 +98,30 @@ export function ManageDelegatesDialog({ name, onClose }: DialogProps) {
               <Input
                 placeholder={t(L.delegateEmployee)}
                 value={d.employee}
-                onChange={(_, v) => setDelegates(delegates.map((x, j) => (j === i ? { ...x, employee: v.value } : x)))}
+                onChange={(_, v) =>
+                  setDelegates(delegates.map((x, j) => (j === i ? { ...x, employee: v.value } : x)))
+                }
               />
               <Input
                 placeholder={t(L.validFrom)}
                 value={d.validFrom}
-                onChange={(_, v) => setDelegates(delegates.map((x, j) => (j === i ? { ...x, validFrom: v.value } : x)))}
+                onChange={(_, v) =>
+                  setDelegates(
+                    delegates.map((x, j) => (j === i ? { ...x, validFrom: v.value } : x)),
+                  )
+                }
               />
               <Input
                 placeholder={t(L.validTo)}
                 value={d.validTo}
-                onChange={(_, v) => setDelegates(delegates.map((x, j) => (j === i ? { ...x, validTo: v.value } : x)))}
+                onChange={(_, v) =>
+                  setDelegates(delegates.map((x, j) => (j === i ? { ...x, validTo: v.value } : x)))
+                }
               />
-              <Button size="small" onClick={() => setDelegates(delegates.filter((_, j) => j !== i))}>
+              <Button
+                size="small"
+                onClick={() => setDelegates(delegates.filter((_, j) => j !== i))}
+              >
                 {t(L.remove)}
               </Button>
             </div>
@@ -116,7 +146,12 @@ export function ManageTraineesDialog({ name, onClose }: DialogProps) {
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>
           {t(L.manageTraineesTitle)} {name}
         </div>
