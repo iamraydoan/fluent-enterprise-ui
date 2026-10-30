@@ -145,3 +145,13 @@ export type {
   FlowItem,
   FlowRecord,
 } from "./businessData/flow";
+export {
+  getInspectionPlan,
+  listInspectionPlans,
+  useInspectionPlanDetail,
+  useInspectionPlans,
+} from "./businessData/inspectionPlan";
+export type {
+  InspectionPlanDetail,
+  InspectionPlanRecord,
+} from "./businessData/inspectionPlan";
