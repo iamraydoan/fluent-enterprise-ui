@@ -8,6 +8,9 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
 import { useBooleanLabel } from "../propertyLabels";
+import { EmployeeDialog } from "./EmployeeDialog";
+import { EmployeeTerminateDialog } from "./EmployeeTerminateDialog";
+import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
 
 const TOP_TABS: DetailTab[] = [
@@ -36,6 +39,7 @@ export function EmployeeDetailPage({ name }: { name: string }) {
   const booleanLabel = useBooleanLabel();
 
   const shell = (content: React.ReactNode) => (
+    <>
     <DetailShell
       title={name}
       icon={<Organization24Regular />}
@@ -45,11 +49,25 @@ export function EmployeeDetailPage({ name }: { name: string }) {
       leftItems={LEFT_ITEMS}
       left={left}
       onLeft={setLeft}
-      onEdit={() => undefined}
+      onEdit={() => setEditOpen(true)}
+      onClone={() => setCloneOpen(true)}
+      onTerminate={() => setTerminateOpen(true)}
+      onUnterminate={() => setUnterminateOpen(true)}
       onAskAi={() => undefined}
     >
       {content}
     </DetailShell>
+    {editOpen && <EmployeeDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />}
+    {cloneOpen && (
+      <EmployeeDialog mode={MODE_CLONE} initialName={`${name} (Copy)`} onClose={() => setCloneOpen(false)} />
+    )}
+    {terminateOpen && (
+      <EmployeeTerminateDialog name={name} mode={TERMINATE} onClose={() => setTerminateOpen(false)} />
+    )}
+    {unterminateOpen && (
+      <EmployeeTerminateDialog name={name} mode={UNTERMINATE} onClose={() => setUnterminateOpen(false)} />
+    )}
+    </>
   );
 
   if (isLoading || !data) {

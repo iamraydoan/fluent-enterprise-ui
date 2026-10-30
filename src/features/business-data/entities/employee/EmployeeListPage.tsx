@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useEmployees } from "@/api";
 import type { EmployeeRecord } from "@/api";
 import {
@@ -14,6 +15,8 @@ import { Organization24Regular } from "@/components/icons";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { EmployeeDialog } from "./EmployeeDialog";
+import { MODE_CREATE } from "./wizardMode";
 
 
 const COLUMNS: DataColumn<EmployeeRecord>[] = [
@@ -32,17 +35,26 @@ function useEmployeeListQuery(params: ListQueryParams) {
 export function EmployeeListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/business-data/employee/$name", openRoute);
+  const [createOpen, setCreateOpen] = useState(false);
   return (
+    <>
     <DataListPage
       icon={<Organization24Regular />}
       titleKey={"businessData.employee.pageLabel"}
       listTitleKey={"businessData.employee.listTitle"}
-      actions={[createAction, refreshAction, importAction, exportAction]}
+      actions={[
+        { ...createAction, onClick: () => setCreateOpen(true) },
+        refreshAction,
+        importAction,
+        exportAction,
+      ]}
       columns={COLUMNS}
       filters={defaultListFilters}
       useListQuery={useEmployeeListQuery}
       getRowId={(row) => row.name}
       onRowClick={(row) => openDetail(row.name)}
     />
+    {createOpen && <EmployeeDialog mode={MODE_CREATE} onClose={() => setCreateOpen(false)} />}
+    </>
   );
 }
