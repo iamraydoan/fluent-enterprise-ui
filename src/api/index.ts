@@ -227,12 +227,27 @@ export type {
   LogicalChartUpsertInput,
   PostDataPointInput,
 } from "./businessData/chart";
-export { useChecklistDetail, useChecklists } from "./businessData/checklist";
+export {
+  useChecklistDetail,
+  useChecklists,
+  useCreateChecklist,
+  useOpenChecklistInstance,
+  useOpenMaterialDeviation,
+  usePerformChecklistInstance,
+  useSetChecklistState,
+  useUpdateChecklist,
+  useUpdateChecklistInstance,
+} from "./businessData/checklist";
 export type {
   ChecklistDetail,
   ChecklistInstance,
+  ChecklistInstanceInput,
+  ChecklistInstanceItem,
+  ChecklistInstanceItemState,
   ChecklistItem,
+  ChecklistItemParameter,
   ChecklistRecord,
+  ChecklistUpsertInput,
 } from "./businessData/checklist";
 export { useContainerDetail, useContainers } from "./businessData/container";
 export type { ContainerDetail, ContainerPosition, ContainerRecord } from "./businessData/container";

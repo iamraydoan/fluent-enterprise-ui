@@ -5,11 +5,6 @@ import {
   Button,
   Checkbox,
   Input,
-  Menu,
-  MenuItemRadio,
-  MenuList,
-  MenuPopover,
-  MenuTrigger,
   Table,
   TableBody,
   TableCell,
@@ -24,6 +19,7 @@ import {
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 import type { OperationValues } from "../../components/operationTypes";
+import { MiniSelect } from "../../components/MiniSelect";
 import {
   DATA_POINT_ACTION_KEYS,
   ELEMENT_TYPE_OPTIONS,
@@ -144,42 +140,6 @@ function DialogShell({
         <div className={styles.foot}>{footer}</div>
       </div>
     </div>
-  );
-}
-
-function MiniSelect({
-  value,
-  options,
-  onSelect,
-  ariaLabel,
-}: {
-  value: string;
-  options: { value: string; label: string }[];
-  onSelect: (value: string) => void;
-  ariaLabel?: string;
-}) {
-  const selected = options.find((o) => o.value === value);
-  return (
-    <Menu
-      positioning="below-start"
-      checkedValues={{ selected: value === "" ? [] : [value] }}
-      onCheckedValueChange={(_, data) => onSelect(data.checkedItems[0] ?? "")}
-    >
-      <MenuTrigger disableButtonEnhancement>
-        <Button appearance="secondary" aria-label={ariaLabel}>
-          {selected?.label ?? value}
-        </Button>
-      </MenuTrigger>
-      <MenuPopover>
-        <MenuList>
-          {options.map((o) => (
-            <MenuItemRadio key={o.value} name="selected" value={o.value}>
-              {o.label}
-            </MenuItemRadio>
-          ))}
-        </MenuList>
-      </MenuPopover>
-    </Menu>
   );
 }
 
