@@ -33,7 +33,20 @@ type DetailRoute =
   | "/business-data/maintenance-activity-order/$name"
   | "/business-data/maintenance-plan/$name"
   | "/business-data/map/$name"
-  | "/business-data/map-definition/$name";
+  | "/business-data/map-definition/$name"
+  | "/business-data/material/$name"
+  | "/business-data/material-transfer/$name"
+  | "/business-data/notification/$name"
+  | "/business-data/package/$name"
+  | "/business-data/parameter/$name"
+  | "/business-data/product/$name"
+  | "/business-data/production-order/$name"
+  | "/business-data/protocol/$name"
+  | "/business-data/periodic-inventory/$name"
+  | "/business-data/pick-list/$name"
+  | "/business-data/plan/$name"
+  | "/business-data/printable-document/$name"
+  | "/business-data/product-group/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

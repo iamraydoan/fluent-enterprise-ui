@@ -28,4 +28,4 @@ export { RECORD_STATE_COLUMN_OPTIONS, RECORD_STATE_LABELS } from "./listState";
 export { RowLink } from "./RowLink";
 export { SidePanel } from "./SidePanel";
 export { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "./DetailShell";
-export type { DetailTab, MiniBarButton, MiniBarGroup } from "./DetailShell";
+export type { DetailMoreMenuItem, DetailTab, MiniBarButton, MiniBarGroup } from "./DetailShell";

@@ -227,6 +227,14 @@ export interface DetailTab {
   labelKey: TranslationKey;
 }
 
+export interface DetailMoreMenuItem {
+  key: string;
+  labelKey: TranslationKey;
+  icon?: ReactElement;
+  onClick: () => void;
+  disabled?: boolean;
+}
+
 interface DetailShellProps {
   title: string;
   icon: ReactNode;
@@ -242,6 +250,7 @@ interface DetailShellProps {
   onTerminate?: () => void;
   onUnterminate?: () => void;
   showState?: boolean;
+  moreMenuItems?: DetailMoreMenuItem[];
   children: ReactNode;
 }
 
@@ -260,6 +269,7 @@ export function DetailShell({
   onTerminate,
   onUnterminate,
   showState = true,
+  moreMenuItems,
   children,
 }: DetailShellProps) {
   const { t } = useAppTranslation();
@@ -348,6 +358,16 @@ export function DetailShell({
                   sharedStyles={sharedStyles}
                   icon={<MoreVertical24Regular />}
                   label={t("actionBar.more")}
+                  menu={
+                    moreMenuItems && moreMenuItems.length > 0
+                      ? moreMenuItems.map((item) => ({
+                          label: t(item.labelKey),
+                          icon: item.icon,
+                          disabled: item.disabled,
+                          onClick: item.onClick,
+                        }))
+                      : undefined
+                  }
                 />
               </div>
               <div className={sharedStyles.actionBarGroupLabel}>
