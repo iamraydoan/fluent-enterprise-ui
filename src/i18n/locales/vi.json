@@ -1283,6 +1283,61 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "dataCollection": {
+      "pageLabel": "Bộ thu thập dữ liệu",
+      "listTitle": "Bộ thu thập dữ liệu",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "scope": "Phạm vi",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "dataCollection": "Data Collection",
+        "changeSet": "Change Set",
+        "changeSetLabel": "Change Set",
+        "details": "Chi tiết",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "Phạm vi",
+        "userInterface": "User Interface",
+        "limitCheckingMode": "Limit Checking Mode",
+        "limitSetsTitle": "Limit Sets ({{count}})",
+        "instancesTitle": "Instances ({{count}})",
+        "parameterDetails": "Parameter Details",
+        "samples": "Samples",
+        "readings": "Readings",
+        "calculation": "Calculation",
+        "parameter": "Parameter",
+        "isOptional": "Is Optional",
+        "minimumSamples": "Minimum Samples",
+        "maximumSamples": "Maximum Samples",
+        "minimumSampleReadings": "Minimum Sample Readings",
+        "maximumSampleReadings": "Maximum Sample Readings",
+        "limitChecking": "Limit Checking",
+        "tabs": {
+          "details": "Chi tiết",
+          "compare": "So sánh",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "parameters": "Tham số",
+          "limitSets": "Bộ giới hạn",
+          "instances": "Phiên bản",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

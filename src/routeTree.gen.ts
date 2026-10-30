@@ -34,6 +34,7 @@ import { Route as BusinessDataChangeSetRouteImport } from './routes/business-dat
 import { Route as BusinessDataChartRouteImport } from './routes/business-data.chart'
 import { Route as BusinessDataChecklistRouteImport } from './routes/business-data.checklist'
 import { Route as BusinessDataContainerRouteImport } from './routes/business-data.container'
+import { Route as BusinessDataDataCollectionRouteImport } from './routes/business-data.data-collection'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -51,6 +52,7 @@ import { Route as BusinessDataChangeSetNameRouteImport } from './routes/business
 import { Route as BusinessDataChartNameRouteImport } from './routes/business-data.chart.$name'
 import { Route as BusinessDataChecklistNameRouteImport } from './routes/business-data.checklist.$name'
 import { Route as BusinessDataContainerNameRouteImport } from './routes/business-data.container.$name'
+import { Route as BusinessDataDataCollectionNameRouteImport } from './routes/business-data.data-collection.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -183,6 +185,12 @@ const BusinessDataContainerRoute = BusinessDataContainerRouteImport.update({
   path: '/container',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataDataCollectionRoute =
+  BusinessDataDataCollectionRouteImport.update({
+    id: '/data-collection',
+    path: '/data-collection',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -281,6 +289,12 @@ const BusinessDataContainerNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataContainerRoute,
   } as any)
+const BusinessDataDataCollectionNameRoute =
+  BusinessDataDataCollectionNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataDataCollectionRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -308,6 +322,7 @@ export interface FileRoutesByFullPath {
   '/business-data/chart': typeof BusinessDataChartRouteWithChildren
   '/business-data/checklist': typeof BusinessDataChecklistRouteWithChildren
   '/business-data/container': typeof BusinessDataContainerRouteWithChildren
+  '/business-data/data-collection': typeof BusinessDataDataCollectionRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -325,6 +340,7 @@ export interface FileRoutesByFullPath {
   '/business-data/chart/$name': typeof BusinessDataChartNameRoute
   '/business-data/checklist/$name': typeof BusinessDataChecklistNameRoute
   '/business-data/container/$name': typeof BusinessDataContainerNameRoute
+  '/business-data/data-collection/$name': typeof BusinessDataDataCollectionNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -352,6 +368,7 @@ export interface FileRoutesByTo {
   '/business-data/chart': typeof BusinessDataChartRouteWithChildren
   '/business-data/checklist': typeof BusinessDataChecklistRouteWithChildren
   '/business-data/container': typeof BusinessDataContainerRouteWithChildren
+  '/business-data/data-collection': typeof BusinessDataDataCollectionRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -369,6 +386,7 @@ export interface FileRoutesByTo {
   '/business-data/chart/$name': typeof BusinessDataChartNameRoute
   '/business-data/checklist/$name': typeof BusinessDataChecklistNameRoute
   '/business-data/container/$name': typeof BusinessDataContainerNameRoute
+  '/business-data/data-collection/$name': typeof BusinessDataDataCollectionNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -397,6 +415,7 @@ export interface FileRoutesById {
   '/business-data/chart': typeof BusinessDataChartRouteWithChildren
   '/business-data/checklist': typeof BusinessDataChecklistRouteWithChildren
   '/business-data/container': typeof BusinessDataContainerRouteWithChildren
+  '/business-data/data-collection': typeof BusinessDataDataCollectionRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -414,6 +433,7 @@ export interface FileRoutesById {
   '/business-data/chart/$name': typeof BusinessDataChartNameRoute
   '/business-data/checklist/$name': typeof BusinessDataChecklistNameRoute
   '/business-data/container/$name': typeof BusinessDataContainerNameRoute
+  '/business-data/data-collection/$name': typeof BusinessDataDataCollectionNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -443,6 +463,7 @@ export interface FileRouteTypes {
     | '/business-data/chart'
     | '/business-data/checklist'
     | '/business-data/container'
+    | '/business-data/data-collection'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -460,6 +481,7 @@ export interface FileRouteTypes {
     | '/business-data/chart/$name'
     | '/business-data/checklist/$name'
     | '/business-data/container/$name'
+    | '/business-data/data-collection/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -487,6 +509,7 @@ export interface FileRouteTypes {
     | '/business-data/chart'
     | '/business-data/checklist'
     | '/business-data/container'
+    | '/business-data/data-collection'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -504,6 +527,7 @@ export interface FileRouteTypes {
     | '/business-data/chart/$name'
     | '/business-data/checklist/$name'
     | '/business-data/container/$name'
+    | '/business-data/data-collection/$name'
   id:
     | '__root__'
     | '/'
@@ -531,6 +555,7 @@ export interface FileRouteTypes {
     | '/business-data/chart'
     | '/business-data/checklist'
     | '/business-data/container'
+    | '/business-data/data-collection'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -548,6 +573,7 @@ export interface FileRouteTypes {
     | '/business-data/chart/$name'
     | '/business-data/checklist/$name'
     | '/business-data/container/$name'
+    | '/business-data/data-collection/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -735,6 +761,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataContainerRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/data-collection': {
+      id: '/business-data/data-collection'
+      path: '/data-collection'
+      fullPath: '/business-data/data-collection'
+      preLoaderRoute: typeof BusinessDataDataCollectionRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -853,6 +886,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/container/$name'
       preLoaderRoute: typeof BusinessDataContainerNameRouteImport
       parentRoute: typeof BusinessDataContainerRoute
+    }
+    '/business-data/data-collection/$name': {
+      id: '/business-data/data-collection/$name'
+      path: '/$name'
+      fullPath: '/business-data/data-collection/$name'
+      preLoaderRoute: typeof BusinessDataDataCollectionNameRouteImport
+      parentRoute: typeof BusinessDataDataCollectionRoute
     }
   }
 }
@@ -1102,6 +1142,20 @@ const BusinessDataContainerRouteWithChildren =
     BusinessDataContainerRouteChildren,
   )
 
+interface BusinessDataDataCollectionRouteChildren {
+  BusinessDataDataCollectionNameRoute: typeof BusinessDataDataCollectionNameRoute
+}
+
+const BusinessDataDataCollectionRouteChildren: BusinessDataDataCollectionRouteChildren =
+  {
+    BusinessDataDataCollectionNameRoute: BusinessDataDataCollectionNameRoute,
+  }
+
+const BusinessDataDataCollectionRouteWithChildren =
+  BusinessDataDataCollectionRoute._addFileChildren(
+    BusinessDataDataCollectionRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataAreaRoute: typeof BusinessDataAreaRouteWithChildren
   BusinessDataBatchRoute: typeof BusinessDataBatchRouteWithChildren
@@ -1114,6 +1168,7 @@ interface BusinessDataRouteChildren {
   BusinessDataChartRoute: typeof BusinessDataChartRouteWithChildren
   BusinessDataChecklistRoute: typeof BusinessDataChecklistRouteWithChildren
   BusinessDataContainerRoute: typeof BusinessDataContainerRouteWithChildren
+  BusinessDataDataCollectionRoute: typeof BusinessDataDataCollectionRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -1129,6 +1184,7 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataChartRoute: BusinessDataChartRouteWithChildren,
   BusinessDataChecklistRoute: BusinessDataChecklistRouteWithChildren,
   BusinessDataContainerRoute: BusinessDataContainerRouteWithChildren,
+  BusinessDataDataCollectionRoute: BusinessDataDataCollectionRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

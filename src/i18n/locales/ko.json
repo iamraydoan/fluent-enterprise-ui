@@ -1283,6 +1283,61 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "dataCollection": {
+      "pageLabel": "데이터 수집",
+      "listTitle": "데이터 수집",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "scope": "범위",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "dataCollection": "Data Collection",
+        "changeSet": "Change Set",
+        "changeSetLabel": "Change Set",
+        "details": "세부 정보",
+        "name": "이름",
+        "description": "설명",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "범위",
+        "userInterface": "User Interface",
+        "limitCheckingMode": "Limit Checking Mode",
+        "limitSetsTitle": "Limit Sets ({{count}})",
+        "instancesTitle": "Instances ({{count}})",
+        "parameterDetails": "Parameter Details",
+        "samples": "Samples",
+        "readings": "Readings",
+        "calculation": "Calculation",
+        "parameter": "Parameter",
+        "isOptional": "Is Optional",
+        "minimumSamples": "Minimum Samples",
+        "maximumSamples": "Maximum Samples",
+        "minimumSampleReadings": "Minimum Sample Readings",
+        "maximumSampleReadings": "Maximum Sample Readings",
+        "limitChecking": "Limit Checking",
+        "tabs": {
+          "details": "세부 정보",
+          "compare": "비교",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "parameters": "매개변수",
+          "limitSets": "제한 집합",
+          "instances": "인스턴스",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

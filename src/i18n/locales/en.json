@@ -1283,6 +1283,61 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "dataCollection": {
+      "pageLabel": "Data Collections",
+      "listTitle": "Data Collections",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "scope": "Scope",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "dataCollection": "Data Collection",
+        "changeSet": "Change Set",
+        "changeSetLabel": "Change Set",
+        "details": "Details",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "scope": "Scope",
+        "userInterface": "User Interface",
+        "limitCheckingMode": "Limit Checking Mode",
+        "limitSetsTitle": "Limit Sets ({{count}})",
+        "instancesTitle": "Instances ({{count}})",
+        "parameterDetails": "Parameter Details",
+        "samples": "Samples",
+        "readings": "Readings",
+        "calculation": "Calculation",
+        "parameter": "Parameter",
+        "isOptional": "Is Optional",
+        "minimumSamples": "Minimum Samples",
+        "maximumSamples": "Maximum Samples",
+        "minimumSampleReadings": "Minimum Sample Readings",
+        "maximumSampleReadings": "Maximum Sample Readings",
+        "limitChecking": "Limit Checking",
+        "tabs": {
+          "details": "Details",
+          "compare": "Compare",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "parameters": "Parameters",
+          "limitSets": "Limit Sets",
+          "instances": "Instances",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }
