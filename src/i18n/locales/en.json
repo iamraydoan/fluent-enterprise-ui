@@ -675,13 +675,13 @@
         "state": "State"
       },
       "detail": {
-        "calendar": "Calendar",
-        "dataGroup": "Data Group",
-        "description": "Description",
+        "calendar": "Calendar:",
+        "dataGroup": "Data Group:",
+        "description": "Description:",
         "information": "Information",
-        "name": "Name",
-        "startTime": "Start Time",
-        "state": "Universal State"
+        "name": "Name:",
+        "startTime": "Start Time:",
+        "state": "Universal State:"
       },
       "emptySection": "No data available for this section.",
       "listTitle": "Shift Definitions ({{count}})",
@@ -693,15 +693,16 @@
       "sections": {
         "attachments": "Attachments",
         "details": "Details",
-        "shifts": "Shifts"
+        "shifts": "Shifts",
+        "attributes": "Attributes"
       },
       "shiftForm": {
-        "code": "Code",
-        "costOvertimeFactor": "Cost Overtime Factor",
-        "endTime": "End Time",
-        "name": "Name",
-        "startTime": "Start Time",
-        "teamPattern": "Team Pattern"
+        "code": "Code:",
+        "costOvertimeFactor": "Cost Overtime Factor:",
+        "endTime": "End Time:",
+        "name": "Name:",
+        "startTime": "Start Time:",
+        "teamPattern": "Team Pattern:"
       },
       "shiftTimeRange": "From {{start}} to {{end}}",
       "tabs": {
@@ -709,7 +710,47 @@
         "history": "History",
         "references": "References"
       },
-      "update": "Update"
+      "update": "Update",
+      "noAttributes": "No attributes defined.",
+      "create": {
+        "title": "Create Shift Definition",
+        "step1": "General Data",
+        "step2": "Shifts",
+        "step3": "Non-working times",
+        "name": "Name:",
+        "description": "Description:",
+        "calendar": "Calendar:",
+        "calendarHint": "A Shift Definition can only be added to a Calendar Day if it has the same start time as the Calendar Day.",
+        "shift": "Shift",
+        "nonWorkingName": "Non-working time name",
+        "back": "Back",
+        "next": "Next"
+      },
+      "edit": {
+        "title": "Edit Shift Definition",
+        "name": "Name:",
+        "description": "Description:",
+        "calendar": "Calendar:"
+      },
+      "clone": {
+        "title": "Clone Shift Definition: {{name}}",
+        "menuLabel": "Clone",
+        "namePlaceholder": "New Shift Definition name",
+        "comment": "Comment:",
+        "clone": "Clone"
+      },
+      "terminate": {
+        "title": "Terminate Shift Definition",
+        "menuLabel": "Terminate",
+        "message": "Terminate Shift Definition '{{name}}'? All generic/smart table rows that reference this object will be removed.",
+        "confirm": "Terminate"
+      },
+      "unterminate": {
+        "title": "Unterminate Shift Definition",
+        "menuLabel": "Unterminate",
+        "message": "Unterminate Shift Definition '{{name}}'? Referenced generic/smart table rows will not be recovered.",
+        "confirm": "Unterminate"
+      }
     }
   }
 }

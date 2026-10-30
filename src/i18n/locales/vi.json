@@ -675,13 +675,13 @@
         "state": "Trạng thái"
       },
       "detail": {
-        "calendar": "Lịch",
-        "dataGroup": "Nhóm dữ liệu",
-        "description": "Mô tả",
+        "calendar": "Lịch:",
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
         "information": "Thông tin",
-        "name": "Tên",
-        "startTime": "Giờ bắt đầu",
-        "state": "Trạng thái chung"
+        "name": "Tên:",
+        "startTime": "Giờ bắt đầu:",
+        "state": "Trạng thái chung:"
       },
       "emptySection": "Không có dữ liệu cho mục này.",
       "listTitle": "Định nghĩa ca ({{count}})",
@@ -693,15 +693,16 @@
       "sections": {
         "attachments": "Tệp đính kèm",
         "details": "Chi tiết",
-        "shifts": "Ca làm việc"
+        "shifts": "Ca làm việc",
+        "attributes": "Thuộc tính"
       },
       "shiftForm": {
-        "code": "Mã",
-        "costOvertimeFactor": "Hệ số làm thêm",
-        "endTime": "Giờ kết thúc",
-        "name": "Tên",
-        "startTime": "Giờ bắt đầu",
-        "teamPattern": "Mẫu nhóm"
+        "code": "Mã:",
+        "costOvertimeFactor": "Hệ số làm thêm:",
+        "endTime": "Giờ kết thúc:",
+        "name": "Tên:",
+        "startTime": "Giờ bắt đầu:",
+        "teamPattern": "Mẫu nhóm:"
       },
       "shiftTimeRange": "Từ {{start}} đến {{end}}",
       "tabs": {
@@ -709,7 +710,47 @@
         "history": "Lịch sử",
         "references": "Tham chiếu"
       },
-      "update": "Cập nhật"
+      "update": "Cập nhật",
+      "noAttributes": "Chưa có thuộc tính nào.",
+      "create": {
+        "title": "Tạo định nghĩa ca",
+        "step1": "Dữ liệu chung",
+        "step2": "Ca làm việc",
+        "step3": "Giờ nghỉ",
+        "name": "Tên:",
+        "description": "Mô tả:",
+        "calendar": "Lịch:",
+        "calendarHint": "Định nghĩa ca chỉ được thêm vào ngày lịch khi có cùng giờ bắt đầu.",
+        "shift": "Ca",
+        "nonWorkingName": "Tên giờ nghỉ",
+        "back": "Quay lại",
+        "next": "Tiếp"
+      },
+      "edit": {
+        "title": "Sửa định nghĩa ca",
+        "name": "Tên:",
+        "description": "Mô tả:",
+        "calendar": "Lịch:"
+      },
+      "clone": {
+        "title": "Nhân bản định nghĩa ca: {{name}}",
+        "menuLabel": "Nhân bản",
+        "namePlaceholder": "Tên định nghĩa ca mới",
+        "comment": "Ghi chú:",
+        "clone": "Nhân bản"
+      },
+      "terminate": {
+        "title": "Kết thúc định nghĩa ca",
+        "menuLabel": "Kết thúc",
+        "message": "Kết thúc định nghĩa ca '{{name}}'? Các dòng bảng generic/smart tham chiếu sẽ bị xóa.",
+        "confirm": "Kết thúc"
+      },
+      "unterminate": {
+        "title": "Hủy kết thúc định nghĩa ca",
+        "menuLabel": "Hủy kết thúc",
+        "message": "Hủy kết thúc định nghĩa ca '{{name}}'? Các dòng bảng tham chiếu sẽ không được khôi phục.",
+        "confirm": "Hủy kết thúc"
+      }
     }
   }
 }

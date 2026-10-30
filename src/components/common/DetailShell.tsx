@@ -11,6 +11,11 @@ import {
 import {
   Body1Strong,
   Button,
+  Menu,
+  MenuItem,
+  MenuList,
+  MenuPopover,
+  MenuTrigger,
   makeStyles,
   mergeClasses,
   Tab,
@@ -235,6 +240,7 @@ interface DetailShellProps {
   onLeft: (value: string) => void;
   onEdit: () => void;
   onAskAi: () => void;
+  moreActions?: { id: string; labelKey: TranslationKey; onClick: () => void }[];
   showState?: boolean;
   children: ReactNode;
 }
@@ -250,6 +256,7 @@ export function DetailShell({
   onLeft,
   onEdit,
   onAskAi,
+  moreActions,
   showState = true,
   children,
 }: DetailShellProps) {
@@ -308,11 +315,24 @@ export function DetailShell({
             </div>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<MoreVertical24Regular />}
-                  label={t("actionBar.more")}
-                />
+                <Menu>
+                  <MenuTrigger disableButtonEnhancement>
+                    <RibbonButton
+                      sharedStyles={sharedStyles}
+                      icon={<MoreVertical24Regular />}
+                      label={t("actionBar.more")}
+                    />
+                  </MenuTrigger>
+                  <MenuPopover>
+                    <MenuList>
+                      {(moreActions ?? []).map((action) => (
+                        <MenuItem key={action.id} onClick={action.onClick}>
+                          {t(action.labelKey)}
+                        </MenuItem>
+                      ))}
+                    </MenuList>
+                  </MenuPopover>
+                </Menu>
               </div>
               <div className={sharedStyles.actionBarGroupLabel}>
                 {t("actionBar.groups.actions")}

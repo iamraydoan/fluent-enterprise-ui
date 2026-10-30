@@ -675,13 +675,13 @@
         "state": "状態"
       },
       "detail": {
-        "calendar": "カレンダー",
-        "dataGroup": "データグループ",
-        "description": "説明",
+        "calendar": "カレンダー:",
+        "dataGroup": "データグループ:",
+        "description": "説明:",
         "information": "情報",
-        "name": "名前",
-        "startTime": "開始時刻",
-        "state": "ユニバーサル状態"
+        "name": "名前:",
+        "startTime": "開始時刻:",
+        "state": "ユニバーサル状態:"
       },
       "emptySection": "このセクションにはデータがありません。",
       "listTitle": "シフト定義 ({{count}})",
@@ -693,15 +693,16 @@
       "sections": {
         "attachments": "添付ファイル",
         "details": "詳細",
-        "shifts": "シフト"
+        "shifts": "シフト",
+        "attributes": "属性"
       },
       "shiftForm": {
-        "code": "コード",
-        "costOvertimeFactor": "残業コスト係数",
-        "endTime": "終了時刻",
-        "name": "名前",
-        "startTime": "開始時刻",
-        "teamPattern": "チームパターン"
+        "code": "コード:",
+        "costOvertimeFactor": "残業コスト係数:",
+        "endTime": "終了時刻:",
+        "name": "名前:",
+        "startTime": "開始時刻:",
+        "teamPattern": "チームパターン:"
       },
       "shiftTimeRange": "{{start}}から{{end}}まで",
       "tabs": {
@@ -709,7 +710,47 @@
         "history": "履歴",
         "references": "参照"
       },
-      "update": "更新"
+      "update": "更新",
+      "noAttributes": "属性が定義されていません。",
+      "create": {
+        "title": "シフト定義の作成",
+        "step1": "一般データ",
+        "step2": "シフト",
+        "step3": "非稼働時間",
+        "name": "名前:",
+        "description": "説明:",
+        "calendar": "カレンダー:",
+        "calendarHint": "シフト定義は、カレンダー日と同じ開始時刻の場合にのみ追加できます。",
+        "shift": "シフト",
+        "nonWorkingName": "非稼働時間名",
+        "back": "戻る",
+        "next": "次へ"
+      },
+      "edit": {
+        "title": "シフト定義の編集",
+        "name": "名前:",
+        "description": "説明:",
+        "calendar": "カレンダー:"
+      },
+      "clone": {
+        "title": "シフト定義の複製: {{name}}",
+        "menuLabel": "複製",
+        "namePlaceholder": "新しいシフト定義名",
+        "comment": "コメント:",
+        "clone": "複製"
+      },
+      "terminate": {
+        "title": "シフト定義の終了",
+        "menuLabel": "終了",
+        "message": "シフト定義「{{name}}」を終了しますか? 参照する汎用/スマートテーブルの行は削除されます。",
+        "confirm": "終了"
+      },
+      "unterminate": {
+        "title": "シフト定義の終了取消",
+        "menuLabel": "終了取消",
+        "message": "シフト定義「{{name}}」の終了を取り消しますか? 参照行は復元されません。",
+        "confirm": "終了取消"
+      }
     }
   }
 }

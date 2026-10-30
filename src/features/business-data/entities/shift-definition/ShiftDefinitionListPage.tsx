@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { useShiftDefinitions } from "@/api";
 import type { ShiftDefinitionRecord } from "@/api";
 import {
-  createAction,
   DataListPage,
   exportAction,
   importAction,
@@ -10,10 +10,11 @@ import {
   RECORD_STATE_COLUMN_OPTIONS,
   refreshAction,
 } from "@/components/common";
-import type { DataColumn } from "@/components/common";
-import { Timer24Regular } from "@/components/icons";
+import type { DataColumn, HeaderAction } from "@/components/common";
+import { Add24Regular, Timer24Regular } from "@/components/icons";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { ShiftDefinitionCreateWizard } from "./ShiftDefinitionCreateWizard";
 
 const COLUMNS: DataColumn<ShiftDefinitionRecord>[] = [
   {
@@ -46,24 +47,35 @@ const COLUMNS: DataColumn<ShiftDefinitionRecord>[] = [
 export function ShiftDefinitionListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/business-data/shift-definition/$name", openRoute);
+  const [createOpen, setCreateOpen] = useState(false);
+
+  const createWithDialog: HeaderAction = {
+    id: "create",
+    icon: <Add24Regular />,
+    labelKey: "actionBar.create",
+    onClick: () => setCreateOpen(true),
+  };
 
   return (
-    <DataListPage
-      icon={<Timer24Regular />}
-      titleKey="businessData.shiftDefinition.pageLabel"
-      listTitleKey="businessData.shiftDefinition.listTitle"
-      actions={[
-        createAction,
-        newTemplateAction,
-        newFromTemplateAction,
-        refreshAction,
-        importAction,
-        exportAction,
-      ]}
-      columns={COLUMNS}
-      useListQuery={useShiftDefinitions}
-      getRowId={(row) => row.name}
-      onRowClick={(row) => openDetail(row.name)}
-    />
+    <>
+      <DataListPage
+        icon={<Timer24Regular />}
+        titleKey="businessData.shiftDefinition.pageLabel"
+        listTitleKey="businessData.shiftDefinition.listTitle"
+        actions={[
+          createWithDialog,
+          newTemplateAction,
+          newFromTemplateAction,
+          refreshAction,
+          importAction,
+          exportAction,
+        ]}
+        columns={COLUMNS}
+        useListQuery={useShiftDefinitions}
+        getRowId={(row) => row.name}
+        onRowClick={(row) => openDetail(row.name)}
+      />
+      {createOpen && <ShiftDefinitionCreateWizard onClose={() => setCreateOpen(false)} />}
+    </>
   );
 }

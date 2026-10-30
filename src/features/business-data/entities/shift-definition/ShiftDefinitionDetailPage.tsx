@@ -8,6 +8,13 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { ManageShiftsDialog } from "./ManageShiftsDialog";
+import { ShiftDefinitionCloneDialog } from "./ShiftDefinitionCloneDialog";
+import { ShiftDefinitionEditDialog } from "./ShiftDefinitionEditDialog";
+import {
+  ShiftDefinitionTerminateDialog,
+  ShiftDefinitionUnterminateDialog,
+} from "./ShiftDefinitionStateDialogs";
+import { SHIFT_DEFINITION_MORE_ACTIONS } from "./shiftDefinitionMoreActions";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.shiftDefinition.tabs.details" },
@@ -18,6 +25,7 @@ const TOP_TABS: DetailTab[] = [
 const LEFT_SECTIONS: TranslationKey[] = [
   "businessData.shiftDefinition.sections.details",
   "businessData.shiftDefinition.sections.shifts",
+  "businessData.shiftDefinition.sections.attributes",
   "businessData.shiftDefinition.sections.attachments",
 ];
 
@@ -28,6 +36,10 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<TranslationKey>("businessData.shiftDefinition.sections.details");
   const [manageOpen, setManageOpen] = useState(false);
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
+  const [terminateOpen, setTerminateOpen] = useState(false);
+  const [unterminateOpen, setUnterminateOpen] = useState(false);
   const handleLeft = (value: string) => setLeft(value as TranslationKey);
 
   if (isLoading || data === undefined) {
@@ -79,6 +91,14 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
         )}
       </Panel>
     );
+  } else if (left === "businessData.shiftDefinition.sections.attributes") {
+    content = (
+      <Panel>
+        <Empty>
+          <Body1Strong>{t("businessData.shiftDefinition.noAttributes")}</Body1Strong>
+        </Empty>
+      </Panel>
+    );
   } else if (left === "businessData.shiftDefinition.sections.attachments") {
     content = (
       <Panel>
@@ -128,8 +148,16 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
         leftItems={LEFT_SECTIONS}
         left={left}
         onLeft={handleLeft}
-        onEdit={() => {}}
+        onEdit={() => setEditOpen(true)}
         onAskAi={() => {}}
+        moreActions={SHIFT_DEFINITION_MORE_ACTIONS.map((action) => ({
+          ...action,
+          onClick: () => {
+            if (action.id === "clone") setCloneOpen(true);
+            else if (action.id === "terminate") setTerminateOpen(true);
+            else if (action.id === "unterminate") setUnterminateOpen(true);
+          },
+        }))}
       >
         {content}
       </DetailShell>
@@ -138,6 +166,19 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
           definitionName={data.name}
           shifts={data.shifts}
           onClose={() => setManageOpen(false)}
+        />
+      )}
+      {editOpen && <ShiftDefinitionEditDialog data={data} onClose={() => setEditOpen(false)} />}
+      {cloneOpen && (
+        <ShiftDefinitionCloneDialog sourceName={data.name} onClose={() => setCloneOpen(false)} />
+      )}
+      {terminateOpen && (
+        <ShiftDefinitionTerminateDialog name={data.name} onClose={() => setTerminateOpen(false)} />
+      )}
+      {unterminateOpen && (
+        <ShiftDefinitionUnterminateDialog
+          name={data.name}
+          onClose={() => setUnterminateOpen(false)}
         />
       )}
     </>

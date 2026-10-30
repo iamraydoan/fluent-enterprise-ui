@@ -675,13 +675,13 @@
         "state": "상태"
       },
       "detail": {
-        "calendar": "달력",
-        "dataGroup": "데이터 그룹",
-        "description": "설명",
+        "calendar": "달력:",
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
         "information": "정보",
-        "name": "이름",
-        "startTime": "시작 시간",
-        "state": "범용 상태"
+        "name": "이름:",
+        "startTime": "시작 시간:",
+        "state": "범용 상태:"
       },
       "emptySection": "이 섹션에 데이터가 없습니다.",
       "listTitle": "교대 정의 ({{count}})",
@@ -693,15 +693,16 @@
       "sections": {
         "attachments": "첨부 파일",
         "details": "세부 정보",
-        "shifts": "교대"
+        "shifts": "교대",
+        "attributes": "특성"
       },
       "shiftForm": {
-        "code": "코드",
-        "costOvertimeFactor": "초과 근무 비용 계수",
-        "endTime": "종료 시간",
-        "name": "이름",
-        "startTime": "시작 시간",
-        "teamPattern": "팀 패턴"
+        "code": "코드:",
+        "costOvertimeFactor": "초과 근무 비용 계수:",
+        "endTime": "종료 시간:",
+        "name": "이름:",
+        "startTime": "시작 시간:",
+        "teamPattern": "팀 패턴:"
       },
       "shiftTimeRange": "{{start}}부터 {{end}}까지",
       "tabs": {
@@ -709,7 +710,47 @@
         "history": "기록",
         "references": "참조"
       },
-      "update": "업데이트"
+      "update": "업데이트",
+      "noAttributes": "정의된 특성이 없습니다.",
+      "create": {
+        "title": "교대 정의 만들기",
+        "step1": "일반 데이터",
+        "step2": "교대",
+        "step3": "비작업 시간",
+        "name": "이름:",
+        "description": "설명:",
+        "calendar": "달력:",
+        "calendarHint": "교대 정의는 달력 일과 시작 시간이 같을 때만 추가할 수 있습니다.",
+        "shift": "교대",
+        "nonWorkingName": "비작업 시간 이름",
+        "back": "뒤로",
+        "next": "다음"
+      },
+      "edit": {
+        "title": "교대 정의 편집",
+        "name": "이름:",
+        "description": "설명:",
+        "calendar": "달력:"
+      },
+      "clone": {
+        "title": "교대 정의 복제: {{name}}",
+        "menuLabel": "복제",
+        "namePlaceholder": "새 교대 정의 이름",
+        "comment": "설명:",
+        "clone": "복제"
+      },
+      "terminate": {
+        "title": "교대 정의 종료",
+        "menuLabel": "종료",
+        "message": "교대 정의 '{{name}}'을(를) 종료하시겠습니까? 참조하는 일반/스마트 테이블 행이 삭제됩니다.",
+        "confirm": "종료"
+      },
+      "unterminate": {
+        "title": "교대 정의 종료 취소",
+        "menuLabel": "종료 취소",
+        "message": "교대 정의 '{{name}}'의 종료를 취소하시겠습니까? 참조 행은 복원되지 않습니다.",
+        "confirm": "종료 취소"
+      }
     }
   }
 }
