@@ -3,11 +3,17 @@ import { useExperimentDefinitionDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text } from "@/components/ui";
+import { Text, Button  } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
 import { useBooleanLabel } from "../propertyLabels";
+import { ExperimentDefinitionDialog } from "./ExperimentDefinitionDialog";
+import {
+  ExperimentDefinitionTerminateDialog,
+  SetEffectiveDialog,
+} from "./ExperimentDefinitionTerminateDialog";
+import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
 const tk = (key: string) => key as TranslationKey;
 
@@ -29,25 +35,68 @@ const LEFT_ITEMS: TranslationKey[] = [
 export function ExperimentDefinitionDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<string>(tk("businessData.experimentDefinition.sections.details"));
+  const [left, setLeft] = useState<string>(
+    tk("businessData.experimentDefinition.sections.details"),
+  );
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
+  const [terminateOpen, setTerminateOpen] = useState(false);
+  const [unterminateOpen, setUnterminateOpen] = useState(false);
+  const [setEffectiveOpen, setSetEffectiveOpen] = useState(false);
   const { data, isLoading } = useExperimentDefinitionDetail(name);
   const booleanLabel = useBooleanLabel();
 
   const shell = (content: React.ReactNode) => (
-    <DetailShell
-      title={name}
-      icon={<Box24Regular />}
-      topTabs={TOP_TABS}
-      top={top}
-      onTop={setTop}
-      leftItems={LEFT_ITEMS}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => undefined}
-      onAskAi={() => undefined}
-    >
-      {content}
-    </DetailShell>
+    <>
+      <DetailShell
+        title={name}
+        icon={<Box24Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={LEFT_ITEMS}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onClone={() => setCloneOpen(true)}
+        onTerminate={() => setTerminateOpen(true)}
+        onUnterminate={() => setUnterminateOpen(true)}
+        onAskAi={() => undefined}
+      >
+        {content}
+      </DetailShell>
+      {editOpen && (
+        <ExperimentDefinitionDialog
+          mode={MODE_EDIT}
+          initialName={name}
+          onClose={() => setEditOpen(false)}
+        />
+      )}
+      {cloneOpen && (
+        <ExperimentDefinitionDialog
+          mode={MODE_CLONE}
+          initialName={`${name} (Copy)`}
+          onClose={() => setCloneOpen(false)}
+        />
+      )}
+      {terminateOpen && (
+        <ExperimentDefinitionTerminateDialog
+          name={name}
+          mode={TERMINATE}
+          onClose={() => setTerminateOpen(false)}
+        />
+      )}
+      {unterminateOpen && (
+        <ExperimentDefinitionTerminateDialog
+          name={name}
+          mode={UNTERMINATE}
+          onClose={() => setUnterminateOpen(false)}
+        />
+      )}
+      {setEffectiveOpen && (
+        <SetEffectiveDialog name={name} onClose={() => setSetEffectiveOpen(false)} />
+      )}
+    </>
   );
 
   if (isLoading || !data) {
@@ -82,9 +131,18 @@ export function ExperimentDefinitionDetailPage({ name }: { name: string }) {
       <Card title={t(tk("businessData.experimentDefinition.sections.options"))}>
         <KV
           rows={[
-            [t(tk("businessData.experimentDefinition.details.ignoreInSamplingPlans")), booleanLabel(data.ignoreInSamplingPlans)],
-            [t(tk("businessData.experimentDefinition.details.ignoreInSpcCharts")), booleanLabel(data.ignoreInSpcCharts)],
-            [t(tk("businessData.experimentDefinition.details.closeExperimentAutomatically")), booleanLabel(data.closeExperimentAutomatically)],
+            [
+              t(tk("businessData.experimentDefinition.details.ignoreInSamplingPlans")),
+              booleanLabel(data.ignoreInSamplingPlans),
+            ],
+            [
+              t(tk("businessData.experimentDefinition.details.ignoreInSpcCharts")),
+              booleanLabel(data.ignoreInSpcCharts),
+            ],
+            [
+              t(tk("businessData.experimentDefinition.details.closeExperimentAutomatically")),
+              booleanLabel(data.closeExperimentAutomatically),
+            ],
           ]}
         />
       </Card>
@@ -110,21 +168,53 @@ export function ExperimentDefinitionDetailPage({ name }: { name: string }) {
           rows={[
             [t(tk("businessData.experimentDefinition.details.product")), data.product],
             [t(tk("businessData.experimentDefinition.details.productGroup")), data.productGroup],
-            [t(tk("businessData.experimentDefinition.details.maximumNumberOfMaterials")), String(data.maximumNumberOfMaterials)],
-            [t(tk("businessData.experimentDefinition.details.requiredMaterialType")), data.requiredMaterialType],
-            [t(tk("businessData.experimentDefinition.details.requiredMaterialForm")), data.requiredMaterialForm],
+            [
+              t(tk("businessData.experimentDefinition.details.maximumNumberOfMaterials")),
+              String(data.maximumNumberOfMaterials),
+            ],
+            [
+              t(tk("businessData.experimentDefinition.details.requiredMaterialType")),
+              data.requiredMaterialType,
+            ],
+            [
+              t(tk("businessData.experimentDefinition.details.requiredMaterialForm")),
+              data.requiredMaterialForm,
+            ],
             [t(tk("businessData.experimentDefinition.details.mode")), data.mode],
-            [t(tk("businessData.experimentDefinition.details.requiredSubMaterialsForm")), data.requiredSubMaterialsForm],
-            [t(tk("businessData.experimentDefinition.details.requiredSubMaterialsCount")), String(data.requiredSubMaterialsCount)],
-            [t(tk("businessData.experimentDefinition.details.plannedStartDate")), formatDateTime(data.plannedStartDate)],
-            [t(tk("businessData.experimentDefinition.details.plannedEndDate")), formatDateTime(data.plannedEndDate)],
+            [
+              t(tk("businessData.experimentDefinition.details.requiredSubMaterialsForm")),
+              data.requiredSubMaterialsForm,
+            ],
+            [
+              t(tk("businessData.experimentDefinition.details.requiredSubMaterialsCount")),
+              String(data.requiredSubMaterialsCount),
+            ],
+            [
+              t(tk("businessData.experimentDefinition.details.plannedStartDate")),
+              formatDateTime(data.plannedStartDate),
+            ],
+            [
+              t(tk("businessData.experimentDefinition.details.plannedEndDate")),
+              formatDateTime(data.plannedEndDate),
+            ],
             [t(tk("businessData.experimentDefinition.details.flow")), data.flow],
             [t(tk("businessData.experimentDefinition.details.firstStep")), data.firstStep],
-            [t(tk("businessData.experimentDefinition.details.firstStepFlowPath")), data.firstStepFlowPath],
+            [
+              t(tk("businessData.experimentDefinition.details.firstStepFlowPath")),
+              data.firstStepFlowPath,
+            ],
             [t(tk("businessData.experimentDefinition.details.lastStep")), data.lastStep],
-            [t(tk("businessData.experimentDefinition.details.lastStepFlowPath")), data.lastStepFlowPath],
+            [
+              t(tk("businessData.experimentDefinition.details.lastStepFlowPath")),
+              data.lastStepFlowPath,
+            ],
           ]}
         />
+        <div style={{ marginTop: "12px" }}>
+          <Button appearance="primary" onClick={() => setSetEffectiveOpen(true)}>
+            {t(tk("businessData.experimentDefinition.actions.setEffective"))}
+          </Button>
+        </div>
       </Card>
     </CardGrid>,
   );
