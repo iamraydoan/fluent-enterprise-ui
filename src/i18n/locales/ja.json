@@ -1101,6 +1101,33 @@
           "weekDefinition": "週定義",
           "attachments": "添付ファイル"
         }
+      },
+      "entityName": "Calendar",
+      "operations": {
+        "createTitle": "Calendarの作成",
+        "editTitle": "Calendarの編集",
+        "cloneTitle": "Calendarの複製",
+        "terminateTitle": "Calendarの終了",
+        "terminateMessage": "{{name}}を終了しますか？",
+        "unterminateTitle": "Calendarの再開",
+        "unterminateMessage": "{{name}}を再開しますか？",
+        "calendarInfo": "Calendar情報",
+        "generateDays": "Calendar Daysの生成",
+        "generateDaysHint": "{{name}}のCalendar Daysを生成",
+        "generate": "生成",
+        "editDays": "Calendar Daysの編集",
+        "editDaysHint": "{{name}}のCalendar Daysを編集",
+        "removeDays": "Calendar Daysの削除",
+        "removeDaysHint": "{{name}}のCalendar Daysを削除",
+        "remove": "削除",
+        "startDate": "開始日",
+        "endDate": "終了日",
+        "overrideExisting": "既存のCalendar Daysを上書き",
+        "comment": "コメント",
+        "shiftDefinition": "Shift Definition",
+        "shiftDefinitionPlaceholder": "Shift Definitionを選択",
+        "fiscalYear": "会計年度",
+        "fiscalQuarter": "四半期"
       }
     },
     "certification": {

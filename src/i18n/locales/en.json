@@ -1101,6 +1101,33 @@
           "weekDefinition": "Week Definition",
           "attachments": "Attachments"
         }
+      },
+      "entityName": "Calendar",
+      "operations": {
+        "createTitle": "Create Calendar",
+        "editTitle": "Edit Calendar",
+        "cloneTitle": "Clone Calendar",
+        "terminateTitle": "Terminate Calendar",
+        "terminateMessage": "Terminate {{name}}?",
+        "unterminateTitle": "Unterminate Calendar",
+        "unterminateMessage": "Unterminate {{name}}?",
+        "calendarInfo": "Calendar Information",
+        "generateDays": "Generate Calendar Days",
+        "generateDaysHint": "Generate calendar days for {{name}}. Select the date range and options.",
+        "generate": "Generate",
+        "editDays": "Edit Calendar Days",
+        "editDaysHint": "Edit generated calendar days for {{name}}.",
+        "removeDays": "Remove Calendar Days",
+        "removeDaysHint": "Remove generated calendar days for {{name}} in the date range.",
+        "remove": "Remove",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "overrideExisting": "Override existing Calendar Days",
+        "comment": "Comment",
+        "shiftDefinition": "Shift Definition",
+        "shiftDefinitionPlaceholder": "Select a Shift Definition",
+        "fiscalYear": "Fiscal Year",
+        "fiscalQuarter": "Fiscal Quarter"
       }
     },
     "certification": {

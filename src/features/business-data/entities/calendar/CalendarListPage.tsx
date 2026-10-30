@@ -12,6 +12,7 @@ import type { DataColumn } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { useCalendarDialogs } from "./useCalendarDialogs";
 
 const COLUMNS: DataColumn<CalendarRecord>[] = [
   { field: "name", headerName: "businessData.calendar.columns.name", type: "link", locked: true, width: "30%" },
@@ -22,17 +23,21 @@ const COLUMNS: DataColumn<CalendarRecord>[] = [
 export function CalendarListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/business-data/calendar/$name", openRoute);
+  const { dialogs, openCreate } = useCalendarDialogs();
   return (
+    <>
     <DataListPage
       icon={<Box24Regular />}
       titleKey="businessData.calendar.pageLabel"
       listTitleKey="businessData.calendar.listTitle"
-      actions={[createAction, refreshAction, importAction, exportAction]}
+      actions={[{ ...createAction, onClick: openCreate }, refreshAction, importAction, exportAction]}
       columns={COLUMNS}
       filters={defaultListFilters}
       useListQuery={useCalendars}
       getRowId={(row) => row.name}
       onRowClick={(row) => openDetail(row.name)}
     />
+    {dialogs}
+    </>
   );
 }

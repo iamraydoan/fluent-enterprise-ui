@@ -1101,6 +1101,33 @@
           "weekDefinition": "주 정의",
           "attachments": "첨부 파일"
         }
+      },
+      "entityName": "Calendar",
+      "operations": {
+        "createTitle": "Calendar 만들기",
+        "editTitle": "Calendar 편집",
+        "cloneTitle": "Calendar 복제",
+        "terminateTitle": "Calendar 종료",
+        "terminateMessage": "{{name}}을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Calendar 재개",
+        "unterminateMessage": "{{name}}을(를) 재개하시겠습니까?",
+        "calendarInfo": "Calendar 정보",
+        "generateDays": "Calendar Days 생성",
+        "generateDaysHint": "{{name}}의 Calendar Days 생성",
+        "generate": "생성",
+        "editDays": "Calendar Days 편집",
+        "editDaysHint": "{{name}}의 Calendar Days 편집",
+        "removeDays": "Calendar Days 삭제",
+        "removeDaysHint": "{{name}}의 Calendar Days 삭제",
+        "remove": "삭제",
+        "startDate": "시작일",
+        "endDate": "종료일",
+        "overrideExisting": "기존 Calendar Days 덮어쓰기",
+        "comment": "설명",
+        "shiftDefinition": "Shift Definition",
+        "shiftDefinitionPlaceholder": "Shift Definition 선택",
+        "fiscalYear": "회계 연도",
+        "fiscalQuarter": "분기"
       }
     },
     "certification": {

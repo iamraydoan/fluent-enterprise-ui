@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
 import { useCalendarDetail } from "@/api";
-import { DetailShell, ListPage, editAction, refreshAction } from "@/components/common";
-import { Box24Regular } from "@/components/icons";
+import { DetailShell, ListPage, cloneAction, editAction, refreshAction, terminateAction, unterminateAction } from "@/components/common";
+import type { HeaderAction } from "@/components/common";
+import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
   Table,
   TableBody,
@@ -17,6 +18,7 @@ import {
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { useCalendarDialogs } from "./useCalendarDialogs";
 
 const useDetailStyles = makeStyles({
   cards: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "12px" },
@@ -85,6 +87,16 @@ export function CalendarDetailPage() {
   const { name } = useParams({ strict: false }) as { name: string };
   const displayName = decodeURIComponent(name);
   const { data: cal, isLoading } = useCalendarDetail(displayName);
+  const {
+    dialogs,
+    openEdit,
+    openClone,
+    openTerminate,
+    openUnterminate,
+    openGenerateDays,
+    openEditDays,
+    openRemoveDays,
+  } = useCalendarDialogs(cal);
 
   if (isLoading || !cal) {
     return (
@@ -96,8 +108,30 @@ export function CalendarDetailPage() {
 
   const showWeek = left === "businessData.calendar.detail.sections.weekDefinition";
 
+  const detailActions: HeaderAction[] = [
+    refreshAction,
+    { ...editAction, onClick: openEdit },
+    { ...cloneAction, onClick: openClone },
+    cal?.state === "Terminated"
+      ? { ...unterminateAction, onClick: openUnterminate }
+      : { ...terminateAction, onClick: openTerminate },
+    {
+      id: "more",
+      icon: <MoreVertical24Regular />,
+      labelKey: "actionBar.more",
+      menu: [
+        { label: t("businessData.calendar.operations.generateDays"), onClick: openGenerateDays },
+        { label: t("businessData.calendar.operations.editDays"), onClick: openEditDays },
+        { label: t("businessData.calendar.operations.removeDays"), onClick: openRemoveDays },
+      ],
+    },
+  ];
+
   return (
-    <ListPage header={{ icon: <Box24Regular />, title: `${cal.name} (${cal.state})`, actions: [refreshAction, editAction] }}>
+    <ListPage
+      header={{ icon: <Box24Regular />, title: `${cal.name} (${cal.state})`, actions: detailActions }}
+    >
+      {dialogs}
       <div className={styles.tabs} role="tablist">
         {TABS.map((value) => (
           <button key={value} role="tab" aria-selected={tab === value}

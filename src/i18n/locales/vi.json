@@ -1101,6 +1101,33 @@
           "weekDefinition": "Định nghĩa tuần",
           "attachments": "Tệp đính kèm"
         }
+      },
+      "entityName": "Calendar",
+      "operations": {
+        "createTitle": "Tạo Calendar",
+        "editTitle": "Sửa Calendar",
+        "cloneTitle": "Nhân bản Calendar",
+        "terminateTitle": "Kết thúc Calendar",
+        "terminateMessage": "Kết thúc {{name}}?",
+        "unterminateTitle": "Mở lại Calendar",
+        "unterminateMessage": "Mở lại {{name}}?",
+        "calendarInfo": "Thông tin Calendar",
+        "generateDays": "Tạo Calendar Days",
+        "generateDaysHint": "Tạo calendar days cho {{name}}.",
+        "generate": "Tạo",
+        "editDays": "Sửa Calendar Days",
+        "editDaysHint": "Sửa calendar days cho {{name}}.",
+        "removeDays": "Xóa Calendar Days",
+        "removeDaysHint": "Xóa calendar days cho {{name}}.",
+        "remove": "Xóa",
+        "startDate": "Ngày bắt đầu",
+        "endDate": "Ngày kết thúc",
+        "overrideExisting": "Ghi đè Calendar Days",
+        "comment": "Ghi chú",
+        "shiftDefinition": "Shift Definition",
+        "shiftDefinitionPlaceholder": "Chọn Shift Definition",
+        "fiscalYear": "Năm tài chính",
+        "fiscalQuarter": "Quý tài chính"
       }
     },
     "certification": {

@@ -146,8 +146,17 @@ export type {
   BusinessPartnerRecord,
   BusinessPartnerUpsertInput,
 } from "./businessData/businessPartner";
-export { useCalendarDetail, useCalendars } from "./businessData/calendar";
-export type { CalendarDetail, CalendarRecord, WeekDay } from "./businessData/calendar";
+export {
+  createCalendarRecord,
+  setCalendarRecordState,
+  updateCalendarRecord,
+  useCalendarDetail,
+  useCalendars,
+  useCreateCalendar,
+  useSetCalendarState,
+  useUpdateCalendar,
+} from "./businessData/calendar";
+export type { CalendarDetail, CalendarRecord, CalendarUpsertInput, WeekDay } from "./businessData/calendar";
 export { useCertificationDetail, useCertifications } from "./businessData/certification";
 export type { CertificationDetail, CertificationEmployee, CertificationQualification, CertificationRecord } from "./businessData/certification";
 export { useChangeSetDetail, useChangeSets } from "./businessData/changeSet";

@@ -28,8 +28,15 @@ export function queryCalendars(page: number, limit: number, q?: string, state?: 
   return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
 }
 
+const CALENDAR_OVERLAYS: Record<string, Partial<CalendarDetail>> = {};
+
+export interface CalendarUpsertInput extends Partial<CalendarDetail> {
+  name: string;
+}
+
 export function buildCalendarDetail(name: string): CalendarDetail {
   const r = RECORDS.find((x) => x.name === name) ?? { name, description: name, state: "Active" };
+  const overlay = CALENDAR_OVERLAYS[r.name] ?? {};
   return {
     ...r,
     universalState: r.state,
@@ -42,5 +49,35 @@ export function buildCalendarDetail(name: string): CalendarDetail {
     weekStartDay: "Monday",
     dayStartTime: "02:00 AM - Current Day",
     weekDefinition: WEEK,
+    ...overlay,
   };
+}
+
+export function createCalendarDetail(input: CalendarUpsertInput): CalendarDetail {
+  const record = { name: input.name, description: input.description ?? "", state: "Active" };
+  RECORDS.push(record);
+  const overlay: Partial<CalendarDetail> = { ...input };
+  delete overlay.name;
+  delete overlay.description;
+  delete overlay.state;
+  CALENDAR_OVERLAYS[input.name] = overlay;
+  return buildCalendarDetail(input.name);
+}
+
+export function updateCalendarDetail(
+  name: string,
+  input: Partial<CalendarDetail>,
+): CalendarDetail | undefined {
+  const record = RECORDS.find((x) => x.name === name);
+  if (!record) return undefined;
+  if (input.description !== undefined) record.description = input.description;
+  CALENDAR_OVERLAYS[name] = { ...CALENDAR_OVERLAYS[name], ...input };
+  return buildCalendarDetail(name);
+}
+
+export function setCalendarState(name: string, state: string): CalendarDetail | undefined {
+  const record = RECORDS.find((x) => x.name === name);
+  if (!record) return undefined;
+  record.state = state;
+  return buildCalendarDetail(name);
 }
