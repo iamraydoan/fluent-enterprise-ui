@@ -22,7 +22,9 @@
     "endpoint": "エンドポイント",
     "clone": "複製",
     "terminate": "終了",
-    "unterminate": "終了取消"
+    "unterminate": "終了取消",
+    "newTemplate": "新規テンプレート",
+    "newFromTemplate": "テンプレートから作成"
   },
   "administration": {
     "pageLabel": "管理"
@@ -151,7 +153,8 @@
     "next": "次へ",
     "create": "作成",
     "add": "追加",
-    "remove": "削除"
+    "remove": "削除",
+    "none": "なし"
   },
   "configuration": {
     "pageLabel": "構成",
@@ -2087,6 +2090,5537 @@
     "operations": {
       "fieldRequired": "必須フィールドを入力してください。",
       "selectOption": "選択してください"
+    },
+    "mapDefinition": {
+      "pageLabel": "マップ定義",
+      "listTitle": "マップ定義 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "状態"
+      },
+      "sections": {
+        "details": "詳細",
+        "layers": "レイヤー",
+        "regions": "リージョン",
+        "attachments": "添付ファイル",
+        "mapDefinition": "マップ定義",
+        "options": "オプション",
+        "information": "情報",
+        "colors": "色",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "rulerMode": "ルーラーモード",
+        "showRulerByDefault": "既定でルーラーを表示",
+        "notch": "ノッチ",
+        "defaultRotation": "既定の回転",
+        "materialUnits": "材料単位",
+        "layoutType": "レイアウトタイプ",
+        "height": "高さ",
+        "width": "幅",
+        "dimensionUnits": "寸法単位",
+        "rows": "行",
+        "columns": "列",
+        "maskFile": "マスクファイル",
+        "backgroundFile": "背景ファイル",
+        "emptyUnitsColor": "空ユニットの色",
+        "gridLinesColor": "グリッド線の色",
+        "showGridLinesByDefault": "既定でグリッド線を表示"
+      },
+      "wizard": {
+        "createTitle": "マップ定義の作成",
+        "editTitle": "マップ定義の編集",
+        "clone": "複製",
+        "stepGeneral": "一般データ",
+        "stepLayers": "レイヤー",
+        "stepFilters": "フィルター",
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "layoutType": "レイアウトタイプ",
+        "regular": "レギュラー",
+        "irregular": "イレギュラー",
+        "rows": "行",
+        "columns": "列",
+        "height": "高さ",
+        "width": "幅",
+        "dimensionUnits": "寸法単位",
+        "maskFile": "マスクファイル",
+        "browse": "参照",
+        "clear": "クリア",
+        "emptyUnitsColor": "空ユニットの色",
+        "gridLinesColor": "グリッド線の色",
+        "showGridLinesByDefault": "既定でグリッド線を表示",
+        "notch": "ノッチ",
+        "defaultRotation": "既定の回転",
+        "materialUnits": "材料単位",
+        "rulerMode": "ルーラーモード",
+        "showRulerByDefault": "既定でルーラーを表示",
+        "layerName": "名前",
+        "layerType": "レイヤータイプ",
+        "dataType": "データタイプ",
+        "isDefault": "既定",
+        "addLayer": "レイヤーの追加",
+        "removeLayer": "削除",
+        "cancel": "キャンセル",
+        "back": "戻る",
+        "next": "次へ",
+        "create": "作成",
+        "update": "更新",
+        "comments": "コメント",
+        "generalData": "一般データ",
+        "information": "情報",
+        "colors": "色",
+        "options": "オプション"
+      }
+    },
+    "document": {
+      "pageLabel": "ドキュメント",
+      "listTitle": "ドキュメント ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "author": "作成者",
+        "creationDate": "作成日",
+        "state": "状態",
+        "employee": "従業員",
+        "readAndUnderstoodDate": "既読日"
+      },
+      "tabs": {
+        "tracking": "トラッキング",
+        "contexts": "コンテキスト",
+        "compare": "比較"
+      },
+      "sections": {
+        "details": "詳細",
+        "applicableRoles": "適用ロール",
+        "attributes": "属性",
+        "attachments": "添付ファイル",
+        "document": "ドキュメント",
+        "content": "コンテンツ",
+        "information": "情報",
+        "readAndUnderstand": "既読",
+        "employees": "従業員",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "状態",
+        "dataGroup": "データグループ",
+        "source": "ソース",
+        "file": "ファイル",
+        "changeDescription": "変更内容",
+        "folder": "フォルダー",
+        "ownerRole": "所有者ロール",
+        "group": "グループ",
+        "author": "作成者",
+        "creationDate": "作成日",
+        "link": "リンク",
+        "versionLink": "バージョンリンク",
+        "keywords": "キーワード",
+        "requireSignature": "既読の署名を要求",
+        "expirationDays": "既読期限 (日)"
+      },
+      "wizard": {
+        "createTitle": "Create Document",
+        "editTitle": "Edit Document",
+        "cloneTitle": "Clone Document",
+        "stepChangeSet": "Change Set",
+        "stepGeneral": "General Data",
+        "changeSet": "Change Set",
+        "approvalRole": "Approval Role",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "name": "Name",
+        "revision": "Revision",
+        "description": "Description",
+        "type": "Type",
+        "source": "Source",
+        "internal": "Internal",
+        "external": "External",
+        "file": "File",
+        "browse": "Browse",
+        "url": "URL",
+        "changeDescription": "Change Description",
+        "folder": "Folder",
+        "ownerRole": "Owner Role",
+        "group": "Group",
+        "author": "Author",
+        "creationDate": "Creation Date",
+        "keywords": "Keywords",
+        "distNewVersion": "Distribution List (New Version)",
+        "distNewEffective": "Distribution List (New Effective Version)",
+        "requireSignature": "Require Signature for Read and Understand",
+        "expirationDays": "Expiration Days",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "back": "Back",
+        "next": "Next",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      }
+    },
+    "enterprise": {
+      "pageLabel": "エンタープライズ",
+      "listTitle": "エンタープライズ ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "dataGroup": "データグループ",
+        "state": "状態"
+      },
+      "sections": {
+        "details": "詳細",
+        "sites": "サイト",
+        "attributes": "属性",
+        "attachments": "添付ファイル",
+        "enterprise": "エンタープライズ",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ"
+      },
+      "dialog": {
+        "createTitle": "Create Enterprise",
+        "editTitle": "Edit Enterprise",
+        "cloneTitle": "Clone Enterprise",
+        "name": "Name",
+        "description": "Description",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      }
+    },
+    "dataSilo": {
+      "columns": {
+        "description": "説明",
+        "enterpriseName": "エンタープライズ名",
+        "name": "名前",
+        "siteName": "サイト名",
+        "type": "種類"
+      },
+      "details": {
+        "dataVersion": "データバージョン",
+        "description": "説明",
+        "enterpriseName": "エンタープライズ名",
+        "facilityName": "ファシリティ名",
+        "isExternal": "外部",
+        "isSystem": "システム",
+        "isTemplate": "テンプレート",
+        "name": "名前",
+        "properties": "プロパティ",
+        "siteName": "サイト名",
+        "state": "状態",
+        "type": "種類",
+        "user": "ユーザー",
+        "isObsolete": "廃止済み",
+        "keywords": "キーワード",
+        "ownerInstance": "所有者インスタンス",
+        "generalData": "一般データ"
+      },
+      "listTitle": "データサイロ ({{count}})",
+      "pageLabel": "データサイロ",
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。",
+        "relations": "関連",
+        "whereUsed": "使用箇所"
+      },
+      "create": {
+        "title": "データサイロの作成",
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "dataVersion": "データバージョン",
+        "enterpriseName": "エンタープライズ名",
+        "facilityName": "ファシリティ名",
+        "isExternal": "外部",
+        "isSystem": "システム",
+        "keywords": "キーワード",
+        "siteName": "サイト名",
+        "user": "ユーザー",
+        "comments": "コメント",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "typeDefault": "汎用"
+      }
+    },
+    "kpi": {
+      "pageLabel": "KPI",
+      "listTitle": "KPI ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "状態"
+      },
+      "sections": {
+        "details": "詳細",
+        "dimensionsAndTimeFrames": "ディメンションと時間枠",
+        "attachments": "添付ファイル",
+        "kpi": "KPI",
+        "settings": "設定",
+        "defaultValues": "既定値",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "sourceType": "ソースタイプ",
+        "entityType": "エンティティタイプ",
+        "parameter": "パラメーター",
+        "kpiType": "KPIタイプ",
+        "frequency": "頻度",
+        "ownerRole": "所有者ロール",
+        "closeToTargetMinimumValue": "ターゲットに近い最小値",
+        "inTargetMinimumValue": "ターゲット内の最小値",
+        "targetValue": "ターゲット値"
+      },
+      "actions": {
+        "manageDimensions": "ディメンションと時間枠の管理"
+      },
+      "dialog": {
+        "cancel": "キャンセル",
+        "clone": "複製",
+        "cloneTitle": "KPIの複製",
+        "create": "作成",
+        "createTitle": "KPIの作成",
+        "description": "説明",
+        "editTitle": "KPIの編集",
+        "entityType": "エンティティタイプ",
+        "frequency": "頻度",
+        "frequencyDaily": "毎日",
+        "frequencyMonthly": "毎月",
+        "frequencyWeekly": "毎週",
+        "frequencyYearly": "毎年",
+        "kpiType": "KPIタイプ",
+        "kpiTypeDeviation": "偏差",
+        "kpiTypeMaximum": "最大",
+        "kpiTypeMinimum": "最小",
+        "name": "名前",
+        "ownerRole": "所有者ロール",
+        "parameter": "パラメータ",
+        "save": "保存",
+        "sourceType": "ソースタイプ",
+        "sourceTypeDynamic": "動的",
+        "sourceTypeStatic": "静的",
+        "type": "タイプ"
+      },
+      "dimensionsDialog": {
+        "addDimension": "ディメンションの追加",
+        "addTimeFrame": "時間枠の追加",
+        "back": "戻る",
+        "cancel": "キャンセル",
+        "dimensions": "ディメンション",
+        "from": "開始",
+        "isDefault": "デフォルト",
+        "next": "次へ",
+        "remove": "削除",
+        "source": "ソース",
+        "sourceBusinessRule": "ビジネスルール",
+        "sourceCommand": "ソースコマンド",
+        "sourceCubes": "キューブ",
+        "sourceDwh": "データウェアハウス",
+        "sourceOds": "オペレーショナルデータストア",
+        "step1": "ステップ1: ディメンションの管理",
+        "step2": "ステップ2: 時間枠の管理",
+        "timeFrameName": "時間枠名",
+        "timeFrames": "時間枠",
+        "title": "ディメンションと時間枠の管理",
+        "to": "終了",
+        "update": "更新",
+        "valueType": "値タイプ",
+        "valueTypeSeries": "データシリーズ",
+        "valueTypeSingle": "単一値"
+      },
+      "terminateDialog": {
+        "cancel": "キャンセル",
+        "message": "KPI「{{name}}」を終了しますか?",
+        "terminate": "終了",
+        "title": "KPIの終了",
+        "warning": "KPIオブジェクトは終了を取り消すことができません。終了すると完全に失われます。"
+      }
+    },
+    "map": {
+      "pageLabel": "マップ",
+      "listTitle": "マップ ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "mapDefinition": "マップ定義",
+        "state": "状態"
+      },
+      "tabs": {
+        "content": "コンテンツ"
+      },
+      "sections": {
+        "details": "詳細",
+        "layers": "レイヤー",
+        "attachments": "添付ファイル",
+        "map": "マップ",
+        "mapDefinition": "マップ定義",
+        "context": "コンテキスト",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "state": "ユニバーサル状態",
+        "mapDefinition": "マップ定義",
+        "step": "ステップ",
+        "resource": "リソース",
+        "material": "材料"
+      },
+      "dialog": {
+        "createTitle": "Mapの作成",
+        "editTitle": "Mapの編集",
+        "cloneTitle": "Mapの複製",
+        "step1": "ステップ1: 一般データ",
+        "step2": "ステップ2: レイヤー",
+        "name": "名前",
+        "description": "説明",
+        "mapDefinition": "Map定義",
+        "step": "ステップ",
+        "resource": "リソース",
+        "layers": "レイヤー",
+        "layersHint": "レイヤーごとにG85ファイルを1つアップロードします。アップロードしない場合、各レイヤーはデフォルト値で初期化されます。",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製"
+      },
+      "terminateDialog": {
+        "title": "Mapの終了",
+        "message": "Map「{{name}}」を終了しますか?",
+        "unterminateTitle": "Mapの終了取消",
+        "unterminateMessage": "Map「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "linkDialog": {
+        "linkTitle": "Map「{{name}}」とMaterialのリンク",
+        "material": "Material",
+        "mapOrder": "Map順序",
+        "isMasterMap": "マスターMap",
+        "linkageMode": "リンケージモード",
+        "linkageVerify": "検証",
+        "linkageSynchronize": "同期",
+        "isDefault": "デフォルトMap",
+        "isMerged": "マージMap",
+        "comment": "コメント",
+        "link": "リンク",
+        "cancel": "キャンセル",
+        "unlinkTitle": "MapとMaterialのリンク解除",
+        "unlinkMessage": "Map「{{name}}」からMaterialのリンクを解除しますか?",
+        "unlink": "リンク解除"
+      },
+      "actions": {
+        "downloadLayer": "レイヤーのダウンロード",
+        "linkMaterial": "Materialとリンク",
+        "unlinkMaterial": "Materialのリンク解除"
+      },
+      "layers": {
+        "name": "名前",
+        "type": "タイプ",
+        "units": "単位"
+      }
+    },
+    "flow": {
+      "pageLabel": "フロー",
+      "listTitle": "フロー ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "flowType": "フロータイプ",
+        "state": "状態"
+      },
+      "tabs": {
+        "flowStructure": "フロー構造",
+        "contextStructure": "コンテキスト構造",
+        "contextMatrix": "コンテキストマトリックス",
+        "compare": "比較"
+      },
+      "sections": {
+        "details": "詳細",
+        "logicalNames": "論理名",
+        "attachments": "添付ファイル",
+        "flow": "フロー",
+        "settings": "設定",
+        "flowStructure": "フロー構造",
+        "flowDetails": "フローの詳細",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "flow": "フロー",
+        "flowType": "フロータイプ",
+        "enabled": "有効"
+      },
+      "dialog": {
+        "createTitle": "Flowの作成",
+        "editTitle": "Flowの編集",
+        "cloneTitle": "Flowの複製",
+        "step1": "ステップ1: Change Set",
+        "step2": "ステップ2: 一般データ",
+        "step3": "ステップ3: Flow Items",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "自動Change Setを使用",
+        "approvalRole": "承認ロール",
+        "makeEffectiveOnApproval": "承認時に有効化",
+        "name": "名前",
+        "revision": "リビジョン",
+        "description": "説明",
+        "flowType": "Flowタイプ",
+        "flowKind": "Flow種別",
+        "kindSequential": "シーケンシャル",
+        "kindAlternate": "オルタネート",
+        "kindNonSequential": "非シーケンシャルブロック",
+        "kindLine": "ライン",
+        "isEnabled": "有効",
+        "flowItems": "Flow Items",
+        "flowItemsHint": "StepまたはFlowを追加してFlow構造を構築します。",
+        "addStep": "Stepの追加",
+        "addFlow": "Flowの追加",
+        "remove": "削除",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製"
+      },
+      "terminateDialog": {
+        "title": "Flowの終了",
+        "message": "Flow「{{name}}」を終了しますか?",
+        "unterminateTitle": "Flowの終了取消",
+        "unterminateMessage": "Flow「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "manageDialog": {
+        "logicalNamesTitle": "Flow論理名の管理",
+        "logicalName": "論理名",
+        "addLogicalName": "論理名の追加",
+        "remove": "削除",
+        "update": "更新",
+        "cancel": "キャンセル",
+        "reworkPathsTitle": "リワークパスの表示",
+        "filterByStep": "Stepでフィルター",
+        "close": "閉じる"
+      },
+      "actions": {
+        "manageLogicalNames": "論理名の管理",
+        "viewReworkPaths": "リワークパスの表示"
+      }
+    },
+    "experimentDefinition": {
+      "pageLabel": "実験定義",
+      "listTitle": "実験定義 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "product": "製品",
+        "state": "状態"
+      },
+      "tabs": {
+        "matrix": "マトリックス"
+      },
+      "sections": {
+        "details": "詳細",
+        "objectives": "目的",
+        "mainMaterialGroups": "主要材料グループ",
+        "instances": "インスタンス",
+        "attachments": "添付ファイル",
+        "experimentDefinition": "実験定義",
+        "options": "オプション",
+        "information": "情報",
+        "results": "結果",
+        "settings": "設定",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "ignoreInSamplingPlans": "サンプリング計画で無視",
+        "ignoreInSpcCharts": "SPCチャートで無視",
+        "closeExperimentAutomatically": "実験を自動的に終了",
+        "ownerRole": "所有者ロール",
+        "purpose": "目的",
+        "note": "メモ",
+        "result": "結果",
+        "conclusions": "結論",
+        "product": "製品",
+        "productGroup": "製品グループ",
+        "maximumNumberOfMaterials": "材料の最大数",
+        "requiredMaterialType": "必要な材料タイプ",
+        "requiredMaterialForm": "必要な材料フォーム",
+        "mode": "モード",
+        "requiredSubMaterialsForm": "必要な副材料フォーム",
+        "requiredSubMaterialsCount": "必要な副材料数",
+        "plannedStartDate": "計画開始日",
+        "plannedEndDate": "計画終了日",
+        "flow": "フロー",
+        "firstStep": "最初のステップ",
+        "firstStepFlowPath": "最初のステップのフローパス",
+        "lastStep": "最後のステップ",
+        "lastStepFlowPath": "最後のステップのフローパス"
+      },
+      "dialog": {
+        "createTitle": "Experiment Definitionの作成",
+        "editTitle": "Experiment Definitionの編集",
+        "cloneTitle": "Experiment Definitionの複製",
+        "step1": "ステップ1: Change Set",
+        "step2": "ステップ2: 一般データ",
+        "step3": "ステップ3: 目的",
+        "step4": "ステップ4: Material Groups",
+        "step5": "ステップ5: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "自動Change Setを使用",
+        "approvalRole": "承認ロール",
+        "makeEffectiveOnApproval": "承認時に有効化",
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "ownerRole": "所有者ロール",
+        "purpose": "目的",
+        "note": "メモ",
+        "applicableTo": "適用先",
+        "applicableProduct": "Product",
+        "applicableProductGroup": "Product Group",
+        "product": "Product",
+        "productGroup": "Product Group",
+        "flow": "Flow",
+        "maxMaterials": "最大Material数",
+        "requiredMaterialType": "必要なMaterialタイプ",
+        "requiredMaterialForm": "必要なMaterialフォーム",
+        "mode": "モード",
+        "modeSubMaterials": "サブMaterial",
+        "modeFullMaterial": "フルMaterial",
+        "plannedStartDate": "開始予定日",
+        "plannedEndDate": "終了予定日",
+        "objectives": "目的",
+        "addObjective": "目的の追加",
+        "objectiveName": "目的名",
+        "objectiveTarget": "ターゲット",
+        "remove": "削除",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製"
+      },
+      "terminateDialog": {
+        "title": "Experiment Definitionの終了",
+        "message": "Experiment Definition「{{name}}」を終了しますか?",
+        "unterminateTitle": "Experiment Definitionの終了取消",
+        "unterminateMessage": "Experiment Definition「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消",
+        "setEffectiveTitle": "バージョンを有効化",
+        "setEffectiveMessage": "Experiment Definition「{{name}}」のバージョンを有効にしますか?",
+        "setEffective": "有効化"
+      },
+      "actions": {
+        "setEffective": "有効化"
+      }
+    },
+    "facility": {
+      "pageLabel": "ファシリティ",
+      "listTitle": "ファシリティ ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "site": "サイト",
+        "state": "状態"
+      },
+      "sections": {
+        "details": "詳細",
+        "areas": "エリア",
+        "shippingInformation": "出荷情報",
+        "attachments": "添付ファイル",
+        "facility": "ファシリティ",
+        "information": "情報",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "displayOrder": "表示順",
+        "defaultCalendar": "既定のカレンダー",
+        "site": "サイト",
+        "remote": "リモート",
+        "terminateOnShipToThisFacility": "このファシリティへの出荷で終了"
+      },
+      "dialog": {
+        "createTitle": "Facilityの作成",
+        "editTitle": "Facilityの編集",
+        "cloneTitle": "Facilityの複製",
+        "step1": "ステップ1: 一般データ",
+        "step2": "ステップ2: 情報",
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "dataGroup": "データグループ",
+        "displayOrder": "表示順",
+        "defaultCalendar": "デフォルトカレンダー",
+        "site": "サイト",
+        "remote": "リモート",
+        "terminateOnShip": "このFacilityへの出荷時に終了",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製",
+        "typeManufacturing": "製造",
+        "typeDistribution": "流通センター",
+        "typeWarehouse": "倉庫"
+      },
+      "terminateDialog": {
+        "title": "Facilityの終了",
+        "message": "Facility「{{name}}」を終了しますか?",
+        "unterminateTitle": "Facilityの終了取消",
+        "unterminateMessage": "Facility「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "manageShipping": {
+        "title": "出荷先Facilityの管理",
+        "facilities": "Facilities",
+        "facilityDetails": "Facility詳細",
+        "addFacility": "Facilityの追加",
+        "removeFacility": "Facilityの削除",
+        "facility": "Facility",
+        "description": "説明",
+        "type": "タイプ",
+        "isRemote": "リモート",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "manage": "管理"
+      }
+    },
+    "inspectionPlan": {
+      "pageLabel": "検査計画",
+      "listTitle": "検査計画 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "状態"
+      },
+      "tabs": {
+        "compare": "比較"
+      },
+      "sections": {
+        "details": "詳細",
+        "steps": "ステップ",
+        "configurations": "構成",
+        "instances": "インスタンス",
+        "attachments": "添付ファイル",
+        "inspectionPlan": "検査計画",
+        "defaultInspection": "既定の検査",
+        "inspectionSettings": "検査設定",
+        "futureHoldInformation": "将来のホールド情報",
+        "holdInformation": "ホールド情報",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "resultsRequiredBeforeTrackOut": "Track-Out前に結果が必要",
+        "enableMultipleSamples": "複数サンプルを有効化",
+        "containsSeparateInspectionSteps": "個別の検査ステップを含む",
+        "closeAutomaticallyOnPass": "合格時に自動終了",
+        "closeAutomaticallyOnFail": "不合格時に自動終了",
+        "openProtocolOnFail": "不合格時にプロトコルを開く",
+        "protocol": "プロトコル",
+        "futureHoldCreationMode": "将来のホールド作成モード",
+        "setHoldOnFail": "不合格時にホールドを設定",
+        "step": "ステップ",
+        "reason": "理由",
+        "releaseRole": "リリースロール",
+        "comment": "コメント",
+        "distributionList": "配布リスト"
+      },
+      "dialog": {
+        "createTitle": "Inspection Planの作成",
+        "editTitle": "Inspection Planの編集",
+        "cloneTitle": "Inspection Planの複製",
+        "step1": "ステップ1: Change Set",
+        "step2": "ステップ2: 一般データ",
+        "step3": "ステップ3: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "自動Change Setを使用",
+        "approvalRole": "承認ロール",
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "resultsRequiredBeforeTrackOut": "Track-Out前に結果が必要",
+        "enableMultipleSamples": "複数サンプルを有効化",
+        "containsSeparateInspectionSteps": "個別のInspection Stepを含む",
+        "closeAutomaticallyOnPass": "Pass時に自動クローズ",
+        "closeAutomaticallyOnFail": "Fail時に自動クローズ",
+        "futureHoldCreationMode": "Future Hold作成モード",
+        "futureHoldNone": "なし",
+        "futureHoldAlways": "常に",
+        "futureHoldOnFail": "Fail時",
+        "addStep": "Stepの追加",
+        "remove": "削除",
+        "stepName": "Step名",
+        "isInProcessInspection": "インプロセス検査",
+        "inspectionFlow": "Inspection Flow",
+        "inspectionStep": "Inspection Step",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製"
+      },
+      "terminateDialog": {
+        "title": "Inspection Planの終了",
+        "message": "Inspection Plan「{{name}}」を終了しますか?",
+        "unterminateTitle": "Inspection Planの終了取消",
+        "unterminateMessage": "Inspection Plan「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "manageConfigurations": {
+        "title": "Configurationsの管理",
+        "configurations": "Configurations",
+        "addConfiguration": "Configurationの追加",
+        "removeConfiguration": "Configurationの削除",
+        "configurationName": "Configuration名",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "manage": "管理"
+      },
+      "manageSteps": {
+        "title": "Inspection Plan Stepsの管理",
+        "steps": "Steps",
+        "addStep": "Stepの追加",
+        "removeStep": "Stepの削除",
+        "stepName": "Step名",
+        "isInProcessInspection": "インプロセス検査",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "manage": "管理"
+      }
+    },
+    "employee": {
+      "pageLabel": "従業員",
+      "listTitle": "従業員 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "user": "ユーザー",
+        "number": "番号",
+        "team": "チーム",
+        "state": "状態"
+      },
+      "tabs": {
+        "calendar": "カレンダー"
+      },
+      "sections": {
+        "details": "詳細",
+        "subordinates": "部下",
+        "delegates": "代理",
+        "certifications": "認定",
+        "qualifications": "資格",
+        "timeSheetEntries": "タイムシート項目",
+        "checkInInformation": "チェックイン情報",
+        "attachments": "添付ファイル",
+        "employee": "従業員",
+        "clockInOut": "出退勤",
+        "information": "情報",
+        "costing": "コスト",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "状態",
+        "dataGroup": "データグループ",
+        "requireClockIn": "出勤登録を要求",
+        "enableAutomaticClockIn": "自動出勤登録を有効化",
+        "lastClockInDate": "最終出勤日",
+        "clockedState": "出勤状態",
+        "automaticClockOutAtEndOfShift": "シフト終了時の自動退勤",
+        "user": "ユーザー",
+        "number": "番号",
+        "area": "エリア",
+        "calendar": "カレンダー",
+        "team": "チーム",
+        "manager": "マネージャー",
+        "position": "役職",
+        "workgroup": "ワークグループ",
+        "shiftplan": "シフトプラン",
+        "costCenter": "コストセンター",
+        "costPerHour": "時間単価"
+      },
+      "dialog": {
+        "createTitle": "Employeeの作成",
+        "editTitle": "Employeeの編集",
+        "cloneTitle": "Employeeの複製",
+        "step1": "ステップ1: ユーザーの選択または作成",
+        "step2": "ステップ2: ユーザー",
+        "step3": "ステップ3: 一般データ",
+        "user": "ユーザー",
+        "userAccount": "アカウント",
+        "userName": "名前",
+        "userEmail": "メールアドレス",
+        "primaryRole": "プライマリロール",
+        "createUser": "ユーザーの作成",
+        "selectUser": "ユーザーの選択",
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "employeeNumber": "従業員番号",
+        "area": "エリア",
+        "calendar": "カレンダー",
+        "costPerHour": "時間単価",
+        "costCenter": "コストセンター",
+        "requireClockIn": "Clock-In必須",
+        "automaticClockIn": "自動Clock-In",
+        "automaticClockOutAtEndOfShift": "シフト終了時自動Clock-Out",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製",
+        "remove": "削除"
+      },
+      "terminateDialog": {
+        "title": "Employeeの終了",
+        "message": "Employee「{{name}}」を終了しますか?",
+        "unterminateTitle": "Employeeの終了取消",
+        "unterminateMessage": "Employee「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "certifications": {
+        "manageTitle": "Employee Certificationの管理",
+        "grantTitle": "EmployeeへのCertification付与",
+        "revokeTitle": "EmployeeからのCertification取消",
+        "revokeMessage": "Employee「{{name}}」からCertification「{{certification}}」を取り消しますか?",
+        "assignTitle": "EmployeeへのCertification割当",
+        "unassignTitle": "EmployeeからのCertification割当解除",
+        "unassignMessage": "Employee「{{name}}」からCertification「{{certification}}」の割当を解除しますか?",
+        "certification": "Certification",
+        "plannedDate": "予定日",
+        "certificationDate": "認定日",
+        "isTrainer": "トレーナー",
+        "isTrainee": "トレーニー",
+        "comment": "コメント",
+        "remark": "備考",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "grant": "付与",
+        "revoke": "取消",
+        "assign": "割当",
+        "unassign": "割当解除",
+        "manage": "管理"
+      },
+      "qualifications": {
+        "manageTitle": "Employee Qualificationの管理",
+        "assignTitle": "EmployeeへのQualification割当",
+        "unassignTitle": "EmployeeからのQualification割当解除",
+        "unassignMessage": "Employee「{{name}}」からQualification「{{qualification}}」の割当を解除しますか?",
+        "qualification": "Qualification",
+        "qualificationDate": "認定日",
+        "validTo": "有効期限",
+        "reason": "理由",
+        "proficiency": "習熟度",
+        "remarks": "備考",
+        "comment": "コメント",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "assign": "割当",
+        "unassign": "割当解除",
+        "manage": "管理"
+      },
+      "attendance": {
+        "checkInTitle": "EmployeeのCheck-In",
+        "checkOutTitle": "EmployeeのCheck-Out",
+        "clockInTitle": "EmployeeのClock-In",
+        "clockOutTitle": "EmployeeのClock-Out",
+        "assignSubordinatesTitle": "Employeeへの部下の割当",
+        "unassignSubordinatesTitle": "Employeeからの部下の割当解除",
+        "assignTeamTitle": "TeamとWorkgroupの割当",
+        "resource": "Resource",
+        "certification": "Certification",
+        "subordinates": "部下",
+        "team": "Team",
+        "workgroup": "Workgroup",
+        "area": "Area",
+        "comment": "コメント",
+        "reason": "理由",
+        "cancel": "キャンセル",
+        "checkIn": "Check-In",
+        "checkOut": "Check-Out",
+        "clockIn": "Clock-In",
+        "clockOut": "Clock-Out",
+        "assign": "割当",
+        "unassign": "割当解除",
+        "save": "保存"
+      },
+      "delegates": {
+        "manageDelegatesTitle": "Employee Delegatesの管理",
+        "manageTraineesTitle": "Employee Traineesの管理",
+        "delegates": "Delegates",
+        "trainees": "Trainees",
+        "delegateEmployee": "代理Employee",
+        "validFrom": "有効開始日",
+        "validTo": "有効終了日",
+        "addDelegate": "Delegateの追加",
+        "removeDelegate": "Delegateの削除",
+        "addTrainee": "Traineeの追加",
+        "removeTrainee": "Traineeの削除",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "checkOut": "Check-Out",
+        "manage": "管理"
+      },
+      "calendarDays": {
+        "setNonWorkingTimeTitle": "Employeeの非稼働時間の設定",
+        "setWorkAvailabilityTitle": "Employeeの作業可能設定",
+        "removeNonWorkingTimesTitle": "Employeeの非稼働時間の削除",
+        "removeWorkAvailabilityTitle": "Employeeの作業可能設定の削除",
+        "removeNonWorkingTimesMessage": "Employee「{{name}}」の非稼働時間をすべて削除しますか?",
+        "removeWorkAvailabilityMessage": "Employee「{{name}}」の作業可能設定を削除しますか?",
+        "description": "説明",
+        "nonWorkingTimeType": "非稼働時間タイプ",
+        "startTime": "開始時刻",
+        "endTime": "終了時刻",
+        "comment": "コメント",
+        "cancel": "キャンセル",
+        "set": "設定",
+        "remove": "削除",
+        "manage": "管理"
+      }
+    },
+    "maintenanceActivityOrder": {
+      "pageLabel": "メンテナンス作業指示",
+      "listTitle": "メンテナンス作業指示 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "executionState": "実行状態",
+        "scheduleType": "スケジュールタイプ",
+        "state": "状態"
+      },
+      "sections": {
+        "details": "詳細",
+        "parts": "部品",
+        "labor": "労働",
+        "personnel": "人員",
+        "transferRequirements": "移転要件",
+        "documents": "ドキュメント",
+        "pastMaos": "過去のMAO",
+        "joinedMaos": "結合されたMAO",
+        "attachments": "添付ファイル",
+        "order": "メンテナンス作業指示",
+        "scheduling": "スケジューリング",
+        "requestInformation": "リクエスト情報",
+        "definition": "定義",
+        "execution": "実行",
+        "information": "情報",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "scheduleDate": "スケジュール日",
+        "requestedBy": "リクエスト者",
+        "requestDate": "リクエスト日",
+        "comment": "コメント",
+        "maintenancePlanInstance": "メンテナンスプランインスタンス",
+        "resource": "リソース",
+        "ownerRole": "所有者ロール",
+        "maintenanceActivity": "メンテナンス作業",
+        "role": "ロール",
+        "beginDate": "開始日",
+        "endDate": "終了日",
+        "scheduleType": "スケジュールタイプ",
+        "expectedDuration": "予想所要時間",
+        "executionState": "実行状態",
+        "reworkCount": "再作業回数",
+        "requestApprovalMode": "リクエスト承認モード",
+        "maintenanceType": "メンテナンスタイプ",
+        "materialTypeRestrictionMode": "材料タイプ制限モード",
+        "materialType": "材料タイプ",
+        "orderReleaseMode": "指示リリースモード",
+        "completionAcceptanceMode": "完了承認モード",
+        "beginAndCompleteMode": "開始および完了モード",
+        "cost": "コスト"
+      },
+      "dialog": {
+        "editTitle": "Maintenance Activity Orderの編集",
+        "description": "説明",
+        "dataGroup": "データグループ",
+        "cancel": "キャンセル",
+        "save": "保存"
+      },
+      "terminateDialog": {
+        "title": "Maintenance Activity Orderの終了",
+        "message": "Maintenance Activity Order「{{name}}」を終了しますか?",
+        "unterminateTitle": "Maintenance Activity Orderの終了取消",
+        "unterminateMessage": "Maintenance Activity Order「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "request": {
+        "title": "Maintenance Activity Orderのリクエスト",
+        "step1": "ステップ1: エンティティ",
+        "step2": "ステップ2: Maintenance Activity Order",
+        "entityType": "エンティティタイプ",
+        "entity": "エンティティ",
+        "scheduleDate": "スケジュール日",
+        "comment": "コメント",
+        "cancel": "キャンセル",
+        "request": "リクエスト",
+        "back": "戻る",
+        "next": "次へ"
+      },
+      "changeState": {
+        "title": "Maintenance Activity Orderの{{action}}",
+        "message": "Maintenance Activity Order「{{name}}」を{{action}}しますか?",
+        "comment": "コメント",
+        "cancel": "キャンセル",
+        "confirm": "確認",
+        "approve": "承認",
+        "release": "リリース",
+        "begin": "開始",
+        "complete": "完了",
+        "accept": "受諾",
+        "reject": "却下",
+        "cancelAction": "キャンセル",
+        "skip": "スキップ",
+        "abort": "中止",
+        "rework": "再作業"
+      }
+    },
+    "maintenancePlan": {
+      "pageLabel": "メンテナンスプラン",
+      "listTitle": "メンテナンスプラン ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "scope": "スコープ",
+        "state": "状態"
+      },
+      "tabs": {
+        "maintenanceActivities": "メンテナンス作業",
+        "compare": "比較"
+      },
+      "sections": {
+        "details": "詳細",
+        "instances": "インスタンス",
+        "attachments": "添付ファイル",
+        "maintenancePlan": "メンテナンスプラン",
+        "activities": "作業",
+        "generalData": "一般データ",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "scope": "スコープ",
+        "dataGroup": "データグループ",
+        "scheduleType": "スケジュールタイプ",
+        "expectedDurationHours": "予想所要時間 (時間)",
+        "executionRole": "実行ロール",
+        "requestApprovalMode": "リクエスト承認モード",
+        "maintenanceType": "メンテナンスタイプ",
+        "materialTypeRestrictionMode": "材料タイプ制限モード",
+        "orderReleaseMode": "指示リリースモード",
+        "acceptanceMode": "承認モード",
+        "ignoreInScheduling": "スケジューリングで無視",
+        "autoDisableAfterLateDue": "遅延後の自動無効化",
+        "postMaintenanceActivity": "ポストメンテナンス作業"
+      },
+      "dialog": {
+        "createTitle": "Maintenance Planの作成",
+        "editTitle": "Maintenance Planの編集",
+        "cloneTitle": "Maintenance Planの複製",
+        "step1": "ステップ1: Change Set",
+        "step2": "ステップ2: 一般データ",
+        "step3": "ステップ3: Maintenance Activities",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "自動Change Setを使用",
+        "approvalRole": "承認ロール",
+        "makeEffectiveOnApproval": "承認時に有効化",
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "scope": "スコープ",
+        "scopeMaintenanceManagement": "Maintenance Management",
+        "scopeInProcessVerification": "インプロセス検証",
+        "scopeQualification": "Qualification",
+        "addActivity": "Activityの追加",
+        "remove": "削除",
+        "activityName": "Activity名",
+        "scheduleType": "スケジュールタイプ",
+        "scheduleAdHoc": "Ad hoc",
+        "scheduleTimeBased": "Time Based",
+        "scheduleUsageBased": "Usage Based",
+        "scheduleUsageAndTimeBased": "Usage And Time Based",
+        "expectedDuration": "予想所要時間(時間)",
+        "executionRole": "実行ロール",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製"
+      },
+      "terminateDialog": {
+        "title": "Maintenance Planの終了",
+        "message": "Maintenance Plan「{{name}}」を終了しますか?",
+        "unterminateTitle": "Maintenance Planの終了取消",
+        "unterminateMessage": "Maintenance Plan「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消",
+        "setEffectiveTitle": "Maintenance Planを有効化",
+        "setEffectiveMessage": "Maintenance Plan「{{name}}」を有効にしますか?",
+        "setEffective": "有効化"
+      },
+      "associate": {
+        "title": "Maintenance Planの関連付け",
+        "entityType": "エンティティタイプ",
+        "entity": "エンティティ",
+        "area": "Area",
+        "container": "Container",
+        "material": "Material",
+        "resource": "Resource",
+        "cancel": "キャンセル",
+        "associate": "関連付け"
+      }
+    },
+    "material": {
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "primaryQuantity": "一次数量",
+        "product": "製品",
+        "state": "状態",
+        "step": "ステップ",
+        "type": "タイプ"
+      },
+      "detailsView": "詳細ビュー",
+      "emptyTab": "データがありません。",
+      "fields": {
+        "approved": "承認済み",
+        "container": "コンテナ",
+        "description": "説明",
+        "facility": "ファシリティ",
+        "flow": "フロー",
+        "flowPath": "フローパス",
+        "form": "形態",
+        "name": "名前",
+        "primaryQuantity": "一次数量",
+        "product": "製品",
+        "productDescription": "製品説明",
+        "resource": "リソース",
+        "secondaryQuantity": "二次数量",
+        "step": "ステップ",
+        "subMaterialCount": "子マテリアル",
+        "systemState": "システム状態",
+        "type": "タイプ",
+        "universalState": "ユニバーサル状態"
+      },
+      "listTitle": "マテリアル ({{count}})",
+      "pageLabel": "マテリアル",
+      "sections": {
+        "basicInformation": "基本情報",
+        "flowAndStep": "フローとステップ",
+        "material": "マテリアル",
+        "quantities": "数量",
+        "resourceAndContainer": "リソースとコンテナ",
+        "subMaterials": "子マテリアル"
+      },
+      "sideSections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "carriers": "キャリア",
+        "characteristics": "特性",
+        "collectedData": "収集データ",
+        "costing": "原価計算",
+        "defects": "欠陥",
+        "dependencies": "依存関係",
+        "details": "詳細",
+        "experiments": "実験",
+        "futureActions": "将来のアクション",
+        "holds": "ホールド/オフフロー/リワーク",
+        "maps": "マップ",
+        "notifications": "通知",
+        "packages": "パッケージ",
+        "protocols": "プロトコル",
+        "scheduling": "スケジューリング",
+        "subMaterials": "子マテリアル",
+        "timeConstraints": "時間制約",
+        "transferRequirements": "転送要件"
+      },
+      "tabs": {
+        "details": "Details",
+        "traceability": "Traceability",
+        "container": "Container",
+        "defects": "Defects",
+        "genealogy": "Genealogy",
+        "history": "History",
+        "compare": "Compare"
+      },
+      "traceability": {
+        "details": "詳細",
+        "filters": {
+          "bom": "BOM",
+          "checklist": "チェックリスト",
+          "dataCollection": "データ収集",
+          "maintenancePlan": "メンテナンス計画",
+          "recipe": "レシピ",
+          "resource": "リソース"
+        },
+        "flowStructure": "フロー構造",
+        "information": "情報"
+      },
+      "common": {
+        "yes": "はい",
+        "no": "いいえ"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Material",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "edit": {
+          "title": "Edit Material",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Material cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Material",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Material",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Material",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "dispatch": {
+          "title": "Dispatch Material",
+          "cancel": "Cancel",
+          "submit": "Dispatch",
+          "description": "Dispatch the Material."
+        },
+        "undispatch": {
+          "title": "Undispatch Material",
+          "cancel": "Cancel",
+          "submit": "Undispatch",
+          "description": "Undispatch the Material."
+        },
+        "trackIn": {
+          "title": "Track-In Material",
+          "cancel": "Cancel",
+          "submit": "Track-In",
+          "description": "Track-In the Material."
+        },
+        "trackOut": {
+          "title": "Track-Out Material",
+          "cancel": "Cancel",
+          "submit": "Track-Out",
+          "description": "Track-Out the Material."
+        },
+        "moveNext": {
+          "title": "Material Move-Next",
+          "cancel": "Cancel",
+          "submit": "Move Next",
+          "description": "Move the Material to the next Step."
+        },
+        "abort": {
+          "title": "Abort Material",
+          "cancel": "Cancel",
+          "submit": "Abort",
+          "description": "Abort the Material processing."
+        },
+        "ship": {
+          "title": "Ship Material",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "description": "Ship the Material."
+        },
+        "receive": {
+          "title": "Receive Material",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "description": "Receive the Material."
+        },
+        "unship": {
+          "title": "Unship Material",
+          "cancel": "Cancel",
+          "submit": "Unship",
+          "description": "Unship the Material."
+        },
+        "hold": {
+          "title": "Hold Material",
+          "cancel": "Cancel",
+          "submit": "Hold",
+          "description": "Hold the Material."
+        },
+        "split": {
+          "title": "Split Material",
+          "cancel": "Cancel",
+          "submit": "Split",
+          "description": "Split the Material."
+        },
+        "merge": {
+          "title": "Merge Material",
+          "cancel": "Cancel",
+          "submit": "Merge",
+          "description": "Merge the Material."
+        },
+        "combine": {
+          "title": "Combine Material",
+          "cancel": "Cancel",
+          "submit": "Combine",
+          "description": "Combine the Material."
+        },
+        "attach": {
+          "title": "Attach Material",
+          "cancel": "Cancel",
+          "submit": "Attach",
+          "description": "Attach Material as Sub-Material."
+        },
+        "detach": {
+          "title": "Detach Material",
+          "cancel": "Cancel",
+          "submit": "Detach",
+          "description": "Detach Sub-Material."
+        },
+        "grade": {
+          "title": "Grade Material",
+          "cancel": "Cancel",
+          "submit": "Grade",
+          "description": "Grade the Material."
+        },
+        "rework": {
+          "title": "Rework Material",
+          "cancel": "Cancel",
+          "submit": "Rework",
+          "description": "Rework the Material."
+        },
+        "changeProduct": {
+          "title": "Change Material Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Product of the Material."
+        },
+        "changeQuantity": {
+          "title": "Change Material Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Quantity of the Material."
+        },
+        "changeFlowStep": {
+          "title": "Change Material Flow/Step",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Flow/Step of the Material."
+        },
+        "viewReports": {
+          "title": "View Material Reports",
+          "close": "Close",
+          "description": "View Material Reports: Material Cost History Report, Material Future Flow Report."
+        },
+        "viewDocuments": {
+          "title": "View Material Documents",
+          "close": "Close",
+          "description": "View documents attached to the Material."
+        }
+      },
+      "left": {
+        "details": "Details",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "materialTransfer": {
+      "pageLabel": "資材移動",
+      "listTitle": "資材移動 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "type": "タイプ",
+        "state": "状態",
+        "material": "資材",
+        "quantity": "数量",
+        "fromFacility": "出荷工場",
+        "toFacility": "受入工場"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "type": "タイプ",
+          "state": "状態",
+          "material": "資材",
+          "quantity": "数量",
+          "fromFacility": "出荷工場",
+          "toFacility": "受入工場",
+          "requester": "要求者",
+          "urgency": "緊急度"
+        }
+      },
+      "actions": {
+        "approve": "承認",
+        "cancel": "キャンセル",
+        "deliver": "納品",
+        "prepare": "準備",
+        "receive": "受領",
+        "refuse": "拒否",
+        "reject": "却下",
+        "send": "送信"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "approve": {
+          "title": "Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "cancel": {
+          "title": "Cancel Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "changeInfo": {
+          "title": "Change Material Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "deliver": {
+          "title": "Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "prepare": {
+          "title": "Prepare Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Prepare",
+          "confirmText": "Select Prepare to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "receive": {
+          "title": "Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "refuse": {
+          "title": "Refuse Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Refuse",
+          "confirmText": "Select Refuse to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "reject": {
+          "title": "Reject Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Reject",
+          "confirmText": "Select Reject to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "request": {
+          "title": "Request for Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "requestForMAO": {
+          "title": "Request for Material Transfer for a Maintenance Activity Order",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Part for a Maintenance Activity Order."
+        },
+        "requestForCostCenter": {
+          "title": "Request for Material Transfer for Cost Center",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Material for a Cost Center."
+        },
+        "returnInventory": {
+          "title": "Return Inventory",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Inventory to the Warehouse."
+        },
+        "returnMaterial": {
+          "title": "Return Material",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Material to the Warehouse."
+        },
+        "send": {
+          "title": "Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialApprove": {
+          "title": "Special Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialDeliver": {
+          "title": "Special Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialReceive": {
+          "title": "Special Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialRequest": {
+          "title": "Special Request for Material",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Special request for Material."
+        },
+        "specialSend": {
+          "title": "Special Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "notification": {
+      "pageLabel": "通知",
+      "listTitle": "通知 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "severity": "重要度",
+        "type": "タイプ",
+        "state": "状態",
+        "validTo": "有効期限"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "severity": "重要度",
+          "type": "タイプ",
+          "state": "状態",
+          "validTo": "有効期限",
+          "tracking": "トラッキング"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Notification",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "type": "Type",
+            "title": "Title",
+            "details": "Details",
+            "severity": "Severity",
+            "assignment": "Assignment",
+            "sendEmail": "Send email",
+            "visibility": "Visibility Filter",
+            "clearance": "Clearance Mode",
+            "validTo": "Valid To"
+          },
+          "hints": {
+            "name": "Can be left empty if a Name Generator is configured.",
+            "type": "The list of possible values is taken from the NotificationType lookup table.",
+            "title": "Hyperlinks: [Entity Type Entity Name] for unversioned, [Entity Type Revision Name] for versioned.",
+            "visibility": "Filter Notifications displayed in the Notifications window according to the user's Employee Workgroup.",
+            "validTo": "Mandatory for ManualEveryUser and Automatic, optional for ManualSingleUser."
+          },
+          "placeholders": {
+            "validTo": "MM/DD/YYYY"
+          }
+        },
+        "edit": {
+          "title": "Edit Notification",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "title": "Title",
+            "severity": "Severity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Notification cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Notification",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Notification",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "clear": {
+          "title": "Clear Notification",
+          "cancel": "Cancel",
+          "submit": "Clear",
+          "confirmText": "Clear this Notification? This will close the alarm for the current user."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "clearHistory": "Clear History Information",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
+      }
+    },
+    "package": {
+      "pageLabel": "パッケージ",
+      "listTitle": "パッケージ ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "product": "製品",
+        "level": "レベル",
+        "state": "状態",
+        "packedQuantity": "梱包数量"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "product": "製品",
+          "level": "レベル",
+          "state": "状態",
+          "packedQuantity": "梱包数量",
+          "contentType": "コンテンツタイプ"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "terminate": {
+          "title": "Terminate Package",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Package",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "ship": {
+          "title": "Ship Packages",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "fields": {
+            "facility": "Facility",
+            "shippingLabel": "Shipping Label",
+            "shipContainers": "Ship Containers",
+            "comment": "Comment"
+          },
+          "hints": {
+            "facility": "Select the Facility to which the Material should be shipped.",
+            "shippingLabel": "Optionally, enter or select an existing shipping label.",
+            "shipContainers": "Ship the Containers along with the Material (applies to all Containers of the Sub-Materials as well)."
+          }
+        },
+        "report": {
+          "title": "Package Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Package.",
+          "fields": {
+            "level1": "Fields for Level 1",
+            "level2": "Fields for Level 2"
+          },
+          "level1Fields": "Package Qty/ID, Content Product, Content Product Description, Material, Packed Qty",
+          "level2Fields": "Package, Package Qty, Content Product, Content Product Description"
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "contents": "Contents",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "parameter": {
+      "pageLabel": "パラメーター",
+      "listTitle": "パラメーター ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "dataType": "データ型",
+        "value": "値",
+        "state": "状態"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "dataType": "データ型",
+          "value": "値",
+          "state": "状態"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Parameter",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "generalData": "General Data",
+            "information": "Information"
+          },
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "displayName": "Display Name",
+            "scope": "Scope",
+            "dataType": "Data Type",
+            "units": "Units"
+          },
+          "hints": {
+            "type": "The list of possible values is taken from the lookup table ParameterType.",
+            "displayName": "The display name if present will be displayed in the data collection screens.",
+            "dataType": "If scope is KPI, the data type must be numeric."
+          }
+        },
+        "edit": {
+          "title": "Edit Parameter",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Parameter cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Parameter",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
+      }
+    },
+    "product": {
+      "pageLabel": "製品",
+      "listTitle": "製品 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "productType": "製品タイプ",
+        "state": "状態",
+        "isActive": "アクティブ"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "productType": "製品タイプ",
+          "state": "状態",
+          "isActive": "アクティブ"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Product",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "You must associate the Product Version to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Product",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Product",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "createBOM": {
+          "title": "Create BOM For Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Create a Bill-Of-Materials for the Product."
+        },
+        "importInfo": {
+          "title": "Import Product Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Import Product information from an external source."
+        },
+        "manageBinningTree": {
+          "title": "Manage Binning Tree",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Binning Tree for the Product."
+        },
+        "manageCharacteristics": {
+          "title": "Manage Characteristics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Characteristics for the Product."
+        },
+        "manageCosts": {
+          "title": "Manage Costs",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Costs for the Product."
+        },
+        "manageLogistics": {
+          "title": "Manage Material Logistics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Material Logistics for the Product."
+        },
+        "manageParameters": {
+          "title": "Manage Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Parameters for the Product."
+        },
+        "managePlanning": {
+          "title": "Manage Planning",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Planning settings for the Product."
+        },
+        "manageComponentInfo": {
+          "title": "Manage Product Component Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Component Information for the Product."
+        },
+        "manageManufacturers": {
+          "title": "Manage Product Manufacturers",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Manufacturers for the Product."
+        },
+        "manageRepairPolicy": {
+          "title": "Manage Repair Policy",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Repair Policy for the Product."
+        },
+        "manageRules": {
+          "title": "Manage Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Rules for the Product."
+        },
+        "manageSafetyInfo": {
+          "title": "Manage Safety Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Safety Information for the Product."
+        },
+        "manageScheduling": {
+          "title": "Manage Scheduling",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Scheduling settings for the Product."
+        },
+        "manageSubProducts": {
+          "title": "Manage Sub-Products",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Sub-Products for the Product."
+        },
+        "manageTransferInfo": {
+          "title": "Manage Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Transfer Information for the Product."
+        },
+        "manageUnitConversion": {
+          "title": "Manage Unit Conversion Factors",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Unit Conversion Factors for the Product."
+        },
+        "previewRules": {
+          "title": "Preview Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Preview the Rules for the Product."
+        },
+        "viewReports": {
+          "title": "View Product Reports",
+          "close": "Close",
+          "description": "View Product Reports: Product Standard Cost Report, Product Standard Flow Report."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "attachments": "Attachments"
+      }
+    },
+    "productionOrder": {
+      "pageLabel": "製造オーダー",
+      "listTitle": "製造オーダー ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "product": "製品",
+        "quantity": "数量",
+        "state": "状態",
+        "priority": "優先度"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "product": "製品",
+          "quantity": "数量",
+          "state": "状態",
+          "priority": "優先度"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "edit": {
+          "title": "Edit Production Order",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Production Order cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Production Order",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "release": {
+          "title": "Release Production Order",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to perform the operation."
+        },
+        "unrelease": {
+          "title": "Unrelease Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrelease",
+          "confirmText": "Select Unrelease to perform the operation."
+        },
+        "start": {
+          "title": "Start Production Order",
+          "cancel": "Cancel",
+          "submit": "Start",
+          "confirmText": "Select Start to perform the operation."
+        },
+        "cancel": {
+          "title": "Cancel Production Order",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation."
+        },
+        "close": {
+          "title": "Close Production Order",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "confirmText": "Select Close to perform the operation."
+        },
+        "reopen": {
+          "title": "Reopen Production Order",
+          "cancel": "Cancel",
+          "submit": "Reopen",
+          "confirmText": "Select Reopen to perform the operation."
+        },
+        "restrict": {
+          "title": "Restrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Restrict",
+          "confirmText": "Select Restrict to perform the operation."
+        },
+        "unrestrict": {
+          "title": "Unrestrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrestrict",
+          "confirmText": "Select Unrestrict to perform the operation."
+        },
+        "assignMaterials": {
+          "title": "Assign Materials To Production Order",
+          "cancel": "Cancel",
+          "submit": "Assign",
+          "description": "Assign Materials to the Production Order."
+        },
+        "reassignMaterials": {
+          "title": "Reassign Production Order Materials",
+          "cancel": "Cancel",
+          "submit": "Reassign",
+          "description": "Reassign Materials to another Production Order."
+        },
+        "createMaterial": {
+          "title": "Create Material For Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "description": "Create Materials for the Production Order."
+        },
+        "changeProductQuantity": {
+          "title": "Change Product and Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "manageSteps": {
+          "title": "Manage Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Production Order Steps."
+        },
+        "synchronizeSteps": {
+          "title": "Synchronize Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "description": "Synchronize the Production Order Steps."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "steps": "Steps",
+        "attachments": "Attachments"
+      }
+    },
+    "protocol": {
+      "pageLabel": "プロトコル",
+      "listTitle": "プロトコル ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態",
+        "version": "バージョン"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "type": "タイプ",
+          "state": "状態",
+          "version": "バージョン"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Protocol",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Protocol Version with a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Protocol",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Protocol cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Protocol",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "exceptionRules": {
+          "title": "Exception Management Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Exception Management Rules for the Protocol."
+        },
+        "openInstance": {
+          "title": "Open Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Open",
+          "description": "Open a Protocol Instance."
+        },
+        "closeInstance": {
+          "title": "Close Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "description": "Close the Protocol Instance."
+        },
+        "performInstance": {
+          "title": "Perform Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Perform",
+          "description": "Perform the Protocol Instance."
+        },
+        "takeInstanceOwnership": {
+          "title": "Take Protocol Instance Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "description": "Take ownership of the Protocol Instance."
+        },
+        "terminateInstance": {
+          "title": "Terminate Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Terminate the Protocol Instance."
+        },
+        "changeInstanceState": {
+          "title": "Change Protocol Instance State",
+          "cancel": "Cancel",
+          "submit": "Change",
+          "description": "Change the state of the Protocol Instance."
+        },
+        "manageInstanceMaterials": {
+          "title": "Manage Protocol Instance Materials",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Materials associated with the Protocol Instance."
+        },
+        "viewInstanceReports": {
+          "title": "View Protocol Instance Reports",
+          "close": "Close",
+          "description": "View reports for the Protocol Instance."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "instances": "Instances",
+        "attachments": "Attachments"
+      }
+    },
+    "periodicInventory": {
+      "pageLabel": "定期棚卸",
+      "listTitle": "定期棚卸 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "facility": "工場",
+        "state": "状態",
+        "scheduledOn": "予定日"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "facility": "工場",
+          "state": "状態",
+          "scheduledOn": "予定日"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Periodic Inventory cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Periodic Inventory",
+          "confirmText": "Select Terminate to perform the operation.",
+          "submit": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Periodic Inventory",
+          "confirmText": "Select Unterminate to perform the operation.",
+          "submit": "Unterminate"
+        },
+        "begin": {
+          "title": "Begin Periodic Inventory",
+          "confirmText": "Select Begin to perform the operation.",
+          "submit": "Begin"
+        },
+        "cancel": {
+          "title": "Cancel Periodic Inventory",
+          "confirmText": "Select Cancel to perform the operation.",
+          "submit": "Cancel"
+        },
+        "complete": {
+          "title": "Complete Periodic Inventory",
+          "confirmText": "Select Complete to perform the operation.",
+          "submit": "Complete"
+        },
+        "perform": {
+          "title": "Perform Periodic Inventory",
+          "confirmText": "Select Perform to perform the operation.",
+          "submit": "Perform"
+        },
+        "takeOwnership": {
+          "title": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation.",
+          "submit": "Take Ownership"
+        },
+        "viewReport": {
+          "title": "Periodic Inventory Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Periodic Inventory."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "resources": "Resources",
+        "materials": "Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "pickList": {
+      "pageLabel": "ピックリスト",
+      "listTitle": "ピックリスト ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態",
+        "itemCount": "品目数",
+        "createdOn": "作成日"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "state": "状態",
+          "itemCount": "品目数",
+          "createdOn": "作成日"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "edit": {
+          "title": "Edit Pick List",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Pick List cannot be altered."
+          }
+        },
+        "manageItems": {
+          "title": "Manage Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Edit the items of the Pick List. The Material defined for each item can be replaced by another Material, provided that the released quantity is not yet fulfilled.",
+          "columns": {
+            "material": "Material",
+            "quantity": "Quantity",
+            "picked": "Picked"
+          },
+          "empty": "No items to display.",
+          "warning": "The Quantity value to pick for every Pick List Item must be bigger than zero."
+        },
+        "pick": {
+          "title": "Pick Pick List",
+          "cancel": "Cancel",
+          "submit": "Pick",
+          "description": "Select or scan each of the items in the list and mark them as picked. Picking is a long running operation, so items can be picked separately.",
+          "columns": {
+            "item": "Item",
+            "status": "Status"
+          },
+          "empty": "No items to display."
+        },
+        "takeOwnership": {
+          "title": "Take Pick List Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation."
+        },
+        "unpick": {
+          "title": "Unpick Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Unpick",
+          "confirmText": "Select Unpick to perform the operation."
+        },
+        "viewReport": {
+          "title": "Pick List Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Pick List."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "attachments": "Attachments"
+      }
+    },
+    "plan": {
+      "pageLabel": "計画",
+      "listTitle": "計画 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態",
+        "startDate": "開始日"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "type": "タイプ",
+          "state": "状態",
+          "startDate": "開始日"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Plan",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Plan",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Plan cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Plan",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Plan",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "adjustTargets": {
+          "title": "Adjust Plan Targets",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Adjust the target quantities for Plan Items and Time Frames.",
+          "columns": {
+            "item": "Item",
+            "timeFrame": "Time Frame",
+            "target": "Target"
+          },
+          "empty": "No items to display."
+        },
+        "manageItems": {
+          "title": "Manage Plan Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the items that will be included in the Plan.",
+          "columns": {
+            "item": "Item",
+            "product": "Product"
+          },
+          "empty": "No items to display."
+        },
+        "manageSteps": {
+          "title": "Manage Plan Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Steps where the volumes are counted toward the planned volume.",
+          "columns": {
+            "step": "Step"
+          },
+          "empty": "No steps to display."
+        },
+        "manageExcludedTypes": {
+          "title": "Manage Plan Excluded Material Types",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Material Types excluded from the Plan."
+        },
+        "createScenario": {
+          "title": "Create Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name"
+          }
+        },
+        "releaseScenario": {
+          "title": "Release Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to update the Effective Plan with the Scenario."
+        },
+        "synchronizeScenario": {
+          "title": "Synchronize Scenario with Parent Plan",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "confirmText": "Select Synchronize to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "steps": "Steps",
+        "timeFrames": "Time Frames",
+        "scenarios": "Scenarios",
+        "attachments": "Attachments"
+      }
+    },
+    "printableDocument": {
+      "pageLabel": "印刷ドキュメント",
+      "listTitle": "印刷ドキュメント ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "documentType": "ドキュメントタイプ",
+        "state": "状態",
+        "version": "バージョン"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "documentType": "ドキュメントタイプ",
+          "state": "状態",
+          "version": "バージョン"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Printable Document",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Printable Document to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Printable Document",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Printable Document cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Printable Document",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "print": {
+          "title": "Print Printable Document",
+          "cancel": "Cancel",
+          "submit": "Print",
+          "fields": {
+            "printer": "Printer",
+            "copies": "Copies"
+          }
+        },
+        "layoutCreation": {
+          "title": "Printable Document Layout Creation",
+          "close": "Close",
+          "description": "Create or Edit the Printable Document Layout, using the Layout Editor."
+        },
+        "lotTraveler": {
+          "title": "Lot Traveler",
+          "close": "Close",
+          "description": "The Lot Traveler is a specific type of Printable Document used to track a lot through production."
+        },
+        "printers": {
+          "title": "Printers and Printer Types",
+          "close": "Close",
+          "description": "Manage Printers and Printer Types for Printable Documents."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "layout": "Layout",
+        "contextItems": "Context Items",
+        "printHistory": "Print History",
+        "attachments": "Attachments"
+      }
+    },
+    "productGroup": {
+      "pageLabel": "製品グループ",
+      "listTitle": "製品グループ ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態",
+        "productCount": "製品数"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "description": "説明",
+          "state": "状態",
+          "productCount": "製品数"
+        },
+        "information": "Information"
+      },
+      "operations": {
+        "create": {
+          "title": "Create Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "changeSet": "Change Set",
+            "generalData": "General Data"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set",
+            "name": "Name",
+            "revision": "Revision",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity",
+            "flowPath": "Flow Path",
+            "comments": "Comments"
+          },
+          "hints": {
+            "changeSet": "Select an existing Change Set or click Create to create a new one.",
+            "revision": "Name can be automatically generated or you can enter a name of your choice.",
+            "type": "The list of possible values is taken from the lookup table ProductGroupType.",
+            "defaultUnits": "The list of possible values is taken from the lookup table Units.",
+            "maturity": "The list of possible values is taken from the lookup table ProductGroupMaturity.",
+            "flowPath": "Optionally specify the default flow path for all the Products of this Product Group."
+          },
+          "placeholders": {
+            "selectChangeSet": "Select a Change Set",
+            "selectApprovalRole": "Select an Approval Role (optional)",
+            "enterName": "Enter Product Group name",
+            "revisionHint": "Name can be automatically generated or you can enter a name of your choice",
+            "enterDescription": "Enter description",
+            "selectType": "Select type",
+            "selectUnits": "Select units",
+            "selectMaturity": "Select maturity",
+            "selectFlowPath": "Select default Flow Path",
+            "enterComments": "Enter comments (optional)",
+            "selectParameter": "Select a Parameter",
+            "newRowName": "Name",
+            "newRowRevision": "Revision",
+            "enterComment": "Enter a comment for the operation (optional)"
+          }
+        },
+        "edit": {
+          "title": "Edit Product Group",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product Group cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product Group",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "newInstances": "New Product Groups",
+          "add": "Add",
+          "fields": {
+            "name": "Name",
+            "revision": "Revision",
+            "comment": "Comment"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured for the Entity Type, you can leave the name blank and a new name will be automatically generated."
+          },
+          "placeholders": {
+            "newRowName": "Name",
+            "newRowRevision": "Revision"
+          },
+          "removeRow": "Remove row"
+        },
+        "terminate": {
+          "title": "Terminate Product Group",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "fields": {
+            "level": "Level"
+          },
+          "warning": "All generic/smart table rows that reference the current object will be removed and will not be recovered if the object is unterminated at a later point."
+        },
+        "unterminate": {
+          "title": "Unterminate Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Unterminate",
+          "steps": {
+            "changeSet": "Change Set",
+            "details": "Details"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set"
+          },
+          "detailsText": "Select Unterminate to perform the operation. All generic/smart table rows that reference this object will not be recovered."
+        },
+        "manageParameters": {
+          "title": "Manage Product Group Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "parameters": "Parameters",
+          "parameterDetails": "Parameter Details",
+          "empty": "No parameters. Press + to add.",
+          "selectPrompt": "Select a parameter on the left to edit its details.",
+          "types": {
+            "characteristic": "Characteristic",
+            "specification": "Specification"
+          },
+          "fields": {
+            "parameter": "Parameter",
+            "unit": "Unit",
+            "type": "Type",
+            "value": "Value",
+            "lowerSpec": "Lower Specification Value",
+            "targetSpec": "Target Specification Value",
+            "upperSpec": "Upper Specification Value",
+            "reportingType": "Reporting Type",
+            "reportingInfo": "Reporting Information",
+            "comments": "Comments"
+          },
+          "hints": {
+            "reportingType": "The values for Reporting Type are taken from the lookup table ProductParameterReportingType."
+          },
+          "newParam": "(new)"
+        },
+        "_shared": {
+          "close": "Close"
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "products": "Products",
+        "attachments": "Attachments"
+      },
+      "paramsHint": "Parameters shared across several Products. Use Manage Product Group Parameters to define them.",
+      "productsHint": "Products that are part of this Product Group.",
+      "contextsHint": "Context resolution tables on which the current Product Group is used as an element.",
+      "compareHint": "Visual comparison between the selected entity version and any other version.",
+      "referencesHint": "Relations and Where Used for the current Product Group.",
+      "historyHint": "Change Set History and History of operations for the current Product Group."
+    },
+    "qualification": {
+      "cards": {
+        "gracePeriod": "猶予期間",
+        "information": "情報",
+        "permissions": "権限",
+        "qualification": "資格",
+        "validityPeriod": "有効期間"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "state": "状態",
+        "type": "タイプ"
+      },
+      "details": {
+        "allowAssignmentByManager": "マネージャーによる割当を許可",
+        "allowOverride": "上書きを許可",
+        "allowSelfAssignment": "自己割当を許可",
+        "dataGroup": "データグループ",
+        "defaultReason": "デフォルト理由",
+        "description": "説明",
+        "duration": "期間",
+        "informationUrl": "情報URL",
+        "name": "名前",
+        "ownerRole": "所有者ロール",
+        "state": "ユニバーサル状態",
+        "type": "タイプ",
+        "validFor": "有効期間"
+      },
+      "listTitle": "資格",
+      "pageLabel": "資格",
+      "sections": {
+        "attachments": "添付ファイル",
+        "certifications": "認定",
+        "details": "詳細",
+        "employees": "従業員",
+        "empty": "データなし",
+        "emptyBody": "このセクションにはまだコンテンツがありません。"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "more": {
+        "clone": "複製",
+        "terminate": "終了",
+        "unterminate": "終了取消",
+        "assignEmployees": "従業員を割当",
+        "unassignEmployees": "従業員の割当解除"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Qualification作成",
+          "editTitle": "Qualification編集",
+          "generalData": "一般データ",
+          "name": "名前",
+          "description": "説明",
+          "type": "タイプ",
+          "dataGroup": "データグループ",
+          "information": "情報",
+          "ownerRole": "オーナーロール",
+          "defaultReason": "デフォルト理由",
+          "informationUrl": "情報URL",
+          "permissions": "権限",
+          "allowSelfAssignment": "自己割当を許可",
+          "allowAssignmentByManager": "マネージャーによる割当を許可",
+          "validityPeriod": "有効期間",
+          "validFor": "有効期間",
+          "scale": "単位",
+          "allowOverride": "上書きを許可",
+          "gracePeriod": "猶予期間",
+          "duration": "期間",
+          "comments": "コメント"
+        },
+        "clone": {
+          "title": "Qualification複製",
+          "clones": "複製 ({{count}})",
+          "name": "名前",
+          "type": "タイプ",
+          "description": "説明",
+          "ownerRole": "オーナーロール",
+          "source": "ソース: {{name}}",
+          "comments": "コメント",
+          "clone": "複製"
+        },
+        "terminate": {
+          "title": "Qualification終了",
+          "message": "Qualification '{{name}}' を終了しますか?",
+          "confirm": "終了"
+        },
+        "unterminate": {
+          "title": "Qualification終了取消",
+          "message": "Qualification '{{name}}' の終了を取り消しますか?",
+          "confirm": "終了取消"
+        },
+        "assign": {
+          "title": "従業員をQualificationに割当",
+          "stepEmployees": "従業員",
+          "stepQualification": "Qualification",
+          "search": "検索",
+          "employeesCount": "従業員 ({{count}})",
+          "selectedCount": "{{count}}件選択",
+          "employee": "従業員",
+          "employeeNumber": "従業員番号",
+          "type": "タイプ",
+          "team": "チーム",
+          "manager": "マネージャー",
+          "selectedEmployees": "選択された従業員 ({{count}})",
+          "employees": "従業員",
+          "qualificationDate": "資格取得日",
+          "detailsTitle": "従業員資格の詳細",
+          "validTo": "有効期限",
+          "reason": "理由",
+          "proficiency": "熟練度",
+          "remarks": "備考",
+          "evidence": "証拠",
+          "comments": "コメント",
+          "assign": "割当"
+        },
+        "unassign": {
+          "title": "従業員のQualification割当解除",
+          "message": "Qualification '{{name}}' から割当解除する従業員を確認してください。",
+          "employee": "従業員",
+          "employeeNumber": "従業員番号",
+          "unassign": "割当解除"
+        }
+      }
+    },
+    "qualificationCheck": {
+      "pageLabel": "Qualification Check",
+      "listTitle": "Qualification Checks",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "instanceType": "インスタンスタイプ",
+        "state": "状態"
+      },
+      "tabs": {
+        "details": "詳細",
+        "compare": "比較",
+        "references": "参照",
+        "history": "履歴"
+      },
+      "sections": {
+        "details": "詳細",
+        "attachments": "添付",
+        "empty": "データなし",
+        "emptyBody": "このセクションにはまだコンテンツがありません。"
+      },
+      "cards": {
+        "qualificationCheck": "Qualification Check",
+        "information": "情報"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態",
+        "dataGroup": "データグループ",
+        "instanceType": "インスタンスタイプ"
+      },
+      "more": {
+        "clone": "複製",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Qualification Check作成",
+          "editTitle": "Qualification Check編集",
+          "generalData": "一般データ",
+          "name": "名前",
+          "description": "説明",
+          "dataGroup": "データグループ",
+          "instanceType": "インスタンスタイプ",
+          "single": "単一",
+          "multiple": "複数",
+          "comments": "コメント"
+        },
+        "clone": {
+          "title": "Qualification Check複製",
+          "clones": "複製 ({{count}})",
+          "name": "名前",
+          "instanceType": "インスタンスタイプ",
+          "source": "ソース: {{name}}",
+          "comments": "コメント",
+          "clone": "複製"
+        },
+        "terminate": {
+          "title": "Qualification Check終了",
+          "message": "Qualification Check '{{name}}' を終了しますか?",
+          "confirm": "終了"
+        },
+        "unterminate": {
+          "title": "Qualification Check終了取消",
+          "message": "Qualification Check '{{name}}' の終了を取り消しますか?",
+          "confirm": "終了取消"
+        }
+      }
+    },
+    "reason": {
+      "pageLabel": "Reason",
+      "listTitle": "Reasons",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態"
+      },
+      "tabs": {
+        "details": "詳細",
+        "contexts": "コンテキスト",
+        "references": "参照",
+        "history": "履歴"
+      },
+      "sections": {
+        "details": "詳細",
+        "images": "画像",
+        "attributes": "属性",
+        "attachments": "添付",
+        "empty": "データなし",
+        "emptyBody": "このセクションにはまだコンテンツがありません。"
+      },
+      "cards": {
+        "reason": "Reason",
+        "information": "情報"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態",
+        "dataGroup": "データグループ",
+        "type": "タイプ",
+        "excludeFromStepYield": "Step Yieldから除外",
+        "excludeFromResourceYield": "Resource Yieldから除外"
+      },
+      "more": {
+        "clone": "複製",
+        "terminate": "終了",
+        "unterminate": "終了取消",
+        "addImages": "画像追加",
+        "manageRepairActions": "Repair Actions管理"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Reason作成",
+          "editTitle": "Reason編集",
+          "generalData": "一般データ",
+          "information": "情報",
+          "name": "名前",
+          "description": "説明",
+          "type": "タイプ",
+          "excludeFromStepYield": "Step Yieldから除外",
+          "excludeFromResourceYield": "Resource Yieldから除外",
+          "category": "カテゴリ",
+          "comments": "コメント"
+        },
+        "clone": {
+          "title": "Reason複製",
+          "clones": "複製 ({{count}})",
+          "name": "名前",
+          "type": "タイプ",
+          "source": "ソース: {{name}}",
+          "comments": "コメント",
+          "clone": "複製"
+        },
+        "terminate": {
+          "title": "Reason終了",
+          "message": "Reason '{{name}}' を終了しますか?",
+          "confirm": "終了"
+        },
+        "unterminate": {
+          "title": "Reason終了取消",
+          "message": "Reason '{{name}}' の終了を取り消しますか?",
+          "confirm": "終了取消"
+        },
+        "addImages": {
+          "title": "Reasonに画像追加",
+          "stepImages": "画像",
+          "stepAssessment": "評価",
+          "image": "画像",
+          "scope": "スコープ",
+          "assessment": "評価",
+          "assessmentCriteria": "評価基準",
+          "comments": "コメント",
+          "add": "追加"
+        },
+        "repairActions": {
+          "title": "Repair Actions管理",
+          "repairActions": "Repair Actions ({{count}})",
+          "detailsTitle": "Repair Action詳細",
+          "repairAction": "Repair Action",
+          "description": "説明",
+          "partReplacementMode": "部品交換モード",
+          "comments": "コメント",
+          "update": "更新"
+        }
+      }
+    },
+    "recipe": {
+      "pageLabel": "Recipe",
+      "listTitle": "Recipes",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "isEnabled": "有効",
+        "state": "状態"
+      },
+      "tabs": {
+        "details": "詳細",
+        "contexts": "コンテキスト",
+        "compare": "比較",
+        "references": "参照",
+        "history": "履歴"
+      },
+      "sections": {
+        "details": "詳細",
+        "parameters": "パラメータ",
+        "body": "Body",
+        "subRecipes": "Sub-Recipes",
+        "resources": "リソース",
+        "activeInstances": "アクティブインスタンス",
+        "attachments": "添付",
+        "empty": "データなし",
+        "emptyBody": "このセクションにはまだコンテンツがありません。"
+      },
+      "cards": {
+        "recipe": "Recipe",
+        "information": "情報"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "state": "状態",
+        "dataGroup": "データグループ",
+        "isEnabled": "有効",
+        "isExecutable": "実行可能",
+        "resourceRecipeName": "リソースレシピ名",
+        "userInformation": "ユーザー情報",
+        "supplierInformation": "サプライヤー情報"
+      },
+      "more": {
+        "clone": "複製",
+        "terminate": "終了",
+        "unterminate": "終了取消",
+        "disable": "無効化",
+        "enable": "有効化",
+        "manageBody": "Recipe Body管理",
+        "manageParameters": "パラメータ管理",
+        "manageSubRecipes": "Sub-Recipes管理",
+        "uploadToResource": "リソースへアップロード"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Recipe作成",
+          "editTitle": "Recipe編集",
+          "changeSet": "Change Set",
+          "generalData": "一般データ",
+          "changeSet2": "Change Set",
+          "createNew": "新規作成",
+          "approverRole": "承認ロール",
+          "useAutomaticChangeSet": "自動Change Set使用",
+          "name": "名前",
+          "revision": "リビジョン",
+          "description": "説明",
+          "type": "タイプ",
+          "isEnabled": "有効",
+          "isExecutable": "実行可能",
+          "resourceRecipeName": "リソースレシピ名",
+          "userInformation": "ユーザー情報",
+          "supplierInformation": "サプライヤー情報",
+          "comments": "コメント"
+        },
+        "clone": {
+          "title": "Recipe複製",
+          "cloneMode": "複製モード",
+          "entity": "Entity",
+          "revision": "Revision",
+          "clones": "複製 ({{count}})",
+          "name": "名前",
+          "revisionName": "リビジョン名",
+          "changeSet": "Change Set",
+          "source": "ソース: {{name}}",
+          "comments": "コメント",
+          "clone": "複製"
+        },
+        "terminate": {
+          "title": "Recipe終了",
+          "message": "Recipe '{{name}}' を終了しますか?",
+          "confirm": "終了"
+        },
+        "unterminate": {
+          "title": "Recipe終了取消",
+          "changeSet": "Change Set",
+          "details": "詳細",
+          "createNew": "新規作成",
+          "approverRole": "承認ロール",
+          "useAutomaticChangeSet": "自動Change Set使用",
+          "message": "Unterminateを選択して操作を実行します。参照する汎用/スマートテーブル行は復元されません。",
+          "confirm": "終了取消"
+        },
+        "disable": {
+          "title": "Recipe無効化",
+          "message": "Recipe '{{name}}' を無効化しますか?",
+          "confirm": "無効化"
+        },
+        "enable": {
+          "title": "Recipe有効化",
+          "message": "Recipe '{{name}}' を有効化しますか?",
+          "confirm": "有効化"
+        },
+        "body": {
+          "title": "Recipe Body管理",
+          "source": "ソース",
+          "format": "形式",
+          "fileName": "ファイル名",
+          "uploadBody": "Bodyアップロード",
+          "body": "Body",
+          "size": "サイズ",
+          "comments": "コメント",
+          "update": "更新"
+        },
+        "parameters": {
+          "title": "パラメータ管理",
+          "parameters": "パラメータ",
+          "detailsTitle": "パラメータ詳細",
+          "parameter": "パラメータ",
+          "units": "単位",
+          "parameterGroup": "パラメータグループ",
+          "type": "タイプ",
+          "value": "値",
+          "overridable": "上書き可能",
+          "comments": "コメント",
+          "update": "更新"
+        },
+        "subRecipes": {
+          "title": "Sub-Recipes管理",
+          "subRecipes": "Sub-Recipes",
+          "detailsTitle": "レシピ詳細",
+          "recipe": "レシピ",
+          "displayName": "表示名",
+          "parametersMapping": "パラメータマッピング（式）",
+          "clearAllExpressions": "全式クリア",
+          "comments": "コメント",
+          "update": "更新"
+        },
+        "upload": {
+          "title": "リソースへRecipeアップロード",
+          "resources": "リソース",
+          "resource": "リソース",
+          "lastUploadDate": "最終アップロード日",
+          "comments": "コメント",
+          "upload": "アップロード"
+        }
+      }
+    },
+    "resource": {
+      "pageLabel": "Resource",
+      "listTitle": "Resources",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "resourceView": "Resource View",
+        "schedule": "Schedule",
+        "storage": "Storage",
+        "maintenance": "Maintenance",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "structure": "Structure",
+        "runningModes": "Running Modes",
+        "parts": "Parts",
+        "recipes": "Recipes",
+        "runAtRiskMaterials": "Run at Risk Materials",
+        "materials": "Materials",
+        "instruments": "Instruments",
+        "measurementCapabilities": "Measurement Capabilities",
+        "consumableFeeds": "Consumable Feeds",
+        "locations": "Locations",
+        "lanes": "Lanes",
+        "durables": "Durables",
+        "inventory": "Inventory",
+        "storageBins": "Storage Bins",
+        "services": "Services",
+        "personnel": "Personnel",
+        "protocols": "Protocols",
+        "resourceJobs": "Resource Jobs",
+        "notifications": "Notifications",
+        "schedulingBatching": "Scheduling/Batching",
+        "collectedData": "Collected Data",
+        "workgroups": "Workgroups",
+        "storedMaterials": "Stored Materials",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "resource": "Resource",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "area": "Area",
+        "systemState": "System State",
+        "automationMode": "Automation Mode",
+        "stateModel": "State Model",
+        "resourceState": "Resource State",
+        "runningMode": "Running Mode"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "changeResourceState": "Change Resource State",
+        "changeSystemState": "Change System State",
+        "changeAutomationMode": "Change Automation Mode",
+        "changeInstrumentMode": "Change Instrument Mode",
+        "changeRunningMode": "Change Running Mode",
+        "changeProduct": "Change Product",
+        "evaluateDispatchableRule": "Evaluate Dispatchable Rule",
+        "beginSetup": "Begin Setup",
+        "performSetup": "Perform Setup",
+        "completeSetup": "Complete Setup",
+        "cancelSetup": "Cancel Setup",
+        "resetSetup": "Reset Setup",
+        "viewSetup": "View Setup",
+        "beginLineSetup": "Begin Line Setup",
+        "performLineSetup": "Perform Line Setup",
+        "completeLineSetup": "Complete Line Setup",
+        "cancelLineSetup": "Cancel Line Setup",
+        "resetLineSetup": "Reset Line Setup",
+        "viewLineSetup": "View Line Setup",
+        "beginPreSetup": "Begin Pre Setup",
+        "performPreSetup": "Perform Pre Setup",
+        "addResourceToContainer": "Add Resource to Container",
+        "removeResourceFromContainer": "Remove Resource from Container",
+        "transferResourceBetweenContainers": "Transfer Resource Between Containers",
+        "storeContainersInResource": "Store Containers in Resource",
+        "storeMaterialsInResource": "Store Materials in Resource",
+        "storeResource": "Store Resource",
+        "retrieveResource": "Retrieve Resource",
+        "manageStructure": "Manage Structure",
+        "manageRunningModes": "Manage Running Modes",
+        "manageResourceParts": "Manage Resource Parts",
+        "manageRepairableParts": "Manage Repairable Parts",
+        "manageResourceRecipes": "Manage Resource Recipes",
+        "manageRunAtRiskMaterials": "Manage Run At Risk Materials",
+        "manageResourceInstruments": "Manage Resource Instruments",
+        "manageMeasurementCapabilities": "Manage Measurement Capabilities",
+        "manageConsumableFeeds": "Manage Consumable Feeds",
+        "manageConsumables": "Manage Consumables",
+        "manageResourceLocations": "Manage Resource Locations",
+        "manageResourceLanes": "Manage Resource Lanes",
+        "manageResourceDurables": "Manage Resource Durables",
+        "manageResourceInventory": "Manage Resource Inventory",
+        "manageResourceStorageBins": "Manage Resource Storage Bins",
+        "manageResourceServices": "Manage Resource Services",
+        "managePersonnel": "Manage Personnel",
+        "manageResourceEmployees": "Manage Resource Employees",
+        "manageResourceTrainees": "Manage Resource Trainees",
+        "manageCosts": "Manage Costs",
+        "manageDispatchQueue": "Manage Dispatch Queue",
+        "manageResourceMaterialConsumables": "Manage Resource Material Consumables",
+        "manageResourceMaterialDurables": "Manage Resource Material Durables",
+        "manageSchedulingBatching": "Manage Scheduling/Batching",
+        "setResourceRecipe": "Set Resource Recipe",
+        "resourceOEEConfiguration": "Resource OEE Configuration",
+        "viewResourceDashboards": "View Resource Dashboards",
+        "viewResourceDocuments": "View Resource Documents",
+        "viewResourceReports": "View Resource Reports"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Resource",
+          "editTitle": "Edit Resource",
+          "generalData": "General Data",
+          "additionalInfo": "Additional Information",
+          "automation": "Automation",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "processingType": "Processing Type",
+          "area": "Area",
+          "priority": "Priority",
+          "displayOrder": "Display Order",
+          "vendor": "Vendor",
+          "model": "Model",
+          "serialNumber": "Serial Number",
+          "criticality": "Criticality",
+          "stateModel": "State Model",
+          "materialTracking": "Material Tracking",
+          "allowProductMix": "Allow Product Mix",
+          "enableSubMaterialTracking": "Enable Sub-Material Tracking",
+          "recipeManagementEnabled": "Recipe Management Enabled",
+          "trackResourceRecipes": "Track Resource Recipes",
+          "materialLogistics": "Material Logistics",
+          "hasStorageBins": "Has Storage Bins",
+          "setup": "Setup",
+          "setupMode": "Setup Mode",
+          "coordinates": "Coordinates",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "enableAutomationScenarios": "Enable Automation Scenarios",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Resource",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Resource",
+          "message": "Are you sure you want to terminate the Resource '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Resource",
+          "message": "Are you sure you want to unterminate the Resource '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "changeState": {
+          "title": "Change Resource State",
+          "step1": "State Selection",
+          "step2": "Documents",
+          "step3": "Data Collection",
+          "step4": "Checklist",
+          "step5": "Request MAO",
+          "step2Body": "No documents associated with this transition.",
+          "step3Body": "No data collection associated with this transition.",
+          "step4Body": "No checklist associated with this transition.",
+          "step5Body": "No maintenance activities available to request.",
+          "newState": "New State",
+          "reason": "Reason",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeSystemState": {
+          "title": "Change System State",
+          "newState": "New System State",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeAutomationMode": {
+          "title": "Change Automation Mode",
+          "newMode": "New Automation Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeInstrumentMode": {
+          "title": "Change Instrument Mode",
+          "newMode": "New Instrument Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeRunningMode": {
+          "title": "Change Running Mode",
+          "newMode": "New Running Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeProduct": {
+          "title": "Change Product",
+          "materials": "Materials",
+          "subMaterials": "Sub-Materials",
+          "newProduct": "New Product",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "evaluateDispatchable": {
+          "title": "Evaluate Dispatchable Rule",
+          "verifyInfo": "Verify the resource information before evaluating the dispatchable rule.",
+          "comment": "Comment",
+          "evaluate": "Evaluate"
+        },
+        "setup": {
+          "beginTitle": "Begin Setup",
+          "performTitle": "Perform Setup",
+          "completeTitle": "Complete Setup",
+          "cancelTitle": "Cancel Setup",
+          "resetTitle": "Reset Setup",
+          "viewTitle": "View Setup",
+          "beginLineTitle": "Begin Line Setup",
+          "performLineTitle": "Perform Line Setup",
+          "completeLineTitle": "Complete Line Setup",
+          "cancelLineTitle": "Cancel Line Setup",
+          "resetLineTitle": "Reset Line Setup",
+          "viewLineTitle": "View Line Setup",
+          "beginPreTitle": "Begin Pre Setup",
+          "performPreTitle": "Perform Pre Setup",
+          "begin": "Begin",
+          "perform": "Perform",
+          "complete": "Complete",
+          "cancel": "Cancel",
+          "reset": "Reset",
+          "materials": "Materials",
+          "subResources": "Sub-Resources",
+          "name": "Name",
+          "setup": "Setup",
+          "reason": "Reason",
+          "comment": "Comment",
+          "state": "State",
+          "currentSetup": "Current Setup",
+          "subResource": "Sub-Resource",
+          "inSetup": "In Setup"
+        },
+        "container": {
+          "addTitle": "Add Resource to Container",
+          "removeTitle": "Remove Resource from Container",
+          "transferTitle": "Transfer Resource Between Containers",
+          "container": "Container",
+          "sourceContainer": "Source Container",
+          "targetContainer": "Target Container",
+          "position": "Position",
+          "comment": "Comment",
+          "add": "Add",
+          "remove": "Remove",
+          "transfer": "Transfer",
+          "removeMessage": "Are you sure you want to remove the Resource '{{name}}' from its container?"
+        },
+        "store": {
+          "containersTitle": "Store Containers in Resource",
+          "materialsTitle": "Store Materials in Resource",
+          "resourceTitle": "Store Resource",
+          "retrieveTitle": "Retrieve Resource",
+          "container": "Container",
+          "material": "Material",
+          "storageResource": "Storage Resource",
+          "comment": "Comment",
+          "store": "Store",
+          "retrieve": "Retrieve",
+          "retrieveMessage": "Are you sure you want to retrieve the Resource '{{name}}' from storage?"
+        },
+        "manage": {
+          "update": "Update",
+          "comments": "Comments",
+          "servicesTitle": "Manage Resource Services",
+          "services": "Services ({{count}})",
+          "serviceDetails": "Service Details",
+          "service": "Service",
+          "priority": "Priority",
+          "requiresRunningMode": "Requires Running Mode",
+          "isEnabled": "Is Enabled",
+          "qualificationCheck": "Qualification Check",
+          "recipesTitle": "Manage Resource Recipes",
+          "recipes": "Recipes ({{count}})",
+          "recipeDetails": "Recipe Details",
+          "recipe": "Recipe",
+          "structureTitle": "Manage Structure",
+          "structure": "Structure ({{count}})",
+          "structureDetails": "Structure Details",
+          "resource": "Resource",
+          "parentResource": "Parent Resource",
+          "runningModesTitle": "Manage Running Modes",
+          "runningModes": "Running Modes ({{count}})",
+          "runningModeDetails": "Running Mode Details",
+          "runningMode": "Running Mode",
+          "description": "Description",
+          "consumableFeedsTitle": "Manage Consumable Feeds",
+          "consumableFeeds": "Consumable Feeds ({{count}})",
+          "consumableFeedDetails": "Consumable Feed Details",
+          "consumableFeed": "Consumable Feed",
+          "isShared": "Is Shared",
+          "consumablesTitle": "Manage Consumables",
+          "consumables": "Consumables ({{count}})",
+          "consumableDetails": "Consumable Details",
+          "consumable": "Consumable",
+          "quantity": "Quantity",
+          "costsTitle": "Manage Costs",
+          "costs": "Costs ({{count}})",
+          "costDetails": "Cost Details",
+          "costType": "Cost Type",
+          "amount": "Amount",
+          "currency": "Currency",
+          "dispatchQueueTitle": "Manage Dispatch Queue",
+          "dispatchQueue": "Dispatch Queue ({{count}})",
+          "dispatchQueueDetails": "Dispatch Queue Details",
+          "material": "Material",
+          "measurementCapabilitiesTitle": "Manage Measurement Capabilities",
+          "measurementCapabilities": "Measurement Capabilities ({{count}})",
+          "measurementCapabilityDetails": "Measurement Capability Details",
+          "capability": "Capability",
+          "units": "Units",
+          "personnelTitle": "Manage Personnel",
+          "personnel": "Personnel ({{count}})",
+          "personnelDetails": "Personnel Details",
+          "employee": "Employee",
+          "checkIn": "Check In",
+          "checkOut": "Check Out",
+          "repairablePartsTitle": "Manage Repairable Parts",
+          "repairableParts": "Repairable Parts ({{count}})",
+          "repairablePartDetails": "Repairable Part Details",
+          "part": "Part",
+          "isRepairable": "Is Repairable",
+          "resourceDurablesTitle": "Manage Resource Durables",
+          "resourceDurables": "Resource Durables ({{count}})",
+          "resourceDurableDetails": "Resource Durable Details",
+          "durable": "Durable",
+          "resourceEmployeesTitle": "Manage Resource Employees",
+          "resourceEmployees": "Resource Employees ({{count}})",
+          "resourceEmployeeDetails": "Resource Employee Details",
+          "role": "Role",
+          "resourceInstrumentsTitle": "Manage Resource Instruments",
+          "resourceInstruments": "Resource Instruments ({{count}})",
+          "resourceInstrumentDetails": "Resource Instrument Details",
+          "instrument": "Instrument",
+          "calibrationStatus": "Calibration Status",
+          "resourceInventoryTitle": "Manage Resource Inventory",
+          "resourceInventory": "Resource Inventory ({{count}})",
+          "resourceInventoryDetails": "Resource Inventory Details",
+          "item": "Item",
+          "resourceLanesTitle": "Manage Resource Lanes",
+          "resourceLanes": "Resource Lanes ({{count}})",
+          "resourceLaneDetails": "Resource Lane Details",
+          "lane": "Lane",
+          "currentRecipe": "Current Recipe",
+          "resourceLocationsTitle": "Manage Resource Locations",
+          "resourceLocations": "Resource Locations ({{count}})",
+          "resourceLocationDetails": "Resource Location Details",
+          "location": "Location",
+          "barcodeId": "Barcode ID",
+          "locationX": "Location X",
+          "locationY": "Location Y",
+          "resourceMaterialConsumablesTitle": "Manage Resource Material Consumables",
+          "resourceMaterialConsumables": "Resource Material Consumables ({{count}})",
+          "resourceMaterialConsumableDetails": "Resource Material Consumable Details",
+          "resourceMaterialDurablesTitle": "Manage Resource Material Durables",
+          "resourceMaterialDurables": "Resource Material Durables ({{count}})",
+          "resourceMaterialDurableDetails": "Resource Material Durable Details",
+          "resourcePartsTitle": "Manage Resource Parts",
+          "resourceParts": "Resource Parts ({{count}})",
+          "resourcePartDetails": "Resource Part Details",
+          "resourceStorageBinsTitle": "Manage Resource Storage Bins",
+          "resourceStorageBins": "Resource Storage Bins ({{count}})",
+          "resourceStorageBinDetails": "Resource Storage Bin Details",
+          "storageBin": "Storage Bin",
+          "resourceTraineesTitle": "Manage Resource Trainees",
+          "resourceTrainees": "Resource Trainees ({{count}})",
+          "resourceTraineeDetails": "Resource Trainee Details",
+          "trainee": "Trainee",
+          "trainer": "Trainer",
+          "runAtRiskMaterialsTitle": "Manage Run At Risk Materials",
+          "runAtRiskMaterials": "Run At Risk Materials ({{count}})",
+          "runAtRiskMaterialDetails": "Run At Risk Material Details",
+          "schedulingBatchingTitle": "Manage Scheduling/Batching",
+          "schedulingBatching": "Scheduling/Batching ({{count}})",
+          "schedulingBatchingDetails": "Scheduling/Batching Details",
+          "schedule": "Schedule",
+          "startDate": "Start Date",
+          "endDate": "End Date"
+        },
+        "setRecipe": {
+          "title": "Set Resource Recipe",
+          "recipe": "Recipe",
+          "comment": "Comment",
+          "set": "Set"
+        },
+        "oee": {
+          "title": "Resource OEE Configuration",
+          "idealCycleTime": "Ideal Cycle Time",
+          "oeeEnabled": "OEE Enabled",
+          "save": "Save"
+        },
+        "view": {
+          "dashboardsTitle": "View Resource Dashboards",
+          "documentsTitle": "View Resource Documents",
+          "reportsTitle": "View Resource Reports",
+          "dashboard": "Dashboard",
+          "document": "Document",
+          "report": "Report",
+          "description": "Description",
+          "type": "Type"
+        }
+      }
+    },
+    "resourceJob": {
+      "pageLabel": "Resource Job",
+      "listTitle": "Resource Jobs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "containers": "Containers",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "resourceJob": "Resource Job",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "subType": "Sub Type",
+        "selectionMode": "Selection Mode",
+        "priority": "Priority",
+        "progress": "Progress",
+        "equipmentJobId": "Equipment Job Id",
+        "jobInformation": "Job Information"
+      },
+      "more": {
+        "clone": "Clone",
+        "abort": "Abort",
+        "cancel": "Cancel",
+        "complete": "Complete",
+        "dequeue": "Dequeue",
+        "enqueue": "Enqueue",
+        "requeue": "Requeue",
+        "start": "Start"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Resource Job",
+          "editTitle": "Edit Resource Job",
+          "step1": "General Data",
+          "step2": "Materials",
+          "step3": "Containers",
+          "name": "Name",
+          "description": "Description",
+          "resource": "Resource",
+          "type": "Type",
+          "subType": "Sub Type",
+          "initialSystemState": "Initial System State",
+          "selectionMode": "Selection Mode",
+          "priority": "Priority",
+          "progress": "Progress",
+          "equipmentJobId": "Equipment Job Id",
+          "jobInformation": "Job Information",
+          "comments": "Comments",
+          "materialsBody": "Add or remove Resource Job Materials. For each item specify Material, Step, Quantity, Units, Process Job Id, dates, Recipe and Process Job Information.",
+          "containersBody": "Add or remove Resource Job Containers. For each item specify Container, Start Date and End Date."
+        },
+        "lifecycle": {
+          "comment": "Comment",
+          "cloneTitle": "Clone Resource Job",
+          "clone": "Clone",
+          "abortTitle": "Abort Resource Job",
+          "abort": "Abort",
+          "cancelTitle": "Cancel Resource Job",
+          "cancel": "Cancel",
+          "completeTitle": "Complete Resource Job",
+          "complete": "Complete",
+          "dequeueTitle": "Dequeue Resource Job",
+          "dequeue": "Dequeue",
+          "enqueueTitle": "Enqueue Resource Job",
+          "enqueue": "Enqueue",
+          "requeueTitle": "Requeue Resource Job",
+          "requeue": "Requeue",
+          "startTitle": "Start Resource Job",
+          "start": "Start"
+        }
+      }
+    },
+    "samplingPattern": {
+      "pageLabel": "Sampling Pattern",
+      "listTitle": "Sampling Patterns",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPattern": "Sampling Pattern",
+        "configuration": "Configuration"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "samplingSelection": "Sampling Selection",
+        "rule": "Rule",
+        "sourceForm": "Source Form",
+        "materialCount": "Material Count",
+        "selectionMethod": "Selection Method",
+        "sequencingMethod": "Sequencing Method"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Pattern",
+          "editTitle": "Edit Sampling Pattern",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "mode": "Mode",
+          "samplingSelection": "Sampling Selection",
+          "rule": "Rule",
+          "sourceForm": "Source Form",
+          "materialCount": "Material Count",
+          "countIsPercentage": "Count Is Percentage",
+          "selectionMethod": "Selection Method",
+          "sequencingMethod": "Sequencing Method",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Sampling Pattern",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Pattern",
+          "message": "Are you sure you want to terminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Pattern",
+          "message": "Are you sure you want to unterminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Unterminate"
+        }
+      }
+    },
+    "samplingPlan": {
+      "pageLabel": "Sampling Plan",
+      "listTitle": "Sampling Plans",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "defaultSamplingType": "Default Sampling Type",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "context": "Context",
+        "instances": "Instances",
+        "steps": "Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPlan": "Sampling Plan",
+        "defaultSampling": "Default Sampling"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "defaultSamplingType": "Default Sampling Type",
+        "counterFrequency": "Counter Frequency",
+        "timeFrequency": "Time Frequency"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manageInstance": "Manage Sampling Plan Instance"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Plan",
+          "editTitle": "Edit Sampling Plan",
+          "generalData": "General Data",
+          "context": "Context",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "defaultSampling": "Default Sampling",
+          "samplingType": "Sampling Type",
+          "counterFrequency": "Counter Frequency",
+          "timeFrequency": "Time Frequency (hours)",
+          "comments": "Comments",
+          "contextBody": "Specify the context information for the Sampling Plan. At minimum it must have one context defined (Material Product, Material Resource, Material Step, etc.)."
+        },
+        "clone": {
+          "title": "Clone Sampling Plan",
+          "message": "Clone the Sampling Plan '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Plan",
+          "message": "Are you sure you want to terminate the Sampling Plan '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Plan",
+          "message": "Are you sure you want to unterminate the Sampling Plan '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "instance": {
+          "title": "Manage Sampling Plan Instance",
+          "instances": "Instances ({{count}})",
+          "newInstance": "New Instance",
+          "detailsTitle": "Instance Details",
+          "samplingType": "Sampling Type",
+          "materialType": "Material Type",
+          "counterFrequency": "Sampling Counter Frequency",
+          "currentCounter": "Current Sampling Counter",
+          "timeFrequency": "Sampling Time Frequency",
+          "lastSamplingDate": "Last Sampling Date",
+          "comments": "Comments",
+          "update": "Update"
+        }
+      }
+    },
+    "schedule": {
+      "pageLabel": "Schedule",
+      "listTitle": "Schedules",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "scenarios": "Scenarios",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "areas": "Areas",
+        "feedSteps": "Feed Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "schedule": "Schedule"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "defaultView": "Default View",
+        "defaultFrozenPeriod": "Default Frozen Period",
+        "timeQuantum": "Time Quantum"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "createScenario": "Create Schedule Scenario",
+        "adjustJob": "Adjust Schedule Job",
+        "manageFeedSteps": "Manage Feed Steps"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule",
+          "editTitle": "Edit Schedule",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "defaultView": "Default View",
+          "defaultFrozenPeriod": "Default Frozen Period (hours)",
+          "timeQuantum": "Time Quantum (minutes)",
+          "schedulingType": "Scheduling Type",
+          "type": "Type",
+          "optimizationBody": "Choose the Scheduling Type (Forwards or Backwards) and the Optimization Criteria weights (must add up to 100): Minimize Setup Times, Minimize Total Waiting Time, Maximize Resource Utilization, etc.",
+          "untieBody": "Specify the default Untie Sort Rules (Execution Time, Material Due Date, Material Name, Priority, Quantity, Setup Time, Wait Time, etc.). Rules are used in the order they are inputted.",
+          "automaticBody": "Define specific configurations for automatic scheduling: Terminate Scenarios on Release, auto reschedule Operational Accurate/Fast/Planning Scenarios, frequency scale and start date.",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Schedule",
+          "message": "Clone the Schedule '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Schedule",
+          "message": "Are you sure you want to terminate the Schedule '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Schedule",
+          "message": "Are you sure you want to unterminate the Schedule '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "createScenario": {
+          "title": "Create Schedule Scenario",
+          "message": "Create a new Schedule Scenario for Schedule '{{name}}'?",
+          "create": "Create"
+        },
+        "adjust": {
+          "title": "Adjust Schedule Job",
+          "jobBody": "Manually adjust a Schedule Scenario Job of a released Schedule Scenario.",
+          "resource": "Resource",
+          "plannedStart": "Planned Start Time",
+          "plannedEnd": "Planned End Time",
+          "adjust": "Adjust"
+        },
+        "feedStep": {
+          "title": "Manage Feed Steps",
+          "steps": "Feed Steps ({{count}})",
+          "newStep": "New Feed Step",
+          "detailsTitle": "Feed Step Details",
+          "facility": "Facility",
+          "step": "Step",
+          "manage": "Manage"
+        }
+      }
+    },
+    "scheduleScenario": {
+      "pageLabel": "Schedule Scenario",
+      "listTitle": "Schedule Scenarios",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "orderFulfillment": "Order Fulfillment",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "statistics": "Statistics",
+        "messages": "Messages",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "scenario": "Schedule Scenario"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "Universal State",
+        "generationType": "Generation Type",
+        "scenarioState": "Scenario State"
+      },
+      "more": {
+        "terminate": "Terminate",
+        "generate": "Generate",
+        "release": "Release",
+        "synchronize": "Synchronize Schedule Scenario Jobs",
+        "lockJob": "Lock Schedule Scenario Job",
+        "unlockJob": "Unlock Schedule Scenario Job",
+        "adjustJob": "Adjust Schedule Scenario Job"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule Scenario",
+          "editTitle": "Edit Schedule Scenario",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "schedule": "Schedule",
+          "generationType": "Generation Type",
+          "comments": "Comments",
+          "optimizationBody": "Optionally, override the default Optimization Criteria defined at the Schedule level. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "untieBody": "Optionally, override the default Untie Sort Rules defined at the Schedule level. Add as many Untie Sort Rules as desired (at least one).",
+          "automaticBody": "Define automatic scheduling configurations inherited from the Schedule."
+        },
+        "generate": {
+          "title": "Generate Schedule Scenario",
+          "generate": "Generate",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step1Body": "Review the Schedule Scenario information. The Generation takes into account the information from the last Synchronization.",
+          "step2Body": "Optionally, override the default Optimization Criteria. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "step3Body": "Optionally, override the default Untie Sort Rules. Add as many Untie Sort Rules as desired; at least one is required to proceed."
+        },
+        "terminate": {
+          "title": "Terminate Schedule Scenario",
+          "message": "Are you sure you want to terminate the Schedule Scenario '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Schedule Scenario '{{name}}'?"
+        }
+      }
+    },
+    "sendAheadRun": {
+      "pageLabel": "Send-Ahead Run",
+      "listTitle": "Send-Ahead Runs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "sendAheadRun": "Send-Ahead Run"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "resultsCaptureMode": "Results Capture Mode"
+      },
+      "more": {
+        "cancel": "Cancel Send-Ahead Run",
+        "extend": "Extend Send-Ahead Run",
+        "release": "Release Send-Ahead Run Waiting Materials",
+        "changeMaterials": "Change Send-Ahead Run Materials",
+        "clearResult": "Clear Send-Ahead Run Result",
+        "ignoreResult": "Ignore Send-Ahead Run Result",
+        "createSplit": "Create Split Send-Ahead Run",
+        "manageMaterials": "Manage Send-Ahead Run Materials",
+        "recordResult": "Record Send-Ahead Run Result"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Send-Ahead Run",
+          "editTitle": "Edit Send-Ahead Run",
+          "step1": "General Data",
+          "step2": "Waiting Materials",
+          "step3": "Experiment",
+          "step4": "Sub-Materials to Send-Ahead",
+          "step5": "Send-Ahead Materials",
+          "step6": "Details",
+          "name": "Name",
+          "description": "Description",
+          "dataGroup": "Data Group",
+          "comments": "Comments",
+          "stepBody": "This section will only be displayed when the step's preconditions are met: {{step}}."
+        },
+        "record": {
+          "title": "Record Send-Ahead Run Result",
+          "resultBody": "Select the result for the selected send-ahead Materials.",
+          "result": "Result",
+          "remarks": "Remarks",
+          "record": "Record"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Send-Ahead Run '{{name}}'?"
+        }
+      }
+    },
+    "service": {
+      "pageLabel": "Service",
+      "listTitle": "Services",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "enabled": "Enabled",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "resources": "Resources",
+        "compatibleServices": "Compatible Services",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "service": "Service"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "enabled": "Enabled",
+        "state": "Universal State",
+        "dataGroup": "Data Group"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "disable": "Disable Service",
+        "enable": "Enable Service",
+        "manageCompatible": "Manage Compatible Services",
+        "manageResources": "Manage Service Resources"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Service",
+          "editTitle": "Edit Service",
+          "step1": "General Data",
+          "step2": "Manage Service Resources",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "dataGroup": "Data Group",
+          "processingType": "Processing Type",
+          "enabled": "Enabled",
+          "comments": "Comments",
+          "step2Body": "Add one entry in the left side panel for each of the Resources that will provide the Service. Each entry should be configured on the right side panel by selecting the Resource and by setting the Service as enabled or disabled in that specific Resource."
+        },
+        "clone": {
+          "title": "Clone Service",
+          "message": "Clone the Service '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Service",
+          "message": "Are you sure you want to terminate the Service '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Service",
+          "message": "Are you sure you want to unterminate the Service '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "disable": {
+          "title": "Disable Service",
+          "message": "Are you sure you want to disable the Service '{{name}}'?",
+          "confirm": "Disable"
+        },
+        "enable": {
+          "title": "Enable Service",
+          "message": "Are you sure you want to enable the Service '{{name}}'?",
+          "confirm": "Enable"
+        },
+        "compatible": {
+          "title": "Manage Compatible Services",
+          "canBeFulfilledBy": "Can be Fulfilled by",
+          "canFulfill": "Can Fulfill",
+          "services": "Services ({{count}})",
+          "newService": "New Service",
+          "detailsTitle": "Service Details",
+          "service": "Service",
+          "description": "Description",
+          "update": "Update"
+        },
+        "resources": {
+          "title": "Manage Service Resources",
+          "resources": "Resources ({{count}})",
+          "newResource": "New Resource",
+          "detailsTitle": "Resource Details",
+          "resource": "Resource",
+          "enabledInResource": "Enabled in Resource",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "update": "Update"
+        }
+      }
+    },
+    "setupMatrix": {
+      "pageLabel": "Setup Matrix",
+      "listTitle": "Setup Matrices",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "setupMatrix": "Setup Matrix",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "setupMatrix": "Setup Matrix"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "useZeroInDiagonal": "Use Zero In Diagonal",
+        "state": "Universal State"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manage": "Manage Setup Matrix"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Setup Matrix",
+          "editTitle": "Edit Setup Matrix",
+          "step1": "General Data",
+          "step2": "Services",
+          "step3": "Setup Matrix",
+          "name": "Name",
+          "description": "Description",
+          "timeScale": "Time Scale",
+          "useZeroInDiagonal": "Use Zero In Diagonal",
+          "comments": "Comments",
+          "step2Body": "To add Services manually, select them from the panel on the left-hand side and they will be added to the list of the Selected Services on the right-hand side. You can filter the list to make it easier to add the Services.",
+          "step3Body": "Each Service selected in the previous panel is added to the list on the left hand side of the panel (From Services) and each of them have a relation to the services listed in the center part of the dialog (To Services). Select the From and the To services and enter the desired value in the specified time scale."
+        },
+        "clone": {
+          "title": "Clone Setup Matrix",
+          "message": "Clone the Setup Matrix '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Setup Matrix",
+          "message": "Are you sure you want to terminate the Setup Matrix '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Setup Matrix",
+          "message": "Are you sure you want to unterminate the Setup Matrix '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "manage": {
+          "title": "Manage Setup Matrix",
+          "message": "Open the Manage Setup Matrix wizard for '{{name}}'?",
+          "confirm": "Manage"
+        }
+      }
+    },
+    "shiftDefinition": {
+      "cancel": "キャンセル",
+      "columns": {
+        "calendar": "カレンダー",
+        "description": "説明",
+        "name": "名前",
+        "startTime": "開始時刻",
+        "state": "状態"
+      },
+      "detail": {
+        "calendar": "カレンダー:",
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "information": "情報",
+        "name": "名前:",
+        "startTime": "開始時刻:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "シフト定義 ({{count}})",
+      "manage": "管理",
+      "manageTitle": "シフト定義のシフト管理",
+      "noAttachments": "添付ファイルがありません。",
+      "notFound": "シフト定義が見つかりません。",
+      "pageLabel": "シフト定義",
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "shifts": "シフト",
+        "attributes": "属性"
+      },
+      "shiftForm": {
+        "code": "コード:",
+        "costOvertimeFactor": "残業コスト係数:",
+        "endTime": "終了時刻:",
+        "name": "名前:",
+        "startTime": "開始時刻:",
+        "teamPattern": "チームパターン:"
+      },
+      "shiftTimeRange": "{{start}}から{{end}}まで",
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "update": "更新",
+      "noAttributes": "属性が定義されていません。",
+      "create": {
+        "title": "シフト定義の作成",
+        "step1": "一般データ",
+        "step2": "シフト",
+        "step3": "非稼働時間",
+        "name": "名前:",
+        "description": "説明:",
+        "calendar": "カレンダー:",
+        "calendarHint": "シフト定義は、カレンダー日と同じ開始時刻の場合にのみ追加できます。",
+        "shift": "シフト",
+        "nonWorkingName": "非稼働時間名",
+        "back": "戻る",
+        "next": "次へ"
+      },
+      "edit": {
+        "title": "シフト定義の編集",
+        "name": "名前:",
+        "description": "説明:",
+        "calendar": "カレンダー:"
+      },
+      "clone": {
+        "title": "シフト定義の複製: {{name}}",
+        "menuLabel": "複製",
+        "namePlaceholder": "新しいシフト定義名",
+        "comment": "コメント:",
+        "clone": "複製"
+      },
+      "terminate": {
+        "title": "シフト定義の終了",
+        "menuLabel": "終了",
+        "message": "シフト定義「{{name}}」を終了しますか? 参照する汎用/スマートテーブルの行は削除されます。",
+        "confirm": "終了"
+      },
+      "unterminate": {
+        "title": "シフト定義の終了取消",
+        "menuLabel": "終了取消",
+        "message": "シフト定義「{{name}}」の終了を取り消しますか? 参照行は復元されません。",
+        "confirm": "終了取消"
+      }
+    },
+    "shiftLogbook": {
+      "addEntry": {
+        "add": "エントリを追加",
+        "category": "カテゴリ:",
+        "comments": "コメント:",
+        "description": "説明:",
+        "resource": "リソース:",
+        "severity": "重要度:",
+        "title": "シフト日誌エントリの追加",
+        "titleLabel": "タイトル:"
+      },
+      "cancel": "キャンセル",
+      "columns": {
+        "area": "エリア",
+        "name": "名前",
+        "shift": "シフト",
+        "shiftDefinition": "シフト定義",
+        "state": "状態",
+        "systemState": "システム状態"
+      },
+      "detail": {
+        "area": "エリア:",
+        "calendarDay": "カレンダー日:",
+        "dataGroup": "データグループ:",
+        "name": "名前:",
+        "shift": "シフト:",
+        "shiftDefinition": "シフト定義:",
+        "shiftInfo": "シフト情報",
+        "state": "ユニバーサル状態:",
+        "systemState": "システム状態:",
+        "team": "チーム:"
+      },
+      "editEntry": {
+        "title": "シフト日誌エントリの編集",
+        "update": "更新"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "シフト日誌 ({{count}})",
+      "noAttachments": "添付ファイルがありません。",
+      "notFound": "シフト日誌が見つかりません。",
+      "pageLabel": "シフト日誌",
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "entries": "エントリ"
+      },
+      "signOff": {
+        "comment": "コメント:",
+        "menuLabel": "承認",
+        "reviewEntries": "エントリの確認:",
+        "signOff": "承認",
+        "title": "シフト日誌の承認"
+      },
+      "summary": {
+        "content": "{{area}} {{shift}} のAI生成サマリー。{{count}}件の日誌エントリ、エリア活動、OEEトレンド、計画対実績、歩留まり、不良パレート、保留を含む。",
+        "menuLabel": "引継ぎサマリー生成",
+        "title": "シフト引継ぎサマリー"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      }
+    },
+    "shiftPlan": {
+      "calendar": {
+        "empty": "シフト計画カレンダー日を生成すると、ここにカレンダーの視覚化が表示されます。",
+        "hint": "シフト計画を構成するカレンダー日の視覚情報。",
+        "title": "シフト計画カレンダー"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "calendar": "カレンダー",
+        "description": "説明",
+        "name": "名前",
+        "state": "状態",
+        "type": "タイプ"
+      },
+      "detail": {
+        "calendar": "カレンダー:",
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "ownerRole": "所有者ロール:",
+        "ownership": "所有権",
+        "state": "ユニバーサル状態:",
+        "type": "タイプ:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "generateDays": {
+        "menuLabel": "シフト計画カレンダー日の生成"
+      },
+      "listTitle": "シフト計画 ({{count}})",
+      "manageCalendarDays": {
+        "menuLabel": "シフト計画カレンダー日の管理"
+      },
+      "manageEmployees": "従業員チームとワークグループの管理",
+      "notFound": "シフト計画が見つかりません。",
+      "pageLabel": "シフト計画",
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細",
+        "employees": "従業員",
+        "workgroups": "ワークグループ"
+      },
+      "tabs": {
+        "calendar": "カレンダー",
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      },
+      "workgroup": {
+        "ownerRole": "所有者ロール",
+        "resources": "リソース"
+      }
+    },
+    "site": {
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "enterprise": "企業",
+        "isRemote": "リモート",
+        "name": "名前",
+        "state": "状態"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "enterprise": "企業:",
+        "isRemote": "リモート:",
+        "name": "名前:",
+        "remoteExportAddress": "リモートエクスポートアドレス:",
+        "remoteShipping": "リモート配送",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "サイト ({{count}})",
+      "notFound": "サイトが見つかりません。",
+      "pageLabel": "サイト",
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細",
+        "facilities": "施設"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
+    },
+    "sortRuleSet": {
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "scope": "スコープ",
+        "state": "状態"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "scope": "スコープ:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "ソートルールセット ({{count}})",
+      "manageRules": "ルールの管理",
+      "notFound": "ソートルールセットが見つかりません。",
+      "pageLabel": "ソートルールセット",
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細",
+        "rules": "ルール"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
+    },
+    "step": {
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "state": "状態"
+      },
+      "contexts": {
+        "bom": "BOMコンテキスト",
+        "certifications": "認定コンテキスト",
+        "chart": "チャートコンテキスト",
+        "checklist": "チェックリストコンテキスト",
+        "dataCollection": "データ収集コンテキスト",
+        "document": "文書コンテキスト",
+        "durables": "耐久材コンテキスト",
+        "inspectionPlan": "検査計画コンテキスト",
+        "lineFlow": "ラインフローコンテキスト",
+        "samplingPattern": "サンプリングパターンコンテキスト",
+        "service": "サービスコンテキスト",
+        "splitTrackOut": "分割トラックアウトコンテキスト",
+        "timeConstraints": "時間制約コンテキスト",
+        "yieldCycleTime": "歩留まりとサイクルタイム"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "includeInScheduling": "スケジューリングに含める:",
+        "name": "名前:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "ステップ ({{count}})",
+      "manageAreas": {
+        "menuLabel": "エリアの管理"
+      },
+      "manageCosts": {
+        "menuLabel": "コストの管理"
+      },
+      "manageFutureActions": {
+        "menuLabel": "将来アクションの管理"
+      },
+      "manageInspectionInfo": {
+        "menuLabel": "検査情報の管理"
+      },
+      "manageLogicalNames": {
+        "menuLabel": "ステップ論理名の管理"
+      },
+      "manageReasons": {
+        "menuLabel": "理由の管理"
+      },
+      "manageSamplingPlans": {
+        "menuLabel": "サンプリング計画の管理"
+      },
+      "manageScheduling": {
+        "menuLabel": "スケジューリングの管理"
+      },
+      "notFound": "ステップが見つかりません。",
+      "pageLabel": "ステップ",
+      "sections": {
+        "areas": "エリア",
+        "attachments": "添付ファイル",
+        "costing": "原価計算",
+        "details": "詳細",
+        "futureActions": "将来アクション",
+        "inspections": "検査",
+        "logicalNames": "論理名",
+        "reasons": "理由",
+        "sampling": "サンプリング",
+        "scheduling": "スケジューリング"
+      },
+      "tabs": {
+        "compare": "比較",
+        "contexts": "コンテキスト",
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照",
+        "schedule": "スケジュール",
+        "stepView": "ステップビュー"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
+    },
+    "substrateMap": {
+      "active": "アクティブ",
+      "changeBinValues": {
+        "menuLabel": "ビン値の変更"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "state": "状態",
+        "substrateType": "基板タイプ"
+      },
+      "content": {
+        "empty": "視覚的なマップ表示がここに表示されます。",
+        "hint": "基板マップ内容の視覚的表現。",
+        "title": "基板マップコンテンツ"
+      },
+      "createOverlay": {
+        "menuLabel": "基板マップオーバーレイの作成"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "state": "ユニバーサル状態:",
+        "substrateType": "基板タイプ:"
+      },
+      "download": {
+        "menuLabel": "基板マップのダウンロード"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "基板マップ ({{count}})",
+      "manageOverlayInfo": "基板マップオーバーレイ情報の管理",
+      "notFound": "基板マップが見つかりません。",
+      "pageLabel": "基板マップ",
+      "search": {
+        "menuLabel": "基板マップの検索"
+      },
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細",
+        "overlayBinConverters": "オーバーレイビンコンバータ",
+        "overlayInformation": "オーバーレイ情報"
+      },
+      "tabs": {
+        "compare": "比較",
+        "content": "コンテンツ",
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      },
+      "viewGenealogy": {
+        "menuLabel": "デバイス系譜の表示"
+      },
+      "viewHistory": {
+        "menuLabel": "デバイスビンコード履歴の表示"
+      }
+    },
+    "substrateMapMask": {
+      "apply": {
+        "menuLabel": "基板マップマスクの適用"
+      },
+      "changeInfo": {
+        "menuLabel": "基板マップマスク情報の変更"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "state": "状態",
+        "substrateType": "基板タイプ"
+      },
+      "content": {
+        "empty": "視覚的なマスク表示がここに表示されます。",
+        "hint": "基板マップマスク内容の視覚的表現。",
+        "title": "基板マップマスクコンテンツ"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "state": "ユニバーサル状態:",
+        "substrateType": "基板タイプ:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "基板マップマスク ({{count}})",
+      "notFound": "基板マップマスクが見つかりません。",
+      "pageLabel": "基板マップマスク",
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細"
+      },
+      "tabs": {
+        "compare": "比較",
+        "content": "コンテンツ",
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "基板マップマスクの終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
+    },
+    "task": {
+      "cancel": {
+        "menuLabel": "タスクのキャンセル"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "owner": "所有者",
+        "state": "状態",
+        "taskState": "タスク状態"
+      },
+      "detail": {
+        "assignment": "割当",
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "dueDate": "期限:",
+        "name": "名前:",
+        "owner": "所有者:",
+        "requester": "要求者:",
+        "state": "ユニバーサル状態:",
+        "taskState": "タスク状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "タスク ({{count}})",
+      "markCompleted": {
+        "menuLabel": "タスクを完了としてマーク"
+      },
+      "notFound": "タスクが見つかりません。",
+      "pageLabel": "タスク",
+      "perform": {
+        "menuLabel": "タスクの実行"
+      },
+      "reassign": {
+        "menuLabel": "タスクの再割当"
+      },
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細"
+      },
+      "sendReminder": {
+        "menuLabel": "タスクリマインダーの送信"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
+    },
+    "team": {
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "calendar": "カレンダー",
+        "description": "説明",
+        "name": "名前",
+        "state": "状態"
+      },
+      "detail": {
+        "calendar": "カレンダー:",
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "チーム ({{count}})",
+      "notFound": "チームが見つかりません。",
+      "pageLabel": "チーム",
+      "sections": {
+        "attachments": "添付ファイル",
+        "calendarDays": "カレンダー日",
+        "details": "詳細",
+        "employees": "従業員"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
+    },
+    "transferOrder": {
+      "beginMovement": {
+        "menuLabel": "転送オーダー移動の開始"
+      },
+      "cancel": {
+        "menuLabel": "転送オーダーのキャンセル"
+      },
+      "columns": {
+        "description": "説明",
+        "destinationLocation": "送付先",
+        "name": "名前",
+        "orderState": "オーダー状態",
+        "sourceLocation": "送付元",
+        "state": "状態"
+      },
+      "completeMovement": {
+        "menuLabel": "転送オーダー移動の完了"
+      },
+      "confirmItems": {
+        "menuLabel": "転送オーダー品目の確認"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "destinationLocation": "送付先:",
+        "name": "名前:",
+        "orderState": "オーダー状態:",
+        "sourceLocation": "送付元:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "転送オーダー ({{count}})",
+      "notFound": "転送オーダーが見つかりません。",
+      "pageLabel": "転送オーダー",
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "items": "品目"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "takeOwnership": {
+        "menuLabel": "転送オーダーの所有権取得"
+      },
+      "viewReport": {
+        "menuLabel": "転送オーダーレポートの表示"
+      }
+    },
+    "transferRequirement": {
+      "approve": {
+        "menuLabel": "転送要件の承認"
+      },
+      "cancel": {
+        "menuLabel": "転送要件のキャンセル"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "destinationLocation": "送付先",
+        "name": "名前",
+        "requirementState": "要件状態",
+        "sourceLocation": "送付元",
+        "state": "状態"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "destinationLocation": "送付先:",
+        "name": "名前:",
+        "requirementState": "要件状態:",
+        "sourceLocation": "送付元:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "転送要件 ({{count}})",
+      "notFound": "転送要件が見つかりません。",
+      "pageLabel": "転送要件",
+      "releaseItems": {
+        "menuLabel": "転送要件品目のリリース"
+      },
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "items": "品目"
+      },
+      "split": {
+        "menuLabel": "転送要件の分割"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "unapprove": {
+        "menuLabel": "転送要件の承認取消"
+      },
+      "viewReport": {
+        "menuLabel": "転送要件レポートの表示"
+      }
+    },
+    "workgroup": {
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "scope": "スコープ",
+        "state": "状態"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "scope": "スコープ:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "ワークグループ ({{count}})",
+      "manageRoleWorkspaces": {
+        "menuLabel": "ロールワークスペースの管理"
+      },
+      "manageUserWorkgroups": {
+        "menuLabel": "ユーザーワークグループの管理"
+      },
+      "notFound": "ワークグループが見つかりません。",
+      "pageLabel": "ワークグループ",
+      "sections": {
+        "areas": "エリア",
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "resources": "リソース",
+        "steps": "ステップ"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
     }
   }
 }

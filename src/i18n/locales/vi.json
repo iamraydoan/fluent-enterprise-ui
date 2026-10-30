@@ -22,7 +22,9 @@
     "endpoint": "Endpoint",
     "clone": "Nhân bản",
     "terminate": "Chấm dứt",
-    "unterminate": "Bỏ chấm dứt"
+    "unterminate": "Bỏ chấm dứt",
+    "newTemplate": "Mẫu mới",
+    "newFromTemplate": "Tạo từ mẫu"
   },
   "administration": {
     "pageLabel": "Quản trị"
@@ -151,7 +153,8 @@
     "next": "Tiếp",
     "create": "Tạo",
     "add": "Thêm",
-    "remove": "Xóa"
+    "remove": "Xóa",
+    "none": "Không có"
   },
   "configuration": {
     "pageLabel": "Cấu hình",
@@ -2087,6 +2090,5537 @@
     "operations": {
       "fieldRequired": "Vui lòng điền đầy đủ các trường bắt buộc.",
       "selectOption": "Chọn một giá trị"
+    },
+    "mapDefinition": {
+      "pageLabel": "Định nghĩa bản đồ",
+      "listTitle": "Định nghĩa bản đồ ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "layers": "Lớp",
+        "regions": "Vùng",
+        "attachments": "Tệp đính kèm",
+        "mapDefinition": "Định nghĩa bản đồ",
+        "options": "Tùy chọn",
+        "information": "Thông tin",
+        "colors": "Màu sắc",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "rulerMode": "Chế độ thước",
+        "showRulerByDefault": "Hiện thước mặc định",
+        "notch": "Khía",
+        "defaultRotation": "Xoay mặc định",
+        "materialUnits": "Đơn vị vật liệu",
+        "layoutType": "Loại bố cục",
+        "height": "Chiều cao",
+        "width": "Chiều rộng",
+        "dimensionUnits": "Đơn vị kích thước",
+        "rows": "Hàng",
+        "columns": "Cột",
+        "maskFile": "Tệp mask",
+        "backgroundFile": "Tệp nền",
+        "emptyUnitsColor": "Màu ô trống",
+        "gridLinesColor": "Màu đường lưới",
+        "showGridLinesByDefault": "Hiện đường lưới mặc định"
+      },
+      "wizard": {
+        "createTitle": "Tạo định nghĩa bản đồ",
+        "editTitle": "Sửa định nghĩa bản đồ",
+        "clone": "Nhân bản",
+        "stepGeneral": "Dữ liệu chung",
+        "stepLayers": "Lớp",
+        "stepFilters": "Bộ lọc",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "layoutType": "Loại bố cục",
+        "regular": "Đều",
+        "irregular": "Không đều",
+        "rows": "Hàng",
+        "columns": "Cột",
+        "height": "Chiều cao",
+        "width": "Chiều rộng",
+        "dimensionUnits": "Đơn vị kích thước",
+        "maskFile": "Tệp mask",
+        "browse": "Duyệt",
+        "clear": "Xóa",
+        "emptyUnitsColor": "Màu ô trống",
+        "gridLinesColor": "Màu đường lưới",
+        "showGridLinesByDefault": "Hiện đường lưới mặc định",
+        "notch": "Khía",
+        "defaultRotation": "Xoay mặc định",
+        "materialUnits": "Đơn vị vật liệu",
+        "rulerMode": "Chế độ thước",
+        "showRulerByDefault": "Hiện thước mặc định",
+        "layerName": "Tên",
+        "layerType": "Loại lớp",
+        "dataType": "Kiểu dữ liệu",
+        "isDefault": "Mặc định",
+        "addLayer": "Thêm lớp",
+        "removeLayer": "Xóa",
+        "cancel": "Hủy",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "create": "Tạo",
+        "update": "Cập nhật",
+        "comments": "Bình luận",
+        "generalData": "Dữ liệu chung",
+        "information": "Thông tin",
+        "colors": "Màu sắc",
+        "options": "Tùy chọn"
+      }
+    },
+    "document": {
+      "pageLabel": "Tài liệu",
+      "listTitle": "Tài liệu ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "author": "Tác giả",
+        "creationDate": "Ngày tạo",
+        "state": "Trạng thái",
+        "employee": "Nhân viên",
+        "readAndUnderstoodDate": "Ngày đã đọc và hiểu"
+      },
+      "tabs": {
+        "tracking": "Theo dõi",
+        "contexts": "Ngữ cảnh",
+        "compare": "So sánh"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "applicableRoles": "Vai trò áp dụng",
+        "attributes": "Thuộc tính",
+        "attachments": "Tệp đính kèm",
+        "document": "Tài liệu",
+        "content": "Nội dung",
+        "information": "Thông tin",
+        "readAndUnderstand": "Đọc và hiểu",
+        "employees": "Nhân viên",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "dataGroup": "Nhóm dữ liệu",
+        "source": "Nguồn",
+        "file": "Tệp",
+        "changeDescription": "Mô tả thay đổi",
+        "folder": "Thư mục",
+        "ownerRole": "Vai trò chủ sở hữu",
+        "group": "Nhóm",
+        "author": "Tác giả",
+        "creationDate": "Ngày tạo",
+        "link": "Liên kết",
+        "versionLink": "Liên kết phiên bản",
+        "keywords": "Từ khóa",
+        "requireSignature": "Yêu cầu ký khi đọc và hiểu",
+        "expirationDays": "Hết hạn đọc và hiểu (ngày)"
+      },
+      "wizard": {
+        "createTitle": "Create Document",
+        "editTitle": "Edit Document",
+        "cloneTitle": "Clone Document",
+        "stepChangeSet": "Change Set",
+        "stepGeneral": "General Data",
+        "changeSet": "Change Set",
+        "approvalRole": "Approval Role",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "name": "Name",
+        "revision": "Revision",
+        "description": "Description",
+        "type": "Type",
+        "source": "Source",
+        "internal": "Internal",
+        "external": "External",
+        "file": "File",
+        "browse": "Browse",
+        "url": "URL",
+        "changeDescription": "Change Description",
+        "folder": "Folder",
+        "ownerRole": "Owner Role",
+        "group": "Group",
+        "author": "Author",
+        "creationDate": "Creation Date",
+        "keywords": "Keywords",
+        "distNewVersion": "Distribution List (New Version)",
+        "distNewEffective": "Distribution List (New Effective Version)",
+        "requireSignature": "Require Signature for Read and Understand",
+        "expirationDays": "Expiration Days",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "back": "Back",
+        "next": "Next",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      }
+    },
+    "enterprise": {
+      "pageLabel": "Doanh nghiệp",
+      "listTitle": "Doanh nghiệp ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "dataGroup": "Nhóm dữ liệu",
+        "state": "Trạng thái"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "sites": "Cơ sở",
+        "attributes": "Thuộc tính",
+        "attachments": "Tệp đính kèm",
+        "enterprise": "Doanh nghiệp",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu"
+      },
+      "dialog": {
+        "createTitle": "Create Enterprise",
+        "editTitle": "Edit Enterprise",
+        "cloneTitle": "Clone Enterprise",
+        "name": "Name",
+        "description": "Description",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      }
+    },
+    "dataSilo": {
+      "columns": {
+        "description": "Mô tả",
+        "enterpriseName": "Tên doanh nghiệp",
+        "name": "Tên",
+        "siteName": "Tên site",
+        "type": "Loại"
+      },
+      "details": {
+        "dataVersion": "Phiên bản dữ liệu",
+        "description": "Mô tả",
+        "enterpriseName": "Tên doanh nghiệp",
+        "facilityName": "Tên cơ sở",
+        "isExternal": "Ngoài hệ thống",
+        "isSystem": "Hệ thống",
+        "isTemplate": "Mẫu",
+        "name": "Tên",
+        "properties": "Thuộc tính",
+        "siteName": "Tên site",
+        "state": "Trạng thái",
+        "type": "Loại",
+        "user": "Người dùng",
+        "isObsolete": "Đã lỗi thời",
+        "keywords": "Từ khóa",
+        "ownerInstance": "Phiên bản chủ sở hữu",
+        "generalData": "Dữ liệu chung"
+      },
+      "listTitle": "Silo dữ liệu ({{count}})",
+      "pageLabel": "Silo dữ liệu",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị.",
+        "relations": "Quan hệ",
+        "whereUsed": "Nơi sử dụng"
+      },
+      "create": {
+        "title": "Tạo Data Silo",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "dataVersion": "Phiên bản dữ liệu",
+        "enterpriseName": "Tên doanh nghiệp",
+        "facilityName": "Tên cơ sở",
+        "isExternal": "Bên ngoài",
+        "isSystem": "Hệ thống",
+        "keywords": "Từ khóa",
+        "siteName": "Tên site",
+        "user": "Người dùng",
+        "comments": "Ghi chú",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "typeDefault": "Chung"
+      }
+    },
+    "kpi": {
+      "pageLabel": "KPI",
+      "listTitle": "KPI ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "dimensionsAndTimeFrames": "Chiều và khung thời gian",
+        "attachments": "Tệp đính kèm",
+        "kpi": "KPI",
+        "settings": "Cài đặt",
+        "defaultValues": "Giá trị mặc định",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "sourceType": "Loại nguồn",
+        "entityType": "Loại thực thể",
+        "parameter": "Tham số",
+        "kpiType": "Loại KPI",
+        "frequency": "Tần suất",
+        "ownerRole": "Vai trò chủ sở hữu",
+        "closeToTargetMinimumValue": "Giá trị tối thiểu gần mục tiêu",
+        "inTargetMinimumValue": "Giá trị tối thiểu trong mục tiêu",
+        "targetValue": "Giá trị mục tiêu"
+      },
+      "actions": {
+        "manageDimensions": "Quản lý Dimensions và Time Frames"
+      },
+      "dialog": {
+        "cancel": "Hủy",
+        "clone": "Nhân bản",
+        "cloneTitle": "Nhân bản KPI",
+        "create": "Tạo",
+        "createTitle": "Tạo KPI",
+        "description": "Mô tả",
+        "editTitle": "Sửa KPI",
+        "entityType": "Loại thực thể",
+        "frequency": "Tần suất",
+        "frequencyDaily": "Hàng ngày",
+        "frequencyMonthly": "Hàng tháng",
+        "frequencyWeekly": "Hàng tuần",
+        "frequencyYearly": "Hàng năm",
+        "kpiType": "Loại KPI",
+        "kpiTypeDeviation": "Độ lệch",
+        "kpiTypeMaximum": "Tối đa",
+        "kpiTypeMinimum": "Tối thiểu",
+        "name": "Tên",
+        "ownerRole": "Vai trò chủ sở hữu",
+        "parameter": "Tham số",
+        "save": "Lưu",
+        "sourceType": "Loại nguồn",
+        "sourceTypeDynamic": "Động",
+        "sourceTypeStatic": "Tĩnh",
+        "type": "Loại"
+      },
+      "dimensionsDialog": {
+        "addDimension": "Thêm Dimension",
+        "addTimeFrame": "Thêm Time Frame",
+        "back": "Quay lại",
+        "cancel": "Hủy",
+        "dimensions": "Dimensions",
+        "from": "Từ",
+        "isDefault": "Mặc định",
+        "next": "Tiếp",
+        "remove": "Xóa",
+        "source": "Nguồn",
+        "sourceBusinessRule": "Business Rule",
+        "sourceCommand": "Source Command",
+        "sourceCubes": "Cubes",
+        "sourceDwh": "Data Warehouse",
+        "sourceOds": "Operational Data Store",
+        "step1": "Bước 1: Quản lý Dimensions",
+        "step2": "Bước 2: Quản lý Time Frames",
+        "timeFrameName": "Tên Time Frame",
+        "timeFrames": "Time Frames",
+        "title": "Quản lý Dimensions và Time Frames",
+        "to": "Đến",
+        "update": "Cập nhật",
+        "valueType": "Loại giá trị",
+        "valueTypeSeries": "Chuỗi dữ liệu",
+        "valueTypeSingle": "Giá trị đơn"
+      },
+      "terminateDialog": {
+        "cancel": "Hủy",
+        "message": "Kết thúc KPI \"{{name}}\"?",
+        "terminate": "Kết thúc",
+        "title": "Kết thúc KPI",
+        "warning": "Đối tượng KPI không thể hủy kết thúc. Nếu bạn kết thúc một KPI, nó sẽ bị mất vĩnh viễn."
+      }
+    },
+    "map": {
+      "pageLabel": "Bản đồ",
+      "listTitle": "Bản đồ ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "mapDefinition": "Định nghĩa bản đồ",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "content": "Nội dung"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "layers": "Lớp",
+        "attachments": "Tệp đính kèm",
+        "map": "Bản đồ",
+        "mapDefinition": "Định nghĩa bản đồ",
+        "context": "Ngữ cảnh",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái chung",
+        "mapDefinition": "Định nghĩa bản đồ",
+        "step": "Bước",
+        "resource": "Tài nguyên",
+        "material": "Vật liệu"
+      },
+      "dialog": {
+        "createTitle": "Tạo Map",
+        "editTitle": "Sửa Map",
+        "cloneTitle": "Nhân bản Map",
+        "step1": "Bước 1: Dữ liệu chung",
+        "step2": "Bước 2: Layers",
+        "name": "Tên",
+        "description": "Mô tả",
+        "mapDefinition": "Map Definition",
+        "step": "Công đoạn",
+        "resource": "Tài nguyên",
+        "layers": "Layers",
+        "layersHint": "Tải lên một file G85 cho mỗi layer. Nếu không tải file, mỗi layer sẽ được khởi tạo với giá trị mặc định.",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Map",
+        "message": "Kết thúc Map \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Map",
+        "unterminateMessage": "Hủy kết thúc Map \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "linkDialog": {
+        "linkTitle": "Liên kết Map \"{{name}}\" với Material",
+        "material": "Material",
+        "mapOrder": "Thứ tự Map",
+        "isMasterMap": "Master Map",
+        "linkageMode": "Chế độ liên kết",
+        "linkageVerify": "Verify",
+        "linkageSynchronize": "Synchronize",
+        "isDefault": "Map mặc định",
+        "isMerged": "Map gộp",
+        "comment": "Ghi chú",
+        "link": "Liên kết",
+        "cancel": "Hủy",
+        "unlinkTitle": "Hủy liên kết Map khỏi Material",
+        "unlinkMessage": "Hủy liên kết Material khỏi Map \"{{name}}\"?",
+        "unlink": "Hủy liên kết"
+      },
+      "actions": {
+        "downloadLayer": "Tải Layer",
+        "linkMaterial": "Liên kết với Material",
+        "unlinkMaterial": "Hủy liên kết Material"
+      },
+      "layers": {
+        "name": "Tên",
+        "type": "Loại",
+        "units": "Đơn vị"
+      }
+    },
+    "flow": {
+      "pageLabel": "Luồng",
+      "listTitle": "Luồng ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "flowType": "Loại luồng",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "flowStructure": "Cấu trúc luồng",
+        "contextStructure": "Cấu trúc ngữ cảnh",
+        "contextMatrix": "Ma trận ngữ cảnh",
+        "compare": "So sánh"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "logicalNames": "Tên logic",
+        "attachments": "Tệp đính kèm",
+        "flow": "Luồng",
+        "settings": "Cài đặt",
+        "flowStructure": "Cấu trúc luồng",
+        "flowDetails": "Chi tiết luồng",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "flow": "Luồng",
+        "flowType": "Loại luồng",
+        "enabled": "Bật"
+      },
+      "dialog": {
+        "createTitle": "Tạo Flow",
+        "editTitle": "Sửa Flow",
+        "cloneTitle": "Nhân bản Flow",
+        "step1": "Bước 1: Change Set",
+        "step2": "Bước 2: Dữ liệu chung",
+        "step3": "Bước 3: Flow Items",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Dùng Automatic Change Set",
+        "approvalRole": "Vai trò phê duyệt",
+        "makeEffectiveOnApproval": "Hiệu lực khi phê duyệt",
+        "name": "Tên",
+        "revision": "Revision",
+        "description": "Mô tả",
+        "flowType": "Loại Flow",
+        "flowKind": "Kiểu Flow",
+        "kindSequential": "Tuần tự",
+        "kindAlternate": "Luân phiên",
+        "kindNonSequential": "Khối không tuần tự",
+        "kindLine": "Dây chuyền",
+        "isEnabled": "Kích hoạt",
+        "flowItems": "Flow Items",
+        "flowItemsHint": "Thêm Steps hoặc Flows để xây dựng cấu trúc Flow.",
+        "addStep": "Thêm Step",
+        "addFlow": "Thêm Flow",
+        "remove": "Xóa",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Flow",
+        "message": "Kết thúc Flow \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Flow",
+        "unterminateMessage": "Hủy kết thúc Flow \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "manageDialog": {
+        "logicalNamesTitle": "Quản lý Logical Names",
+        "logicalName": "Logical Name",
+        "addLogicalName": "Thêm Logical Name",
+        "remove": "Xóa",
+        "update": "Cập nhật",
+        "cancel": "Hủy",
+        "reworkPathsTitle": "Xem Rework Paths",
+        "filterByStep": "Lọc theo Step",
+        "close": "Đóng"
+      },
+      "actions": {
+        "manageLogicalNames": "Quản lý Logical Names",
+        "viewReworkPaths": "Xem Rework Paths"
+      }
+    },
+    "experimentDefinition": {
+      "pageLabel": "Định nghĩa thí nghiệm",
+      "listTitle": "Định nghĩa thí nghiệm ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "product": "Sản phẩm",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "matrix": "Ma trận"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "objectives": "Mục tiêu",
+        "mainMaterialGroups": "Nhóm vật liệu chính",
+        "instances": "Phiên bản",
+        "attachments": "Tệp đính kèm",
+        "experimentDefinition": "Định nghĩa thí nghiệm",
+        "options": "Tùy chọn",
+        "information": "Thông tin",
+        "results": "Kết quả",
+        "settings": "Cài đặt",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "ignoreInSamplingPlans": "Bỏ qua trong kế hoạch lấy mẫu",
+        "ignoreInSpcCharts": "Bỏ qua trong biểu đồ SPC",
+        "closeExperimentAutomatically": "Tự động đóng thí nghiệm",
+        "ownerRole": "Vai trò chủ sở hữu",
+        "purpose": "Mục đích",
+        "note": "Ghi chú",
+        "result": "Kết quả",
+        "conclusions": "Kết luận",
+        "product": "Sản phẩm",
+        "productGroup": "Nhóm sản phẩm",
+        "maximumNumberOfMaterials": "Số lượng vật liệu tối đa",
+        "requiredMaterialType": "Loại vật liệu yêu cầu",
+        "requiredMaterialForm": "Dạng vật liệu yêu cầu",
+        "mode": "Chế độ",
+        "requiredSubMaterialsForm": "Dạng vật liệu phụ yêu cầu",
+        "requiredSubMaterialsCount": "Số lượng vật liệu phụ yêu cầu",
+        "plannedStartDate": "Ngày bắt đầu dự kiến",
+        "plannedEndDate": "Ngày kết thúc dự kiến",
+        "flow": "Luồng",
+        "firstStep": "Bước đầu",
+        "firstStepFlowPath": "Đường luồng bước đầu",
+        "lastStep": "Bước cuối",
+        "lastStepFlowPath": "Đường luồng bước cuối"
+      },
+      "dialog": {
+        "createTitle": "Tạo Experiment Definition",
+        "editTitle": "Sửa Experiment Definition",
+        "cloneTitle": "Nhân bản Experiment Definition",
+        "step1": "Bước 1: Change Set",
+        "step2": "Bước 2: Dữ liệu chung",
+        "step3": "Bước 3: Objectives",
+        "step4": "Bước 4: Material Groups",
+        "step5": "Bước 5: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Dùng Automatic Change Set",
+        "approvalRole": "Vai trò phê duyệt",
+        "makeEffectiveOnApproval": "Hiệu lực khi phê duyệt",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "ownerRole": "Vai trò chủ sở hữu",
+        "purpose": "Mục đích",
+        "note": "Ghi chú",
+        "applicableTo": "Áp dụng cho",
+        "applicableProduct": "Product",
+        "applicableProductGroup": "Product Group",
+        "product": "Product",
+        "productGroup": "Product Group",
+        "flow": "Flow",
+        "maxMaterials": "Số Material tối đa",
+        "requiredMaterialType": "Loại Material yêu cầu",
+        "requiredMaterialForm": "Form Material yêu cầu",
+        "mode": "Chế độ",
+        "modeSubMaterials": "Sub-Materials",
+        "modeFullMaterial": "Full Material",
+        "plannedStartDate": "Ngày bắt đầu dự kiến",
+        "plannedEndDate": "Ngày kết thúc dự kiến",
+        "objectives": "Objectives",
+        "addObjective": "Thêm Objective",
+        "objectiveName": "Tên Objective",
+        "objectiveTarget": "Mục tiêu",
+        "remove": "Xóa",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Experiment Definition",
+        "message": "Kết thúc Experiment Definition \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Experiment Definition",
+        "unterminateMessage": "Hủy kết thúc Experiment Definition \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc",
+        "setEffectiveTitle": "Đặt version hiệu lực",
+        "setEffectiveMessage": "Đặt version của Experiment Definition \"{{name}}\" thành hiệu lực?",
+        "setEffective": "Đặt hiệu lực"
+      },
+      "actions": {
+        "setEffective": "Đặt hiệu lực"
+      }
+    },
+    "facility": {
+      "pageLabel": "Cơ sở",
+      "listTitle": "Cơ sở ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "site": "Site",
+        "state": "Trạng thái"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "areas": "Khu vực",
+        "shippingInformation": "Thông tin vận chuyển",
+        "attachments": "Tệp đính kèm",
+        "facility": "Cơ sở",
+        "information": "Thông tin",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "displayOrder": "Thứ tự hiển thị",
+        "defaultCalendar": "Lịch mặc định",
+        "site": "Site",
+        "remote": "Từ xa",
+        "terminateOnShipToThisFacility": "Kết thúc khi ship tới cơ sở này"
+      },
+      "dialog": {
+        "createTitle": "Tạo Facility",
+        "editTitle": "Sửa Facility",
+        "cloneTitle": "Nhân bản Facility",
+        "step1": "Bước 1: Dữ liệu chung",
+        "step2": "Bước 2: Thông tin",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "dataGroup": "Nhóm dữ liệu",
+        "displayOrder": "Thứ tự hiển thị",
+        "defaultCalendar": "Lịch mặc định",
+        "site": "Site",
+        "remote": "Remote",
+        "terminateOnShip": "Kết thúc khi gửi đến Facility này",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản",
+        "typeManufacturing": "Manufacturing",
+        "typeDistribution": "Distribution Center",
+        "typeWarehouse": "Warehouse"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Facility",
+        "message": "Kết thúc Facility \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Facility",
+        "unterminateMessage": "Hủy kết thúc Facility \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "manageShipping": {
+        "title": "Quản lý Facility nhận gửi",
+        "facilities": "Facilities",
+        "facilityDetails": "Chi tiết Facility",
+        "addFacility": "Thêm Facility",
+        "removeFacility": "Xóa Facility",
+        "facility": "Facility",
+        "description": "Mô tả",
+        "type": "Loại",
+        "isRemote": "Remote",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "manage": "Quản lý"
+      }
+    },
+    "inspectionPlan": {
+      "pageLabel": "Kế hoạch kiểm tra",
+      "listTitle": "Kế hoạch kiểm tra ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "compare": "So sánh"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "steps": "Bước",
+        "configurations": "Cấu hình",
+        "instances": "Phiên bản",
+        "attachments": "Tệp đính kèm",
+        "inspectionPlan": "Kế hoạch kiểm tra",
+        "defaultInspection": "Kiểm tra mặc định",
+        "inspectionSettings": "Cài đặt kiểm tra",
+        "futureHoldInformation": "Thông tin giữ tương lai",
+        "holdInformation": "Thông tin giữ",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "resultsRequiredBeforeTrackOut": "Yêu cầu kết quả trước Track-Out",
+        "enableMultipleSamples": "Bật nhiều mẫu",
+        "containsSeparateInspectionSteps": "Chứa các bước kiểm tra riêng",
+        "closeAutomaticallyOnPass": "Tự động đóng khi đạt",
+        "closeAutomaticallyOnFail": "Tự động đóng khi không đạt",
+        "openProtocolOnFail": "Mở giao thức khi không đạt",
+        "protocol": "Giao thức",
+        "futureHoldCreationMode": "Chế độ tạo giữ tương lai",
+        "setHoldOnFail": "Đặt giữ khi không đạt",
+        "step": "Bước",
+        "reason": "Lý do",
+        "releaseRole": "Vai trò phát hành",
+        "comment": "Bình luận",
+        "distributionList": "Danh sách phân phối"
+      },
+      "dialog": {
+        "createTitle": "Tạo Inspection Plan",
+        "editTitle": "Sửa Inspection Plan",
+        "cloneTitle": "Nhân bản Inspection Plan",
+        "step1": "Bước 1: Change Set",
+        "step2": "Bước 2: Dữ liệu chung",
+        "step3": "Bước 3: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Dùng Automatic Change Set",
+        "approvalRole": "Vai trò phê duyệt",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "resultsRequiredBeforeTrackOut": "Kết quả yêu cầu trước Track-Out",
+        "enableMultipleSamples": "Cho phép nhiều mẫu",
+        "containsSeparateInspectionSteps": "Chứa các Inspection Step riêng",
+        "closeAutomaticallyOnPass": "Tự đóng khi Pass",
+        "closeAutomaticallyOnFail": "Tự đóng khi Fail",
+        "futureHoldCreationMode": "Chế độ tạo Future Hold",
+        "futureHoldNone": "Không",
+        "futureHoldAlways": "Luôn luôn",
+        "futureHoldOnFail": "Khi Fail",
+        "addStep": "Thêm Step",
+        "remove": "Xóa",
+        "stepName": "Tên Step",
+        "isInProcessInspection": "Kiểm tra tại chỗ",
+        "inspectionFlow": "Inspection Flow",
+        "inspectionStep": "Inspection Step",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Inspection Plan",
+        "message": "Kết thúc Inspection Plan \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Inspection Plan",
+        "unterminateMessage": "Hủy kết thúc Inspection Plan \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "manageConfigurations": {
+        "title": "Quản lý Configurations",
+        "configurations": "Configurations",
+        "addConfiguration": "Thêm Configuration",
+        "removeConfiguration": "Xóa Configuration",
+        "configurationName": "Tên Configuration",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "manage": "Quản lý"
+      },
+      "manageSteps": {
+        "title": "Quản lý Inspection Plan Steps",
+        "steps": "Steps",
+        "addStep": "Thêm Step",
+        "removeStep": "Xóa Step",
+        "stepName": "Tên Step",
+        "isInProcessInspection": "Kiểm tra tại chỗ",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "manage": "Quản lý"
+      }
+    },
+    "employee": {
+      "pageLabel": "Nhân viên",
+      "listTitle": "Nhân viên ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "user": "Người dùng",
+        "number": "Số",
+        "team": "Đội",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "calendar": "Lịch"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "subordinates": "Cấp dưới",
+        "delegates": "Đại diện",
+        "certifications": "Chứng chỉ",
+        "qualifications": "Chứng nhận",
+        "timeSheetEntries": "Mục chấm công",
+        "checkInInformation": "Thông tin Check-In",
+        "attachments": "Tệp đính kèm",
+        "employee": "Nhân viên",
+        "clockInOut": "Clock-In và Clock-Out",
+        "information": "Thông tin",
+        "costing": "Chi phí",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "dataGroup": "Nhóm dữ liệu",
+        "requireClockIn": "Yêu cầu Clock-In",
+        "enableAutomaticClockIn": "Bật tự động Clock-In",
+        "lastClockInDate": "Ngày Clock-In cuối",
+        "clockedState": "Trạng thái Clocked",
+        "automaticClockOutAtEndOfShift": "Tự động Clock-Out khi hết ca",
+        "user": "Người dùng",
+        "number": "Số",
+        "area": "Khu vực",
+        "calendar": "Lịch",
+        "team": "Đội",
+        "manager": "Quản lý",
+        "position": "Vị trí",
+        "workgroup": "Nhóm làm việc",
+        "shiftplan": "Kế hoạch ca",
+        "costCenter": "Trung tâm chi phí",
+        "costPerHour": "Chi phí mỗi giờ"
+      },
+      "dialog": {
+        "createTitle": "Tạo Employee",
+        "editTitle": "Sửa Employee",
+        "cloneTitle": "Nhân bản Employee",
+        "step1": "Bước 1: Chọn hoặc Tạo User",
+        "step2": "Bước 2: User",
+        "step3": "Bước 3: Dữ liệu chung",
+        "user": "User",
+        "userAccount": "Tài khoản",
+        "userName": "Tên",
+        "userEmail": "Email",
+        "primaryRole": "Vai trò chính",
+        "createUser": "Tạo User",
+        "selectUser": "Chọn User",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "employeeNumber": "Mã nhân viên",
+        "area": "Area",
+        "calendar": "Lịch",
+        "costPerHour": "Chi phí mỗi giờ",
+        "costCenter": "Cost Center",
+        "requireClockIn": "Yêu cầu Clock-In",
+        "automaticClockIn": "Tự động Clock-In",
+        "automaticClockOutAtEndOfShift": "Tự động Clock-Out cuối ca",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản",
+        "remove": "Xóa"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Employee",
+        "message": "Kết thúc Employee \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Employee",
+        "unterminateMessage": "Hủy kết thúc Employee \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "certifications": {
+        "manageTitle": "Quản lý Certification của Employee",
+        "grantTitle": "Cấp Certification cho Employee",
+        "revokeTitle": "Thu hồi Certification của Employee",
+        "revokeMessage": "Thu hồi Certification \"{{certification}}\" của Employee \"{{name}}\"?",
+        "assignTitle": "Gán Certification cho Employee",
+        "unassignTitle": "Hủy gán Certification của Employee",
+        "unassignMessage": "Hủy gán Certification \"{{certification}}\" của Employee \"{{name}}\"?",
+        "certification": "Certification",
+        "plannedDate": "Ngày dự kiến",
+        "certificationDate": "Ngày chứng nhận",
+        "isTrainer": "Là Trainer",
+        "isTrainee": "Là Trainee",
+        "comment": "Bình luận",
+        "remark": "Ghi chú",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "grant": "Cấp",
+        "revoke": "Thu hồi",
+        "assign": "Gán",
+        "unassign": "Hủy gán",
+        "manage": "Quản lý"
+      },
+      "qualifications": {
+        "manageTitle": "Quản lý Qualification của Employee",
+        "assignTitle": "Gán Qualification cho Employee",
+        "unassignTitle": "Hủy gán Qualification của Employee",
+        "unassignMessage": "Hủy gán Qualification \"{{qualification}}\" của Employee \"{{name}}\"?",
+        "qualification": "Qualification",
+        "qualificationDate": "Ngày đạt",
+        "validTo": "Hiệu lực đến",
+        "reason": "Lý do",
+        "proficiency": "Mức độ thành thạo",
+        "remarks": "Ghi chú",
+        "comment": "Bình luận",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "assign": "Gán",
+        "unassign": "Hủy gán",
+        "manage": "Quản lý"
+      },
+      "attendance": {
+        "checkInTitle": "Check-In Employee",
+        "checkOutTitle": "Check-Out Employee",
+        "clockInTitle": "Clock-In Employee",
+        "clockOutTitle": "Clock-Out Employee",
+        "assignSubordinatesTitle": "Gán Subordinate(s) cho Employee",
+        "unassignSubordinatesTitle": "Hủy gán Subordinate(s) của Employee",
+        "assignTeamTitle": "Gán Team và Workgroup",
+        "resource": "Resource",
+        "certification": "Certification",
+        "subordinates": "Subordinates",
+        "team": "Team",
+        "workgroup": "Workgroup",
+        "area": "Area",
+        "comment": "Bình luận",
+        "reason": "Lý do",
+        "cancel": "Hủy",
+        "checkIn": "Check-In",
+        "checkOut": "Check-Out",
+        "clockIn": "Clock-In",
+        "clockOut": "Clock-Out",
+        "assign": "Gán",
+        "unassign": "Hủy gán",
+        "save": "Lưu"
+      },
+      "delegates": {
+        "manageDelegatesTitle": "Quản lý Delegates của Employee",
+        "manageTraineesTitle": "Quản lý Trainees của Employee",
+        "delegates": "Delegates",
+        "trainees": "Trainees",
+        "delegateEmployee": "Employee đại diện",
+        "validFrom": "Hiệu lực từ",
+        "validTo": "Hiệu lực đến",
+        "addDelegate": "Thêm Delegate",
+        "removeDelegate": "Xóa Delegate",
+        "addTrainee": "Thêm Trainee",
+        "removeTrainee": "Xóa Trainee",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "checkOut": "Check-Out",
+        "manage": "Quản lý"
+      },
+      "calendarDays": {
+        "setNonWorkingTimeTitle": "Đặt thời gian nghỉ của Employee",
+        "setWorkAvailabilityTitle": "Đặt khả năng làm việc của Employee",
+        "removeNonWorkingTimesTitle": "Xóa thời gian nghỉ của Employee",
+        "removeWorkAvailabilityTitle": "Xóa khả năng làm việc của Employee",
+        "removeNonWorkingTimesMessage": "Xóa tất cả thời gian nghỉ của Employee \"{{name}}\"?",
+        "removeWorkAvailabilityMessage": "Xóa khả năng làm việc của Employee \"{{name}}\"?",
+        "description": "Mô tả",
+        "nonWorkingTimeType": "Loại thời gian nghỉ",
+        "startTime": "Giờ bắt đầu",
+        "endTime": "Giờ kết thúc",
+        "comment": "Bình luận",
+        "cancel": "Hủy",
+        "set": "Đặt",
+        "remove": "Xóa",
+        "manage": "Quản lý"
+      }
+    },
+    "maintenanceActivityOrder": {
+      "pageLabel": "Lệnh hoạt động bảo trì",
+      "listTitle": "Lệnh hoạt động bảo trì ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "executionState": "Trạng thái thực hiện",
+        "scheduleType": "Loại lịch",
+        "state": "Trạng thái"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "parts": "Linh kiện",
+        "labor": "Nhân công",
+        "personnel": "Nhân sự",
+        "transferRequirements": "Yêu cầu chuyển",
+        "documents": "Tài liệu",
+        "pastMaos": "MAO cũ",
+        "joinedMaos": "MAO đã gộp",
+        "attachments": "Tệp đính kèm",
+        "order": "Lệnh hoạt động bảo trì",
+        "scheduling": "Lập lịch",
+        "requestInformation": "Thông tin yêu cầu",
+        "definition": "Định nghĩa",
+        "execution": "Thực hiện",
+        "information": "Thông tin",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "scheduleDate": "Ngày lập lịch",
+        "requestedBy": "Người yêu cầu",
+        "requestDate": "Ngày yêu cầu",
+        "comment": "Bình luận",
+        "maintenancePlanInstance": "Phiên bản kế hoạch bảo trì",
+        "resource": "Tài nguyên",
+        "ownerRole": "Vai trò chủ sở hữu",
+        "maintenanceActivity": "Hoạt động bảo trì",
+        "role": "Vai trò",
+        "beginDate": "Ngày bắt đầu",
+        "endDate": "Ngày kết thúc",
+        "scheduleType": "Loại lịch",
+        "expectedDuration": "Thời lượng dự kiến",
+        "executionState": "Trạng thái thực hiện",
+        "reworkCount": "Số lần làm lại",
+        "requestApprovalMode": "Chế độ phê duyệt yêu cầu",
+        "maintenanceType": "Loại bảo trì",
+        "materialTypeRestrictionMode": "Chế độ giới hạn loại vật liệu",
+        "materialType": "Loại vật liệu",
+        "orderReleaseMode": "Chế độ phát hành lệnh",
+        "completionAcceptanceMode": "Chế độ chấp nhận hoàn thành",
+        "beginAndCompleteMode": "Chế độ bắt đầu và hoàn thành",
+        "cost": "Chi phí"
+      },
+      "dialog": {
+        "editTitle": "Sửa Maintenance Activity Order",
+        "description": "Mô tả",
+        "dataGroup": "Nhóm dữ liệu",
+        "cancel": "Hủy",
+        "save": "Lưu"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Maintenance Activity Order",
+        "message": "Kết thúc Maintenance Activity Order \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Maintenance Activity Order",
+        "unterminateMessage": "Hủy kết thúc Maintenance Activity Order \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "request": {
+        "title": "Yêu cầu Maintenance Activity Order",
+        "step1": "Bước 1: Entity",
+        "step2": "Bước 2: Maintenance Activity Order",
+        "entityType": "Loại Entity",
+        "entity": "Entity",
+        "scheduleDate": "Ngày lên lịch",
+        "comment": "Bình luận",
+        "cancel": "Hủy",
+        "request": "Yêu cầu",
+        "back": "Quay lại",
+        "next": "Tiếp"
+      },
+      "changeState": {
+        "title": "{{action}} Maintenance Activity Order",
+        "message": "{{action}} Maintenance Activity Order \"{{name}}\"?",
+        "comment": "Bình luận",
+        "cancel": "Hủy",
+        "confirm": "Xác nhận",
+        "approve": "Phê duyệt",
+        "release": "Phát hành",
+        "begin": "Bắt đầu",
+        "complete": "Hoàn thành",
+        "accept": "Chấp nhận",
+        "reject": "Từ chối",
+        "cancelAction": "Hủy",
+        "skip": "Bỏ qua",
+        "abort": "Hủy bỏ",
+        "rework": "Làm lại"
+      }
+    },
+    "maintenancePlan": {
+      "pageLabel": "Kế hoạch bảo trì",
+      "listTitle": "Kế hoạch bảo trì ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "scope": "Phạm vi",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "maintenanceActivities": "Hoạt động bảo trì",
+        "compare": "So sánh"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "instances": "Phiên bản",
+        "attachments": "Tệp đính kèm",
+        "maintenancePlan": "Kế hoạch bảo trì",
+        "activities": "Hoạt động",
+        "generalData": "Dữ liệu chung",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "scope": "Phạm vi",
+        "dataGroup": "Nhóm dữ liệu",
+        "scheduleType": "Loại lịch",
+        "expectedDurationHours": "Thời lượng dự kiến (giờ)",
+        "executionRole": "Vai trò thực hiện",
+        "requestApprovalMode": "Chế độ phê duyệt yêu cầu",
+        "maintenanceType": "Loại bảo trì",
+        "materialTypeRestrictionMode": "Chế độ giới hạn loại vật liệu",
+        "orderReleaseMode": "Chế độ phát hành lệnh",
+        "acceptanceMode": "Chế độ chấp nhận",
+        "ignoreInScheduling": "Bỏ qua trong lập lịch",
+        "autoDisableAfterLateDue": "Tự động vô hiệu khi quá hạn",
+        "postMaintenanceActivity": "Hoạt động bảo trì tiếp theo"
+      },
+      "dialog": {
+        "createTitle": "Tạo Maintenance Plan",
+        "editTitle": "Sửa Maintenance Plan",
+        "cloneTitle": "Nhân bản Maintenance Plan",
+        "step1": "Bước 1: Change Set",
+        "step2": "Bước 2: Dữ liệu chung",
+        "step3": "Bước 3: Maintenance Activities",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Dùng Automatic Change Set",
+        "approvalRole": "Vai trò phê duyệt",
+        "makeEffectiveOnApproval": "Hiệu lực khi phê duyệt",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "scope": "Phạm vi",
+        "scopeMaintenanceManagement": "Maintenance Management",
+        "scopeInProcessVerification": "In-Process Verification",
+        "scopeQualification": "Qualification",
+        "addActivity": "Thêm Activity",
+        "remove": "Xóa",
+        "activityName": "Tên Activity",
+        "scheduleType": "Loại lịch",
+        "scheduleAdHoc": "Ad hoc",
+        "scheduleTimeBased": "Time Based",
+        "scheduleUsageBased": "Usage Based",
+        "scheduleUsageAndTimeBased": "Usage And Time Based",
+        "expectedDuration": "Thời gian dự kiến (giờ)",
+        "executionRole": "Vai trò thực hiện",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Maintenance Plan",
+        "message": "Kết thúc Maintenance Plan \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Maintenance Plan",
+        "unterminateMessage": "Hủy kết thúc Maintenance Plan \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc",
+        "setEffectiveTitle": "Đặt Maintenance Plan hiệu lực",
+        "setEffectiveMessage": "Đặt Maintenance Plan \"{{name}}\" thành hiệu lực?",
+        "setEffective": "Đặt hiệu lực"
+      },
+      "associate": {
+        "title": "Liên kết Maintenance Plan",
+        "entityType": "Loại Entity",
+        "entity": "Entity",
+        "area": "Area",
+        "container": "Container",
+        "material": "Material",
+        "resource": "Resource",
+        "cancel": "Hủy",
+        "associate": "Liên kết"
+      }
+    },
+    "material": {
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "primaryQuantity": "Số lượng chính",
+        "product": "Sản phẩm",
+        "state": "Trạng thái",
+        "step": "Công đoạn",
+        "type": "Loại"
+      },
+      "detailsView": "Chế độ xem chi tiết",
+      "emptyTab": "Không có dữ liệu.",
+      "fields": {
+        "approved": "Đã duyệt",
+        "container": "Container",
+        "description": "Mô tả",
+        "facility": "Nhà máy",
+        "flow": "Luồng",
+        "flowPath": "Đường luồng",
+        "form": "Dạng",
+        "name": "Tên",
+        "primaryQuantity": "Số lượng chính",
+        "product": "Sản phẩm",
+        "productDescription": "Mô tả sản phẩm",
+        "resource": "Tài nguyên",
+        "secondaryQuantity": "Số lượng phụ",
+        "step": "Công đoạn",
+        "subMaterialCount": "Vật liệu con",
+        "systemState": "Trạng thái hệ thống",
+        "type": "Loại",
+        "universalState": "Trạng thái chung"
+      },
+      "listTitle": "Vật liệu ({{count}})",
+      "pageLabel": "Vật liệu",
+      "sections": {
+        "basicInformation": "Thông tin cơ bản",
+        "flowAndStep": "Luồng và công đoạn",
+        "material": "Vật liệu",
+        "quantities": "Số lượng",
+        "resourceAndContainer": "Tài nguyên và Container",
+        "subMaterials": "Vật liệu con"
+      },
+      "sideSections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "carriers": "Giá đỡ",
+        "characteristics": "Đặc tính",
+        "collectedData": "Dữ liệu thu thập",
+        "costing": "Chi phí",
+        "defects": "Khuyết tật",
+        "dependencies": "Phụ thuộc",
+        "details": "Chi tiết",
+        "experiments": "Thử nghiệm",
+        "futureActions": "Hành động tương lai",
+        "holds": "Giữ/Chệch luồng/Làm lại",
+        "maps": "Bản đồ",
+        "notifications": "Thông báo",
+        "packages": "Kiện hàng",
+        "protocols": "Giao thức",
+        "scheduling": "Lập lịch",
+        "subMaterials": "Vật liệu con",
+        "timeConstraints": "Ràng buộc thời gian",
+        "transferRequirements": "Yêu cầu chuyển"
+      },
+      "tabs": {
+        "details": "Details",
+        "traceability": "Traceability",
+        "container": "Container",
+        "defects": "Defects",
+        "genealogy": "Genealogy",
+        "history": "History",
+        "compare": "Compare"
+      },
+      "traceability": {
+        "details": "Chi tiết",
+        "filters": {
+          "bom": "BOM",
+          "checklist": "Danh mục kiểm tra",
+          "dataCollection": "Thu thập dữ liệu",
+          "maintenancePlan": "Kế hoạch bảo trì",
+          "recipe": "Công thức",
+          "resource": "Tài nguyên"
+        },
+        "flowStructure": "Cấu trúc luồng",
+        "information": "Thông tin"
+      },
+      "common": {
+        "yes": "Có",
+        "no": "Không"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Material",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "edit": {
+          "title": "Edit Material",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Material cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Material",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Material",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Material",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "dispatch": {
+          "title": "Dispatch Material",
+          "cancel": "Cancel",
+          "submit": "Dispatch",
+          "description": "Dispatch the Material."
+        },
+        "undispatch": {
+          "title": "Undispatch Material",
+          "cancel": "Cancel",
+          "submit": "Undispatch",
+          "description": "Undispatch the Material."
+        },
+        "trackIn": {
+          "title": "Track-In Material",
+          "cancel": "Cancel",
+          "submit": "Track-In",
+          "description": "Track-In the Material."
+        },
+        "trackOut": {
+          "title": "Track-Out Material",
+          "cancel": "Cancel",
+          "submit": "Track-Out",
+          "description": "Track-Out the Material."
+        },
+        "moveNext": {
+          "title": "Material Move-Next",
+          "cancel": "Cancel",
+          "submit": "Move Next",
+          "description": "Move the Material to the next Step."
+        },
+        "abort": {
+          "title": "Abort Material",
+          "cancel": "Cancel",
+          "submit": "Abort",
+          "description": "Abort the Material processing."
+        },
+        "ship": {
+          "title": "Ship Material",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "description": "Ship the Material."
+        },
+        "receive": {
+          "title": "Receive Material",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "description": "Receive the Material."
+        },
+        "unship": {
+          "title": "Unship Material",
+          "cancel": "Cancel",
+          "submit": "Unship",
+          "description": "Unship the Material."
+        },
+        "hold": {
+          "title": "Hold Material",
+          "cancel": "Cancel",
+          "submit": "Hold",
+          "description": "Hold the Material."
+        },
+        "split": {
+          "title": "Split Material",
+          "cancel": "Cancel",
+          "submit": "Split",
+          "description": "Split the Material."
+        },
+        "merge": {
+          "title": "Merge Material",
+          "cancel": "Cancel",
+          "submit": "Merge",
+          "description": "Merge the Material."
+        },
+        "combine": {
+          "title": "Combine Material",
+          "cancel": "Cancel",
+          "submit": "Combine",
+          "description": "Combine the Material."
+        },
+        "attach": {
+          "title": "Attach Material",
+          "cancel": "Cancel",
+          "submit": "Attach",
+          "description": "Attach Material as Sub-Material."
+        },
+        "detach": {
+          "title": "Detach Material",
+          "cancel": "Cancel",
+          "submit": "Detach",
+          "description": "Detach Sub-Material."
+        },
+        "grade": {
+          "title": "Grade Material",
+          "cancel": "Cancel",
+          "submit": "Grade",
+          "description": "Grade the Material."
+        },
+        "rework": {
+          "title": "Rework Material",
+          "cancel": "Cancel",
+          "submit": "Rework",
+          "description": "Rework the Material."
+        },
+        "changeProduct": {
+          "title": "Change Material Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Product of the Material."
+        },
+        "changeQuantity": {
+          "title": "Change Material Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Quantity of the Material."
+        },
+        "changeFlowStep": {
+          "title": "Change Material Flow/Step",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Flow/Step of the Material."
+        },
+        "viewReports": {
+          "title": "View Material Reports",
+          "close": "Close",
+          "description": "View Material Reports: Material Cost History Report, Material Future Flow Report."
+        },
+        "viewDocuments": {
+          "title": "View Material Documents",
+          "close": "Close",
+          "description": "View documents attached to the Material."
+        }
+      },
+      "left": {
+        "details": "Details",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "materialTransfer": {
+      "pageLabel": "Chuyển kho vật liệu",
+      "listTitle": "Chuyển kho ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "material": "Vật liệu",
+        "quantity": "Số lượng",
+        "fromFacility": "Từ nhà máy",
+        "toFacility": "Đến nhà máy"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "type": "Loại",
+          "state": "Trạng thái",
+          "material": "Vật liệu",
+          "quantity": "Số lượng",
+          "fromFacility": "Từ nhà máy",
+          "toFacility": "Đến nhà máy",
+          "requester": "Người yêu cầu",
+          "urgency": "Mức khẩn"
+        }
+      },
+      "actions": {
+        "approve": "Duyệt",
+        "cancel": "Hủy",
+        "deliver": "Giao",
+        "prepare": "Chuẩn bị",
+        "receive": "Nhận",
+        "refuse": "Từ chối",
+        "reject": "Bác bỏ",
+        "send": "Gửi"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "approve": {
+          "title": "Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "cancel": {
+          "title": "Cancel Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "changeInfo": {
+          "title": "Change Material Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "deliver": {
+          "title": "Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "prepare": {
+          "title": "Prepare Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Prepare",
+          "confirmText": "Select Prepare to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "receive": {
+          "title": "Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "refuse": {
+          "title": "Refuse Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Refuse",
+          "confirmText": "Select Refuse to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "reject": {
+          "title": "Reject Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Reject",
+          "confirmText": "Select Reject to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "request": {
+          "title": "Request for Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "requestForMAO": {
+          "title": "Request for Material Transfer for a Maintenance Activity Order",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Part for a Maintenance Activity Order."
+        },
+        "requestForCostCenter": {
+          "title": "Request for Material Transfer for Cost Center",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Material for a Cost Center."
+        },
+        "returnInventory": {
+          "title": "Return Inventory",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Inventory to the Warehouse."
+        },
+        "returnMaterial": {
+          "title": "Return Material",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Material to the Warehouse."
+        },
+        "send": {
+          "title": "Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialApprove": {
+          "title": "Special Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialDeliver": {
+          "title": "Special Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialReceive": {
+          "title": "Special Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialRequest": {
+          "title": "Special Request for Material",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Special request for Material."
+        },
+        "specialSend": {
+          "title": "Special Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "notification": {
+      "pageLabel": "Thông báo",
+      "listTitle": "Thông báo ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "severity": "Mức độ",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "validTo": "Hiệu lực đến"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "severity": "Mức độ",
+          "type": "Loại",
+          "state": "Trạng thái",
+          "validTo": "Hiệu lực đến",
+          "tracking": "Theo dõi"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Notification",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "type": "Type",
+            "title": "Title",
+            "details": "Details",
+            "severity": "Severity",
+            "assignment": "Assignment",
+            "sendEmail": "Send email",
+            "visibility": "Visibility Filter",
+            "clearance": "Clearance Mode",
+            "validTo": "Valid To"
+          },
+          "hints": {
+            "name": "Can be left empty if a Name Generator is configured.",
+            "type": "The list of possible values is taken from the NotificationType lookup table.",
+            "title": "Hyperlinks: [Entity Type Entity Name] for unversioned, [Entity Type Revision Name] for versioned.",
+            "visibility": "Filter Notifications displayed in the Notifications window according to the user's Employee Workgroup.",
+            "validTo": "Mandatory for ManualEveryUser and Automatic, optional for ManualSingleUser."
+          },
+          "placeholders": {
+            "validTo": "MM/DD/YYYY"
+          }
+        },
+        "edit": {
+          "title": "Edit Notification",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "title": "Title",
+            "severity": "Severity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Notification cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Notification",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Notification",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "clear": {
+          "title": "Clear Notification",
+          "cancel": "Cancel",
+          "submit": "Clear",
+          "confirmText": "Clear this Notification? This will close the alarm for the current user."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "clearHistory": "Clear History Information",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
+      }
+    },
+    "package": {
+      "pageLabel": "Kiện hàng",
+      "listTitle": "Kiện hàng ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "product": "Sản phẩm",
+        "level": "Cấp",
+        "state": "Trạng thái",
+        "packedQuantity": "Số lượng đóng gói"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "product": "Sản phẩm",
+          "level": "Cấp",
+          "state": "Trạng thái",
+          "packedQuantity": "Số lượng đóng gói",
+          "contentType": "Loại nội dung"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "terminate": {
+          "title": "Terminate Package",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Package",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "ship": {
+          "title": "Ship Packages",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "fields": {
+            "facility": "Facility",
+            "shippingLabel": "Shipping Label",
+            "shipContainers": "Ship Containers",
+            "comment": "Comment"
+          },
+          "hints": {
+            "facility": "Select the Facility to which the Material should be shipped.",
+            "shippingLabel": "Optionally, enter or select an existing shipping label.",
+            "shipContainers": "Ship the Containers along with the Material (applies to all Containers of the Sub-Materials as well)."
+          }
+        },
+        "report": {
+          "title": "Package Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Package.",
+          "fields": {
+            "level1": "Fields for Level 1",
+            "level2": "Fields for Level 2"
+          },
+          "level1Fields": "Package Qty/ID, Content Product, Content Product Description, Material, Packed Qty",
+          "level2Fields": "Package, Package Qty, Content Product, Content Product Description"
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "contents": "Contents",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "parameter": {
+      "pageLabel": "Tham số",
+      "listTitle": "Tham số ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "dataType": "Kiểu dữ liệu",
+        "value": "Giá trị",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "dataType": "Kiểu dữ liệu",
+          "value": "Giá trị",
+          "state": "Trạng thái"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Parameter",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "generalData": "General Data",
+            "information": "Information"
+          },
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "displayName": "Display Name",
+            "scope": "Scope",
+            "dataType": "Data Type",
+            "units": "Units"
+          },
+          "hints": {
+            "type": "The list of possible values is taken from the lookup table ParameterType.",
+            "displayName": "The display name if present will be displayed in the data collection screens.",
+            "dataType": "If scope is KPI, the data type must be numeric."
+          }
+        },
+        "edit": {
+          "title": "Edit Parameter",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Parameter cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Parameter",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
+      }
+    },
+    "product": {
+      "pageLabel": "Sản phẩm",
+      "listTitle": "Sản phẩm ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "productType": "Loại sản phẩm",
+        "state": "Trạng thái",
+        "isActive": "Đang hoạt động"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "productType": "Loại sản phẩm",
+          "state": "Trạng thái",
+          "isActive": "Đang hoạt động"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Product",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "You must associate the Product Version to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Product",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Product",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "createBOM": {
+          "title": "Create BOM For Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Create a Bill-Of-Materials for the Product."
+        },
+        "importInfo": {
+          "title": "Import Product Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Import Product information from an external source."
+        },
+        "manageBinningTree": {
+          "title": "Manage Binning Tree",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Binning Tree for the Product."
+        },
+        "manageCharacteristics": {
+          "title": "Manage Characteristics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Characteristics for the Product."
+        },
+        "manageCosts": {
+          "title": "Manage Costs",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Costs for the Product."
+        },
+        "manageLogistics": {
+          "title": "Manage Material Logistics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Material Logistics for the Product."
+        },
+        "manageParameters": {
+          "title": "Manage Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Parameters for the Product."
+        },
+        "managePlanning": {
+          "title": "Manage Planning",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Planning settings for the Product."
+        },
+        "manageComponentInfo": {
+          "title": "Manage Product Component Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Component Information for the Product."
+        },
+        "manageManufacturers": {
+          "title": "Manage Product Manufacturers",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Manufacturers for the Product."
+        },
+        "manageRepairPolicy": {
+          "title": "Manage Repair Policy",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Repair Policy for the Product."
+        },
+        "manageRules": {
+          "title": "Manage Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Rules for the Product."
+        },
+        "manageSafetyInfo": {
+          "title": "Manage Safety Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Safety Information for the Product."
+        },
+        "manageScheduling": {
+          "title": "Manage Scheduling",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Scheduling settings for the Product."
+        },
+        "manageSubProducts": {
+          "title": "Manage Sub-Products",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Sub-Products for the Product."
+        },
+        "manageTransferInfo": {
+          "title": "Manage Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Transfer Information for the Product."
+        },
+        "manageUnitConversion": {
+          "title": "Manage Unit Conversion Factors",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Unit Conversion Factors for the Product."
+        },
+        "previewRules": {
+          "title": "Preview Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Preview the Rules for the Product."
+        },
+        "viewReports": {
+          "title": "View Product Reports",
+          "close": "Close",
+          "description": "View Product Reports: Product Standard Cost Report, Product Standard Flow Report."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "attachments": "Attachments"
+      }
+    },
+    "productionOrder": {
+      "pageLabel": "Lệnh sản xuất",
+      "listTitle": "Lệnh sản xuất ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "product": "Sản phẩm",
+        "quantity": "Số lượng",
+        "state": "Trạng thái",
+        "priority": "Ưu tiên"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "product": "Sản phẩm",
+          "quantity": "Số lượng",
+          "state": "Trạng thái",
+          "priority": "Ưu tiên"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "edit": {
+          "title": "Edit Production Order",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Production Order cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Production Order",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "release": {
+          "title": "Release Production Order",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to perform the operation."
+        },
+        "unrelease": {
+          "title": "Unrelease Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrelease",
+          "confirmText": "Select Unrelease to perform the operation."
+        },
+        "start": {
+          "title": "Start Production Order",
+          "cancel": "Cancel",
+          "submit": "Start",
+          "confirmText": "Select Start to perform the operation."
+        },
+        "cancel": {
+          "title": "Cancel Production Order",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation."
+        },
+        "close": {
+          "title": "Close Production Order",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "confirmText": "Select Close to perform the operation."
+        },
+        "reopen": {
+          "title": "Reopen Production Order",
+          "cancel": "Cancel",
+          "submit": "Reopen",
+          "confirmText": "Select Reopen to perform the operation."
+        },
+        "restrict": {
+          "title": "Restrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Restrict",
+          "confirmText": "Select Restrict to perform the operation."
+        },
+        "unrestrict": {
+          "title": "Unrestrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrestrict",
+          "confirmText": "Select Unrestrict to perform the operation."
+        },
+        "assignMaterials": {
+          "title": "Assign Materials To Production Order",
+          "cancel": "Cancel",
+          "submit": "Assign",
+          "description": "Assign Materials to the Production Order."
+        },
+        "reassignMaterials": {
+          "title": "Reassign Production Order Materials",
+          "cancel": "Cancel",
+          "submit": "Reassign",
+          "description": "Reassign Materials to another Production Order."
+        },
+        "createMaterial": {
+          "title": "Create Material For Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "description": "Create Materials for the Production Order."
+        },
+        "changeProductQuantity": {
+          "title": "Change Product and Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "manageSteps": {
+          "title": "Manage Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Production Order Steps."
+        },
+        "synchronizeSteps": {
+          "title": "Synchronize Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "description": "Synchronize the Production Order Steps."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "steps": "Steps",
+        "attachments": "Attachments"
+      }
+    },
+    "protocol": {
+      "pageLabel": "Quy trình",
+      "listTitle": "Quy trình ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "version": "Phiên bản"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "type": "Loại",
+          "state": "Trạng thái",
+          "version": "Phiên bản"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Protocol",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Protocol Version with a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Protocol",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Protocol cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Protocol",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "exceptionRules": {
+          "title": "Exception Management Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Exception Management Rules for the Protocol."
+        },
+        "openInstance": {
+          "title": "Open Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Open",
+          "description": "Open a Protocol Instance."
+        },
+        "closeInstance": {
+          "title": "Close Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "description": "Close the Protocol Instance."
+        },
+        "performInstance": {
+          "title": "Perform Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Perform",
+          "description": "Perform the Protocol Instance."
+        },
+        "takeInstanceOwnership": {
+          "title": "Take Protocol Instance Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "description": "Take ownership of the Protocol Instance."
+        },
+        "terminateInstance": {
+          "title": "Terminate Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Terminate the Protocol Instance."
+        },
+        "changeInstanceState": {
+          "title": "Change Protocol Instance State",
+          "cancel": "Cancel",
+          "submit": "Change",
+          "description": "Change the state of the Protocol Instance."
+        },
+        "manageInstanceMaterials": {
+          "title": "Manage Protocol Instance Materials",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Materials associated with the Protocol Instance."
+        },
+        "viewInstanceReports": {
+          "title": "View Protocol Instance Reports",
+          "close": "Close",
+          "description": "View reports for the Protocol Instance."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "instances": "Instances",
+        "attachments": "Attachments"
+      }
+    },
+    "periodicInventory": {
+      "pageLabel": "Kiểm kê định kỳ",
+      "listTitle": "Kiểm kê ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "facility": "Nhà máy",
+        "state": "Trạng thái",
+        "scheduledOn": "Ngày lên lịch"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "facility": "Nhà máy",
+          "state": "Trạng thái",
+          "scheduledOn": "Ngày lên lịch"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Periodic Inventory cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Periodic Inventory",
+          "confirmText": "Select Terminate to perform the operation.",
+          "submit": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Periodic Inventory",
+          "confirmText": "Select Unterminate to perform the operation.",
+          "submit": "Unterminate"
+        },
+        "begin": {
+          "title": "Begin Periodic Inventory",
+          "confirmText": "Select Begin to perform the operation.",
+          "submit": "Begin"
+        },
+        "cancel": {
+          "title": "Cancel Periodic Inventory",
+          "confirmText": "Select Cancel to perform the operation.",
+          "submit": "Cancel"
+        },
+        "complete": {
+          "title": "Complete Periodic Inventory",
+          "confirmText": "Select Complete to perform the operation.",
+          "submit": "Complete"
+        },
+        "perform": {
+          "title": "Perform Periodic Inventory",
+          "confirmText": "Select Perform to perform the operation.",
+          "submit": "Perform"
+        },
+        "takeOwnership": {
+          "title": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation.",
+          "submit": "Take Ownership"
+        },
+        "viewReport": {
+          "title": "Periodic Inventory Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Periodic Inventory."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "resources": "Resources",
+        "materials": "Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "pickList": {
+      "pageLabel": "Phiếu lấy hàng",
+      "listTitle": "Phiếu lấy hàng ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái",
+        "itemCount": "Số mục",
+        "createdOn": "Ngày tạo"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "state": "Trạng thái",
+          "itemCount": "Số mục",
+          "createdOn": "Ngày tạo"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "edit": {
+          "title": "Edit Pick List",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Pick List cannot be altered."
+          }
+        },
+        "manageItems": {
+          "title": "Manage Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Edit the items of the Pick List. The Material defined for each item can be replaced by another Material, provided that the released quantity is not yet fulfilled.",
+          "columns": {
+            "material": "Material",
+            "quantity": "Quantity",
+            "picked": "Picked"
+          },
+          "empty": "No items to display.",
+          "warning": "The Quantity value to pick for every Pick List Item must be bigger than zero."
+        },
+        "pick": {
+          "title": "Pick Pick List",
+          "cancel": "Cancel",
+          "submit": "Pick",
+          "description": "Select or scan each of the items in the list and mark them as picked. Picking is a long running operation, so items can be picked separately.",
+          "columns": {
+            "item": "Item",
+            "status": "Status"
+          },
+          "empty": "No items to display."
+        },
+        "takeOwnership": {
+          "title": "Take Pick List Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation."
+        },
+        "unpick": {
+          "title": "Unpick Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Unpick",
+          "confirmText": "Select Unpick to perform the operation."
+        },
+        "viewReport": {
+          "title": "Pick List Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Pick List."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "attachments": "Attachments"
+      }
+    },
+    "plan": {
+      "pageLabel": "Kế hoạch",
+      "listTitle": "Kế hoạch ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "startDate": "Ngày bắt đầu"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "type": "Loại",
+          "state": "Trạng thái",
+          "startDate": "Ngày bắt đầu"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Plan",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Plan",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Plan cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Plan",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Plan",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "adjustTargets": {
+          "title": "Adjust Plan Targets",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Adjust the target quantities for Plan Items and Time Frames.",
+          "columns": {
+            "item": "Item",
+            "timeFrame": "Time Frame",
+            "target": "Target"
+          },
+          "empty": "No items to display."
+        },
+        "manageItems": {
+          "title": "Manage Plan Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the items that will be included in the Plan.",
+          "columns": {
+            "item": "Item",
+            "product": "Product"
+          },
+          "empty": "No items to display."
+        },
+        "manageSteps": {
+          "title": "Manage Plan Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Steps where the volumes are counted toward the planned volume.",
+          "columns": {
+            "step": "Step"
+          },
+          "empty": "No steps to display."
+        },
+        "manageExcludedTypes": {
+          "title": "Manage Plan Excluded Material Types",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Material Types excluded from the Plan."
+        },
+        "createScenario": {
+          "title": "Create Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name"
+          }
+        },
+        "releaseScenario": {
+          "title": "Release Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to update the Effective Plan with the Scenario."
+        },
+        "synchronizeScenario": {
+          "title": "Synchronize Scenario with Parent Plan",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "confirmText": "Select Synchronize to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "steps": "Steps",
+        "timeFrames": "Time Frames",
+        "scenarios": "Scenarios",
+        "attachments": "Attachments"
+      }
+    },
+    "printableDocument": {
+      "pageLabel": "Tài liệu in",
+      "listTitle": "Tài liệu in ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "documentType": "Loại tài liệu",
+        "state": "Trạng thái",
+        "version": "Phiên bản"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "documentType": "Loại tài liệu",
+          "state": "Trạng thái",
+          "version": "Phiên bản"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Printable Document",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Printable Document to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Printable Document",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Printable Document cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Printable Document",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "print": {
+          "title": "Print Printable Document",
+          "cancel": "Cancel",
+          "submit": "Print",
+          "fields": {
+            "printer": "Printer",
+            "copies": "Copies"
+          }
+        },
+        "layoutCreation": {
+          "title": "Printable Document Layout Creation",
+          "close": "Close",
+          "description": "Create or Edit the Printable Document Layout, using the Layout Editor."
+        },
+        "lotTraveler": {
+          "title": "Lot Traveler",
+          "close": "Close",
+          "description": "The Lot Traveler is a specific type of Printable Document used to track a lot through production."
+        },
+        "printers": {
+          "title": "Printers and Printer Types",
+          "close": "Close",
+          "description": "Manage Printers and Printer Types for Printable Documents."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "layout": "Layout",
+        "contextItems": "Context Items",
+        "printHistory": "Print History",
+        "attachments": "Attachments"
+      }
+    },
+    "productGroup": {
+      "pageLabel": "Nhóm sản phẩm",
+      "listTitle": "Nhóm sản phẩm ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái",
+        "productCount": "Sản phẩm"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "description": "Mô tả",
+          "state": "Trạng thái",
+          "productCount": "Sản phẩm"
+        },
+        "information": "Information"
+      },
+      "operations": {
+        "create": {
+          "title": "Create Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "changeSet": "Change Set",
+            "generalData": "General Data"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set",
+            "name": "Name",
+            "revision": "Revision",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity",
+            "flowPath": "Flow Path",
+            "comments": "Comments"
+          },
+          "hints": {
+            "changeSet": "Select an existing Change Set or click Create to create a new one.",
+            "revision": "Name can be automatically generated or you can enter a name of your choice.",
+            "type": "The list of possible values is taken from the lookup table ProductGroupType.",
+            "defaultUnits": "The list of possible values is taken from the lookup table Units.",
+            "maturity": "The list of possible values is taken from the lookup table ProductGroupMaturity.",
+            "flowPath": "Optionally specify the default flow path for all the Products of this Product Group."
+          },
+          "placeholders": {
+            "selectChangeSet": "Select a Change Set",
+            "selectApprovalRole": "Select an Approval Role (optional)",
+            "enterName": "Enter Product Group name",
+            "revisionHint": "Name can be automatically generated or you can enter a name of your choice",
+            "enterDescription": "Enter description",
+            "selectType": "Select type",
+            "selectUnits": "Select units",
+            "selectMaturity": "Select maturity",
+            "selectFlowPath": "Select default Flow Path",
+            "enterComments": "Enter comments (optional)",
+            "selectParameter": "Select a Parameter",
+            "newRowName": "Name",
+            "newRowRevision": "Revision",
+            "enterComment": "Enter a comment for the operation (optional)"
+          }
+        },
+        "edit": {
+          "title": "Edit Product Group",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product Group cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product Group",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "newInstances": "New Product Groups",
+          "add": "Add",
+          "fields": {
+            "name": "Name",
+            "revision": "Revision",
+            "comment": "Comment"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured for the Entity Type, you can leave the name blank and a new name will be automatically generated."
+          },
+          "placeholders": {
+            "newRowName": "Name",
+            "newRowRevision": "Revision"
+          },
+          "removeRow": "Remove row"
+        },
+        "terminate": {
+          "title": "Terminate Product Group",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "fields": {
+            "level": "Level"
+          },
+          "warning": "All generic/smart table rows that reference the current object will be removed and will not be recovered if the object is unterminated at a later point."
+        },
+        "unterminate": {
+          "title": "Unterminate Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Unterminate",
+          "steps": {
+            "changeSet": "Change Set",
+            "details": "Details"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set"
+          },
+          "detailsText": "Select Unterminate to perform the operation. All generic/smart table rows that reference this object will not be recovered."
+        },
+        "manageParameters": {
+          "title": "Manage Product Group Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "parameters": "Parameters",
+          "parameterDetails": "Parameter Details",
+          "empty": "No parameters. Press + to add.",
+          "selectPrompt": "Select a parameter on the left to edit its details.",
+          "types": {
+            "characteristic": "Characteristic",
+            "specification": "Specification"
+          },
+          "fields": {
+            "parameter": "Parameter",
+            "unit": "Unit",
+            "type": "Type",
+            "value": "Value",
+            "lowerSpec": "Lower Specification Value",
+            "targetSpec": "Target Specification Value",
+            "upperSpec": "Upper Specification Value",
+            "reportingType": "Reporting Type",
+            "reportingInfo": "Reporting Information",
+            "comments": "Comments"
+          },
+          "hints": {
+            "reportingType": "The values for Reporting Type are taken from the lookup table ProductParameterReportingType."
+          },
+          "newParam": "(new)"
+        },
+        "_shared": {
+          "close": "Close"
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "products": "Products",
+        "attachments": "Attachments"
+      },
+      "paramsHint": "Parameters shared across several Products. Use Manage Product Group Parameters to define them.",
+      "productsHint": "Products that are part of this Product Group.",
+      "contextsHint": "Context resolution tables on which the current Product Group is used as an element.",
+      "compareHint": "Visual comparison between the selected entity version and any other version.",
+      "referencesHint": "Relations and Where Used for the current Product Group.",
+      "historyHint": "Change Set History and History of operations for the current Product Group."
+    },
+    "qualification": {
+      "cards": {
+        "gracePeriod": "Thời gian gia hạn",
+        "information": "Thông tin",
+        "permissions": "Quyền",
+        "qualification": "Trình độ",
+        "validityPeriod": "Thời hạn hiệu lực"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái",
+        "type": "Loại"
+      },
+      "details": {
+        "allowAssignmentByManager": "Cho phép quản lý gán",
+        "allowOverride": "Cho phép ghi đè",
+        "allowSelfAssignment": "Cho phép tự gán",
+        "dataGroup": "Nhóm dữ liệu",
+        "defaultReason": "Lý do mặc định",
+        "description": "Mô tả",
+        "duration": "Thời lượng",
+        "informationUrl": "URL thông tin",
+        "name": "Tên",
+        "ownerRole": "Vai trò sở hữu",
+        "state": "Trạng thái chung",
+        "type": "Loại",
+        "validFor": "Hiệu lực trong"
+      },
+      "listTitle": "Trình độ",
+      "pageLabel": "Trình độ",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "certifications": "Chứng chỉ",
+        "details": "Chi tiết",
+        "employees": "Nhân viên",
+        "empty": "Không có dữ liệu",
+        "emptyBody": "Mục này chưa có nội dung."
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "more": {
+        "clone": "Nhân bản",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc",
+        "assignEmployees": "Gán nhân viên",
+        "unassignEmployees": "Bỏ gán nhân viên"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Tạo Qualification",
+          "editTitle": "Sửa Qualification",
+          "generalData": "Dữ liệu chung",
+          "name": "Tên",
+          "description": "Mô tả",
+          "type": "Loại",
+          "dataGroup": "Nhóm dữ liệu",
+          "information": "Thông tin",
+          "ownerRole": "Vai trò sở hữu",
+          "defaultReason": "Lý do mặc định",
+          "informationUrl": "URL thông tin",
+          "permissions": "Quyền",
+          "allowSelfAssignment": "Cho phép tự gán",
+          "allowAssignmentByManager": "Cho phép quản lý gán",
+          "validityPeriod": "Thời hạn hiệu lực",
+          "validFor": "Hiệu lực trong",
+          "scale": "Đơn vị",
+          "allowOverride": "Cho phép ghi đè",
+          "gracePeriod": "Thời gian ân hạn",
+          "duration": "Thời lượng",
+          "comments": "Ghi chú"
+        },
+        "clone": {
+          "title": "Nhân bản Qualification",
+          "clones": "Bản sao ({{count}})",
+          "name": "Tên",
+          "type": "Loại",
+          "description": "Mô tả",
+          "ownerRole": "Vai trò sở hữu",
+          "source": "Nguồn: {{name}}",
+          "comments": "Ghi chú",
+          "clone": "Nhân bản"
+        },
+        "terminate": {
+          "title": "Kết thúc Qualification",
+          "message": "Bạn có chắc muốn kết thúc Qualification '{{name}}'?",
+          "confirm": "Kết thúc"
+        },
+        "unterminate": {
+          "title": "Hủy kết thúc Qualification",
+          "message": "Bạn có chắc muốn hủy kết thúc Qualification '{{name}}'?",
+          "confirm": "Hủy kết thúc"
+        },
+        "assign": {
+          "title": "Gán nhân viên cho Qualification",
+          "stepEmployees": "Nhân viên",
+          "stepQualification": "Qualification",
+          "search": "Tìm kiếm",
+          "employeesCount": "Nhân viên ({{count}})",
+          "selectedCount": "Đã chọn {{count}}",
+          "employee": "Nhân viên",
+          "employeeNumber": "Mã nhân viên",
+          "type": "Loại",
+          "team": "Nhóm",
+          "manager": "Quản lý",
+          "selectedEmployees": "Nhân viên đã chọn ({{count}})",
+          "employees": "Nhân viên",
+          "qualificationDate": "Ngày đạt",
+          "detailsTitle": "Chi tiết Qualification của nhân viên",
+          "validTo": "Hiệu lực đến",
+          "reason": "Lý do",
+          "proficiency": "Trình độ",
+          "remarks": "Ghi chú",
+          "evidence": "Bằng chứng",
+          "comments": "Ghi chú",
+          "assign": "Gán"
+        },
+        "unassign": {
+          "title": "Bỏ gán nhân viên khỏi Qualification",
+          "message": "Xác nhận nhân viên cần bỏ gán khỏi Qualification '{{name}}'.",
+          "employee": "Nhân viên",
+          "employeeNumber": "Mã nhân viên",
+          "unassign": "Bỏ gán"
+        }
+      }
+    },
+    "qualificationCheck": {
+      "pageLabel": "Qualification Check",
+      "listTitle": "Qualification Checks",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "instanceType": "Loại instance",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "compare": "So sánh",
+        "references": "Tham chiếu",
+        "history": "Lịch sử"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "attachments": "Đính kèm",
+        "empty": "Không có dữ liệu",
+        "emptyBody": "Mục này chưa có nội dung."
+      },
+      "cards": {
+        "qualificationCheck": "Qualification Check",
+        "information": "Thông tin"
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái",
+        "dataGroup": "Nhóm dữ liệu",
+        "instanceType": "Loại instance"
+      },
+      "more": {
+        "clone": "Nhân bản",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Tạo Qualification Check",
+          "editTitle": "Sửa Qualification Check",
+          "generalData": "Dữ liệu chung",
+          "name": "Tên",
+          "description": "Mô tả",
+          "dataGroup": "Nhóm dữ liệu",
+          "instanceType": "Loại instance",
+          "single": "Đơn",
+          "multiple": "Nhiều",
+          "comments": "Ghi chú"
+        },
+        "clone": {
+          "title": "Nhân bản Qualification Check",
+          "clones": "Bản sao ({{count}})",
+          "name": "Tên",
+          "instanceType": "Loại instance",
+          "source": "Nguồn: {{name}}",
+          "comments": "Ghi chú",
+          "clone": "Nhân bản"
+        },
+        "terminate": {
+          "title": "Kết thúc Qualification Check",
+          "message": "Bạn có chắc muốn kết thúc Qualification Check '{{name}}'?",
+          "confirm": "Kết thúc"
+        },
+        "unterminate": {
+          "title": "Hủy kết thúc Qualification Check",
+          "message": "Bạn có chắc muốn hủy kết thúc Qualification Check '{{name}}'?",
+          "confirm": "Hủy kết thúc"
+        }
+      }
+    },
+    "reason": {
+      "pageLabel": "Reason",
+      "listTitle": "Reasons",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "contexts": "Ngữ cảnh",
+        "references": "Tham chiếu",
+        "history": "Lịch sử"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "images": "Hình ảnh",
+        "attributes": "Thuộc tính",
+        "attachments": "Đính kèm",
+        "empty": "Không có dữ liệu",
+        "emptyBody": "Mục này chưa có nội dung."
+      },
+      "cards": {
+        "reason": "Reason",
+        "information": "Thông tin"
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái",
+        "dataGroup": "Nhóm dữ liệu",
+        "type": "Loại",
+        "excludeFromStepYield": "Loại khỏi Step Yield",
+        "excludeFromResourceYield": "Loại khỏi Resource Yield"
+      },
+      "more": {
+        "clone": "Nhân bản",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc",
+        "addImages": "Thêm hình ảnh",
+        "manageRepairActions": "Quản lý Repair Actions"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Tạo Reason",
+          "editTitle": "Sửa Reason",
+          "generalData": "Dữ liệu chung",
+          "information": "Thông tin",
+          "name": "Tên",
+          "description": "Mô tả",
+          "type": "Loại",
+          "excludeFromStepYield": "Loại khỏi Step Yield",
+          "excludeFromResourceYield": "Loại khỏi Resource Yield",
+          "category": "Danh mục",
+          "comments": "Ghi chú"
+        },
+        "clone": {
+          "title": "Nhân bản Reason",
+          "clones": "Bản sao ({{count}})",
+          "name": "Tên",
+          "type": "Loại",
+          "source": "Nguồn: {{name}}",
+          "comments": "Ghi chú",
+          "clone": "Nhân bản"
+        },
+        "terminate": {
+          "title": "Kết thúc Reason",
+          "message": "Bạn có chắc muốn kết thúc Reason '{{name}}'?",
+          "confirm": "Kết thúc"
+        },
+        "unterminate": {
+          "title": "Hủy kết thúc Reason",
+          "message": "Bạn có chắc muốn hủy kết thúc Reason '{{name}}'?",
+          "confirm": "Hủy kết thúc"
+        },
+        "addImages": {
+          "title": "Thêm hình ảnh cho Reason",
+          "stepImages": "Hình ảnh",
+          "stepAssessment": "Đánh giá",
+          "image": "Hình ảnh",
+          "scope": "Phạm vi",
+          "assessment": "Đánh giá",
+          "assessmentCriteria": "Tiêu chí đánh giá",
+          "comments": "Ghi chú",
+          "add": "Thêm"
+        },
+        "repairActions": {
+          "title": "Quản lý Repair Actions",
+          "repairActions": "Repair Actions ({{count}})",
+          "detailsTitle": "Chi tiết Repair Action",
+          "repairAction": "Repair Action",
+          "description": "Mô tả",
+          "partReplacementMode": "Chế độ thay thế",
+          "comments": "Ghi chú",
+          "update": "Cập nhật"
+        }
+      }
+    },
+    "recipe": {
+      "pageLabel": "Recipe",
+      "listTitle": "Recipes",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "isEnabled": "Bật",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "contexts": "Ngữ cảnh",
+        "compare": "So sánh",
+        "references": "Tham chiếu",
+        "history": "Lịch sử"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "parameters": "Tham số",
+        "body": "Body",
+        "subRecipes": "Sub-Recipes",
+        "resources": "Tài nguyên",
+        "activeInstances": "Phiên bản đang chạy",
+        "attachments": "Đính kèm",
+        "empty": "Không có dữ liệu",
+        "emptyBody": "Mục này chưa có nội dung."
+      },
+      "cards": {
+        "recipe": "Recipe",
+        "information": "Thông tin"
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "dataGroup": "Nhóm dữ liệu",
+        "isEnabled": "Bật",
+        "isExecutable": "Thực thi",
+        "resourceRecipeName": "Tên Recipe tài nguyên",
+        "userInformation": "Thông tin người dùng",
+        "supplierInformation": "Thông tin nhà cung cấp"
+      },
+      "more": {
+        "clone": "Nhân bản",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc",
+        "disable": "Vô hiệu hóa",
+        "enable": "Kích hoạt",
+        "manageBody": "Quản lý Recipe Body",
+        "manageParameters": "Quản lý tham số",
+        "manageSubRecipes": "Quản lý Sub-Recipes",
+        "uploadToResource": "Tải Recipe lên tài nguyên"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Tạo Recipe",
+          "editTitle": "Sửa Recipe",
+          "changeSet": "Change Set",
+          "generalData": "Dữ liệu chung",
+          "changeSet2": "Change Set",
+          "createNew": "Tạo mới",
+          "approverRole": "Vai trò phê duyệt",
+          "useAutomaticChangeSet": "Dùng Automatic Change Set",
+          "name": "Tên",
+          "revision": "Revision",
+          "description": "Mô tả",
+          "type": "Loại",
+          "isEnabled": "Bật",
+          "isExecutable": "Thực thi",
+          "resourceRecipeName": "Tên Recipe tài nguyên",
+          "userInformation": "Thông tin người dùng",
+          "supplierInformation": "Thông tin nhà cung cấp",
+          "comments": "Ghi chú"
+        },
+        "clone": {
+          "title": "Nhân bản Recipe",
+          "cloneMode": "Chế độ nhân bản",
+          "entity": "Entity",
+          "revision": "Revision",
+          "clones": "Bản sao ({{count}})",
+          "name": "Tên",
+          "revisionName": "Tên Revision",
+          "changeSet": "Change Set",
+          "source": "Nguồn: {{name}}",
+          "comments": "Ghi chú",
+          "clone": "Nhân bản"
+        },
+        "terminate": {
+          "title": "Kết thúc Recipe",
+          "message": "Bạn có chắc muốn kết thúc Recipe '{{name}}'?",
+          "confirm": "Kết thúc"
+        },
+        "unterminate": {
+          "title": "Hủy kết thúc Recipe",
+          "changeSet": "Change Set",
+          "details": "Chi tiết",
+          "createNew": "Tạo mới",
+          "approverRole": "Vai trò phê duyệt",
+          "useAutomaticChangeSet": "Dùng Automatic Change Set",
+          "message": "Chọn Hủy kết thúc để thực hiện. Các dòng bảng generic/smart tham chiếu đối tượng này sẽ không được khôi phục.",
+          "confirm": "Hủy kết thúc"
+        },
+        "disable": {
+          "title": "Vô hiệu hóa Recipe",
+          "message": "Bạn có chắc muốn vô hiệu hóa Recipe '{{name}}'?",
+          "confirm": "Vô hiệu hóa"
+        },
+        "enable": {
+          "title": "Kích hoạt Recipe",
+          "message": "Bạn có chắc muốn kích hoạt Recipe '{{name}}'?",
+          "confirm": "Kích hoạt"
+        },
+        "body": {
+          "title": "Quản lý Recipe Body",
+          "source": "Nguồn",
+          "format": "Định dạng",
+          "fileName": "Tên file",
+          "uploadBody": "Tải Body",
+          "body": "Body",
+          "size": "Kích thước",
+          "comments": "Ghi chú",
+          "update": "Cập nhật"
+        },
+        "parameters": {
+          "title": "Quản lý tham số",
+          "parameters": "Tham số",
+          "detailsTitle": "Chi tiết tham số",
+          "parameter": "Tham số",
+          "units": "Đơn vị",
+          "parameterGroup": "Nhóm tham số",
+          "type": "Loại",
+          "value": "Giá trị",
+          "overridable": "Ghi đè được",
+          "comments": "Ghi chú",
+          "update": "Cập nhật"
+        },
+        "subRecipes": {
+          "title": "Quản lý Sub-Recipes",
+          "subRecipes": "Sub-Recipes",
+          "detailsTitle": "Chi tiết Recipe",
+          "recipe": "Recipe",
+          "displayName": "Tên hiển thị",
+          "parametersMapping": "Ánh xạ tham số (Biểu thức)",
+          "clearAllExpressions": "Xóa tất cả biểu thức",
+          "comments": "Ghi chú",
+          "update": "Cập nhật"
+        },
+        "upload": {
+          "title": "Tải Recipe lên tài nguyên",
+          "resources": "Tài nguyên",
+          "resource": "Tài nguyên",
+          "lastUploadDate": "Ngày tải cuối",
+          "comments": "Ghi chú",
+          "upload": "Tải lên"
+        }
+      }
+    },
+    "resource": {
+      "pageLabel": "Resource",
+      "listTitle": "Resources",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "resourceView": "Resource View",
+        "schedule": "Schedule",
+        "storage": "Storage",
+        "maintenance": "Maintenance",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "structure": "Structure",
+        "runningModes": "Running Modes",
+        "parts": "Parts",
+        "recipes": "Recipes",
+        "runAtRiskMaterials": "Run at Risk Materials",
+        "materials": "Materials",
+        "instruments": "Instruments",
+        "measurementCapabilities": "Measurement Capabilities",
+        "consumableFeeds": "Consumable Feeds",
+        "locations": "Locations",
+        "lanes": "Lanes",
+        "durables": "Durables",
+        "inventory": "Inventory",
+        "storageBins": "Storage Bins",
+        "services": "Services",
+        "personnel": "Personnel",
+        "protocols": "Protocols",
+        "resourceJobs": "Resource Jobs",
+        "notifications": "Notifications",
+        "schedulingBatching": "Scheduling/Batching",
+        "collectedData": "Collected Data",
+        "workgroups": "Workgroups",
+        "storedMaterials": "Stored Materials",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "resource": "Resource",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "area": "Area",
+        "systemState": "System State",
+        "automationMode": "Automation Mode",
+        "stateModel": "State Model",
+        "resourceState": "Resource State",
+        "runningMode": "Running Mode"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "changeResourceState": "Change Resource State",
+        "changeSystemState": "Change System State",
+        "changeAutomationMode": "Change Automation Mode",
+        "changeInstrumentMode": "Change Instrument Mode",
+        "changeRunningMode": "Change Running Mode",
+        "changeProduct": "Change Product",
+        "evaluateDispatchableRule": "Evaluate Dispatchable Rule",
+        "beginSetup": "Begin Setup",
+        "performSetup": "Perform Setup",
+        "completeSetup": "Complete Setup",
+        "cancelSetup": "Cancel Setup",
+        "resetSetup": "Reset Setup",
+        "viewSetup": "View Setup",
+        "beginLineSetup": "Begin Line Setup",
+        "performLineSetup": "Perform Line Setup",
+        "completeLineSetup": "Complete Line Setup",
+        "cancelLineSetup": "Cancel Line Setup",
+        "resetLineSetup": "Reset Line Setup",
+        "viewLineSetup": "View Line Setup",
+        "beginPreSetup": "Begin Pre Setup",
+        "performPreSetup": "Perform Pre Setup",
+        "addResourceToContainer": "Add Resource to Container",
+        "removeResourceFromContainer": "Remove Resource from Container",
+        "transferResourceBetweenContainers": "Transfer Resource Between Containers",
+        "storeContainersInResource": "Store Containers in Resource",
+        "storeMaterialsInResource": "Store Materials in Resource",
+        "storeResource": "Store Resource",
+        "retrieveResource": "Retrieve Resource",
+        "manageStructure": "Manage Structure",
+        "manageRunningModes": "Manage Running Modes",
+        "manageResourceParts": "Manage Resource Parts",
+        "manageRepairableParts": "Manage Repairable Parts",
+        "manageResourceRecipes": "Manage Resource Recipes",
+        "manageRunAtRiskMaterials": "Manage Run At Risk Materials",
+        "manageResourceInstruments": "Manage Resource Instruments",
+        "manageMeasurementCapabilities": "Manage Measurement Capabilities",
+        "manageConsumableFeeds": "Manage Consumable Feeds",
+        "manageConsumables": "Manage Consumables",
+        "manageResourceLocations": "Manage Resource Locations",
+        "manageResourceLanes": "Manage Resource Lanes",
+        "manageResourceDurables": "Manage Resource Durables",
+        "manageResourceInventory": "Manage Resource Inventory",
+        "manageResourceStorageBins": "Manage Resource Storage Bins",
+        "manageResourceServices": "Manage Resource Services",
+        "managePersonnel": "Manage Personnel",
+        "manageResourceEmployees": "Manage Resource Employees",
+        "manageResourceTrainees": "Manage Resource Trainees",
+        "manageCosts": "Manage Costs",
+        "manageDispatchQueue": "Manage Dispatch Queue",
+        "manageResourceMaterialConsumables": "Manage Resource Material Consumables",
+        "manageResourceMaterialDurables": "Manage Resource Material Durables",
+        "manageSchedulingBatching": "Manage Scheduling/Batching",
+        "setResourceRecipe": "Set Resource Recipe",
+        "resourceOEEConfiguration": "Resource OEE Configuration",
+        "viewResourceDashboards": "View Resource Dashboards",
+        "viewResourceDocuments": "View Resource Documents",
+        "viewResourceReports": "View Resource Reports"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Resource",
+          "editTitle": "Edit Resource",
+          "generalData": "General Data",
+          "additionalInfo": "Additional Information",
+          "automation": "Automation",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "processingType": "Processing Type",
+          "area": "Area",
+          "priority": "Priority",
+          "displayOrder": "Display Order",
+          "vendor": "Vendor",
+          "model": "Model",
+          "serialNumber": "Serial Number",
+          "criticality": "Criticality",
+          "stateModel": "State Model",
+          "materialTracking": "Material Tracking",
+          "allowProductMix": "Allow Product Mix",
+          "enableSubMaterialTracking": "Enable Sub-Material Tracking",
+          "recipeManagementEnabled": "Recipe Management Enabled",
+          "trackResourceRecipes": "Track Resource Recipes",
+          "materialLogistics": "Material Logistics",
+          "hasStorageBins": "Has Storage Bins",
+          "setup": "Setup",
+          "setupMode": "Setup Mode",
+          "coordinates": "Coordinates",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "enableAutomationScenarios": "Enable Automation Scenarios",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Resource",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Resource",
+          "message": "Are you sure you want to terminate the Resource '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Resource",
+          "message": "Are you sure you want to unterminate the Resource '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "changeState": {
+          "title": "Change Resource State",
+          "step1": "State Selection",
+          "step2": "Documents",
+          "step3": "Data Collection",
+          "step4": "Checklist",
+          "step5": "Request MAO",
+          "step2Body": "No documents associated with this transition.",
+          "step3Body": "No data collection associated with this transition.",
+          "step4Body": "No checklist associated with this transition.",
+          "step5Body": "No maintenance activities available to request.",
+          "newState": "New State",
+          "reason": "Reason",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeSystemState": {
+          "title": "Change System State",
+          "newState": "New System State",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeAutomationMode": {
+          "title": "Change Automation Mode",
+          "newMode": "New Automation Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeInstrumentMode": {
+          "title": "Change Instrument Mode",
+          "newMode": "New Instrument Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeRunningMode": {
+          "title": "Change Running Mode",
+          "newMode": "New Running Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeProduct": {
+          "title": "Change Product",
+          "materials": "Materials",
+          "subMaterials": "Sub-Materials",
+          "newProduct": "New Product",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "evaluateDispatchable": {
+          "title": "Evaluate Dispatchable Rule",
+          "verifyInfo": "Verify the resource information before evaluating the dispatchable rule.",
+          "comment": "Comment",
+          "evaluate": "Evaluate"
+        },
+        "setup": {
+          "beginTitle": "Begin Setup",
+          "performTitle": "Perform Setup",
+          "completeTitle": "Complete Setup",
+          "cancelTitle": "Cancel Setup",
+          "resetTitle": "Reset Setup",
+          "viewTitle": "View Setup",
+          "beginLineTitle": "Begin Line Setup",
+          "performLineTitle": "Perform Line Setup",
+          "completeLineTitle": "Complete Line Setup",
+          "cancelLineTitle": "Cancel Line Setup",
+          "resetLineTitle": "Reset Line Setup",
+          "viewLineTitle": "View Line Setup",
+          "beginPreTitle": "Begin Pre Setup",
+          "performPreTitle": "Perform Pre Setup",
+          "begin": "Begin",
+          "perform": "Perform",
+          "complete": "Complete",
+          "cancel": "Cancel",
+          "reset": "Reset",
+          "materials": "Materials",
+          "subResources": "Sub-Resources",
+          "name": "Name",
+          "setup": "Setup",
+          "reason": "Reason",
+          "comment": "Comment",
+          "state": "State",
+          "currentSetup": "Current Setup",
+          "subResource": "Sub-Resource",
+          "inSetup": "In Setup"
+        },
+        "container": {
+          "addTitle": "Add Resource to Container",
+          "removeTitle": "Remove Resource from Container",
+          "transferTitle": "Transfer Resource Between Containers",
+          "container": "Container",
+          "sourceContainer": "Source Container",
+          "targetContainer": "Target Container",
+          "position": "Position",
+          "comment": "Comment",
+          "add": "Add",
+          "remove": "Remove",
+          "transfer": "Transfer",
+          "removeMessage": "Are you sure you want to remove the Resource '{{name}}' from its container?"
+        },
+        "store": {
+          "containersTitle": "Store Containers in Resource",
+          "materialsTitle": "Store Materials in Resource",
+          "resourceTitle": "Store Resource",
+          "retrieveTitle": "Retrieve Resource",
+          "container": "Container",
+          "material": "Material",
+          "storageResource": "Storage Resource",
+          "comment": "Comment",
+          "store": "Store",
+          "retrieve": "Retrieve",
+          "retrieveMessage": "Are you sure you want to retrieve the Resource '{{name}}' from storage?"
+        },
+        "manage": {
+          "update": "Update",
+          "comments": "Comments",
+          "servicesTitle": "Manage Resource Services",
+          "services": "Services ({{count}})",
+          "serviceDetails": "Service Details",
+          "service": "Service",
+          "priority": "Priority",
+          "requiresRunningMode": "Requires Running Mode",
+          "isEnabled": "Is Enabled",
+          "qualificationCheck": "Qualification Check",
+          "recipesTitle": "Manage Resource Recipes",
+          "recipes": "Recipes ({{count}})",
+          "recipeDetails": "Recipe Details",
+          "recipe": "Recipe",
+          "structureTitle": "Manage Structure",
+          "structure": "Structure ({{count}})",
+          "structureDetails": "Structure Details",
+          "resource": "Resource",
+          "parentResource": "Parent Resource",
+          "runningModesTitle": "Manage Running Modes",
+          "runningModes": "Running Modes ({{count}})",
+          "runningModeDetails": "Running Mode Details",
+          "runningMode": "Running Mode",
+          "description": "Description",
+          "consumableFeedsTitle": "Manage Consumable Feeds",
+          "consumableFeeds": "Consumable Feeds ({{count}})",
+          "consumableFeedDetails": "Consumable Feed Details",
+          "consumableFeed": "Consumable Feed",
+          "isShared": "Is Shared",
+          "consumablesTitle": "Manage Consumables",
+          "consumables": "Consumables ({{count}})",
+          "consumableDetails": "Consumable Details",
+          "consumable": "Consumable",
+          "quantity": "Quantity",
+          "costsTitle": "Manage Costs",
+          "costs": "Costs ({{count}})",
+          "costDetails": "Cost Details",
+          "costType": "Cost Type",
+          "amount": "Amount",
+          "currency": "Currency",
+          "dispatchQueueTitle": "Manage Dispatch Queue",
+          "dispatchQueue": "Dispatch Queue ({{count}})",
+          "dispatchQueueDetails": "Dispatch Queue Details",
+          "material": "Material",
+          "measurementCapabilitiesTitle": "Manage Measurement Capabilities",
+          "measurementCapabilities": "Measurement Capabilities ({{count}})",
+          "measurementCapabilityDetails": "Measurement Capability Details",
+          "capability": "Capability",
+          "units": "Units",
+          "personnelTitle": "Manage Personnel",
+          "personnel": "Personnel ({{count}})",
+          "personnelDetails": "Personnel Details",
+          "employee": "Employee",
+          "checkIn": "Check In",
+          "checkOut": "Check Out",
+          "repairablePartsTitle": "Manage Repairable Parts",
+          "repairableParts": "Repairable Parts ({{count}})",
+          "repairablePartDetails": "Repairable Part Details",
+          "part": "Part",
+          "isRepairable": "Is Repairable",
+          "resourceDurablesTitle": "Manage Resource Durables",
+          "resourceDurables": "Resource Durables ({{count}})",
+          "resourceDurableDetails": "Resource Durable Details",
+          "durable": "Durable",
+          "resourceEmployeesTitle": "Manage Resource Employees",
+          "resourceEmployees": "Resource Employees ({{count}})",
+          "resourceEmployeeDetails": "Resource Employee Details",
+          "role": "Role",
+          "resourceInstrumentsTitle": "Manage Resource Instruments",
+          "resourceInstruments": "Resource Instruments ({{count}})",
+          "resourceInstrumentDetails": "Resource Instrument Details",
+          "instrument": "Instrument",
+          "calibrationStatus": "Calibration Status",
+          "resourceInventoryTitle": "Manage Resource Inventory",
+          "resourceInventory": "Resource Inventory ({{count}})",
+          "resourceInventoryDetails": "Resource Inventory Details",
+          "item": "Item",
+          "resourceLanesTitle": "Manage Resource Lanes",
+          "resourceLanes": "Resource Lanes ({{count}})",
+          "resourceLaneDetails": "Resource Lane Details",
+          "lane": "Lane",
+          "currentRecipe": "Current Recipe",
+          "resourceLocationsTitle": "Manage Resource Locations",
+          "resourceLocations": "Resource Locations ({{count}})",
+          "resourceLocationDetails": "Resource Location Details",
+          "location": "Location",
+          "barcodeId": "Barcode ID",
+          "locationX": "Location X",
+          "locationY": "Location Y",
+          "resourceMaterialConsumablesTitle": "Manage Resource Material Consumables",
+          "resourceMaterialConsumables": "Resource Material Consumables ({{count}})",
+          "resourceMaterialConsumableDetails": "Resource Material Consumable Details",
+          "resourceMaterialDurablesTitle": "Manage Resource Material Durables",
+          "resourceMaterialDurables": "Resource Material Durables ({{count}})",
+          "resourceMaterialDurableDetails": "Resource Material Durable Details",
+          "resourcePartsTitle": "Manage Resource Parts",
+          "resourceParts": "Resource Parts ({{count}})",
+          "resourcePartDetails": "Resource Part Details",
+          "resourceStorageBinsTitle": "Manage Resource Storage Bins",
+          "resourceStorageBins": "Resource Storage Bins ({{count}})",
+          "resourceStorageBinDetails": "Resource Storage Bin Details",
+          "storageBin": "Storage Bin",
+          "resourceTraineesTitle": "Manage Resource Trainees",
+          "resourceTrainees": "Resource Trainees ({{count}})",
+          "resourceTraineeDetails": "Resource Trainee Details",
+          "trainee": "Trainee",
+          "trainer": "Trainer",
+          "runAtRiskMaterialsTitle": "Manage Run At Risk Materials",
+          "runAtRiskMaterials": "Run At Risk Materials ({{count}})",
+          "runAtRiskMaterialDetails": "Run At Risk Material Details",
+          "schedulingBatchingTitle": "Manage Scheduling/Batching",
+          "schedulingBatching": "Scheduling/Batching ({{count}})",
+          "schedulingBatchingDetails": "Scheduling/Batching Details",
+          "schedule": "Schedule",
+          "startDate": "Start Date",
+          "endDate": "End Date"
+        },
+        "setRecipe": {
+          "title": "Set Resource Recipe",
+          "recipe": "Recipe",
+          "comment": "Comment",
+          "set": "Set"
+        },
+        "oee": {
+          "title": "Resource OEE Configuration",
+          "idealCycleTime": "Ideal Cycle Time",
+          "oeeEnabled": "OEE Enabled",
+          "save": "Save"
+        },
+        "view": {
+          "dashboardsTitle": "View Resource Dashboards",
+          "documentsTitle": "View Resource Documents",
+          "reportsTitle": "View Resource Reports",
+          "dashboard": "Dashboard",
+          "document": "Document",
+          "report": "Report",
+          "description": "Description",
+          "type": "Type"
+        }
+      }
+    },
+    "resourceJob": {
+      "pageLabel": "Resource Job",
+      "listTitle": "Resource Jobs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "containers": "Containers",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "resourceJob": "Resource Job",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "subType": "Sub Type",
+        "selectionMode": "Selection Mode",
+        "priority": "Priority",
+        "progress": "Progress",
+        "equipmentJobId": "Equipment Job Id",
+        "jobInformation": "Job Information"
+      },
+      "more": {
+        "clone": "Clone",
+        "abort": "Abort",
+        "cancel": "Cancel",
+        "complete": "Complete",
+        "dequeue": "Dequeue",
+        "enqueue": "Enqueue",
+        "requeue": "Requeue",
+        "start": "Start"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Resource Job",
+          "editTitle": "Edit Resource Job",
+          "step1": "General Data",
+          "step2": "Materials",
+          "step3": "Containers",
+          "name": "Name",
+          "description": "Description",
+          "resource": "Resource",
+          "type": "Type",
+          "subType": "Sub Type",
+          "initialSystemState": "Initial System State",
+          "selectionMode": "Selection Mode",
+          "priority": "Priority",
+          "progress": "Progress",
+          "equipmentJobId": "Equipment Job Id",
+          "jobInformation": "Job Information",
+          "comments": "Comments",
+          "materialsBody": "Add or remove Resource Job Materials. For each item specify Material, Step, Quantity, Units, Process Job Id, dates, Recipe and Process Job Information.",
+          "containersBody": "Add or remove Resource Job Containers. For each item specify Container, Start Date and End Date."
+        },
+        "lifecycle": {
+          "comment": "Comment",
+          "cloneTitle": "Clone Resource Job",
+          "clone": "Clone",
+          "abortTitle": "Abort Resource Job",
+          "abort": "Abort",
+          "cancelTitle": "Cancel Resource Job",
+          "cancel": "Cancel",
+          "completeTitle": "Complete Resource Job",
+          "complete": "Complete",
+          "dequeueTitle": "Dequeue Resource Job",
+          "dequeue": "Dequeue",
+          "enqueueTitle": "Enqueue Resource Job",
+          "enqueue": "Enqueue",
+          "requeueTitle": "Requeue Resource Job",
+          "requeue": "Requeue",
+          "startTitle": "Start Resource Job",
+          "start": "Start"
+        }
+      }
+    },
+    "samplingPattern": {
+      "pageLabel": "Sampling Pattern",
+      "listTitle": "Sampling Patterns",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPattern": "Sampling Pattern",
+        "configuration": "Configuration"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "samplingSelection": "Sampling Selection",
+        "rule": "Rule",
+        "sourceForm": "Source Form",
+        "materialCount": "Material Count",
+        "selectionMethod": "Selection Method",
+        "sequencingMethod": "Sequencing Method"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Pattern",
+          "editTitle": "Edit Sampling Pattern",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "mode": "Mode",
+          "samplingSelection": "Sampling Selection",
+          "rule": "Rule",
+          "sourceForm": "Source Form",
+          "materialCount": "Material Count",
+          "countIsPercentage": "Count Is Percentage",
+          "selectionMethod": "Selection Method",
+          "sequencingMethod": "Sequencing Method",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Sampling Pattern",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Pattern",
+          "message": "Are you sure you want to terminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Pattern",
+          "message": "Are you sure you want to unterminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Unterminate"
+        }
+      }
+    },
+    "samplingPlan": {
+      "pageLabel": "Sampling Plan",
+      "listTitle": "Sampling Plans",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "defaultSamplingType": "Default Sampling Type",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "context": "Context",
+        "instances": "Instances",
+        "steps": "Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPlan": "Sampling Plan",
+        "defaultSampling": "Default Sampling"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "defaultSamplingType": "Default Sampling Type",
+        "counterFrequency": "Counter Frequency",
+        "timeFrequency": "Time Frequency"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manageInstance": "Manage Sampling Plan Instance"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Plan",
+          "editTitle": "Edit Sampling Plan",
+          "generalData": "General Data",
+          "context": "Context",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "defaultSampling": "Default Sampling",
+          "samplingType": "Sampling Type",
+          "counterFrequency": "Counter Frequency",
+          "timeFrequency": "Time Frequency (hours)",
+          "comments": "Comments",
+          "contextBody": "Specify the context information for the Sampling Plan. At minimum it must have one context defined (Material Product, Material Resource, Material Step, etc.)."
+        },
+        "clone": {
+          "title": "Clone Sampling Plan",
+          "message": "Clone the Sampling Plan '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Plan",
+          "message": "Are you sure you want to terminate the Sampling Plan '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Plan",
+          "message": "Are you sure you want to unterminate the Sampling Plan '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "instance": {
+          "title": "Manage Sampling Plan Instance",
+          "instances": "Instances ({{count}})",
+          "newInstance": "New Instance",
+          "detailsTitle": "Instance Details",
+          "samplingType": "Sampling Type",
+          "materialType": "Material Type",
+          "counterFrequency": "Sampling Counter Frequency",
+          "currentCounter": "Current Sampling Counter",
+          "timeFrequency": "Sampling Time Frequency",
+          "lastSamplingDate": "Last Sampling Date",
+          "comments": "Comments",
+          "update": "Update"
+        }
+      }
+    },
+    "schedule": {
+      "pageLabel": "Schedule",
+      "listTitle": "Schedules",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "scenarios": "Scenarios",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "areas": "Areas",
+        "feedSteps": "Feed Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "schedule": "Schedule"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "defaultView": "Default View",
+        "defaultFrozenPeriod": "Default Frozen Period",
+        "timeQuantum": "Time Quantum"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "createScenario": "Create Schedule Scenario",
+        "adjustJob": "Adjust Schedule Job",
+        "manageFeedSteps": "Manage Feed Steps"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule",
+          "editTitle": "Edit Schedule",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "defaultView": "Default View",
+          "defaultFrozenPeriod": "Default Frozen Period (hours)",
+          "timeQuantum": "Time Quantum (minutes)",
+          "schedulingType": "Scheduling Type",
+          "type": "Type",
+          "optimizationBody": "Choose the Scheduling Type (Forwards or Backwards) and the Optimization Criteria weights (must add up to 100): Minimize Setup Times, Minimize Total Waiting Time, Maximize Resource Utilization, etc.",
+          "untieBody": "Specify the default Untie Sort Rules (Execution Time, Material Due Date, Material Name, Priority, Quantity, Setup Time, Wait Time, etc.). Rules are used in the order they are inputted.",
+          "automaticBody": "Define specific configurations for automatic scheduling: Terminate Scenarios on Release, auto reschedule Operational Accurate/Fast/Planning Scenarios, frequency scale and start date.",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Schedule",
+          "message": "Clone the Schedule '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Schedule",
+          "message": "Are you sure you want to terminate the Schedule '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Schedule",
+          "message": "Are you sure you want to unterminate the Schedule '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "createScenario": {
+          "title": "Create Schedule Scenario",
+          "message": "Create a new Schedule Scenario for Schedule '{{name}}'?",
+          "create": "Create"
+        },
+        "adjust": {
+          "title": "Adjust Schedule Job",
+          "jobBody": "Manually adjust a Schedule Scenario Job of a released Schedule Scenario.",
+          "resource": "Resource",
+          "plannedStart": "Planned Start Time",
+          "plannedEnd": "Planned End Time",
+          "adjust": "Adjust"
+        },
+        "feedStep": {
+          "title": "Manage Feed Steps",
+          "steps": "Feed Steps ({{count}})",
+          "newStep": "New Feed Step",
+          "detailsTitle": "Feed Step Details",
+          "facility": "Facility",
+          "step": "Step",
+          "manage": "Manage"
+        }
+      }
+    },
+    "scheduleScenario": {
+      "pageLabel": "Schedule Scenario",
+      "listTitle": "Schedule Scenarios",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "orderFulfillment": "Order Fulfillment",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "statistics": "Statistics",
+        "messages": "Messages",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "scenario": "Schedule Scenario"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "Universal State",
+        "generationType": "Generation Type",
+        "scenarioState": "Scenario State"
+      },
+      "more": {
+        "terminate": "Terminate",
+        "generate": "Generate",
+        "release": "Release",
+        "synchronize": "Synchronize Schedule Scenario Jobs",
+        "lockJob": "Lock Schedule Scenario Job",
+        "unlockJob": "Unlock Schedule Scenario Job",
+        "adjustJob": "Adjust Schedule Scenario Job"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule Scenario",
+          "editTitle": "Edit Schedule Scenario",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "schedule": "Schedule",
+          "generationType": "Generation Type",
+          "comments": "Comments",
+          "optimizationBody": "Optionally, override the default Optimization Criteria defined at the Schedule level. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "untieBody": "Optionally, override the default Untie Sort Rules defined at the Schedule level. Add as many Untie Sort Rules as desired (at least one).",
+          "automaticBody": "Define automatic scheduling configurations inherited from the Schedule."
+        },
+        "generate": {
+          "title": "Generate Schedule Scenario",
+          "generate": "Generate",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step1Body": "Review the Schedule Scenario information. The Generation takes into account the information from the last Synchronization.",
+          "step2Body": "Optionally, override the default Optimization Criteria. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "step3Body": "Optionally, override the default Untie Sort Rules. Add as many Untie Sort Rules as desired; at least one is required to proceed."
+        },
+        "terminate": {
+          "title": "Terminate Schedule Scenario",
+          "message": "Are you sure you want to terminate the Schedule Scenario '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Schedule Scenario '{{name}}'?"
+        }
+      }
+    },
+    "sendAheadRun": {
+      "pageLabel": "Send-Ahead Run",
+      "listTitle": "Send-Ahead Runs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "sendAheadRun": "Send-Ahead Run"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "resultsCaptureMode": "Results Capture Mode"
+      },
+      "more": {
+        "cancel": "Cancel Send-Ahead Run",
+        "extend": "Extend Send-Ahead Run",
+        "release": "Release Send-Ahead Run Waiting Materials",
+        "changeMaterials": "Change Send-Ahead Run Materials",
+        "clearResult": "Clear Send-Ahead Run Result",
+        "ignoreResult": "Ignore Send-Ahead Run Result",
+        "createSplit": "Create Split Send-Ahead Run",
+        "manageMaterials": "Manage Send-Ahead Run Materials",
+        "recordResult": "Record Send-Ahead Run Result"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Send-Ahead Run",
+          "editTitle": "Edit Send-Ahead Run",
+          "step1": "General Data",
+          "step2": "Waiting Materials",
+          "step3": "Experiment",
+          "step4": "Sub-Materials to Send-Ahead",
+          "step5": "Send-Ahead Materials",
+          "step6": "Details",
+          "name": "Name",
+          "description": "Description",
+          "dataGroup": "Data Group",
+          "comments": "Comments",
+          "stepBody": "This section will only be displayed when the step's preconditions are met: {{step}}."
+        },
+        "record": {
+          "title": "Record Send-Ahead Run Result",
+          "resultBody": "Select the result for the selected send-ahead Materials.",
+          "result": "Result",
+          "remarks": "Remarks",
+          "record": "Record"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Send-Ahead Run '{{name}}'?"
+        }
+      }
+    },
+    "service": {
+      "pageLabel": "Service",
+      "listTitle": "Services",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "enabled": "Enabled",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "resources": "Resources",
+        "compatibleServices": "Compatible Services",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "service": "Service"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "enabled": "Enabled",
+        "state": "Universal State",
+        "dataGroup": "Data Group"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "disable": "Disable Service",
+        "enable": "Enable Service",
+        "manageCompatible": "Manage Compatible Services",
+        "manageResources": "Manage Service Resources"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Service",
+          "editTitle": "Edit Service",
+          "step1": "General Data",
+          "step2": "Manage Service Resources",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "dataGroup": "Data Group",
+          "processingType": "Processing Type",
+          "enabled": "Enabled",
+          "comments": "Comments",
+          "step2Body": "Add one entry in the left side panel for each of the Resources that will provide the Service. Each entry should be configured on the right side panel by selecting the Resource and by setting the Service as enabled or disabled in that specific Resource."
+        },
+        "clone": {
+          "title": "Clone Service",
+          "message": "Clone the Service '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Service",
+          "message": "Are you sure you want to terminate the Service '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Service",
+          "message": "Are you sure you want to unterminate the Service '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "disable": {
+          "title": "Disable Service",
+          "message": "Are you sure you want to disable the Service '{{name}}'?",
+          "confirm": "Disable"
+        },
+        "enable": {
+          "title": "Enable Service",
+          "message": "Are you sure you want to enable the Service '{{name}}'?",
+          "confirm": "Enable"
+        },
+        "compatible": {
+          "title": "Manage Compatible Services",
+          "canBeFulfilledBy": "Can be Fulfilled by",
+          "canFulfill": "Can Fulfill",
+          "services": "Services ({{count}})",
+          "newService": "New Service",
+          "detailsTitle": "Service Details",
+          "service": "Service",
+          "description": "Description",
+          "update": "Update"
+        },
+        "resources": {
+          "title": "Manage Service Resources",
+          "resources": "Resources ({{count}})",
+          "newResource": "New Resource",
+          "detailsTitle": "Resource Details",
+          "resource": "Resource",
+          "enabledInResource": "Enabled in Resource",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "update": "Update"
+        }
+      }
+    },
+    "setupMatrix": {
+      "pageLabel": "Setup Matrix",
+      "listTitle": "Setup Matrices",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "setupMatrix": "Setup Matrix",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "setupMatrix": "Setup Matrix"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "useZeroInDiagonal": "Use Zero In Diagonal",
+        "state": "Universal State"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manage": "Manage Setup Matrix"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Setup Matrix",
+          "editTitle": "Edit Setup Matrix",
+          "step1": "General Data",
+          "step2": "Services",
+          "step3": "Setup Matrix",
+          "name": "Name",
+          "description": "Description",
+          "timeScale": "Time Scale",
+          "useZeroInDiagonal": "Use Zero In Diagonal",
+          "comments": "Comments",
+          "step2Body": "To add Services manually, select them from the panel on the left-hand side and they will be added to the list of the Selected Services on the right-hand side. You can filter the list to make it easier to add the Services.",
+          "step3Body": "Each Service selected in the previous panel is added to the list on the left hand side of the panel (From Services) and each of them have a relation to the services listed in the center part of the dialog (To Services). Select the From and the To services and enter the desired value in the specified time scale."
+        },
+        "clone": {
+          "title": "Clone Setup Matrix",
+          "message": "Clone the Setup Matrix '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Setup Matrix",
+          "message": "Are you sure you want to terminate the Setup Matrix '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Setup Matrix",
+          "message": "Are you sure you want to unterminate the Setup Matrix '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "manage": {
+          "title": "Manage Setup Matrix",
+          "message": "Open the Manage Setup Matrix wizard for '{{name}}'?",
+          "confirm": "Manage"
+        }
+      }
+    },
+    "shiftDefinition": {
+      "cancel": "Hủy",
+      "columns": {
+        "calendar": "Lịch",
+        "description": "Mô tả",
+        "name": "Tên",
+        "startTime": "Giờ bắt đầu",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "calendar": "Lịch:",
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "information": "Thông tin",
+        "name": "Tên:",
+        "startTime": "Giờ bắt đầu:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Định nghĩa ca ({{count}})",
+      "manage": "Quản lý",
+      "manageTitle": "Quản lý ca làm việc",
+      "noAttachments": "Không có tệp đính kèm.",
+      "notFound": "Không tìm thấy định nghĩa ca.",
+      "pageLabel": "Định nghĩa ca",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "shifts": "Ca làm việc",
+        "attributes": "Thuộc tính"
+      },
+      "shiftForm": {
+        "code": "Mã:",
+        "costOvertimeFactor": "Hệ số làm thêm:",
+        "endTime": "Giờ kết thúc:",
+        "name": "Tên:",
+        "startTime": "Giờ bắt đầu:",
+        "teamPattern": "Mẫu nhóm:"
+      },
+      "shiftTimeRange": "Từ {{start}} đến {{end}}",
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "update": "Cập nhật",
+      "noAttributes": "Chưa có thuộc tính nào.",
+      "create": {
+        "title": "Tạo định nghĩa ca",
+        "step1": "Dữ liệu chung",
+        "step2": "Ca làm việc",
+        "step3": "Giờ nghỉ",
+        "name": "Tên:",
+        "description": "Mô tả:",
+        "calendar": "Lịch:",
+        "calendarHint": "Định nghĩa ca chỉ được thêm vào ngày lịch khi có cùng giờ bắt đầu.",
+        "shift": "Ca",
+        "nonWorkingName": "Tên giờ nghỉ",
+        "back": "Quay lại",
+        "next": "Tiếp"
+      },
+      "edit": {
+        "title": "Sửa định nghĩa ca",
+        "name": "Tên:",
+        "description": "Mô tả:",
+        "calendar": "Lịch:"
+      },
+      "clone": {
+        "title": "Nhân bản định nghĩa ca: {{name}}",
+        "menuLabel": "Nhân bản",
+        "namePlaceholder": "Tên định nghĩa ca mới",
+        "comment": "Ghi chú:",
+        "clone": "Nhân bản"
+      },
+      "terminate": {
+        "title": "Kết thúc định nghĩa ca",
+        "menuLabel": "Kết thúc",
+        "message": "Kết thúc định nghĩa ca '{{name}}'? Các dòng bảng generic/smart tham chiếu sẽ bị xóa.",
+        "confirm": "Kết thúc"
+      },
+      "unterminate": {
+        "title": "Hủy kết thúc định nghĩa ca",
+        "menuLabel": "Hủy kết thúc",
+        "message": "Hủy kết thúc định nghĩa ca '{{name}}'? Các dòng bảng tham chiếu sẽ không được khôi phục.",
+        "confirm": "Hủy kết thúc"
+      }
+    },
+    "shiftLogbook": {
+      "addEntry": {
+        "add": "Thêm mục",
+        "category": "Danh mục:",
+        "comments": "Ghi chú:",
+        "description": "Mô tả:",
+        "resource": "Tài nguyên:",
+        "severity": "Mức độ:",
+        "title": "Thêm mục nhật ký ca",
+        "titleLabel": "Tiêu đề:"
+      },
+      "cancel": "Hủy",
+      "columns": {
+        "area": "Khu vực",
+        "name": "Tên",
+        "shift": "Ca",
+        "shiftDefinition": "Định nghĩa ca",
+        "state": "Trạng thái",
+        "systemState": "Trạng thái hệ thống"
+      },
+      "detail": {
+        "area": "Khu vực:",
+        "calendarDay": "Ngày lịch:",
+        "dataGroup": "Nhóm dữ liệu:",
+        "name": "Tên:",
+        "shift": "Ca:",
+        "shiftDefinition": "Định nghĩa ca:",
+        "shiftInfo": "Thông tin ca",
+        "state": "Trạng thái chung:",
+        "systemState": "Trạng thái hệ thống:",
+        "team": "Nhóm:"
+      },
+      "editEntry": {
+        "title": "Sửa mục nhật ký ca",
+        "update": "Cập nhật"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Sổ nhật ký ca ({{count}})",
+      "noAttachments": "Không có tệp đính kèm.",
+      "notFound": "Không tìm thấy sổ nhật ký ca.",
+      "pageLabel": "Sổ nhật ký ca",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "entries": "Mục ghi"
+      },
+      "signOff": {
+        "comment": "Ghi chú:",
+        "menuLabel": "Ký duyệt",
+        "reviewEntries": "Xem lại các mục:",
+        "signOff": "Ký duyệt",
+        "title": "Ký duyệt sổ nhật ký ca"
+      },
+      "summary": {
+        "content": "Tóm tắt do AI tạo cho {{area}} {{shift}} gồm {{count}} mục nhật ký, hoạt động khu vực, xu hướng OEE, sản lượng so với kế hoạch, tỷ lệ đạt, phế phẩm và giữ hàng.",
+        "menuLabel": "Tạo tóm tắt bàn giao",
+        "title": "Tóm tắt bàn giao ca"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      }
+    },
+    "shiftPlan": {
+      "calendar": {
+        "empty": "Hình ảnh lịch sẽ hiện ở đây sau khi tạo ngày lịch kế hoạch ca.",
+        "hint": "Thông tin trực quan về các ngày lịch tạo nên kế hoạch ca.",
+        "title": "Lịch kế hoạch ca"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "calendar": "Lịch",
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái",
+        "type": "Loại"
+      },
+      "detail": {
+        "calendar": "Lịch:",
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "ownerRole": "Vai trò chủ sở hữu:",
+        "ownership": "Quyền sở hữu",
+        "state": "Trạng thái chung:",
+        "type": "Loại:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "generateDays": {
+        "menuLabel": "Tạo ngày lịch kế hoạch ca"
+      },
+      "listTitle": "Kế hoạch ca ({{count}})",
+      "manageCalendarDays": {
+        "menuLabel": "Quản lý ngày lịch kế hoạch ca"
+      },
+      "manageEmployees": "Quản lý nhóm và tổ nhân viên",
+      "notFound": "Không tìm thấy kế hoạch ca.",
+      "pageLabel": "Kế hoạch ca",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết",
+        "employees": "Nhân viên",
+        "workgroups": "Tổ công việc"
+      },
+      "tabs": {
+        "calendar": "Lịch",
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      },
+      "workgroup": {
+        "ownerRole": "Vai trò chủ sở hữu",
+        "resources": "Tài nguyên"
+      }
+    },
+    "site": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "enterprise": "Doanh nghiệp",
+        "isRemote": "Từ xa",
+        "name": "Tên",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "enterprise": "Doanh nghiệp:",
+        "isRemote": "Là từ xa:",
+        "name": "Tên:",
+        "remoteExportAddress": "Địa chỉ xuất từ xa:",
+        "remoteShipping": "Vận chuyển từ xa",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Địa điểm ({{count}})",
+      "notFound": "Không tìm thấy địa điểm.",
+      "pageLabel": "Địa điểm",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết",
+        "facilities": "Cơ sở"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
+    },
+    "sortRuleSet": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "scope": "Phạm vi",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "scope": "Phạm vi:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Bộ quy tắc sắp xếp ({{count}})",
+      "manageRules": "Quản lý quy tắc",
+      "notFound": "Không tìm thấy bộ quy tắc sắp xếp.",
+      "pageLabel": "Bộ quy tắc sắp xếp",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết",
+        "rules": "Quy tắc"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
+    },
+    "step": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái"
+      },
+      "contexts": {
+        "bom": "Ngữ cảnh BOM",
+        "certifications": "Ngữ cảnh chứng nhận",
+        "chart": "Ngữ cảnh biểu đồ",
+        "checklist": "Ngữ cảnh danh sách kiểm tra",
+        "dataCollection": "Ngữ cảnh thu thập dữ liệu",
+        "document": "Ngữ cảnh tài liệu",
+        "durables": "Ngữ cảnh vật tư bền",
+        "inspectionPlan": "Ngữ cảnh kế hoạch kiểm tra",
+        "lineFlow": "Ngữ cảnh luồng dây chuyền",
+        "samplingPattern": "Ngữ cảnh mẫu lấy mẫu",
+        "service": "Ngữ cảnh dịch vụ",
+        "splitTrackOut": "Ngữ cảnh tách và kết thúc",
+        "timeConstraints": "Ngữ cảnh ràng buộc thời gian",
+        "yieldCycleTime": "Năng suất và thời gian chu kỳ"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "includeInScheduling": "Bao gồm trong lập lịch:",
+        "name": "Tên:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Công đoạn ({{count}})",
+      "manageAreas": {
+        "menuLabel": "Quản lý khu vực"
+      },
+      "manageCosts": {
+        "menuLabel": "Quản lý chi phí"
+      },
+      "manageFutureActions": {
+        "menuLabel": "Quản lý hành động tương lai"
+      },
+      "manageInspectionInfo": {
+        "menuLabel": "Quản lý thông tin kiểm tra"
+      },
+      "manageLogicalNames": {
+        "menuLabel": "Quản lý tên logic công đoạn"
+      },
+      "manageReasons": {
+        "menuLabel": "Quản lý lý do"
+      },
+      "manageSamplingPlans": {
+        "menuLabel": "Quản lý kế hoạch lấy mẫu"
+      },
+      "manageScheduling": {
+        "menuLabel": "Quản lý lập lịch"
+      },
+      "notFound": "Không tìm thấy công đoạn.",
+      "pageLabel": "Công đoạn",
+      "sections": {
+        "areas": "Khu vực",
+        "attachments": "Tệp đính kèm",
+        "costing": "Tính giá thành",
+        "details": "Chi tiết",
+        "futureActions": "Hành động tương lai",
+        "inspections": "Kiểm tra",
+        "logicalNames": "Tên logic",
+        "reasons": "Lý do",
+        "sampling": "Lấy mẫu",
+        "scheduling": "Lập lịch"
+      },
+      "tabs": {
+        "compare": "So sánh",
+        "contexts": "Ngữ cảnh",
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu",
+        "schedule": "Lịch trình",
+        "stepView": "Chế độ xem công đoạn"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
+    },
+    "substrateMap": {
+      "active": "Đang hoạt động",
+      "changeBinValues": {
+        "menuLabel": "Thay đổi giá trị bin"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái",
+        "substrateType": "Loại đế"
+      },
+      "content": {
+        "empty": "Biểu diễn bản đồ trực quan sẽ hiện ở đây.",
+        "hint": "Biểu diễn trực quan nội dung bản đồ đế.",
+        "title": "Nội dung bản đồ đế"
+      },
+      "createOverlay": {
+        "menuLabel": "Tạo lớp phủ bản đồ đế"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "state": "Trạng thái chung:",
+        "substrateType": "Loại đế:"
+      },
+      "download": {
+        "menuLabel": "Tải xuống bản đồ đế"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Bản đồ đế ({{count}})",
+      "manageOverlayInfo": "Quản lý thông tin lớp phủ bản đồ đế",
+      "notFound": "Không tìm thấy bản đồ đế.",
+      "pageLabel": "Bản đồ đế",
+      "search": {
+        "menuLabel": "Tìm kiếm bản đồ đế"
+      },
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết",
+        "overlayBinConverters": "Bộ chuyển đổi bin lớp phủ",
+        "overlayInformation": "Thông tin lớp phủ"
+      },
+      "tabs": {
+        "compare": "So sánh",
+        "content": "Nội dung",
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      },
+      "viewGenealogy": {
+        "menuLabel": "Xem phả hệ thiết bị"
+      },
+      "viewHistory": {
+        "menuLabel": "Xem lịch sử mã bin thiết bị"
+      }
+    },
+    "substrateMapMask": {
+      "apply": {
+        "menuLabel": "Áp dụng mặt nạ bản đồ đế"
+      },
+      "changeInfo": {
+        "menuLabel": "Thay đổi thông tin mặt nạ bản đồ đế"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái",
+        "substrateType": "Loại đế"
+      },
+      "content": {
+        "empty": "Biểu diễn mặt nạ trực quan sẽ hiện ở đây.",
+        "hint": "Biểu diễn trực quan nội dung mặt nạ bản đồ đế.",
+        "title": "Nội dung mặt nạ bản đồ đế"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "state": "Trạng thái chung:",
+        "substrateType": "Loại đế:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Mặt nạ bản đồ đế ({{count}})",
+      "notFound": "Không tìm thấy mặt nạ bản đồ đế.",
+      "pageLabel": "Mặt nạ bản đồ đế",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết"
+      },
+      "tabs": {
+        "compare": "So sánh",
+        "content": "Nội dung",
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc mặt nạ bản đồ đế"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
+    },
+    "task": {
+      "cancel": {
+        "menuLabel": "Hủy nhiệm vụ"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "owner": "Chủ sở hữu",
+        "state": "Trạng thái",
+        "taskState": "Trạng thái nhiệm vụ"
+      },
+      "detail": {
+        "assignment": "Phân công",
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "dueDate": "Hạn chót:",
+        "name": "Tên:",
+        "owner": "Chủ sở hữu:",
+        "requester": "Người yêu cầu:",
+        "state": "Trạng thái chung:",
+        "taskState": "Trạng thái nhiệm vụ:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Nhiệm vụ ({{count}})",
+      "markCompleted": {
+        "menuLabel": "Đánh dấu hoàn thành"
+      },
+      "notFound": "Không tìm thấy nhiệm vụ.",
+      "pageLabel": "Nhiệm vụ",
+      "perform": {
+        "menuLabel": "Thực hiện nhiệm vụ"
+      },
+      "reassign": {
+        "menuLabel": "Giao lại nhiệm vụ"
+      },
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết"
+      },
+      "sendReminder": {
+        "menuLabel": "Gửi nhắc nhở"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
+    },
+    "team": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "calendar": "Lịch",
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "calendar": "Lịch:",
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Nhóm ({{count}})",
+      "notFound": "Không tìm thấy nhóm.",
+      "pageLabel": "Nhóm",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "calendarDays": "Ngày lịch",
+        "details": "Chi tiết",
+        "employees": "Nhân viên"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
+    },
+    "transferOrder": {
+      "beginMovement": {
+        "menuLabel": "Bắt đầu di chuyển lệnh chuyển"
+      },
+      "cancel": {
+        "menuLabel": "Hủy lệnh chuyển"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "destinationLocation": "Nơi đến",
+        "name": "Tên",
+        "orderState": "Trạng thái lệnh",
+        "sourceLocation": "Nơi đi",
+        "state": "Trạng thái"
+      },
+      "completeMovement": {
+        "menuLabel": "Hoàn thành di chuyển lệnh chuyển"
+      },
+      "confirmItems": {
+        "menuLabel": "Xác nhận mặt hàng lệnh chuyển"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "destinationLocation": "Nơi đến:",
+        "name": "Tên:",
+        "orderState": "Trạng thái lệnh:",
+        "sourceLocation": "Nơi đi:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Lệnh chuyển ({{count}})",
+      "notFound": "Không tìm thấy lệnh chuyển.",
+      "pageLabel": "Lệnh chuyển",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "items": "Mặt hàng"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "takeOwnership": {
+        "menuLabel": "Nhận quyền sở hữu lệnh chuyển"
+      },
+      "viewReport": {
+        "menuLabel": "Xem báo cáo lệnh chuyển"
+      }
+    },
+    "transferRequirement": {
+      "approve": {
+        "menuLabel": "Phê duyệt yêu cầu chuyển"
+      },
+      "cancel": {
+        "menuLabel": "Hủy yêu cầu chuyển"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "destinationLocation": "Nơi đến",
+        "name": "Tên",
+        "requirementState": "Trạng thái yêu cầu",
+        "sourceLocation": "Nơi đi",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "destinationLocation": "Nơi đến:",
+        "name": "Tên:",
+        "requirementState": "Trạng thái yêu cầu:",
+        "sourceLocation": "Nơi đi:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Yêu cầu chuyển ({{count}})",
+      "notFound": "Không tìm thấy yêu cầu chuyển.",
+      "pageLabel": "Yêu cầu chuyển",
+      "releaseItems": {
+        "menuLabel": "Phát hành mặt hàng yêu cầu chuyển"
+      },
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "items": "Mặt hàng"
+      },
+      "split": {
+        "menuLabel": "Tách yêu cầu chuyển"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "unapprove": {
+        "menuLabel": "Hủy phê duyệt yêu cầu chuyển"
+      },
+      "viewReport": {
+        "menuLabel": "Xem báo cáo yêu cầu chuyển"
+      }
+    },
+    "workgroup": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "scope": "Phạm vi",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "scope": "Phạm vi:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Tổ công việc ({{count}})",
+      "manageRoleWorkspaces": {
+        "menuLabel": "Quản lý không gian làm việc vai trò"
+      },
+      "manageUserWorkgroups": {
+        "menuLabel": "Quản lý tổ công việc người dùng"
+      },
+      "notFound": "Không tìm thấy tổ công việc.",
+      "pageLabel": "Tổ công việc",
+      "sections": {
+        "areas": "Khu vực",
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "resources": "Tài nguyên",
+        "steps": "Công đoạn"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
     }
   }
 }

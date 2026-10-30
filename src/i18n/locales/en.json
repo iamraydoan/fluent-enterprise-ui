@@ -22,7 +22,9 @@
     "endpoint": "Endpoint",
     "clone": "Clone",
     "terminate": "Terminate",
-    "unterminate": "Unterminate"
+    "unterminate": "Unterminate",
+    "newTemplate": "New Template",
+    "newFromTemplate": "New from Template"
   },
   "administration": {
     "pageLabel": "Administration"
@@ -151,7 +153,8 @@
     "next": "Next",
     "create": "Create",
     "add": "Add",
-    "remove": "Remove"
+    "remove": "Remove",
+    "none": "None"
   },
   "configuration": {
     "pageLabel": "Configuration",
@@ -2087,6 +2090,5537 @@
     "operations": {
       "fieldRequired": "Please fill in all required fields.",
       "selectOption": "Select an option"
+    },
+    "mapDefinition": {
+      "pageLabel": "Map Definition",
+      "listTitle": "Map Definitions ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State"
+      },
+      "sections": {
+        "details": "Details",
+        "layers": "Layers",
+        "regions": "Regions",
+        "attachments": "Attachments",
+        "mapDefinition": "Map Definition",
+        "options": "Options",
+        "information": "Information",
+        "colors": "Colors",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "rulerMode": "Ruler Mode",
+        "showRulerByDefault": "Show Ruler by Default",
+        "notch": "Notch",
+        "defaultRotation": "Default Rotation",
+        "materialUnits": "Material Units",
+        "layoutType": "Layout Type",
+        "height": "Height",
+        "width": "Width",
+        "dimensionUnits": "Dimension Units",
+        "rows": "Rows",
+        "columns": "Columns",
+        "maskFile": "Mask File",
+        "backgroundFile": "Background File",
+        "emptyUnitsColor": "Empty Units Color",
+        "gridLinesColor": "Grid Lines Color",
+        "showGridLinesByDefault": "Show Grid Lines by Default"
+      },
+      "wizard": {
+        "createTitle": "Create Map Definition",
+        "editTitle": "Edit Map Definition",
+        "clone": "Clone",
+        "stepGeneral": "General Data",
+        "stepLayers": "Layers",
+        "stepFilters": "Filters",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "layoutType": "Layout Type",
+        "regular": "Regular",
+        "irregular": "Irregular",
+        "rows": "Rows",
+        "columns": "Columns",
+        "height": "Height",
+        "width": "Width",
+        "dimensionUnits": "Dimension Units",
+        "maskFile": "Mask File",
+        "browse": "Browse",
+        "clear": "Clear",
+        "emptyUnitsColor": "Empty Units Color",
+        "gridLinesColor": "Grid Lines Color",
+        "showGridLinesByDefault": "Show Grid Lines by Default",
+        "notch": "Notch",
+        "defaultRotation": "Default Rotation",
+        "materialUnits": "Material Units",
+        "rulerMode": "Ruler Mode",
+        "showRulerByDefault": "Show Ruler by Default",
+        "layerName": "Name",
+        "layerType": "Layer Type",
+        "dataType": "Data Type",
+        "isDefault": "Is Default",
+        "addLayer": "Add Layer",
+        "removeLayer": "Remove",
+        "cancel": "Cancel",
+        "back": "Back",
+        "next": "Next",
+        "create": "Create",
+        "update": "Update",
+        "comments": "Comments",
+        "generalData": "General Data",
+        "information": "Information",
+        "colors": "Colors",
+        "options": "Options"
+      }
+    },
+    "document": {
+      "pageLabel": "Document",
+      "listTitle": "Documents ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "author": "Author",
+        "creationDate": "Creation Date",
+        "state": "State",
+        "employee": "Employees",
+        "readAndUnderstoodDate": "Read and Understood Date"
+      },
+      "tabs": {
+        "tracking": "Tracking",
+        "contexts": "Contexts",
+        "compare": "Compare"
+      },
+      "sections": {
+        "details": "Details",
+        "applicableRoles": "Applicable Roles",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "document": "Document",
+        "content": "Content",
+        "information": "Information",
+        "readAndUnderstand": "Read and Understand",
+        "employees": "Employees",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State",
+        "dataGroup": "Data Group",
+        "source": "Source",
+        "file": "File",
+        "changeDescription": "Change Description",
+        "folder": "Folder",
+        "ownerRole": "Owner Role",
+        "group": "Group",
+        "author": "Author",
+        "creationDate": "Creation Date",
+        "link": "Link",
+        "versionLink": "Version Link",
+        "keywords": "Keywords",
+        "requireSignature": "Require Signature for Read and Understand",
+        "expirationDays": "Read and Understand Expiration (Days)"
+      },
+      "wizard": {
+        "createTitle": "Create Document",
+        "editTitle": "Edit Document",
+        "cloneTitle": "Clone Document",
+        "stepChangeSet": "Change Set",
+        "stepGeneral": "General Data",
+        "changeSet": "Change Set",
+        "approvalRole": "Approval Role",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "name": "Name",
+        "revision": "Revision",
+        "description": "Description",
+        "type": "Type",
+        "source": "Source",
+        "internal": "Internal",
+        "external": "External",
+        "file": "File",
+        "browse": "Browse",
+        "url": "URL",
+        "changeDescription": "Change Description",
+        "folder": "Folder",
+        "ownerRole": "Owner Role",
+        "group": "Group",
+        "author": "Author",
+        "creationDate": "Creation Date",
+        "keywords": "Keywords",
+        "distNewVersion": "Distribution List (New Version)",
+        "distNewEffective": "Distribution List (New Effective Version)",
+        "requireSignature": "Require Signature for Read and Understand",
+        "expirationDays": "Expiration Days",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "back": "Back",
+        "next": "Next",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      }
+    },
+    "enterprise": {
+      "pageLabel": "Enterprise",
+      "listTitle": "Enterprises ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "dataGroup": "Data Group",
+        "state": "State"
+      },
+      "sections": {
+        "details": "Details",
+        "sites": "Sites",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "enterprise": "Enterprise",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group"
+      },
+      "dialog": {
+        "createTitle": "Create Enterprise",
+        "editTitle": "Edit Enterprise",
+        "cloneTitle": "Clone Enterprise",
+        "name": "Name",
+        "description": "Description",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      }
+    },
+    "dataSilo": {
+      "columns": {
+        "description": "Description",
+        "enterpriseName": "Enterprise Name",
+        "name": "Name",
+        "siteName": "Site Name",
+        "type": "Type"
+      },
+      "details": {
+        "dataVersion": "Data Version",
+        "description": "Description",
+        "enterpriseName": "Enterprise Name",
+        "facilityName": "Facility Name",
+        "isExternal": "Is External",
+        "isSystem": "Is System",
+        "isTemplate": "Is Template",
+        "name": "Name",
+        "properties": "Properties",
+        "siteName": "Site Name",
+        "state": "State",
+        "type": "Type",
+        "user": "User",
+        "isObsolete": "Is Obsolete",
+        "keywords": "Keywords",
+        "ownerInstance": "Owner Instance",
+        "generalData": "General Data"
+      },
+      "listTitle": "Data Silos ({{count}})",
+      "pageLabel": "Data Silo",
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet.",
+        "relations": "Relations",
+        "whereUsed": "Where Used"
+      },
+      "create": {
+        "title": "Create Data Silo",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "dataVersion": "Data Version",
+        "enterpriseName": "Enterprise Name",
+        "facilityName": "Facility Name",
+        "isExternal": "Is External",
+        "isSystem": "Is System",
+        "keywords": "Keywords",
+        "siteName": "Site Name",
+        "user": "User",
+        "comments": "Comments",
+        "cancel": "Cancel",
+        "create": "Create",
+        "typeDefault": "Generic"
+      }
+    },
+    "kpi": {
+      "pageLabel": "KPI",
+      "listTitle": "KPIs ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State"
+      },
+      "sections": {
+        "details": "Details",
+        "dimensionsAndTimeFrames": "Dimensions and Time Frames",
+        "attachments": "Attachments",
+        "kpi": "KPI",
+        "settings": "Settings",
+        "defaultValues": "Default Values",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "sourceType": "Source Type",
+        "entityType": "Entity Type",
+        "parameter": "Parameter",
+        "kpiType": "KPI Type",
+        "frequency": "Frequency",
+        "ownerRole": "Owner Role",
+        "closeToTargetMinimumValue": "Close to Target Minimum Value",
+        "inTargetMinimumValue": "In Target Minimum Value",
+        "targetValue": "Target Value"
+      },
+      "actions": {
+        "manageDimensions": "Manage Dimensions and Time Frames"
+      },
+      "dialog": {
+        "cancel": "Cancel",
+        "clone": "Clone",
+        "cloneTitle": "Clone KPI",
+        "create": "Create",
+        "createTitle": "Create KPI",
+        "description": "Description",
+        "editTitle": "Edit KPI",
+        "entityType": "Entity Type",
+        "frequency": "Frequency",
+        "frequencyDaily": "Daily",
+        "frequencyMonthly": "Monthly",
+        "frequencyWeekly": "Weekly",
+        "frequencyYearly": "Yearly",
+        "kpiType": "KPI Type",
+        "kpiTypeDeviation": "Deviation",
+        "kpiTypeMaximum": "Maximum",
+        "kpiTypeMinimum": "Minimum",
+        "name": "Name",
+        "ownerRole": "Owner Role",
+        "parameter": "Parameter",
+        "save": "Save",
+        "sourceType": "Source Type",
+        "sourceTypeDynamic": "Dynamic",
+        "sourceTypeStatic": "Static",
+        "type": "Type"
+      },
+      "dimensionsDialog": {
+        "addDimension": "Add Dimension",
+        "addTimeFrame": "Add Time Frame",
+        "back": "Back",
+        "cancel": "Cancel",
+        "dimensions": "Dimensions",
+        "from": "From",
+        "isDefault": "Default",
+        "next": "Next",
+        "remove": "Remove",
+        "source": "Source",
+        "sourceBusinessRule": "Business Rule",
+        "sourceCommand": "Source Command",
+        "sourceCubes": "Cubes",
+        "sourceDwh": "Data Warehouse",
+        "sourceOds": "Operational Data Store",
+        "step1": "Step 1: Manage Dimensions",
+        "step2": "Step 2: Manage Time Frames",
+        "timeFrameName": "Time Frame Name",
+        "timeFrames": "Time Frames",
+        "title": "Manage Dimensions and Time Frames",
+        "to": "To",
+        "update": "Update",
+        "valueType": "Value Type",
+        "valueTypeSeries": "Data Series",
+        "valueTypeSingle": "Single Value"
+      },
+      "terminateDialog": {
+        "cancel": "Cancel",
+        "message": "Terminate KPI \"{{name}}\"?",
+        "terminate": "Terminate",
+        "title": "Terminate KPI",
+        "warning": "KPI objects cannot be unterminated. If you terminate a KPI object, it will be permanently lost."
+      }
+    },
+    "map": {
+      "pageLabel": "Map",
+      "listTitle": "Maps ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "mapDefinition": "Map Definition",
+        "state": "State"
+      },
+      "tabs": {
+        "content": "Content"
+      },
+      "sections": {
+        "details": "Details",
+        "layers": "Layers",
+        "attachments": "Attachments",
+        "map": "Map",
+        "mapDefinition": "Map Definition",
+        "context": "Context",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "mapDefinition": "Map Definition",
+        "step": "Step",
+        "resource": "Resource",
+        "material": "Material"
+      },
+      "dialog": {
+        "createTitle": "Create Map",
+        "editTitle": "Edit Map",
+        "cloneTitle": "Clone Map",
+        "step1": "Step 1: General Data",
+        "step2": "Step 2: Layers",
+        "name": "Name",
+        "description": "Description",
+        "mapDefinition": "Map Definition",
+        "step": "Step",
+        "resource": "Resource",
+        "layers": "Layers",
+        "layersHint": "Upload one G85 file per layer. If no file is uploaded, each layer will be initialized with its default value.",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      },
+      "terminateDialog": {
+        "title": "Terminate Map",
+        "message": "Terminate Map \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Map",
+        "unterminateMessage": "Unterminate Map \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "linkDialog": {
+        "linkTitle": "Link Map with Material \"{{name}}\"",
+        "material": "Material",
+        "mapOrder": "Map Order",
+        "isMasterMap": "Master Map",
+        "linkageMode": "Linkage Mode",
+        "linkageVerify": "Verify",
+        "linkageSynchronize": "Synchronize",
+        "isDefault": "Default Map",
+        "isMerged": "Merged Map",
+        "comment": "Comment",
+        "link": "Link",
+        "cancel": "Cancel",
+        "unlinkTitle": "Unlink Map from Material",
+        "unlinkMessage": "Unlink Material from Map \"{{name}}\"?",
+        "unlink": "Unlink"
+      },
+      "actions": {
+        "downloadLayer": "Download Layer",
+        "linkMaterial": "Link with Material",
+        "unlinkMaterial": "Unlink from Material"
+      },
+      "layers": {
+        "name": "Name",
+        "type": "Type",
+        "units": "Units"
+      }
+    },
+    "flow": {
+      "pageLabel": "Flow",
+      "listTitle": "Flows ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "flowType": "Flow Type",
+        "state": "State"
+      },
+      "tabs": {
+        "flowStructure": "Flow Structure",
+        "contextStructure": "Context Structure",
+        "contextMatrix": "Context Matrix",
+        "compare": "Compare"
+      },
+      "sections": {
+        "details": "Details",
+        "logicalNames": "Logical Names",
+        "attachments": "Attachments",
+        "flow": "Flow",
+        "settings": "Settings",
+        "flowStructure": "Flow Structure",
+        "flowDetails": "Flow Details",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "flow": "Flow",
+        "flowType": "Flow Type",
+        "enabled": "Enabled"
+      },
+      "dialog": {
+        "createTitle": "Create Flow",
+        "editTitle": "Edit Flow",
+        "cloneTitle": "Clone Flow",
+        "step1": "Step 1: Change Set",
+        "step2": "Step 2: General Data",
+        "step3": "Step 3: Flow Items",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "approvalRole": "Approval Role",
+        "makeEffectiveOnApproval": "Make Effective on Approval",
+        "name": "Name",
+        "revision": "Revision",
+        "description": "Description",
+        "flowType": "Flow Type",
+        "flowKind": "Flow Kind",
+        "kindSequential": "Sequential",
+        "kindAlternate": "Alternate",
+        "kindNonSequential": "Non-Sequential Block",
+        "kindLine": "Line",
+        "isEnabled": "Enabled",
+        "flowItems": "Flow Items",
+        "flowItemsHint": "Add Steps or Flows to build the Flow structure.",
+        "addStep": "Add Step",
+        "addFlow": "Add Flow",
+        "remove": "Remove",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      },
+      "terminateDialog": {
+        "title": "Terminate Flow",
+        "message": "Terminate Flow \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Flow",
+        "unterminateMessage": "Unterminate Flow \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "manageDialog": {
+        "logicalNamesTitle": "Manage Flow Logical Names",
+        "logicalName": "Logical Name",
+        "addLogicalName": "Add Logical Name",
+        "remove": "Remove",
+        "update": "Update",
+        "cancel": "Cancel",
+        "reworkPathsTitle": "View Rework Paths",
+        "filterByStep": "Filter by Step",
+        "close": "Close"
+      },
+      "actions": {
+        "manageLogicalNames": "Manage Logical Names",
+        "viewReworkPaths": "View Rework Paths"
+      }
+    },
+    "experimentDefinition": {
+      "pageLabel": "Experiment Definition",
+      "listTitle": "Experiment Definitions ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "product": "Product",
+        "state": "State"
+      },
+      "tabs": {
+        "matrix": "Matrix"
+      },
+      "sections": {
+        "details": "Details",
+        "objectives": "Objectives",
+        "mainMaterialGroups": "Main Material Groups",
+        "instances": "Instances",
+        "attachments": "Attachments",
+        "experimentDefinition": "Experiment Definition",
+        "options": "Options",
+        "information": "Information",
+        "results": "Results",
+        "settings": "Settings",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "ignoreInSamplingPlans": "Ignore in Sampling Plans",
+        "ignoreInSpcCharts": "Ignore in SPC Charts",
+        "closeExperimentAutomatically": "Close Experiment Automatically",
+        "ownerRole": "Owner Role",
+        "purpose": "Purpose",
+        "note": "Note",
+        "result": "Result",
+        "conclusions": "Conclusions",
+        "product": "Product",
+        "productGroup": "Product Group",
+        "maximumNumberOfMaterials": "Maximum Number of Materials",
+        "requiredMaterialType": "Required Material Type",
+        "requiredMaterialForm": "Required Material Form",
+        "mode": "Mode",
+        "requiredSubMaterialsForm": "Required Sub-Materials Form",
+        "requiredSubMaterialsCount": "Required Sub-Materials Count",
+        "plannedStartDate": "Planned Start Date",
+        "plannedEndDate": "Planned End Date",
+        "flow": "Flow",
+        "firstStep": "First Step",
+        "firstStepFlowPath": "First Step Flow Path",
+        "lastStep": "Last Step",
+        "lastStepFlowPath": "Last Step Flow Path"
+      },
+      "dialog": {
+        "createTitle": "Create Experiment Definition",
+        "editTitle": "Edit Experiment Definition",
+        "cloneTitle": "Clone Experiment Definition",
+        "step1": "Step 1: Change Set",
+        "step2": "Step 2: General Data",
+        "step3": "Step 3: Objectives",
+        "step4": "Step 4: Material Groups",
+        "step5": "Step 5: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "approvalRole": "Approval Role",
+        "makeEffectiveOnApproval": "Make Effective on Approval",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "ownerRole": "Owner Role",
+        "purpose": "Purpose",
+        "note": "Note",
+        "applicableTo": "Applicable To",
+        "applicableProduct": "Product",
+        "applicableProductGroup": "Product Group",
+        "product": "Product",
+        "productGroup": "Product Group",
+        "flow": "Flow",
+        "maxMaterials": "Maximum Number of Materials",
+        "requiredMaterialType": "Required Material Type",
+        "requiredMaterialForm": "Required Material Form",
+        "mode": "Mode",
+        "modeSubMaterials": "Sub-Materials",
+        "modeFullMaterial": "Full Material",
+        "plannedStartDate": "Planned Start Date",
+        "plannedEndDate": "Planned End Date",
+        "objectives": "Objectives",
+        "addObjective": "Add Objective",
+        "objectiveName": "Objective Name",
+        "objectiveTarget": "Target",
+        "remove": "Remove",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      },
+      "terminateDialog": {
+        "title": "Terminate Experiment Definition",
+        "message": "Terminate Experiment Definition \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Experiment Definition",
+        "unterminateMessage": "Unterminate Experiment Definition \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "setEffectiveTitle": "Set Version as Effective",
+        "setEffectiveMessage": "Set Experiment Definition \"{{name}}\" version as Effective?",
+        "setEffective": "Set Effective"
+      },
+      "actions": {
+        "setEffective": "Set Effective"
+      }
+    },
+    "facility": {
+      "pageLabel": "Facility",
+      "listTitle": "Facilities ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "site": "Site",
+        "state": "State"
+      },
+      "sections": {
+        "details": "Details",
+        "areas": "Areas",
+        "shippingInformation": "Shipping Information",
+        "attachments": "Attachments",
+        "facility": "Facility",
+        "information": "Information",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "displayOrder": "Display Order",
+        "defaultCalendar": "Default Calendar",
+        "site": "Site",
+        "remote": "Remote",
+        "terminateOnShipToThisFacility": "Terminate On Ship to This Facility"
+      },
+      "dialog": {
+        "createTitle": "Create Facility",
+        "editTitle": "Edit Facility",
+        "cloneTitle": "Clone Facility",
+        "step1": "Step 1: General Data",
+        "step2": "Step 2: Information",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "dataGroup": "Data Group",
+        "displayOrder": "Display Order",
+        "defaultCalendar": "Default Calendar",
+        "site": "Site",
+        "remote": "Remote",
+        "terminateOnShip": "Terminate on Ship to This Facility",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone",
+        "typeManufacturing": "Manufacturing",
+        "typeDistribution": "Distribution Center",
+        "typeWarehouse": "Warehouse"
+      },
+      "terminateDialog": {
+        "title": "Terminate Facility",
+        "message": "Terminate Facility \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Facility",
+        "unterminateMessage": "Unterminate Facility \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "manageShipping": {
+        "title": "Manage Facilities to Ship to",
+        "facilities": "Facilities",
+        "facilityDetails": "Facility Details",
+        "addFacility": "Add Facility",
+        "removeFacility": "Remove Facility",
+        "facility": "Facility",
+        "description": "Description",
+        "type": "Type",
+        "isRemote": "Is Remote",
+        "cancel": "Cancel",
+        "update": "Update",
+        "manage": "Manage"
+      }
+    },
+    "inspectionPlan": {
+      "pageLabel": "Inspection Plan",
+      "listTitle": "Inspection Plans ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State"
+      },
+      "tabs": {
+        "compare": "Compare"
+      },
+      "sections": {
+        "details": "Details",
+        "steps": "Steps",
+        "configurations": "Configurations",
+        "instances": "Instances",
+        "attachments": "Attachments",
+        "inspectionPlan": "Inspection Plan",
+        "defaultInspection": "Default Inspection",
+        "inspectionSettings": "Inspection Settings",
+        "futureHoldInformation": "Future Hold Information",
+        "holdInformation": "Hold Information",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "resultsRequiredBeforeTrackOut": "Results Required Before Track-Out",
+        "enableMultipleSamples": "Enable Multiple Samples",
+        "containsSeparateInspectionSteps": "Contains Separate Inspection Steps",
+        "closeAutomaticallyOnPass": "Close Automatically On Pass",
+        "closeAutomaticallyOnFail": "Close Automatically On Fail",
+        "openProtocolOnFail": "Open Protocol On Fail",
+        "protocol": "Protocol",
+        "futureHoldCreationMode": "Future Hold Creation Mode",
+        "setHoldOnFail": "Set Hold On Fail",
+        "step": "Step",
+        "reason": "Reason",
+        "releaseRole": "Release Role",
+        "comment": "Comment",
+        "distributionList": "Distribution List"
+      },
+      "dialog": {
+        "createTitle": "Create Inspection Plan",
+        "editTitle": "Edit Inspection Plan",
+        "cloneTitle": "Clone Inspection Plan",
+        "step1": "Step 1: Change Set",
+        "step2": "Step 2: General Data",
+        "step3": "Step 3: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "approvalRole": "Approval Role",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "resultsRequiredBeforeTrackOut": "Results Required Before Track-Out",
+        "enableMultipleSamples": "Enable Multiple Samples",
+        "containsSeparateInspectionSteps": "Contains Separate Inspection Steps",
+        "closeAutomaticallyOnPass": "Close Automatically on Pass",
+        "closeAutomaticallyOnFail": "Close Automatically on Fail",
+        "futureHoldCreationMode": "Future Hold Creation Mode",
+        "futureHoldNone": "None",
+        "futureHoldAlways": "Always",
+        "futureHoldOnFail": "On Fail",
+        "addStep": "Add Step",
+        "remove": "Remove",
+        "stepName": "Step Name",
+        "isInProcessInspection": "Is In Process Inspection",
+        "inspectionFlow": "Inspection Flow",
+        "inspectionStep": "Inspection Step",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      },
+      "terminateDialog": {
+        "title": "Terminate Inspection Plan",
+        "message": "Terminate Inspection Plan \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Inspection Plan",
+        "unterminateMessage": "Unterminate Inspection Plan \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "manageConfigurations": {
+        "title": "Manage Configurations",
+        "configurations": "Configurations",
+        "addConfiguration": "Add Configuration",
+        "removeConfiguration": "Remove Configuration",
+        "configurationName": "Configuration Name",
+        "cancel": "Cancel",
+        "update": "Update",
+        "manage": "Manage"
+      },
+      "manageSteps": {
+        "title": "Manage Inspection Plan Steps",
+        "steps": "Steps",
+        "addStep": "Add Step",
+        "removeStep": "Remove Step",
+        "stepName": "Step Name",
+        "isInProcessInspection": "Is In Process Inspection",
+        "cancel": "Cancel",
+        "update": "Update",
+        "manage": "Manage"
+      }
+    },
+    "employee": {
+      "pageLabel": "Employee",
+      "listTitle": "Employees ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "user": "User",
+        "number": "Number",
+        "team": "Team",
+        "state": "State"
+      },
+      "tabs": {
+        "calendar": "Calendar"
+      },
+      "sections": {
+        "details": "Details",
+        "subordinates": "Subordinates",
+        "delegates": "Delegates",
+        "certifications": "Certifications",
+        "qualifications": "Qualifications",
+        "timeSheetEntries": "Time Sheet Entries",
+        "checkInInformation": "Check-In Information",
+        "attachments": "Attachments",
+        "employee": "Employee",
+        "clockInOut": "Clock-In and Clock-Out",
+        "information": "Information",
+        "costing": "Costing",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State",
+        "dataGroup": "Data Group",
+        "requireClockIn": "Require Clock-In",
+        "enableAutomaticClockIn": "Enable Automatic Clock-In",
+        "lastClockInDate": "Last Clock-In Date",
+        "clockedState": "Clocked State",
+        "automaticClockOutAtEndOfShift": "Automatic Clock-Out At End Of Shift",
+        "user": "User",
+        "number": "Number",
+        "area": "Area",
+        "calendar": "Calendar",
+        "team": "Team",
+        "manager": "Manager",
+        "position": "Position",
+        "workgroup": "Workgroup",
+        "shiftplan": "Shiftplan",
+        "costCenter": "Cost Center",
+        "costPerHour": "Cost Per Hour"
+      },
+      "dialog": {
+        "createTitle": "Create Employee",
+        "editTitle": "Edit Employee",
+        "cloneTitle": "Clone Employee",
+        "step1": "Step 1: Select or Create User",
+        "step2": "Step 2: User",
+        "step3": "Step 3: General Data",
+        "user": "User",
+        "userAccount": "Account",
+        "userName": "Name",
+        "userEmail": "Email Address",
+        "primaryRole": "Primary Role",
+        "createUser": "Create User",
+        "selectUser": "Select User",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "employeeNumber": "Employee Number",
+        "area": "Area",
+        "calendar": "Calendar",
+        "costPerHour": "Cost Per Hour",
+        "costCenter": "Cost Center",
+        "requireClockIn": "Require Clock-In",
+        "automaticClockIn": "Automatic Clock-In",
+        "automaticClockOutAtEndOfShift": "Automatic Clock-Out at End of Shift",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone",
+        "remove": "Remove"
+      },
+      "terminateDialog": {
+        "title": "Terminate Employee",
+        "message": "Terminate Employee \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Employee",
+        "unterminateMessage": "Unterminate Employee \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "certifications": {
+        "manageTitle": "Manage Employee Certification",
+        "grantTitle": "Grant Certification to Employee",
+        "revokeTitle": "Revoke Certification from Employee",
+        "revokeMessage": "Revoke Certification \"{{certification}}\" from Employee \"{{name}}\"?",
+        "assignTitle": "Assign Certification to Employee",
+        "unassignTitle": "Unassign Certification from Employee",
+        "unassignMessage": "Unassign Certification \"{{certification}}\" from Employee \"{{name}}\"?",
+        "certification": "Certification",
+        "plannedDate": "Planned Date",
+        "certificationDate": "Certification Date",
+        "isTrainer": "Is Trainer",
+        "isTrainee": "Is Trainee",
+        "comment": "Comment",
+        "remark": "Remark",
+        "cancel": "Cancel",
+        "update": "Update",
+        "grant": "Grant",
+        "revoke": "Revoke",
+        "assign": "Assign",
+        "unassign": "Unassign",
+        "manage": "Manage"
+      },
+      "qualifications": {
+        "manageTitle": "Manage Employee Qualification",
+        "assignTitle": "Assign Qualification to Employee",
+        "unassignTitle": "Unassign Qualification from Employee",
+        "unassignMessage": "Unassign Qualification \"{{qualification}}\" from Employee \"{{name}}\"?",
+        "qualification": "Qualification",
+        "qualificationDate": "Qualification Date",
+        "validTo": "Valid To",
+        "reason": "Reason",
+        "proficiency": "Proficiency",
+        "remarks": "Remarks",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "update": "Update",
+        "assign": "Assign",
+        "unassign": "Unassign",
+        "manage": "Manage"
+      },
+      "attendance": {
+        "checkInTitle": "Check-In Employee",
+        "checkOutTitle": "Check-Out Employee",
+        "clockInTitle": "Clock-In Employee",
+        "clockOutTitle": "Clock-Out Employee",
+        "assignSubordinatesTitle": "Assign Subordinate(s) to Employee",
+        "unassignSubordinatesTitle": "Unassign Subordinate(s) from Employee",
+        "assignTeamTitle": "Assign Team and Workgroup",
+        "resource": "Resource",
+        "certification": "Certification",
+        "subordinates": "Subordinates",
+        "team": "Team",
+        "workgroup": "Workgroup",
+        "area": "Area",
+        "comment": "Comment",
+        "reason": "Reason",
+        "cancel": "Cancel",
+        "checkIn": "Check-In",
+        "checkOut": "Check-Out",
+        "clockIn": "Clock-In",
+        "clockOut": "Clock-Out",
+        "assign": "Assign",
+        "unassign": "Unassign",
+        "save": "Save"
+      },
+      "delegates": {
+        "manageDelegatesTitle": "Manage Employee Delegates",
+        "manageTraineesTitle": "Manage Employee Trainees",
+        "delegates": "Delegates",
+        "trainees": "Trainees",
+        "delegateEmployee": "Delegate Employee",
+        "validFrom": "Valid From",
+        "validTo": "Valid To",
+        "addDelegate": "Add Delegate",
+        "removeDelegate": "Remove Delegate",
+        "addTrainee": "Add Trainee",
+        "removeTrainee": "Remove Trainee",
+        "cancel": "Cancel",
+        "update": "Update",
+        "checkOut": "Check-Out",
+        "manage": "Manage"
+      },
+      "calendarDays": {
+        "setNonWorkingTimeTitle": "Set Employee Non-Working Time",
+        "setWorkAvailabilityTitle": "Set Employee Work Availability",
+        "removeNonWorkingTimesTitle": "Remove Employee Non-Working Times",
+        "removeWorkAvailabilityTitle": "Remove Employee Work Availability",
+        "removeNonWorkingTimesMessage": "Remove all Non-Working Times for Employee \"{{name}}\"?",
+        "removeWorkAvailabilityMessage": "Remove Work Availability for Employee \"{{name}}\"?",
+        "description": "Description",
+        "nonWorkingTimeType": "Non-Working Time Type",
+        "startTime": "Start Time",
+        "endTime": "End Time",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "set": "Set",
+        "remove": "Remove",
+        "manage": "Manage"
+      }
+    },
+    "maintenanceActivityOrder": {
+      "pageLabel": "Maintenance Activity Order",
+      "listTitle": "Maintenance Activity Orders ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "executionState": "Execution State",
+        "scheduleType": "Schedule Type",
+        "state": "State"
+      },
+      "sections": {
+        "details": "Details",
+        "parts": "Parts",
+        "labor": "Labor",
+        "personnel": "Personnel",
+        "transferRequirements": "Transfer Requirements",
+        "documents": "Documents",
+        "pastMaos": "Past MAOS",
+        "joinedMaos": "Joined MAOS",
+        "attachments": "Attachments",
+        "order": "Maintenance Activity Order",
+        "scheduling": "Scheduling",
+        "requestInformation": "Request Information",
+        "definition": "Definition",
+        "execution": "Execution",
+        "information": "Information",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "scheduleDate": "Schedule Date",
+        "requestedBy": "Requested By",
+        "requestDate": "Request Date",
+        "comment": "Comment",
+        "maintenancePlanInstance": "Maintenance Plan Instance",
+        "resource": "Resource",
+        "ownerRole": "Owner Role",
+        "maintenanceActivity": "Maintenance Activity",
+        "role": "Role",
+        "beginDate": "Begin Date",
+        "endDate": "End Date",
+        "scheduleType": "Schedule Type",
+        "expectedDuration": "Expected Duration",
+        "executionState": "Execution State",
+        "reworkCount": "Rework Count",
+        "requestApprovalMode": "Request Approval Mode",
+        "maintenanceType": "Maintenance Type",
+        "materialTypeRestrictionMode": "Material Type Restriction Mode",
+        "materialType": "Material Type",
+        "orderReleaseMode": "Order Release Mode",
+        "completionAcceptanceMode": "Completion Acceptance Mode",
+        "beginAndCompleteMode": "Begin and Complete Mode",
+        "cost": "Cost"
+      },
+      "dialog": {
+        "editTitle": "Edit Maintenance Activity Order",
+        "description": "Description",
+        "dataGroup": "Data Group",
+        "cancel": "Cancel",
+        "save": "Save"
+      },
+      "terminateDialog": {
+        "title": "Terminate Maintenance Activity Order",
+        "message": "Terminate Maintenance Activity Order \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Maintenance Activity Order",
+        "unterminateMessage": "Unterminate Maintenance Activity Order \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "request": {
+        "title": "Request Maintenance Activity Order",
+        "step1": "Step 1: Entity",
+        "step2": "Step 2: Maintenance Activity Order",
+        "entityType": "Entity Type",
+        "entity": "Entity",
+        "scheduleDate": "Schedule Date",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "request": "Request",
+        "back": "Back",
+        "next": "Next"
+      },
+      "changeState": {
+        "title": "{{action}} Maintenance Activity Order",
+        "message": "{{action}} Maintenance Activity Order \"{{name}}\"?",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "approve": "Approve",
+        "release": "Release",
+        "begin": "Begin",
+        "complete": "Complete",
+        "accept": "Accept",
+        "reject": "Reject",
+        "cancelAction": "Cancel",
+        "skip": "Skip",
+        "abort": "Abort",
+        "rework": "Rework"
+      }
+    },
+    "maintenancePlan": {
+      "pageLabel": "Maintenance Plan",
+      "listTitle": "Maintenance Plans ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "scope": "Scope",
+        "state": "State"
+      },
+      "tabs": {
+        "maintenanceActivities": "Maintenance Activities",
+        "compare": "Compare"
+      },
+      "sections": {
+        "details": "Details",
+        "instances": "Instances",
+        "attachments": "Attachments",
+        "maintenancePlan": "Maintenance Plan",
+        "activities": "Activities",
+        "generalData": "General Data",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "scope": "Scope",
+        "dataGroup": "Data Group",
+        "scheduleType": "Schedule Type",
+        "expectedDurationHours": "Expected Duration (Hours)",
+        "executionRole": "Execution Role",
+        "requestApprovalMode": "Request Approval Mode",
+        "maintenanceType": "Maintenance Type",
+        "materialTypeRestrictionMode": "Material Type Restriction Mode",
+        "orderReleaseMode": "Order Release Mode",
+        "acceptanceMode": "Acceptance Mode",
+        "ignoreInScheduling": "Ignore in Scheduling",
+        "autoDisableAfterLateDue": "Auto Disable After Late Due",
+        "postMaintenanceActivity": "Post Maintenance Activity"
+      },
+      "dialog": {
+        "createTitle": "Create Maintenance Plan",
+        "editTitle": "Edit Maintenance Plan",
+        "cloneTitle": "Clone Maintenance Plan",
+        "step1": "Step 1: Change Set",
+        "step2": "Step 2: General Data",
+        "step3": "Step 3: Maintenance Activities",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "approvalRole": "Approval Role",
+        "makeEffectiveOnApproval": "Make Effective on Approval",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "scope": "Scope",
+        "scopeMaintenanceManagement": "Maintenance Management",
+        "scopeInProcessVerification": "In-Process Verification",
+        "scopeQualification": "Qualification",
+        "addActivity": "Add Activity",
+        "remove": "Remove",
+        "activityName": "Activity Name",
+        "scheduleType": "Schedule Type",
+        "scheduleAdHoc": "Ad hoc",
+        "scheduleTimeBased": "Time Based",
+        "scheduleUsageBased": "Usage Based",
+        "scheduleUsageAndTimeBased": "Usage And Time Based",
+        "expectedDuration": "Expected Duration (hours)",
+        "executionRole": "Execution Role",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      },
+      "terminateDialog": {
+        "title": "Terminate Maintenance Plan",
+        "message": "Terminate Maintenance Plan \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Maintenance Plan",
+        "unterminateMessage": "Unterminate Maintenance Plan \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "setEffectiveTitle": "Set Maintenance Plan Effective",
+        "setEffectiveMessage": "Set Maintenance Plan \"{{name}}\" as Effective?",
+        "setEffective": "Set Effective"
+      },
+      "associate": {
+        "title": "Associate Maintenance Plan",
+        "entityType": "Entity Type",
+        "entity": "Entity",
+        "area": "Area",
+        "container": "Container",
+        "material": "Material",
+        "resource": "Resource",
+        "cancel": "Cancel",
+        "associate": "Associate"
+      }
+    },
+    "material": {
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "primaryQuantity": "Primary Quantity",
+        "product": "Product",
+        "state": "State",
+        "step": "Step",
+        "type": "Type"
+      },
+      "detailsView": "Details View",
+      "emptyTab": "No data available.",
+      "fields": {
+        "approved": "Approved",
+        "container": "Container",
+        "description": "Description",
+        "facility": "Facility",
+        "flow": "Flow",
+        "flowPath": "Flow Path",
+        "form": "Form",
+        "name": "Name",
+        "primaryQuantity": "Primary Quantity",
+        "product": "Product",
+        "productDescription": "Product Description",
+        "resource": "Resource",
+        "secondaryQuantity": "Secondary Quantity",
+        "step": "Step",
+        "subMaterialCount": "Sub-Materials",
+        "systemState": "System State",
+        "type": "Type",
+        "universalState": "Universal State"
+      },
+      "listTitle": "Materials ({{count}})",
+      "pageLabel": "Material",
+      "sections": {
+        "basicInformation": "Basic Information",
+        "flowAndStep": "Flow and Step",
+        "material": "Material",
+        "quantities": "Quantities",
+        "resourceAndContainer": "Resource and Container",
+        "subMaterials": "Sub-Materials"
+      },
+      "sideSections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "carriers": "Carriers",
+        "characteristics": "Characteristics",
+        "collectedData": "Collected Data",
+        "costing": "Costing",
+        "defects": "Defects",
+        "dependencies": "Dependencies",
+        "details": "Details",
+        "experiments": "Experiments",
+        "futureActions": "Future Actions",
+        "holds": "Holds/Off-Flows/Reworks",
+        "maps": "Maps",
+        "notifications": "Notifications",
+        "packages": "Packages",
+        "protocols": "Protocols",
+        "scheduling": "Scheduling",
+        "subMaterials": "Sub-Materials",
+        "timeConstraints": "Time Constraints",
+        "transferRequirements": "Transfer Requirements"
+      },
+      "tabs": {
+        "details": "Details",
+        "traceability": "Traceability",
+        "container": "Container",
+        "defects": "Defects",
+        "genealogy": "Genealogy",
+        "history": "History",
+        "compare": "Compare"
+      },
+      "traceability": {
+        "details": "Details",
+        "filters": {
+          "bom": "BOM",
+          "checklist": "Checklist",
+          "dataCollection": "Data Collection",
+          "maintenancePlan": "Maintenance Plan",
+          "recipe": "Recipe",
+          "resource": "Resource"
+        },
+        "flowStructure": "Flow Structure",
+        "information": "Information"
+      },
+      "common": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Material",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "edit": {
+          "title": "Edit Material",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Material cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Material",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Material",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Material",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "dispatch": {
+          "title": "Dispatch Material",
+          "cancel": "Cancel",
+          "submit": "Dispatch",
+          "description": "Dispatch the Material."
+        },
+        "undispatch": {
+          "title": "Undispatch Material",
+          "cancel": "Cancel",
+          "submit": "Undispatch",
+          "description": "Undispatch the Material."
+        },
+        "trackIn": {
+          "title": "Track-In Material",
+          "cancel": "Cancel",
+          "submit": "Track-In",
+          "description": "Track-In the Material."
+        },
+        "trackOut": {
+          "title": "Track-Out Material",
+          "cancel": "Cancel",
+          "submit": "Track-Out",
+          "description": "Track-Out the Material."
+        },
+        "moveNext": {
+          "title": "Material Move-Next",
+          "cancel": "Cancel",
+          "submit": "Move Next",
+          "description": "Move the Material to the next Step."
+        },
+        "abort": {
+          "title": "Abort Material",
+          "cancel": "Cancel",
+          "submit": "Abort",
+          "description": "Abort the Material processing."
+        },
+        "ship": {
+          "title": "Ship Material",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "description": "Ship the Material."
+        },
+        "receive": {
+          "title": "Receive Material",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "description": "Receive the Material."
+        },
+        "unship": {
+          "title": "Unship Material",
+          "cancel": "Cancel",
+          "submit": "Unship",
+          "description": "Unship the Material."
+        },
+        "hold": {
+          "title": "Hold Material",
+          "cancel": "Cancel",
+          "submit": "Hold",
+          "description": "Hold the Material."
+        },
+        "split": {
+          "title": "Split Material",
+          "cancel": "Cancel",
+          "submit": "Split",
+          "description": "Split the Material."
+        },
+        "merge": {
+          "title": "Merge Material",
+          "cancel": "Cancel",
+          "submit": "Merge",
+          "description": "Merge the Material."
+        },
+        "combine": {
+          "title": "Combine Material",
+          "cancel": "Cancel",
+          "submit": "Combine",
+          "description": "Combine the Material."
+        },
+        "attach": {
+          "title": "Attach Material",
+          "cancel": "Cancel",
+          "submit": "Attach",
+          "description": "Attach Material as Sub-Material."
+        },
+        "detach": {
+          "title": "Detach Material",
+          "cancel": "Cancel",
+          "submit": "Detach",
+          "description": "Detach Sub-Material."
+        },
+        "grade": {
+          "title": "Grade Material",
+          "cancel": "Cancel",
+          "submit": "Grade",
+          "description": "Grade the Material."
+        },
+        "rework": {
+          "title": "Rework Material",
+          "cancel": "Cancel",
+          "submit": "Rework",
+          "description": "Rework the Material."
+        },
+        "changeProduct": {
+          "title": "Change Material Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Product of the Material."
+        },
+        "changeQuantity": {
+          "title": "Change Material Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Quantity of the Material."
+        },
+        "changeFlowStep": {
+          "title": "Change Material Flow/Step",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Flow/Step of the Material."
+        },
+        "viewReports": {
+          "title": "View Material Reports",
+          "close": "Close",
+          "description": "View Material Reports: Material Cost History Report, Material Future Flow Report."
+        },
+        "viewDocuments": {
+          "title": "View Material Documents",
+          "close": "Close",
+          "description": "View documents attached to the Material."
+        }
+      },
+      "left": {
+        "details": "Details",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "materialTransfer": {
+      "pageLabel": "Material Transfer",
+      "listTitle": "Material Transfers ({{count}})",
+      "columns": {
+        "name": "Name",
+        "type": "Type",
+        "state": "State",
+        "material": "Material",
+        "quantity": "Quantity",
+        "fromFacility": "From Facility",
+        "toFacility": "To Facility"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "type": "Type",
+          "state": "State",
+          "material": "Material",
+          "quantity": "Quantity",
+          "fromFacility": "From Facility",
+          "toFacility": "To Facility",
+          "requester": "Requester",
+          "urgency": "Urgency"
+        }
+      },
+      "actions": {
+        "approve": "Approve",
+        "cancel": "Cancel",
+        "deliver": "Deliver",
+        "prepare": "Prepare",
+        "receive": "Receive",
+        "refuse": "Refuse",
+        "reject": "Reject",
+        "send": "Send"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "approve": {
+          "title": "Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "cancel": {
+          "title": "Cancel Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "changeInfo": {
+          "title": "Change Material Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "deliver": {
+          "title": "Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "prepare": {
+          "title": "Prepare Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Prepare",
+          "confirmText": "Select Prepare to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "receive": {
+          "title": "Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "refuse": {
+          "title": "Refuse Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Refuse",
+          "confirmText": "Select Refuse to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "reject": {
+          "title": "Reject Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Reject",
+          "confirmText": "Select Reject to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "request": {
+          "title": "Request for Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "requestForMAO": {
+          "title": "Request for Material Transfer for a Maintenance Activity Order",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Part for a Maintenance Activity Order."
+        },
+        "requestForCostCenter": {
+          "title": "Request for Material Transfer for Cost Center",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Material for a Cost Center."
+        },
+        "returnInventory": {
+          "title": "Return Inventory",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Inventory to the Warehouse."
+        },
+        "returnMaterial": {
+          "title": "Return Material",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Material to the Warehouse."
+        },
+        "send": {
+          "title": "Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialApprove": {
+          "title": "Special Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialDeliver": {
+          "title": "Special Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialReceive": {
+          "title": "Special Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialRequest": {
+          "title": "Special Request for Material",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Special request for Material."
+        },
+        "specialSend": {
+          "title": "Special Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "notification": {
+      "pageLabel": "Notification",
+      "listTitle": "Notifications ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "severity": "Severity",
+        "type": "Type",
+        "state": "State",
+        "validTo": "Valid To"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "severity": "Severity",
+          "type": "Type",
+          "state": "State",
+          "validTo": "Valid To",
+          "tracking": "Tracking"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Notification",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "type": "Type",
+            "title": "Title",
+            "details": "Details",
+            "severity": "Severity",
+            "assignment": "Assignment",
+            "sendEmail": "Send email",
+            "visibility": "Visibility Filter",
+            "clearance": "Clearance Mode",
+            "validTo": "Valid To"
+          },
+          "hints": {
+            "name": "Can be left empty if a Name Generator is configured.",
+            "type": "The list of possible values is taken from the NotificationType lookup table.",
+            "title": "Hyperlinks: [Entity Type Entity Name] for unversioned, [Entity Type Revision Name] for versioned.",
+            "visibility": "Filter Notifications displayed in the Notifications window according to the user's Employee Workgroup.",
+            "validTo": "Mandatory for ManualEveryUser and Automatic, optional for ManualSingleUser."
+          },
+          "placeholders": {
+            "validTo": "MM/DD/YYYY"
+          }
+        },
+        "edit": {
+          "title": "Edit Notification",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "title": "Title",
+            "severity": "Severity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Notification cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Notification",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Notification",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "clear": {
+          "title": "Clear Notification",
+          "cancel": "Cancel",
+          "submit": "Clear",
+          "confirmText": "Clear this Notification? This will close the alarm for the current user."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "clearHistory": "Clear History Information",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
+      }
+    },
+    "package": {
+      "pageLabel": "Package",
+      "listTitle": "Packages ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "product": "Product",
+        "level": "Level",
+        "state": "State",
+        "packedQuantity": "Packed Quantity"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "product": "Product",
+          "level": "Level",
+          "state": "State",
+          "packedQuantity": "Packed Quantity",
+          "contentType": "Content Type"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "terminate": {
+          "title": "Terminate Package",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Package",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "ship": {
+          "title": "Ship Packages",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "fields": {
+            "facility": "Facility",
+            "shippingLabel": "Shipping Label",
+            "shipContainers": "Ship Containers",
+            "comment": "Comment"
+          },
+          "hints": {
+            "facility": "Select the Facility to which the Material should be shipped.",
+            "shippingLabel": "Optionally, enter or select an existing shipping label.",
+            "shipContainers": "Ship the Containers along with the Material (applies to all Containers of the Sub-Materials as well)."
+          }
+        },
+        "report": {
+          "title": "Package Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Package.",
+          "fields": {
+            "level1": "Fields for Level 1",
+            "level2": "Fields for Level 2"
+          },
+          "level1Fields": "Package Qty/ID, Content Product, Content Product Description, Material, Packed Qty",
+          "level2Fields": "Package, Package Qty, Content Product, Content Product Description"
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "contents": "Contents",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "parameter": {
+      "pageLabel": "Parameter",
+      "listTitle": "Parameters ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "dataType": "Data Type",
+        "value": "Value",
+        "state": "State"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "dataType": "Data Type",
+          "value": "Value",
+          "state": "State"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Parameter",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "generalData": "General Data",
+            "information": "Information"
+          },
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "displayName": "Display Name",
+            "scope": "Scope",
+            "dataType": "Data Type",
+            "units": "Units"
+          },
+          "hints": {
+            "type": "The list of possible values is taken from the lookup table ParameterType.",
+            "displayName": "The display name if present will be displayed in the data collection screens.",
+            "dataType": "If scope is KPI, the data type must be numeric."
+          }
+        },
+        "edit": {
+          "title": "Edit Parameter",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Parameter cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Parameter",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
+      }
+    },
+    "product": {
+      "pageLabel": "Product",
+      "listTitle": "Products ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "productType": "Product Type",
+        "state": "State",
+        "isActive": "Is Active"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "productType": "Product Type",
+          "state": "State",
+          "isActive": "Is Active"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Product",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "You must associate the Product Version to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Product",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Product",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "createBOM": {
+          "title": "Create BOM For Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Create a Bill-Of-Materials for the Product."
+        },
+        "importInfo": {
+          "title": "Import Product Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Import Product information from an external source."
+        },
+        "manageBinningTree": {
+          "title": "Manage Binning Tree",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Binning Tree for the Product."
+        },
+        "manageCharacteristics": {
+          "title": "Manage Characteristics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Characteristics for the Product."
+        },
+        "manageCosts": {
+          "title": "Manage Costs",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Costs for the Product."
+        },
+        "manageLogistics": {
+          "title": "Manage Material Logistics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Material Logistics for the Product."
+        },
+        "manageParameters": {
+          "title": "Manage Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Parameters for the Product."
+        },
+        "managePlanning": {
+          "title": "Manage Planning",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Planning settings for the Product."
+        },
+        "manageComponentInfo": {
+          "title": "Manage Product Component Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Component Information for the Product."
+        },
+        "manageManufacturers": {
+          "title": "Manage Product Manufacturers",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Manufacturers for the Product."
+        },
+        "manageRepairPolicy": {
+          "title": "Manage Repair Policy",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Repair Policy for the Product."
+        },
+        "manageRules": {
+          "title": "Manage Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Rules for the Product."
+        },
+        "manageSafetyInfo": {
+          "title": "Manage Safety Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Safety Information for the Product."
+        },
+        "manageScheduling": {
+          "title": "Manage Scheduling",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Scheduling settings for the Product."
+        },
+        "manageSubProducts": {
+          "title": "Manage Sub-Products",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Sub-Products for the Product."
+        },
+        "manageTransferInfo": {
+          "title": "Manage Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Transfer Information for the Product."
+        },
+        "manageUnitConversion": {
+          "title": "Manage Unit Conversion Factors",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Unit Conversion Factors for the Product."
+        },
+        "previewRules": {
+          "title": "Preview Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Preview the Rules for the Product."
+        },
+        "viewReports": {
+          "title": "View Product Reports",
+          "close": "Close",
+          "description": "View Product Reports: Product Standard Cost Report, Product Standard Flow Report."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "attachments": "Attachments"
+      }
+    },
+    "productionOrder": {
+      "pageLabel": "Production Order",
+      "listTitle": "Production Orders ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "product": "Product",
+        "quantity": "Quantity",
+        "state": "State",
+        "priority": "Priority"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "product": "Product",
+          "quantity": "Quantity",
+          "state": "State",
+          "priority": "Priority"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "edit": {
+          "title": "Edit Production Order",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Production Order cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Production Order",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "release": {
+          "title": "Release Production Order",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to perform the operation."
+        },
+        "unrelease": {
+          "title": "Unrelease Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrelease",
+          "confirmText": "Select Unrelease to perform the operation."
+        },
+        "start": {
+          "title": "Start Production Order",
+          "cancel": "Cancel",
+          "submit": "Start",
+          "confirmText": "Select Start to perform the operation."
+        },
+        "cancel": {
+          "title": "Cancel Production Order",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation."
+        },
+        "close": {
+          "title": "Close Production Order",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "confirmText": "Select Close to perform the operation."
+        },
+        "reopen": {
+          "title": "Reopen Production Order",
+          "cancel": "Cancel",
+          "submit": "Reopen",
+          "confirmText": "Select Reopen to perform the operation."
+        },
+        "restrict": {
+          "title": "Restrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Restrict",
+          "confirmText": "Select Restrict to perform the operation."
+        },
+        "unrestrict": {
+          "title": "Unrestrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrestrict",
+          "confirmText": "Select Unrestrict to perform the operation."
+        },
+        "assignMaterials": {
+          "title": "Assign Materials To Production Order",
+          "cancel": "Cancel",
+          "submit": "Assign",
+          "description": "Assign Materials to the Production Order."
+        },
+        "reassignMaterials": {
+          "title": "Reassign Production Order Materials",
+          "cancel": "Cancel",
+          "submit": "Reassign",
+          "description": "Reassign Materials to another Production Order."
+        },
+        "createMaterial": {
+          "title": "Create Material For Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "description": "Create Materials for the Production Order."
+        },
+        "changeProductQuantity": {
+          "title": "Change Product and Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "manageSteps": {
+          "title": "Manage Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Production Order Steps."
+        },
+        "synchronizeSteps": {
+          "title": "Synchronize Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "description": "Synchronize the Production Order Steps."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "steps": "Steps",
+        "attachments": "Attachments"
+      }
+    },
+    "protocol": {
+      "pageLabel": "Protocol",
+      "listTitle": "Protocols ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State",
+        "version": "Version"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "state": "State",
+          "version": "Version"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Protocol",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Protocol Version with a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Protocol",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Protocol cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Protocol",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "exceptionRules": {
+          "title": "Exception Management Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Exception Management Rules for the Protocol."
+        },
+        "openInstance": {
+          "title": "Open Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Open",
+          "description": "Open a Protocol Instance."
+        },
+        "closeInstance": {
+          "title": "Close Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "description": "Close the Protocol Instance."
+        },
+        "performInstance": {
+          "title": "Perform Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Perform",
+          "description": "Perform the Protocol Instance."
+        },
+        "takeInstanceOwnership": {
+          "title": "Take Protocol Instance Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "description": "Take ownership of the Protocol Instance."
+        },
+        "terminateInstance": {
+          "title": "Terminate Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Terminate the Protocol Instance."
+        },
+        "changeInstanceState": {
+          "title": "Change Protocol Instance State",
+          "cancel": "Cancel",
+          "submit": "Change",
+          "description": "Change the state of the Protocol Instance."
+        },
+        "manageInstanceMaterials": {
+          "title": "Manage Protocol Instance Materials",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Materials associated with the Protocol Instance."
+        },
+        "viewInstanceReports": {
+          "title": "View Protocol Instance Reports",
+          "close": "Close",
+          "description": "View reports for the Protocol Instance."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "instances": "Instances",
+        "attachments": "Attachments"
+      }
+    },
+    "periodicInventory": {
+      "pageLabel": "Periodic Inventory",
+      "listTitle": "Periodic Inventories ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "facility": "Facility",
+        "state": "State",
+        "scheduledOn": "Scheduled On"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "facility": "Facility",
+          "state": "State",
+          "scheduledOn": "Scheduled On"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Periodic Inventory cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Periodic Inventory",
+          "confirmText": "Select Terminate to perform the operation.",
+          "submit": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Periodic Inventory",
+          "confirmText": "Select Unterminate to perform the operation.",
+          "submit": "Unterminate"
+        },
+        "begin": {
+          "title": "Begin Periodic Inventory",
+          "confirmText": "Select Begin to perform the operation.",
+          "submit": "Begin"
+        },
+        "cancel": {
+          "title": "Cancel Periodic Inventory",
+          "confirmText": "Select Cancel to perform the operation.",
+          "submit": "Cancel"
+        },
+        "complete": {
+          "title": "Complete Periodic Inventory",
+          "confirmText": "Select Complete to perform the operation.",
+          "submit": "Complete"
+        },
+        "perform": {
+          "title": "Perform Periodic Inventory",
+          "confirmText": "Select Perform to perform the operation.",
+          "submit": "Perform"
+        },
+        "takeOwnership": {
+          "title": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation.",
+          "submit": "Take Ownership"
+        },
+        "viewReport": {
+          "title": "Periodic Inventory Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Periodic Inventory."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "resources": "Resources",
+        "materials": "Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "pickList": {
+      "pageLabel": "Pick List",
+      "listTitle": "Pick Lists ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State",
+        "itemCount": "Items",
+        "createdOn": "Created On"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "state": "State",
+          "itemCount": "Items",
+          "createdOn": "Created On"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "edit": {
+          "title": "Edit Pick List",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Pick List cannot be altered."
+          }
+        },
+        "manageItems": {
+          "title": "Manage Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Edit the items of the Pick List. The Material defined for each item can be replaced by another Material, provided that the released quantity is not yet fulfilled.",
+          "columns": {
+            "material": "Material",
+            "quantity": "Quantity",
+            "picked": "Picked"
+          },
+          "empty": "No items to display.",
+          "warning": "The Quantity value to pick for every Pick List Item must be bigger than zero."
+        },
+        "pick": {
+          "title": "Pick Pick List",
+          "cancel": "Cancel",
+          "submit": "Pick",
+          "description": "Select or scan each of the items in the list and mark them as picked. Picking is a long running operation, so items can be picked separately.",
+          "columns": {
+            "item": "Item",
+            "status": "Status"
+          },
+          "empty": "No items to display."
+        },
+        "takeOwnership": {
+          "title": "Take Pick List Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation."
+        },
+        "unpick": {
+          "title": "Unpick Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Unpick",
+          "confirmText": "Select Unpick to perform the operation."
+        },
+        "viewReport": {
+          "title": "Pick List Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Pick List."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "attachments": "Attachments"
+      }
+    },
+    "plan": {
+      "pageLabel": "Plan",
+      "listTitle": "Plans ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State",
+        "startDate": "Start Date"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "state": "State",
+          "startDate": "Start Date"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Plan",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Plan",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Plan cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Plan",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Plan",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "adjustTargets": {
+          "title": "Adjust Plan Targets",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Adjust the target quantities for Plan Items and Time Frames.",
+          "columns": {
+            "item": "Item",
+            "timeFrame": "Time Frame",
+            "target": "Target"
+          },
+          "empty": "No items to display."
+        },
+        "manageItems": {
+          "title": "Manage Plan Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the items that will be included in the Plan.",
+          "columns": {
+            "item": "Item",
+            "product": "Product"
+          },
+          "empty": "No items to display."
+        },
+        "manageSteps": {
+          "title": "Manage Plan Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Steps where the volumes are counted toward the planned volume.",
+          "columns": {
+            "step": "Step"
+          },
+          "empty": "No steps to display."
+        },
+        "manageExcludedTypes": {
+          "title": "Manage Plan Excluded Material Types",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Material Types excluded from the Plan."
+        },
+        "createScenario": {
+          "title": "Create Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name"
+          }
+        },
+        "releaseScenario": {
+          "title": "Release Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to update the Effective Plan with the Scenario."
+        },
+        "synchronizeScenario": {
+          "title": "Synchronize Scenario with Parent Plan",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "confirmText": "Select Synchronize to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "steps": "Steps",
+        "timeFrames": "Time Frames",
+        "scenarios": "Scenarios",
+        "attachments": "Attachments"
+      }
+    },
+    "printableDocument": {
+      "pageLabel": "Printable Document",
+      "listTitle": "Printable Documents ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "documentType": "Document Type",
+        "state": "State",
+        "version": "Version"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "documentType": "Document Type",
+          "state": "State",
+          "version": "Version"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Printable Document",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Printable Document to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Printable Document",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Printable Document cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Printable Document",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "print": {
+          "title": "Print Printable Document",
+          "cancel": "Cancel",
+          "submit": "Print",
+          "fields": {
+            "printer": "Printer",
+            "copies": "Copies"
+          }
+        },
+        "layoutCreation": {
+          "title": "Printable Document Layout Creation",
+          "close": "Close",
+          "description": "Create or Edit the Printable Document Layout, using the Layout Editor."
+        },
+        "lotTraveler": {
+          "title": "Lot Traveler",
+          "close": "Close",
+          "description": "The Lot Traveler is a specific type of Printable Document used to track a lot through production."
+        },
+        "printers": {
+          "title": "Printers and Printer Types",
+          "close": "Close",
+          "description": "Manage Printers and Printer Types for Printable Documents."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "layout": "Layout",
+        "contextItems": "Context Items",
+        "printHistory": "Print History",
+        "attachments": "Attachments"
+      }
+    },
+    "productGroup": {
+      "pageLabel": "Product Group",
+      "listTitle": "Product Groups ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State",
+        "productCount": "Products"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "description": "Description",
+          "state": "State",
+          "productCount": "Products"
+        },
+        "information": "Information"
+      },
+      "operations": {
+        "create": {
+          "title": "Create Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "changeSet": "Change Set",
+            "generalData": "General Data"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set",
+            "name": "Name",
+            "revision": "Revision",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity",
+            "flowPath": "Flow Path",
+            "comments": "Comments"
+          },
+          "hints": {
+            "changeSet": "Select an existing Change Set or click Create to create a new one.",
+            "revision": "Name can be automatically generated or you can enter a name of your choice.",
+            "type": "The list of possible values is taken from the lookup table ProductGroupType.",
+            "defaultUnits": "The list of possible values is taken from the lookup table Units.",
+            "maturity": "The list of possible values is taken from the lookup table ProductGroupMaturity.",
+            "flowPath": "Optionally specify the default flow path for all the Products of this Product Group."
+          },
+          "placeholders": {
+            "selectChangeSet": "Select a Change Set",
+            "selectApprovalRole": "Select an Approval Role (optional)",
+            "enterName": "Enter Product Group name",
+            "revisionHint": "Name can be automatically generated or you can enter a name of your choice",
+            "enterDescription": "Enter description",
+            "selectType": "Select type",
+            "selectUnits": "Select units",
+            "selectMaturity": "Select maturity",
+            "selectFlowPath": "Select default Flow Path",
+            "enterComments": "Enter comments (optional)",
+            "selectParameter": "Select a Parameter",
+            "newRowName": "Name",
+            "newRowRevision": "Revision",
+            "enterComment": "Enter a comment for the operation (optional)"
+          }
+        },
+        "edit": {
+          "title": "Edit Product Group",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product Group cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product Group",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "newInstances": "New Product Groups",
+          "add": "Add",
+          "fields": {
+            "name": "Name",
+            "revision": "Revision",
+            "comment": "Comment"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured for the Entity Type, you can leave the name blank and a new name will be automatically generated."
+          },
+          "placeholders": {
+            "newRowName": "Name",
+            "newRowRevision": "Revision"
+          },
+          "removeRow": "Remove row"
+        },
+        "terminate": {
+          "title": "Terminate Product Group",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "fields": {
+            "level": "Level"
+          },
+          "warning": "All generic/smart table rows that reference the current object will be removed and will not be recovered if the object is unterminated at a later point."
+        },
+        "unterminate": {
+          "title": "Unterminate Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Unterminate",
+          "steps": {
+            "changeSet": "Change Set",
+            "details": "Details"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set"
+          },
+          "detailsText": "Select Unterminate to perform the operation. All generic/smart table rows that reference this object will not be recovered."
+        },
+        "manageParameters": {
+          "title": "Manage Product Group Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "parameters": "Parameters",
+          "parameterDetails": "Parameter Details",
+          "empty": "No parameters. Press + to add.",
+          "selectPrompt": "Select a parameter on the left to edit its details.",
+          "types": {
+            "characteristic": "Characteristic",
+            "specification": "Specification"
+          },
+          "fields": {
+            "parameter": "Parameter",
+            "unit": "Unit",
+            "type": "Type",
+            "value": "Value",
+            "lowerSpec": "Lower Specification Value",
+            "targetSpec": "Target Specification Value",
+            "upperSpec": "Upper Specification Value",
+            "reportingType": "Reporting Type",
+            "reportingInfo": "Reporting Information",
+            "comments": "Comments"
+          },
+          "hints": {
+            "reportingType": "The values for Reporting Type are taken from the lookup table ProductParameterReportingType."
+          },
+          "newParam": "(new)"
+        },
+        "_shared": {
+          "close": "Close"
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "products": "Products",
+        "attachments": "Attachments"
+      },
+      "paramsHint": "Parameters shared across several Products. Use Manage Product Group Parameters to define them.",
+      "productsHint": "Products that are part of this Product Group.",
+      "contextsHint": "Context resolution tables on which the current Product Group is used as an element.",
+      "compareHint": "Visual comparison between the selected entity version and any other version.",
+      "referencesHint": "Relations and Where Used for the current Product Group.",
+      "historyHint": "Change Set History and History of operations for the current Product Group."
+    },
+    "qualification": {
+      "cards": {
+        "gracePeriod": "Grace Period",
+        "information": "Information",
+        "permissions": "Permissions",
+        "qualification": "Qualification",
+        "validityPeriod": "Validity Period"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "state": "State",
+        "type": "Type"
+      },
+      "details": {
+        "allowAssignmentByManager": "Allow Assignment By Manager",
+        "allowOverride": "Allow Override",
+        "allowSelfAssignment": "Allow Self-Assignment",
+        "dataGroup": "Data Group",
+        "defaultReason": "Default Reason",
+        "description": "Description",
+        "duration": "Duration",
+        "informationUrl": "Information URL",
+        "name": "Name",
+        "ownerRole": "Owner Role",
+        "state": "Universal State",
+        "type": "Type",
+        "validFor": "Valid For"
+      },
+      "listTitle": "Qualifications",
+      "pageLabel": "Qualifications",
+      "sections": {
+        "attachments": "Attachments",
+        "certifications": "Certifications",
+        "details": "Details",
+        "employees": "Employees",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "assignEmployees": "Assign Employee(s)",
+        "unassignEmployees": "Unassign Employee(s)"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Qualification",
+          "editTitle": "Edit Qualification",
+          "generalData": "General Data",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "dataGroup": "Data Group",
+          "information": "Information",
+          "ownerRole": "Owner Role",
+          "defaultReason": "Default Reason",
+          "informationUrl": "Information URL",
+          "permissions": "Permissions",
+          "allowSelfAssignment": "Allow Self-Assignment",
+          "allowAssignmentByManager": "Allow Assignment By Manager",
+          "validityPeriod": "Validity Period",
+          "validFor": "Valid For",
+          "scale": "Scale",
+          "allowOverride": "Allow Override",
+          "gracePeriod": "Grace Period",
+          "duration": "Duration",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Qualification",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "type": "Type",
+          "description": "Description",
+          "ownerRole": "Owner Role",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Qualification",
+          "message": "Are you sure you want to terminate the Qualification '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Qualification",
+          "message": "Are you sure you want to unterminate the Qualification '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "assign": {
+          "title": "Assign Employee(s) to Qualification",
+          "stepEmployees": "Employees",
+          "stepQualification": "Qualification",
+          "search": "Search",
+          "employeesCount": "Employees ({{count}})",
+          "selectedCount": "{{count}} Item Selected",
+          "employee": "Employee",
+          "employeeNumber": "Employee Number",
+          "type": "Type",
+          "team": "Team",
+          "manager": "Manager",
+          "selectedEmployees": "Selected Employees ({{count}})",
+          "employees": "Employees",
+          "qualificationDate": "Qualification Date",
+          "detailsTitle": "Employee Qualifications Details",
+          "validTo": "Valid To",
+          "reason": "Reason",
+          "proficiency": "Proficiency",
+          "remarks": "Remarks",
+          "evidence": "Evidence",
+          "comments": "Comments",
+          "assign": "Assign"
+        },
+        "unassign": {
+          "title": "Unassign Employee(s) from Qualification",
+          "message": "Confirm the Employee(s) that should be unassigned from the Qualification '{{name}}'.",
+          "employee": "Employee",
+          "employeeNumber": "Employee Number",
+          "unassign": "Unassign"
+        }
+      }
+    },
+    "qualificationCheck": {
+      "pageLabel": "Qualification Check",
+      "listTitle": "Qualification Checks",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "instanceType": "Instance Type",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "qualificationCheck": "Qualification Check",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "instanceType": "Instance Type"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Qualification Check",
+          "editTitle": "Edit Qualification Check",
+          "generalData": "General Data",
+          "name": "Name",
+          "description": "Description",
+          "dataGroup": "Data Group",
+          "instanceType": "Instance Type",
+          "single": "Single",
+          "multiple": "Multiple",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Qualification Check",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "instanceType": "Instance Type",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Qualification Check",
+          "message": "Are you sure you want to terminate the Qualification Check '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Qualification Check",
+          "message": "Are you sure you want to unterminate the Qualification Check '{{name}}'?",
+          "confirm": "Unterminate"
+        }
+      }
+    },
+    "reason": {
+      "pageLabel": "Reason",
+      "listTitle": "Reasons",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "images": "Images",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "reason": "Reason",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "type": "Type",
+        "excludeFromStepYield": "Exclude From Step Yield",
+        "excludeFromResourceYield": "Exclude From Resource Yield"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "addImages": "Add Images",
+        "manageRepairActions": "Manage Repair Actions"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Reason",
+          "editTitle": "Edit Reason",
+          "generalData": "General Data",
+          "information": "Information",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "excludeFromStepYield": "Exclude From Step Yield",
+          "excludeFromResourceYield": "Exclude From Resource Yield",
+          "category": "Category",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Reason",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "type": "Type",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Reason",
+          "message": "Are you sure you want to terminate the Reason '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Reason",
+          "message": "Are you sure you want to unterminate the Reason '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "addImages": {
+          "title": "Add Images to Reason",
+          "stepImages": "Images",
+          "stepAssessment": "Assessment",
+          "image": "Image",
+          "scope": "Scope",
+          "assessment": "Assessment",
+          "assessmentCriteria": "Assessment Criteria",
+          "comments": "Comments",
+          "add": "Add"
+        },
+        "repairActions": {
+          "title": "Manage Repair Actions",
+          "repairActions": "Repair Actions ({{count}})",
+          "detailsTitle": "Repair Action Details",
+          "repairAction": "Repair Action",
+          "description": "Description",
+          "partReplacementMode": "Part Replacement Mode",
+          "comments": "Comments",
+          "update": "Update"
+        }
+      }
+    },
+    "recipe": {
+      "pageLabel": "Recipe",
+      "listTitle": "Recipes",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "isEnabled": "Is Enabled",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "body": "Body",
+        "subRecipes": "Sub-Recipes",
+        "resources": "Resources",
+        "activeInstances": "Active Instances",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "recipe": "Recipe",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "isEnabled": "Is Enabled",
+        "isExecutable": "Is Executable",
+        "resourceRecipeName": "Resource Recipe Name",
+        "userInformation": "User Information",
+        "supplierInformation": "Supplier Information"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "disable": "Disable",
+        "enable": "Enable",
+        "manageBody": "Manage Recipe Body",
+        "manageParameters": "Manage Recipe Parameters",
+        "manageSubRecipes": "Manage Recipe Sub-Recipes",
+        "uploadToResource": "Upload Recipe to Resource"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Recipe",
+          "editTitle": "Edit Recipe",
+          "changeSet": "Change Set",
+          "generalData": "General Data",
+          "changeSet2": "Change Set",
+          "createNew": "Create New",
+          "approverRole": "Approver Role",
+          "useAutomaticChangeSet": "Use Automatic Change Set",
+          "name": "Name",
+          "revision": "Revision",
+          "description": "Description",
+          "type": "Type",
+          "isEnabled": "Is Enabled",
+          "isExecutable": "Is Executable",
+          "resourceRecipeName": "Resource Recipe Name",
+          "userInformation": "User Information",
+          "supplierInformation": "Supplier Information",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Recipe",
+          "cloneMode": "Clone Mode",
+          "entity": "Entity",
+          "revision": "Revision",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "revisionName": "Revision Name",
+          "changeSet": "Change Set",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Recipe",
+          "message": "Are you sure you want to terminate the Recipe '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Recipe",
+          "changeSet": "Change Set",
+          "details": "Details",
+          "createNew": "Create New",
+          "approverRole": "Approver Role",
+          "useAutomaticChangeSet": "Use Automatic Change Set",
+          "message": "Select Unterminate to perform the operation. All generic/smart table rows that reference this object will not be recovered.",
+          "confirm": "Unterminate"
+        },
+        "disable": {
+          "title": "Disable Recipe",
+          "message": "Are you sure you want to disable the Recipe '{{name}}'?",
+          "confirm": "Disable"
+        },
+        "enable": {
+          "title": "Enable Recipe",
+          "message": "Are you sure you want to enable the Recipe '{{name}}'?",
+          "confirm": "Enable"
+        },
+        "body": {
+          "title": "Manage Recipe Body",
+          "source": "Source",
+          "format": "Format",
+          "fileName": "File Name",
+          "uploadBody": "Upload Body",
+          "body": "Body",
+          "size": "Size",
+          "comments": "Comments",
+          "update": "Update"
+        },
+        "parameters": {
+          "title": "Manage Parameters",
+          "parameters": "Parameters",
+          "detailsTitle": "Parameter Details",
+          "parameter": "Parameter",
+          "units": "Units",
+          "parameterGroup": "Parameter Group",
+          "type": "Type",
+          "value": "Value",
+          "overridable": "Overridable",
+          "comments": "Comments",
+          "update": "Update"
+        },
+        "subRecipes": {
+          "title": "Manage Sub-Recipes",
+          "subRecipes": "Sub-Recipes",
+          "detailsTitle": "Recipe Details",
+          "recipe": "Recipe",
+          "displayName": "Display Name",
+          "parametersMapping": "Parameters Mapping (Expressions)",
+          "clearAllExpressions": "Clear All Expressions",
+          "comments": "Comments",
+          "update": "Update"
+        },
+        "upload": {
+          "title": "Upload Recipe to Resource",
+          "resources": "Resources",
+          "resource": "Resource",
+          "lastUploadDate": "Last Upload Date",
+          "comments": "Comments",
+          "upload": "Upload"
+        }
+      }
+    },
+    "resource": {
+      "pageLabel": "Resource",
+      "listTitle": "Resources",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "resourceView": "Resource View",
+        "schedule": "Schedule",
+        "storage": "Storage",
+        "maintenance": "Maintenance",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "structure": "Structure",
+        "runningModes": "Running Modes",
+        "parts": "Parts",
+        "recipes": "Recipes",
+        "runAtRiskMaterials": "Run at Risk Materials",
+        "materials": "Materials",
+        "instruments": "Instruments",
+        "measurementCapabilities": "Measurement Capabilities",
+        "consumableFeeds": "Consumable Feeds",
+        "locations": "Locations",
+        "lanes": "Lanes",
+        "durables": "Durables",
+        "inventory": "Inventory",
+        "storageBins": "Storage Bins",
+        "services": "Services",
+        "personnel": "Personnel",
+        "protocols": "Protocols",
+        "resourceJobs": "Resource Jobs",
+        "notifications": "Notifications",
+        "schedulingBatching": "Scheduling/Batching",
+        "collectedData": "Collected Data",
+        "workgroups": "Workgroups",
+        "storedMaterials": "Stored Materials",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "resource": "Resource",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "area": "Area",
+        "systemState": "System State",
+        "automationMode": "Automation Mode",
+        "stateModel": "State Model",
+        "resourceState": "Resource State",
+        "runningMode": "Running Mode"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "changeResourceState": "Change Resource State",
+        "changeSystemState": "Change System State",
+        "changeAutomationMode": "Change Automation Mode",
+        "changeInstrumentMode": "Change Instrument Mode",
+        "changeRunningMode": "Change Running Mode",
+        "changeProduct": "Change Product",
+        "evaluateDispatchableRule": "Evaluate Dispatchable Rule",
+        "beginSetup": "Begin Setup",
+        "performSetup": "Perform Setup",
+        "completeSetup": "Complete Setup",
+        "cancelSetup": "Cancel Setup",
+        "resetSetup": "Reset Setup",
+        "viewSetup": "View Setup",
+        "beginLineSetup": "Begin Line Setup",
+        "performLineSetup": "Perform Line Setup",
+        "completeLineSetup": "Complete Line Setup",
+        "cancelLineSetup": "Cancel Line Setup",
+        "resetLineSetup": "Reset Line Setup",
+        "viewLineSetup": "View Line Setup",
+        "beginPreSetup": "Begin Pre Setup",
+        "performPreSetup": "Perform Pre Setup",
+        "addResourceToContainer": "Add Resource to Container",
+        "removeResourceFromContainer": "Remove Resource from Container",
+        "transferResourceBetweenContainers": "Transfer Resource Between Containers",
+        "storeContainersInResource": "Store Containers in Resource",
+        "storeMaterialsInResource": "Store Materials in Resource",
+        "storeResource": "Store Resource",
+        "retrieveResource": "Retrieve Resource",
+        "manageStructure": "Manage Structure",
+        "manageRunningModes": "Manage Running Modes",
+        "manageResourceParts": "Manage Resource Parts",
+        "manageRepairableParts": "Manage Repairable Parts",
+        "manageResourceRecipes": "Manage Resource Recipes",
+        "manageRunAtRiskMaterials": "Manage Run At Risk Materials",
+        "manageResourceInstruments": "Manage Resource Instruments",
+        "manageMeasurementCapabilities": "Manage Measurement Capabilities",
+        "manageConsumableFeeds": "Manage Consumable Feeds",
+        "manageConsumables": "Manage Consumables",
+        "manageResourceLocations": "Manage Resource Locations",
+        "manageResourceLanes": "Manage Resource Lanes",
+        "manageResourceDurables": "Manage Resource Durables",
+        "manageResourceInventory": "Manage Resource Inventory",
+        "manageResourceStorageBins": "Manage Resource Storage Bins",
+        "manageResourceServices": "Manage Resource Services",
+        "managePersonnel": "Manage Personnel",
+        "manageResourceEmployees": "Manage Resource Employees",
+        "manageResourceTrainees": "Manage Resource Trainees",
+        "manageCosts": "Manage Costs",
+        "manageDispatchQueue": "Manage Dispatch Queue",
+        "manageResourceMaterialConsumables": "Manage Resource Material Consumables",
+        "manageResourceMaterialDurables": "Manage Resource Material Durables",
+        "manageSchedulingBatching": "Manage Scheduling/Batching",
+        "setResourceRecipe": "Set Resource Recipe",
+        "resourceOEEConfiguration": "Resource OEE Configuration",
+        "viewResourceDashboards": "View Resource Dashboards",
+        "viewResourceDocuments": "View Resource Documents",
+        "viewResourceReports": "View Resource Reports"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Resource",
+          "editTitle": "Edit Resource",
+          "generalData": "General Data",
+          "additionalInfo": "Additional Information",
+          "automation": "Automation",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "processingType": "Processing Type",
+          "area": "Area",
+          "priority": "Priority",
+          "displayOrder": "Display Order",
+          "vendor": "Vendor",
+          "model": "Model",
+          "serialNumber": "Serial Number",
+          "criticality": "Criticality",
+          "stateModel": "State Model",
+          "materialTracking": "Material Tracking",
+          "allowProductMix": "Allow Product Mix",
+          "enableSubMaterialTracking": "Enable Sub-Material Tracking",
+          "recipeManagementEnabled": "Recipe Management Enabled",
+          "trackResourceRecipes": "Track Resource Recipes",
+          "materialLogistics": "Material Logistics",
+          "hasStorageBins": "Has Storage Bins",
+          "setup": "Setup",
+          "setupMode": "Setup Mode",
+          "coordinates": "Coordinates",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "enableAutomationScenarios": "Enable Automation Scenarios",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Resource",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Resource",
+          "message": "Are you sure you want to terminate the Resource '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Resource",
+          "message": "Are you sure you want to unterminate the Resource '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "changeState": {
+          "title": "Change Resource State",
+          "step1": "State Selection",
+          "step2": "Documents",
+          "step3": "Data Collection",
+          "step4": "Checklist",
+          "step5": "Request MAO",
+          "step2Body": "No documents associated with this transition.",
+          "step3Body": "No data collection associated with this transition.",
+          "step4Body": "No checklist associated with this transition.",
+          "step5Body": "No maintenance activities available to request.",
+          "newState": "New State",
+          "reason": "Reason",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeSystemState": {
+          "title": "Change System State",
+          "newState": "New System State",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeAutomationMode": {
+          "title": "Change Automation Mode",
+          "newMode": "New Automation Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeInstrumentMode": {
+          "title": "Change Instrument Mode",
+          "newMode": "New Instrument Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeRunningMode": {
+          "title": "Change Running Mode",
+          "newMode": "New Running Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeProduct": {
+          "title": "Change Product",
+          "materials": "Materials",
+          "subMaterials": "Sub-Materials",
+          "newProduct": "New Product",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "evaluateDispatchable": {
+          "title": "Evaluate Dispatchable Rule",
+          "verifyInfo": "Verify the resource information before evaluating the dispatchable rule.",
+          "comment": "Comment",
+          "evaluate": "Evaluate"
+        },
+        "setup": {
+          "beginTitle": "Begin Setup",
+          "performTitle": "Perform Setup",
+          "completeTitle": "Complete Setup",
+          "cancelTitle": "Cancel Setup",
+          "resetTitle": "Reset Setup",
+          "viewTitle": "View Setup",
+          "beginLineTitle": "Begin Line Setup",
+          "performLineTitle": "Perform Line Setup",
+          "completeLineTitle": "Complete Line Setup",
+          "cancelLineTitle": "Cancel Line Setup",
+          "resetLineTitle": "Reset Line Setup",
+          "viewLineTitle": "View Line Setup",
+          "beginPreTitle": "Begin Pre Setup",
+          "performPreTitle": "Perform Pre Setup",
+          "begin": "Begin",
+          "perform": "Perform",
+          "complete": "Complete",
+          "cancel": "Cancel",
+          "reset": "Reset",
+          "materials": "Materials",
+          "subResources": "Sub-Resources",
+          "name": "Name",
+          "setup": "Setup",
+          "reason": "Reason",
+          "comment": "Comment",
+          "state": "State",
+          "currentSetup": "Current Setup",
+          "subResource": "Sub-Resource",
+          "inSetup": "In Setup"
+        },
+        "container": {
+          "addTitle": "Add Resource to Container",
+          "removeTitle": "Remove Resource from Container",
+          "transferTitle": "Transfer Resource Between Containers",
+          "container": "Container",
+          "sourceContainer": "Source Container",
+          "targetContainer": "Target Container",
+          "position": "Position",
+          "comment": "Comment",
+          "add": "Add",
+          "remove": "Remove",
+          "transfer": "Transfer",
+          "removeMessage": "Are you sure you want to remove the Resource '{{name}}' from its container?"
+        },
+        "store": {
+          "containersTitle": "Store Containers in Resource",
+          "materialsTitle": "Store Materials in Resource",
+          "resourceTitle": "Store Resource",
+          "retrieveTitle": "Retrieve Resource",
+          "container": "Container",
+          "material": "Material",
+          "storageResource": "Storage Resource",
+          "comment": "Comment",
+          "store": "Store",
+          "retrieve": "Retrieve",
+          "retrieveMessage": "Are you sure you want to retrieve the Resource '{{name}}' from storage?"
+        },
+        "manage": {
+          "update": "Update",
+          "comments": "Comments",
+          "servicesTitle": "Manage Resource Services",
+          "services": "Services ({{count}})",
+          "serviceDetails": "Service Details",
+          "service": "Service",
+          "priority": "Priority",
+          "requiresRunningMode": "Requires Running Mode",
+          "isEnabled": "Is Enabled",
+          "qualificationCheck": "Qualification Check",
+          "recipesTitle": "Manage Resource Recipes",
+          "recipes": "Recipes ({{count}})",
+          "recipeDetails": "Recipe Details",
+          "recipe": "Recipe",
+          "structureTitle": "Manage Structure",
+          "structure": "Structure ({{count}})",
+          "structureDetails": "Structure Details",
+          "resource": "Resource",
+          "parentResource": "Parent Resource",
+          "runningModesTitle": "Manage Running Modes",
+          "runningModes": "Running Modes ({{count}})",
+          "runningModeDetails": "Running Mode Details",
+          "runningMode": "Running Mode",
+          "description": "Description",
+          "consumableFeedsTitle": "Manage Consumable Feeds",
+          "consumableFeeds": "Consumable Feeds ({{count}})",
+          "consumableFeedDetails": "Consumable Feed Details",
+          "consumableFeed": "Consumable Feed",
+          "isShared": "Is Shared",
+          "consumablesTitle": "Manage Consumables",
+          "consumables": "Consumables ({{count}})",
+          "consumableDetails": "Consumable Details",
+          "consumable": "Consumable",
+          "quantity": "Quantity",
+          "costsTitle": "Manage Costs",
+          "costs": "Costs ({{count}})",
+          "costDetails": "Cost Details",
+          "costType": "Cost Type",
+          "amount": "Amount",
+          "currency": "Currency",
+          "dispatchQueueTitle": "Manage Dispatch Queue",
+          "dispatchQueue": "Dispatch Queue ({{count}})",
+          "dispatchQueueDetails": "Dispatch Queue Details",
+          "material": "Material",
+          "measurementCapabilitiesTitle": "Manage Measurement Capabilities",
+          "measurementCapabilities": "Measurement Capabilities ({{count}})",
+          "measurementCapabilityDetails": "Measurement Capability Details",
+          "capability": "Capability",
+          "units": "Units",
+          "personnelTitle": "Manage Personnel",
+          "personnel": "Personnel ({{count}})",
+          "personnelDetails": "Personnel Details",
+          "employee": "Employee",
+          "checkIn": "Check In",
+          "checkOut": "Check Out",
+          "repairablePartsTitle": "Manage Repairable Parts",
+          "repairableParts": "Repairable Parts ({{count}})",
+          "repairablePartDetails": "Repairable Part Details",
+          "part": "Part",
+          "isRepairable": "Is Repairable",
+          "resourceDurablesTitle": "Manage Resource Durables",
+          "resourceDurables": "Resource Durables ({{count}})",
+          "resourceDurableDetails": "Resource Durable Details",
+          "durable": "Durable",
+          "resourceEmployeesTitle": "Manage Resource Employees",
+          "resourceEmployees": "Resource Employees ({{count}})",
+          "resourceEmployeeDetails": "Resource Employee Details",
+          "role": "Role",
+          "resourceInstrumentsTitle": "Manage Resource Instruments",
+          "resourceInstruments": "Resource Instruments ({{count}})",
+          "resourceInstrumentDetails": "Resource Instrument Details",
+          "instrument": "Instrument",
+          "calibrationStatus": "Calibration Status",
+          "resourceInventoryTitle": "Manage Resource Inventory",
+          "resourceInventory": "Resource Inventory ({{count}})",
+          "resourceInventoryDetails": "Resource Inventory Details",
+          "item": "Item",
+          "resourceLanesTitle": "Manage Resource Lanes",
+          "resourceLanes": "Resource Lanes ({{count}})",
+          "resourceLaneDetails": "Resource Lane Details",
+          "lane": "Lane",
+          "currentRecipe": "Current Recipe",
+          "resourceLocationsTitle": "Manage Resource Locations",
+          "resourceLocations": "Resource Locations ({{count}})",
+          "resourceLocationDetails": "Resource Location Details",
+          "location": "Location",
+          "barcodeId": "Barcode ID",
+          "locationX": "Location X",
+          "locationY": "Location Y",
+          "resourceMaterialConsumablesTitle": "Manage Resource Material Consumables",
+          "resourceMaterialConsumables": "Resource Material Consumables ({{count}})",
+          "resourceMaterialConsumableDetails": "Resource Material Consumable Details",
+          "resourceMaterialDurablesTitle": "Manage Resource Material Durables",
+          "resourceMaterialDurables": "Resource Material Durables ({{count}})",
+          "resourceMaterialDurableDetails": "Resource Material Durable Details",
+          "resourcePartsTitle": "Manage Resource Parts",
+          "resourceParts": "Resource Parts ({{count}})",
+          "resourcePartDetails": "Resource Part Details",
+          "resourceStorageBinsTitle": "Manage Resource Storage Bins",
+          "resourceStorageBins": "Resource Storage Bins ({{count}})",
+          "resourceStorageBinDetails": "Resource Storage Bin Details",
+          "storageBin": "Storage Bin",
+          "resourceTraineesTitle": "Manage Resource Trainees",
+          "resourceTrainees": "Resource Trainees ({{count}})",
+          "resourceTraineeDetails": "Resource Trainee Details",
+          "trainee": "Trainee",
+          "trainer": "Trainer",
+          "runAtRiskMaterialsTitle": "Manage Run At Risk Materials",
+          "runAtRiskMaterials": "Run At Risk Materials ({{count}})",
+          "runAtRiskMaterialDetails": "Run At Risk Material Details",
+          "schedulingBatchingTitle": "Manage Scheduling/Batching",
+          "schedulingBatching": "Scheduling/Batching ({{count}})",
+          "schedulingBatchingDetails": "Scheduling/Batching Details",
+          "schedule": "Schedule",
+          "startDate": "Start Date",
+          "endDate": "End Date"
+        },
+        "setRecipe": {
+          "title": "Set Resource Recipe",
+          "recipe": "Recipe",
+          "comment": "Comment",
+          "set": "Set"
+        },
+        "oee": {
+          "title": "Resource OEE Configuration",
+          "idealCycleTime": "Ideal Cycle Time",
+          "oeeEnabled": "OEE Enabled",
+          "save": "Save"
+        },
+        "view": {
+          "dashboardsTitle": "View Resource Dashboards",
+          "documentsTitle": "View Resource Documents",
+          "reportsTitle": "View Resource Reports",
+          "dashboard": "Dashboard",
+          "document": "Document",
+          "report": "Report",
+          "description": "Description",
+          "type": "Type"
+        }
+      }
+    },
+    "resourceJob": {
+      "pageLabel": "Resource Job",
+      "listTitle": "Resource Jobs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "containers": "Containers",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "resourceJob": "Resource Job",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "subType": "Sub Type",
+        "selectionMode": "Selection Mode",
+        "priority": "Priority",
+        "progress": "Progress",
+        "equipmentJobId": "Equipment Job Id",
+        "jobInformation": "Job Information"
+      },
+      "more": {
+        "clone": "Clone",
+        "abort": "Abort",
+        "cancel": "Cancel",
+        "complete": "Complete",
+        "dequeue": "Dequeue",
+        "enqueue": "Enqueue",
+        "requeue": "Requeue",
+        "start": "Start"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Resource Job",
+          "editTitle": "Edit Resource Job",
+          "step1": "General Data",
+          "step2": "Materials",
+          "step3": "Containers",
+          "name": "Name",
+          "description": "Description",
+          "resource": "Resource",
+          "type": "Type",
+          "subType": "Sub Type",
+          "initialSystemState": "Initial System State",
+          "selectionMode": "Selection Mode",
+          "priority": "Priority",
+          "progress": "Progress",
+          "equipmentJobId": "Equipment Job Id",
+          "jobInformation": "Job Information",
+          "comments": "Comments",
+          "materialsBody": "Add or remove Resource Job Materials. For each item specify Material, Step, Quantity, Units, Process Job Id, dates, Recipe and Process Job Information.",
+          "containersBody": "Add or remove Resource Job Containers. For each item specify Container, Start Date and End Date."
+        },
+        "lifecycle": {
+          "comment": "Comment",
+          "cloneTitle": "Clone Resource Job",
+          "clone": "Clone",
+          "abortTitle": "Abort Resource Job",
+          "abort": "Abort",
+          "cancelTitle": "Cancel Resource Job",
+          "cancel": "Cancel",
+          "completeTitle": "Complete Resource Job",
+          "complete": "Complete",
+          "dequeueTitle": "Dequeue Resource Job",
+          "dequeue": "Dequeue",
+          "enqueueTitle": "Enqueue Resource Job",
+          "enqueue": "Enqueue",
+          "requeueTitle": "Requeue Resource Job",
+          "requeue": "Requeue",
+          "startTitle": "Start Resource Job",
+          "start": "Start"
+        }
+      }
+    },
+    "samplingPattern": {
+      "pageLabel": "Sampling Pattern",
+      "listTitle": "Sampling Patterns",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPattern": "Sampling Pattern",
+        "configuration": "Configuration"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "samplingSelection": "Sampling Selection",
+        "rule": "Rule",
+        "sourceForm": "Source Form",
+        "materialCount": "Material Count",
+        "selectionMethod": "Selection Method",
+        "sequencingMethod": "Sequencing Method"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Pattern",
+          "editTitle": "Edit Sampling Pattern",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "mode": "Mode",
+          "samplingSelection": "Sampling Selection",
+          "rule": "Rule",
+          "sourceForm": "Source Form",
+          "materialCount": "Material Count",
+          "countIsPercentage": "Count Is Percentage",
+          "selectionMethod": "Selection Method",
+          "sequencingMethod": "Sequencing Method",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Sampling Pattern",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Pattern",
+          "message": "Are you sure you want to terminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Pattern",
+          "message": "Are you sure you want to unterminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Unterminate"
+        }
+      }
+    },
+    "samplingPlan": {
+      "pageLabel": "Sampling Plan",
+      "listTitle": "Sampling Plans",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "defaultSamplingType": "Default Sampling Type",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "context": "Context",
+        "instances": "Instances",
+        "steps": "Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPlan": "Sampling Plan",
+        "defaultSampling": "Default Sampling"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "defaultSamplingType": "Default Sampling Type",
+        "counterFrequency": "Counter Frequency",
+        "timeFrequency": "Time Frequency"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manageInstance": "Manage Sampling Plan Instance"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Plan",
+          "editTitle": "Edit Sampling Plan",
+          "generalData": "General Data",
+          "context": "Context",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "defaultSampling": "Default Sampling",
+          "samplingType": "Sampling Type",
+          "counterFrequency": "Counter Frequency",
+          "timeFrequency": "Time Frequency (hours)",
+          "comments": "Comments",
+          "contextBody": "Specify the context information for the Sampling Plan. At minimum it must have one context defined (Material Product, Material Resource, Material Step, etc.)."
+        },
+        "clone": {
+          "title": "Clone Sampling Plan",
+          "message": "Clone the Sampling Plan '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Plan",
+          "message": "Are you sure you want to terminate the Sampling Plan '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Plan",
+          "message": "Are you sure you want to unterminate the Sampling Plan '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "instance": {
+          "title": "Manage Sampling Plan Instance",
+          "instances": "Instances ({{count}})",
+          "newInstance": "New Instance",
+          "detailsTitle": "Instance Details",
+          "samplingType": "Sampling Type",
+          "materialType": "Material Type",
+          "counterFrequency": "Sampling Counter Frequency",
+          "currentCounter": "Current Sampling Counter",
+          "timeFrequency": "Sampling Time Frequency",
+          "lastSamplingDate": "Last Sampling Date",
+          "comments": "Comments",
+          "update": "Update"
+        }
+      }
+    },
+    "schedule": {
+      "pageLabel": "Schedule",
+      "listTitle": "Schedules",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "scenarios": "Scenarios",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "areas": "Areas",
+        "feedSteps": "Feed Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "schedule": "Schedule"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "defaultView": "Default View",
+        "defaultFrozenPeriod": "Default Frozen Period",
+        "timeQuantum": "Time Quantum"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "createScenario": "Create Schedule Scenario",
+        "adjustJob": "Adjust Schedule Job",
+        "manageFeedSteps": "Manage Feed Steps"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule",
+          "editTitle": "Edit Schedule",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "defaultView": "Default View",
+          "defaultFrozenPeriod": "Default Frozen Period (hours)",
+          "timeQuantum": "Time Quantum (minutes)",
+          "schedulingType": "Scheduling Type",
+          "type": "Type",
+          "optimizationBody": "Choose the Scheduling Type (Forwards or Backwards) and the Optimization Criteria weights (must add up to 100): Minimize Setup Times, Minimize Total Waiting Time, Maximize Resource Utilization, etc.",
+          "untieBody": "Specify the default Untie Sort Rules (Execution Time, Material Due Date, Material Name, Priority, Quantity, Setup Time, Wait Time, etc.). Rules are used in the order they are inputted.",
+          "automaticBody": "Define specific configurations for automatic scheduling: Terminate Scenarios on Release, auto reschedule Operational Accurate/Fast/Planning Scenarios, frequency scale and start date.",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Schedule",
+          "message": "Clone the Schedule '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Schedule",
+          "message": "Are you sure you want to terminate the Schedule '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Schedule",
+          "message": "Are you sure you want to unterminate the Schedule '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "createScenario": {
+          "title": "Create Schedule Scenario",
+          "message": "Create a new Schedule Scenario for Schedule '{{name}}'?",
+          "create": "Create"
+        },
+        "adjust": {
+          "title": "Adjust Schedule Job",
+          "jobBody": "Manually adjust a Schedule Scenario Job of a released Schedule Scenario.",
+          "resource": "Resource",
+          "plannedStart": "Planned Start Time",
+          "plannedEnd": "Planned End Time",
+          "adjust": "Adjust"
+        },
+        "feedStep": {
+          "title": "Manage Feed Steps",
+          "steps": "Feed Steps ({{count}})",
+          "newStep": "New Feed Step",
+          "detailsTitle": "Feed Step Details",
+          "facility": "Facility",
+          "step": "Step",
+          "manage": "Manage"
+        }
+      }
+    },
+    "scheduleScenario": {
+      "pageLabel": "Schedule Scenario",
+      "listTitle": "Schedule Scenarios",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "orderFulfillment": "Order Fulfillment",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "statistics": "Statistics",
+        "messages": "Messages",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "scenario": "Schedule Scenario"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "Universal State",
+        "generationType": "Generation Type",
+        "scenarioState": "Scenario State"
+      },
+      "more": {
+        "terminate": "Terminate",
+        "generate": "Generate",
+        "release": "Release",
+        "synchronize": "Synchronize Schedule Scenario Jobs",
+        "lockJob": "Lock Schedule Scenario Job",
+        "unlockJob": "Unlock Schedule Scenario Job",
+        "adjustJob": "Adjust Schedule Scenario Job"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule Scenario",
+          "editTitle": "Edit Schedule Scenario",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "schedule": "Schedule",
+          "generationType": "Generation Type",
+          "comments": "Comments",
+          "optimizationBody": "Optionally, override the default Optimization Criteria defined at the Schedule level. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "untieBody": "Optionally, override the default Untie Sort Rules defined at the Schedule level. Add as many Untie Sort Rules as desired (at least one).",
+          "automaticBody": "Define automatic scheduling configurations inherited from the Schedule."
+        },
+        "generate": {
+          "title": "Generate Schedule Scenario",
+          "generate": "Generate",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step1Body": "Review the Schedule Scenario information. The Generation takes into account the information from the last Synchronization.",
+          "step2Body": "Optionally, override the default Optimization Criteria. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "step3Body": "Optionally, override the default Untie Sort Rules. Add as many Untie Sort Rules as desired; at least one is required to proceed."
+        },
+        "terminate": {
+          "title": "Terminate Schedule Scenario",
+          "message": "Are you sure you want to terminate the Schedule Scenario '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Schedule Scenario '{{name}}'?"
+        }
+      }
+    },
+    "sendAheadRun": {
+      "pageLabel": "Send-Ahead Run",
+      "listTitle": "Send-Ahead Runs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "sendAheadRun": "Send-Ahead Run"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "resultsCaptureMode": "Results Capture Mode"
+      },
+      "more": {
+        "cancel": "Cancel Send-Ahead Run",
+        "extend": "Extend Send-Ahead Run",
+        "release": "Release Send-Ahead Run Waiting Materials",
+        "changeMaterials": "Change Send-Ahead Run Materials",
+        "clearResult": "Clear Send-Ahead Run Result",
+        "ignoreResult": "Ignore Send-Ahead Run Result",
+        "createSplit": "Create Split Send-Ahead Run",
+        "manageMaterials": "Manage Send-Ahead Run Materials",
+        "recordResult": "Record Send-Ahead Run Result"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Send-Ahead Run",
+          "editTitle": "Edit Send-Ahead Run",
+          "step1": "General Data",
+          "step2": "Waiting Materials",
+          "step3": "Experiment",
+          "step4": "Sub-Materials to Send-Ahead",
+          "step5": "Send-Ahead Materials",
+          "step6": "Details",
+          "name": "Name",
+          "description": "Description",
+          "dataGroup": "Data Group",
+          "comments": "Comments",
+          "stepBody": "This section will only be displayed when the step's preconditions are met: {{step}}."
+        },
+        "record": {
+          "title": "Record Send-Ahead Run Result",
+          "resultBody": "Select the result for the selected send-ahead Materials.",
+          "result": "Result",
+          "remarks": "Remarks",
+          "record": "Record"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Send-Ahead Run '{{name}}'?"
+        }
+      }
+    },
+    "service": {
+      "pageLabel": "Service",
+      "listTitle": "Services",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "enabled": "Enabled",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "resources": "Resources",
+        "compatibleServices": "Compatible Services",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "service": "Service"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "enabled": "Enabled",
+        "state": "Universal State",
+        "dataGroup": "Data Group"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "disable": "Disable Service",
+        "enable": "Enable Service",
+        "manageCompatible": "Manage Compatible Services",
+        "manageResources": "Manage Service Resources"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Service",
+          "editTitle": "Edit Service",
+          "step1": "General Data",
+          "step2": "Manage Service Resources",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "dataGroup": "Data Group",
+          "processingType": "Processing Type",
+          "enabled": "Enabled",
+          "comments": "Comments",
+          "step2Body": "Add one entry in the left side panel for each of the Resources that will provide the Service. Each entry should be configured on the right side panel by selecting the Resource and by setting the Service as enabled or disabled in that specific Resource."
+        },
+        "clone": {
+          "title": "Clone Service",
+          "message": "Clone the Service '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Service",
+          "message": "Are you sure you want to terminate the Service '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Service",
+          "message": "Are you sure you want to unterminate the Service '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "disable": {
+          "title": "Disable Service",
+          "message": "Are you sure you want to disable the Service '{{name}}'?",
+          "confirm": "Disable"
+        },
+        "enable": {
+          "title": "Enable Service",
+          "message": "Are you sure you want to enable the Service '{{name}}'?",
+          "confirm": "Enable"
+        },
+        "compatible": {
+          "title": "Manage Compatible Services",
+          "canBeFulfilledBy": "Can be Fulfilled by",
+          "canFulfill": "Can Fulfill",
+          "services": "Services ({{count}})",
+          "newService": "New Service",
+          "detailsTitle": "Service Details",
+          "service": "Service",
+          "description": "Description",
+          "update": "Update"
+        },
+        "resources": {
+          "title": "Manage Service Resources",
+          "resources": "Resources ({{count}})",
+          "newResource": "New Resource",
+          "detailsTitle": "Resource Details",
+          "resource": "Resource",
+          "enabledInResource": "Enabled in Resource",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "update": "Update"
+        }
+      }
+    },
+    "setupMatrix": {
+      "pageLabel": "Setup Matrix",
+      "listTitle": "Setup Matrices",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "setupMatrix": "Setup Matrix",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "setupMatrix": "Setup Matrix"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "useZeroInDiagonal": "Use Zero In Diagonal",
+        "state": "Universal State"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manage": "Manage Setup Matrix"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Setup Matrix",
+          "editTitle": "Edit Setup Matrix",
+          "step1": "General Data",
+          "step2": "Services",
+          "step3": "Setup Matrix",
+          "name": "Name",
+          "description": "Description",
+          "timeScale": "Time Scale",
+          "useZeroInDiagonal": "Use Zero In Diagonal",
+          "comments": "Comments",
+          "step2Body": "To add Services manually, select them from the panel on the left-hand side and they will be added to the list of the Selected Services on the right-hand side. You can filter the list to make it easier to add the Services.",
+          "step3Body": "Each Service selected in the previous panel is added to the list on the left hand side of the panel (From Services) and each of them have a relation to the services listed in the center part of the dialog (To Services). Select the From and the To services and enter the desired value in the specified time scale."
+        },
+        "clone": {
+          "title": "Clone Setup Matrix",
+          "message": "Clone the Setup Matrix '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Setup Matrix",
+          "message": "Are you sure you want to terminate the Setup Matrix '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Setup Matrix",
+          "message": "Are you sure you want to unterminate the Setup Matrix '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "manage": {
+          "title": "Manage Setup Matrix",
+          "message": "Open the Manage Setup Matrix wizard for '{{name}}'?",
+          "confirm": "Manage"
+        }
+      }
+    },
+    "shiftDefinition": {
+      "cancel": "Cancel",
+      "columns": {
+        "calendar": "Calendar",
+        "description": "Description",
+        "name": "Name",
+        "startTime": "Start Time",
+        "state": "State"
+      },
+      "detail": {
+        "calendar": "Calendar:",
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "information": "Information",
+        "name": "Name:",
+        "startTime": "Start Time:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Shift Definitions ({{count}})",
+      "manage": "Manage",
+      "manageTitle": "Manage Shift Definition Shifts",
+      "noAttachments": "No attachments.",
+      "notFound": "Shift Definition not found.",
+      "pageLabel": "Shift Definition",
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details",
+        "shifts": "Shifts",
+        "attributes": "Attributes"
+      },
+      "shiftForm": {
+        "code": "Code:",
+        "costOvertimeFactor": "Cost Overtime Factor:",
+        "endTime": "End Time:",
+        "name": "Name:",
+        "startTime": "Start Time:",
+        "teamPattern": "Team Pattern:"
+      },
+      "shiftTimeRange": "From {{start}} to {{end}}",
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "update": "Update",
+      "noAttributes": "No attributes defined.",
+      "create": {
+        "title": "Create Shift Definition",
+        "step1": "General Data",
+        "step2": "Shifts",
+        "step3": "Non-working times",
+        "name": "Name:",
+        "description": "Description:",
+        "calendar": "Calendar:",
+        "calendarHint": "A Shift Definition can only be added to a Calendar Day if it has the same start time as the Calendar Day.",
+        "shift": "Shift",
+        "nonWorkingName": "Non-working time name",
+        "back": "Back",
+        "next": "Next"
+      },
+      "edit": {
+        "title": "Edit Shift Definition",
+        "name": "Name:",
+        "description": "Description:",
+        "calendar": "Calendar:"
+      },
+      "clone": {
+        "title": "Clone Shift Definition: {{name}}",
+        "menuLabel": "Clone",
+        "namePlaceholder": "New Shift Definition name",
+        "comment": "Comment:",
+        "clone": "Clone"
+      },
+      "terminate": {
+        "title": "Terminate Shift Definition",
+        "menuLabel": "Terminate",
+        "message": "Terminate Shift Definition '{{name}}'? All generic/smart table rows that reference this object will be removed.",
+        "confirm": "Terminate"
+      },
+      "unterminate": {
+        "title": "Unterminate Shift Definition",
+        "menuLabel": "Unterminate",
+        "message": "Unterminate Shift Definition '{{name}}'? Referenced generic/smart table rows will not be recovered.",
+        "confirm": "Unterminate"
+      }
+    },
+    "shiftLogbook": {
+      "addEntry": {
+        "add": "Add Entry",
+        "category": "Category:",
+        "comments": "Comments:",
+        "description": "Description:",
+        "resource": "Resource:",
+        "severity": "Severity:",
+        "title": "Add Shift Logbook Entry",
+        "titleLabel": "Title:"
+      },
+      "cancel": "Cancel",
+      "columns": {
+        "area": "Area",
+        "name": "Name",
+        "shift": "Shift",
+        "shiftDefinition": "Shift Definition",
+        "state": "State",
+        "systemState": "System State"
+      },
+      "detail": {
+        "area": "Area:",
+        "calendarDay": "Calendar Day:",
+        "dataGroup": "Data Group:",
+        "name": "Name:",
+        "shift": "Shift:",
+        "shiftDefinition": "Shift Definition:",
+        "shiftInfo": "Shift Information",
+        "state": "Universal State:",
+        "systemState": "System State:",
+        "team": "Team:"
+      },
+      "editEntry": {
+        "title": "Edit Shift Logbook Entry",
+        "update": "Update"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Shift Logbooks ({{count}})",
+      "noAttachments": "No attachments.",
+      "notFound": "Shift Logbook not found.",
+      "pageLabel": "Shift Logbook",
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details",
+        "entries": "Entries"
+      },
+      "signOff": {
+        "comment": "Comment:",
+        "menuLabel": "Sign-Off",
+        "reviewEntries": "Review entries:",
+        "signOff": "Sign-Off",
+        "title": "Sign-Off Shift Logbook"
+      },
+      "summary": {
+        "content": "AI-generated summary for {{area}} {{shift}} covering {{count}} logbook entries, area activities, OEE trends, produced quantity vs plan, yield, scrap pareto and holds.",
+        "menuLabel": "Generate Handover Summary",
+        "title": "Shift Handover Summary"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      }
+    },
+    "shiftPlan": {
+      "calendar": {
+        "empty": "Calendar visualization will appear here after generating Shift Plan Calendar Days.",
+        "hint": "Visual information on the calendar days that compose the Shift Plan.",
+        "title": "Shift Plan Calendar"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "calendar": "Calendar",
+        "description": "Description",
+        "name": "Name",
+        "state": "State",
+        "type": "Type"
+      },
+      "detail": {
+        "calendar": "Calendar:",
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "ownerRole": "Owner Role:",
+        "ownership": "Ownership",
+        "state": "Universal State:",
+        "type": "Type:"
+      },
+      "emptySection": "No data available for this section.",
+      "generateDays": {
+        "menuLabel": "Generate Shift Plan Calendar Days"
+      },
+      "listTitle": "Shift Plans ({{count}})",
+      "manageCalendarDays": {
+        "menuLabel": "Manage Shift Plan Calendar Days"
+      },
+      "manageEmployees": "Manage Employee Teams and Workgroups",
+      "notFound": "Shift Plan not found.",
+      "pageLabel": "Shift Plan",
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details",
+        "employees": "Employees",
+        "workgroups": "Workgroups"
+      },
+      "tabs": {
+        "calendar": "Calendar",
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      },
+      "workgroup": {
+        "ownerRole": "Owner Role",
+        "resources": "Resources"
+      }
+    },
+    "site": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "enterprise": "Enterprise",
+        "isRemote": "Remote",
+        "name": "Name",
+        "state": "State"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "enterprise": "Enterprise:",
+        "isRemote": "Is Remote:",
+        "name": "Name:",
+        "remoteExportAddress": "Remote Export Address:",
+        "remoteShipping": "Remote Shipping",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Sites ({{count}})",
+      "notFound": "Site not found.",
+      "pageLabel": "Site",
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details",
+        "facilities": "Facilities"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
+    },
+    "sortRuleSet": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "scope": "Scope",
+        "state": "State"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "scope": "Scope:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Sort Rule Sets ({{count}})",
+      "manageRules": "Manage Rules",
+      "notFound": "Sort Rule Set not found.",
+      "pageLabel": "Sort Rule Set",
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details",
+        "rules": "Rules"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
+    },
+    "step": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "state": "State"
+      },
+      "contexts": {
+        "bom": "BOM Context",
+        "certifications": "Certifications Context",
+        "chart": "Chart Context",
+        "checklist": "Checklist Context",
+        "dataCollection": "Data Collection Context",
+        "document": "Document Context",
+        "durables": "Durables Context",
+        "inspectionPlan": "Inspection Plan Context",
+        "lineFlow": "Line Flow Context",
+        "samplingPattern": "Sampling Pattern Context",
+        "service": "Service Context",
+        "splitTrackOut": "Split Track-Out Context",
+        "timeConstraints": "Time Constraints Context",
+        "yieldCycleTime": "Yield and Cycle Time"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "includeInScheduling": "Include in Scheduling:",
+        "name": "Name:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Steps ({{count}})",
+      "manageAreas": {
+        "menuLabel": "Manage Areas"
+      },
+      "manageCosts": {
+        "menuLabel": "Manage Costs"
+      },
+      "manageFutureActions": {
+        "menuLabel": "Manage Future Actions"
+      },
+      "manageInspectionInfo": {
+        "menuLabel": "Manage Inspection Information"
+      },
+      "manageLogicalNames": {
+        "menuLabel": "Manage Step Logical Names"
+      },
+      "manageReasons": {
+        "menuLabel": "Manage Reasons"
+      },
+      "manageSamplingPlans": {
+        "menuLabel": "Manage Sampling Plans"
+      },
+      "manageScheduling": {
+        "menuLabel": "Manage Scheduling"
+      },
+      "notFound": "Step not found.",
+      "pageLabel": "Step",
+      "sections": {
+        "areas": "Areas",
+        "attachments": "Attachments",
+        "costing": "Costing",
+        "details": "Details",
+        "futureActions": "Future Actions",
+        "inspections": "Inspections",
+        "logicalNames": "Logical Names",
+        "reasons": "Reasons",
+        "sampling": "Sampling",
+        "scheduling": "Scheduling"
+      },
+      "tabs": {
+        "compare": "Compare",
+        "contexts": "Contexts",
+        "details": "Details",
+        "history": "History",
+        "references": "References",
+        "schedule": "Schedule",
+        "stepView": "Step View"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
+    },
+    "substrateMap": {
+      "active": "Active",
+      "changeBinValues": {
+        "menuLabel": "Change Bin Values"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "state": "State",
+        "substrateType": "Substrate Type"
+      },
+      "content": {
+        "empty": "Visual map representation will appear here.",
+        "hint": "Visual representation of the Substrate Map contents.",
+        "title": "Substrate Map Content"
+      },
+      "createOverlay": {
+        "menuLabel": "Create Substrate Map Overlay"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "state": "Universal State:",
+        "substrateType": "Substrate Type:"
+      },
+      "download": {
+        "menuLabel": "Download Substrate Map"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Substrate Maps ({{count}})",
+      "manageOverlayInfo": "Manage Substrate Map Overlay Information",
+      "notFound": "Substrate Map not found.",
+      "pageLabel": "Substrate Map",
+      "search": {
+        "menuLabel": "Search Substrate Map"
+      },
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details",
+        "overlayBinConverters": "Overlay Bin Converters",
+        "overlayInformation": "Overlay Information"
+      },
+      "tabs": {
+        "compare": "Compare",
+        "content": "Content",
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      },
+      "viewGenealogy": {
+        "menuLabel": "View Device Genealogy"
+      },
+      "viewHistory": {
+        "menuLabel": "View Device Bin Code History"
+      }
+    },
+    "substrateMapMask": {
+      "apply": {
+        "menuLabel": "Apply Substrate Map Mask"
+      },
+      "changeInfo": {
+        "menuLabel": "Change Substrate Map Mask Information"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "state": "State",
+        "substrateType": "Substrate Type"
+      },
+      "content": {
+        "empty": "Visual mask representation will appear here.",
+        "hint": "Visual representation of the Substrate Map Mask contents.",
+        "title": "Substrate Map Mask Content"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "state": "Universal State:",
+        "substrateType": "Substrate Type:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Substrate Map Masks ({{count}})",
+      "notFound": "Substrate Map Mask not found.",
+      "pageLabel": "Substrate Map Mask",
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details"
+      },
+      "tabs": {
+        "compare": "Compare",
+        "content": "Content",
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate Substrate Map Mask"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
+    },
+    "task": {
+      "cancel": {
+        "menuLabel": "Cancel Task"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "owner": "Owner",
+        "state": "State",
+        "taskState": "Task State"
+      },
+      "detail": {
+        "assignment": "Assignment",
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "dueDate": "Due Date:",
+        "name": "Name:",
+        "owner": "Owner:",
+        "requester": "Requester:",
+        "state": "Universal State:",
+        "taskState": "Task State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Tasks ({{count}})",
+      "markCompleted": {
+        "menuLabel": "Mark Task As Completed"
+      },
+      "notFound": "Task not found.",
+      "pageLabel": "Task",
+      "perform": {
+        "menuLabel": "Perform Task"
+      },
+      "reassign": {
+        "menuLabel": "Reassign Task"
+      },
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details"
+      },
+      "sendReminder": {
+        "menuLabel": "Send Task Reminder"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
+    },
+    "team": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "calendar": "Calendar",
+        "description": "Description",
+        "name": "Name",
+        "state": "State"
+      },
+      "detail": {
+        "calendar": "Calendar:",
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Teams ({{count}})",
+      "notFound": "Team not found.",
+      "pageLabel": "Team",
+      "sections": {
+        "attachments": "Attachments",
+        "calendarDays": "Calendar Days",
+        "details": "Details",
+        "employees": "Employees"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
+    },
+    "transferOrder": {
+      "beginMovement": {
+        "menuLabel": "Begin Transfer Order Movement"
+      },
+      "cancel": {
+        "menuLabel": "Cancel Transfer Order"
+      },
+      "columns": {
+        "description": "Description",
+        "destinationLocation": "Destination Location",
+        "name": "Name",
+        "orderState": "Order State",
+        "sourceLocation": "Source Location",
+        "state": "State"
+      },
+      "completeMovement": {
+        "menuLabel": "Complete Transfer Order Movement"
+      },
+      "confirmItems": {
+        "menuLabel": "Confirm Transfer Order Items"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "destinationLocation": "Destination Location:",
+        "name": "Name:",
+        "orderState": "Order State:",
+        "sourceLocation": "Source Location:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Transfer Orders ({{count}})",
+      "notFound": "Transfer Order not found.",
+      "pageLabel": "Transfer Order",
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details",
+        "items": "Items"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "takeOwnership": {
+        "menuLabel": "Take Transfer Order Ownership"
+      },
+      "viewReport": {
+        "menuLabel": "View Transfer Order Report"
+      }
+    },
+    "transferRequirement": {
+      "approve": {
+        "menuLabel": "Approve Transfer Requirement"
+      },
+      "cancel": {
+        "menuLabel": "Cancel Transfer Requirement"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "destinationLocation": "Destination Location",
+        "name": "Name",
+        "requirementState": "Requirement State",
+        "sourceLocation": "Source Location",
+        "state": "State"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "destinationLocation": "Destination Location:",
+        "name": "Name:",
+        "requirementState": "Requirement State:",
+        "sourceLocation": "Source Location:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Transfer Requirements ({{count}})",
+      "notFound": "Transfer Requirement not found.",
+      "pageLabel": "Transfer Requirement",
+      "releaseItems": {
+        "menuLabel": "Release Transfer Requirement Items"
+      },
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details",
+        "items": "Items"
+      },
+      "split": {
+        "menuLabel": "Split Transfer Requirement"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "unapprove": {
+        "menuLabel": "Unapprove Transfer Requirement"
+      },
+      "viewReport": {
+        "menuLabel": "View Transfer Requirement Report"
+      }
+    },
+    "workgroup": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "scope": "Scope",
+        "state": "State"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "scope": "Scope:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Workgroups ({{count}})",
+      "manageRoleWorkspaces": {
+        "menuLabel": "Manage Role Workspaces"
+      },
+      "manageUserWorkgroups": {
+        "menuLabel": "Manage User Workgroups"
+      },
+      "notFound": "Workgroup not found.",
+      "pageLabel": "Workgroup",
+      "sections": {
+        "areas": "Areas",
+        "attachments": "Attachments",
+        "details": "Details",
+        "resources": "Resources",
+        "steps": "Steps"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
     }
   }
 }

@@ -22,7 +22,9 @@
     "endpoint": "엔드포인트",
     "clone": "복제",
     "terminate": "종료",
-    "unterminate": "종료 취소"
+    "unterminate": "종료 취소",
+    "newTemplate": "새 템플릿",
+    "newFromTemplate": "템플릿에서 만들기"
   },
   "administration": {
     "pageLabel": "관리"
@@ -151,7 +153,8 @@
     "next": "다음",
     "create": "만들기",
     "add": "추가",
-    "remove": "제거"
+    "remove": "제거",
+    "none": "없음"
   },
   "configuration": {
     "pageLabel": "구성",
@@ -2087,6 +2090,5537 @@
     "operations": {
       "fieldRequired": "필수 필드를 입력하세요.",
       "selectOption": "선택하세요"
+    },
+    "mapDefinition": {
+      "pageLabel": "맵 정의",
+      "listTitle": "맵 정의 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "layers": "레이어",
+        "regions": "영역",
+        "attachments": "첨부 파일",
+        "mapDefinition": "맵 정의",
+        "options": "옵션",
+        "information": "정보",
+        "colors": "색상",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "rulerMode": "눈금자 모드",
+        "showRulerByDefault": "기본적으로 눈금자 표시",
+        "notch": "노치",
+        "defaultRotation": "기본 회전",
+        "materialUnits": "자재 단위",
+        "layoutType": "레이아웃 유형",
+        "height": "높이",
+        "width": "너비",
+        "dimensionUnits": "치수 단위",
+        "rows": "행",
+        "columns": "열",
+        "maskFile": "마스크 파일",
+        "backgroundFile": "배경 파일",
+        "emptyUnitsColor": "빈 단위 색상",
+        "gridLinesColor": "그리드 선 색상",
+        "showGridLinesByDefault": "기본적으로 그리드 선 표시"
+      },
+      "wizard": {
+        "createTitle": "맵 정의 생성",
+        "editTitle": "맵 정의 편집",
+        "clone": "복제",
+        "stepGeneral": "일반 데이터",
+        "stepLayers": "레이어",
+        "stepFilters": "필터",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "layoutType": "레이아웃 유형",
+        "regular": "정규",
+        "irregular": "비정규",
+        "rows": "행",
+        "columns": "열",
+        "height": "높이",
+        "width": "너비",
+        "dimensionUnits": "치수 단위",
+        "maskFile": "마스크 파일",
+        "browse": "찾아보기",
+        "clear": "지우기",
+        "emptyUnitsColor": "빈 단위 색상",
+        "gridLinesColor": "그리드 선 색상",
+        "showGridLinesByDefault": "기본적으로 그리드 선 표시",
+        "notch": "노치",
+        "defaultRotation": "기본 회전",
+        "materialUnits": "자재 단위",
+        "rulerMode": "눈금자 모드",
+        "showRulerByDefault": "기본적으로 눈금자 표시",
+        "layerName": "이름",
+        "layerType": "레이어 유형",
+        "dataType": "데이터 유형",
+        "isDefault": "기본값",
+        "addLayer": "레이어 추가",
+        "removeLayer": "제거",
+        "cancel": "취소",
+        "back": "뒤로",
+        "next": "다음",
+        "create": "생성",
+        "update": "업데이트",
+        "comments": "설명",
+        "generalData": "일반 데이터",
+        "information": "정보",
+        "colors": "색상",
+        "options": "옵션"
+      }
+    },
+    "document": {
+      "pageLabel": "문서",
+      "listTitle": "문서 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "author": "작성자",
+        "creationDate": "생성일",
+        "state": "상태",
+        "employee": "직원",
+        "readAndUnderstoodDate": "읽음 확인일"
+      },
+      "tabs": {
+        "tracking": "추적",
+        "contexts": "컨텍스트",
+        "compare": "비교"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "applicableRoles": "적용 역할",
+        "attributes": "특성",
+        "attachments": "첨부 파일",
+        "document": "문서",
+        "content": "콘텐츠",
+        "information": "정보",
+        "readAndUnderstand": "읽음 확인",
+        "employees": "직원",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태",
+        "dataGroup": "데이터 그룹",
+        "source": "소스",
+        "file": "파일",
+        "changeDescription": "변경 설명",
+        "folder": "폴더",
+        "ownerRole": "소유자 역할",
+        "group": "그룹",
+        "author": "작성자",
+        "creationDate": "생성일",
+        "link": "링크",
+        "versionLink": "버전 링크",
+        "keywords": "키워드",
+        "requireSignature": "읽음 확인 서명 요구",
+        "expirationDays": "읽음 확인 만료 (일)"
+      },
+      "wizard": {
+        "createTitle": "Create Document",
+        "editTitle": "Edit Document",
+        "cloneTitle": "Clone Document",
+        "stepChangeSet": "Change Set",
+        "stepGeneral": "General Data",
+        "changeSet": "Change Set",
+        "approvalRole": "Approval Role",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "name": "Name",
+        "revision": "Revision",
+        "description": "Description",
+        "type": "Type",
+        "source": "Source",
+        "internal": "Internal",
+        "external": "External",
+        "file": "File",
+        "browse": "Browse",
+        "url": "URL",
+        "changeDescription": "Change Description",
+        "folder": "Folder",
+        "ownerRole": "Owner Role",
+        "group": "Group",
+        "author": "Author",
+        "creationDate": "Creation Date",
+        "keywords": "Keywords",
+        "distNewVersion": "Distribution List (New Version)",
+        "distNewEffective": "Distribution List (New Effective Version)",
+        "requireSignature": "Require Signature for Read and Understand",
+        "expirationDays": "Expiration Days",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "back": "Back",
+        "next": "Next",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      }
+    },
+    "enterprise": {
+      "pageLabel": "엔터프라이즈",
+      "listTitle": "엔터프라이즈 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "dataGroup": "데이터 그룹",
+        "state": "상태"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "sites": "사이트",
+        "attributes": "특성",
+        "attachments": "첨부 파일",
+        "enterprise": "엔터프라이즈",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "state": "유니버설 상태",
+        "dataGroup": "데이터 그룹"
+      },
+      "dialog": {
+        "createTitle": "Create Enterprise",
+        "editTitle": "Edit Enterprise",
+        "cloneTitle": "Clone Enterprise",
+        "name": "Name",
+        "description": "Description",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      }
+    },
+    "dataSilo": {
+      "columns": {
+        "description": "설명",
+        "enterpriseName": "엔터프라이즈 이름",
+        "name": "이름",
+        "siteName": "사이트 이름",
+        "type": "유형"
+      },
+      "details": {
+        "dataVersion": "데이터 버전",
+        "description": "설명",
+        "enterpriseName": "엔터프라이즈 이름",
+        "facilityName": "시설 이름",
+        "isExternal": "외부",
+        "isSystem": "시스템",
+        "isTemplate": "템플릿",
+        "name": "이름",
+        "properties": "속성",
+        "siteName": "사이트 이름",
+        "state": "상태",
+        "type": "유형",
+        "user": "사용자",
+        "isObsolete": "폐기됨",
+        "keywords": "키워드",
+        "ownerInstance": "소유자 인스턴스",
+        "generalData": "일반 데이터"
+      },
+      "listTitle": "데이터 사일로 ({{count}})",
+      "pageLabel": "데이터 사일로",
+      "sections": {
+        "attachments": "첨부 파일",
+        "details": "세부 정보",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다.",
+        "relations": "관계",
+        "whereUsed": "사용 위치"
+      },
+      "create": {
+        "title": "데이터 사일로 만들기",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "dataVersion": "데이터 버전",
+        "enterpriseName": "엔터프라이즈 이름",
+        "facilityName": "설비 이름",
+        "isExternal": "외부",
+        "isSystem": "시스템",
+        "keywords": "키워드",
+        "siteName": "사이트 이름",
+        "user": "사용자",
+        "comments": "설명",
+        "cancel": "취소",
+        "create": "만들기",
+        "typeDefault": "일반"
+      }
+    },
+    "kpi": {
+      "pageLabel": "KPI",
+      "listTitle": "KPI ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "dimensionsAndTimeFrames": "차원 및 기간",
+        "attachments": "첨부 파일",
+        "kpi": "KPI",
+        "settings": "설정",
+        "defaultValues": "기본값",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "dataGroup": "데이터 그룹",
+        "sourceType": "소스 유형",
+        "entityType": "엔터티 유형",
+        "parameter": "매개변수",
+        "kpiType": "KPI 유형",
+        "frequency": "빈도",
+        "ownerRole": "소유자 역할",
+        "closeToTargetMinimumValue": "목표 근접 최소값",
+        "inTargetMinimumValue": "목표 내 최소값",
+        "targetValue": "목표값"
+      },
+      "actions": {
+        "manageDimensions": "차원 및 기간 관리"
+      },
+      "dialog": {
+        "cancel": "취소",
+        "clone": "복제",
+        "cloneTitle": "KPI 복제",
+        "create": "생성",
+        "createTitle": "KPI 생성",
+        "description": "설명",
+        "editTitle": "KPI 편집",
+        "entityType": "엔터티 유형",
+        "frequency": "빈도",
+        "frequencyDaily": "매일",
+        "frequencyMonthly": "매월",
+        "frequencyWeekly": "매주",
+        "frequencyYearly": "매년",
+        "kpiType": "KPI 유형",
+        "kpiTypeDeviation": "편차",
+        "kpiTypeMaximum": "최대",
+        "kpiTypeMinimum": "최소",
+        "name": "이름",
+        "ownerRole": "소유자 역할",
+        "parameter": "매개변수",
+        "save": "저장",
+        "sourceType": "소스 유형",
+        "sourceTypeDynamic": "동적",
+        "sourceTypeStatic": "정적",
+        "type": "유형"
+      },
+      "dimensionsDialog": {
+        "addDimension": "차원 추가",
+        "addTimeFrame": "기간 추가",
+        "back": "뒤로",
+        "cancel": "취소",
+        "dimensions": "차원",
+        "from": "시작",
+        "isDefault": "기본값",
+        "next": "다음",
+        "remove": "제거",
+        "source": "소스",
+        "sourceBusinessRule": "비즈니스 규칙",
+        "sourceCommand": "소스 명령",
+        "sourceCubes": "큐브",
+        "sourceDwh": "데이터 웨어하우스",
+        "sourceOds": "운영 데이터 스토어",
+        "step1": "1단계: 차원 관리",
+        "step2": "2단계: 기간 관리",
+        "timeFrameName": "기간 이름",
+        "timeFrames": "기간",
+        "title": "차원 및 기간 관리",
+        "to": "종료",
+        "update": "업데이트",
+        "valueType": "값 유형",
+        "valueTypeSeries": "데이터 시리즈",
+        "valueTypeSingle": "단일 값"
+      },
+      "terminateDialog": {
+        "cancel": "취소",
+        "message": "KPI \"{{name}}\"을(를) 종료하시겠습니까?",
+        "terminate": "종료",
+        "title": "KPI 종료",
+        "warning": "KPI 개체는 종료를 취소할 수 없습니다. 종료하면 영구적으로 손실됩니다."
+      }
+    },
+    "map": {
+      "pageLabel": "맵",
+      "listTitle": "맵 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "mapDefinition": "맵 정의",
+        "state": "상태"
+      },
+      "tabs": {
+        "content": "콘텐츠"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "layers": "레이어",
+        "attachments": "첨부 파일",
+        "map": "맵",
+        "mapDefinition": "맵 정의",
+        "context": "컨텍스트",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "state": "유니버설 상태",
+        "mapDefinition": "맵 정의",
+        "step": "단계",
+        "resource": "리소스",
+        "material": "자재"
+      },
+      "dialog": {
+        "createTitle": "Map 생성",
+        "editTitle": "Map 편집",
+        "cloneTitle": "Map 복제",
+        "step1": "1단계: 일반 데이터",
+        "step2": "2단계: 레이어",
+        "name": "이름",
+        "description": "설명",
+        "mapDefinition": "Map 정의",
+        "step": "공정",
+        "resource": "리소스",
+        "layers": "레이어",
+        "layersHint": "레이어당 하나의 G85 파일을 업로드합니다. 업로드하지 않으면 각 레이어가 기본값으로 초기화됩니다.",
+        "back": "뒤로",
+        "next": "다음",
+        "cancel": "취소",
+        "create": "생성",
+        "save": "저장",
+        "clone": "복제"
+      },
+      "terminateDialog": {
+        "title": "Map 종료",
+        "message": "Map \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Map 종료 취소",
+        "unterminateMessage": "Map \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소"
+      },
+      "linkDialog": {
+        "linkTitle": "Map \"{{name}}\"와 Material 연결",
+        "material": "Material",
+        "mapOrder": "Map 순서",
+        "isMasterMap": "마스터 Map",
+        "linkageMode": "연결 모드",
+        "linkageVerify": "검증",
+        "linkageSynchronize": "동기화",
+        "isDefault": "기본 Map",
+        "isMerged": "병합 Map",
+        "comment": "설명",
+        "link": "연결",
+        "cancel": "취소",
+        "unlinkTitle": "Map와 Material 연결 해제",
+        "unlinkMessage": "Map \"{{name}}\"에서 Material 연결을 해제하시겠습니까?",
+        "unlink": "연결 해제"
+      },
+      "actions": {
+        "downloadLayer": "레이어 다운로드",
+        "linkMaterial": "Material과 연결",
+        "unlinkMaterial": "Material 연결 해제"
+      },
+      "layers": {
+        "name": "이름",
+        "type": "유형",
+        "units": "단위"
+      }
+    },
+    "flow": {
+      "pageLabel": "플로우",
+      "listTitle": "플로우 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "flowType": "플로우 유형",
+        "state": "상태"
+      },
+      "tabs": {
+        "flowStructure": "플로우 구조",
+        "contextStructure": "컨텍스트 구조",
+        "contextMatrix": "컨텍스트 매트릭스",
+        "compare": "비교"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "logicalNames": "논리 이름",
+        "attachments": "첨부 파일",
+        "flow": "플로우",
+        "settings": "설정",
+        "flowStructure": "플로우 구조",
+        "flowDetails": "플로우 세부 정보",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "dataGroup": "데이터 그룹",
+        "flow": "플로우",
+        "flowType": "플로우 유형",
+        "enabled": "활성화"
+      },
+      "dialog": {
+        "createTitle": "Flow 생성",
+        "editTitle": "Flow 편집",
+        "cloneTitle": "Flow 복제",
+        "step1": "1단계: Change Set",
+        "step2": "2단계: 일반 데이터",
+        "step3": "3단계: Flow Items",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "자동 Change Set 사용",
+        "approvalRole": "승인 역할",
+        "makeEffectiveOnApproval": "승인 시 유효화",
+        "name": "이름",
+        "revision": "리비전",
+        "description": "설명",
+        "flowType": "Flow 유형",
+        "flowKind": "Flow 종류",
+        "kindSequential": "순차",
+        "kindAlternate": "교대",
+        "kindNonSequential": "비순차 블록",
+        "kindLine": "라인",
+        "isEnabled": "활성화",
+        "flowItems": "Flow Items",
+        "flowItemsHint": "Step 또는 Flow를 추가하여 Flow 구조를 구축합니다.",
+        "addStep": "Step 추가",
+        "addFlow": "Flow 추가",
+        "remove": "제거",
+        "back": "뒤로",
+        "next": "다음",
+        "cancel": "취소",
+        "create": "생성",
+        "save": "저장",
+        "clone": "복제"
+      },
+      "terminateDialog": {
+        "title": "Flow 종료",
+        "message": "Flow \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Flow 종료 취소",
+        "unterminateMessage": "Flow \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소"
+      },
+      "manageDialog": {
+        "logicalNamesTitle": "Flow 논리 이름 관리",
+        "logicalName": "논리 이름",
+        "addLogicalName": "논리 이름 추가",
+        "remove": "제거",
+        "update": "업데이트",
+        "cancel": "취소",
+        "reworkPathsTitle": "재작업 경로 보기",
+        "filterByStep": "Step별 필터",
+        "close": "닫기"
+      },
+      "actions": {
+        "manageLogicalNames": "논리 이름 관리",
+        "viewReworkPaths": "재작업 경로 보기"
+      }
+    },
+    "experimentDefinition": {
+      "pageLabel": "실험 정의",
+      "listTitle": "실험 정의 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "product": "제품",
+        "state": "상태"
+      },
+      "tabs": {
+        "matrix": "매트릭스"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "objectives": "목표",
+        "mainMaterialGroups": "주 자재 그룹",
+        "instances": "인스턴스",
+        "attachments": "첨부 파일",
+        "experimentDefinition": "실험 정의",
+        "options": "옵션",
+        "information": "정보",
+        "results": "결과",
+        "settings": "설정",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "dataGroup": "데이터 그룹",
+        "ignoreInSamplingPlans": "샘플링 계획에서 무시",
+        "ignoreInSpcCharts": "SPC 차트에서 무시",
+        "closeExperimentAutomatically": "실험 자동 종료",
+        "ownerRole": "소유자 역할",
+        "purpose": "목적",
+        "note": "메모",
+        "result": "결과",
+        "conclusions": "결론",
+        "product": "제품",
+        "productGroup": "제품 그룹",
+        "maximumNumberOfMaterials": "최대 자재 수",
+        "requiredMaterialType": "필요 자재 유형",
+        "requiredMaterialForm": "필요 자재 형태",
+        "mode": "모드",
+        "requiredSubMaterialsForm": "필요 하위 자재 형태",
+        "requiredSubMaterialsCount": "필요 하위 자재 수",
+        "plannedStartDate": "계획 시작일",
+        "plannedEndDate": "계획 종료일",
+        "flow": "플로우",
+        "firstStep": "첫 단계",
+        "firstStepFlowPath": "첫 단계 플로우 경로",
+        "lastStep": "마지막 단계",
+        "lastStepFlowPath": "마지막 단계 플로우 경로"
+      },
+      "dialog": {
+        "createTitle": "Experiment Definition 생성",
+        "editTitle": "Experiment Definition 편집",
+        "cloneTitle": "Experiment Definition 복제",
+        "step1": "1단계: Change Set",
+        "step2": "2단계: 일반 데이터",
+        "step3": "3단계: 목표",
+        "step4": "4단계: Material Groups",
+        "step5": "5단계: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "자동 Change Set 사용",
+        "approvalRole": "승인 역할",
+        "makeEffectiveOnApproval": "승인 시 유효화",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "ownerRole": "소유자 역할",
+        "purpose": "목적",
+        "note": "메모",
+        "applicableTo": "적용 대상",
+        "applicableProduct": "Product",
+        "applicableProductGroup": "Product Group",
+        "product": "Product",
+        "productGroup": "Product Group",
+        "flow": "Flow",
+        "maxMaterials": "최대 Material 수",
+        "requiredMaterialType": "필요한 Material 유형",
+        "requiredMaterialForm": "필요한 Material 폼",
+        "mode": "모드",
+        "modeSubMaterials": "하위 Material",
+        "modeFullMaterial": "전체 Material",
+        "plannedStartDate": "시작 예정일",
+        "plannedEndDate": "종료 예정일",
+        "objectives": "목표",
+        "addObjective": "목표 추가",
+        "objectiveName": "목표 이름",
+        "objectiveTarget": "목표값",
+        "remove": "제거",
+        "back": "뒤로",
+        "next": "다음",
+        "cancel": "취소",
+        "create": "생성",
+        "save": "저장",
+        "clone": "복제"
+      },
+      "terminateDialog": {
+        "title": "Experiment Definition 종료",
+        "message": "Experiment Definition \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Experiment Definition 종료 취소",
+        "unterminateMessage": "Experiment Definition \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소",
+        "setEffectiveTitle": "버전을 유효로 설정",
+        "setEffectiveMessage": "Experiment Definition \"{{name}}\" 버전을 유효로 설정하시겠습니까?",
+        "setEffective": "유효로 설정"
+      },
+      "actions": {
+        "setEffective": "유효로 설정"
+      }
+    },
+    "facility": {
+      "pageLabel": "시설",
+      "listTitle": "시설 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "site": "사이트",
+        "state": "상태"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "areas": "구역",
+        "shippingInformation": "배송 정보",
+        "attachments": "첨부 파일",
+        "facility": "시설",
+        "information": "정보",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "dataGroup": "데이터 그룹",
+        "displayOrder": "표시 순서",
+        "defaultCalendar": "기본 캘린더",
+        "site": "사이트",
+        "remote": "원격",
+        "terminateOnShipToThisFacility": "이 시설로 배송 시 종료"
+      },
+      "dialog": {
+        "createTitle": "Facility 생성",
+        "editTitle": "Facility 편집",
+        "cloneTitle": "Facility 복제",
+        "step1": "1단계: 일반 데이터",
+        "step2": "2단계: 정보",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "dataGroup": "데이터 그룹",
+        "displayOrder": "표시 순서",
+        "defaultCalendar": "기본 달력",
+        "site": "사이트",
+        "remote": "원격",
+        "terminateOnShip": "이 Facility로 배송 시 종료",
+        "back": "뒤로",
+        "next": "다음",
+        "cancel": "취소",
+        "create": "생성",
+        "save": "저장",
+        "clone": "복제",
+        "typeManufacturing": "제조",
+        "typeDistribution": "물류 센터",
+        "typeWarehouse": "창고"
+      },
+      "terminateDialog": {
+        "title": "Facility 종료",
+        "message": "Facility \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Facility 종료 취소",
+        "unterminateMessage": "Facility \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소"
+      },
+      "manageShipping": {
+        "title": "배송 가능한 Facility 관리",
+        "facilities": "Facilities",
+        "facilityDetails": "Facility 상세",
+        "addFacility": "Facility 추가",
+        "removeFacility": "Facility 제거",
+        "facility": "Facility",
+        "description": "설명",
+        "type": "유형",
+        "isRemote": "원격",
+        "cancel": "취소",
+        "update": "업데이트",
+        "manage": "관리"
+      }
+    },
+    "inspectionPlan": {
+      "pageLabel": "검사 계획",
+      "listTitle": "검사 계획 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태"
+      },
+      "tabs": {
+        "compare": "비교"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "steps": "단계",
+        "configurations": "구성",
+        "instances": "인스턴스",
+        "attachments": "첨부 파일",
+        "inspectionPlan": "검사 계획",
+        "defaultInspection": "기본 검사",
+        "inspectionSettings": "검사 설정",
+        "futureHoldInformation": "향후 보류 정보",
+        "holdInformation": "보류 정보",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "dataGroup": "데이터 그룹",
+        "resultsRequiredBeforeTrackOut": "Track-Out 전 결과 필요",
+        "enableMultipleSamples": "다중 샘플 활성화",
+        "containsSeparateInspectionSteps": "별도 검사 단계 포함",
+        "closeAutomaticallyOnPass": "합격 시 자동 종료",
+        "closeAutomaticallyOnFail": "불합격 시 자동 종료",
+        "openProtocolOnFail": "불합격 시 프로토콜 열기",
+        "protocol": "프로토콜",
+        "futureHoldCreationMode": "향후 보류 생성 모드",
+        "setHoldOnFail": "불합격 시 보류 설정",
+        "step": "단계",
+        "reason": "사유",
+        "releaseRole": "릴리스 역할",
+        "comment": "설명",
+        "distributionList": "배포 목록"
+      },
+      "dialog": {
+        "createTitle": "Inspection Plan 생성",
+        "editTitle": "Inspection Plan 편집",
+        "cloneTitle": "Inspection Plan 복제",
+        "step1": "1단계: Change Set",
+        "step2": "2단계: 일반 데이터",
+        "step3": "3단계: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "자동 Change Set 사용",
+        "approvalRole": "승인 역할",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "resultsRequiredBeforeTrackOut": "Track-Out 전 결과 필요",
+        "enableMultipleSamples": "다중 샘플 활성화",
+        "containsSeparateInspectionSteps": "개별 Inspection Step 포함",
+        "closeAutomaticallyOnPass": "Pass 시 자동 종료",
+        "closeAutomaticallyOnFail": "Fail 시 자동 종료",
+        "futureHoldCreationMode": "Future Hold 생성 모드",
+        "futureHoldNone": "없음",
+        "futureHoldAlways": "항상",
+        "futureHoldOnFail": "Fail 시",
+        "addStep": "Step 추가",
+        "remove": "제거",
+        "stepName": "Step 이름",
+        "isInProcessInspection": "인프로세스 검사",
+        "inspectionFlow": "Inspection Flow",
+        "inspectionStep": "Inspection Step",
+        "back": "뒤로",
+        "next": "다음",
+        "cancel": "취소",
+        "create": "생성",
+        "save": "저장",
+        "clone": "복제"
+      },
+      "terminateDialog": {
+        "title": "Inspection Plan 종료",
+        "message": "Inspection Plan \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Inspection Plan 종료 취소",
+        "unterminateMessage": "Inspection Plan \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소"
+      },
+      "manageConfigurations": {
+        "title": "Configurations 관리",
+        "configurations": "Configurations",
+        "addConfiguration": "Configuration 추가",
+        "removeConfiguration": "Configuration 제거",
+        "configurationName": "Configuration 이름",
+        "cancel": "취소",
+        "update": "업데이트",
+        "manage": "관리"
+      },
+      "manageSteps": {
+        "title": "Inspection Plan Steps 관리",
+        "steps": "Steps",
+        "addStep": "Step 추가",
+        "removeStep": "Step 제거",
+        "stepName": "Step 이름",
+        "isInProcessInspection": "인프로세스 검사",
+        "cancel": "취소",
+        "update": "업데이트",
+        "manage": "관리"
+      }
+    },
+    "employee": {
+      "pageLabel": "직원",
+      "listTitle": "직원 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "user": "사용자",
+        "number": "번호",
+        "team": "팀",
+        "state": "상태"
+      },
+      "tabs": {
+        "calendar": "캘린더"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "subordinates": "부하 직원",
+        "delegates": "대리인",
+        "certifications": "인증",
+        "qualifications": "자격",
+        "timeSheetEntries": "타임시트 항목",
+        "checkInInformation": "체크인 정보",
+        "attachments": "첨부 파일",
+        "employee": "직원",
+        "clockInOut": "출퇴근",
+        "information": "정보",
+        "costing": "비용",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태",
+        "dataGroup": "데이터 그룹",
+        "requireClockIn": "출근 등록 요구",
+        "enableAutomaticClockIn": "자동 출근 등록 활성화",
+        "lastClockInDate": "마지막 출근일",
+        "clockedState": "출근 상태",
+        "automaticClockOutAtEndOfShift": "교대 종료 시 자동 퇴근",
+        "user": "사용자",
+        "number": "번호",
+        "area": "구역",
+        "calendar": "캘린더",
+        "team": "팀",
+        "manager": "관리자",
+        "position": "직위",
+        "workgroup": "작업 그룹",
+        "shiftplan": "교대 계획",
+        "costCenter": "비용 센터",
+        "costPerHour": "시간당 비용"
+      },
+      "dialog": {
+        "createTitle": "Employee 생성",
+        "editTitle": "Employee 편집",
+        "cloneTitle": "Employee 복제",
+        "step1": "1단계: 사용자 선택 또는 생성",
+        "step2": "2단계: 사용자",
+        "step3": "3단계: 일반 데이터",
+        "user": "사용자",
+        "userAccount": "계정",
+        "userName": "이름",
+        "userEmail": "이메일",
+        "primaryRole": "기본 역할",
+        "createUser": "사용자 생성",
+        "selectUser": "사용자 선택",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "employeeNumber": "사원 번호",
+        "area": "영역",
+        "calendar": "달력",
+        "costPerHour": "시간당 비용",
+        "costCenter": "코스트 센터",
+        "requireClockIn": "Clock-In 필수",
+        "automaticClockIn": "자동 Clock-In",
+        "automaticClockOutAtEndOfShift": "교대 종료 시 자동 Clock-Out",
+        "back": "뒤로",
+        "next": "다음",
+        "cancel": "취소",
+        "create": "생성",
+        "save": "저장",
+        "clone": "복제",
+        "remove": "제거"
+      },
+      "terminateDialog": {
+        "title": "Employee 종료",
+        "message": "Employee \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Employee 종료 취소",
+        "unterminateMessage": "Employee \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소"
+      },
+      "certifications": {
+        "manageTitle": "Employee Certification 관리",
+        "grantTitle": "Employee에게 Certification 부여",
+        "revokeTitle": "Employee의 Certification 취소",
+        "revokeMessage": "Employee \"{{name}}\"의 Certification \"{{certification}}\"을(를) 취소하시겠습니까?",
+        "assignTitle": "Employee에게 Certification 할당",
+        "unassignTitle": "Employee의 Certification 할당 해제",
+        "unassignMessage": "Employee \"{{name}}\"의 Certification \"{{certification}}\" 할당을 해제하시겠습니까?",
+        "certification": "Certification",
+        "plannedDate": "예정일",
+        "certificationDate": "인증일",
+        "isTrainer": "트레이너",
+        "isTrainee": "수습생",
+        "comment": "설명",
+        "remark": "비고",
+        "cancel": "취소",
+        "update": "업데이트",
+        "grant": "부여",
+        "revoke": "취소",
+        "assign": "할당",
+        "unassign": "할당 해제",
+        "manage": "관리"
+      },
+      "qualifications": {
+        "manageTitle": "Employee Qualification 관리",
+        "assignTitle": "Employee에게 Qualification 할당",
+        "unassignTitle": "Employee의 Qualification 할당 해제",
+        "unassignMessage": "Employee \"{{name}}\"의 Qualification \"{{qualification}}\" 할당을 해제하시겠습니까?",
+        "qualification": "Qualification",
+        "qualificationDate": "자격 취득일",
+        "validTo": "유효 기간",
+        "reason": "사유",
+        "proficiency": "숙련도",
+        "remarks": "비고",
+        "comment": "설명",
+        "cancel": "취소",
+        "update": "업데이트",
+        "assign": "할당",
+        "unassign": "할당 해제",
+        "manage": "관리"
+      },
+      "attendance": {
+        "checkInTitle": "Employee Check-In",
+        "checkOutTitle": "Employee Check-Out",
+        "clockInTitle": "Employee Clock-In",
+        "clockOutTitle": "Employee Clock-Out",
+        "assignSubordinatesTitle": "Employee에게 부하 할당",
+        "unassignSubordinatesTitle": "Employee의 부하 할당 해제",
+        "assignTeamTitle": "Team 및 Workgroup 할당",
+        "resource": "Resource",
+        "certification": "Certification",
+        "subordinates": "부하",
+        "team": "Team",
+        "workgroup": "Workgroup",
+        "area": "Area",
+        "comment": "설명",
+        "reason": "사유",
+        "cancel": "취소",
+        "checkIn": "Check-In",
+        "checkOut": "Check-Out",
+        "clockIn": "Clock-In",
+        "clockOut": "Clock-Out",
+        "assign": "할당",
+        "unassign": "할당 해제",
+        "save": "저장"
+      },
+      "delegates": {
+        "manageDelegatesTitle": "Employee Delegates 관리",
+        "manageTraineesTitle": "Employee Trainees 관리",
+        "delegates": "Delegates",
+        "trainees": "Trainees",
+        "delegateEmployee": "대리 Employee",
+        "validFrom": "유효 시작일",
+        "validTo": "유효 종료일",
+        "addDelegate": "Delegate 추가",
+        "removeDelegate": "Delegate 제거",
+        "addTrainee": "Trainee 추가",
+        "removeTrainee": "Trainee 제거",
+        "cancel": "취소",
+        "update": "업데이트",
+        "checkOut": "Check-Out",
+        "manage": "관리"
+      },
+      "calendarDays": {
+        "setNonWorkingTimeTitle": "Employee 비근무 시간 설정",
+        "setWorkAvailabilityTitle": "Employee 근무 가능 설정",
+        "removeNonWorkingTimesTitle": "Employee 비근무 시간 제거",
+        "removeWorkAvailabilityTitle": "Employee 근무 가능 제거",
+        "removeNonWorkingTimesMessage": "Employee \"{{name}}\"의 비근무 시간을 모두 제거하시겠습니까?",
+        "removeWorkAvailabilityMessage": "Employee \"{{name}}\"의 근무 가능성을 제거하시겠습니까?",
+        "description": "설명",
+        "nonWorkingTimeType": "비근무 시간 유형",
+        "startTime": "시작 시간",
+        "endTime": "종료 시간",
+        "comment": "설명",
+        "cancel": "취소",
+        "set": "설정",
+        "remove": "제거",
+        "manage": "관리"
+      }
+    },
+    "maintenanceActivityOrder": {
+      "pageLabel": "유지보수 작업 지시",
+      "listTitle": "유지보수 작업 지시 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "executionState": "실행 상태",
+        "scheduleType": "일정 유형",
+        "state": "상태"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "parts": "부품",
+        "labor": "노동",
+        "personnel": "인력",
+        "transferRequirements": "이전 요구 사항",
+        "documents": "문서",
+        "pastMaos": "과거 MAO",
+        "joinedMaos": "결합된 MAO",
+        "attachments": "첨부 파일",
+        "order": "유지보수 작업 지시",
+        "scheduling": "일정 계획",
+        "requestInformation": "요청 정보",
+        "definition": "정의",
+        "execution": "실행",
+        "information": "정보",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "dataGroup": "데이터 그룹",
+        "scheduleDate": "일정일",
+        "requestedBy": "요청자",
+        "requestDate": "요청일",
+        "comment": "설명",
+        "maintenancePlanInstance": "유지보수 계획 인스턴스",
+        "resource": "리소스",
+        "ownerRole": "소유자 역할",
+        "maintenanceActivity": "유지보수 작업",
+        "role": "역할",
+        "beginDate": "시작일",
+        "endDate": "종료일",
+        "scheduleType": "일정 유형",
+        "expectedDuration": "예상 소요 시간",
+        "executionState": "실행 상태",
+        "reworkCount": "재작업 횟수",
+        "requestApprovalMode": "요청 승인 모드",
+        "maintenanceType": "유지보수 유형",
+        "materialTypeRestrictionMode": "자재 유형 제한 모드",
+        "materialType": "자재 유형",
+        "orderReleaseMode": "지시 릴리스 모드",
+        "completionAcceptanceMode": "완료 승인 모드",
+        "beginAndCompleteMode": "시작 및 완료 모드",
+        "cost": "비용"
+      },
+      "dialog": {
+        "editTitle": "Maintenance Activity Order 편집",
+        "description": "설명",
+        "dataGroup": "데이터 그룹",
+        "cancel": "취소",
+        "save": "저장"
+      },
+      "terminateDialog": {
+        "title": "Maintenance Activity Order 종료",
+        "message": "Maintenance Activity Order \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Maintenance Activity Order 종료 취소",
+        "unterminateMessage": "Maintenance Activity Order \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소"
+      },
+      "request": {
+        "title": "Maintenance Activity Order 요청",
+        "step1": "1단계: 엔터티",
+        "step2": "2단계: Maintenance Activity Order",
+        "entityType": "엔터티 유형",
+        "entity": "엔터티",
+        "scheduleDate": "예정일",
+        "comment": "설명",
+        "cancel": "취소",
+        "request": "요청",
+        "back": "뒤로",
+        "next": "다음"
+      },
+      "changeState": {
+        "title": "Maintenance Activity Order {{action}}",
+        "message": "Maintenance Activity Order \"{{name}}\"을(를) {{action}}하시겠습니까?",
+        "comment": "설명",
+        "cancel": "취소",
+        "confirm": "확인",
+        "approve": "승인",
+        "release": "릴리스",
+        "begin": "시작",
+        "complete": "완료",
+        "accept": "수락",
+        "reject": "거부",
+        "cancelAction": "취소",
+        "skip": "건너뛰기",
+        "abort": "중단",
+        "rework": "재작업"
+      }
+    },
+    "maintenancePlan": {
+      "pageLabel": "유지보수 계획",
+      "listTitle": "유지보수 계획 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "scope": "범위",
+        "state": "상태"
+      },
+      "tabs": {
+        "maintenanceActivities": "유지보수 작업",
+        "compare": "비교"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "instances": "인스턴스",
+        "attachments": "첨부 파일",
+        "maintenancePlan": "유지보수 계획",
+        "activities": "작업",
+        "generalData": "일반 데이터",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "scope": "범위",
+        "dataGroup": "데이터 그룹",
+        "scheduleType": "일정 유형",
+        "expectedDurationHours": "예상 소요 시간 (시간)",
+        "executionRole": "실행 역할",
+        "requestApprovalMode": "요청 승인 모드",
+        "maintenanceType": "유지보수 유형",
+        "materialTypeRestrictionMode": "자재 유형 제한 모드",
+        "orderReleaseMode": "지시 릴리스 모드",
+        "acceptanceMode": "승인 모드",
+        "ignoreInScheduling": "일정 계획에서 무시",
+        "autoDisableAfterLateDue": "지연 후 자동 비활성화",
+        "postMaintenanceActivity": "사후 유지보수 작업"
+      },
+      "dialog": {
+        "createTitle": "Maintenance Plan 생성",
+        "editTitle": "Maintenance Plan 편집",
+        "cloneTitle": "Maintenance Plan 복제",
+        "step1": "1단계: Change Set",
+        "step2": "2단계: 일반 데이터",
+        "step3": "3단계: Maintenance Activities",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "자동 Change Set 사용",
+        "approvalRole": "승인 역할",
+        "makeEffectiveOnApproval": "승인 시 유효화",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "scope": "범위",
+        "scopeMaintenanceManagement": "Maintenance Management",
+        "scopeInProcessVerification": "인프로세스 검증",
+        "scopeQualification": "Qualification",
+        "addActivity": "Activity 추가",
+        "remove": "제거",
+        "activityName": "Activity 이름",
+        "scheduleType": "스케줄 유형",
+        "scheduleAdHoc": "Ad hoc",
+        "scheduleTimeBased": "Time Based",
+        "scheduleUsageBased": "Usage Based",
+        "scheduleUsageAndTimeBased": "Usage And Time Based",
+        "expectedDuration": "예상 소요 시간(시간)",
+        "executionRole": "실행 역할",
+        "back": "뒤로",
+        "next": "다음",
+        "cancel": "취소",
+        "create": "생성",
+        "save": "저장",
+        "clone": "복제"
+      },
+      "terminateDialog": {
+        "title": "Maintenance Plan 종료",
+        "message": "Maintenance Plan \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Maintenance Plan 종료 취소",
+        "unterminateMessage": "Maintenance Plan \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소",
+        "setEffectiveTitle": "Maintenance Plan 유효화",
+        "setEffectiveMessage": "Maintenance Plan \"{{name}}\"을(를) 유효로 설정하시겠습니까?",
+        "setEffective": "유효로 설정"
+      },
+      "associate": {
+        "title": "Maintenance Plan 연결",
+        "entityType": "엔터티 유형",
+        "entity": "엔터티",
+        "area": "Area",
+        "container": "Container",
+        "material": "Material",
+        "resource": "Resource",
+        "cancel": "취소",
+        "associate": "연결"
+      }
+    },
+    "material": {
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "primaryQuantity": "1차 수량",
+        "product": "제품",
+        "state": "상태",
+        "step": "공정",
+        "type": "유형"
+      },
+      "detailsView": "상세 보기",
+      "emptyTab": "데이터가 없습니다.",
+      "fields": {
+        "approved": "승인됨",
+        "container": "컨테이너",
+        "description": "설명",
+        "facility": "시설",
+        "flow": "플로우",
+        "flowPath": "플로우 경로",
+        "form": "형태",
+        "name": "이름",
+        "primaryQuantity": "1차 수량",
+        "product": "제품",
+        "productDescription": "제품 설명",
+        "resource": "리소스",
+        "secondaryQuantity": "2차 수량",
+        "step": "공정",
+        "subMaterialCount": "하위 자재",
+        "systemState": "시스템 상태",
+        "type": "유형",
+        "universalState": "통합 상태"
+      },
+      "listTitle": "자재 ({{count}})",
+      "pageLabel": "자재",
+      "sections": {
+        "basicInformation": "기본 정보",
+        "flowAndStep": "플로우 및 공정",
+        "material": "자재",
+        "quantities": "수량",
+        "resourceAndContainer": "리소스 및 컨테이너",
+        "subMaterials": "하위 자재"
+      },
+      "sideSections": {
+        "attachments": "첨부 파일",
+        "attributes": "특성",
+        "carriers": "캐리어",
+        "characteristics": "특성",
+        "collectedData": "수집 데이터",
+        "costing": "원가 계산",
+        "defects": "결함",
+        "dependencies": "종속성",
+        "details": "상세",
+        "experiments": "실험",
+        "futureActions": "향후 작업",
+        "holds": "홀드/오프플로우/재작업",
+        "maps": "맵",
+        "notifications": "알림",
+        "packages": "패키지",
+        "protocols": "프로토콜",
+        "scheduling": "스케줄링",
+        "subMaterials": "하위 자재",
+        "timeConstraints": "시간 제약",
+        "transferRequirements": "이송 요구사항"
+      },
+      "tabs": {
+        "details": "Details",
+        "traceability": "Traceability",
+        "container": "Container",
+        "defects": "Defects",
+        "genealogy": "Genealogy",
+        "history": "History",
+        "compare": "Compare"
+      },
+      "traceability": {
+        "details": "상세",
+        "filters": {
+          "bom": "BOM",
+          "checklist": "체크리스트",
+          "dataCollection": "데이터 수집",
+          "maintenancePlan": "유지보수 계획",
+          "recipe": "레시피",
+          "resource": "리소스"
+        },
+        "flowStructure": "플로우 구조",
+        "information": "정보"
+      },
+      "common": {
+        "yes": "예",
+        "no": "아니요"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Material",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "edit": {
+          "title": "Edit Material",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Material cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Material",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Material",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Material",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "dispatch": {
+          "title": "Dispatch Material",
+          "cancel": "Cancel",
+          "submit": "Dispatch",
+          "description": "Dispatch the Material."
+        },
+        "undispatch": {
+          "title": "Undispatch Material",
+          "cancel": "Cancel",
+          "submit": "Undispatch",
+          "description": "Undispatch the Material."
+        },
+        "trackIn": {
+          "title": "Track-In Material",
+          "cancel": "Cancel",
+          "submit": "Track-In",
+          "description": "Track-In the Material."
+        },
+        "trackOut": {
+          "title": "Track-Out Material",
+          "cancel": "Cancel",
+          "submit": "Track-Out",
+          "description": "Track-Out the Material."
+        },
+        "moveNext": {
+          "title": "Material Move-Next",
+          "cancel": "Cancel",
+          "submit": "Move Next",
+          "description": "Move the Material to the next Step."
+        },
+        "abort": {
+          "title": "Abort Material",
+          "cancel": "Cancel",
+          "submit": "Abort",
+          "description": "Abort the Material processing."
+        },
+        "ship": {
+          "title": "Ship Material",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "description": "Ship the Material."
+        },
+        "receive": {
+          "title": "Receive Material",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "description": "Receive the Material."
+        },
+        "unship": {
+          "title": "Unship Material",
+          "cancel": "Cancel",
+          "submit": "Unship",
+          "description": "Unship the Material."
+        },
+        "hold": {
+          "title": "Hold Material",
+          "cancel": "Cancel",
+          "submit": "Hold",
+          "description": "Hold the Material."
+        },
+        "split": {
+          "title": "Split Material",
+          "cancel": "Cancel",
+          "submit": "Split",
+          "description": "Split the Material."
+        },
+        "merge": {
+          "title": "Merge Material",
+          "cancel": "Cancel",
+          "submit": "Merge",
+          "description": "Merge the Material."
+        },
+        "combine": {
+          "title": "Combine Material",
+          "cancel": "Cancel",
+          "submit": "Combine",
+          "description": "Combine the Material."
+        },
+        "attach": {
+          "title": "Attach Material",
+          "cancel": "Cancel",
+          "submit": "Attach",
+          "description": "Attach Material as Sub-Material."
+        },
+        "detach": {
+          "title": "Detach Material",
+          "cancel": "Cancel",
+          "submit": "Detach",
+          "description": "Detach Sub-Material."
+        },
+        "grade": {
+          "title": "Grade Material",
+          "cancel": "Cancel",
+          "submit": "Grade",
+          "description": "Grade the Material."
+        },
+        "rework": {
+          "title": "Rework Material",
+          "cancel": "Cancel",
+          "submit": "Rework",
+          "description": "Rework the Material."
+        },
+        "changeProduct": {
+          "title": "Change Material Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Product of the Material."
+        },
+        "changeQuantity": {
+          "title": "Change Material Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Quantity of the Material."
+        },
+        "changeFlowStep": {
+          "title": "Change Material Flow/Step",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Flow/Step of the Material."
+        },
+        "viewReports": {
+          "title": "View Material Reports",
+          "close": "Close",
+          "description": "View Material Reports: Material Cost History Report, Material Future Flow Report."
+        },
+        "viewDocuments": {
+          "title": "View Material Documents",
+          "close": "Close",
+          "description": "View documents attached to the Material."
+        }
+      },
+      "left": {
+        "details": "Details",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "materialTransfer": {
+      "pageLabel": "자재 이동",
+      "listTitle": "자재 이동 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "type": "유형",
+        "state": "상태",
+        "material": "자재",
+        "quantity": "수량",
+        "fromFacility": "출발 공장",
+        "toFacility": "도착 공장"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "type": "유형",
+          "state": "상태",
+          "material": "자재",
+          "quantity": "수량",
+          "fromFacility": "출발 공장",
+          "toFacility": "도착 공장",
+          "requester": "요청자",
+          "urgency": "긴급도"
+        }
+      },
+      "actions": {
+        "approve": "승인",
+        "cancel": "취소",
+        "deliver": "납품",
+        "prepare": "준비",
+        "receive": "수령",
+        "refuse": "거부",
+        "reject": "기각",
+        "send": "발송"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "approve": {
+          "title": "Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "cancel": {
+          "title": "Cancel Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "changeInfo": {
+          "title": "Change Material Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "deliver": {
+          "title": "Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "prepare": {
+          "title": "Prepare Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Prepare",
+          "confirmText": "Select Prepare to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "receive": {
+          "title": "Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "refuse": {
+          "title": "Refuse Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Refuse",
+          "confirmText": "Select Refuse to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "reject": {
+          "title": "Reject Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Reject",
+          "confirmText": "Select Reject to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "request": {
+          "title": "Request for Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "requestForMAO": {
+          "title": "Request for Material Transfer for a Maintenance Activity Order",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Part for a Maintenance Activity Order."
+        },
+        "requestForCostCenter": {
+          "title": "Request for Material Transfer for Cost Center",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Material for a Cost Center."
+        },
+        "returnInventory": {
+          "title": "Return Inventory",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Inventory to the Warehouse."
+        },
+        "returnMaterial": {
+          "title": "Return Material",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Material to the Warehouse."
+        },
+        "send": {
+          "title": "Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialApprove": {
+          "title": "Special Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialDeliver": {
+          "title": "Special Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialReceive": {
+          "title": "Special Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialRequest": {
+          "title": "Special Request for Material",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Special request for Material."
+        },
+        "specialSend": {
+          "title": "Special Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "notification": {
+      "pageLabel": "알림",
+      "listTitle": "알림 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "severity": "심각도",
+        "type": "유형",
+        "state": "상태",
+        "validTo": "유효 기한"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "severity": "심각도",
+          "type": "유형",
+          "state": "상태",
+          "validTo": "유효 기한",
+          "tracking": "추적"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Notification",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "type": "Type",
+            "title": "Title",
+            "details": "Details",
+            "severity": "Severity",
+            "assignment": "Assignment",
+            "sendEmail": "Send email",
+            "visibility": "Visibility Filter",
+            "clearance": "Clearance Mode",
+            "validTo": "Valid To"
+          },
+          "hints": {
+            "name": "Can be left empty if a Name Generator is configured.",
+            "type": "The list of possible values is taken from the NotificationType lookup table.",
+            "title": "Hyperlinks: [Entity Type Entity Name] for unversioned, [Entity Type Revision Name] for versioned.",
+            "visibility": "Filter Notifications displayed in the Notifications window according to the user's Employee Workgroup.",
+            "validTo": "Mandatory for ManualEveryUser and Automatic, optional for ManualSingleUser."
+          },
+          "placeholders": {
+            "validTo": "MM/DD/YYYY"
+          }
+        },
+        "edit": {
+          "title": "Edit Notification",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "title": "Title",
+            "severity": "Severity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Notification cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Notification",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Notification",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "clear": {
+          "title": "Clear Notification",
+          "cancel": "Cancel",
+          "submit": "Clear",
+          "confirmText": "Clear this Notification? This will close the alarm for the current user."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "clearHistory": "Clear History Information",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
+      }
+    },
+    "package": {
+      "pageLabel": "패키지",
+      "listTitle": "패키지 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "product": "제품",
+        "level": "레벨",
+        "state": "상태",
+        "packedQuantity": "포장 수량"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "product": "제품",
+          "level": "레벨",
+          "state": "상태",
+          "packedQuantity": "포장 수량",
+          "contentType": "콘텐츠 유형"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "terminate": {
+          "title": "Terminate Package",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Package",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "ship": {
+          "title": "Ship Packages",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "fields": {
+            "facility": "Facility",
+            "shippingLabel": "Shipping Label",
+            "shipContainers": "Ship Containers",
+            "comment": "Comment"
+          },
+          "hints": {
+            "facility": "Select the Facility to which the Material should be shipped.",
+            "shippingLabel": "Optionally, enter or select an existing shipping label.",
+            "shipContainers": "Ship the Containers along with the Material (applies to all Containers of the Sub-Materials as well)."
+          }
+        },
+        "report": {
+          "title": "Package Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Package.",
+          "fields": {
+            "level1": "Fields for Level 1",
+            "level2": "Fields for Level 2"
+          },
+          "level1Fields": "Package Qty/ID, Content Product, Content Product Description, Material, Packed Qty",
+          "level2Fields": "Package, Package Qty, Content Product, Content Product Description"
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "contents": "Contents",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "parameter": {
+      "pageLabel": "매개변수",
+      "listTitle": "매개변수 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "dataType": "데이터 유형",
+        "value": "값",
+        "state": "상태"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "dataType": "데이터 유형",
+          "value": "값",
+          "state": "상태"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Parameter",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "generalData": "General Data",
+            "information": "Information"
+          },
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "displayName": "Display Name",
+            "scope": "Scope",
+            "dataType": "Data Type",
+            "units": "Units"
+          },
+          "hints": {
+            "type": "The list of possible values is taken from the lookup table ParameterType.",
+            "displayName": "The display name if present will be displayed in the data collection screens.",
+            "dataType": "If scope is KPI, the data type must be numeric."
+          }
+        },
+        "edit": {
+          "title": "Edit Parameter",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Parameter cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Parameter",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
+      }
+    },
+    "product": {
+      "pageLabel": "제품",
+      "listTitle": "제품 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "productType": "제품 유형",
+        "state": "상태",
+        "isActive": "활성"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "productType": "제품 유형",
+          "state": "상태",
+          "isActive": "활성"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Product",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "You must associate the Product Version to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Product",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Product",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "createBOM": {
+          "title": "Create BOM For Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Create a Bill-Of-Materials for the Product."
+        },
+        "importInfo": {
+          "title": "Import Product Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Import Product information from an external source."
+        },
+        "manageBinningTree": {
+          "title": "Manage Binning Tree",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Binning Tree for the Product."
+        },
+        "manageCharacteristics": {
+          "title": "Manage Characteristics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Characteristics for the Product."
+        },
+        "manageCosts": {
+          "title": "Manage Costs",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Costs for the Product."
+        },
+        "manageLogistics": {
+          "title": "Manage Material Logistics",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Material Logistics for the Product."
+        },
+        "manageParameters": {
+          "title": "Manage Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Parameters for the Product."
+        },
+        "managePlanning": {
+          "title": "Manage Planning",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Planning settings for the Product."
+        },
+        "manageComponentInfo": {
+          "title": "Manage Product Component Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Component Information for the Product."
+        },
+        "manageManufacturers": {
+          "title": "Manage Product Manufacturers",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Manufacturers for the Product."
+        },
+        "manageRepairPolicy": {
+          "title": "Manage Repair Policy",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Repair Policy for the Product."
+        },
+        "manageRules": {
+          "title": "Manage Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Rules for the Product."
+        },
+        "manageSafetyInfo": {
+          "title": "Manage Safety Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Safety Information for the Product."
+        },
+        "manageScheduling": {
+          "title": "Manage Scheduling",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Scheduling settings for the Product."
+        },
+        "manageSubProducts": {
+          "title": "Manage Sub-Products",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Sub-Products for the Product."
+        },
+        "manageTransferInfo": {
+          "title": "Manage Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Transfer Information for the Product."
+        },
+        "manageUnitConversion": {
+          "title": "Manage Unit Conversion Factors",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Unit Conversion Factors for the Product."
+        },
+        "previewRules": {
+          "title": "Preview Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Preview the Rules for the Product."
+        },
+        "viewReports": {
+          "title": "View Product Reports",
+          "close": "Close",
+          "description": "View Product Reports: Product Standard Cost Report, Product Standard Flow Report."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "attachments": "Attachments"
+      }
+    },
+    "productionOrder": {
+      "pageLabel": "생산 오더",
+      "listTitle": "생산 오더 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "product": "제품",
+        "quantity": "수량",
+        "state": "상태",
+        "priority": "우선순위"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "product": "제품",
+          "quantity": "수량",
+          "state": "상태",
+          "priority": "우선순위"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "edit": {
+          "title": "Edit Production Order",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Production Order cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Production Order",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "release": {
+          "title": "Release Production Order",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to perform the operation."
+        },
+        "unrelease": {
+          "title": "Unrelease Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrelease",
+          "confirmText": "Select Unrelease to perform the operation."
+        },
+        "start": {
+          "title": "Start Production Order",
+          "cancel": "Cancel",
+          "submit": "Start",
+          "confirmText": "Select Start to perform the operation."
+        },
+        "cancel": {
+          "title": "Cancel Production Order",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation."
+        },
+        "close": {
+          "title": "Close Production Order",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "confirmText": "Select Close to perform the operation."
+        },
+        "reopen": {
+          "title": "Reopen Production Order",
+          "cancel": "Cancel",
+          "submit": "Reopen",
+          "confirmText": "Select Reopen to perform the operation."
+        },
+        "restrict": {
+          "title": "Restrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Restrict",
+          "confirmText": "Select Restrict to perform the operation."
+        },
+        "unrestrict": {
+          "title": "Unrestrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrestrict",
+          "confirmText": "Select Unrestrict to perform the operation."
+        },
+        "assignMaterials": {
+          "title": "Assign Materials To Production Order",
+          "cancel": "Cancel",
+          "submit": "Assign",
+          "description": "Assign Materials to the Production Order."
+        },
+        "reassignMaterials": {
+          "title": "Reassign Production Order Materials",
+          "cancel": "Cancel",
+          "submit": "Reassign",
+          "description": "Reassign Materials to another Production Order."
+        },
+        "createMaterial": {
+          "title": "Create Material For Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "description": "Create Materials for the Production Order."
+        },
+        "changeProductQuantity": {
+          "title": "Change Product and Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "manageSteps": {
+          "title": "Manage Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Production Order Steps."
+        },
+        "synchronizeSteps": {
+          "title": "Synchronize Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "description": "Synchronize the Production Order Steps."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "steps": "Steps",
+        "attachments": "Attachments"
+      }
+    },
+    "protocol": {
+      "pageLabel": "프로토콜",
+      "listTitle": "프로토콜 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태",
+        "version": "버전"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "type": "유형",
+          "state": "상태",
+          "version": "버전"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Protocol",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Protocol Version with a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Protocol",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Protocol cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Protocol",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "exceptionRules": {
+          "title": "Exception Management Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Exception Management Rules for the Protocol."
+        },
+        "openInstance": {
+          "title": "Open Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Open",
+          "description": "Open a Protocol Instance."
+        },
+        "closeInstance": {
+          "title": "Close Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "description": "Close the Protocol Instance."
+        },
+        "performInstance": {
+          "title": "Perform Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Perform",
+          "description": "Perform the Protocol Instance."
+        },
+        "takeInstanceOwnership": {
+          "title": "Take Protocol Instance Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "description": "Take ownership of the Protocol Instance."
+        },
+        "terminateInstance": {
+          "title": "Terminate Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Terminate the Protocol Instance."
+        },
+        "changeInstanceState": {
+          "title": "Change Protocol Instance State",
+          "cancel": "Cancel",
+          "submit": "Change",
+          "description": "Change the state of the Protocol Instance."
+        },
+        "manageInstanceMaterials": {
+          "title": "Manage Protocol Instance Materials",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Materials associated with the Protocol Instance."
+        },
+        "viewInstanceReports": {
+          "title": "View Protocol Instance Reports",
+          "close": "Close",
+          "description": "View reports for the Protocol Instance."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "instances": "Instances",
+        "attachments": "Attachments"
+      }
+    },
+    "periodicInventory": {
+      "pageLabel": "정기 재고조사",
+      "listTitle": "정기 재고조사 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "facility": "공장",
+        "state": "상태",
+        "scheduledOn": "예정일"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "facility": "공장",
+          "state": "상태",
+          "scheduledOn": "예정일"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Periodic Inventory cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Periodic Inventory",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Periodic Inventory",
+          "confirmText": "Select Terminate to perform the operation.",
+          "submit": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Periodic Inventory",
+          "confirmText": "Select Unterminate to perform the operation.",
+          "submit": "Unterminate"
+        },
+        "begin": {
+          "title": "Begin Periodic Inventory",
+          "confirmText": "Select Begin to perform the operation.",
+          "submit": "Begin"
+        },
+        "cancel": {
+          "title": "Cancel Periodic Inventory",
+          "confirmText": "Select Cancel to perform the operation.",
+          "submit": "Cancel"
+        },
+        "complete": {
+          "title": "Complete Periodic Inventory",
+          "confirmText": "Select Complete to perform the operation.",
+          "submit": "Complete"
+        },
+        "perform": {
+          "title": "Perform Periodic Inventory",
+          "confirmText": "Select Perform to perform the operation.",
+          "submit": "Perform"
+        },
+        "takeOwnership": {
+          "title": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation.",
+          "submit": "Take Ownership"
+        },
+        "viewReport": {
+          "title": "Periodic Inventory Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Periodic Inventory."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "resources": "Resources",
+        "materials": "Materials",
+        "attachments": "Attachments"
+      }
+    },
+    "pickList": {
+      "pageLabel": "피킹 목록",
+      "listTitle": "피킹 목록 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "state": "상태",
+        "itemCount": "품목 수",
+        "createdOn": "생성일"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "state": "상태",
+          "itemCount": "품목 수",
+          "createdOn": "생성일"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "edit": {
+          "title": "Edit Pick List",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Pick List cannot be altered."
+          }
+        },
+        "manageItems": {
+          "title": "Manage Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Edit the items of the Pick List. The Material defined for each item can be replaced by another Material, provided that the released quantity is not yet fulfilled.",
+          "columns": {
+            "material": "Material",
+            "quantity": "Quantity",
+            "picked": "Picked"
+          },
+          "empty": "No items to display.",
+          "warning": "The Quantity value to pick for every Pick List Item must be bigger than zero."
+        },
+        "pick": {
+          "title": "Pick Pick List",
+          "cancel": "Cancel",
+          "submit": "Pick",
+          "description": "Select or scan each of the items in the list and mark them as picked. Picking is a long running operation, so items can be picked separately.",
+          "columns": {
+            "item": "Item",
+            "status": "Status"
+          },
+          "empty": "No items to display."
+        },
+        "takeOwnership": {
+          "title": "Take Pick List Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "confirmText": "Select Take Ownership to perform the operation."
+        },
+        "unpick": {
+          "title": "Unpick Pick List Items",
+          "cancel": "Cancel",
+          "submit": "Unpick",
+          "confirmText": "Select Unpick to perform the operation."
+        },
+        "viewReport": {
+          "title": "Pick List Report",
+          "close": "Close",
+          "description": "This report provides information about a specific Pick List."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "attachments": "Attachments"
+      }
+    },
+    "plan": {
+      "pageLabel": "계획",
+      "listTitle": "계획 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태",
+        "startDate": "시작일"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "type": "유형",
+          "state": "상태",
+          "startDate": "시작일"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Plan",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          }
+        },
+        "edit": {
+          "title": "Edit Plan",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Plan cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Plan",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Plan",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "adjustTargets": {
+          "title": "Adjust Plan Targets",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Adjust the target quantities for Plan Items and Time Frames.",
+          "columns": {
+            "item": "Item",
+            "timeFrame": "Time Frame",
+            "target": "Target"
+          },
+          "empty": "No items to display."
+        },
+        "manageItems": {
+          "title": "Manage Plan Items",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the items that will be included in the Plan.",
+          "columns": {
+            "item": "Item",
+            "product": "Product"
+          },
+          "empty": "No items to display."
+        },
+        "manageSteps": {
+          "title": "Manage Plan Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Steps where the volumes are counted toward the planned volume.",
+          "columns": {
+            "step": "Step"
+          },
+          "empty": "No steps to display."
+        },
+        "manageExcludedTypes": {
+          "title": "Manage Plan Excluded Material Types",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Specify the Material Types excluded from the Plan."
+        },
+        "createScenario": {
+          "title": "Create Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name"
+          }
+        },
+        "releaseScenario": {
+          "title": "Release Plan Scenario",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to update the Effective Plan with the Scenario."
+        },
+        "synchronizeScenario": {
+          "title": "Synchronize Scenario with Parent Plan",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "confirmText": "Select Synchronize to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "items": "Items",
+        "steps": "Steps",
+        "timeFrames": "Time Frames",
+        "scenarios": "Scenarios",
+        "attachments": "Attachments"
+      }
+    },
+    "printableDocument": {
+      "pageLabel": "인쇄 문서",
+      "listTitle": "인쇄 문서 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "documentType": "문서 유형",
+        "state": "상태",
+        "version": "버전"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "documentType": "문서 유형",
+          "state": "상태",
+          "version": "버전"
+        }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Printable Document",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Printable Document to a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Printable Document",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Printable Document cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Printable Document",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Printable Document",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "print": {
+          "title": "Print Printable Document",
+          "cancel": "Cancel",
+          "submit": "Print",
+          "fields": {
+            "printer": "Printer",
+            "copies": "Copies"
+          }
+        },
+        "layoutCreation": {
+          "title": "Printable Document Layout Creation",
+          "close": "Close",
+          "description": "Create or Edit the Printable Document Layout, using the Layout Editor."
+        },
+        "lotTraveler": {
+          "title": "Lot Traveler",
+          "close": "Close",
+          "description": "The Lot Traveler is a specific type of Printable Document used to track a lot through production."
+        },
+        "printers": {
+          "title": "Printers and Printer Types",
+          "close": "Close",
+          "description": "Manage Printers and Printer Types for Printable Documents."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "layout": "Layout",
+        "contextItems": "Context Items",
+        "printHistory": "Print History",
+        "attachments": "Attachments"
+      }
+    },
+    "productGroup": {
+      "pageLabel": "제품 그룹",
+      "listTitle": "제품 그룹 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "state": "상태",
+        "productCount": "제품 수"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "description": "설명",
+          "state": "상태",
+          "productCount": "제품 수"
+        },
+        "information": "Information"
+      },
+      "operations": {
+        "create": {
+          "title": "Create Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "changeSet": "Change Set",
+            "generalData": "General Data"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set",
+            "name": "Name",
+            "revision": "Revision",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity",
+            "flowPath": "Flow Path",
+            "comments": "Comments"
+          },
+          "hints": {
+            "changeSet": "Select an existing Change Set or click Create to create a new one.",
+            "revision": "Name can be automatically generated or you can enter a name of your choice.",
+            "type": "The list of possible values is taken from the lookup table ProductGroupType.",
+            "defaultUnits": "The list of possible values is taken from the lookup table Units.",
+            "maturity": "The list of possible values is taken from the lookup table ProductGroupMaturity.",
+            "flowPath": "Optionally specify the default flow path for all the Products of this Product Group."
+          },
+          "placeholders": {
+            "selectChangeSet": "Select a Change Set",
+            "selectApprovalRole": "Select an Approval Role (optional)",
+            "enterName": "Enter Product Group name",
+            "revisionHint": "Name can be automatically generated or you can enter a name of your choice",
+            "enterDescription": "Enter description",
+            "selectType": "Select type",
+            "selectUnits": "Select units",
+            "selectMaturity": "Select maturity",
+            "selectFlowPath": "Select default Flow Path",
+            "enterComments": "Enter comments (optional)",
+            "selectParameter": "Select a Parameter",
+            "newRowName": "Name",
+            "newRowRevision": "Revision",
+            "enterComment": "Enter a comment for the operation (optional)"
+          }
+        },
+        "edit": {
+          "title": "Edit Product Group",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "defaultUnits": "Default Units",
+            "maturity": "Maturity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Product Group cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Product Group",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "newInstances": "New Product Groups",
+          "add": "Add",
+          "fields": {
+            "name": "Name",
+            "revision": "Revision",
+            "comment": "Comment"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured for the Entity Type, you can leave the name blank and a new name will be automatically generated."
+          },
+          "placeholders": {
+            "newRowName": "Name",
+            "newRowRevision": "Revision"
+          },
+          "removeRow": "Remove row"
+        },
+        "terminate": {
+          "title": "Terminate Product Group",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "fields": {
+            "level": "Level"
+          },
+          "warning": "All generic/smart table rows that reference the current object will be removed and will not be recovered if the object is unterminated at a later point."
+        },
+        "unterminate": {
+          "title": "Unterminate Product Group",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Unterminate",
+          "steps": {
+            "changeSet": "Change Set",
+            "details": "Details"
+          },
+          "fields": {
+            "changeSet": "Change Set",
+            "approvalRole": "Approval Role",
+            "useAutomaticChangeSet": "Use Automatic Change Set"
+          },
+          "detailsText": "Select Unterminate to perform the operation. All generic/smart table rows that reference this object will not be recovered."
+        },
+        "manageParameters": {
+          "title": "Manage Product Group Parameters",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "parameters": "Parameters",
+          "parameterDetails": "Parameter Details",
+          "empty": "No parameters. Press + to add.",
+          "selectPrompt": "Select a parameter on the left to edit its details.",
+          "types": {
+            "characteristic": "Characteristic",
+            "specification": "Specification"
+          },
+          "fields": {
+            "parameter": "Parameter",
+            "unit": "Unit",
+            "type": "Type",
+            "value": "Value",
+            "lowerSpec": "Lower Specification Value",
+            "targetSpec": "Target Specification Value",
+            "upperSpec": "Upper Specification Value",
+            "reportingType": "Reporting Type",
+            "reportingInfo": "Reporting Information",
+            "comments": "Comments"
+          },
+          "hints": {
+            "reportingType": "The values for Reporting Type are taken from the lookup table ProductParameterReportingType."
+          },
+          "newParam": "(new)"
+        },
+        "_shared": {
+          "close": "Close"
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "products": "Products",
+        "attachments": "Attachments"
+      },
+      "paramsHint": "Parameters shared across several Products. Use Manage Product Group Parameters to define them.",
+      "productsHint": "Products that are part of this Product Group.",
+      "contextsHint": "Context resolution tables on which the current Product Group is used as an element.",
+      "compareHint": "Visual comparison between the selected entity version and any other version.",
+      "referencesHint": "Relations and Where Used for the current Product Group.",
+      "historyHint": "Change Set History and History of operations for the current Product Group."
+    },
+    "qualification": {
+      "cards": {
+        "gracePeriod": "유예 기간",
+        "information": "정보",
+        "permissions": "권한",
+        "qualification": "자격",
+        "validityPeriod": "유효 기간"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "state": "상태",
+        "type": "유형"
+      },
+      "details": {
+        "allowAssignmentByManager": "관리자의 할당 허용",
+        "allowOverride": "재정의 허용",
+        "allowSelfAssignment": "자체 할당 허용",
+        "dataGroup": "데이터 그룹",
+        "defaultReason": "기본 사유",
+        "description": "설명",
+        "duration": "기간",
+        "informationUrl": "정보 URL",
+        "name": "이름",
+        "ownerRole": "소유자 역할",
+        "state": "범용 상태",
+        "type": "유형",
+        "validFor": "유효 기간"
+      },
+      "listTitle": "자격",
+      "pageLabel": "자격",
+      "sections": {
+        "attachments": "첨부파일",
+        "certifications": "인증",
+        "details": "세부정보",
+        "employees": "직원",
+        "empty": "데이터 없음",
+        "emptyBody": "이 섹션에는 아직 콘텐츠가 없습니다."
+      },
+      "tabs": {
+        "details": "세부정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "more": {
+        "clone": "복제",
+        "terminate": "종료",
+        "unterminate": "종료 취소",
+        "assignEmployees": "직원 할당",
+        "unassignEmployees": "직원 할당 해제"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Qualification 생성",
+          "editTitle": "Qualification 편집",
+          "generalData": "일반 데이터",
+          "name": "이름",
+          "description": "설명",
+          "type": "유형",
+          "dataGroup": "데이터 그룹",
+          "information": "정보",
+          "ownerRole": "소유자 역할",
+          "defaultReason": "기본 사유",
+          "informationUrl": "정보 URL",
+          "permissions": "권한",
+          "allowSelfAssignment": "자체 할당 허용",
+          "allowAssignmentByManager": "관리자 할당 허용",
+          "validityPeriod": "유효 기간",
+          "validFor": "유효 기간",
+          "scale": "단위",
+          "allowOverride": "재정의 허용",
+          "gracePeriod": "유예 기간",
+          "duration": "기간",
+          "comments": "설명"
+        },
+        "clone": {
+          "title": "Qualification 복제",
+          "clones": "복제본 ({{count}})",
+          "name": "이름",
+          "type": "유형",
+          "description": "설명",
+          "ownerRole": "소유자 역할",
+          "source": "소스: {{name}}",
+          "comments": "설명",
+          "clone": "복제"
+        },
+        "terminate": {
+          "title": "Qualification 종료",
+          "message": "Qualification '{{name}}'을(를) 종료하시겠습니까?",
+          "confirm": "종료"
+        },
+        "unterminate": {
+          "title": "Qualification 종료 취소",
+          "message": "Qualification '{{name}}'의 종료를 취소하시겠습니까?",
+          "confirm": "종료 취소"
+        },
+        "assign": {
+          "title": "Qualification에 직원 할당",
+          "stepEmployees": "직원",
+          "stepQualification": "Qualification",
+          "search": "검색",
+          "employeesCount": "직원 ({{count}})",
+          "selectedCount": "{{count}}개 선택됨",
+          "employee": "직원",
+          "employeeNumber": "직원 번호",
+          "type": "유형",
+          "team": "팀",
+          "manager": "관리자",
+          "selectedEmployees": "선택된 직원 ({{count}})",
+          "employees": "직원",
+          "qualificationDate": "자격 취득일",
+          "detailsTitle": "직원 자격 세부 정보",
+          "validTo": "유효期限",
+          "reason": "사유",
+          "proficiency": "숙련도",
+          "remarks": "비고",
+          "evidence": "증거",
+          "comments": "설명",
+          "assign": "할당"
+        },
+        "unassign": {
+          "title": "Qualification에서 직원 할당 해제",
+          "message": "Qualification '{{name}}'에서 할당 해제할 직원을 확인하세요.",
+          "employee": "직원",
+          "employeeNumber": "직원 번호",
+          "unassign": "할당 해제"
+        }
+      }
+    },
+    "qualificationCheck": {
+      "pageLabel": "Qualification Check",
+      "listTitle": "Qualification Checks",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "instanceType": "인스턴스 유형",
+        "state": "상태"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "compare": "비교",
+        "references": "참조",
+        "history": "기록"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "attachments": "첨부",
+        "empty": "데이터 없음",
+        "emptyBody": "이 섹션에는 아직 콘텐츠가 없습니다."
+      },
+      "cards": {
+        "qualificationCheck": "Qualification Check",
+        "information": "정보"
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "state": "상태",
+        "dataGroup": "데이터 그룹",
+        "instanceType": "인스턴스 유형"
+      },
+      "more": {
+        "clone": "복제",
+        "terminate": "종료",
+        "unterminate": "종료 취소"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Qualification Check 생성",
+          "editTitle": "Qualification Check 편집",
+          "generalData": "일반 데이터",
+          "name": "이름",
+          "description": "설명",
+          "dataGroup": "데이터 그룹",
+          "instanceType": "인스턴스 유형",
+          "single": "단일",
+          "multiple": "다중",
+          "comments": "설명"
+        },
+        "clone": {
+          "title": "Qualification Check 복제",
+          "clones": "복제본 ({{count}})",
+          "name": "이름",
+          "instanceType": "인스턴스 유형",
+          "source": "소스: {{name}}",
+          "comments": "설명",
+          "clone": "복제"
+        },
+        "terminate": {
+          "title": "Qualification Check 종료",
+          "message": "Qualification Check '{{name}}'을(를) 종료하시겠습니까?",
+          "confirm": "종료"
+        },
+        "unterminate": {
+          "title": "Qualification Check 종료 취소",
+          "message": "Qualification Check '{{name}}'의 종료를 취소하시겠습니까?",
+          "confirm": "종료 취소"
+        }
+      }
+    },
+    "reason": {
+      "pageLabel": "Reason",
+      "listTitle": "Reasons",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "contexts": "컨텍스트",
+        "references": "참조",
+        "history": "기록"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "images": "이미지",
+        "attributes": "속성",
+        "attachments": "첨부",
+        "empty": "데이터 없음",
+        "emptyBody": "이 섹션에는 아직 콘텐츠가 없습니다."
+      },
+      "cards": {
+        "reason": "Reason",
+        "information": "정보"
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "state": "상태",
+        "dataGroup": "데이터 그룹",
+        "type": "유형",
+        "excludeFromStepYield": "Step Yield 제외",
+        "excludeFromResourceYield": "Resource Yield 제외"
+      },
+      "more": {
+        "clone": "복제",
+        "terminate": "종료",
+        "unterminate": "종료 취소",
+        "addImages": "이미지 추가",
+        "manageRepairActions": "Repair Actions 관리"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Reason 생성",
+          "editTitle": "Reason 편집",
+          "generalData": "일반 데이터",
+          "information": "정보",
+          "name": "이름",
+          "description": "설명",
+          "type": "유형",
+          "excludeFromStepYield": "Step Yield 제외",
+          "excludeFromResourceYield": "Resource Yield 제외",
+          "category": "카테고리",
+          "comments": "설명"
+        },
+        "clone": {
+          "title": "Reason 복제",
+          "clones": "복제본 ({{count}})",
+          "name": "이름",
+          "type": "유형",
+          "source": "소스: {{name}}",
+          "comments": "설명",
+          "clone": "복제"
+        },
+        "terminate": {
+          "title": "Reason 종료",
+          "message": "Reason '{{name}}'을(를) 종료하시겠습니까?",
+          "confirm": "종료"
+        },
+        "unterminate": {
+          "title": "Reason 종료 취소",
+          "message": "Reason '{{name}}'의 종료를 취소하시겠습니까?",
+          "confirm": "종료 취소"
+        },
+        "addImages": {
+          "title": "Reason에 이미지 추가",
+          "stepImages": "이미지",
+          "stepAssessment": "평가",
+          "image": "이미지",
+          "scope": "범위",
+          "assessment": "평가",
+          "assessmentCriteria": "평가 기준",
+          "comments": "설명",
+          "add": "추가"
+        },
+        "repairActions": {
+          "title": "Repair Actions 관리",
+          "repairActions": "Repair Actions ({{count}})",
+          "detailsTitle": "Repair Action 세부 정보",
+          "repairAction": "Repair Action",
+          "description": "설명",
+          "partReplacementMode": "부품 교체 모드",
+          "comments": "설명",
+          "update": "업데이트"
+        }
+      }
+    },
+    "recipe": {
+      "pageLabel": "Recipe",
+      "listTitle": "Recipes",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "isEnabled": "활성",
+        "state": "상태"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "contexts": "컨텍스트",
+        "compare": "비교",
+        "references": "참조",
+        "history": "기록"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "parameters": "매개변수",
+        "body": "Body",
+        "subRecipes": "Sub-Recipes",
+        "resources": "리소스",
+        "activeInstances": "활성 인스턴스",
+        "attachments": "첨부",
+        "empty": "데이터 없음",
+        "emptyBody": "이 섹션에는 아직 콘텐츠가 없습니다."
+      },
+      "cards": {
+        "recipe": "Recipe",
+        "information": "정보"
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태",
+        "dataGroup": "데이터 그룹",
+        "isEnabled": "활성",
+        "isExecutable": "실행 가능",
+        "resourceRecipeName": "리소스 레시피 이름",
+        "userInformation": "사용자 정보",
+        "supplierInformation": "공급업체 정보"
+      },
+      "more": {
+        "clone": "복제",
+        "terminate": "종료",
+        "unterminate": "종료 취소",
+        "disable": "비활성화",
+        "enable": "활성화",
+        "manageBody": "Recipe Body 관리",
+        "manageParameters": "매개변수 관리",
+        "manageSubRecipes": "Sub-Recipes 관리",
+        "uploadToResource": "리소스에 업로드"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Recipe 생성",
+          "editTitle": "Recipe 편집",
+          "changeSet": "Change Set",
+          "generalData": "일반 데이터",
+          "changeSet2": "Change Set",
+          "createNew": "새로 만들기",
+          "approverRole": "승인 역할",
+          "useAutomaticChangeSet": "자동 Change Set 사용",
+          "name": "이름",
+          "revision": "리비전",
+          "description": "설명",
+          "type": "유형",
+          "isEnabled": "활성",
+          "isExecutable": "실행 가능",
+          "resourceRecipeName": "리소스 레시피 이름",
+          "userInformation": "사용자 정보",
+          "supplierInformation": "공급업체 정보",
+          "comments": "설명"
+        },
+        "clone": {
+          "title": "Recipe 복제",
+          "cloneMode": "복제 모드",
+          "entity": "Entity",
+          "revision": "Revision",
+          "clones": "복제본 ({{count}})",
+          "name": "이름",
+          "revisionName": "리비전 이름",
+          "changeSet": "Change Set",
+          "source": "소스: {{name}}",
+          "comments": "설명",
+          "clone": "복제"
+        },
+        "terminate": {
+          "title": "Recipe 종료",
+          "message": "Recipe '{{name}}'을(를) 종료하시겠습니까?",
+          "confirm": "종료"
+        },
+        "unterminate": {
+          "title": "Recipe 종료 취소",
+          "changeSet": "Change Set",
+          "details": "세부 정보",
+          "createNew": "새로 만들기",
+          "approverRole": "승인 역할",
+          "useAutomaticChangeSet": "자동 Change Set 사용",
+          "message": "Unterminate를 선택하여 작업을 수행합니다. 이 개체를 참조하는 일반/스마트 테이블 행은 복원되지 않습니다.",
+          "confirm": "종료 취소"
+        },
+        "disable": {
+          "title": "Recipe 비활성화",
+          "message": "Recipe '{{name}}'을(를) 비활성화하시겠습니까?",
+          "confirm": "비활성화"
+        },
+        "enable": {
+          "title": "Recipe 활성화",
+          "message": "Recipe '{{name}}'을(를) 활성화하시겠습니까?",
+          "confirm": "활성화"
+        },
+        "body": {
+          "title": "Recipe Body 관리",
+          "source": "소스",
+          "format": "형식",
+          "fileName": "파일 이름",
+          "uploadBody": "Body 업로드",
+          "body": "Body",
+          "size": "크기",
+          "comments": "설명",
+          "update": "업데이트"
+        },
+        "parameters": {
+          "title": "매개변수 관리",
+          "parameters": "매개변수",
+          "detailsTitle": "매개변수 세부 정보",
+          "parameter": "매개변수",
+          "units": "단위",
+          "parameterGroup": "매개변수 그룹",
+          "type": "유형",
+          "value": "값",
+          "overridable": "재정의 가능",
+          "comments": "설명",
+          "update": "업데이트"
+        },
+        "subRecipes": {
+          "title": "Sub-Recipes 관리",
+          "subRecipes": "Sub-Recipes",
+          "detailsTitle": "레시피 세부 정보",
+          "recipe": "레시피",
+          "displayName": "표시 이름",
+          "parametersMapping": "매개변수 매핑(식)",
+          "clearAllExpressions": "모든 식 지우기",
+          "comments": "설명",
+          "update": "업데이트"
+        },
+        "upload": {
+          "title": "리소스에 Recipe 업로드",
+          "resources": "리소스",
+          "resource": "리소스",
+          "lastUploadDate": "마지막 업로드 날짜",
+          "comments": "설명",
+          "upload": "업로드"
+        }
+      }
+    },
+    "resource": {
+      "pageLabel": "Resource",
+      "listTitle": "Resources",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "resourceView": "Resource View",
+        "schedule": "Schedule",
+        "storage": "Storage",
+        "maintenance": "Maintenance",
+        "contexts": "Contexts",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "structure": "Structure",
+        "runningModes": "Running Modes",
+        "parts": "Parts",
+        "recipes": "Recipes",
+        "runAtRiskMaterials": "Run at Risk Materials",
+        "materials": "Materials",
+        "instruments": "Instruments",
+        "measurementCapabilities": "Measurement Capabilities",
+        "consumableFeeds": "Consumable Feeds",
+        "locations": "Locations",
+        "lanes": "Lanes",
+        "durables": "Durables",
+        "inventory": "Inventory",
+        "storageBins": "Storage Bins",
+        "services": "Services",
+        "personnel": "Personnel",
+        "protocols": "Protocols",
+        "resourceJobs": "Resource Jobs",
+        "notifications": "Notifications",
+        "schedulingBatching": "Scheduling/Batching",
+        "collectedData": "Collected Data",
+        "workgroups": "Workgroups",
+        "storedMaterials": "Stored Materials",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "resource": "Resource",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "area": "Area",
+        "systemState": "System State",
+        "automationMode": "Automation Mode",
+        "stateModel": "State Model",
+        "resourceState": "Resource State",
+        "runningMode": "Running Mode"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "changeResourceState": "Change Resource State",
+        "changeSystemState": "Change System State",
+        "changeAutomationMode": "Change Automation Mode",
+        "changeInstrumentMode": "Change Instrument Mode",
+        "changeRunningMode": "Change Running Mode",
+        "changeProduct": "Change Product",
+        "evaluateDispatchableRule": "Evaluate Dispatchable Rule",
+        "beginSetup": "Begin Setup",
+        "performSetup": "Perform Setup",
+        "completeSetup": "Complete Setup",
+        "cancelSetup": "Cancel Setup",
+        "resetSetup": "Reset Setup",
+        "viewSetup": "View Setup",
+        "beginLineSetup": "Begin Line Setup",
+        "performLineSetup": "Perform Line Setup",
+        "completeLineSetup": "Complete Line Setup",
+        "cancelLineSetup": "Cancel Line Setup",
+        "resetLineSetup": "Reset Line Setup",
+        "viewLineSetup": "View Line Setup",
+        "beginPreSetup": "Begin Pre Setup",
+        "performPreSetup": "Perform Pre Setup",
+        "addResourceToContainer": "Add Resource to Container",
+        "removeResourceFromContainer": "Remove Resource from Container",
+        "transferResourceBetweenContainers": "Transfer Resource Between Containers",
+        "storeContainersInResource": "Store Containers in Resource",
+        "storeMaterialsInResource": "Store Materials in Resource",
+        "storeResource": "Store Resource",
+        "retrieveResource": "Retrieve Resource",
+        "manageStructure": "Manage Structure",
+        "manageRunningModes": "Manage Running Modes",
+        "manageResourceParts": "Manage Resource Parts",
+        "manageRepairableParts": "Manage Repairable Parts",
+        "manageResourceRecipes": "Manage Resource Recipes",
+        "manageRunAtRiskMaterials": "Manage Run At Risk Materials",
+        "manageResourceInstruments": "Manage Resource Instruments",
+        "manageMeasurementCapabilities": "Manage Measurement Capabilities",
+        "manageConsumableFeeds": "Manage Consumable Feeds",
+        "manageConsumables": "Manage Consumables",
+        "manageResourceLocations": "Manage Resource Locations",
+        "manageResourceLanes": "Manage Resource Lanes",
+        "manageResourceDurables": "Manage Resource Durables",
+        "manageResourceInventory": "Manage Resource Inventory",
+        "manageResourceStorageBins": "Manage Resource Storage Bins",
+        "manageResourceServices": "Manage Resource Services",
+        "managePersonnel": "Manage Personnel",
+        "manageResourceEmployees": "Manage Resource Employees",
+        "manageResourceTrainees": "Manage Resource Trainees",
+        "manageCosts": "Manage Costs",
+        "manageDispatchQueue": "Manage Dispatch Queue",
+        "manageResourceMaterialConsumables": "Manage Resource Material Consumables",
+        "manageResourceMaterialDurables": "Manage Resource Material Durables",
+        "manageSchedulingBatching": "Manage Scheduling/Batching",
+        "setResourceRecipe": "Set Resource Recipe",
+        "resourceOEEConfiguration": "Resource OEE Configuration",
+        "viewResourceDashboards": "View Resource Dashboards",
+        "viewResourceDocuments": "View Resource Documents",
+        "viewResourceReports": "View Resource Reports"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Resource",
+          "editTitle": "Edit Resource",
+          "generalData": "General Data",
+          "additionalInfo": "Additional Information",
+          "automation": "Automation",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "processingType": "Processing Type",
+          "area": "Area",
+          "priority": "Priority",
+          "displayOrder": "Display Order",
+          "vendor": "Vendor",
+          "model": "Model",
+          "serialNumber": "Serial Number",
+          "criticality": "Criticality",
+          "stateModel": "State Model",
+          "materialTracking": "Material Tracking",
+          "allowProductMix": "Allow Product Mix",
+          "enableSubMaterialTracking": "Enable Sub-Material Tracking",
+          "recipeManagementEnabled": "Recipe Management Enabled",
+          "trackResourceRecipes": "Track Resource Recipes",
+          "materialLogistics": "Material Logistics",
+          "hasStorageBins": "Has Storage Bins",
+          "setup": "Setup",
+          "setupMode": "Setup Mode",
+          "coordinates": "Coordinates",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "enableAutomationScenarios": "Enable Automation Scenarios",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Resource",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Resource",
+          "message": "Are you sure you want to terminate the Resource '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Resource",
+          "message": "Are you sure you want to unterminate the Resource '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "changeState": {
+          "title": "Change Resource State",
+          "step1": "State Selection",
+          "step2": "Documents",
+          "step3": "Data Collection",
+          "step4": "Checklist",
+          "step5": "Request MAO",
+          "step2Body": "No documents associated with this transition.",
+          "step3Body": "No data collection associated with this transition.",
+          "step4Body": "No checklist associated with this transition.",
+          "step5Body": "No maintenance activities available to request.",
+          "newState": "New State",
+          "reason": "Reason",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeSystemState": {
+          "title": "Change System State",
+          "newState": "New System State",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeAutomationMode": {
+          "title": "Change Automation Mode",
+          "newMode": "New Automation Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeInstrumentMode": {
+          "title": "Change Instrument Mode",
+          "newMode": "New Instrument Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeRunningMode": {
+          "title": "Change Running Mode",
+          "newMode": "New Running Mode",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "changeProduct": {
+          "title": "Change Product",
+          "materials": "Materials",
+          "subMaterials": "Sub-Materials",
+          "newProduct": "New Product",
+          "comment": "Comment",
+          "change": "Change"
+        },
+        "evaluateDispatchable": {
+          "title": "Evaluate Dispatchable Rule",
+          "verifyInfo": "Verify the resource information before evaluating the dispatchable rule.",
+          "comment": "Comment",
+          "evaluate": "Evaluate"
+        },
+        "setup": {
+          "beginTitle": "Begin Setup",
+          "performTitle": "Perform Setup",
+          "completeTitle": "Complete Setup",
+          "cancelTitle": "Cancel Setup",
+          "resetTitle": "Reset Setup",
+          "viewTitle": "View Setup",
+          "beginLineTitle": "Begin Line Setup",
+          "performLineTitle": "Perform Line Setup",
+          "completeLineTitle": "Complete Line Setup",
+          "cancelLineTitle": "Cancel Line Setup",
+          "resetLineTitle": "Reset Line Setup",
+          "viewLineTitle": "View Line Setup",
+          "beginPreTitle": "Begin Pre Setup",
+          "performPreTitle": "Perform Pre Setup",
+          "begin": "Begin",
+          "perform": "Perform",
+          "complete": "Complete",
+          "cancel": "Cancel",
+          "reset": "Reset",
+          "materials": "Materials",
+          "subResources": "Sub-Resources",
+          "name": "Name",
+          "setup": "Setup",
+          "reason": "Reason",
+          "comment": "Comment",
+          "state": "State",
+          "currentSetup": "Current Setup",
+          "subResource": "Sub-Resource",
+          "inSetup": "In Setup"
+        },
+        "container": {
+          "addTitle": "Add Resource to Container",
+          "removeTitle": "Remove Resource from Container",
+          "transferTitle": "Transfer Resource Between Containers",
+          "container": "Container",
+          "sourceContainer": "Source Container",
+          "targetContainer": "Target Container",
+          "position": "Position",
+          "comment": "Comment",
+          "add": "Add",
+          "remove": "Remove",
+          "transfer": "Transfer",
+          "removeMessage": "Are you sure you want to remove the Resource '{{name}}' from its container?"
+        },
+        "store": {
+          "containersTitle": "Store Containers in Resource",
+          "materialsTitle": "Store Materials in Resource",
+          "resourceTitle": "Store Resource",
+          "retrieveTitle": "Retrieve Resource",
+          "container": "Container",
+          "material": "Material",
+          "storageResource": "Storage Resource",
+          "comment": "Comment",
+          "store": "Store",
+          "retrieve": "Retrieve",
+          "retrieveMessage": "Are you sure you want to retrieve the Resource '{{name}}' from storage?"
+        },
+        "manage": {
+          "update": "Update",
+          "comments": "Comments",
+          "servicesTitle": "Manage Resource Services",
+          "services": "Services ({{count}})",
+          "serviceDetails": "Service Details",
+          "service": "Service",
+          "priority": "Priority",
+          "requiresRunningMode": "Requires Running Mode",
+          "isEnabled": "Is Enabled",
+          "qualificationCheck": "Qualification Check",
+          "recipesTitle": "Manage Resource Recipes",
+          "recipes": "Recipes ({{count}})",
+          "recipeDetails": "Recipe Details",
+          "recipe": "Recipe",
+          "structureTitle": "Manage Structure",
+          "structure": "Structure ({{count}})",
+          "structureDetails": "Structure Details",
+          "resource": "Resource",
+          "parentResource": "Parent Resource",
+          "runningModesTitle": "Manage Running Modes",
+          "runningModes": "Running Modes ({{count}})",
+          "runningModeDetails": "Running Mode Details",
+          "runningMode": "Running Mode",
+          "description": "Description",
+          "consumableFeedsTitle": "Manage Consumable Feeds",
+          "consumableFeeds": "Consumable Feeds ({{count}})",
+          "consumableFeedDetails": "Consumable Feed Details",
+          "consumableFeed": "Consumable Feed",
+          "isShared": "Is Shared",
+          "consumablesTitle": "Manage Consumables",
+          "consumables": "Consumables ({{count}})",
+          "consumableDetails": "Consumable Details",
+          "consumable": "Consumable",
+          "quantity": "Quantity",
+          "costsTitle": "Manage Costs",
+          "costs": "Costs ({{count}})",
+          "costDetails": "Cost Details",
+          "costType": "Cost Type",
+          "amount": "Amount",
+          "currency": "Currency",
+          "dispatchQueueTitle": "Manage Dispatch Queue",
+          "dispatchQueue": "Dispatch Queue ({{count}})",
+          "dispatchQueueDetails": "Dispatch Queue Details",
+          "material": "Material",
+          "measurementCapabilitiesTitle": "Manage Measurement Capabilities",
+          "measurementCapabilities": "Measurement Capabilities ({{count}})",
+          "measurementCapabilityDetails": "Measurement Capability Details",
+          "capability": "Capability",
+          "units": "Units",
+          "personnelTitle": "Manage Personnel",
+          "personnel": "Personnel ({{count}})",
+          "personnelDetails": "Personnel Details",
+          "employee": "Employee",
+          "checkIn": "Check In",
+          "checkOut": "Check Out",
+          "repairablePartsTitle": "Manage Repairable Parts",
+          "repairableParts": "Repairable Parts ({{count}})",
+          "repairablePartDetails": "Repairable Part Details",
+          "part": "Part",
+          "isRepairable": "Is Repairable",
+          "resourceDurablesTitle": "Manage Resource Durables",
+          "resourceDurables": "Resource Durables ({{count}})",
+          "resourceDurableDetails": "Resource Durable Details",
+          "durable": "Durable",
+          "resourceEmployeesTitle": "Manage Resource Employees",
+          "resourceEmployees": "Resource Employees ({{count}})",
+          "resourceEmployeeDetails": "Resource Employee Details",
+          "role": "Role",
+          "resourceInstrumentsTitle": "Manage Resource Instruments",
+          "resourceInstruments": "Resource Instruments ({{count}})",
+          "resourceInstrumentDetails": "Resource Instrument Details",
+          "instrument": "Instrument",
+          "calibrationStatus": "Calibration Status",
+          "resourceInventoryTitle": "Manage Resource Inventory",
+          "resourceInventory": "Resource Inventory ({{count}})",
+          "resourceInventoryDetails": "Resource Inventory Details",
+          "item": "Item",
+          "resourceLanesTitle": "Manage Resource Lanes",
+          "resourceLanes": "Resource Lanes ({{count}})",
+          "resourceLaneDetails": "Resource Lane Details",
+          "lane": "Lane",
+          "currentRecipe": "Current Recipe",
+          "resourceLocationsTitle": "Manage Resource Locations",
+          "resourceLocations": "Resource Locations ({{count}})",
+          "resourceLocationDetails": "Resource Location Details",
+          "location": "Location",
+          "barcodeId": "Barcode ID",
+          "locationX": "Location X",
+          "locationY": "Location Y",
+          "resourceMaterialConsumablesTitle": "Manage Resource Material Consumables",
+          "resourceMaterialConsumables": "Resource Material Consumables ({{count}})",
+          "resourceMaterialConsumableDetails": "Resource Material Consumable Details",
+          "resourceMaterialDurablesTitle": "Manage Resource Material Durables",
+          "resourceMaterialDurables": "Resource Material Durables ({{count}})",
+          "resourceMaterialDurableDetails": "Resource Material Durable Details",
+          "resourcePartsTitle": "Manage Resource Parts",
+          "resourceParts": "Resource Parts ({{count}})",
+          "resourcePartDetails": "Resource Part Details",
+          "resourceStorageBinsTitle": "Manage Resource Storage Bins",
+          "resourceStorageBins": "Resource Storage Bins ({{count}})",
+          "resourceStorageBinDetails": "Resource Storage Bin Details",
+          "storageBin": "Storage Bin",
+          "resourceTraineesTitle": "Manage Resource Trainees",
+          "resourceTrainees": "Resource Trainees ({{count}})",
+          "resourceTraineeDetails": "Resource Trainee Details",
+          "trainee": "Trainee",
+          "trainer": "Trainer",
+          "runAtRiskMaterialsTitle": "Manage Run At Risk Materials",
+          "runAtRiskMaterials": "Run At Risk Materials ({{count}})",
+          "runAtRiskMaterialDetails": "Run At Risk Material Details",
+          "schedulingBatchingTitle": "Manage Scheduling/Batching",
+          "schedulingBatching": "Scheduling/Batching ({{count}})",
+          "schedulingBatchingDetails": "Scheduling/Batching Details",
+          "schedule": "Schedule",
+          "startDate": "Start Date",
+          "endDate": "End Date"
+        },
+        "setRecipe": {
+          "title": "Set Resource Recipe",
+          "recipe": "Recipe",
+          "comment": "Comment",
+          "set": "Set"
+        },
+        "oee": {
+          "title": "Resource OEE Configuration",
+          "idealCycleTime": "Ideal Cycle Time",
+          "oeeEnabled": "OEE Enabled",
+          "save": "Save"
+        },
+        "view": {
+          "dashboardsTitle": "View Resource Dashboards",
+          "documentsTitle": "View Resource Documents",
+          "reportsTitle": "View Resource Reports",
+          "dashboard": "Dashboard",
+          "document": "Document",
+          "report": "Report",
+          "description": "Description",
+          "type": "Type"
+        }
+      }
+    },
+    "resourceJob": {
+      "pageLabel": "Resource Job",
+      "listTitle": "Resource Jobs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "containers": "Containers",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "resourceJob": "Resource Job",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "subType": "Sub Type",
+        "selectionMode": "Selection Mode",
+        "priority": "Priority",
+        "progress": "Progress",
+        "equipmentJobId": "Equipment Job Id",
+        "jobInformation": "Job Information"
+      },
+      "more": {
+        "clone": "Clone",
+        "abort": "Abort",
+        "cancel": "Cancel",
+        "complete": "Complete",
+        "dequeue": "Dequeue",
+        "enqueue": "Enqueue",
+        "requeue": "Requeue",
+        "start": "Start"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Resource Job",
+          "editTitle": "Edit Resource Job",
+          "step1": "General Data",
+          "step2": "Materials",
+          "step3": "Containers",
+          "name": "Name",
+          "description": "Description",
+          "resource": "Resource",
+          "type": "Type",
+          "subType": "Sub Type",
+          "initialSystemState": "Initial System State",
+          "selectionMode": "Selection Mode",
+          "priority": "Priority",
+          "progress": "Progress",
+          "equipmentJobId": "Equipment Job Id",
+          "jobInformation": "Job Information",
+          "comments": "Comments",
+          "materialsBody": "Add or remove Resource Job Materials. For each item specify Material, Step, Quantity, Units, Process Job Id, dates, Recipe and Process Job Information.",
+          "containersBody": "Add or remove Resource Job Containers. For each item specify Container, Start Date and End Date."
+        },
+        "lifecycle": {
+          "comment": "Comment",
+          "cloneTitle": "Clone Resource Job",
+          "clone": "Clone",
+          "abortTitle": "Abort Resource Job",
+          "abort": "Abort",
+          "cancelTitle": "Cancel Resource Job",
+          "cancel": "Cancel",
+          "completeTitle": "Complete Resource Job",
+          "complete": "Complete",
+          "dequeueTitle": "Dequeue Resource Job",
+          "dequeue": "Dequeue",
+          "enqueueTitle": "Enqueue Resource Job",
+          "enqueue": "Enqueue",
+          "requeueTitle": "Requeue Resource Job",
+          "requeue": "Requeue",
+          "startTitle": "Start Resource Job",
+          "start": "Start"
+        }
+      }
+    },
+    "samplingPattern": {
+      "pageLabel": "Sampling Pattern",
+      "listTitle": "Sampling Patterns",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPattern": "Sampling Pattern",
+        "configuration": "Configuration"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "mode": "Mode",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "samplingSelection": "Sampling Selection",
+        "rule": "Rule",
+        "sourceForm": "Source Form",
+        "materialCount": "Material Count",
+        "selectionMethod": "Selection Method",
+        "sequencingMethod": "Sequencing Method"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Pattern",
+          "editTitle": "Edit Sampling Pattern",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "mode": "Mode",
+          "samplingSelection": "Sampling Selection",
+          "rule": "Rule",
+          "sourceForm": "Source Form",
+          "materialCount": "Material Count",
+          "countIsPercentage": "Count Is Percentage",
+          "selectionMethod": "Selection Method",
+          "sequencingMethod": "Sequencing Method",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Sampling Pattern",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Pattern",
+          "message": "Are you sure you want to terminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Pattern",
+          "message": "Are you sure you want to unterminate the Sampling Pattern '{{name}}'?",
+          "confirm": "Unterminate"
+        }
+      }
+    },
+    "samplingPlan": {
+      "pageLabel": "Sampling Plan",
+      "listTitle": "Sampling Plans",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "defaultSamplingType": "Default Sampling Type",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "context": "Context",
+        "instances": "Instances",
+        "steps": "Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPlan": "Sampling Plan",
+        "defaultSampling": "Default Sampling"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "defaultSamplingType": "Default Sampling Type",
+        "counterFrequency": "Counter Frequency",
+        "timeFrequency": "Time Frequency"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manageInstance": "Manage Sampling Plan Instance"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Plan",
+          "editTitle": "Edit Sampling Plan",
+          "generalData": "General Data",
+          "context": "Context",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "defaultSampling": "Default Sampling",
+          "samplingType": "Sampling Type",
+          "counterFrequency": "Counter Frequency",
+          "timeFrequency": "Time Frequency (hours)",
+          "comments": "Comments",
+          "contextBody": "Specify the context information for the Sampling Plan. At minimum it must have one context defined (Material Product, Material Resource, Material Step, etc.)."
+        },
+        "clone": {
+          "title": "Clone Sampling Plan",
+          "message": "Clone the Sampling Plan '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Plan",
+          "message": "Are you sure you want to terminate the Sampling Plan '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Plan",
+          "message": "Are you sure you want to unterminate the Sampling Plan '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "instance": {
+          "title": "Manage Sampling Plan Instance",
+          "instances": "Instances ({{count}})",
+          "newInstance": "New Instance",
+          "detailsTitle": "Instance Details",
+          "samplingType": "Sampling Type",
+          "materialType": "Material Type",
+          "counterFrequency": "Sampling Counter Frequency",
+          "currentCounter": "Current Sampling Counter",
+          "timeFrequency": "Sampling Time Frequency",
+          "lastSamplingDate": "Last Sampling Date",
+          "comments": "Comments",
+          "update": "Update"
+        }
+      }
+    },
+    "schedule": {
+      "pageLabel": "Schedule",
+      "listTitle": "Schedules",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "scenarios": "Scenarios",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "areas": "Areas",
+        "feedSteps": "Feed Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "schedule": "Schedule"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "defaultView": "Default View",
+        "defaultFrozenPeriod": "Default Frozen Period",
+        "timeQuantum": "Time Quantum"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "createScenario": "Create Schedule Scenario",
+        "adjustJob": "Adjust Schedule Job",
+        "manageFeedSteps": "Manage Feed Steps"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule",
+          "editTitle": "Edit Schedule",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "defaultView": "Default View",
+          "defaultFrozenPeriod": "Default Frozen Period (hours)",
+          "timeQuantum": "Time Quantum (minutes)",
+          "schedulingType": "Scheduling Type",
+          "type": "Type",
+          "optimizationBody": "Choose the Scheduling Type (Forwards or Backwards) and the Optimization Criteria weights (must add up to 100): Minimize Setup Times, Minimize Total Waiting Time, Maximize Resource Utilization, etc.",
+          "untieBody": "Specify the default Untie Sort Rules (Execution Time, Material Due Date, Material Name, Priority, Quantity, Setup Time, Wait Time, etc.). Rules are used in the order they are inputted.",
+          "automaticBody": "Define specific configurations for automatic scheduling: Terminate Scenarios on Release, auto reschedule Operational Accurate/Fast/Planning Scenarios, frequency scale and start date.",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Schedule",
+          "message": "Clone the Schedule '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Schedule",
+          "message": "Are you sure you want to terminate the Schedule '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Schedule",
+          "message": "Are you sure you want to unterminate the Schedule '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "createScenario": {
+          "title": "Create Schedule Scenario",
+          "message": "Create a new Schedule Scenario for Schedule '{{name}}'?",
+          "create": "Create"
+        },
+        "adjust": {
+          "title": "Adjust Schedule Job",
+          "jobBody": "Manually adjust a Schedule Scenario Job of a released Schedule Scenario.",
+          "resource": "Resource",
+          "plannedStart": "Planned Start Time",
+          "plannedEnd": "Planned End Time",
+          "adjust": "Adjust"
+        },
+        "feedStep": {
+          "title": "Manage Feed Steps",
+          "steps": "Feed Steps ({{count}})",
+          "newStep": "New Feed Step",
+          "detailsTitle": "Feed Step Details",
+          "facility": "Facility",
+          "step": "Step",
+          "manage": "Manage"
+        }
+      }
+    },
+    "scheduleScenario": {
+      "pageLabel": "Schedule Scenario",
+      "listTitle": "Schedule Scenarios",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "orderFulfillment": "Order Fulfillment",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "statistics": "Statistics",
+        "messages": "Messages",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "scenario": "Schedule Scenario"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "Universal State",
+        "generationType": "Generation Type",
+        "scenarioState": "Scenario State"
+      },
+      "more": {
+        "terminate": "Terminate",
+        "generate": "Generate",
+        "release": "Release",
+        "synchronize": "Synchronize Schedule Scenario Jobs",
+        "lockJob": "Lock Schedule Scenario Job",
+        "unlockJob": "Unlock Schedule Scenario Job",
+        "adjustJob": "Adjust Schedule Scenario Job"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule Scenario",
+          "editTitle": "Edit Schedule Scenario",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "schedule": "Schedule",
+          "generationType": "Generation Type",
+          "comments": "Comments",
+          "optimizationBody": "Optionally, override the default Optimization Criteria defined at the Schedule level. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "untieBody": "Optionally, override the default Untie Sort Rules defined at the Schedule level. Add as many Untie Sort Rules as desired (at least one).",
+          "automaticBody": "Define automatic scheduling configurations inherited from the Schedule."
+        },
+        "generate": {
+          "title": "Generate Schedule Scenario",
+          "generate": "Generate",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step1Body": "Review the Schedule Scenario information. The Generation takes into account the information from the last Synchronization.",
+          "step2Body": "Optionally, override the default Optimization Criteria. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "step3Body": "Optionally, override the default Untie Sort Rules. Add as many Untie Sort Rules as desired; at least one is required to proceed."
+        },
+        "terminate": {
+          "title": "Terminate Schedule Scenario",
+          "message": "Are you sure you want to terminate the Schedule Scenario '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Schedule Scenario '{{name}}'?"
+        }
+      }
+    },
+    "sendAheadRun": {
+      "pageLabel": "Send-Ahead Run",
+      "listTitle": "Send-Ahead Runs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "sendAheadRun": "Send-Ahead Run"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "resultsCaptureMode": "Results Capture Mode"
+      },
+      "more": {
+        "cancel": "Cancel Send-Ahead Run",
+        "extend": "Extend Send-Ahead Run",
+        "release": "Release Send-Ahead Run Waiting Materials",
+        "changeMaterials": "Change Send-Ahead Run Materials",
+        "clearResult": "Clear Send-Ahead Run Result",
+        "ignoreResult": "Ignore Send-Ahead Run Result",
+        "createSplit": "Create Split Send-Ahead Run",
+        "manageMaterials": "Manage Send-Ahead Run Materials",
+        "recordResult": "Record Send-Ahead Run Result"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Send-Ahead Run",
+          "editTitle": "Edit Send-Ahead Run",
+          "step1": "General Data",
+          "step2": "Waiting Materials",
+          "step3": "Experiment",
+          "step4": "Sub-Materials to Send-Ahead",
+          "step5": "Send-Ahead Materials",
+          "step6": "Details",
+          "name": "Name",
+          "description": "Description",
+          "dataGroup": "Data Group",
+          "comments": "Comments",
+          "stepBody": "This section will only be displayed when the step's preconditions are met: {{step}}."
+        },
+        "record": {
+          "title": "Record Send-Ahead Run Result",
+          "resultBody": "Select the result for the selected send-ahead Materials.",
+          "result": "Result",
+          "remarks": "Remarks",
+          "record": "Record"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Send-Ahead Run '{{name}}'?"
+        }
+      }
+    },
+    "service": {
+      "pageLabel": "Service",
+      "listTitle": "Services",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "enabled": "Enabled",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "resources": "Resources",
+        "compatibleServices": "Compatible Services",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "service": "Service"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "enabled": "Enabled",
+        "state": "Universal State",
+        "dataGroup": "Data Group"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "disable": "Disable Service",
+        "enable": "Enable Service",
+        "manageCompatible": "Manage Compatible Services",
+        "manageResources": "Manage Service Resources"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Service",
+          "editTitle": "Edit Service",
+          "step1": "General Data",
+          "step2": "Manage Service Resources",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "dataGroup": "Data Group",
+          "processingType": "Processing Type",
+          "enabled": "Enabled",
+          "comments": "Comments",
+          "step2Body": "Add one entry in the left side panel for each of the Resources that will provide the Service. Each entry should be configured on the right side panel by selecting the Resource and by setting the Service as enabled or disabled in that specific Resource."
+        },
+        "clone": {
+          "title": "Clone Service",
+          "message": "Clone the Service '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Service",
+          "message": "Are you sure you want to terminate the Service '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Service",
+          "message": "Are you sure you want to unterminate the Service '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "disable": {
+          "title": "Disable Service",
+          "message": "Are you sure you want to disable the Service '{{name}}'?",
+          "confirm": "Disable"
+        },
+        "enable": {
+          "title": "Enable Service",
+          "message": "Are you sure you want to enable the Service '{{name}}'?",
+          "confirm": "Enable"
+        },
+        "compatible": {
+          "title": "Manage Compatible Services",
+          "canBeFulfilledBy": "Can be Fulfilled by",
+          "canFulfill": "Can Fulfill",
+          "services": "Services ({{count}})",
+          "newService": "New Service",
+          "detailsTitle": "Service Details",
+          "service": "Service",
+          "description": "Description",
+          "update": "Update"
+        },
+        "resources": {
+          "title": "Manage Service Resources",
+          "resources": "Resources ({{count}})",
+          "newResource": "New Resource",
+          "detailsTitle": "Resource Details",
+          "resource": "Resource",
+          "enabledInResource": "Enabled in Resource",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "update": "Update"
+        }
+      }
+    },
+    "setupMatrix": {
+      "pageLabel": "Setup Matrix",
+      "listTitle": "Setup Matrices",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "setupMatrix": "Setup Matrix",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "setupMatrix": "Setup Matrix"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "timeScale": "Time Scale",
+        "useZeroInDiagonal": "Use Zero In Diagonal",
+        "state": "Universal State"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manage": "Manage Setup Matrix"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Setup Matrix",
+          "editTitle": "Edit Setup Matrix",
+          "step1": "General Data",
+          "step2": "Services",
+          "step3": "Setup Matrix",
+          "name": "Name",
+          "description": "Description",
+          "timeScale": "Time Scale",
+          "useZeroInDiagonal": "Use Zero In Diagonal",
+          "comments": "Comments",
+          "step2Body": "To add Services manually, select them from the panel on the left-hand side and they will be added to the list of the Selected Services on the right-hand side. You can filter the list to make it easier to add the Services.",
+          "step3Body": "Each Service selected in the previous panel is added to the list on the left hand side of the panel (From Services) and each of them have a relation to the services listed in the center part of the dialog (To Services). Select the From and the To services and enter the desired value in the specified time scale."
+        },
+        "clone": {
+          "title": "Clone Setup Matrix",
+          "message": "Clone the Setup Matrix '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Setup Matrix",
+          "message": "Are you sure you want to terminate the Setup Matrix '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Setup Matrix",
+          "message": "Are you sure you want to unterminate the Setup Matrix '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "manage": {
+          "title": "Manage Setup Matrix",
+          "message": "Open the Manage Setup Matrix wizard for '{{name}}'?",
+          "confirm": "Manage"
+        }
+      }
+    },
+    "shiftDefinition": {
+      "cancel": "취소",
+      "columns": {
+        "calendar": "달력",
+        "description": "설명",
+        "name": "이름",
+        "startTime": "시작 시간",
+        "state": "상태"
+      },
+      "detail": {
+        "calendar": "달력:",
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "information": "정보",
+        "name": "이름:",
+        "startTime": "시작 시간:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "교대 정의 ({{count}})",
+      "manage": "관리",
+      "manageTitle": "교대 정의 교대 관리",
+      "noAttachments": "첨부 파일이 없습니다.",
+      "notFound": "교대 정의를 찾을 수 없습니다.",
+      "pageLabel": "교대 정의",
+      "sections": {
+        "attachments": "첨부 파일",
+        "details": "세부 정보",
+        "shifts": "교대",
+        "attributes": "특성"
+      },
+      "shiftForm": {
+        "code": "코드:",
+        "costOvertimeFactor": "초과 근무 비용 계수:",
+        "endTime": "종료 시간:",
+        "name": "이름:",
+        "startTime": "시작 시간:",
+        "teamPattern": "팀 패턴:"
+      },
+      "shiftTimeRange": "{{start}}부터 {{end}}까지",
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "update": "업데이트",
+      "noAttributes": "정의된 특성이 없습니다.",
+      "create": {
+        "title": "교대 정의 만들기",
+        "step1": "일반 데이터",
+        "step2": "교대",
+        "step3": "비작업 시간",
+        "name": "이름:",
+        "description": "설명:",
+        "calendar": "달력:",
+        "calendarHint": "교대 정의는 달력 일과 시작 시간이 같을 때만 추가할 수 있습니다.",
+        "shift": "교대",
+        "nonWorkingName": "비작업 시간 이름",
+        "back": "뒤로",
+        "next": "다음"
+      },
+      "edit": {
+        "title": "교대 정의 편집",
+        "name": "이름:",
+        "description": "설명:",
+        "calendar": "달력:"
+      },
+      "clone": {
+        "title": "교대 정의 복제: {{name}}",
+        "menuLabel": "복제",
+        "namePlaceholder": "새 교대 정의 이름",
+        "comment": "설명:",
+        "clone": "복제"
+      },
+      "terminate": {
+        "title": "교대 정의 종료",
+        "menuLabel": "종료",
+        "message": "교대 정의 '{{name}}'을(를) 종료하시겠습니까? 참조하는 일반/스마트 테이블 행이 삭제됩니다.",
+        "confirm": "종료"
+      },
+      "unterminate": {
+        "title": "교대 정의 종료 취소",
+        "menuLabel": "종료 취소",
+        "message": "교대 정의 '{{name}}'의 종료를 취소하시겠습니까? 참조 행은 복원되지 않습니다.",
+        "confirm": "종료 취소"
+      }
+    },
+    "shiftLogbook": {
+      "addEntry": {
+        "add": "항목 추가",
+        "category": "범주:",
+        "comments": "설명:",
+        "description": "설명:",
+        "resource": "리소스:",
+        "severity": "심각도:",
+        "title": "교대 일지 항목 추가",
+        "titleLabel": "제목:"
+      },
+      "cancel": "취소",
+      "columns": {
+        "area": "구역",
+        "name": "이름",
+        "shift": "교대",
+        "shiftDefinition": "교대 정의",
+        "state": "상태",
+        "systemState": "시스템 상태"
+      },
+      "detail": {
+        "area": "구역:",
+        "calendarDay": "달력 일:",
+        "dataGroup": "데이터 그룹:",
+        "name": "이름:",
+        "shift": "교대:",
+        "shiftDefinition": "교대 정의:",
+        "shiftInfo": "교대 정보",
+        "state": "범용 상태:",
+        "systemState": "시스템 상태:",
+        "team": "팀:"
+      },
+      "editEntry": {
+        "title": "교대 일지 항목 편집",
+        "update": "업데이트"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "교대 일지 ({{count}})",
+      "noAttachments": "첨부 파일이 없습니다.",
+      "notFound": "교대 일지를 찾을 수 없습니다.",
+      "pageLabel": "교대 일지",
+      "sections": {
+        "attachments": "첨부 파일",
+        "details": "세부 정보",
+        "entries": "항목"
+      },
+      "signOff": {
+        "comment": "설명:",
+        "menuLabel": "승인",
+        "reviewEntries": "항목 검토:",
+        "signOff": "승인",
+        "title": "교대 일지 승인"
+      },
+      "summary": {
+        "content": "{{area}} {{shift}}에 대한 AI 생성 요약. {{count}}개의 일지 항목, 구역 활동, OEE 추세, 계획 대비 생산량, 수율, 불량 파레토 및 보류를 포함합니다.",
+        "menuLabel": "인계 요약 생성",
+        "title": "교대 인계 요약"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      }
+    },
+    "shiftPlan": {
+      "calendar": {
+        "empty": "교대 계획 달력 일을 생성하면 여기에 달력 시각화가 표시됩니다.",
+        "hint": "교대 계획을 구성하는 달력 일에 대한 시각 정보.",
+        "title": "교대 계획 달력"
+      },
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "calendar": "달력",
+        "description": "설명",
+        "name": "이름",
+        "state": "상태",
+        "type": "유형"
+      },
+      "detail": {
+        "calendar": "달력:",
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "ownerRole": "소유자 역할:",
+        "ownership": "소유권",
+        "state": "범용 상태:",
+        "type": "유형:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "generateDays": {
+        "menuLabel": "교대 계획 달력 일 생성"
+      },
+      "listTitle": "교대 계획 ({{count}})",
+      "manageCalendarDays": {
+        "menuLabel": "교대 계획 달력 일 관리"
+      },
+      "manageEmployees": "직원 팀 및 작업 그룹 관리",
+      "notFound": "교대 계획을 찾을 수 없습니다.",
+      "pageLabel": "교대 계획",
+      "sections": {
+        "attachments": "첨부 파일",
+        "attributes": "특성",
+        "details": "세부 정보",
+        "employees": "직원",
+        "workgroups": "작업 그룹"
+      },
+      "tabs": {
+        "calendar": "달력",
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      },
+      "workgroup": {
+        "ownerRole": "소유자 역할",
+        "resources": "리소스"
+      }
+    },
+    "site": {
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "enterprise": "기업",
+        "isRemote": "원격",
+        "name": "이름",
+        "state": "상태"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "enterprise": "기업:",
+        "isRemote": "원격 여부:",
+        "name": "이름:",
+        "remoteExportAddress": "원격 내보내기 주소:",
+        "remoteShipping": "원격 배송",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "사이트 ({{count}})",
+      "notFound": "사이트를 찾을 수 없습니다.",
+      "pageLabel": "사이트",
+      "sections": {
+        "attachments": "첨부 파일",
+        "attributes": "특성",
+        "details": "세부 정보",
+        "facilities": "시설"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
+    },
+    "sortRuleSet": {
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "scope": "범위",
+        "state": "상태"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "scope": "범위:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "정렬 규칙 집합 ({{count}})",
+      "manageRules": "규칙 관리",
+      "notFound": "정렬 규칙 집합을 찾을 수 없습니다.",
+      "pageLabel": "정렬 규칙 집합",
+      "sections": {
+        "attachments": "첨부 파일",
+        "attributes": "특성",
+        "details": "세부 정보",
+        "rules": "규칙"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
+    },
+    "step": {
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "state": "상태"
+      },
+      "contexts": {
+        "bom": "BOM 컨텍스트",
+        "certifications": "인증 컨텍스트",
+        "chart": "차트 컨텍스트",
+        "checklist": "체크리스트 컨텍스트",
+        "dataCollection": "데이터 수집 컨텍스트",
+        "document": "문서 컨텍스트",
+        "durables": "내구재 컨텍스트",
+        "inspectionPlan": "검사 계획 컨텍스트",
+        "lineFlow": "라인 흐름 컨텍스트",
+        "samplingPattern": "샘플링 패턴 컨텍스트",
+        "service": "서비스 컨텍스트",
+        "splitTrackOut": "분할 트랙아웃 컨텍스트",
+        "timeConstraints": "시간 제약 컨텍스트",
+        "yieldCycleTime": "수율 및 사이클 시간"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "includeInScheduling": "스케줄링 포함:",
+        "name": "이름:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "단계 ({{count}})",
+      "manageAreas": {
+        "menuLabel": "영역 관리"
+      },
+      "manageCosts": {
+        "menuLabel": "비용 관리"
+      },
+      "manageFutureActions": {
+        "menuLabel": "향후 작업 관리"
+      },
+      "manageInspectionInfo": {
+        "menuLabel": "검사 정보 관리"
+      },
+      "manageLogicalNames": {
+        "menuLabel": "단계 논리 이름 관리"
+      },
+      "manageReasons": {
+        "menuLabel": "사유 관리"
+      },
+      "manageSamplingPlans": {
+        "menuLabel": "샘플링 계획 관리"
+      },
+      "manageScheduling": {
+        "menuLabel": "스케줄링 관리"
+      },
+      "notFound": "단계를 찾을 수 없습니다.",
+      "pageLabel": "단계",
+      "sections": {
+        "areas": "영역",
+        "attachments": "첨부 파일",
+        "costing": "원가 계산",
+        "details": "세부 정보",
+        "futureActions": "향후 작업",
+        "inspections": "검사",
+        "logicalNames": "논리 이름",
+        "reasons": "사유",
+        "sampling": "샘플링",
+        "scheduling": "스케줄링"
+      },
+      "tabs": {
+        "compare": "비교",
+        "contexts": "컨텍스트",
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조",
+        "schedule": "일정",
+        "stepView": "단계 보기"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
+    },
+    "substrateMap": {
+      "active": "활성",
+      "changeBinValues": {
+        "menuLabel": "빈 값 변경"
+      },
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "state": "상태",
+        "substrateType": "기판 유형"
+      },
+      "content": {
+        "empty": "시각적 맵 표현이 여기에 표시됩니다.",
+        "hint": "기판 맵 내용의 시각적 표현.",
+        "title": "기판 맵 콘텐츠"
+      },
+      "createOverlay": {
+        "menuLabel": "기판 맵 오버레이 생성"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "state": "범용 상태:",
+        "substrateType": "기판 유형:"
+      },
+      "download": {
+        "menuLabel": "기판 맵 다운로드"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "기판 맵 ({{count}})",
+      "manageOverlayInfo": "기판 맵 오버레이 정보 관리",
+      "notFound": "기판 맵을 찾을 수 없습니다.",
+      "pageLabel": "기판 맵",
+      "search": {
+        "menuLabel": "기판 맵 검색"
+      },
+      "sections": {
+        "attachments": "첨부 파일",
+        "attributes": "특성",
+        "details": "세부 정보",
+        "overlayBinConverters": "오버레이 빈 변환기",
+        "overlayInformation": "오버레이 정보"
+      },
+      "tabs": {
+        "compare": "비교",
+        "content": "콘텐츠",
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      },
+      "viewGenealogy": {
+        "menuLabel": "장치 계보 보기"
+      },
+      "viewHistory": {
+        "menuLabel": "장치 빈 코드 기록 보기"
+      }
+    },
+    "substrateMapMask": {
+      "apply": {
+        "menuLabel": "기판 맵 마스크 적용"
+      },
+      "changeInfo": {
+        "menuLabel": "기판 맵 마스크 정보 변경"
+      },
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "state": "상태",
+        "substrateType": "기판 유형"
+      },
+      "content": {
+        "empty": "시각적 마스크 표현이 여기에 표시됩니다.",
+        "hint": "기판 맵 마스크 내용의 시각적 표현.",
+        "title": "기판 맵 마스크 콘텐츠"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "state": "범용 상태:",
+        "substrateType": "기판 유형:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "기판 맵 마스크 ({{count}})",
+      "notFound": "기판 맵 마스크를 찾을 수 없습니다.",
+      "pageLabel": "기판 맵 마스크",
+      "sections": {
+        "attachments": "첨부 파일",
+        "attributes": "특성",
+        "details": "세부 정보"
+      },
+      "tabs": {
+        "compare": "비교",
+        "content": "콘텐츠",
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "기판 맵 마스크 종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
+    },
+    "task": {
+      "cancel": {
+        "menuLabel": "작업 취소"
+      },
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "owner": "소유자",
+        "state": "상태",
+        "taskState": "작업 상태"
+      },
+      "detail": {
+        "assignment": "할당",
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "dueDate": "마감일:",
+        "name": "이름:",
+        "owner": "소유자:",
+        "requester": "요청자:",
+        "state": "범용 상태:",
+        "taskState": "작업 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "작업 ({{count}})",
+      "markCompleted": {
+        "menuLabel": "작업을 완료로 표시"
+      },
+      "notFound": "작업을 찾을 수 없습니다.",
+      "pageLabel": "작업",
+      "perform": {
+        "menuLabel": "작업 수행"
+      },
+      "reassign": {
+        "menuLabel": "작업 재할당"
+      },
+      "sections": {
+        "attachments": "첨부 파일",
+        "details": "세부 정보"
+      },
+      "sendReminder": {
+        "menuLabel": "작업 알림 전송"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
+    },
+    "team": {
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "calendar": "달력",
+        "description": "설명",
+        "name": "이름",
+        "state": "상태"
+      },
+      "detail": {
+        "calendar": "달력:",
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "팀 ({{count}})",
+      "notFound": "팀을 찾을 수 없습니다.",
+      "pageLabel": "팀",
+      "sections": {
+        "attachments": "첨부 파일",
+        "calendarDays": "달력 일",
+        "details": "세부 정보",
+        "employees": "직원"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
+    },
+    "transferOrder": {
+      "beginMovement": {
+        "menuLabel": "이송 주문 이동 시작"
+      },
+      "cancel": {
+        "menuLabel": "이송 주문 취소"
+      },
+      "columns": {
+        "description": "설명",
+        "destinationLocation": "목적지 위치",
+        "name": "이름",
+        "orderState": "주문 상태",
+        "sourceLocation": "출발지 위치",
+        "state": "상태"
+      },
+      "completeMovement": {
+        "menuLabel": "이송 주문 이동 완료"
+      },
+      "confirmItems": {
+        "menuLabel": "이송 주문 품목 확인"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "destinationLocation": "목적지 위치:",
+        "name": "이름:",
+        "orderState": "주문 상태:",
+        "sourceLocation": "출발지 위치:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "이송 주문 ({{count}})",
+      "notFound": "이송 주문을 찾을 수 없습니다.",
+      "pageLabel": "이송 주문",
+      "sections": {
+        "attachments": "첨부 파일",
+        "details": "세부 정보",
+        "items": "품목"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "takeOwnership": {
+        "menuLabel": "이송 주문 소유권 가져오기"
+      },
+      "viewReport": {
+        "menuLabel": "이송 주문 보고서 보기"
+      }
+    },
+    "transferRequirement": {
+      "approve": {
+        "menuLabel": "이송 요구사항 승인"
+      },
+      "cancel": {
+        "menuLabel": "이송 요구사항 취소"
+      },
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "destinationLocation": "목적지 위치",
+        "name": "이름",
+        "requirementState": "요구사항 상태",
+        "sourceLocation": "출발지 위치",
+        "state": "상태"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "destinationLocation": "목적지 위치:",
+        "name": "이름:",
+        "requirementState": "요구사항 상태:",
+        "sourceLocation": "출발지 위치:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "이송 요구사항 ({{count}})",
+      "notFound": "이송 요구사항을 찾을 수 없습니다.",
+      "pageLabel": "이송 요구사항",
+      "releaseItems": {
+        "menuLabel": "이송 요구사항 품목 릴리스"
+      },
+      "sections": {
+        "attachments": "첨부 파일",
+        "details": "세부 정보",
+        "items": "품목"
+      },
+      "split": {
+        "menuLabel": "이송 요구사항 분할"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "unapprove": {
+        "menuLabel": "이송 요구사항 승인 취소"
+      },
+      "viewReport": {
+        "menuLabel": "이송 요구사항 보고서 보기"
+      }
+    },
+    "workgroup": {
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "scope": "범위",
+        "state": "상태"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "scope": "범위:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "작업 그룹 ({{count}})",
+      "manageRoleWorkspaces": {
+        "menuLabel": "역할 작업 공간 관리"
+      },
+      "manageUserWorkgroups": {
+        "menuLabel": "사용자 작업 그룹 관리"
+      },
+      "notFound": "작업 그룹을 찾을 수 없습니다.",
+      "pageLabel": "작업 그룹",
+      "sections": {
+        "areas": "영역",
+        "attachments": "첨부 파일",
+        "details": "세부 정보",
+        "resources": "리소스",
+        "steps": "단계"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
     }
   }
 }
