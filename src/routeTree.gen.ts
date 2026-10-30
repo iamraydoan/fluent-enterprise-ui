@@ -28,6 +28,7 @@ import { Route as BusinessDataQualificationCheckRouteImport } from './routes/bus
 import { Route as BusinessDataReasonRouteImport } from './routes/business-data.reason'
 import { Route as BusinessDataRecipeRouteImport } from './routes/business-data.recipe'
 import { Route as BusinessDataResourceRouteImport } from './routes/business-data.resource'
+import { Route as BusinessDataResourceJobRouteImport } from './routes/business-data.resource-job'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -38,6 +39,7 @@ import { Route as BusinessDataQualificationCheckNameRouteImport } from './routes
 import { Route as BusinessDataQualificationNameRouteImport } from './routes/business-data.qualification.$name'
 import { Route as BusinessDataReasonNameRouteImport } from './routes/business-data.reason.$name'
 import { Route as BusinessDataRecipeNameRouteImport } from './routes/business-data.recipe.$name'
+import { Route as BusinessDataResourceJobNameRouteImport } from './routes/business-data.resource-job.$name'
 import { Route as BusinessDataResourceNameRouteImport } from './routes/business-data.resource.$name'
 
 const IndexRoute = IndexRouteImport.update({
@@ -140,6 +142,11 @@ const BusinessDataResourceRoute = BusinessDataResourceRouteImport.update({
   path: '/resource',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataResourceJobRoute = BusinessDataResourceJobRouteImport.update({
+  id: '/resource-job',
+  path: '/resource-job',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -198,6 +205,12 @@ const BusinessDataRecipeNameRoute = BusinessDataRecipeNameRouteImport.update({
   path: '/$name',
   getParentRoute: () => BusinessDataRecipeRoute,
 } as any)
+const BusinessDataResourceJobNameRoute =
+  BusinessDataResourceJobNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataResourceJobRoute,
+  } as any)
 const BusinessDataResourceNameRoute =
   BusinessDataResourceNameRouteImport.update({
     id: '/$name',
@@ -225,6 +238,7 @@ export interface FileRoutesByFullPath {
   '/business-data/reason': typeof BusinessDataReasonRouteWithChildren
   '/business-data/recipe': typeof BusinessDataRecipeRouteWithChildren
   '/business-data/resource': typeof BusinessDataResourceRouteWithChildren
+  '/business-data/resource-job': typeof BusinessDataResourceJobRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -235,6 +249,7 @@ export interface FileRoutesByFullPath {
   '/business-data/qualification/$name': typeof BusinessDataQualificationNameRoute
   '/business-data/reason/$name': typeof BusinessDataReasonNameRoute
   '/business-data/recipe/$name': typeof BusinessDataRecipeNameRoute
+  '/business-data/resource-job/$name': typeof BusinessDataResourceJobNameRoute
   '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
 }
 export interface FileRoutesByTo {
@@ -257,6 +272,7 @@ export interface FileRoutesByTo {
   '/business-data/reason': typeof BusinessDataReasonRouteWithChildren
   '/business-data/recipe': typeof BusinessDataRecipeRouteWithChildren
   '/business-data/resource': typeof BusinessDataResourceRouteWithChildren
+  '/business-data/resource-job': typeof BusinessDataResourceJobRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -267,6 +283,7 @@ export interface FileRoutesByTo {
   '/business-data/qualification/$name': typeof BusinessDataQualificationNameRoute
   '/business-data/reason/$name': typeof BusinessDataReasonNameRoute
   '/business-data/recipe/$name': typeof BusinessDataRecipeNameRoute
+  '/business-data/resource-job/$name': typeof BusinessDataResourceJobNameRoute
   '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
 }
 export interface FileRoutesById {
@@ -290,6 +307,7 @@ export interface FileRoutesById {
   '/business-data/reason': typeof BusinessDataReasonRouteWithChildren
   '/business-data/recipe': typeof BusinessDataRecipeRouteWithChildren
   '/business-data/resource': typeof BusinessDataResourceRouteWithChildren
+  '/business-data/resource-job': typeof BusinessDataResourceJobRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -300,6 +318,7 @@ export interface FileRoutesById {
   '/business-data/qualification/$name': typeof BusinessDataQualificationNameRoute
   '/business-data/reason/$name': typeof BusinessDataReasonNameRoute
   '/business-data/recipe/$name': typeof BusinessDataRecipeNameRoute
+  '/business-data/resource-job/$name': typeof BusinessDataResourceJobNameRoute
   '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
 }
 export interface FileRouteTypes {
@@ -324,6 +343,7 @@ export interface FileRouteTypes {
     | '/business-data/reason'
     | '/business-data/recipe'
     | '/business-data/resource'
+    | '/business-data/resource-job'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -334,6 +354,7 @@ export interface FileRouteTypes {
     | '/business-data/qualification/$name'
     | '/business-data/reason/$name'
     | '/business-data/recipe/$name'
+    | '/business-data/resource-job/$name'
     | '/business-data/resource/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -356,6 +377,7 @@ export interface FileRouteTypes {
     | '/business-data/reason'
     | '/business-data/recipe'
     | '/business-data/resource'
+    | '/business-data/resource-job'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -366,6 +388,7 @@ export interface FileRouteTypes {
     | '/business-data/qualification/$name'
     | '/business-data/reason/$name'
     | '/business-data/recipe/$name'
+    | '/business-data/resource-job/$name'
     | '/business-data/resource/$name'
   id:
     | '__root__'
@@ -388,6 +411,7 @@ export interface FileRouteTypes {
     | '/business-data/reason'
     | '/business-data/recipe'
     | '/business-data/resource'
+    | '/business-data/resource-job'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -398,6 +422,7 @@ export interface FileRouteTypes {
     | '/business-data/qualification/$name'
     | '/business-data/reason/$name'
     | '/business-data/recipe/$name'
+    | '/business-data/resource-job/$name'
     | '/business-data/resource/$name'
   fileRoutesById: FileRoutesById
 }
@@ -544,6 +569,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataResourceRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/resource-job': {
+      id: '/business-data/resource-job'
+      path: '/resource-job'
+      fullPath: '/business-data/resource-job'
+      preLoaderRoute: typeof BusinessDataResourceJobRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -613,6 +645,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/recipe/$name'
       preLoaderRoute: typeof BusinessDataRecipeNameRouteImport
       parentRoute: typeof BusinessDataRecipeRoute
+    }
+    '/business-data/resource-job/$name': {
+      id: '/business-data/resource-job/$name'
+      path: '/$name'
+      fullPath: '/business-data/resource-job/$name'
+      preLoaderRoute: typeof BusinessDataResourceJobNameRouteImport
+      parentRoute: typeof BusinessDataResourceJobRoute
     }
     '/business-data/resource/$name': {
       id: '/business-data/resource/$name'
@@ -794,12 +833,27 @@ const BusinessDataResourceRouteChildren: BusinessDataResourceRouteChildren = {
 const BusinessDataResourceRouteWithChildren =
   BusinessDataResourceRoute._addFileChildren(BusinessDataResourceRouteChildren)
 
+interface BusinessDataResourceJobRouteChildren {
+  BusinessDataResourceJobNameRoute: typeof BusinessDataResourceJobNameRoute
+}
+
+const BusinessDataResourceJobRouteChildren: BusinessDataResourceJobRouteChildren =
+  {
+    BusinessDataResourceJobNameRoute: BusinessDataResourceJobNameRoute,
+  }
+
+const BusinessDataResourceJobRouteWithChildren =
+  BusinessDataResourceJobRoute._addFileChildren(
+    BusinessDataResourceJobRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataQualificationRoute: typeof BusinessDataQualificationRouteWithChildren
   BusinessDataQualificationCheckRoute: typeof BusinessDataQualificationCheckRouteWithChildren
   BusinessDataReasonRoute: typeof BusinessDataReasonRouteWithChildren
   BusinessDataRecipeRoute: typeof BusinessDataRecipeRouteWithChildren
   BusinessDataResourceRoute: typeof BusinessDataResourceRouteWithChildren
+  BusinessDataResourceJobRoute: typeof BusinessDataResourceJobRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -809,6 +863,7 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataReasonRoute: BusinessDataReasonRouteWithChildren,
   BusinessDataRecipeRoute: BusinessDataRecipeRouteWithChildren,
   BusinessDataResourceRoute: BusinessDataResourceRouteWithChildren,
+  BusinessDataResourceJobRoute: BusinessDataResourceJobRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

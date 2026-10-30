@@ -1560,6 +1560,102 @@
           "type": "Type"
         }
       }
+    },
+    "resourceJob": {
+      "pageLabel": "Resource Job",
+      "listTitle": "Resource Jobs",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "materials": "Materials",
+        "containers": "Containers",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "resourceJob": "Resource Job",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "resource": "Resource",
+        "type": "Type",
+        "systemState": "System State",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "subType": "Sub Type",
+        "selectionMode": "Selection Mode",
+        "priority": "Priority",
+        "progress": "Progress",
+        "equipmentJobId": "Equipment Job Id",
+        "jobInformation": "Job Information"
+      },
+      "more": {
+        "clone": "Clone",
+        "abort": "Abort",
+        "cancel": "Cancel",
+        "complete": "Complete",
+        "dequeue": "Dequeue",
+        "enqueue": "Enqueue",
+        "requeue": "Requeue",
+        "start": "Start"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Resource Job",
+          "editTitle": "Edit Resource Job",
+          "step1": "General Data",
+          "step2": "Materials",
+          "step3": "Containers",
+          "name": "Name",
+          "description": "Description",
+          "resource": "Resource",
+          "type": "Type",
+          "subType": "Sub Type",
+          "initialSystemState": "Initial System State",
+          "selectionMode": "Selection Mode",
+          "priority": "Priority",
+          "progress": "Progress",
+          "equipmentJobId": "Equipment Job Id",
+          "jobInformation": "Job Information",
+          "comments": "Comments",
+          "materialsBody": "Add or remove Resource Job Materials. For each item specify Material, Step, Quantity, Units, Process Job Id, dates, Recipe and Process Job Information.",
+          "containersBody": "Add or remove Resource Job Containers. For each item specify Container, Start Date and End Date."
+        },
+        "lifecycle": {
+          "comment": "Comment",
+          "cloneTitle": "Clone Resource Job",
+          "clone": "Clone",
+          "abortTitle": "Abort Resource Job",
+          "abort": "Abort",
+          "cancelTitle": "Cancel Resource Job",
+          "cancel": "Cancel",
+          "completeTitle": "Complete Resource Job",
+          "complete": "Complete",
+          "dequeueTitle": "Dequeue Resource Job",
+          "dequeue": "Dequeue",
+          "enqueueTitle": "Enqueue Resource Job",
+          "enqueue": "Enqueue",
+          "requeueTitle": "Requeue Resource Job",
+          "requeue": "Requeue",
+          "startTitle": "Start Resource Job",
+          "start": "Start"
+        }
+      }
     }
   }
 }

@@ -12,7 +12,8 @@ type DetailRoute =
   | "/business-data/qualification-check/$name"
   | "/business-data/reason/$name"
   | "/business-data/recipe/$name"
-  | "/business-data/resource/$name";
+  | "/business-data/resource/$name"
+  | "/business-data/resource-job/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

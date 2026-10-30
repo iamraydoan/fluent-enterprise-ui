@@ -6,6 +6,7 @@ import { qualificationCheckHandlers } from "./handlers/businessData/qualificatio
 import { reasonHandlers } from "./handlers/businessData/reason";
 import { recipeHandlers } from "./handlers/businessData/recipe";
 import { resourceHandlers } from "./handlers/businessData/resource";
+import { resourceJobHandlers } from "./handlers/businessData/resourceJob";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -28,4 +29,5 @@ export const handlers = [
   ...reasonHandlers,
   ...recipeHandlers,
   ...resourceHandlers,
+  ...resourceJobHandlers,
 ];

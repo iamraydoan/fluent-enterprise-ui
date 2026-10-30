@@ -135,3 +135,15 @@ export type {
   ResourceProcessingType,
   ResourceRecord,
 } from "./businessData/resource";
+export {
+  getResourceJob,
+  listResourceJobs,
+  useResourceJobDetail,
+  useResourceJobs,
+} from "./businessData/resourceJob";
+export type {
+  ResourceJobDetail,
+  ResourceJobListParams,
+  ResourceJobRecord,
+  ResourceJobSystemState,
+} from "./businessData/resourceJob";
