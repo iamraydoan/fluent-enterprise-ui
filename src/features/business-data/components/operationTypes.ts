@@ -1,6 +1,14 @@
 import type { TranslationKey } from "@/i18n";
+import type { ReactNode } from "react";
 
-export type WizardFieldType = "text" | "textarea" | "number" | "checkbox" | "select" | "date";
+export type WizardFieldType =
+  | "text"
+  | "textarea"
+  | "number"
+  | "checkbox"
+  | "select"
+  | "date"
+  | "custom";
 
 export interface WizardFieldOption {
   value: string;
@@ -14,6 +22,7 @@ export interface WizardField {
   options?: WizardFieldOption[];
   required?: boolean;
   placeholderKey?: TranslationKey;
+  render?: (values: OperationValues, onChange: (key: string, value: string | number | boolean) => void) => ReactNode;
 }
 
 export interface WizardStep {

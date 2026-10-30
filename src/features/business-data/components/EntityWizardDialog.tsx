@@ -253,6 +253,14 @@ function WizardFieldInput({
     </span>
   );
 
+  if (field.type === "custom" && field.render) {
+    return (
+      <div>
+        {field.render(values, onChange)}
+      </div>
+    );
+  }
+
   if (field.type === "checkbox") {
     return (
       <div className={styles.fieldRow}>
