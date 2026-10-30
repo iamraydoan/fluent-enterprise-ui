@@ -995,6 +995,81 @@
           "value": "Giá trị",
           "state": "Trạng thái"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Parameter",
+          "cancel": "Cancel",
+          "back": "Back",
+          "next": "Next",
+          "submit": "Create",
+          "steps": {
+            "generalData": "General Data",
+            "information": "Information"
+          },
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "type": "Type",
+            "displayName": "Display Name",
+            "scope": "Scope",
+            "dataType": "Data Type",
+            "units": "Units"
+          },
+          "hints": {
+            "type": "The list of possible values is taken from the lookup table ParameterType.",
+            "displayName": "The display name if present will be displayed in the data collection screens.",
+            "dataType": "If scope is KPI, the data type must be numeric."
+          }
+        },
+        "edit": {
+          "title": "Edit Parameter",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Parameter cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Parameter",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Parameter",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
       }
     },
     "product": {
