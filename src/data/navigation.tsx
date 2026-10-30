@@ -777,6 +777,23 @@ export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
       ];
     }
   }
+  if (path === "/business-data") {
+    return [{ labelKey: "nav.sections.businessData", label: null, route: "/business-data" }];
+  }
+  if (path.startsWith("/business-data/")) {
+    const rest = path.slice("/business-data/".length);
+    const segments = rest.split("/");
+    const entity = BUSINESS_DATA_ENTITIES.find((candidate) => candidate.id === segments[0]);
+    if (!entity) return [];
+    const crumbs: BreadcrumbItem[] = [
+      { labelKey: "nav.sections.businessData", label: null, route: "/business-data" },
+      { labelKey: entity.labelKey, label: null, route: entity.route },
+    ];
+    if (segments.length === 2 && segments[1].length > 0) {
+      crumbs.push({ labelKey: null, label: decodeURIComponent(segments[1]), route: path });
+    }
+    return crumbs;
+  }
   return [];
 }
 

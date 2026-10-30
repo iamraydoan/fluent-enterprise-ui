@@ -76,3 +76,10 @@ export type {
   UIPageScope,
   UIPageType,
 } from "./uiPages";
+export {
+  getDataSilo,
+  listDataSilos,
+  useDataSiloDetail,
+  useDataSilos,
+} from "./businessData/dataSilo";
+export type { DataSiloDetail, DataSiloRecord } from "./businessData/dataSilo";
