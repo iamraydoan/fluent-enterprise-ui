@@ -1312,6 +1312,60 @@
       "viewReport": {
         "menuLabel": "Xem báo cáo lệnh chuyển"
       }
+    },
+    "transferRequirement": {
+      "approve": {
+        "menuLabel": "Phê duyệt yêu cầu chuyển"
+      },
+      "cancel": {
+        "menuLabel": "Hủy yêu cầu chuyển"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "destinationLocation": "Nơi đến",
+        "name": "Tên",
+        "requirementState": "Trạng thái yêu cầu",
+        "sourceLocation": "Nơi đi",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "destinationLocation": "Nơi đến:",
+        "name": "Tên:",
+        "requirementState": "Trạng thái yêu cầu:",
+        "sourceLocation": "Nơi đi:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Yêu cầu chuyển ({{count}})",
+      "notFound": "Không tìm thấy yêu cầu chuyển.",
+      "pageLabel": "Yêu cầu chuyển",
+      "releaseItems": {
+        "menuLabel": "Phát hành mặt hàng yêu cầu chuyển"
+      },
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "items": "Mặt hàng"
+      },
+      "split": {
+        "menuLabel": "Tách yêu cầu chuyển"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "unapprove": {
+        "menuLabel": "Hủy phê duyệt yêu cầu chuyển"
+      },
+      "viewReport": {
+        "menuLabel": "Xem báo cáo yêu cầu chuyển"
+      }
     }
   }
 }

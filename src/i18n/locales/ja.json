@@ -1312,6 +1312,60 @@
       "viewReport": {
         "menuLabel": "転送オーダーレポートの表示"
       }
+    },
+    "transferRequirement": {
+      "approve": {
+        "menuLabel": "転送要件の承認"
+      },
+      "cancel": {
+        "menuLabel": "転送要件のキャンセル"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "destinationLocation": "送付先",
+        "name": "名前",
+        "requirementState": "要件状態",
+        "sourceLocation": "送付元",
+        "state": "状態"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "destinationLocation": "送付先:",
+        "name": "名前:",
+        "requirementState": "要件状態:",
+        "sourceLocation": "送付元:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "転送要件 ({{count}})",
+      "notFound": "転送要件が見つかりません。",
+      "pageLabel": "転送要件",
+      "releaseItems": {
+        "menuLabel": "転送要件品目のリリース"
+      },
+      "sections": {
+        "attachments": "添付ファイル",
+        "details": "詳細",
+        "items": "品目"
+      },
+      "split": {
+        "menuLabel": "転送要件の分割"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "unapprove": {
+        "menuLabel": "転送要件の承認取消"
+      },
+      "viewReport": {
+        "menuLabel": "転送要件レポートの表示"
+      }
     }
   }
 }

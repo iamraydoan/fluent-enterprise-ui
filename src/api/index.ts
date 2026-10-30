@@ -168,3 +168,15 @@ export type {
   TransferOrderListParams,
   TransferOrderRecord,
 } from "./businessData/transferOrder";
+export {
+  getTransferRequirement,
+  listTransferRequirements,
+  useTransferRequirementDetail,
+  useTransferRequirements,
+} from "./businessData/transferRequirement";
+export type {
+  TransferRequirementDetail,
+  TransferRequirementItem,
+  TransferRequirementListParams,
+  TransferRequirementRecord,
+} from "./businessData/transferRequirement";

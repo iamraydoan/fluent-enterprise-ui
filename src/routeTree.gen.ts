@@ -34,6 +34,7 @@ import { Route as BusinessDataSubstrateMapMaskRouteImport } from './routes/busin
 import { Route as BusinessDataTaskRouteImport } from './routes/business-data.task'
 import { Route as BusinessDataTeamRouteImport } from './routes/business-data.team'
 import { Route as BusinessDataTransferOrderRouteImport } from './routes/business-data.transfer-order'
+import { Route as BusinessDataTransferRequirementRouteImport } from './routes/business-data.transfer-requirement'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -51,6 +52,7 @@ import { Route as BusinessDataSubstrateMapNameRouteImport } from './routes/busin
 import { Route as BusinessDataTaskNameRouteImport } from './routes/business-data.task.$name'
 import { Route as BusinessDataTeamNameRouteImport } from './routes/business-data.team.$name'
 import { Route as BusinessDataTransferOrderNameRouteImport } from './routes/business-data.transfer-order.$name'
+import { Route as BusinessDataTransferRequirementNameRouteImport } from './routes/business-data.transfer-requirement.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -185,6 +187,12 @@ const BusinessDataTransferOrderRoute =
     path: '/transfer-order',
     getParentRoute: () => BusinessDataRoute,
   } as any)
+const BusinessDataTransferRequirementRoute =
+  BusinessDataTransferRequirementRouteImport.update({
+    id: '/transfer-requirement',
+    path: '/transfer-requirement',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -283,6 +291,12 @@ const BusinessDataTransferOrderNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataTransferOrderRoute,
   } as any)
+const BusinessDataTransferRequirementNameRoute =
+  BusinessDataTransferRequirementNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataTransferRequirementRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -310,6 +324,7 @@ export interface FileRoutesByFullPath {
   '/business-data/task': typeof BusinessDataTaskRouteWithChildren
   '/business-data/team': typeof BusinessDataTeamRouteWithChildren
   '/business-data/transfer-order': typeof BusinessDataTransferOrderRouteWithChildren
+  '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -327,6 +342,7 @@ export interface FileRoutesByFullPath {
   '/business-data/task/$name': typeof BusinessDataTaskNameRoute
   '/business-data/team/$name': typeof BusinessDataTeamNameRoute
   '/business-data/transfer-order/$name': typeof BusinessDataTransferOrderNameRoute
+  '/business-data/transfer-requirement/$name': typeof BusinessDataTransferRequirementNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -354,6 +370,7 @@ export interface FileRoutesByTo {
   '/business-data/task': typeof BusinessDataTaskRouteWithChildren
   '/business-data/team': typeof BusinessDataTeamRouteWithChildren
   '/business-data/transfer-order': typeof BusinessDataTransferOrderRouteWithChildren
+  '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -371,6 +388,7 @@ export interface FileRoutesByTo {
   '/business-data/task/$name': typeof BusinessDataTaskNameRoute
   '/business-data/team/$name': typeof BusinessDataTeamNameRoute
   '/business-data/transfer-order/$name': typeof BusinessDataTransferOrderNameRoute
+  '/business-data/transfer-requirement/$name': typeof BusinessDataTransferRequirementNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -399,6 +417,7 @@ export interface FileRoutesById {
   '/business-data/task': typeof BusinessDataTaskRouteWithChildren
   '/business-data/team': typeof BusinessDataTeamRouteWithChildren
   '/business-data/transfer-order': typeof BusinessDataTransferOrderRouteWithChildren
+  '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -416,6 +435,7 @@ export interface FileRoutesById {
   '/business-data/task/$name': typeof BusinessDataTaskNameRoute
   '/business-data/team/$name': typeof BusinessDataTeamNameRoute
   '/business-data/transfer-order/$name': typeof BusinessDataTransferOrderNameRoute
+  '/business-data/transfer-requirement/$name': typeof BusinessDataTransferRequirementNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -445,6 +465,7 @@ export interface FileRouteTypes {
     | '/business-data/task'
     | '/business-data/team'
     | '/business-data/transfer-order'
+    | '/business-data/transfer-requirement'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -462,6 +483,7 @@ export interface FileRouteTypes {
     | '/business-data/task/$name'
     | '/business-data/team/$name'
     | '/business-data/transfer-order/$name'
+    | '/business-data/transfer-requirement/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -489,6 +511,7 @@ export interface FileRouteTypes {
     | '/business-data/task'
     | '/business-data/team'
     | '/business-data/transfer-order'
+    | '/business-data/transfer-requirement'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -506,6 +529,7 @@ export interface FileRouteTypes {
     | '/business-data/task/$name'
     | '/business-data/team/$name'
     | '/business-data/transfer-order/$name'
+    | '/business-data/transfer-requirement/$name'
   id:
     | '__root__'
     | '/'
@@ -533,6 +557,7 @@ export interface FileRouteTypes {
     | '/business-data/task'
     | '/business-data/team'
     | '/business-data/transfer-order'
+    | '/business-data/transfer-requirement'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -550,6 +575,7 @@ export interface FileRouteTypes {
     | '/business-data/task/$name'
     | '/business-data/team/$name'
     | '/business-data/transfer-order/$name'
+    | '/business-data/transfer-requirement/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -737,6 +763,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataTransferOrderRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/transfer-requirement': {
+      id: '/business-data/transfer-requirement'
+      path: '/transfer-requirement'
+      fullPath: '/business-data/transfer-requirement'
+      preLoaderRoute: typeof BusinessDataTransferRequirementRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -855,6 +888,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/transfer-order/$name'
       preLoaderRoute: typeof BusinessDataTransferOrderNameRouteImport
       parentRoute: typeof BusinessDataTransferOrderRoute
+    }
+    '/business-data/transfer-requirement/$name': {
+      id: '/business-data/transfer-requirement/$name'
+      path: '/$name'
+      fullPath: '/business-data/transfer-requirement/$name'
+      preLoaderRoute: typeof BusinessDataTransferRequirementNameRouteImport
+      parentRoute: typeof BusinessDataTransferRequirementRoute
     }
   }
 }
@@ -1109,6 +1149,21 @@ const BusinessDataTransferOrderRouteWithChildren =
     BusinessDataTransferOrderRouteChildren,
   )
 
+interface BusinessDataTransferRequirementRouteChildren {
+  BusinessDataTransferRequirementNameRoute: typeof BusinessDataTransferRequirementNameRoute
+}
+
+const BusinessDataTransferRequirementRouteChildren: BusinessDataTransferRequirementRouteChildren =
+  {
+    BusinessDataTransferRequirementNameRoute:
+      BusinessDataTransferRequirementNameRoute,
+  }
+
+const BusinessDataTransferRequirementRouteWithChildren =
+  BusinessDataTransferRequirementRoute._addFileChildren(
+    BusinessDataTransferRequirementRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataShiftDefinitionRoute: typeof BusinessDataShiftDefinitionRouteWithChildren
   BusinessDataShiftLogbookRoute: typeof BusinessDataShiftLogbookRouteWithChildren
@@ -1121,6 +1176,7 @@ interface BusinessDataRouteChildren {
   BusinessDataTaskRoute: typeof BusinessDataTaskRouteWithChildren
   BusinessDataTeamRoute: typeof BusinessDataTeamRouteWithChildren
   BusinessDataTransferOrderRoute: typeof BusinessDataTransferOrderRouteWithChildren
+  BusinessDataTransferRequirementRoute: typeof BusinessDataTransferRequirementRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -1137,6 +1193,8 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataTaskRoute: BusinessDataTaskRouteWithChildren,
   BusinessDataTeamRoute: BusinessDataTeamRouteWithChildren,
   BusinessDataTransferOrderRoute: BusinessDataTransferOrderRouteWithChildren,
+  BusinessDataTransferRequirementRoute:
+    BusinessDataTransferRequirementRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

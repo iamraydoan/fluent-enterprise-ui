@@ -1312,6 +1312,60 @@
       "viewReport": {
         "menuLabel": "View Transfer Order Report"
       }
+    },
+    "transferRequirement": {
+      "approve": {
+        "menuLabel": "Approve Transfer Requirement"
+      },
+      "cancel": {
+        "menuLabel": "Cancel Transfer Requirement"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "destinationLocation": "Destination Location",
+        "name": "Name",
+        "requirementState": "Requirement State",
+        "sourceLocation": "Source Location",
+        "state": "State"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "destinationLocation": "Destination Location:",
+        "name": "Name:",
+        "requirementState": "Requirement State:",
+        "sourceLocation": "Source Location:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Transfer Requirements ({{count}})",
+      "notFound": "Transfer Requirement not found.",
+      "pageLabel": "Transfer Requirement",
+      "releaseItems": {
+        "menuLabel": "Release Transfer Requirement Items"
+      },
+      "sections": {
+        "attachments": "Attachments",
+        "details": "Details",
+        "items": "Items"
+      },
+      "split": {
+        "menuLabel": "Split Transfer Requirement"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "unapprove": {
+        "menuLabel": "Unapprove Transfer Requirement"
+      },
+      "viewReport": {
+        "menuLabel": "View Transfer Requirement Report"
+      }
     }
   }
 }

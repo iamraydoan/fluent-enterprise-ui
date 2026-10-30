@@ -17,6 +17,7 @@ import { substrateMapMaskHandlers } from "./handlers/businessData/substrateMapMa
 import { taskHandlers } from "./handlers/businessData/task";
 import { teamHandlers } from "./handlers/businessData/team";
 import { transferOrderHandlers } from "./handlers/businessData/transferOrder";
+import { transferRequirementHandlers } from "./handlers/businessData/transferRequirement";
 import { uiPageHandlers } from "./handlers/uiPages";
 
 export const handlers = [
@@ -40,4 +41,5 @@ export const handlers = [
   ...taskHandlers,
   ...teamHandlers,
   ...transferOrderHandlers,
+  ...transferRequirementHandlers,
 ];
