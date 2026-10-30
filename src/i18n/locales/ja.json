@@ -1461,6 +1461,155 @@
           "state": "状態",
           "priority": "優先度"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "edit": {
+          "title": "Edit Production Order",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Production Order cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Production Order",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Production Order",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "confirmText": "Select Unterminate to perform the operation."
+        },
+        "release": {
+          "title": "Release Production Order",
+          "cancel": "Cancel",
+          "submit": "Release",
+          "confirmText": "Select Release to perform the operation."
+        },
+        "unrelease": {
+          "title": "Unrelease Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrelease",
+          "confirmText": "Select Unrelease to perform the operation."
+        },
+        "start": {
+          "title": "Start Production Order",
+          "cancel": "Cancel",
+          "submit": "Start",
+          "confirmText": "Select Start to perform the operation."
+        },
+        "cancel": {
+          "title": "Cancel Production Order",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation."
+        },
+        "close": {
+          "title": "Close Production Order",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "confirmText": "Select Close to perform the operation."
+        },
+        "reopen": {
+          "title": "Reopen Production Order",
+          "cancel": "Cancel",
+          "submit": "Reopen",
+          "confirmText": "Select Reopen to perform the operation."
+        },
+        "restrict": {
+          "title": "Restrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Restrict",
+          "confirmText": "Select Restrict to perform the operation."
+        },
+        "unrestrict": {
+          "title": "Unrestrict Production Order",
+          "cancel": "Cancel",
+          "submit": "Unrestrict",
+          "confirmText": "Select Unrestrict to perform the operation."
+        },
+        "assignMaterials": {
+          "title": "Assign Materials To Production Order",
+          "cancel": "Cancel",
+          "submit": "Assign",
+          "description": "Assign Materials to the Production Order."
+        },
+        "reassignMaterials": {
+          "title": "Reassign Production Order Materials",
+          "cancel": "Cancel",
+          "submit": "Reassign",
+          "description": "Reassign Materials to another Production Order."
+        },
+        "createMaterial": {
+          "title": "Create Material For Production Order",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "description": "Create Materials for the Production Order."
+        },
+        "changeProductQuantity": {
+          "title": "Change Product and Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "manageSteps": {
+          "title": "Manage Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage the Production Order Steps."
+        },
+        "synchronizeSteps": {
+          "title": "Synchronize Production Order Steps",
+          "cancel": "Cancel",
+          "submit": "Synchronize",
+          "description": "Synchronize the Production Order Steps."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "steps": "Steps",
+        "attachments": "Attachments"
       }
     },
     "protocol": {
