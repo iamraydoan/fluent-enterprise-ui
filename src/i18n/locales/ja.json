@@ -296,7 +296,60 @@
       "active": "アクティブ",
       "terminated": "終了"
     },
-    "title": "エンティティタイプ ({{count}})"
+    "title": "エンティティタイプ ({{count}})",
+    "sections": {
+      "details": "詳細",
+      "stateModels": "状態モデル",
+      "properties": "プロパティ",
+      "attributes": "属性",
+      "operations": "操作",
+      "operationAttributes": "操作属性",
+      "odsRetention": "ODS保持期間",
+      "empty": "表示するものがありません",
+      "emptyBody": "このセクションはデモでは利用できません。"
+    },
+    "details": {
+      "generalData": "一般データ",
+      "name": "名前",
+      "description": "説明",
+      "system": "システム",
+      "lockType": "ロックタイプ"
+    },
+    "properties": {
+      "title": "プロパティ ({{count}})",
+      "manage": "管理",
+      "searchableFilter": "検索可能",
+      "referenceTypeFilter": "参照タイプ: {{value}}",
+      "searchable": "検索可能"
+    },
+    "property": {
+      "name": "名前",
+      "description": "説明",
+      "kind": "タイプ",
+      "referenceType": "参照タイプ",
+      "scalarType": "スカラータイプ",
+      "size": "サイズ",
+      "searchable": "検索可能",
+      "searchType": "検索タイプ",
+      "enabled": "有効"
+    },
+    "searchType": {
+      "startswith": "前方一致",
+      "contains": "部分一致"
+    },
+    "manage": {
+      "title": "エンティティタイププロパティの管理",
+      "properties": "プロパティ",
+      "system": "システム",
+      "add": "プロパティを追加",
+      "remove": "プロパティを削除",
+      "propertyDetails": "プロパティ詳細",
+      "content": "コンテンツ",
+      "flags": "フラグ",
+      "searchableLimitError": "名前を除き、検索可能としてマークできるプロパティは2つまでです。",
+      "containsWarning": "部分一致の検索タイプはエンティティ検索のパフォーマンスに影響する可能性があります",
+      "searchableNotAllowed": "参照タイプがNone、スカラータイプがVarchar/NVarchar、サイズが1-512のプロパティのみ検索可能です。"
+    }
   },
   "mainLayout": {
     "noOpenTabs": "開いているタブがありません",

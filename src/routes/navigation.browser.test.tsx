@@ -103,13 +103,13 @@ test("an MCP Server list link opens the Cubes detail and back returns to the lis
   expect(tabCount()).toBe(1);
 });
 
-test("an Entity Types list row click does nothing", async () => {
+test("an Entity Types list row click opens the detail tab", async () => {
   const screen = await renderAt("/administration/entity-types");
   await waitForText("Entity Types (393)");
   await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
   await screen.getByText("AIAgent", { exact: true }).click();
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  await expect.element(screen.getByText("Entity Types (393)")).toBeVisible();
+  await waitForText("Properties");
+  await expect.element(screen.getByText("Properties")).toBeVisible();
   expect(tabCount()).toBe(1);
 });
 

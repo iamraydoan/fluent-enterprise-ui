@@ -1,8 +1,10 @@
 import { http, HttpResponse } from "msw";
-import type { EntityTypeRecord, Page } from "@/api";
+import type { EntityTypeProperty, EntityTypeRecord, Page } from "@/api";
+import { buildEntityTypeProperties } from "../seeds/entityTypeProperties";
 import { buildEntityTypeSeeds } from "../seeds/entityTypes";
 
 const RECORDS = buildEntityTypeSeeds();
+const PROPERTY_OVERRIDES = new Map<string, EntityTypeProperty[]>();
 
 export interface EntityTypeListQuery {
   page: number;
@@ -109,5 +111,35 @@ export const entityTypeHandlers = [
         updatedAtLte: readParam(params, "updatedAt[lte]"),
       }),
     );
+  }),
+  http.get("/entity-types/:name", ({ params }) => {
+    const name = decodeURIComponent(String(params.name));
+    const record = RECORDS.find((entry) => entry.name === name);
+    if (!record) {
+      return HttpResponse.json({
+        id: name,
+        name,
+        description: `${name} Object`,
+        system: true,
+        versioned: false,
+        isRelation: false,
+        state: "Active",
+        lockType: "Lock None",
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      });
+    }
+    return HttpResponse.json(record);
+  }),
+  http.get("/entity-types/:name/properties", ({ params }) => {
+    const name = decodeURIComponent(String(params.name));
+    const override = PROPERTY_OVERRIDES.get(name);
+    return HttpResponse.json(override ?? buildEntityTypeProperties(name));
+  }),
+  http.put("/entity-types/:name/properties", async ({ params, request }) => {
+    const name = decodeURIComponent(String(params.name));
+    const properties = (await request.json()) as EntityTypeProperty[];
+    PROPERTY_OVERRIDES.set(name, properties);
+    return HttpResponse.json(properties);
   }),
 ];

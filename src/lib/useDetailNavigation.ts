@@ -4,7 +4,8 @@ import { useCallback } from "react";
 type DetailRoute =
   | "/administration/ai-agent/$name"
   | "/administration/ai-mcp-server/$name"
-  | "/administration/configuration/$path";
+  | "/administration/configuration/$path"
+  | "/administration/entity-types/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

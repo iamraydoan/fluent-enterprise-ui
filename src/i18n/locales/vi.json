@@ -296,7 +296,60 @@
       "active": "HOẠT ĐỘNG",
       "terminated": "ĐÃ KẾT THÚC"
     },
-    "title": "Loại thực thể ({{count}})"
+    "title": "Loại thực thể ({{count}})",
+    "sections": {
+      "details": "Chi tiết",
+      "stateModels": "Mô hình trạng thái",
+      "properties": "Thuộc tính",
+      "attributes": "Đặc tính",
+      "operations": "Thao tác",
+      "operationAttributes": "Đặc tính thao tác",
+      "odsRetention": "Thời gian lưu ODS",
+      "empty": "Chưa có gì để hiển thị",
+      "emptyBody": "Mục này chưa có trong bản demo."
+    },
+    "details": {
+      "generalData": "Dữ liệu chung",
+      "name": "Tên",
+      "description": "Mô tả",
+      "system": "Hệ thống",
+      "lockType": "Kiểu khóa"
+    },
+    "properties": {
+      "title": "Thuộc tính ({{count}})",
+      "manage": "Quản lý",
+      "searchableFilter": "Tìm kiếm được",
+      "referenceTypeFilter": "Kiểu tham chiếu: {{value}}",
+      "searchable": "Tìm kiếm được"
+    },
+    "property": {
+      "name": "Tên",
+      "description": "Mô tả",
+      "kind": "Loại",
+      "referenceType": "Kiểu tham chiếu",
+      "scalarType": "Kiểu vô hướng",
+      "size": "Kích thước",
+      "searchable": "Tìm kiếm được",
+      "searchType": "Kiểu tìm kiếm",
+      "enabled": "Bật"
+    },
+    "searchType": {
+      "startswith": "Bắt đầu với",
+      "contains": "Chứa"
+    },
+    "manage": {
+      "title": "Quản lý thuộc tính loại thực thể",
+      "properties": "Thuộc tính",
+      "system": "Hệ thống",
+      "add": "Thêm thuộc tính",
+      "remove": "Xóa thuộc tính",
+      "propertyDetails": "Chi tiết thuộc tính",
+      "content": "Nội dung",
+      "flags": "Cờ",
+      "searchableLimitError": "Ngoại trừ Tên, không thể đánh dấu quá hai thuộc tính là tìm kiếm được.",
+      "containsWarning": "Kiểu tìm kiếm Chứa có thể ảnh hưởng đến hiệu năng tìm kiếm thực thể",
+      "searchableNotAllowed": "Chỉ các thuộc tính có Kiểu tham chiếu là None, Kiểu vô hướng là Varchar/NVarchar và Kích thước 1-512 mới có thể tìm kiếm được."
+    }
   },
   "mainLayout": {
     "noOpenTabs": "Không có tab đang mở",

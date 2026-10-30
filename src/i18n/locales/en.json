@@ -296,7 +296,60 @@
       "active": "ACTIVE",
       "terminated": "TERMINATED"
     },
-    "title": "Entity Types ({{count}})"
+    "title": "Entity Types ({{count}})",
+    "sections": {
+      "details": "Details",
+      "stateModels": "State Models",
+      "properties": "Properties",
+      "attributes": "Attributes",
+      "operations": "Operations",
+      "operationAttributes": "Operation Attributes",
+      "odsRetention": "ODS Retention Time",
+      "empty": "Nothing to show yet",
+      "emptyBody": "This section is not available in the demo."
+    },
+    "details": {
+      "generalData": "General Data",
+      "name": "Name",
+      "description": "Description",
+      "system": "System",
+      "lockType": "Lock Type"
+    },
+    "properties": {
+      "title": "Properties ({{count}})",
+      "manage": "Manage",
+      "searchableFilter": "Searchable",
+      "referenceTypeFilter": "Reference Type: {{value}}",
+      "searchable": "Searchable"
+    },
+    "property": {
+      "name": "Name",
+      "description": "Description",
+      "kind": "Type",
+      "referenceType": "Reference Type",
+      "scalarType": "Scalar Type",
+      "size": "Size",
+      "searchable": "Searchable",
+      "searchType": "Search Type",
+      "enabled": "Enabled"
+    },
+    "searchType": {
+      "startswith": "Starts With",
+      "contains": "Contains"
+    },
+    "manage": {
+      "title": "Manage Entity Type Properties",
+      "properties": "Properties",
+      "system": "System",
+      "add": "Add property",
+      "remove": "Remove property",
+      "propertyDetails": "Property Details",
+      "content": "Content",
+      "flags": "Flags",
+      "searchableLimitError": "Excluding the Name, it's not possible to mark more than two properties as searchable.",
+      "containsWarning": "Contains search type might affect the performance of the entity search",
+      "searchableNotAllowed": "Only properties with Reference Type None, Scalar Type Varchar/NVarchar and Size 1-512 can be searchable."
+    }
   },
   "mainLayout": {
     "noOpenTabs": "No open tabs",

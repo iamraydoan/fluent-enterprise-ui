@@ -296,7 +296,60 @@
       "active": "활성",
       "terminated": "종료"
     },
-    "title": "엔터티 유형 ({{count}})"
+    "title": "엔터티 유형 ({{count}})",
+    "sections": {
+      "details": "세부 정보",
+      "stateModels": "상태 모델",
+      "properties": "속성",
+      "attributes": "특성",
+      "operations": "작업",
+      "operationAttributes": "작업 특성",
+      "odsRetention": "ODS 보존 기간",
+      "empty": "표시할 내용이 없습니다",
+      "emptyBody": "이 섹션은 데모에서 사용할 수 없습니다."
+    },
+    "details": {
+      "generalData": "일반 데이터",
+      "name": "이름",
+      "description": "설명",
+      "system": "시스템",
+      "lockType": "잠금 유형"
+    },
+    "properties": {
+      "title": "속성 ({{count}})",
+      "manage": "관리",
+      "searchableFilter": "검색 가능",
+      "referenceTypeFilter": "참조 유형: {{value}}",
+      "searchable": "검색 가능"
+    },
+    "property": {
+      "name": "이름",
+      "description": "설명",
+      "kind": "유형",
+      "referenceType": "참조 유형",
+      "scalarType": "스칼라 유형",
+      "size": "크기",
+      "searchable": "검색 가능",
+      "searchType": "검색 유형",
+      "enabled": "활성화"
+    },
+    "searchType": {
+      "startswith": "시작 일치",
+      "contains": "포함"
+    },
+    "manage": {
+      "title": "엔터티 유형 속성 관리",
+      "properties": "속성",
+      "system": "시스템",
+      "add": "속성 추가",
+      "remove": "속성 제거",
+      "propertyDetails": "속성 세부 정보",
+      "content": "콘텐츠",
+      "flags": "플래그",
+      "searchableLimitError": "이름을 제외하고 검색 가능으로 표시할 수 있는 속성은 2개를 초과할 수 없습니다.",
+      "containsWarning": "포함 검색 유형은 엔터티 검색 성능에 영향을 줄 수 있습니다",
+      "searchableNotAllowed": "참조 유형이 None이고 스칼라 유형이 Varchar/NVarchar이며 크기가 1-512인 속성만 검색 가능합니다."
+    }
   },
   "mainLayout": {
     "noOpenTabs": "열린 탭이 없습니다",

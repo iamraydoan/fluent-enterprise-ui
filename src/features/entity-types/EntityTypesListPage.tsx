@@ -10,11 +10,14 @@ import {
 } from "@/components/common";
 import type { DataColumn } from "@/components/common";
 import { DocumentBulletList20Regular } from "@/components/icons";
+import { useDetailNavigation } from "@/lib/useDetailNavigation";
+import { useTabsStore } from "@/stores/tabs-store";
 
 const COLUMNS: DataColumn<EntityTypeRecord>[] = [
   {
     field: "name",
     headerName: "entityTypes.columns.name",
+    type: "link",
     locked: true,
     width: "22%",
     truncate: true,
@@ -56,6 +59,8 @@ const COLUMNS: DataColumn<EntityTypeRecord>[] = [
 ];
 
 export function EntityTypesListPage() {
+  const openRoute = useTabsStore((state) => state.openRoute);
+  const openDetail = useDetailNavigation("/administration/entity-types/$name", openRoute);
   return (
     <DataListPage
       icon={<DocumentBulletList20Regular />}
@@ -65,6 +70,7 @@ export function EntityTypesListPage() {
       columns={COLUMNS}
       useListQuery={useEntityTypes}
       getRowId={(row) => row.id}
+      onRowClick={(row) => openDetail(row.name)}
     />
   );
 }
