@@ -175,3 +175,14 @@ export type {
   MaintenanceActivityOrderDetail,
   MaintenanceActivityOrderRecord,
 } from "./businessData/maintenanceActivityOrder";
+export {
+  getMaintenancePlan,
+  listMaintenancePlans,
+  useMaintenancePlanDetail,
+  useMaintenancePlans,
+} from "./businessData/maintenancePlan";
+export type {
+  MaintenanceActivity,
+  MaintenancePlanDetail,
+  MaintenancePlanRecord,
+} from "./businessData/maintenancePlan";
