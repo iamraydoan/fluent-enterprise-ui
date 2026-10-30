@@ -4,18 +4,17 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  title: tk("businessData.maintenancePlan.associate.title"),
-  entityType: tk("businessData.maintenancePlan.associate.entityType"),
-  entity: tk("businessData.maintenancePlan.associate.entity"),
-  area: tk("businessData.maintenancePlan.associate.area"),
-  container: tk("businessData.maintenancePlan.associate.container"),
-  material: tk("businessData.maintenancePlan.associate.material"),
-  resource: tk("businessData.maintenancePlan.associate.resource"),
-  cancel: tk("businessData.maintenancePlan.associate.cancel"),
-  associate: tk("businessData.maintenancePlan.associate.associate"),
+const L: Record<string, TranslationKey> = {
+  title: "businessData.maintenancePlan.associate.title",
+  entityType: "businessData.maintenancePlan.associate.entityType",
+  entity: "businessData.maintenancePlan.associate.entity",
+  area: "businessData.maintenancePlan.associate.area",
+  container: "businessData.maintenancePlan.associate.container",
+  material: "businessData.maintenancePlan.associate.material",
+  resource: "businessData.maintenancePlan.associate.resource",
+  cancel: "businessData.maintenancePlan.associate.cancel",
+  associate: "businessData.maintenancePlan.associate.associate",
 };
 
 const useDialogStyles = makeStyles({

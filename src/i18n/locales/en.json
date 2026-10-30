@@ -1650,6 +1650,24 @@
         "assign": "Assign",
         "unassign": "Unassign",
         "manage": "Manage"
+      },
+      "qualifications": {
+        "manageTitle": "Manage Employee Qualification",
+        "assignTitle": "Assign Qualification to Employee",
+        "unassignTitle": "Unassign Qualification from Employee",
+        "unassignMessage": "Unassign Qualification \"{{qualification}}\" from Employee \"{{name}}\"?",
+        "qualification": "Qualification",
+        "qualificationDate": "Qualification Date",
+        "validTo": "Valid To",
+        "reason": "Reason",
+        "proficiency": "Proficiency",
+        "remarks": "Remarks",
+        "comment": "Comment",
+        "cancel": "Cancel",
+        "update": "Update",
+        "assign": "Assign",
+        "unassign": "Unassign",
+        "manage": "Manage"
       }
     },
     "maintenanceActivityOrder": {

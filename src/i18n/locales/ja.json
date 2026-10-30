@@ -1650,6 +1650,24 @@
         "assign": "割当",
         "unassign": "割当解除",
         "manage": "管理"
+      },
+      "qualifications": {
+        "manageTitle": "Employee Qualificationの管理",
+        "assignTitle": "EmployeeへのQualification割当",
+        "unassignTitle": "EmployeeからのQualification割当解除",
+        "unassignMessage": "Employee「{{name}}」からQualification「{{qualification}}」の割当を解除しますか?",
+        "qualification": "Qualification",
+        "qualificationDate": "認定日",
+        "validTo": "有効期限",
+        "reason": "理由",
+        "proficiency": "習熟度",
+        "remarks": "備考",
+        "comment": "コメント",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "assign": "割当",
+        "unassign": "割当解除",
+        "manage": "管理"
       }
     },
     "maintenanceActivityOrder": {

@@ -16,6 +16,10 @@ import {
   GrantCertificationDialog,
   ManageCertificationDialog,
 } from "./EmployeeCertificationDialogs";
+import {
+  AssignQualificationDialog,
+  ManageQualificationDialog,
+} from "./EmployeeQualificationDialogs";
 
 
 const TOP_TABS: DetailTab[] = [
@@ -75,6 +79,8 @@ export function EmployeeDetailPage({ name }: { name: string }) {
     {manageCertOpen && <ManageCertificationDialog name={name} onClose={() => setManageCertOpen(false)} />}
     {grantCertOpen && <GrantCertificationDialog name={name} onClose={() => setGrantCertOpen(false)} />}
     {assignCertOpen && <AssignCertificationDialog name={name} onClose={() => setAssignCertOpen(false)} />}
+    {manageQualOpen && <ManageQualificationDialog name={name} onClose={() => setManageQualOpen(false)} />}
+    {assignQualOpen && <AssignQualificationDialog name={name} onClose={() => setAssignQualOpen(false)} />}
     </>
   );
 
@@ -149,6 +155,12 @@ export function EmployeeDetailPage({ name }: { name: string }) {
           </Button>
           <Button onClick={() => setAssignCertOpen(true)}>
             {t(tk("businessData.employee.certifications.assign"))}
+          </Button>
+          <Button onClick={() => setManageQualOpen(true)}>
+            {t(tk("businessData.employee.qualifications.manage"))}
+          </Button>
+          <Button onClick={() => setAssignQualOpen(true)}>
+            {t(tk("businessData.employee.qualifications.assign"))}
           </Button>
         </div>
       </Card>

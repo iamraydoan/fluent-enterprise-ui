@@ -5,19 +5,18 @@ import { useSharedStyles } from "@/styles/shared";
 import { TERMINATE } from "./wizardMode";
 import type { TerminateMode } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  terminateTitle: tk("businessData.maintenancePlan.terminateDialog.title"),
-  terminateMessage: tk("businessData.maintenancePlan.terminateDialog.message"),
-  unterminateTitle: tk("businessData.maintenancePlan.terminateDialog.unterminateTitle"),
-  unterminateMessage: tk("businessData.maintenancePlan.terminateDialog.unterminateMessage"),
-  cancel: tk("businessData.maintenancePlan.terminateDialog.cancel"),
-  terminate: tk("businessData.maintenancePlan.terminateDialog.terminate"),
-  unterminate: tk("businessData.maintenancePlan.terminateDialog.unterminate"),
-  setEffectiveTitle: tk("businessData.maintenancePlan.terminateDialog.setEffectiveTitle"),
-  setEffectiveMessage: tk("businessData.maintenancePlan.terminateDialog.setEffectiveMessage"),
-  setEffective: tk("businessData.maintenancePlan.terminateDialog.setEffective"),
+const L: Record<string, TranslationKey> = {
+  terminateTitle: "businessData.maintenancePlan.terminateDialog.title",
+  terminateMessage: "businessData.maintenancePlan.terminateDialog.message",
+  unterminateTitle: "businessData.maintenancePlan.terminateDialog.unterminateTitle",
+  unterminateMessage: "businessData.maintenancePlan.terminateDialog.unterminateMessage",
+  cancel: "businessData.maintenancePlan.terminateDialog.cancel",
+  terminate: "businessData.maintenancePlan.terminateDialog.terminate",
+  unterminate: "businessData.maintenancePlan.terminateDialog.unterminate",
+  setEffectiveTitle: "businessData.maintenancePlan.terminateDialog.setEffectiveTitle",
+  setEffectiveMessage: "businessData.maintenancePlan.terminateDialog.setEffectiveMessage",
+  setEffective: "businessData.maintenancePlan.terminateDialog.setEffective",
 };
 
 const useDialogStyles = makeStyles({

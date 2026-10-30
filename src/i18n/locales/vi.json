@@ -1650,6 +1650,24 @@
         "assign": "Gán",
         "unassign": "Hủy gán",
         "manage": "Quản lý"
+      },
+      "qualifications": {
+        "manageTitle": "Quản lý Qualification của Employee",
+        "assignTitle": "Gán Qualification cho Employee",
+        "unassignTitle": "Hủy gán Qualification của Employee",
+        "unassignMessage": "Hủy gán Qualification \"{{qualification}}\" của Employee \"{{name}}\"?",
+        "qualification": "Qualification",
+        "qualificationDate": "Ngày đạt",
+        "validTo": "Hiệu lực đến",
+        "reason": "Lý do",
+        "proficiency": "Mức độ thành thạo",
+        "remarks": "Ghi chú",
+        "comment": "Bình luận",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "assign": "Gán",
+        "unassign": "Hủy gán",
+        "manage": "Quản lý"
       }
     },
     "maintenanceActivityOrder": {

@@ -1650,6 +1650,24 @@
         "assign": "할당",
         "unassign": "할당 해제",
         "manage": "관리"
+      },
+      "qualifications": {
+        "manageTitle": "Employee Qualification 관리",
+        "assignTitle": "Employee에게 Qualification 할당",
+        "unassignTitle": "Employee의 Qualification 할당 해제",
+        "unassignMessage": "Employee \"{{name}}\"의 Qualification \"{{qualification}}\" 할당을 해제하시겠습니까?",
+        "qualification": "Qualification",
+        "qualificationDate": "자격 취득일",
+        "validTo": "유효 기간",
+        "reason": "사유",
+        "proficiency": "숙련도",
+        "remarks": "비고",
+        "comment": "설명",
+        "cancel": "취소",
+        "update": "업데이트",
+        "assign": "할당",
+        "unassign": "할당 해제",
+        "manage": "관리"
       }
     },
     "maintenanceActivityOrder": {

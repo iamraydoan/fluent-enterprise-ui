@@ -4,29 +4,28 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  manageTitle: tk("businessData.employee.certifications.manageTitle"),
-  grantTitle: tk("businessData.employee.certifications.grantTitle"),
-  revokeTitle: tk("businessData.employee.certifications.revokeTitle"),
-  revokeMessage: tk("businessData.employee.certifications.revokeMessage"),
-  assignTitle: tk("businessData.employee.certifications.assignTitle"),
-  unassignTitle: tk("businessData.employee.certifications.unassignTitle"),
-  unassignMessage: tk("businessData.employee.certifications.unassignMessage"),
-  certification: tk("businessData.employee.certifications.certification"),
-  plannedDate: tk("businessData.employee.certifications.plannedDate"),
-  certificationDate: tk("businessData.employee.certifications.certificationDate"),
-  isTrainer: tk("businessData.employee.certifications.isTrainer"),
-  isTrainee: tk("businessData.employee.certifications.isTrainee"),
-  comment: tk("businessData.employee.certifications.comment"),
-  remark: tk("businessData.employee.certifications.remark"),
-  cancel: tk("businessData.employee.certifications.cancel"),
-  update: tk("businessData.employee.certifications.update"),
-  grant: tk("businessData.employee.certifications.grant"),
-  revoke: tk("businessData.employee.certifications.revoke"),
-  assign: tk("businessData.employee.certifications.assign"),
-  unassign: tk("businessData.employee.certifications.unassign"),
+const L: Record<string, TranslationKey> = {
+  manageTitle: "businessData.employee.certifications.manageTitle",
+  grantTitle: "businessData.employee.certifications.grantTitle",
+  revokeTitle: "businessData.employee.certifications.revokeTitle",
+  revokeMessage: "businessData.employee.certifications.revokeMessage",
+  assignTitle: "businessData.employee.certifications.assignTitle",
+  unassignTitle: "businessData.employee.certifications.unassignTitle",
+  unassignMessage: "businessData.employee.certifications.unassignMessage",
+  certification: "businessData.employee.certifications.certification",
+  plannedDate: "businessData.employee.certifications.plannedDate",
+  certificationDate: "businessData.employee.certifications.certificationDate",
+  isTrainer: "businessData.employee.certifications.isTrainer",
+  isTrainee: "businessData.employee.certifications.isTrainee",
+  comment: "businessData.employee.certifications.comment",
+  remark: "businessData.employee.certifications.remark",
+  cancel: "businessData.employee.certifications.cancel",
+  update: "businessData.employee.certifications.update",
+  grant: "businessData.employee.certifications.grant",
+  revoke: "businessData.employee.certifications.revoke",
+  assign: "businessData.employee.certifications.assign",
+  unassign: "businessData.employee.certifications.unassign",
 };
 
 const useDialogStyles = makeStyles({
