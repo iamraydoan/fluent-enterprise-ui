@@ -1366,6 +1366,52 @@
       "viewReport": {
         "menuLabel": "이송 요구사항 보고서 보기"
       }
+    },
+    "workgroup": {
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "scope": "범위",
+        "state": "상태"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "scope": "범위:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "작업 그룹 ({{count}})",
+      "manageRoleWorkspaces": {
+        "menuLabel": "역할 작업 공간 관리"
+      },
+      "manageUserWorkgroups": {
+        "menuLabel": "사용자 작업 그룹 관리"
+      },
+      "notFound": "작업 그룹을 찾을 수 없습니다.",
+      "pageLabel": "작업 그룹",
+      "sections": {
+        "areas": "영역",
+        "attachments": "첨부 파일",
+        "details": "세부 정보",
+        "resources": "리소스",
+        "steps": "단계"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
     }
   }
 }

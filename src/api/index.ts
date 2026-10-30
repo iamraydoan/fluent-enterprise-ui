@@ -180,3 +180,14 @@ export type {
   TransferRequirementListParams,
   TransferRequirementRecord,
 } from "./businessData/transferRequirement";
+export {
+  getWorkgroup,
+  listWorkgroups,
+  useWorkgroupDetail,
+  useWorkgroups,
+} from "./businessData/workgroup";
+export type {
+  WorkgroupDetail,
+  WorkgroupListParams,
+  WorkgroupRecord,
+} from "./businessData/workgroup";

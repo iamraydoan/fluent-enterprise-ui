@@ -1366,6 +1366,52 @@
       "viewReport": {
         "menuLabel": "Xem báo cáo yêu cầu chuyển"
       }
+    },
+    "workgroup": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "scope": "Phạm vi",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "scope": "Phạm vi:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Tổ công việc ({{count}})",
+      "manageRoleWorkspaces": {
+        "menuLabel": "Quản lý không gian làm việc vai trò"
+      },
+      "manageUserWorkgroups": {
+        "menuLabel": "Quản lý tổ công việc người dùng"
+      },
+      "notFound": "Không tìm thấy tổ công việc.",
+      "pageLabel": "Tổ công việc",
+      "sections": {
+        "areas": "Khu vực",
+        "attachments": "Tệp đính kèm",
+        "details": "Chi tiết",
+        "resources": "Tài nguyên",
+        "steps": "Công đoạn"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
     }
   }
 }

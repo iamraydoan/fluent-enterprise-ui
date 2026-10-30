@@ -18,6 +18,7 @@ import { taskHandlers } from "./handlers/businessData/task";
 import { teamHandlers } from "./handlers/businessData/team";
 import { transferOrderHandlers } from "./handlers/businessData/transferOrder";
 import { transferRequirementHandlers } from "./handlers/businessData/transferRequirement";
+import { workgroupHandlers } from "./handlers/businessData/workgroup";
 import { uiPageHandlers } from "./handlers/uiPages";
 
 export const handlers = [
@@ -42,4 +43,5 @@ export const handlers = [
   ...teamHandlers,
   ...transferOrderHandlers,
   ...transferRequirementHandlers,
+  ...workgroupHandlers,
 ];

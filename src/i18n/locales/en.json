@@ -1366,6 +1366,52 @@
       "viewReport": {
         "menuLabel": "View Transfer Requirement Report"
       }
+    },
+    "workgroup": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "scope": "Scope",
+        "state": "State"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "scope": "Scope:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Workgroups ({{count}})",
+      "manageRoleWorkspaces": {
+        "menuLabel": "Manage Role Workspaces"
+      },
+      "manageUserWorkgroups": {
+        "menuLabel": "Manage User Workgroups"
+      },
+      "notFound": "Workgroup not found.",
+      "pageLabel": "Workgroup",
+      "sections": {
+        "areas": "Areas",
+        "attachments": "Attachments",
+        "details": "Details",
+        "resources": "Resources",
+        "steps": "Steps"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
     }
   }
 }
