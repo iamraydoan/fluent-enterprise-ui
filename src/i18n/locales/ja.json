@@ -1932,6 +1932,89 @@
           "manage": "Manage"
         }
       }
+    },
+    "scheduleScenario": {
+      "pageLabel": "Schedule Scenario",
+      "listTitle": "Schedule Scenarios",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "schedule": "Schedule",
+        "orderFulfillment": "Order Fulfillment",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "statistics": "Statistics",
+        "messages": "Messages",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "scenario": "Schedule Scenario"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "schedule": "Schedule",
+        "state": "Universal State",
+        "generationType": "Generation Type",
+        "scenarioState": "Scenario State"
+      },
+      "more": {
+        "terminate": "Terminate",
+        "generate": "Generate",
+        "release": "Release",
+        "synchronize": "Synchronize Schedule Scenario Jobs",
+        "lockJob": "Lock Schedule Scenario Job",
+        "unlockJob": "Unlock Schedule Scenario Job",
+        "adjustJob": "Adjust Schedule Scenario Job"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Schedule Scenario",
+          "editTitle": "Edit Schedule Scenario",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step4": "Automatic Scheduling",
+          "name": "Name",
+          "description": "Description",
+          "schedule": "Schedule",
+          "generationType": "Generation Type",
+          "comments": "Comments",
+          "optimizationBody": "Optionally, override the default Optimization Criteria defined at the Schedule level. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "untieBody": "Optionally, override the default Untie Sort Rules defined at the Schedule level. Add as many Untie Sort Rules as desired (at least one).",
+          "automaticBody": "Define automatic scheduling configurations inherited from the Schedule."
+        },
+        "generate": {
+          "title": "Generate Schedule Scenario",
+          "generate": "Generate",
+          "step1": "General Data",
+          "step2": "Optimization Criteria",
+          "step3": "Untie Sort Rules",
+          "step1Body": "Review the Schedule Scenario information. The Generation takes into account the information from the last Synchronization.",
+          "step2Body": "Optionally, override the default Optimization Criteria. For each desired Criteria/Objective, give the desired weight. The sum of all weights must equal 100%.",
+          "step3Body": "Optionally, override the default Untie Sort Rules. Add as many Untie Sort Rules as desired; at least one is required to proceed."
+        },
+        "terminate": {
+          "title": "Terminate Schedule Scenario",
+          "message": "Are you sure you want to terminate the Schedule Scenario '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "generic": {
+          "title": "{{name}}",
+          "message": "Are you sure you want to perform '{{operation}}' on Schedule Scenario '{{name}}'?"
+        }
+      }
     }
   }
 }

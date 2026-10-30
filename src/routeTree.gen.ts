@@ -32,6 +32,7 @@ import { Route as BusinessDataResourceJobRouteImport } from './routes/business-d
 import { Route as BusinessDataSamplingPatternRouteImport } from './routes/business-data.sampling-pattern'
 import { Route as BusinessDataSamplingPlanRouteImport } from './routes/business-data.sampling-plan'
 import { Route as BusinessDataScheduleRouteImport } from './routes/business-data.schedule'
+import { Route as BusinessDataScheduleScenarioRouteImport } from './routes/business-data.schedule-scenario'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -46,6 +47,7 @@ import { Route as BusinessDataResourceJobNameRouteImport } from './routes/busine
 import { Route as BusinessDataResourceNameRouteImport } from './routes/business-data.resource.$name'
 import { Route as BusinessDataSamplingPatternNameRouteImport } from './routes/business-data.sampling-pattern.$name'
 import { Route as BusinessDataSamplingPlanNameRouteImport } from './routes/business-data.sampling-plan.$name'
+import { Route as BusinessDataScheduleScenarioNameRouteImport } from './routes/business-data.schedule-scenario.$name'
 import { Route as BusinessDataScheduleNameRouteImport } from './routes/business-data.schedule.$name'
 
 const IndexRoute = IndexRouteImport.update({
@@ -170,6 +172,12 @@ const BusinessDataScheduleRoute = BusinessDataScheduleRouteImport.update({
   path: '/schedule',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataScheduleScenarioRoute =
+  BusinessDataScheduleScenarioRouteImport.update({
+    id: '/schedule-scenario',
+    path: '/schedule-scenario',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -252,6 +260,12 @@ const BusinessDataSamplingPlanNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataSamplingPlanRoute,
   } as any)
+const BusinessDataScheduleScenarioNameRoute =
+  BusinessDataScheduleScenarioNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataScheduleScenarioRoute,
+  } as any)
 const BusinessDataScheduleNameRoute =
   BusinessDataScheduleNameRouteImport.update({
     id: '/$name',
@@ -283,6 +297,7 @@ export interface FileRoutesByFullPath {
   '/business-data/sampling-pattern': typeof BusinessDataSamplingPatternRouteWithChildren
   '/business-data/sampling-plan': typeof BusinessDataSamplingPlanRouteWithChildren
   '/business-data/schedule': typeof BusinessDataScheduleRouteWithChildren
+  '/business-data/schedule-scenario': typeof BusinessDataScheduleScenarioRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -297,6 +312,7 @@ export interface FileRoutesByFullPath {
   '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
   '/business-data/sampling-pattern/$name': typeof BusinessDataSamplingPatternNameRoute
   '/business-data/sampling-plan/$name': typeof BusinessDataSamplingPlanNameRoute
+  '/business-data/schedule-scenario/$name': typeof BusinessDataScheduleScenarioNameRoute
   '/business-data/schedule/$name': typeof BusinessDataScheduleNameRoute
 }
 export interface FileRoutesByTo {
@@ -323,6 +339,7 @@ export interface FileRoutesByTo {
   '/business-data/sampling-pattern': typeof BusinessDataSamplingPatternRouteWithChildren
   '/business-data/sampling-plan': typeof BusinessDataSamplingPlanRouteWithChildren
   '/business-data/schedule': typeof BusinessDataScheduleRouteWithChildren
+  '/business-data/schedule-scenario': typeof BusinessDataScheduleScenarioRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -337,6 +354,7 @@ export interface FileRoutesByTo {
   '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
   '/business-data/sampling-pattern/$name': typeof BusinessDataSamplingPatternNameRoute
   '/business-data/sampling-plan/$name': typeof BusinessDataSamplingPlanNameRoute
+  '/business-data/schedule-scenario/$name': typeof BusinessDataScheduleScenarioNameRoute
   '/business-data/schedule/$name': typeof BusinessDataScheduleNameRoute
 }
 export interface FileRoutesById {
@@ -364,6 +382,7 @@ export interface FileRoutesById {
   '/business-data/sampling-pattern': typeof BusinessDataSamplingPatternRouteWithChildren
   '/business-data/sampling-plan': typeof BusinessDataSamplingPlanRouteWithChildren
   '/business-data/schedule': typeof BusinessDataScheduleRouteWithChildren
+  '/business-data/schedule-scenario': typeof BusinessDataScheduleScenarioRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -378,6 +397,7 @@ export interface FileRoutesById {
   '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
   '/business-data/sampling-pattern/$name': typeof BusinessDataSamplingPatternNameRoute
   '/business-data/sampling-plan/$name': typeof BusinessDataSamplingPlanNameRoute
+  '/business-data/schedule-scenario/$name': typeof BusinessDataScheduleScenarioNameRoute
   '/business-data/schedule/$name': typeof BusinessDataScheduleNameRoute
 }
 export interface FileRouteTypes {
@@ -406,6 +426,7 @@ export interface FileRouteTypes {
     | '/business-data/sampling-pattern'
     | '/business-data/sampling-plan'
     | '/business-data/schedule'
+    | '/business-data/schedule-scenario'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -420,6 +441,7 @@ export interface FileRouteTypes {
     | '/business-data/resource/$name'
     | '/business-data/sampling-pattern/$name'
     | '/business-data/sampling-plan/$name'
+    | '/business-data/schedule-scenario/$name'
     | '/business-data/schedule/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -446,6 +468,7 @@ export interface FileRouteTypes {
     | '/business-data/sampling-pattern'
     | '/business-data/sampling-plan'
     | '/business-data/schedule'
+    | '/business-data/schedule-scenario'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -460,6 +483,7 @@ export interface FileRouteTypes {
     | '/business-data/resource/$name'
     | '/business-data/sampling-pattern/$name'
     | '/business-data/sampling-plan/$name'
+    | '/business-data/schedule-scenario/$name'
     | '/business-data/schedule/$name'
   id:
     | '__root__'
@@ -486,6 +510,7 @@ export interface FileRouteTypes {
     | '/business-data/sampling-pattern'
     | '/business-data/sampling-plan'
     | '/business-data/schedule'
+    | '/business-data/schedule-scenario'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -500,6 +525,7 @@ export interface FileRouteTypes {
     | '/business-data/resource/$name'
     | '/business-data/sampling-pattern/$name'
     | '/business-data/sampling-plan/$name'
+    | '/business-data/schedule-scenario/$name'
     | '/business-data/schedule/$name'
   fileRoutesById: FileRoutesById
 }
@@ -674,6 +700,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataScheduleRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/schedule-scenario': {
+      id: '/business-data/schedule-scenario'
+      path: '/schedule-scenario'
+      fullPath: '/business-data/schedule-scenario'
+      preLoaderRoute: typeof BusinessDataScheduleScenarioRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -771,6 +804,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/sampling-plan/$name'
       preLoaderRoute: typeof BusinessDataSamplingPlanNameRouteImport
       parentRoute: typeof BusinessDataSamplingPlanRoute
+    }
+    '/business-data/schedule-scenario/$name': {
+      id: '/business-data/schedule-scenario/$name'
+      path: '/$name'
+      fullPath: '/business-data/schedule-scenario/$name'
+      preLoaderRoute: typeof BusinessDataScheduleScenarioNameRouteImport
+      parentRoute: typeof BusinessDataScheduleScenarioRoute
     }
     '/business-data/schedule/$name': {
       id: '/business-data/schedule/$name'
@@ -1005,6 +1045,21 @@ const BusinessDataScheduleRouteChildren: BusinessDataScheduleRouteChildren = {
 const BusinessDataScheduleRouteWithChildren =
   BusinessDataScheduleRoute._addFileChildren(BusinessDataScheduleRouteChildren)
 
+interface BusinessDataScheduleScenarioRouteChildren {
+  BusinessDataScheduleScenarioNameRoute: typeof BusinessDataScheduleScenarioNameRoute
+}
+
+const BusinessDataScheduleScenarioRouteChildren: BusinessDataScheduleScenarioRouteChildren =
+  {
+    BusinessDataScheduleScenarioNameRoute:
+      BusinessDataScheduleScenarioNameRoute,
+  }
+
+const BusinessDataScheduleScenarioRouteWithChildren =
+  BusinessDataScheduleScenarioRoute._addFileChildren(
+    BusinessDataScheduleScenarioRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataQualificationRoute: typeof BusinessDataQualificationRouteWithChildren
   BusinessDataQualificationCheckRoute: typeof BusinessDataQualificationCheckRouteWithChildren
@@ -1015,6 +1070,7 @@ interface BusinessDataRouteChildren {
   BusinessDataSamplingPatternRoute: typeof BusinessDataSamplingPatternRouteWithChildren
   BusinessDataSamplingPlanRoute: typeof BusinessDataSamplingPlanRouteWithChildren
   BusinessDataScheduleRoute: typeof BusinessDataScheduleRouteWithChildren
+  BusinessDataScheduleScenarioRoute: typeof BusinessDataScheduleScenarioRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -1029,6 +1085,8 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
     BusinessDataSamplingPatternRouteWithChildren,
   BusinessDataSamplingPlanRoute: BusinessDataSamplingPlanRouteWithChildren,
   BusinessDataScheduleRoute: BusinessDataScheduleRouteWithChildren,
+  BusinessDataScheduleScenarioRoute:
+    BusinessDataScheduleScenarioRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

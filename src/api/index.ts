@@ -182,3 +182,14 @@ export type {
   ScheduleListParams,
   ScheduleRecord,
 } from "./businessData/schedule";
+export {
+  getScheduleScenario,
+  listScheduleScenarios,
+  useScheduleScenarioDetail,
+  useScheduleScenarios,
+} from "./businessData/scheduleScenario";
+export type {
+  ScheduleScenarioDetail,
+  ScheduleScenarioListParams,
+  ScheduleScenarioRecord,
+} from "./businessData/scheduleScenario";
