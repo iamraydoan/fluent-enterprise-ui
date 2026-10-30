@@ -959,6 +959,94 @@
       "unterminate": {
         "menuLabel": "Hủy kết thúc"
       }
+    },
+    "step": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái"
+      },
+      "contexts": {
+        "bom": "Ngữ cảnh BOM",
+        "certifications": "Ngữ cảnh chứng nhận",
+        "chart": "Ngữ cảnh biểu đồ",
+        "checklist": "Ngữ cảnh danh sách kiểm tra",
+        "dataCollection": "Ngữ cảnh thu thập dữ liệu",
+        "document": "Ngữ cảnh tài liệu",
+        "durables": "Ngữ cảnh vật tư bền",
+        "inspectionPlan": "Ngữ cảnh kế hoạch kiểm tra",
+        "lineFlow": "Ngữ cảnh luồng dây chuyền",
+        "samplingPattern": "Ngữ cảnh mẫu lấy mẫu",
+        "service": "Ngữ cảnh dịch vụ",
+        "splitTrackOut": "Ngữ cảnh tách và kết thúc",
+        "timeConstraints": "Ngữ cảnh ràng buộc thời gian",
+        "yieldCycleTime": "Năng suất và thời gian chu kỳ"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "includeInScheduling": "Bao gồm trong lập lịch:",
+        "name": "Tên:",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Công đoạn ({{count}})",
+      "manageAreas": {
+        "menuLabel": "Quản lý khu vực"
+      },
+      "manageCosts": {
+        "menuLabel": "Quản lý chi phí"
+      },
+      "manageFutureActions": {
+        "menuLabel": "Quản lý hành động tương lai"
+      },
+      "manageInspectionInfo": {
+        "menuLabel": "Quản lý thông tin kiểm tra"
+      },
+      "manageLogicalNames": {
+        "menuLabel": "Quản lý tên logic công đoạn"
+      },
+      "manageReasons": {
+        "menuLabel": "Quản lý lý do"
+      },
+      "manageSamplingPlans": {
+        "menuLabel": "Quản lý kế hoạch lấy mẫu"
+      },
+      "manageScheduling": {
+        "menuLabel": "Quản lý lập lịch"
+      },
+      "notFound": "Không tìm thấy công đoạn.",
+      "pageLabel": "Công đoạn",
+      "sections": {
+        "areas": "Khu vực",
+        "attachments": "Tệp đính kèm",
+        "costing": "Tính giá thành",
+        "details": "Chi tiết",
+        "futureActions": "Hành động tương lai",
+        "inspections": "Kiểm tra",
+        "logicalNames": "Tên logic",
+        "reasons": "Lý do",
+        "sampling": "Lấy mẫu",
+        "scheduling": "Lập lịch"
+      },
+      "tabs": {
+        "compare": "So sánh",
+        "contexts": "Ngữ cảnh",
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu",
+        "schedule": "Lịch trình",
+        "stepView": "Chế độ xem công đoạn"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
     }
   }
 }

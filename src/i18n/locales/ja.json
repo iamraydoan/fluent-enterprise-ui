@@ -959,6 +959,94 @@
       "unterminate": {
         "menuLabel": "終了取消"
       }
+    },
+    "step": {
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "state": "状態"
+      },
+      "contexts": {
+        "bom": "BOMコンテキスト",
+        "certifications": "認定コンテキスト",
+        "chart": "チャートコンテキスト",
+        "checklist": "チェックリストコンテキスト",
+        "dataCollection": "データ収集コンテキスト",
+        "document": "文書コンテキスト",
+        "durables": "耐久材コンテキスト",
+        "inspectionPlan": "検査計画コンテキスト",
+        "lineFlow": "ラインフローコンテキスト",
+        "samplingPattern": "サンプリングパターンコンテキスト",
+        "service": "サービスコンテキスト",
+        "splitTrackOut": "分割トラックアウトコンテキスト",
+        "timeConstraints": "時間制約コンテキスト",
+        "yieldCycleTime": "歩留まりとサイクルタイム"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "includeInScheduling": "スケジューリングに含める:",
+        "name": "名前:",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "ステップ ({{count}})",
+      "manageAreas": {
+        "menuLabel": "エリアの管理"
+      },
+      "manageCosts": {
+        "menuLabel": "コストの管理"
+      },
+      "manageFutureActions": {
+        "menuLabel": "将来アクションの管理"
+      },
+      "manageInspectionInfo": {
+        "menuLabel": "検査情報の管理"
+      },
+      "manageLogicalNames": {
+        "menuLabel": "ステップ論理名の管理"
+      },
+      "manageReasons": {
+        "menuLabel": "理由の管理"
+      },
+      "manageSamplingPlans": {
+        "menuLabel": "サンプリング計画の管理"
+      },
+      "manageScheduling": {
+        "menuLabel": "スケジューリングの管理"
+      },
+      "notFound": "ステップが見つかりません。",
+      "pageLabel": "ステップ",
+      "sections": {
+        "areas": "エリア",
+        "attachments": "添付ファイル",
+        "costing": "原価計算",
+        "details": "詳細",
+        "futureActions": "将来アクション",
+        "inspections": "検査",
+        "logicalNames": "論理名",
+        "reasons": "理由",
+        "sampling": "サンプリング",
+        "scheduling": "スケジューリング"
+      },
+      "tabs": {
+        "compare": "比較",
+        "contexts": "コンテキスト",
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照",
+        "schedule": "スケジュール",
+        "stepView": "ステップビュー"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
     }
   }
 }

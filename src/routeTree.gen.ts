@@ -28,6 +28,7 @@ import { Route as BusinessDataShiftLogbookRouteImport } from './routes/business-
 import { Route as BusinessDataShiftPlanRouteImport } from './routes/business-data.shift-plan'
 import { Route as BusinessDataSiteRouteImport } from './routes/business-data.site'
 import { Route as BusinessDataSortRuleSetRouteImport } from './routes/business-data.sort-rule-set'
+import { Route as BusinessDataStepRouteImport } from './routes/business-data.step'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -39,6 +40,7 @@ import { Route as BusinessDataShiftLogbookNameRouteImport } from './routes/busin
 import { Route as BusinessDataShiftPlanNameRouteImport } from './routes/business-data.shift-plan.$name'
 import { Route as BusinessDataSiteNameRouteImport } from './routes/business-data.site.$name'
 import { Route as BusinessDataSortRuleSetNameRouteImport } from './routes/business-data.sort-rule-set.$name'
+import { Route as BusinessDataStepNameRouteImport } from './routes/business-data.step.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -140,6 +142,11 @@ const BusinessDataSortRuleSetRoute = BusinessDataSortRuleSetRouteImport.update({
   path: '/sort-rule-set',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataStepRoute = BusinessDataStepRouteImport.update({
+  id: '/step',
+  path: '/step',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -205,6 +212,11 @@ const BusinessDataSortRuleSetNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataSortRuleSetRoute,
   } as any)
+const BusinessDataStepNameRoute = BusinessDataStepNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataStepRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -226,6 +238,7 @@ export interface FileRoutesByFullPath {
   '/business-data/shift-plan': typeof BusinessDataShiftPlanRouteWithChildren
   '/business-data/site': typeof BusinessDataSiteRouteWithChildren
   '/business-data/sort-rule-set': typeof BusinessDataSortRuleSetRouteWithChildren
+  '/business-data/step': typeof BusinessDataStepRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -237,6 +250,7 @@ export interface FileRoutesByFullPath {
   '/business-data/shift-plan/$name': typeof BusinessDataShiftPlanNameRoute
   '/business-data/site/$name': typeof BusinessDataSiteNameRoute
   '/business-data/sort-rule-set/$name': typeof BusinessDataSortRuleSetNameRoute
+  '/business-data/step/$name': typeof BusinessDataStepNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -258,6 +272,7 @@ export interface FileRoutesByTo {
   '/business-data/shift-plan': typeof BusinessDataShiftPlanRouteWithChildren
   '/business-data/site': typeof BusinessDataSiteRouteWithChildren
   '/business-data/sort-rule-set': typeof BusinessDataSortRuleSetRouteWithChildren
+  '/business-data/step': typeof BusinessDataStepRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -269,6 +284,7 @@ export interface FileRoutesByTo {
   '/business-data/shift-plan/$name': typeof BusinessDataShiftPlanNameRoute
   '/business-data/site/$name': typeof BusinessDataSiteNameRoute
   '/business-data/sort-rule-set/$name': typeof BusinessDataSortRuleSetNameRoute
+  '/business-data/step/$name': typeof BusinessDataStepNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -291,6 +307,7 @@ export interface FileRoutesById {
   '/business-data/shift-plan': typeof BusinessDataShiftPlanRouteWithChildren
   '/business-data/site': typeof BusinessDataSiteRouteWithChildren
   '/business-data/sort-rule-set': typeof BusinessDataSortRuleSetRouteWithChildren
+  '/business-data/step': typeof BusinessDataStepRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -302,6 +319,7 @@ export interface FileRoutesById {
   '/business-data/shift-plan/$name': typeof BusinessDataShiftPlanNameRoute
   '/business-data/site/$name': typeof BusinessDataSiteNameRoute
   '/business-data/sort-rule-set/$name': typeof BusinessDataSortRuleSetNameRoute
+  '/business-data/step/$name': typeof BusinessDataStepNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -325,6 +343,7 @@ export interface FileRouteTypes {
     | '/business-data/shift-plan'
     | '/business-data/site'
     | '/business-data/sort-rule-set'
+    | '/business-data/step'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -336,6 +355,7 @@ export interface FileRouteTypes {
     | '/business-data/shift-plan/$name'
     | '/business-data/site/$name'
     | '/business-data/sort-rule-set/$name'
+    | '/business-data/step/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -357,6 +377,7 @@ export interface FileRouteTypes {
     | '/business-data/shift-plan'
     | '/business-data/site'
     | '/business-data/sort-rule-set'
+    | '/business-data/step'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -368,6 +389,7 @@ export interface FileRouteTypes {
     | '/business-data/shift-plan/$name'
     | '/business-data/site/$name'
     | '/business-data/sort-rule-set/$name'
+    | '/business-data/step/$name'
   id:
     | '__root__'
     | '/'
@@ -389,6 +411,7 @@ export interface FileRouteTypes {
     | '/business-data/shift-plan'
     | '/business-data/site'
     | '/business-data/sort-rule-set'
+    | '/business-data/step'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -400,6 +423,7 @@ export interface FileRouteTypes {
     | '/business-data/shift-plan/$name'
     | '/business-data/site/$name'
     | '/business-data/sort-rule-set/$name'
+    | '/business-data/step/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -545,6 +569,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataSortRuleSetRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/step': {
+      id: '/business-data/step'
+      path: '/step'
+      fullPath: '/business-data/step'
+      preLoaderRoute: typeof BusinessDataStepRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -621,6 +652,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/sort-rule-set/$name'
       preLoaderRoute: typeof BusinessDataSortRuleSetNameRouteImport
       parentRoute: typeof BusinessDataSortRuleSetRoute
+    }
+    '/business-data/step/$name': {
+      id: '/business-data/step/$name'
+      path: '/$name'
+      fullPath: '/business-data/step/$name'
+      preLoaderRoute: typeof BusinessDataStepNameRouteImport
+      parentRoute: typeof BusinessDataStepRoute
     }
   }
 }
@@ -799,12 +837,24 @@ const BusinessDataSortRuleSetRouteWithChildren =
     BusinessDataSortRuleSetRouteChildren,
   )
 
+interface BusinessDataStepRouteChildren {
+  BusinessDataStepNameRoute: typeof BusinessDataStepNameRoute
+}
+
+const BusinessDataStepRouteChildren: BusinessDataStepRouteChildren = {
+  BusinessDataStepNameRoute: BusinessDataStepNameRoute,
+}
+
+const BusinessDataStepRouteWithChildren =
+  BusinessDataStepRoute._addFileChildren(BusinessDataStepRouteChildren)
+
 interface BusinessDataRouteChildren {
   BusinessDataShiftDefinitionRoute: typeof BusinessDataShiftDefinitionRouteWithChildren
   BusinessDataShiftLogbookRoute: typeof BusinessDataShiftLogbookRouteWithChildren
   BusinessDataShiftPlanRoute: typeof BusinessDataShiftPlanRouteWithChildren
   BusinessDataSiteRoute: typeof BusinessDataSiteRouteWithChildren
   BusinessDataSortRuleSetRoute: typeof BusinessDataSortRuleSetRouteWithChildren
+  BusinessDataStepRoute: typeof BusinessDataStepRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -814,6 +864,7 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataShiftPlanRoute: BusinessDataShiftPlanRouteWithChildren,
   BusinessDataSiteRoute: BusinessDataSiteRouteWithChildren,
   BusinessDataSortRuleSetRoute: BusinessDataSortRuleSetRouteWithChildren,
+  BusinessDataStepRoute: BusinessDataStepRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

@@ -959,6 +959,94 @@
       "unterminate": {
         "menuLabel": "종료 취소"
       }
+    },
+    "step": {
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "state": "상태"
+      },
+      "contexts": {
+        "bom": "BOM 컨텍스트",
+        "certifications": "인증 컨텍스트",
+        "chart": "차트 컨텍스트",
+        "checklist": "체크리스트 컨텍스트",
+        "dataCollection": "데이터 수집 컨텍스트",
+        "document": "문서 컨텍스트",
+        "durables": "내구재 컨텍스트",
+        "inspectionPlan": "검사 계획 컨텍스트",
+        "lineFlow": "라인 흐름 컨텍스트",
+        "samplingPattern": "샘플링 패턴 컨텍스트",
+        "service": "서비스 컨텍스트",
+        "splitTrackOut": "분할 트랙아웃 컨텍스트",
+        "timeConstraints": "시간 제약 컨텍스트",
+        "yieldCycleTime": "수율 및 사이클 시간"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "includeInScheduling": "스케줄링 포함:",
+        "name": "이름:",
+        "state": "범용 상태:"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "단계 ({{count}})",
+      "manageAreas": {
+        "menuLabel": "영역 관리"
+      },
+      "manageCosts": {
+        "menuLabel": "비용 관리"
+      },
+      "manageFutureActions": {
+        "menuLabel": "향후 작업 관리"
+      },
+      "manageInspectionInfo": {
+        "menuLabel": "검사 정보 관리"
+      },
+      "manageLogicalNames": {
+        "menuLabel": "단계 논리 이름 관리"
+      },
+      "manageReasons": {
+        "menuLabel": "사유 관리"
+      },
+      "manageSamplingPlans": {
+        "menuLabel": "샘플링 계획 관리"
+      },
+      "manageScheduling": {
+        "menuLabel": "스케줄링 관리"
+      },
+      "notFound": "단계를 찾을 수 없습니다.",
+      "pageLabel": "단계",
+      "sections": {
+        "areas": "영역",
+        "attachments": "첨부 파일",
+        "costing": "원가 계산",
+        "details": "세부 정보",
+        "futureActions": "향후 작업",
+        "inspections": "검사",
+        "logicalNames": "논리 이름",
+        "reasons": "사유",
+        "sampling": "샘플링",
+        "scheduling": "스케줄링"
+      },
+      "tabs": {
+        "compare": "비교",
+        "contexts": "컨텍스트",
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조",
+        "schedule": "일정",
+        "stepView": "단계 보기"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      }
     }
   }
 }

@@ -959,6 +959,94 @@
       "unterminate": {
         "menuLabel": "Unterminate"
       }
+    },
+    "step": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "state": "State"
+      },
+      "contexts": {
+        "bom": "BOM Context",
+        "certifications": "Certifications Context",
+        "chart": "Chart Context",
+        "checklist": "Checklist Context",
+        "dataCollection": "Data Collection Context",
+        "document": "Document Context",
+        "durables": "Durables Context",
+        "inspectionPlan": "Inspection Plan Context",
+        "lineFlow": "Line Flow Context",
+        "samplingPattern": "Sampling Pattern Context",
+        "service": "Service Context",
+        "splitTrackOut": "Split Track-Out Context",
+        "timeConstraints": "Time Constraints Context",
+        "yieldCycleTime": "Yield and Cycle Time"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "includeInScheduling": "Include in Scheduling:",
+        "name": "Name:",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Steps ({{count}})",
+      "manageAreas": {
+        "menuLabel": "Manage Areas"
+      },
+      "manageCosts": {
+        "menuLabel": "Manage Costs"
+      },
+      "manageFutureActions": {
+        "menuLabel": "Manage Future Actions"
+      },
+      "manageInspectionInfo": {
+        "menuLabel": "Manage Inspection Information"
+      },
+      "manageLogicalNames": {
+        "menuLabel": "Manage Step Logical Names"
+      },
+      "manageReasons": {
+        "menuLabel": "Manage Reasons"
+      },
+      "manageSamplingPlans": {
+        "menuLabel": "Manage Sampling Plans"
+      },
+      "manageScheduling": {
+        "menuLabel": "Manage Scheduling"
+      },
+      "notFound": "Step not found.",
+      "pageLabel": "Step",
+      "sections": {
+        "areas": "Areas",
+        "attachments": "Attachments",
+        "costing": "Costing",
+        "details": "Details",
+        "futureActions": "Future Actions",
+        "inspections": "Inspections",
+        "logicalNames": "Logical Names",
+        "reasons": "Reasons",
+        "sampling": "Sampling",
+        "scheduling": "Scheduling"
+      },
+      "tabs": {
+        "compare": "Compare",
+        "contexts": "Contexts",
+        "details": "Details",
+        "history": "History",
+        "references": "References",
+        "schedule": "Schedule",
+        "stepView": "Step View"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
     }
   }
 }

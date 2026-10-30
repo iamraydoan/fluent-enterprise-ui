@@ -11,6 +11,7 @@ import { shiftLogbookHandlers } from "./handlers/businessData/shiftLogbook";
 import { shiftPlanHandlers } from "./handlers/businessData/shiftPlan";
 import { siteHandlers } from "./handlers/businessData/site";
 import { sortRuleSetHandlers } from "./handlers/businessData/sortRuleSet";
+import { stepHandlers } from "./handlers/businessData/step";
 import { uiPageHandlers } from "./handlers/uiPages";
 
 export const handlers = [
@@ -28,4 +29,5 @@ export const handlers = [
   ...shiftPlanHandlers,
   ...siteHandlers,
   ...sortRuleSetHandlers,
+  ...stepHandlers,
 ];
