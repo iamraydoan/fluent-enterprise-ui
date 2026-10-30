@@ -1,7 +1,13 @@
 import { useCallback, useMemo } from "react";
 import { RecordState, useEntityTypes } from "@/api";
 import type { EntityTypeRecord } from "@/api";
-import { DataTableCard, ListPageHeader, RECORD_STATE_LABELS } from "@/components/common";
+import {
+  DataTableCard,
+  ListPage,
+  RECORD_STATE_LABELS,
+  searchFilter,
+  stateFilter,
+} from "@/components/common";
 import type { DataColumn, DataFilter } from "@/components/common";
 import {
   Add24Regular,
@@ -14,7 +20,6 @@ import {
 } from "@/components/icons";
 import { TableCellLayout } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { enumOptions } from "@/lib/enum";
 
 export function EntityTypesPage() {
   const { t } = useAppTranslation();
@@ -81,24 +86,15 @@ export function EntityTypesPage() {
     [t, renderBoolean],
   );
   const filters = useMemo<DataFilter[]>(
-    () => [
-      {
-        type: "select",
-        param: "state",
-        labelKey: "common.stateFilterLabel",
-        includeAll: true,
-        options: enumOptions([RecordState.Active, RecordState.Terminated], RECORD_STATE_LABELS),
-      },
-      { type: "search", param: "q" },
-    ],
+    () => [stateFilter([RecordState.Active, RecordState.Terminated]), searchFilter()],
     [],
   );
   return (
-    <>
-      <ListPageHeader
-        icon={<DocumentBulletList20Regular />}
-        title={t("entityTypes.pageLabel")}
-        actions={[
+    <ListPage
+      header={{
+        icon: <DocumentBulletList20Regular />,
+        title: t("entityTypes.pageLabel"),
+        actions: [
           { icon: <Add24Regular />, label: t("actionBar.create") },
           { icon: <ArrowSync24Regular />, label: t("actionBar.refresh") },
           {
@@ -106,9 +102,9 @@ export function EntityTypesPage() {
             label: t("actionBar.export"),
           },
           { icon: <ArrowDownload24Regular />, label: t("actionBar.downloadLbos") },
-        ]}
-      />
-
+        ],
+      }}
+    >
       <DataTableCard
         title={(count) => t("entityTypes.title", { count })}
         ariaLabel={t("entityTypes.pageLabel")}
@@ -117,6 +113,6 @@ export function EntityTypesPage() {
         useListQuery={useEntityTypes}
         getRowId={(row) => row.id}
       />
-    </>
+    </ListPage>
   );
 }

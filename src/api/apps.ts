@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import type { ListQueryParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
@@ -10,19 +11,14 @@ export interface AppRecord {
   state: RecordState;
 }
 
-export interface AppListParams {
-  page: number;
-  limit: number;
-  sort?: string;
-  q?: string;
-}
+export type AppListParams = ListQueryParams;
 
 export function listApps(params: AppListParams): Promise<Page<AppRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.sort) search.set("sort", params.sort);
-  if (params.q) search.set("q", params.q);
+  if (params.filters?.q) search.set("q", params.filters.q);
   return apiFetch<Page<AppRecord>>(`/apps?${search.toString()}`);
 }
 

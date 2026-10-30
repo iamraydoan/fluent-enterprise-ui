@@ -39,21 +39,16 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { ListQueryParams } from "@/lib/listQuery";
+import type { ListQueryParams, ListQueryResult } from "@/lib/listQuery";
 import { useDebouncedValue } from "@/lib/useDebouncedValue";
 import { useSharedStyles } from "@/styles/shared";
-
-interface DataTableQueryResult<TRow> {
-  data?: { data: TRow[]; meta: { total: number } };
-  isLoading: boolean;
-}
 
 interface DataTableCardProps<TRow extends RowData> {
   title: (count: number) => string;
   ariaLabel: string;
   columns: DataColumn<TRow>[];
   filters?: DataFilter[];
-  useListQuery: (params: ListQueryParams) => DataTableQueryResult<TRow>;
+  useListQuery: (params: ListQueryParams) => ListQueryResult<TRow>;
   getRowId?: (row: TRow) => string;
   onRowClick?: (row: TRow) => void;
 }

@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import type { ListQueryParams } from "@/lib/listQuery";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
 
@@ -9,12 +10,7 @@ export interface ConfigurationRecord {
   modified: string;
 }
 
-export interface ConfigurationListParams {
-  page: number;
-  limit: number;
-  sort?: string;
-  q?: string;
-}
+export type ConfigurationListParams = ListQueryParams;
 
 export function listConfigurations(
   params: ConfigurationListParams,
@@ -23,7 +19,7 @@ export function listConfigurations(
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.sort) search.set("sort", params.sort);
-  if (params.q) search.set("q", params.q);
+  if (params.filters?.q) search.set("q", params.filters.q);
   return apiFetch<Page<ConfigurationRecord>>(`/configurations?${search.toString()}`);
 }
 

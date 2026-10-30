@@ -11,3 +11,13 @@ export interface DataColumn<TRow> {
   getValue?: (row: TRow) => unknown;
   render?: (row: TRow) => ReactNode;
 }
+
+export function getColumnValue<TRow>(column: DataColumn<TRow>, row: TRow): unknown {
+  return column.getValue ? column.getValue(row) : (row as Record<string, unknown>)[column.key];
+}
+
+export function defaultCellText(value: unknown): ReactNode {
+  if (value === null || value === undefined) return null;
+  if (typeof value === "string" || typeof value === "number") return value;
+  return String(value);
+}

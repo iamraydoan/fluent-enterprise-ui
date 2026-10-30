@@ -1,5 +1,8 @@
+import { RECORD_STATE_LABELS } from "@/components/common/listState";
 import type { TranslationKey } from "@/i18n";
 import type { EnumOption } from "@/lib/enum";
+import { enumOptions } from "@/lib/enum";
+import type { RecordState } from "@/lib/recordState";
 
 export const FILTER_ALL_VALUE = "all";
 
@@ -20,3 +23,17 @@ export type DataFilter =
       includeAll?: boolean;
       options: EnumOption<string>[];
     };
+
+export function stateFilter(states: readonly RecordState[]): DataFilter {
+  return {
+    type: "select",
+    param: "state",
+    labelKey: "common.stateFilterLabel",
+    includeAll: true,
+    options: enumOptions(states, RECORD_STATE_LABELS),
+  };
+}
+
+export function searchFilter(param = "q"): DataFilter {
+  return { type: "search", param };
+}
