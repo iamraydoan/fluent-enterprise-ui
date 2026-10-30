@@ -157,8 +157,23 @@ export {
   useUpdateCalendar,
 } from "./businessData/calendar";
 export type { CalendarDetail, CalendarRecord, CalendarUpsertInput, WeekDay } from "./businessData/calendar";
-export { useCertificationDetail, useCertifications } from "./businessData/certification";
-export type { CertificationDetail, CertificationEmployee, CertificationQualification, CertificationRecord } from "./businessData/certification";
+export {
+  createCertificationRecord,
+  setCertificationRecordState,
+  updateCertificationRecord,
+  useCertificationDetail,
+  useCertifications,
+  useCreateCertification,
+  useSetCertificationState,
+  useUpdateCertification,
+} from "./businessData/certification";
+export type {
+  CertificationDetail,
+  CertificationEmployee,
+  CertificationQualification,
+  CertificationRecord,
+  CertificationUpsertInput,
+} from "./businessData/certification";
 export { useChangeSetDetail, useChangeSets } from "./businessData/changeSet";
 export type { ChangeSetDetail, ChangeSetItem, ChangeSetRecord, ChangeSetSubscriber } from "./businessData/changeSet";
 export { useChartDetail, useCharts } from "./businessData/chart";

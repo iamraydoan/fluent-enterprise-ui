@@ -1188,6 +1188,34 @@
           "qualifications": "자격",
           "attachments": "첨부 파일"
         }
+      },
+      "entityName": "Certification",
+      "operations": {
+        "createTitle": "Certification 만들기",
+        "cloneTitle": "Certification 복제",
+        "terminateTitle": "Certification 종료",
+        "terminateMessage": "{{name}}을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Certification 재개",
+        "unterminateMessage": "{{name}}을(를) 재개하시겠습니까?",
+        "assignEmployees": "직원 할당",
+        "assignHint": "{{name}}에 직원 할당",
+        "assign": "할당",
+        "grantCertification": "Certification 부여",
+        "grantHint": "{{name}}을(를) 직원에게 부여",
+        "grant": "부여",
+        "manageEmployees": "직원 Certification 관리",
+        "manageHint": "{{name}}의 직원 Certification 관리",
+        "revoke": "취소",
+        "revokeTitle": "Certification 취소",
+        "revokeMessage": "{{name}}을(를) 취소하시겠습니까?",
+        "unassign": "할당 해제",
+        "unassignTitle": "직원 할당 해제",
+        "unassignMessage": "{{name}}에서 직원을 할당 해제하시겠습니까?",
+        "noEmployees": "직원이 없습니다.",
+        "employeeName": "직원",
+        "granted": "부여됨",
+        "plannedDate": "예정일",
+        "remark": "비고"
       }
     },
     "changeSet": {

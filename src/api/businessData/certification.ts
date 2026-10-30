@@ -1,4 +1,4 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiFetch } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
@@ -56,5 +56,79 @@ export function useCertificationDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "certifications", name],
     queryFn: () => apiFetch<CertificationDetail>(`/business-data/certifications/${encodeURIComponent(name)}`),
+  });
+}
+
+export interface CertificationUpsertInput extends Partial<CertificationDetail> {
+  name: string;
+}
+
+function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
+  return apiFetch<T>(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export function createCertificationRecord(
+  input: CertificationUpsertInput,
+): Promise<CertificationDetail> {
+  return postJson<CertificationDetail>("/business-data/certifications", "POST", input);
+}
+
+export function updateCertificationRecord(
+  name: string,
+  input: Partial<CertificationDetail>,
+): Promise<CertificationDetail> {
+  return postJson<CertificationDetail>(
+    `/business-data/certifications/${encodeURIComponent(name)}`,
+    "PUT",
+    input,
+  );
+}
+
+export function setCertificationRecordState(
+  name: string,
+  state: string,
+): Promise<CertificationDetail> {
+  return postJson<CertificationDetail>(
+    `/business-data/certifications/${encodeURIComponent(name)}/state`,
+    "PATCH",
+    { state },
+  );
+}
+
+const CERTIFICATION_QUERY_KEY = ["business-data", "certifications"];
+
+export function useCreateCertification() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: createCertificationRecord,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: CERTIFICATION_QUERY_KEY });
+    },
+  });
+}
+
+export function useUpdateCertification() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, input }: { name: string; input: Partial<CertificationDetail> }) =>
+      updateCertificationRecord(name, input),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: CERTIFICATION_QUERY_KEY });
+    },
+  });
+}
+
+export function useSetCertificationState() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, state }: { name: string; state: string }) =>
+      setCertificationRecordState(name, state),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: CERTIFICATION_QUERY_KEY });
+    },
   });
 }

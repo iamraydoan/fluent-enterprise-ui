@@ -1188,6 +1188,34 @@
           "qualifications": "Năng lực",
           "attachments": "Tệp đính kèm"
         }
+      },
+      "entityName": "Certification",
+      "operations": {
+        "createTitle": "Tạo Certification",
+        "cloneTitle": "Nhân bản Certification",
+        "terminateTitle": "Kết thúc Certification",
+        "terminateMessage": "Kết thúc {{name}}?",
+        "unterminateTitle": "Mở lại Certification",
+        "unterminateMessage": "Mở lại {{name}}?",
+        "assignEmployees": "Gán Employees",
+        "assignHint": "Gán employees cho {{name}}.",
+        "assign": "Gán",
+        "grantCertification": "Cấp Certification",
+        "grantHint": "Cấp {{name}} cho employees.",
+        "grant": "Cấp",
+        "manageEmployees": "Quản lý Employees Certification",
+        "manageHint": "Quản lý certifications cho {{name}}.",
+        "revoke": "Thu hồi",
+        "revokeTitle": "Thu hồi Certification",
+        "revokeMessage": "Thu hồi {{name}}?",
+        "unassign": "Gỡ gán",
+        "unassignTitle": "Gỡ gán Employees",
+        "unassignMessage": "Gỡ gán employees khỏi {{name}}?",
+        "noEmployees": "Chưa có employee.",
+        "employeeName": "Employee",
+        "granted": "Đã cấp",
+        "plannedDate": "Ngày dự kiến",
+        "remark": "Ghi chú"
       }
     },
     "changeSet": {

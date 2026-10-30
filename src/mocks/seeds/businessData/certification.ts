@@ -18,8 +18,15 @@ export function queryCertifications(page: number, limit: number, q?: string, sta
   return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
 }
 
+const CERTIFICATION_OVERLAYS: Record<string, Partial<CertificationDetail>> = {};
+
+export interface CertificationUpsertInput extends Partial<CertificationDetail> {
+  name: string;
+}
+
 export function buildCertificationDetail(name: string): CertificationDetail {
   const r = RECORDS.find((x) => x.name === name) ?? { name, description: name, type: "General", state: "Active" };
+  const overlay = CERTIFICATION_OVERLAYS[r.name] ?? {};
   return {
     ...r,
     universalState: r.state,
@@ -36,5 +43,37 @@ export function buildCertificationDetail(name: string): CertificationDetail {
     allowGrantingByManager: true,
     employees: [{ name: "John Doe", state: "Active", expirationDate: "2027-10-30" }],
     qualifications: [{ qualification: "Baking Basics", proficiency: "Level 3", required: true }],
+    ...overlay,
   };
+}
+
+export function createCertificationDetail(input: CertificationUpsertInput): CertificationDetail {
+  const record = { name: input.name, description: input.description ?? "", type: input.type ?? "General", state: "Active" };
+  RECORDS.push(record);
+  const overlay: Partial<CertificationDetail> = { ...input };
+  delete overlay.name;
+  delete overlay.description;
+  delete overlay.type;
+  delete overlay.state;
+  CERTIFICATION_OVERLAYS[input.name] = overlay;
+  return buildCertificationDetail(input.name);
+}
+
+export function updateCertificationDetail(
+  name: string,
+  input: Partial<CertificationDetail>,
+): CertificationDetail | undefined {
+  const record = RECORDS.find((x) => x.name === name);
+  if (!record) return undefined;
+  if (input.description !== undefined) record.description = input.description;
+  if (input.type !== undefined) record.type = input.type;
+  CERTIFICATION_OVERLAYS[name] = { ...CERTIFICATION_OVERLAYS[name], ...input };
+  return buildCertificationDetail(name);
+}
+
+export function setCertificationState(name: string, state: string): CertificationDetail | undefined {
+  const record = RECORDS.find((x) => x.name === name);
+  if (!record) return undefined;
+  record.state = state;
+  return buildCertificationDetail(name);
 }

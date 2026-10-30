@@ -1188,6 +1188,34 @@
           "qualifications": "Qualifications",
           "attachments": "Attachments"
         }
+      },
+      "entityName": "Certification",
+      "operations": {
+        "createTitle": "Create Certification",
+        "cloneTitle": "Clone Certification",
+        "terminateTitle": "Terminate Certification",
+        "terminateMessage": "Terminate {{name}}?",
+        "unterminateTitle": "Unterminate Certification",
+        "unterminateMessage": "Unterminate {{name}}?",
+        "assignEmployees": "Assign Employees",
+        "assignHint": "Assign employees to {{name}}. Optionally grant immediately.",
+        "assign": "Assign",
+        "grantCertification": "Grant Certification",
+        "grantHint": "Grant {{name}} to employees.",
+        "grant": "Grant",
+        "manageEmployees": "Manage Employees Certification",
+        "manageHint": "Manage employee certifications for {{name}}.",
+        "revoke": "Revoke",
+        "revokeTitle": "Revoke Certification",
+        "revokeMessage": "Revoke {{name}} from employees?",
+        "unassign": "Unassign",
+        "unassignTitle": "Unassign Employees",
+        "unassignMessage": "Unassign employees from {{name}}?",
+        "noEmployees": "No employees added.",
+        "employeeName": "Employee",
+        "granted": "Granted",
+        "plannedDate": "Planned Date",
+        "remark": "Remark"
       }
     },
     "changeSet": {

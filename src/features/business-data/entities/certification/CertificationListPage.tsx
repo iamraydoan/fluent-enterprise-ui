@@ -12,6 +12,7 @@ import type { DataColumn } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { useCertificationDialogs } from "./useCertificationDialogs";
 
 const COLUMNS: DataColumn<CertificationRecord>[] = [
   { field: "name", headerName: "businessData.certification.columns.name", type: "link", locked: true, width: "30%" },
@@ -23,17 +24,21 @@ const COLUMNS: DataColumn<CertificationRecord>[] = [
 export function CertificationListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/business-data/certification/$name", openRoute);
+  const { dialogs, openCreate } = useCertificationDialogs();
   return (
+    <>
     <DataListPage
       icon={<Box24Regular />}
       titleKey="businessData.certification.pageLabel"
       listTitleKey="businessData.certification.listTitle"
-      actions={[createAction, refreshAction, importAction, exportAction]}
+      actions={[{ ...createAction, onClick: openCreate }, refreshAction, importAction, exportAction]}
       columns={COLUMNS}
       filters={defaultListFilters}
       useListQuery={useCertifications}
       getRowId={(row) => row.name}
       onRowClick={(row) => openDetail(row.name)}
     />
+    {dialogs}
+    </>
   );
 }

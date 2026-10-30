@@ -1188,6 +1188,34 @@
           "qualifications": "資格",
           "attachments": "添付ファイル"
         }
+      },
+      "entityName": "Certification",
+      "operations": {
+        "createTitle": "Certificationの作成",
+        "cloneTitle": "Certificationの複製",
+        "terminateTitle": "Certificationの終了",
+        "terminateMessage": "{{name}}を終了しますか？",
+        "unterminateTitle": "Certificationの再開",
+        "unterminateMessage": "{{name}}を再開しますか？",
+        "assignEmployees": "従業員の割当",
+        "assignHint": "{{name}}に従業員を割当",
+        "assign": "割当",
+        "grantCertification": "Certificationの付与",
+        "grantHint": "{{name}}を従業員に付与",
+        "grant": "付与",
+        "manageEmployees": "従業員Certificationの管理",
+        "manageHint": "{{name}}の従業員Certificationを管理",
+        "revoke": "取消",
+        "revokeTitle": "Certificationの取消",
+        "revokeMessage": "{{name}}を取消しますか？",
+        "unassign": "割当解除",
+        "unassignTitle": "従業員の割当解除",
+        "unassignMessage": "{{name}}から従業員を割当解除しますか？",
+        "noEmployees": "従業員がありません。",
+        "employeeName": "従業員",
+        "granted": "付与済",
+        "plannedDate": "予定日",
+        "remark": "備考"
       }
     },
     "changeSet": {
