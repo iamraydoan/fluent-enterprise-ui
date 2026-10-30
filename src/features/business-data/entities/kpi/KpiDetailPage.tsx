@@ -11,7 +11,6 @@ import { KpiDimensionsDialog } from "./KpiDimensionsDialog";
 import { KpiTerminateDialog } from "./KpiTerminateDialog";
 import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -20,15 +19,15 @@ const TOP_TABS: DetailTab[] = [
 ];
 
 const LEFT_ITEMS: TranslationKey[] = [
-  tk("businessData.kpi.sections.details"),
-  tk("businessData.kpi.sections.dimensionsAndTimeFrames"),
-  tk("businessData.kpi.sections.attachments"),
+  "businessData.kpi.sections.details",
+  "businessData.kpi.sections.dimensionsAndTimeFrames",
+  "businessData.kpi.sections.attachments",
 ];
 
 export function KpiDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<string>(tk("businessData.kpi.sections.details"));
+  const [left, setLeft] = useState<string>("businessData.kpi.sections.details");
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
   const [terminateOpen, setTerminateOpen] = useState(false);
@@ -71,66 +70,66 @@ export function KpiDetailPage({ name }: { name: string }) {
   if (isLoading || !data) {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.kpi.sections.emptyBody"))}</Text>
+        <Text>{t("businessData.kpi.sections.emptyBody")}</Text>
       </Empty>,
     );
   }
 
-  if (top === "details" && left === tk("businessData.kpi.sections.dimensionsAndTimeFrames")) {
+  if (top === "details" && left === "businessData.kpi.sections.dimensionsAndTimeFrames") {
     return shell(
-      <Card title={t(tk("businessData.kpi.sections.dimensionsAndTimeFrames"))}>
+      <Card title={t("businessData.kpi.sections.dimensionsAndTimeFrames")}>
         <Button appearance="primary" onClick={() => setDimensionsOpen(true)}>
-          {t(tk("businessData.kpi.actions.manageDimensions"))}
+          {t("businessData.kpi.actions.manageDimensions")}
         </Button>
       </Card>,
     );
   }
 
-  if (top !== "details" || left !== tk("businessData.kpi.sections.details")) {
+  if (top !== "details" || left !== "businessData.kpi.sections.details") {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.kpi.sections.empty"))}</Text>
+        <Text>{t("businessData.kpi.sections.empty")}</Text>
       </Empty>,
     );
   }
 
   return shell(
     <CardGrid>
-      <Card title={t(tk("businessData.kpi.sections.kpi"))}>
+      <Card title={t("businessData.kpi.sections.kpi")}>
         <KV
           rows={[
-            [t(tk("businessData.kpi.details.name")), data.name],
-            [t(tk("businessData.kpi.details.description")), data.description],
-            [t(tk("businessData.kpi.details.type")), data.type],
-            [t(tk("businessData.kpi.details.state")), data.state],
-            [t(tk("businessData.kpi.details.dataGroup")), data.dataGroup],
+            [t("businessData.kpi.details.name"), data.name],
+            [t("businessData.kpi.details.description"), data.description],
+            [t("businessData.kpi.details.type"), data.type],
+            [t("businessData.kpi.details.state"), data.state],
+            [t("businessData.kpi.details.dataGroup"), data.dataGroup],
           ]}
         />
       </Card>
-      <Card title={t(tk("businessData.kpi.sections.settings"))}>
+      <Card title={t("businessData.kpi.sections.settings")}>
         <KV
           rows={[
-            [t(tk("businessData.kpi.details.sourceType")), data.sourceType],
-            [t(tk("businessData.kpi.details.entityType")), data.entityType],
-            [t(tk("businessData.kpi.details.parameter")), data.parameter],
-            [t(tk("businessData.kpi.details.kpiType")), data.kpiType],
-            [t(tk("businessData.kpi.details.frequency")), data.frequency],
-            [t(tk("businessData.kpi.details.ownerRole")), data.ownerRole],
+            [t("businessData.kpi.details.sourceType"), data.sourceType],
+            [t("businessData.kpi.details.entityType"), data.entityType],
+            [t("businessData.kpi.details.parameter"), data.parameter],
+            [t("businessData.kpi.details.kpiType"), data.kpiType],
+            [t("businessData.kpi.details.frequency"), data.frequency],
+            [t("businessData.kpi.details.ownerRole"), data.ownerRole],
           ]}
         />
       </Card>
-      <Card title={t(tk("businessData.kpi.sections.defaultValues"))}>
+      <Card title={t("businessData.kpi.sections.defaultValues")}>
         <KV
           rows={[
             [
-              t(tk("businessData.kpi.details.closeToTargetMinimumValue")),
+              t("businessData.kpi.details.closeToTargetMinimumValue"),
               String(data.closeToTargetMinimumValue),
             ],
             [
-              t(tk("businessData.kpi.details.inTargetMinimumValue")),
+              t("businessData.kpi.details.inTargetMinimumValue"),
               String(data.inTargetMinimumValue),
             ],
-            [t(tk("businessData.kpi.details.targetValue")), String(data.targetValue)],
+            [t("businessData.kpi.details.targetValue"), String(data.targetValue)],
           ]}
         />
       </Card>

@@ -12,28 +12,26 @@ import {
 } from "@/components/common";
 import type { DataColumn } from "@/components/common";
 import { Target24Regular } from "@/components/icons";
-import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 import { KpiDialog } from "./KpiDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const COLUMNS: DataColumn<KpiRecord>[] = [
   {
     field: "name",
-    headerName: tk("businessData.kpi.columns.name"),
+    headerName: "businessData.kpi.columns.name",
     type: "link",
     locked: true,
     width: "35%",
   },
-  { field: "description", headerName: tk("businessData.kpi.columns.description"), width: "30%" },
-  { field: "type", headerName: tk("businessData.kpi.columns.type"), width: "20%" },
+  { field: "description", headerName: "businessData.kpi.columns.description", width: "30%" },
+  { field: "type", headerName: "businessData.kpi.columns.type", width: "20%" },
   {
     field: "state",
-    headerName: tk("businessData.kpi.columns.state"),
+    headerName: "businessData.kpi.columns.state",
     type: "enum",
     enumOptions: RECORD_STATE_COLUMN_OPTIONS,
     width: "15%",
@@ -53,8 +51,8 @@ export function KpiListPage() {
     <>
       <DataListPage
         icon={<Target24Regular />}
-        titleKey={tk("businessData.kpi.pageLabel")}
-        listTitleKey={tk("businessData.kpi.listTitle")}
+        titleKey={"businessData.kpi.pageLabel"}
+        listTitleKey={"businessData.kpi.listTitle"}
         actions={[
           { ...createAction, onClick: () => setCreateOpen(true) },
           refreshAction,

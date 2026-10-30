@@ -12,7 +12,6 @@ import { FacilityTerminateDialog } from "./FacilityTerminateDialog";
 import { ManageShippingFacilitiesDialog } from "./ManageShippingFacilitiesDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -21,16 +20,16 @@ const TOP_TABS: DetailTab[] = [
 ];
 
 const LEFT_ITEMS: TranslationKey[] = [
-  tk("businessData.facility.sections.details"),
-  tk("businessData.facility.sections.areas"),
-  tk("businessData.facility.sections.shippingInformation"),
-  tk("businessData.facility.sections.attachments"),
+  "businessData.facility.sections.details",
+  "businessData.facility.sections.areas",
+  "businessData.facility.sections.shippingInformation",
+  "businessData.facility.sections.attachments",
 ];
 
 export function FacilityDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<string>(tk("businessData.facility.sections.details"));
+  const [left, setLeft] = useState<string>("businessData.facility.sections.details");
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
   const [terminateOpen, setTerminateOpen] = useState(false);
@@ -91,48 +90,48 @@ export function FacilityDetailPage({ name }: { name: string }) {
   if (isLoading || !data) {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.facility.sections.emptyBody"))}</Text>
+        <Text>{t("businessData.facility.sections.emptyBody")}</Text>
       </Empty>,
     );
   }
 
-  if (top !== "details" || left !== tk("businessData.facility.sections.details")) {
+  if (top !== "details" || left !== "businessData.facility.sections.details") {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.facility.sections.empty"))}</Text>
+        <Text>{t("businessData.facility.sections.empty")}</Text>
       </Empty>,
     );
   }
 
   return shell(
     <CardGrid>
-      <Card title={t(tk("businessData.facility.sections.facility"))}>
+      <Card title={t("businessData.facility.sections.facility")}>
         <KV
           rows={[
-            [t(tk("businessData.facility.details.name")), data.name],
-            [t(tk("businessData.facility.details.description")), data.description],
-            [t(tk("businessData.facility.details.type")), data.type],
-            [t(tk("businessData.facility.details.state")), data.state],
-            [t(tk("businessData.facility.details.dataGroup")), data.dataGroup],
+            [t("businessData.facility.details.name"), data.name],
+            [t("businessData.facility.details.description"), data.description],
+            [t("businessData.facility.details.type"), data.type],
+            [t("businessData.facility.details.state"), data.state],
+            [t("businessData.facility.details.dataGroup"), data.dataGroup],
           ]}
         />
       </Card>
-      <Card title={t(tk("businessData.facility.sections.information"))}>
+      <Card title={t("businessData.facility.sections.information")}>
         <KV
           rows={[
-            [t(tk("businessData.facility.details.displayOrder")), String(data.displayOrder)],
-            [t(tk("businessData.facility.details.defaultCalendar")), data.defaultCalendar],
-            [t(tk("businessData.facility.details.site")), data.site],
-            [t(tk("businessData.facility.details.remote")), booleanLabel(data.remote)],
+            [t("businessData.facility.details.displayOrder"), String(data.displayOrder)],
+            [t("businessData.facility.details.defaultCalendar"), data.defaultCalendar],
+            [t("businessData.facility.details.site"), data.site],
+            [t("businessData.facility.details.remote"), booleanLabel(data.remote)],
             [
-              t(tk("businessData.facility.details.terminateOnShipToThisFacility")),
+              t("businessData.facility.details.terminateOnShipToThisFacility"),
               booleanLabel(data.terminateOnShipToThisFacility),
             ],
           ]}
         />
         <div style={{ marginTop: "12px" }}>
           <Button onClick={() => setManageShippingOpen(true)}>
-            {t(tk("businessData.facility.manageShipping.manage"))}
+            {t("businessData.facility.manageShipping.manage")}
           </Button>
         </div>
       </Card>

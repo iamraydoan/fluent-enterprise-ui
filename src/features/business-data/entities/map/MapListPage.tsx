@@ -12,32 +12,30 @@ import {
 } from "@/components/common";
 import type { DataColumn } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
-import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 import { MapDialog } from "./MapDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const COLUMNS: DataColumn<MapRecord>[] = [
   {
     field: "name",
-    headerName: tk("businessData.map.columns.name"),
+    headerName: "businessData.map.columns.name",
     type: "link",
     locked: true,
     width: "30%",
   },
-  { field: "description", headerName: tk("businessData.map.columns.description"), width: "25%" },
+  { field: "description", headerName: "businessData.map.columns.description", width: "25%" },
   {
     field: "mapDefinition",
-    headerName: tk("businessData.map.columns.mapDefinition"),
+    headerName: "businessData.map.columns.mapDefinition",
     width: "30%",
   },
   {
     field: "state",
-    headerName: tk("businessData.map.columns.state"),
+    headerName: "businessData.map.columns.state",
     type: "enum",
     enumOptions: RECORD_STATE_COLUMN_OPTIONS,
     width: "15%",
@@ -56,8 +54,8 @@ export function MapListPage() {
     <>
       <DataListPage
         icon={<Grid24Regular />}
-        titleKey={tk("businessData.map.pageLabel")}
-        listTitleKey={tk("businessData.map.listTitle")}
+        titleKey={"businessData.map.pageLabel"}
+        listTitleKey={"businessData.map.listTitle"}
         actions={[
           { ...createAction, onClick: () => setCreateOpen(true) },
           refreshAction,

@@ -8,7 +8,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useBooleanLabel } from "../propertyLabels";
 
-const tk = (key: string) => key as TranslationKey;
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -16,14 +15,14 @@ const TOP_TABS: DetailTab[] = [
 ];
 
 const LEFT_ITEMS: TranslationKey[] = [
-  tk("businessData.dataSilo.sections.details"),
-  tk("businessData.dataSilo.sections.attachments"),
+  "businessData.dataSilo.sections.details",
+  "businessData.dataSilo.sections.attachments",
 ];
 
 export function DataSiloDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<string>(tk("businessData.dataSilo.sections.details"));
+  const [left, setLeft] = useState<string>("businessData.dataSilo.sections.details");
   const { data, isLoading } = useDataSiloDetail(name);
   const booleanLabel = useBooleanLabel();
 
@@ -42,43 +41,43 @@ export function DataSiloDetailPage({ name }: { name: string }) {
         onAskAi={() => undefined}
       >
         <Empty>
-          <Text>{t(tk("businessData.dataSilo.sections.emptyBody"))}</Text>
+          <Text>{t("businessData.dataSilo.sections.emptyBody")}</Text>
         </Empty>
       </DetailShell>
     );
   }
 
   const detailsContent =
-    left === tk("businessData.dataSilo.sections.attachments") ? (
+    left === "businessData.dataSilo.sections.attachments" ? (
       <Empty>
-        <Text>{t(tk("businessData.dataSilo.sections.empty"))}</Text>
+        <Text>{t("businessData.dataSilo.sections.empty")}</Text>
       </Empty>
     ) : (
       <CardGrid>
-        <Card title={t(tk("businessData.dataSilo.details.generalData"))}>
+        <Card title={t("businessData.dataSilo.details.generalData")}>
           <KV
             rows={[
-              [t(tk("businessData.dataSilo.details.name")), data.name],
-              [t(tk("businessData.dataSilo.details.description")), data.description],
-              [t(tk("businessData.dataSilo.details.type")), data.type],
-              [t(tk("businessData.dataSilo.details.state")), data.state],
+              [t("businessData.dataSilo.details.name"), data.name],
+              [t("businessData.dataSilo.details.description"), data.description],
+              [t("businessData.dataSilo.details.type"), data.type],
+              [t("businessData.dataSilo.details.state"), data.state],
             ]}
           />
         </Card>
-        <Card title={t(tk("businessData.dataSilo.details.properties"))}>
+        <Card title={t("businessData.dataSilo.details.properties")}>
           <KV
             rows={[
-              [t(tk("businessData.dataSilo.details.dataVersion")), data.dataVersion],
-              [t(tk("businessData.dataSilo.details.enterpriseName")), data.enterpriseName],
-              [t(tk("businessData.dataSilo.details.facilityName")), data.facilityName],
-              [t(tk("businessData.dataSilo.details.isExternal")), booleanLabel(data.isExternal)],
-              [t(tk("businessData.dataSilo.details.isObsolete")), booleanLabel(data.isObsolete)],
-              [t(tk("businessData.dataSilo.details.isSystem")), booleanLabel(data.isSystem)],
-              [t(tk("businessData.dataSilo.details.isTemplate")), booleanLabel(data.isTemplate)],
-              [t(tk("businessData.dataSilo.details.keywords")), data.keywords],
-              [t(tk("businessData.dataSilo.details.ownerInstance")), data.ownerInstance],
-              [t(tk("businessData.dataSilo.details.siteName")), data.siteName],
-              [t(tk("businessData.dataSilo.details.user")), data.user],
+              [t("businessData.dataSilo.details.dataVersion"), data.dataVersion],
+              [t("businessData.dataSilo.details.enterpriseName"), data.enterpriseName],
+              [t("businessData.dataSilo.details.facilityName"), data.facilityName],
+              [t("businessData.dataSilo.details.isExternal"), booleanLabel(data.isExternal)],
+              [t("businessData.dataSilo.details.isObsolete"), booleanLabel(data.isObsolete)],
+              [t("businessData.dataSilo.details.isSystem"), booleanLabel(data.isSystem)],
+              [t("businessData.dataSilo.details.isTemplate"), booleanLabel(data.isTemplate)],
+              [t("businessData.dataSilo.details.keywords"), data.keywords],
+              [t("businessData.dataSilo.details.ownerInstance"), data.ownerInstance],
+              [t("businessData.dataSilo.details.siteName"), data.siteName],
+              [t("businessData.dataSilo.details.user"), data.user],
             ]}
           />
         </Card>
@@ -88,14 +87,14 @@ export function DataSiloDetailPage({ name }: { name: string }) {
   const content =
     top === "references" ? (
       <CardGrid>
-        <Card title={t(tk("businessData.dataSilo.sections.relations"))}>
+        <Card title={t("businessData.dataSilo.sections.relations")}>
           <Empty>
-            <Text>{t(tk("businessData.dataSilo.sections.empty"))}</Text>
+            <Text>{t("businessData.dataSilo.sections.empty")}</Text>
           </Empty>
         </Card>
-        <Card title={t(tk("businessData.dataSilo.sections.whereUsed"))}>
+        <Card title={t("businessData.dataSilo.sections.whereUsed")}>
           <Empty>
-            <Text>{t(tk("businessData.dataSilo.sections.empty"))}</Text>
+            <Text>{t("businessData.dataSilo.sections.empty")}</Text>
           </Empty>
         </Card>
       </CardGrid>

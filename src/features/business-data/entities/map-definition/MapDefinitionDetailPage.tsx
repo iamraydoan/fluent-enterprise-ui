@@ -10,7 +10,6 @@ import { useBooleanLabel } from "../propertyLabels";
 import { MapDefinitionWizardDialog } from "./MapDefinitionWizardDialog";
 import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -19,16 +18,16 @@ const TOP_TABS: DetailTab[] = [
 ];
 
 const LEFT_ITEMS: TranslationKey[] = [
-  tk("businessData.mapDefinition.sections.details"),
-  tk("businessData.mapDefinition.sections.layers"),
-  tk("businessData.mapDefinition.sections.regions"),
-  tk("businessData.mapDefinition.sections.attachments"),
+  "businessData.mapDefinition.sections.details",
+  "businessData.mapDefinition.sections.layers",
+  "businessData.mapDefinition.sections.regions",
+  "businessData.mapDefinition.sections.attachments",
 ];
 
 export function MapDefinitionDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<string>(tk("businessData.mapDefinition.sections.details"));
+  const [left, setLeft] = useState<string>("businessData.mapDefinition.sections.details");
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
   const { data, isLoading } = useMapDefinitionDetail(name);
@@ -54,22 +53,22 @@ export function MapDefinitionDetailPage({ name }: { name: string }) {
   if (isLoading || !data) {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.mapDefinition.sections.emptyBody"))}</Text>
+        <Text>{t("businessData.mapDefinition.sections.emptyBody")}</Text>
       </Empty>,
     );
   }
 
-  if (left === tk("businessData.mapDefinition.sections.layers") && top === "details") {
+  if (left === "businessData.mapDefinition.sections.layers" && top === "details") {
     return shell(
       <>
-        <Card title={t(tk("businessData.mapDefinition.sections.layers"))}>
+        <Card title={t("businessData.mapDefinition.sections.layers")}>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHeaderCell>{t(tk("businessData.mapDefinition.wizard.layerName"))}</TableHeaderCell>
-                <TableHeaderCell>{t(tk("businessData.mapDefinition.wizard.layerType"))}</TableHeaderCell>
-                <TableHeaderCell>{t(tk("businessData.mapDefinition.wizard.dataType"))}</TableHeaderCell>
-                <TableHeaderCell>{t(tk("businessData.mapDefinition.wizard.isDefault"))}</TableHeaderCell>
+                <TableHeaderCell>{t("businessData.mapDefinition.wizard.layerName")}</TableHeaderCell>
+                <TableHeaderCell>{t("businessData.mapDefinition.wizard.layerType")}</TableHeaderCell>
+                <TableHeaderCell>{t("businessData.mapDefinition.wizard.dataType")}</TableHeaderCell>
+                <TableHeaderCell>{t("businessData.mapDefinition.wizard.isDefault")}</TableHeaderCell>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -98,10 +97,10 @@ export function MapDefinitionDetailPage({ name }: { name: string }) {
     );
   }
 
-  if (top !== "details" || left !== tk("businessData.mapDefinition.sections.details")) {
+  if (top !== "details" || left !== "businessData.mapDefinition.sections.details") {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.mapDefinition.sections.empty"))}</Text>
+        <Text>{t("businessData.mapDefinition.sections.empty")}</Text>
       </Empty>,
     );
   }
@@ -109,47 +108,47 @@ export function MapDefinitionDetailPage({ name }: { name: string }) {
   return shell(
     <>
       <CardGrid>
-        <Card title={t(tk("businessData.mapDefinition.sections.mapDefinition"))}>
+        <Card title={t("businessData.mapDefinition.sections.mapDefinition")}>
           <KV
             rows={[
-              [t(tk("businessData.mapDefinition.details.name")), data.name],
-              [t(tk("businessData.mapDefinition.details.description")), data.description],
-              [t(tk("businessData.mapDefinition.details.type")), data.type],
-              [t(tk("businessData.mapDefinition.details.state")), data.state],
+              [t("businessData.mapDefinition.details.name"), data.name],
+              [t("businessData.mapDefinition.details.description"), data.description],
+              [t("businessData.mapDefinition.details.type"), data.type],
+              [t("businessData.mapDefinition.details.state"), data.state],
             ]}
           />
         </Card>
-        <Card title={t(tk("businessData.mapDefinition.sections.options"))}>
+        <Card title={t("businessData.mapDefinition.sections.options")}>
           <KV
             rows={[
-              [t(tk("businessData.mapDefinition.details.rulerMode")), data.rulerMode],
-              [t(tk("businessData.mapDefinition.details.showRulerByDefault")), booleanLabel(data.showRulerByDefault)],
-              [t(tk("businessData.mapDefinition.details.notch")), data.notch],
-              [t(tk("businessData.mapDefinition.details.defaultRotation")), data.defaultRotation],
-              [t(tk("businessData.mapDefinition.details.materialUnits")), data.materialUnits],
+              [t("businessData.mapDefinition.details.rulerMode"), data.rulerMode],
+              [t("businessData.mapDefinition.details.showRulerByDefault"), booleanLabel(data.showRulerByDefault)],
+              [t("businessData.mapDefinition.details.notch"), data.notch],
+              [t("businessData.mapDefinition.details.defaultRotation"), data.defaultRotation],
+              [t("businessData.mapDefinition.details.materialUnits"), data.materialUnits],
             ]}
           />
         </Card>
-        <Card title={t(tk("businessData.mapDefinition.sections.information"))}>
+        <Card title={t("businessData.mapDefinition.sections.information")}>
           <KV
             rows={[
-              [t(tk("businessData.mapDefinition.details.layoutType")), data.layoutType],
-              [t(tk("businessData.mapDefinition.details.height")), String(data.height)],
-              [t(tk("businessData.mapDefinition.details.width")), String(data.width)],
-              [t(tk("businessData.mapDefinition.details.dimensionUnits")), data.dimensionUnits],
-              [t(tk("businessData.mapDefinition.details.rows")), String(data.rows)],
-              [t(tk("businessData.mapDefinition.details.columns")), String(data.columns)],
-              [t(tk("businessData.mapDefinition.details.maskFile")), data.maskFile],
-              [t(tk("businessData.mapDefinition.details.backgroundFile")), data.backgroundFile],
+              [t("businessData.mapDefinition.details.layoutType"), data.layoutType],
+              [t("businessData.mapDefinition.details.height"), String(data.height)],
+              [t("businessData.mapDefinition.details.width"), String(data.width)],
+              [t("businessData.mapDefinition.details.dimensionUnits"), data.dimensionUnits],
+              [t("businessData.mapDefinition.details.rows"), String(data.rows)],
+              [t("businessData.mapDefinition.details.columns"), String(data.columns)],
+              [t("businessData.mapDefinition.details.maskFile"), data.maskFile],
+              [t("businessData.mapDefinition.details.backgroundFile"), data.backgroundFile],
             ]}
           />
         </Card>
-        <Card title={t(tk("businessData.mapDefinition.sections.colors"))}>
+        <Card title={t("businessData.mapDefinition.sections.colors")}>
           <KV
             rows={[
-              [t(tk("businessData.mapDefinition.details.emptyUnitsColor")), data.emptyUnitsColor],
-              [t(tk("businessData.mapDefinition.details.gridLinesColor")), data.gridLinesColor],
-              [t(tk("businessData.mapDefinition.details.showGridLinesByDefault")), booleanLabel(data.showGridLinesByDefault)],
+              [t("businessData.mapDefinition.details.emptyUnitsColor"), data.emptyUnitsColor],
+              [t("businessData.mapDefinition.details.gridLinesColor"), data.gridLinesColor],
+              [t("businessData.mapDefinition.details.showGridLinesByDefault"), booleanLabel(data.showGridLinesByDefault)],
             ]}
           />
         </Card>

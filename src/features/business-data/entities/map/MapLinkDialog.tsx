@@ -4,24 +4,23 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  linkTitle: tk("businessData.map.linkDialog.linkTitle"),
-  material: tk("businessData.map.linkDialog.material"),
-  mapOrder: tk("businessData.map.linkDialog.mapOrder"),
-  isMasterMap: tk("businessData.map.linkDialog.isMasterMap"),
-  linkageMode: tk("businessData.map.linkDialog.linkageMode"),
-  linkageVerify: tk("businessData.map.linkDialog.linkageVerify"),
-  linkageSynchronize: tk("businessData.map.linkDialog.linkageSynchronize"),
-  isDefault: tk("businessData.map.linkDialog.isDefault"),
-  isMerged: tk("businessData.map.linkDialog.isMerged"),
-  comment: tk("businessData.map.linkDialog.comment"),
-  link: tk("businessData.map.linkDialog.link"),
-  unlinkTitle: tk("businessData.map.linkDialog.unlinkTitle"),
-  unlinkMessage: tk("businessData.map.linkDialog.unlinkMessage"),
-  unlink: tk("businessData.map.linkDialog.unlink"),
-  cancel: tk("businessData.map.linkDialog.cancel"),
+const L: Record<string, TranslationKey> = {
+  linkTitle: "businessData.map.linkDialog.linkTitle",
+  material: "businessData.map.linkDialog.material",
+  mapOrder: "businessData.map.linkDialog.mapOrder",
+  isMasterMap: "businessData.map.linkDialog.isMasterMap",
+  linkageMode: "businessData.map.linkDialog.linkageMode",
+  linkageVerify: "businessData.map.linkDialog.linkageVerify",
+  linkageSynchronize: "businessData.map.linkDialog.linkageSynchronize",
+  isDefault: "businessData.map.linkDialog.isDefault",
+  isMerged: "businessData.map.linkDialog.isMerged",
+  comment: "businessData.map.linkDialog.comment",
+  link: "businessData.map.linkDialog.link",
+  unlinkTitle: "businessData.map.linkDialog.unlinkTitle",
+  unlinkMessage: "businessData.map.linkDialog.unlinkMessage",
+  unlink: "businessData.map.linkDialog.unlink",
+  cancel: "businessData.map.linkDialog.cancel",
 };
 
 const useDialogStyles = makeStyles({

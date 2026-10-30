@@ -12,39 +12,37 @@ import {
 } from "@/components/common";
 import type { DataColumn } from "@/components/common";
 import { DocumentBulletList24Regular } from "@/components/icons";
-import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 import { DocumentWizardDialog } from "./DocumentWizardDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const COLUMNS: DataColumn<DocumentRecord>[] = [
   {
     field: "name",
-    headerName: tk("businessData.document.columns.name"),
+    headerName: "businessData.document.columns.name",
     type: "link",
     locked: true,
     width: "30%",
   },
   {
     field: "description",
-    headerName: tk("businessData.document.columns.description"),
+    headerName: "businessData.document.columns.description",
     width: "25%",
   },
-  { field: "type", headerName: tk("businessData.document.columns.type"), width: "12%" },
-  { field: "author", headerName: tk("businessData.document.columns.author"), width: "13%" },
+  { field: "type", headerName: "businessData.document.columns.type", width: "12%" },
+  { field: "author", headerName: "businessData.document.columns.author", width: "13%" },
   {
     field: "creationDate",
-    headerName: tk("businessData.document.columns.creationDate"),
+    headerName: "businessData.document.columns.creationDate",
     type: "dateTime",
     width: "12%",
   },
   {
     field: "state",
-    headerName: tk("businessData.document.columns.state"),
+    headerName: "businessData.document.columns.state",
     type: "enum",
     enumOptions: RECORD_STATE_COLUMN_OPTIONS,
     width: "8%",
@@ -63,8 +61,8 @@ export function DocumentListPage() {
     <>
     <DataListPage
       icon={<DocumentBulletList24Regular />}
-      titleKey={tk("businessData.document.pageLabel")}
-      listTitleKey={tk("businessData.document.listTitle")}
+      titleKey={"businessData.document.pageLabel"}
+      listTitleKey={"businessData.document.listTitle"}
       actions={[{ ...createAction, onClick: () => setShowCreate(true) }, refreshAction, importAction, exportAction]}
       columns={COLUMNS}
       filters={defaultListFilters}

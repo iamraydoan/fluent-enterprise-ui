@@ -5,16 +5,15 @@ import { useSharedStyles } from "@/styles/shared";
 import { TERMINATE } from "./wizardMode";
 import type { TerminateMode } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  terminateTitle: tk("businessData.flow.terminateDialog.title"),
-  terminateMessage: tk("businessData.flow.terminateDialog.message"),
-  unterminateTitle: tk("businessData.flow.terminateDialog.unterminateTitle"),
-  unterminateMessage: tk("businessData.flow.terminateDialog.unterminateMessage"),
-  cancel: tk("businessData.flow.terminateDialog.cancel"),
-  terminate: tk("businessData.flow.terminateDialog.terminate"),
-  unterminate: tk("businessData.flow.terminateDialog.unterminate"),
+const L: Record<string, TranslationKey> = {
+  terminateTitle: "businessData.flow.terminateDialog.title",
+  terminateMessage: "businessData.flow.terminateDialog.message",
+  unterminateTitle: "businessData.flow.terminateDialog.unterminateTitle",
+  unterminateMessage: "businessData.flow.terminateDialog.unterminateMessage",
+  cancel: "businessData.flow.terminateDialog.cancel",
+  terminate: "businessData.flow.terminateDialog.terminate",
+  unterminate: "businessData.flow.terminateDialog.unterminate",
 };
 
 const useDialogStyles = makeStyles({

@@ -3,14 +3,13 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  title: tk("businessData.kpi.terminateDialog.title"),
-  message: tk("businessData.kpi.terminateDialog.message"),
-  warning: tk("businessData.kpi.terminateDialog.warning"),
-  cancel: tk("businessData.kpi.terminateDialog.cancel"),
-  terminate: tk("businessData.kpi.terminateDialog.terminate"),
+const L: Record<string, TranslationKey> = {
+  title: "businessData.kpi.terminateDialog.title",
+  message: "businessData.kpi.terminateDialog.message",
+  warning: "businessData.kpi.terminateDialog.warning",
+  cancel: "businessData.kpi.terminateDialog.cancel",
+  terminate: "businessData.kpi.terminateDialog.terminate",
 };
 
 const useDialogStyles = makeStyles({

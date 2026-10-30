@@ -9,7 +9,6 @@ import type { TranslationKey } from "@/i18n";
 import { EnterpriseDialog } from "./EnterpriseDialog";
 import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -18,16 +17,16 @@ const TOP_TABS: DetailTab[] = [
 ];
 
 const LEFT_ITEMS: TranslationKey[] = [
-  tk("businessData.enterprise.sections.details"),
-  tk("businessData.enterprise.sections.sites"),
-  tk("businessData.enterprise.sections.attributes"),
-  tk("businessData.enterprise.sections.attachments"),
+  "businessData.enterprise.sections.details",
+  "businessData.enterprise.sections.sites",
+  "businessData.enterprise.sections.attributes",
+  "businessData.enterprise.sections.attachments",
 ];
 
 export function EnterpriseDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<string>(tk("businessData.enterprise.sections.details"));
+  const [left, setLeft] = useState<string>("businessData.enterprise.sections.details");
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
   const { data, isLoading } = useEnterpriseDetail(name);
@@ -61,20 +60,20 @@ export function EnterpriseDetailPage({ name }: { name: string }) {
   if (isLoading || !data) {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.enterprise.sections.emptyBody"))}</Text>
+        <Text>{t("businessData.enterprise.sections.emptyBody")}</Text>
       </Empty>,
     );
   }
 
-  if (top !== "details" || left !== tk("businessData.enterprise.sections.details")) {
-    if (left === tk("businessData.enterprise.sections.sites") && top === "details") {
+  if (top !== "details" || left !== "businessData.enterprise.sections.details") {
+    if (left === "businessData.enterprise.sections.sites" && top === "details") {
       return shell(
-        <Card title={t(tk("businessData.enterprise.sections.sites"))}>
+        <Card title={t("businessData.enterprise.sections.sites")}>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHeaderCell>{t(tk("businessData.enterprise.columns.name"))}</TableHeaderCell>
-                <TableHeaderCell>{t(tk("businessData.enterprise.columns.state"))}</TableHeaderCell>
+                <TableHeaderCell>{t("businessData.enterprise.columns.name")}</TableHeaderCell>
+                <TableHeaderCell>{t("businessData.enterprise.columns.state")}</TableHeaderCell>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -91,20 +90,20 @@ export function EnterpriseDetailPage({ name }: { name: string }) {
     }
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.enterprise.sections.empty"))}</Text>
+        <Text>{t("businessData.enterprise.sections.empty")}</Text>
       </Empty>,
     );
   }
 
   return shell(
     <CardGrid>
-      <Card title={t(tk("businessData.enterprise.sections.enterprise"))}>
+      <Card title={t("businessData.enterprise.sections.enterprise")}>
         <KV
           rows={[
-            [t(tk("businessData.enterprise.details.name")), data.name],
-            [t(tk("businessData.enterprise.details.description")), data.description],
-            [t(tk("businessData.enterprise.details.state")), data.state],
-            [t(tk("businessData.enterprise.details.dataGroup")), data.dataGroup],
+            [t("businessData.enterprise.details.name"), data.name],
+            [t("businessData.enterprise.details.description"), data.description],
+            [t("businessData.enterprise.details.state"), data.state],
+            [t("businessData.enterprise.details.dataGroup"), data.dataGroup],
           ]}
         />
       </Card>

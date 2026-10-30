@@ -5,19 +5,18 @@ import { useSharedStyles } from "@/styles/shared";
 import { TERMINATE } from "./wizardMode";
 import type { TerminateMode } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  terminateTitle: tk("businessData.experimentDefinition.terminateDialog.title"),
-  terminateMessage: tk("businessData.experimentDefinition.terminateDialog.message"),
-  unterminateTitle: tk("businessData.experimentDefinition.terminateDialog.unterminateTitle"),
-  unterminateMessage: tk("businessData.experimentDefinition.terminateDialog.unterminateMessage"),
-  cancel: tk("businessData.experimentDefinition.terminateDialog.cancel"),
-  terminate: tk("businessData.experimentDefinition.terminateDialog.terminate"),
-  unterminate: tk("businessData.experimentDefinition.terminateDialog.unterminate"),
-  setEffectiveTitle: tk("businessData.experimentDefinition.terminateDialog.setEffectiveTitle"),
-  setEffectiveMessage: tk("businessData.experimentDefinition.terminateDialog.setEffectiveMessage"),
-  setEffective: tk("businessData.experimentDefinition.terminateDialog.setEffective"),
+const L: Record<string, TranslationKey> = {
+  terminateTitle: "businessData.experimentDefinition.terminateDialog.title",
+  terminateMessage: "businessData.experimentDefinition.terminateDialog.message",
+  unterminateTitle: "businessData.experimentDefinition.terminateDialog.unterminateTitle",
+  unterminateMessage: "businessData.experimentDefinition.terminateDialog.unterminateMessage",
+  cancel: "businessData.experimentDefinition.terminateDialog.cancel",
+  terminate: "businessData.experimentDefinition.terminateDialog.terminate",
+  unterminate: "businessData.experimentDefinition.terminateDialog.unterminate",
+  setEffectiveTitle: "businessData.experimentDefinition.terminateDialog.setEffectiveTitle",
+  setEffectiveMessage: "businessData.experimentDefinition.terminateDialog.setEffectiveMessage",
+  setEffective: "businessData.experimentDefinition.terminateDialog.setEffective",
 };
 
 const useDialogStyles = makeStyles({

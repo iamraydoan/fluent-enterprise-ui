@@ -20,25 +20,24 @@ import { MapLinkDialog, MapUnlinkDialog } from "./MapLinkDialog";
 import { MapTerminateDialog } from "./MapTerminateDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
-  { value: "content", labelKey: tk("businessData.map.tabs.content") },
+  { value: "content", labelKey: "businessData.map.tabs.content" },
   { value: "references", labelKey: "detailShell.tabs.references" },
   { value: "history", labelKey: "detailShell.tabs.history" },
 ];
 
 const LEFT_ITEMS: TranslationKey[] = [
-  tk("businessData.map.sections.details"),
-  tk("businessData.map.sections.layers"),
-  tk("businessData.map.sections.attachments"),
+  "businessData.map.sections.details",
+  "businessData.map.sections.layers",
+  "businessData.map.sections.attachments",
 ];
 
 export function MapDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<string>(tk("businessData.map.sections.details"));
+  const [left, setLeft] = useState<string>("businessData.map.sections.details");
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
   const [terminateOpen, setTerminateOpen] = useState(false);
@@ -94,20 +93,20 @@ export function MapDetailPage({ name }: { name: string }) {
   if (isLoading || !data) {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.map.sections.emptyBody"))}</Text>
+        <Text>{t("businessData.map.sections.emptyBody")}</Text>
       </Empty>,
     );
   }
 
-  if (top === "details" && left === tk("businessData.map.sections.layers")) {
+  if (top === "details" && left === "businessData.map.sections.layers") {
     return shell(
-      <Card title={t(tk("businessData.map.sections.layers"))}>
+      <Card title={t("businessData.map.sections.layers")}>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHeaderCell>{t(tk("businessData.map.layers.name"))}</TableHeaderCell>
-              <TableHeaderCell>{t(tk("businessData.map.layers.type"))}</TableHeaderCell>
-              <TableHeaderCell>{t(tk("businessData.map.layers.units"))}</TableHeaderCell>
+              <TableHeaderCell>{t("businessData.map.layers.name")}</TableHeaderCell>
+              <TableHeaderCell>{t("businessData.map.layers.type")}</TableHeaderCell>
+              <TableHeaderCell>{t("businessData.map.layers.units")}</TableHeaderCell>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -122,47 +121,47 @@ export function MapDetailPage({ name }: { name: string }) {
         </Table>
         <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
           <Button onClick={() => undefined}>
-            {t(tk("businessData.map.actions.downloadLayer"))}
+            {t("businessData.map.actions.downloadLayer")}
           </Button>
           <Button onClick={() => setLinkOpen(true)}>
-            {t(tk("businessData.map.actions.linkMaterial"))}
+            {t("businessData.map.actions.linkMaterial")}
           </Button>
           <Button onClick={() => setUnlinkOpen(true)}>
-            {t(tk("businessData.map.actions.unlinkMaterial"))}
+            {t("businessData.map.actions.unlinkMaterial")}
           </Button>
         </div>
       </Card>,
     );
   }
 
-  if (top !== "details" || left !== tk("businessData.map.sections.details")) {
+  if (top !== "details" || left !== "businessData.map.sections.details") {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.map.sections.empty"))}</Text>
+        <Text>{t("businessData.map.sections.empty")}</Text>
       </Empty>,
     );
   }
 
   return shell(
     <CardGrid>
-      <Card title={t(tk("businessData.map.sections.map"))}>
+      <Card title={t("businessData.map.sections.map")}>
         <KV
           rows={[
-            [t(tk("businessData.map.details.name")), data.name],
-            [t(tk("businessData.map.details.description")), data.description],
-            [t(tk("businessData.map.details.state")), data.state],
+            [t("businessData.map.details.name"), data.name],
+            [t("businessData.map.details.description"), data.description],
+            [t("businessData.map.details.state"), data.state],
           ]}
         />
       </Card>
-      <Card title={t(tk("businessData.map.sections.mapDefinition"))}>
-        <KV rows={[[t(tk("businessData.map.details.mapDefinition")), data.mapDefinition]]} />
+      <Card title={t("businessData.map.sections.mapDefinition")}>
+        <KV rows={[[t("businessData.map.details.mapDefinition"), data.mapDefinition]]} />
       </Card>
-      <Card title={t(tk("businessData.map.sections.context"))}>
+      <Card title={t("businessData.map.sections.context")}>
         <KV
           rows={[
-            [t(tk("businessData.map.details.step")), data.step],
-            [t(tk("businessData.map.details.resource")), data.resource],
-            [t(tk("businessData.map.details.material")), data.material],
+            [t("businessData.map.details.step"), data.step],
+            [t("businessData.map.details.resource"), data.resource],
+            [t("businessData.map.details.material"), data.material],
           ]}
         />
       </Card>

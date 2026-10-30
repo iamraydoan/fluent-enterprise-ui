@@ -4,18 +4,17 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  logicalNamesTitle: tk("businessData.flow.manageDialog.logicalNamesTitle"),
-  logicalName: tk("businessData.flow.manageDialog.logicalName"),
-  addLogicalName: tk("businessData.flow.manageDialog.addLogicalName"),
-  remove: tk("businessData.flow.manageDialog.remove"),
-  update: tk("businessData.flow.manageDialog.update"),
-  cancel: tk("businessData.flow.manageDialog.cancel"),
-  reworkPathsTitle: tk("businessData.flow.manageDialog.reworkPathsTitle"),
-  filterByStep: tk("businessData.flow.manageDialog.filterByStep"),
-  close: tk("businessData.flow.manageDialog.close"),
+const L: Record<string, TranslationKey> = {
+  logicalNamesTitle: "businessData.flow.manageDialog.logicalNamesTitle",
+  logicalName: "businessData.flow.manageDialog.logicalName",
+  addLogicalName: "businessData.flow.manageDialog.addLogicalName",
+  remove: "businessData.flow.manageDialog.remove",
+  update: "businessData.flow.manageDialog.update",
+  cancel: "businessData.flow.manageDialog.cancel",
+  reworkPathsTitle: "businessData.flow.manageDialog.reworkPathsTitle",
+  filterByStep: "businessData.flow.manageDialog.filterByStep",
+  close: "businessData.flow.manageDialog.close",
 };
 
 const useDialogStyles = makeStyles({

@@ -12,29 +12,27 @@ import {
 } from "@/components/common";
 import type { DataColumn } from "@/components/common";
 import { Flow24Regular } from "@/components/icons";
-import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 import { FlowDialog } from "./FlowDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const COLUMNS: DataColumn<FlowRecord>[] = [
   {
     field: "name",
-    headerName: tk("businessData.flow.columns.name"),
+    headerName: "businessData.flow.columns.name",
     type: "link",
     locked: true,
     width: "25%",
   },
-  { field: "description", headerName: tk("businessData.flow.columns.description"), width: "30%" },
-  { field: "type", headerName: tk("businessData.flow.columns.type"), width: "15%" },
-  { field: "flowType", headerName: tk("businessData.flow.columns.flowType"), width: "15%" },
+  { field: "description", headerName: "businessData.flow.columns.description", width: "30%" },
+  { field: "type", headerName: "businessData.flow.columns.type", width: "15%" },
+  { field: "flowType", headerName: "businessData.flow.columns.flowType", width: "15%" },
   {
     field: "state",
-    headerName: tk("businessData.flow.columns.state"),
+    headerName: "businessData.flow.columns.state",
     type: "enum",
     enumOptions: RECORD_STATE_COLUMN_OPTIONS,
     width: "15%",
@@ -53,8 +51,8 @@ export function FlowListPage() {
     <>
       <DataListPage
         icon={<Flow24Regular />}
-        titleKey={tk("businessData.flow.pageLabel")}
-        listTitleKey={tk("businessData.flow.listTitle")}
+        titleKey={"businessData.flow.pageLabel"}
+        listTitleKey={"businessData.flow.listTitle"}
         actions={[
           { ...createAction, onClick: () => setCreateOpen(true) },
           refreshAction,

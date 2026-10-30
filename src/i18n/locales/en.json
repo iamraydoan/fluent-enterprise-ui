@@ -1420,6 +1420,119 @@
         "update": "Update",
         "manage": "Manage"
       }
+    },
+    "inspectionPlan": {
+      "pageLabel": "Inspection Plan",
+      "listTitle": "Inspection Plans ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "State"
+      },
+      "tabs": {
+        "compare": "Compare"
+      },
+      "sections": {
+        "details": "Details",
+        "steps": "Steps",
+        "configurations": "Configurations",
+        "instances": "Instances",
+        "attachments": "Attachments",
+        "inspectionPlan": "Inspection Plan",
+        "defaultInspection": "Default Inspection",
+        "inspectionSettings": "Inspection Settings",
+        "futureHoldInformation": "Future Hold Information",
+        "holdInformation": "Hold Information",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "resultsRequiredBeforeTrackOut": "Results Required Before Track-Out",
+        "enableMultipleSamples": "Enable Multiple Samples",
+        "containsSeparateInspectionSteps": "Contains Separate Inspection Steps",
+        "closeAutomaticallyOnPass": "Close Automatically On Pass",
+        "closeAutomaticallyOnFail": "Close Automatically On Fail",
+        "openProtocolOnFail": "Open Protocol On Fail",
+        "protocol": "Protocol",
+        "futureHoldCreationMode": "Future Hold Creation Mode",
+        "setHoldOnFail": "Set Hold On Fail",
+        "step": "Step",
+        "reason": "Reason",
+        "releaseRole": "Release Role",
+        "comment": "Comment",
+        "distributionList": "Distribution List"
+      },
+      "dialog": {
+        "createTitle": "Create Inspection Plan",
+        "editTitle": "Edit Inspection Plan",
+        "cloneTitle": "Clone Inspection Plan",
+        "step1": "Step 1: Change Set",
+        "step2": "Step 2: General Data",
+        "step3": "Step 3: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "approvalRole": "Approval Role",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "resultsRequiredBeforeTrackOut": "Results Required Before Track-Out",
+        "enableMultipleSamples": "Enable Multiple Samples",
+        "containsSeparateInspectionSteps": "Contains Separate Inspection Steps",
+        "closeAutomaticallyOnPass": "Close Automatically on Pass",
+        "closeAutomaticallyOnFail": "Close Automatically on Fail",
+        "futureHoldCreationMode": "Future Hold Creation Mode",
+        "futureHoldNone": "None",
+        "futureHoldAlways": "Always",
+        "futureHoldOnFail": "On Fail",
+        "addStep": "Add Step",
+        "remove": "Remove",
+        "stepName": "Step Name",
+        "isInProcessInspection": "Is In Process Inspection",
+        "inspectionFlow": "Inspection Flow",
+        "inspectionStep": "Inspection Step",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      },
+      "terminateDialog": {
+        "title": "Terminate Inspection Plan",
+        "message": "Terminate Inspection Plan \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Inspection Plan",
+        "unterminateMessage": "Unterminate Inspection Plan \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "manageConfigurations": {
+        "title": "Manage Configurations",
+        "configurations": "Configurations",
+        "addConfiguration": "Add Configuration",
+        "removeConfiguration": "Remove Configuration",
+        "configurationName": "Configuration Name",
+        "cancel": "Cancel",
+        "update": "Update",
+        "manage": "Manage"
+      },
+      "manageSteps": {
+        "title": "Manage Inspection Plan Steps",
+        "steps": "Steps",
+        "addStep": "Add Step",
+        "removeStep": "Remove Step",
+        "stepName": "Step Name",
+        "isInProcessInspection": "Is In Process Inspection",
+        "cancel": "Cancel",
+        "update": "Update",
+        "manage": "Manage"
+      }
     }
   }
 }

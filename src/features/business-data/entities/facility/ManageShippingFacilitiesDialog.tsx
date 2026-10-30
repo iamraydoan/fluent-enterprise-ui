@@ -4,23 +4,22 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  title: tk("businessData.facility.manageShipping.title"),
-  facilities: tk("businessData.facility.manageShipping.facilities"),
-  facilityDetails: tk("businessData.facility.manageShipping.facilityDetails"),
-  addFacility: tk("businessData.facility.manageShipping.addFacility"),
-  removeFacility: tk("businessData.facility.manageShipping.removeFacility"),
-  facility: tk("businessData.facility.manageShipping.facility"),
-  description: tk("businessData.facility.manageShipping.description"),
-  type: tk("businessData.facility.manageShipping.type"),
-  isRemote: tk("businessData.facility.manageShipping.isRemote"),
-  cancel: tk("businessData.facility.manageShipping.cancel"),
-  update: tk("businessData.facility.manageShipping.update"),
-  yes: tk("common.yes"),
-  no: tk("common.no"),
-  none: tk("common.none"),
+const L: Record<string, TranslationKey> = {
+  title: "businessData.facility.manageShipping.title",
+  facilities: "businessData.facility.manageShipping.facilities",
+  facilityDetails: "businessData.facility.manageShipping.facilityDetails",
+  addFacility: "businessData.facility.manageShipping.addFacility",
+  removeFacility: "businessData.facility.manageShipping.removeFacility",
+  facility: "businessData.facility.manageShipping.facility",
+  description: "businessData.facility.manageShipping.description",
+  type: "businessData.facility.manageShipping.type",
+  isRemote: "businessData.facility.manageShipping.isRemote",
+  cancel: "businessData.facility.manageShipping.cancel",
+  update: "businessData.facility.manageShipping.update",
+  yes: "common.yes",
+  no: "common.no",
+  none: "common.none",
 };
 
 const useDialogStyles = makeStyles({

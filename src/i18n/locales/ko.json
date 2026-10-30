@@ -1420,6 +1420,119 @@
         "update": "업데이트",
         "manage": "관리"
       }
+    },
+    "inspectionPlan": {
+      "pageLabel": "검사 계획",
+      "listTitle": "검사 계획 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "상태"
+      },
+      "tabs": {
+        "compare": "비교"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "steps": "단계",
+        "configurations": "구성",
+        "instances": "인스턴스",
+        "attachments": "첨부 파일",
+        "inspectionPlan": "검사 계획",
+        "defaultInspection": "기본 검사",
+        "inspectionSettings": "검사 설정",
+        "futureHoldInformation": "향후 보류 정보",
+        "holdInformation": "보류 정보",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "state": "유니버설 상태",
+        "dataGroup": "데이터 그룹",
+        "resultsRequiredBeforeTrackOut": "Track-Out 전 결과 필요",
+        "enableMultipleSamples": "다중 샘플 활성화",
+        "containsSeparateInspectionSteps": "별도 검사 단계 포함",
+        "closeAutomaticallyOnPass": "합격 시 자동 종료",
+        "closeAutomaticallyOnFail": "불합격 시 자동 종료",
+        "openProtocolOnFail": "불합격 시 프로토콜 열기",
+        "protocol": "프로토콜",
+        "futureHoldCreationMode": "향후 보류 생성 모드",
+        "setHoldOnFail": "불합격 시 보류 설정",
+        "step": "단계",
+        "reason": "사유",
+        "releaseRole": "릴리스 역할",
+        "comment": "설명",
+        "distributionList": "배포 목록"
+      },
+      "dialog": {
+        "createTitle": "Inspection Plan 생성",
+        "editTitle": "Inspection Plan 편집",
+        "cloneTitle": "Inspection Plan 복제",
+        "step1": "1단계: Change Set",
+        "step2": "2단계: 일반 데이터",
+        "step3": "3단계: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "자동 Change Set 사용",
+        "approvalRole": "승인 역할",
+        "name": "이름",
+        "description": "설명",
+        "type": "유형",
+        "resultsRequiredBeforeTrackOut": "Track-Out 전 결과 필요",
+        "enableMultipleSamples": "다중 샘플 활성화",
+        "containsSeparateInspectionSteps": "개별 Inspection Step 포함",
+        "closeAutomaticallyOnPass": "Pass 시 자동 종료",
+        "closeAutomaticallyOnFail": "Fail 시 자동 종료",
+        "futureHoldCreationMode": "Future Hold 생성 모드",
+        "futureHoldNone": "없음",
+        "futureHoldAlways": "항상",
+        "futureHoldOnFail": "Fail 시",
+        "addStep": "Step 추가",
+        "remove": "제거",
+        "stepName": "Step 이름",
+        "isInProcessInspection": "인프로세스 검사",
+        "inspectionFlow": "Inspection Flow",
+        "inspectionStep": "Inspection Step",
+        "back": "뒤로",
+        "next": "다음",
+        "cancel": "취소",
+        "create": "생성",
+        "save": "저장",
+        "clone": "복제"
+      },
+      "terminateDialog": {
+        "title": "Inspection Plan 종료",
+        "message": "Inspection Plan \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Inspection Plan 종료 취소",
+        "unterminateMessage": "Inspection Plan \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소"
+      },
+      "manageConfigurations": {
+        "title": "Configurations 관리",
+        "configurations": "Configurations",
+        "addConfiguration": "Configuration 추가",
+        "removeConfiguration": "Configuration 제거",
+        "configurationName": "Configuration 이름",
+        "cancel": "취소",
+        "update": "업데이트",
+        "manage": "관리"
+      },
+      "manageSteps": {
+        "title": "Inspection Plan Steps 관리",
+        "steps": "Steps",
+        "addStep": "Step 추가",
+        "removeStep": "Step 제거",
+        "stepName": "Step 이름",
+        "isInProcessInspection": "인프로세스 검사",
+        "cancel": "취소",
+        "update": "업데이트",
+        "manage": "관리"
+      }
     }
   }
 }

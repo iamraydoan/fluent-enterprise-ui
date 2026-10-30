@@ -6,18 +6,17 @@ import { useSharedStyles } from "@/styles/shared";
 import { MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  createTitle: tk("businessData.enterprise.dialog.createTitle"),
-  editTitle: tk("businessData.enterprise.dialog.editTitle"),
-  cloneTitle: tk("businessData.enterprise.dialog.cloneTitle"),
-  name: tk("businessData.enterprise.dialog.name"),
-  description: tk("businessData.enterprise.dialog.description"),
-  cancel: tk("businessData.enterprise.dialog.cancel"),
-  create: tk("businessData.enterprise.dialog.create"),
-  save: tk("businessData.enterprise.dialog.save"),
-  clone: tk("businessData.enterprise.dialog.clone"),
+const L: Record<string, TranslationKey> = {
+  createTitle: "businessData.enterprise.dialog.createTitle",
+  editTitle: "businessData.enterprise.dialog.editTitle",
+  cloneTitle: "businessData.enterprise.dialog.cloneTitle",
+  name: "businessData.enterprise.dialog.name",
+  description: "businessData.enterprise.dialog.description",
+  cancel: "businessData.enterprise.dialog.cancel",
+  create: "businessData.enterprise.dialog.create",
+  save: "businessData.enterprise.dialog.save",
+  clone: "businessData.enterprise.dialog.clone",
 };
 
 const useDialogStyles = makeStyles({

@@ -12,26 +12,25 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  title: tk("businessData.dataSilo.create.title"),
-  name: tk("businessData.dataSilo.create.name"),
-  description: tk("businessData.dataSilo.create.description"),
-  type: tk("businessData.dataSilo.create.type"),
-  typeDefault: tk("businessData.dataSilo.create.typeDefault"),
-  dataVersion: tk("businessData.dataSilo.create.dataVersion"),
-  enterpriseName: tk("businessData.dataSilo.create.enterpriseName"),
-  facilityName: tk("businessData.dataSilo.create.facilityName"),
-  isExternal: tk("businessData.dataSilo.create.isExternal"),
-  isSystem: tk("businessData.dataSilo.create.isSystem"),
-  keywords: tk("businessData.dataSilo.create.keywords"),
-  siteName: tk("businessData.dataSilo.create.siteName"),
-  user: tk("businessData.dataSilo.create.user"),
-  comments: tk("businessData.dataSilo.create.comments"),
-  cancel: tk("businessData.dataSilo.create.cancel"),
-  create: tk("businessData.dataSilo.create.create"),
-  properties: tk("businessData.dataSilo.details.properties"),
+const L: Record<string, TranslationKey> = {
+  title: "businessData.dataSilo.create.title",
+  name: "businessData.dataSilo.create.name",
+  description: "businessData.dataSilo.create.description",
+  type: "businessData.dataSilo.create.type",
+  typeDefault: "businessData.dataSilo.create.typeDefault",
+  dataVersion: "businessData.dataSilo.create.dataVersion",
+  enterpriseName: "businessData.dataSilo.create.enterpriseName",
+  facilityName: "businessData.dataSilo.create.facilityName",
+  isExternal: "businessData.dataSilo.create.isExternal",
+  isSystem: "businessData.dataSilo.create.isSystem",
+  keywords: "businessData.dataSilo.create.keywords",
+  siteName: "businessData.dataSilo.create.siteName",
+  user: "businessData.dataSilo.create.user",
+  comments: "businessData.dataSilo.create.comments",
+  cancel: "businessData.dataSilo.create.cancel",
+  create: "businessData.dataSilo.create.create",
+  properties: "businessData.dataSilo.details.properties",
 };
 
 const useDialogStyles = makeStyles({

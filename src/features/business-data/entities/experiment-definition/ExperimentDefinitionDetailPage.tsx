@@ -15,28 +15,27 @@ import {
 } from "./ExperimentDefinitionTerminateDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
-  { value: "matrix", labelKey: tk("businessData.experimentDefinition.tabs.matrix") },
+  { value: "matrix", labelKey: "businessData.experimentDefinition.tabs.matrix" },
   { value: "references", labelKey: "detailShell.tabs.references" },
   { value: "history", labelKey: "detailShell.tabs.history" },
 ];
 
 const LEFT_ITEMS: TranslationKey[] = [
-  tk("businessData.experimentDefinition.sections.details"),
-  tk("businessData.experimentDefinition.sections.objectives"),
-  tk("businessData.experimentDefinition.sections.mainMaterialGroups"),
-  tk("businessData.experimentDefinition.sections.instances"),
-  tk("businessData.experimentDefinition.sections.attachments"),
+  "businessData.experimentDefinition.sections.details",
+  "businessData.experimentDefinition.sections.objectives",
+  "businessData.experimentDefinition.sections.mainMaterialGroups",
+  "businessData.experimentDefinition.sections.instances",
+  "businessData.experimentDefinition.sections.attachments",
 ];
 
 export function ExperimentDefinitionDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<string>(
-    tk("businessData.experimentDefinition.sections.details"),
+    "businessData.experimentDefinition.sections.details",
   );
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
@@ -102,117 +101,117 @@ export function ExperimentDefinitionDetailPage({ name }: { name: string }) {
   if (isLoading || !data) {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.experimentDefinition.sections.emptyBody"))}</Text>
+        <Text>{t("businessData.experimentDefinition.sections.emptyBody")}</Text>
       </Empty>,
     );
   }
 
-  if (top !== "details" || left !== tk("businessData.experimentDefinition.sections.details")) {
+  if (top !== "details" || left !== "businessData.experimentDefinition.sections.details") {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.experimentDefinition.sections.empty"))}</Text>
+        <Text>{t("businessData.experimentDefinition.sections.empty")}</Text>
       </Empty>,
     );
   }
 
   return shell(
     <CardGrid>
-      <Card title={t(tk("businessData.experimentDefinition.sections.experimentDefinition"))}>
+      <Card title={t("businessData.experimentDefinition.sections.experimentDefinition")}>
         <KV
           rows={[
-            [t(tk("businessData.experimentDefinition.details.name")), data.name],
-            [t(tk("businessData.experimentDefinition.details.description")), data.description],
-            [t(tk("businessData.experimentDefinition.details.type")), data.type],
-            [t(tk("businessData.experimentDefinition.details.state")), data.state],
-            [t(tk("businessData.experimentDefinition.details.dataGroup")), data.dataGroup],
+            [t("businessData.experimentDefinition.details.name"), data.name],
+            [t("businessData.experimentDefinition.details.description"), data.description],
+            [t("businessData.experimentDefinition.details.type"), data.type],
+            [t("businessData.experimentDefinition.details.state"), data.state],
+            [t("businessData.experimentDefinition.details.dataGroup"), data.dataGroup],
           ]}
         />
       </Card>
-      <Card title={t(tk("businessData.experimentDefinition.sections.options"))}>
+      <Card title={t("businessData.experimentDefinition.sections.options")}>
         <KV
           rows={[
             [
-              t(tk("businessData.experimentDefinition.details.ignoreInSamplingPlans")),
+              t("businessData.experimentDefinition.details.ignoreInSamplingPlans"),
               booleanLabel(data.ignoreInSamplingPlans),
             ],
             [
-              t(tk("businessData.experimentDefinition.details.ignoreInSpcCharts")),
+              t("businessData.experimentDefinition.details.ignoreInSpcCharts"),
               booleanLabel(data.ignoreInSpcCharts),
             ],
             [
-              t(tk("businessData.experimentDefinition.details.closeExperimentAutomatically")),
+              t("businessData.experimentDefinition.details.closeExperimentAutomatically"),
               booleanLabel(data.closeExperimentAutomatically),
             ],
           ]}
         />
       </Card>
-      <Card title={t(tk("businessData.experimentDefinition.sections.information"))}>
+      <Card title={t("businessData.experimentDefinition.sections.information")}>
         <KV
           rows={[
-            [t(tk("businessData.experimentDefinition.details.ownerRole")), data.ownerRole],
-            [t(tk("businessData.experimentDefinition.details.purpose")), data.purpose],
-            [t(tk("businessData.experimentDefinition.details.note")), data.note],
+            [t("businessData.experimentDefinition.details.ownerRole"), data.ownerRole],
+            [t("businessData.experimentDefinition.details.purpose"), data.purpose],
+            [t("businessData.experimentDefinition.details.note"), data.note],
           ]}
         />
       </Card>
-      <Card title={t(tk("businessData.experimentDefinition.sections.results"))}>
+      <Card title={t("businessData.experimentDefinition.sections.results")}>
         <KV
           rows={[
-            [t(tk("businessData.experimentDefinition.details.result")), data.result],
-            [t(tk("businessData.experimentDefinition.details.conclusions")), data.conclusions],
+            [t("businessData.experimentDefinition.details.result"), data.result],
+            [t("businessData.experimentDefinition.details.conclusions"), data.conclusions],
           ]}
         />
       </Card>
-      <Card title={t(tk("businessData.experimentDefinition.sections.settings"))}>
+      <Card title={t("businessData.experimentDefinition.sections.settings")}>
         <KV
           rows={[
-            [t(tk("businessData.experimentDefinition.details.product")), data.product],
-            [t(tk("businessData.experimentDefinition.details.productGroup")), data.productGroup],
+            [t("businessData.experimentDefinition.details.product"), data.product],
+            [t("businessData.experimentDefinition.details.productGroup"), data.productGroup],
             [
-              t(tk("businessData.experimentDefinition.details.maximumNumberOfMaterials")),
+              t("businessData.experimentDefinition.details.maximumNumberOfMaterials"),
               String(data.maximumNumberOfMaterials),
             ],
             [
-              t(tk("businessData.experimentDefinition.details.requiredMaterialType")),
+              t("businessData.experimentDefinition.details.requiredMaterialType"),
               data.requiredMaterialType,
             ],
             [
-              t(tk("businessData.experimentDefinition.details.requiredMaterialForm")),
+              t("businessData.experimentDefinition.details.requiredMaterialForm"),
               data.requiredMaterialForm,
             ],
-            [t(tk("businessData.experimentDefinition.details.mode")), data.mode],
+            [t("businessData.experimentDefinition.details.mode"), data.mode],
             [
-              t(tk("businessData.experimentDefinition.details.requiredSubMaterialsForm")),
+              t("businessData.experimentDefinition.details.requiredSubMaterialsForm"),
               data.requiredSubMaterialsForm,
             ],
             [
-              t(tk("businessData.experimentDefinition.details.requiredSubMaterialsCount")),
+              t("businessData.experimentDefinition.details.requiredSubMaterialsCount"),
               String(data.requiredSubMaterialsCount),
             ],
             [
-              t(tk("businessData.experimentDefinition.details.plannedStartDate")),
+              t("businessData.experimentDefinition.details.plannedStartDate"),
               formatDateTime(data.plannedStartDate),
             ],
             [
-              t(tk("businessData.experimentDefinition.details.plannedEndDate")),
+              t("businessData.experimentDefinition.details.plannedEndDate"),
               formatDateTime(data.plannedEndDate),
             ],
-            [t(tk("businessData.experimentDefinition.details.flow")), data.flow],
-            [t(tk("businessData.experimentDefinition.details.firstStep")), data.firstStep],
+            [t("businessData.experimentDefinition.details.flow"), data.flow],
+            [t("businessData.experimentDefinition.details.firstStep"), data.firstStep],
             [
-              t(tk("businessData.experimentDefinition.details.firstStepFlowPath")),
+              t("businessData.experimentDefinition.details.firstStepFlowPath"),
               data.firstStepFlowPath,
             ],
-            [t(tk("businessData.experimentDefinition.details.lastStep")), data.lastStep],
+            [t("businessData.experimentDefinition.details.lastStep"), data.lastStep],
             [
-              t(tk("businessData.experimentDefinition.details.lastStepFlowPath")),
+              t("businessData.experimentDefinition.details.lastStepFlowPath"),
               data.lastStepFlowPath,
             ],
           ]}
         />
         <div style={{ marginTop: "12px" }}>
           <Button appearance="primary" onClick={() => setSetEffectiveOpen(true)}>
-            {t(tk("businessData.experimentDefinition.actions.setEffective"))}
+            {t("businessData.experimentDefinition.actions.setEffective")}
           </Button>
         </div>
       </Card>

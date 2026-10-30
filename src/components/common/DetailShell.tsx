@@ -26,7 +26,6 @@ import { ActionBar } from "./ActionBar";
 import { PageHeader } from "./PageHeader";
 import { RibbonButton } from "./RibbonButton";
 
-const tk = (key: string) => key as TranslationKey;
 
 const useDetailShellStyles = makeStyles({
   tabsRow: {
@@ -302,7 +301,7 @@ export function DetailShell({
                     <RibbonButton
                       sharedStyles={sharedStyles}
                       icon={<DocumentBulletList24Regular />}
-                      label={t(tk("actionBar.clone"))}
+                      label={t("actionBar.clone")}
                     />
                   </span>
                 )}
@@ -311,7 +310,7 @@ export function DetailShell({
                     <RibbonButton
                       sharedStyles={sharedStyles}
                       icon={<Delete20Regular />}
-                      label={t(tk("actionBar.terminate"))}
+                      label={t("actionBar.terminate")}
                     />
                   </span>
                 )}
@@ -320,7 +319,7 @@ export function DetailShell({
                     <RibbonButton
                       sharedStyles={sharedStyles}
                       icon={<ArrowSync24Regular />}
-                      label={t(tk("actionBar.unterminate"))}
+                      label={t("actionBar.unterminate")}
                     />
                   </span>
                 )}

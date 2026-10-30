@@ -1420,6 +1420,119 @@
         "update": "Cập nhật",
         "manage": "Quản lý"
       }
+    },
+    "inspectionPlan": {
+      "pageLabel": "Kế hoạch kiểm tra",
+      "listTitle": "Kế hoạch kiểm tra ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "compare": "So sánh"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "steps": "Bước",
+        "configurations": "Cấu hình",
+        "instances": "Phiên bản",
+        "attachments": "Tệp đính kèm",
+        "inspectionPlan": "Kế hoạch kiểm tra",
+        "defaultInspection": "Kiểm tra mặc định",
+        "inspectionSettings": "Cài đặt kiểm tra",
+        "futureHoldInformation": "Thông tin giữ tương lai",
+        "holdInformation": "Thông tin giữ",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "resultsRequiredBeforeTrackOut": "Yêu cầu kết quả trước Track-Out",
+        "enableMultipleSamples": "Bật nhiều mẫu",
+        "containsSeparateInspectionSteps": "Chứa các bước kiểm tra riêng",
+        "closeAutomaticallyOnPass": "Tự động đóng khi đạt",
+        "closeAutomaticallyOnFail": "Tự động đóng khi không đạt",
+        "openProtocolOnFail": "Mở giao thức khi không đạt",
+        "protocol": "Giao thức",
+        "futureHoldCreationMode": "Chế độ tạo giữ tương lai",
+        "setHoldOnFail": "Đặt giữ khi không đạt",
+        "step": "Bước",
+        "reason": "Lý do",
+        "releaseRole": "Vai trò phát hành",
+        "comment": "Bình luận",
+        "distributionList": "Danh sách phân phối"
+      },
+      "dialog": {
+        "createTitle": "Tạo Inspection Plan",
+        "editTitle": "Sửa Inspection Plan",
+        "cloneTitle": "Nhân bản Inspection Plan",
+        "step1": "Bước 1: Change Set",
+        "step2": "Bước 2: Dữ liệu chung",
+        "step3": "Bước 3: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Dùng Automatic Change Set",
+        "approvalRole": "Vai trò phê duyệt",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "resultsRequiredBeforeTrackOut": "Kết quả yêu cầu trước Track-Out",
+        "enableMultipleSamples": "Cho phép nhiều mẫu",
+        "containsSeparateInspectionSteps": "Chứa các Inspection Step riêng",
+        "closeAutomaticallyOnPass": "Tự đóng khi Pass",
+        "closeAutomaticallyOnFail": "Tự đóng khi Fail",
+        "futureHoldCreationMode": "Chế độ tạo Future Hold",
+        "futureHoldNone": "Không",
+        "futureHoldAlways": "Luôn luôn",
+        "futureHoldOnFail": "Khi Fail",
+        "addStep": "Thêm Step",
+        "remove": "Xóa",
+        "stepName": "Tên Step",
+        "isInProcessInspection": "Kiểm tra tại chỗ",
+        "inspectionFlow": "Inspection Flow",
+        "inspectionStep": "Inspection Step",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Inspection Plan",
+        "message": "Kết thúc Inspection Plan \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Inspection Plan",
+        "unterminateMessage": "Hủy kết thúc Inspection Plan \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "manageConfigurations": {
+        "title": "Quản lý Configurations",
+        "configurations": "Configurations",
+        "addConfiguration": "Thêm Configuration",
+        "removeConfiguration": "Xóa Configuration",
+        "configurationName": "Tên Configuration",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "manage": "Quản lý"
+      },
+      "manageSteps": {
+        "title": "Quản lý Inspection Plan Steps",
+        "steps": "Steps",
+        "addStep": "Thêm Step",
+        "removeStep": "Xóa Step",
+        "stepName": "Tên Step",
+        "isInProcessInspection": "Kiểm tra tại chỗ",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "manage": "Quản lý"
+      }
     }
   }
 }

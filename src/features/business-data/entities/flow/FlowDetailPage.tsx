@@ -12,28 +12,27 @@ import { FlowLogicalNamesDialog, FlowReworkPathsDialog } from "./FlowManageDialo
 import { FlowTerminateDialog } from "./FlowTerminateDialog";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
-  { value: "flowStructure", labelKey: tk("businessData.flow.tabs.flowStructure") },
-  { value: "contextStructure", labelKey: tk("businessData.flow.tabs.contextStructure") },
-  { value: "contextMatrix", labelKey: tk("businessData.flow.tabs.contextMatrix") },
-  { value: "compare", labelKey: tk("businessData.flow.tabs.compare") },
+  { value: "flowStructure", labelKey: "businessData.flow.tabs.flowStructure" },
+  { value: "contextStructure", labelKey: "businessData.flow.tabs.contextStructure" },
+  { value: "contextMatrix", labelKey: "businessData.flow.tabs.contextMatrix" },
+  { value: "compare", labelKey: "businessData.flow.tabs.compare" },
   { value: "references", labelKey: "detailShell.tabs.references" },
   { value: "history", labelKey: "detailShell.tabs.history" },
 ];
 
 const LEFT_ITEMS: TranslationKey[] = [
-  tk("businessData.flow.sections.details"),
-  tk("businessData.flow.sections.logicalNames"),
-  tk("businessData.flow.sections.attachments"),
+  "businessData.flow.sections.details",
+  "businessData.flow.sections.logicalNames",
+  "businessData.flow.sections.attachments",
 ];
 
 export function FlowDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
-  const [left, setLeft] = useState<string>(tk("businessData.flow.sections.details"));
+  const [left, setLeft] = useState<string>("businessData.flow.sections.details");
   const [structureCollapsed, setStructureCollapsed] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
@@ -91,7 +90,7 @@ export function FlowDetailPage({ name }: { name: string }) {
   if (isLoading || !data) {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.flow.sections.emptyBody"))}</Text>
+        <Text>{t("businessData.flow.sections.emptyBody")}</Text>
       </Empty>,
     );
   }
@@ -100,7 +99,7 @@ export function FlowDetailPage({ name }: { name: string }) {
     return shell(
       <div style={{ display: "flex", gap: 16, height: "100%" }}>
         <SidePanel
-          title={t(tk("businessData.flow.sections.flowStructure"))}
+          title={t("businessData.flow.sections.flowStructure")}
           collapsed={structureCollapsed}
           onToggle={() => setStructureCollapsed((value) => !value)}
         >
@@ -115,12 +114,12 @@ export function FlowDetailPage({ name }: { name: string }) {
             </TreeItem>
           </Tree>
         </SidePanel>
-        <Card title={t(tk("businessData.flow.sections.flowDetails"))}>
+        <Card title={t("businessData.flow.sections.flowDetails")}>
           <KV
             rows={[
-              [t(tk("businessData.flow.details.flow")), `${data.name} [A]`],
-              [t(tk("businessData.flow.details.description")), data.description],
-              [t(tk("businessData.flow.details.flowType")), data.flowType],
+              [t("businessData.flow.details.flow"), `${data.name} [A]`],
+              [t("businessData.flow.details.description"), data.description],
+              [t("businessData.flow.details.flowType"), data.flowType],
             ]}
           />
         </Card>
@@ -128,47 +127,47 @@ export function FlowDetailPage({ name }: { name: string }) {
     );
   }
 
-  if (top === "details" && left === tk("businessData.flow.sections.logicalNames")) {
+  if (top === "details" && left === "businessData.flow.sections.logicalNames") {
     return shell(
-      <Card title={t(tk("businessData.flow.sections.logicalNames"))}>
+      <Card title={t("businessData.flow.sections.logicalNames")}>
         <Button appearance="primary" onClick={() => setLogicalNamesOpen(true)}>
-          {t(tk("businessData.flow.actions.manageLogicalNames"))}
+          {t("businessData.flow.actions.manageLogicalNames")}
         </Button>
         <div style={{ marginTop: "12px" }}>
           <Button onClick={() => setReworkPathsOpen(true)}>
-            {t(tk("businessData.flow.actions.viewReworkPaths"))}
+            {t("businessData.flow.actions.viewReworkPaths")}
           </Button>
         </div>
       </Card>,
     );
   }
 
-  if (top !== "details" || left !== tk("businessData.flow.sections.details")) {
+  if (top !== "details" || left !== "businessData.flow.sections.details") {
     return shell(
       <Empty>
-        <Text>{t(tk("businessData.flow.sections.empty"))}</Text>
+        <Text>{t("businessData.flow.sections.empty")}</Text>
       </Empty>,
     );
   }
 
   return shell(
     <CardGrid>
-      <Card title={t(tk("businessData.flow.sections.flow"))}>
+      <Card title={t("businessData.flow.sections.flow")}>
         <KV
           rows={[
-            [t(tk("businessData.flow.details.name")), data.name],
-            [t(tk("businessData.flow.details.description")), data.description],
-            [t(tk("businessData.flow.details.type")), data.type],
-            [t(tk("businessData.flow.details.state")), data.state],
-            [t(tk("businessData.flow.details.dataGroup")), data.dataGroup],
+            [t("businessData.flow.details.name"), data.name],
+            [t("businessData.flow.details.description"), data.description],
+            [t("businessData.flow.details.type"), data.type],
+            [t("businessData.flow.details.state"), data.state],
+            [t("businessData.flow.details.dataGroup"), data.dataGroup],
           ]}
         />
       </Card>
-      <Card title={t(tk("businessData.flow.sections.settings"))}>
+      <Card title={t("businessData.flow.sections.settings")}>
         <KV
           rows={[
-            [t(tk("businessData.flow.details.flowType")), data.flowType],
-            [t(tk("businessData.flow.details.enabled")), booleanLabel(data.enabled)],
+            [t("businessData.flow.details.flowType"), data.flowType],
+            [t("businessData.flow.details.enabled"), booleanLabel(data.enabled)],
           ]}
         />
       </Card>

@@ -12,20 +12,18 @@ import {
 } from "@/components/common";
 import type { DataColumn, HeaderAction } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
-import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 import { MapDefinitionWizardDialog } from "./MapDefinitionWizardDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const COLUMNS: DataColumn<MapDefinitionRecord>[] = [
-  { field: "name", headerName: tk("businessData.mapDefinition.columns.name"), type: "link", locked: true, width: "35%" },
-  { field: "description", headerName: tk("businessData.mapDefinition.columns.description"), width: "35%" },
-  { field: "type", headerName: tk("businessData.mapDefinition.columns.type"), width: "15%" },
-  { field: "state", headerName: tk("businessData.mapDefinition.columns.state"), type: "enum", enumOptions: RECORD_STATE_COLUMN_OPTIONS, width: "15%" },
+  { field: "name", headerName: "businessData.mapDefinition.columns.name", type: "link", locked: true, width: "35%" },
+  { field: "description", headerName: "businessData.mapDefinition.columns.description", width: "35%" },
+  { field: "type", headerName: "businessData.mapDefinition.columns.type", width: "15%" },
+  { field: "state", headerName: "businessData.mapDefinition.columns.state", type: "enum", enumOptions: RECORD_STATE_COLUMN_OPTIONS, width: "15%" },
 ];
 
 function useMapDefinitionListQuery(params: ListQueryParams) {
@@ -44,8 +42,8 @@ export function MapDefinitionListPage() {
     <>
       <DataListPage
         icon={<Grid24Regular />}
-        titleKey={tk("businessData.mapDefinition.pageLabel")}
-        listTitleKey={tk("businessData.mapDefinition.listTitle")}
+        titleKey={"businessData.mapDefinition.pageLabel"}
+        listTitleKey={"businessData.mapDefinition.listTitle"}
         actions={[createWithWizard, refreshAction, importAction, exportAction]}
         columns={COLUMNS}
         filters={defaultListFilters}

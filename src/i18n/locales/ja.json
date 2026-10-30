@@ -1420,6 +1420,119 @@
         "update": "更新",
         "manage": "管理"
       }
+    },
+    "inspectionPlan": {
+      "pageLabel": "検査計画",
+      "listTitle": "検査計画 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "状態"
+      },
+      "tabs": {
+        "compare": "比較"
+      },
+      "sections": {
+        "details": "詳細",
+        "steps": "ステップ",
+        "configurations": "構成",
+        "instances": "インスタンス",
+        "attachments": "添付ファイル",
+        "inspectionPlan": "検査計画",
+        "defaultInspection": "既定の検査",
+        "inspectionSettings": "検査設定",
+        "futureHoldInformation": "将来のホールド情報",
+        "holdInformation": "ホールド情報",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "resultsRequiredBeforeTrackOut": "Track-Out前に結果が必要",
+        "enableMultipleSamples": "複数サンプルを有効化",
+        "containsSeparateInspectionSteps": "個別の検査ステップを含む",
+        "closeAutomaticallyOnPass": "合格時に自動終了",
+        "closeAutomaticallyOnFail": "不合格時に自動終了",
+        "openProtocolOnFail": "不合格時にプロトコルを開く",
+        "protocol": "プロトコル",
+        "futureHoldCreationMode": "将来のホールド作成モード",
+        "setHoldOnFail": "不合格時にホールドを設定",
+        "step": "ステップ",
+        "reason": "理由",
+        "releaseRole": "リリースロール",
+        "comment": "コメント",
+        "distributionList": "配布リスト"
+      },
+      "dialog": {
+        "createTitle": "Inspection Planの作成",
+        "editTitle": "Inspection Planの編集",
+        "cloneTitle": "Inspection Planの複製",
+        "step1": "ステップ1: Change Set",
+        "step2": "ステップ2: 一般データ",
+        "step3": "ステップ3: Steps",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "自動Change Setを使用",
+        "approvalRole": "承認ロール",
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "resultsRequiredBeforeTrackOut": "Track-Out前に結果が必要",
+        "enableMultipleSamples": "複数サンプルを有効化",
+        "containsSeparateInspectionSteps": "個別のInspection Stepを含む",
+        "closeAutomaticallyOnPass": "Pass時に自動クローズ",
+        "closeAutomaticallyOnFail": "Fail時に自動クローズ",
+        "futureHoldCreationMode": "Future Hold作成モード",
+        "futureHoldNone": "なし",
+        "futureHoldAlways": "常に",
+        "futureHoldOnFail": "Fail時",
+        "addStep": "Stepの追加",
+        "remove": "削除",
+        "stepName": "Step名",
+        "isInProcessInspection": "インプロセス検査",
+        "inspectionFlow": "Inspection Flow",
+        "inspectionStep": "Inspection Step",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製"
+      },
+      "terminateDialog": {
+        "title": "Inspection Planの終了",
+        "message": "Inspection Plan「{{name}}」を終了しますか?",
+        "unterminateTitle": "Inspection Planの終了取消",
+        "unterminateMessage": "Inspection Plan「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "manageConfigurations": {
+        "title": "Configurationsの管理",
+        "configurations": "Configurations",
+        "addConfiguration": "Configurationの追加",
+        "removeConfiguration": "Configurationの削除",
+        "configurationName": "Configuration名",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "manage": "管理"
+      },
+      "manageSteps": {
+        "title": "Inspection Plan Stepsの管理",
+        "steps": "Steps",
+        "addStep": "Stepの追加",
+        "removeStep": "Stepの削除",
+        "stepName": "Step名",
+        "isInProcessInspection": "インプロセス検査",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "manage": "管理"
+      }
     }
   }
 }

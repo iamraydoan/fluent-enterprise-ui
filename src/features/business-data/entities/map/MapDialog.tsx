@@ -6,27 +6,26 @@ import { useSharedStyles } from "@/styles/shared";
 import { MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  createTitle: tk("businessData.map.dialog.createTitle"),
-  editTitle: tk("businessData.map.dialog.editTitle"),
-  cloneTitle: tk("businessData.map.dialog.cloneTitle"),
-  step1: tk("businessData.map.dialog.step1"),
-  step2: tk("businessData.map.dialog.step2"),
-  name: tk("businessData.map.dialog.name"),
-  description: tk("businessData.map.dialog.description"),
-  mapDefinition: tk("businessData.map.dialog.mapDefinition"),
-  step: tk("businessData.map.dialog.step"),
-  resource: tk("businessData.map.dialog.resource"),
-  layers: tk("businessData.map.dialog.layers"),
-  layersHint: tk("businessData.map.dialog.layersHint"),
-  back: tk("businessData.map.dialog.back"),
-  next: tk("businessData.map.dialog.next"),
-  cancel: tk("businessData.map.dialog.cancel"),
-  create: tk("businessData.map.dialog.create"),
-  save: tk("businessData.map.dialog.save"),
-  clone: tk("businessData.map.dialog.clone"),
+const L: Record<string, TranslationKey> = {
+  createTitle: "businessData.map.dialog.createTitle",
+  editTitle: "businessData.map.dialog.editTitle",
+  cloneTitle: "businessData.map.dialog.cloneTitle",
+  step1: "businessData.map.dialog.step1",
+  step2: "businessData.map.dialog.step2",
+  name: "businessData.map.dialog.name",
+  description: "businessData.map.dialog.description",
+  mapDefinition: "businessData.map.dialog.mapDefinition",
+  step: "businessData.map.dialog.step",
+  resource: "businessData.map.dialog.resource",
+  layers: "businessData.map.dialog.layers",
+  layersHint: "businessData.map.dialog.layersHint",
+  back: "businessData.map.dialog.back",
+  next: "businessData.map.dialog.next",
+  cancel: "businessData.map.dialog.cancel",
+  create: "businessData.map.dialog.create",
+  save: "businessData.map.dialog.save",
+  clone: "businessData.map.dialog.clone",
 };
 
 const useDialogStyles = makeStyles({

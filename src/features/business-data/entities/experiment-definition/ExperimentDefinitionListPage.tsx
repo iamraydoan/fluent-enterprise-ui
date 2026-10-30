@@ -12,37 +12,35 @@ import {
 } from "@/components/common";
 import type { DataColumn } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 import { ExperimentDefinitionDialog } from "./ExperimentDefinitionDialog";
 import { MODE_CREATE } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
 const COLUMNS: DataColumn<ExperimentDefinitionRecord>[] = [
   {
     field: "name",
-    headerName: tk("businessData.experimentDefinition.columns.name"),
+    headerName: "businessData.experimentDefinition.columns.name",
     type: "link",
     locked: true,
     width: "30%",
   },
   {
     field: "description",
-    headerName: tk("businessData.experimentDefinition.columns.description"),
+    headerName: "businessData.experimentDefinition.columns.description",
     width: "25%",
   },
-  { field: "type", headerName: tk("businessData.experimentDefinition.columns.type"), width: "15%" },
+  { field: "type", headerName: "businessData.experimentDefinition.columns.type", width: "15%" },
   {
     field: "product",
-    headerName: tk("businessData.experimentDefinition.columns.product"),
+    headerName: "businessData.experimentDefinition.columns.product",
     width: "20%",
   },
   {
     field: "state",
-    headerName: tk("businessData.experimentDefinition.columns.state"),
+    headerName: "businessData.experimentDefinition.columns.state",
     type: "enum",
     enumOptions: RECORD_STATE_COLUMN_OPTIONS,
     width: "10%",
@@ -61,8 +59,8 @@ export function ExperimentDefinitionListPage() {
     <>
       <DataListPage
         icon={<Box24Regular />}
-        titleKey={tk("businessData.experimentDefinition.pageLabel")}
-        listTitleKey={tk("businessData.experimentDefinition.listTitle")}
+        titleKey={"businessData.experimentDefinition.pageLabel"}
+        listTitleKey={"businessData.experimentDefinition.listTitle"}
         actions={[
           { ...createAction, onClick: () => setCreateOpen(true) },
           refreshAction,

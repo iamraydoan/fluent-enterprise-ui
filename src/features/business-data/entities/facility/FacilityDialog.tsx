@@ -6,29 +6,28 @@ import { useSharedStyles } from "@/styles/shared";
 import { MODE_CREATE, MODE_EDIT } from "./wizardMode";
 import type { WizardMode } from "./wizardMode";
 
-const tk = (key: string) => key as TranslationKey;
 
-const L = {
-  createTitle: tk("businessData.facility.dialog.createTitle"),
-  editTitle: tk("businessData.facility.dialog.editTitle"),
-  cloneTitle: tk("businessData.facility.dialog.cloneTitle"),
-  step1: tk("businessData.facility.dialog.step1"),
-  step2: tk("businessData.facility.dialog.step2"),
-  name: tk("businessData.facility.dialog.name"),
-  description: tk("businessData.facility.dialog.description"),
-  type: tk("businessData.facility.dialog.type"),
-  dataGroup: tk("businessData.facility.dialog.dataGroup"),
-  displayOrder: tk("businessData.facility.dialog.displayOrder"),
-  defaultCalendar: tk("businessData.facility.dialog.defaultCalendar"),
-  site: tk("businessData.facility.dialog.site"),
-  remote: tk("businessData.facility.dialog.remote"),
-  terminateOnShip: tk("businessData.facility.dialog.terminateOnShip"),
-  back: tk("businessData.facility.dialog.back"),
-  next: tk("businessData.facility.dialog.next"),
-  cancel: tk("businessData.facility.dialog.cancel"),
-  create: tk("businessData.facility.dialog.create"),
-  save: tk("businessData.facility.dialog.save"),
-  clone: tk("businessData.facility.dialog.clone"),
+const L: Record<string, TranslationKey> = {
+  createTitle: "businessData.facility.dialog.createTitle",
+  editTitle: "businessData.facility.dialog.editTitle",
+  cloneTitle: "businessData.facility.dialog.cloneTitle",
+  step1: "businessData.facility.dialog.step1",
+  step2: "businessData.facility.dialog.step2",
+  name: "businessData.facility.dialog.name",
+  description: "businessData.facility.dialog.description",
+  type: "businessData.facility.dialog.type",
+  dataGroup: "businessData.facility.dialog.dataGroup",
+  displayOrder: "businessData.facility.dialog.displayOrder",
+  defaultCalendar: "businessData.facility.dialog.defaultCalendar",
+  site: "businessData.facility.dialog.site",
+  remote: "businessData.facility.dialog.remote",
+  terminateOnShip: "businessData.facility.dialog.terminateOnShip",
+  back: "businessData.facility.dialog.back",
+  next: "businessData.facility.dialog.next",
+  cancel: "businessData.facility.dialog.cancel",
+  create: "businessData.facility.dialog.create",
+  save: "businessData.facility.dialog.save",
+  clone: "businessData.facility.dialog.clone",
 };
 
 const useDialogStyles = makeStyles({
@@ -157,15 +156,15 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
                   value={type}
                   onChange={(e) => setType(e.target.value)}
                 >
-                  <option value="">{t(tk("common.none"))}</option>
+                  <option value="">{t("common.none")}</option>
                   <option value="Manufacturing">
-                    {t(tk("businessData.facility.dialog.typeManufacturing"))}
+                    {t("businessData.facility.dialog.typeManufacturing")}
                   </option>
                   <option value="Distribution Center">
-                    {t(tk("businessData.facility.dialog.typeDistribution"))}
+                    {t("businessData.facility.dialog.typeDistribution")}
                   </option>
                   <option value="Warehouse">
-                    {t(tk("businessData.facility.dialog.typeWarehouse"))}
+                    {t("businessData.facility.dialog.typeWarehouse")}
                   </option>
                 </select>
               </div>
