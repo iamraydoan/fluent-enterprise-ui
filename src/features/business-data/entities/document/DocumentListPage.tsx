@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDocuments } from "@/api";
 import type { DocumentRecord } from "@/api";
 import {
@@ -15,6 +16,8 @@ import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { DocumentWizardDialog } from "./DocumentWizardDialog";
+import { MODE_CREATE } from "./wizardMode";
 
 const tk = (key: string) => key as TranslationKey;
 
@@ -55,17 +58,21 @@ function useDocumentListQuery(params: ListQueryParams) {
 export function DocumentListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/business-data/document/$name", openRoute);
+  const [showCreate, setShowCreate] = useState(false);
   return (
+    <>
     <DataListPage
       icon={<DocumentBulletList24Regular />}
       titleKey={tk("businessData.document.pageLabel")}
       listTitleKey={tk("businessData.document.listTitle")}
-      actions={[createAction, refreshAction, importAction, exportAction]}
+      actions={[{ ...createAction, onClick: () => setShowCreate(true) }, refreshAction, importAction, exportAction]}
       columns={COLUMNS}
       filters={defaultListFilters}
       useListQuery={useDocumentListQuery}
       getRowId={(row) => row.name}
       onRowClick={(row) => openDetail(row.name)}
     />
+    {showCreate && <DocumentWizardDialog mode={MODE_CREATE} onClose={() => setShowCreate(false)} />}
+    </>
   );
 }
