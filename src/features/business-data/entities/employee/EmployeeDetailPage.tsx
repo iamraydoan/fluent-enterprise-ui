@@ -28,6 +28,7 @@ import {
   ClockInDialog,
   ClockOutDialog,
 } from "./EmployeeAttendanceDialogs";
+import { ManageDelegatesDialog, ManageTraineesDialog } from "./EmployeeDelegatesDialogs";
 
 
 const TOP_TABS: DetailTab[] = [
@@ -95,6 +96,8 @@ export function EmployeeDetailPage({ name }: { name: string }) {
     {clockOutOpen && <ClockOutDialog name={name} onClose={() => setClockOutOpen(false)} />}
     {assignSubOpen && <AssignSubordinatesDialog name={name} onClose={() => setAssignSubOpen(false)} />}
     {assignTeamOpen && <AssignTeamWorkgroupDialog name={name} onClose={() => setAssignTeamOpen(false)} />}
+    {manageDelegatesOpen && <ManageDelegatesDialog name={name} onClose={() => setManageDelegatesOpen(false)} />}
+    {manageTraineesOpen && <ManageTraineesDialog name={name} onClose={() => setManageTraineesOpen(false)} />}
     </>
   );
 
@@ -195,6 +198,12 @@ export function EmployeeDetailPage({ name }: { name: string }) {
           </Button>
           <Button size="small" onClick={() => setAssignTeamOpen(true)}>
             {t(tk("businessData.employee.attendance.save"))}
+          </Button>
+          <Button size="small" onClick={() => setManageDelegatesOpen(true)}>
+            {t(tk("businessData.employee.delegates.manage"))}
+          </Button>
+          <Button size="small" onClick={() => setManageTraineesOpen(true)}>
+            {t(tk("businessData.employee.delegates.checkOut"))}
           </Button>
         </div>
       </Card>

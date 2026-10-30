@@ -1617,7 +1617,8 @@
         "cancel": "Cancel",
         "create": "Create",
         "save": "Save",
-        "clone": "Clone"
+        "clone": "Clone",
+        "remove": "Remove"
       },
       "terminateDialog": {
         "title": "Terminate Employee",
@@ -1693,6 +1694,23 @@
         "assign": "Assign",
         "unassign": "Unassign",
         "save": "Save"
+      },
+      "delegates": {
+        "manageDelegatesTitle": "Manage Employee Delegates",
+        "manageTraineesTitle": "Manage Employee Trainees",
+        "delegates": "Delegates",
+        "trainees": "Trainees",
+        "delegateEmployee": "Delegate Employee",
+        "validFrom": "Valid From",
+        "validTo": "Valid To",
+        "addDelegate": "Add Delegate",
+        "removeDelegate": "Remove Delegate",
+        "addTrainee": "Add Trainee",
+        "removeTrainee": "Remove Trainee",
+        "cancel": "Cancel",
+        "update": "Update",
+        "checkOut": "Check-Out",
+        "manage": "Manage"
       }
     },
     "maintenanceActivityOrder": {

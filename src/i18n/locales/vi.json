@@ -1617,7 +1617,8 @@
         "cancel": "Hủy",
         "create": "Tạo",
         "save": "Lưu",
-        "clone": "Nhân bản"
+        "clone": "Nhân bản",
+        "remove": "Xóa"
       },
       "terminateDialog": {
         "title": "Kết thúc Employee",
@@ -1693,6 +1694,23 @@
         "assign": "Gán",
         "unassign": "Hủy gán",
         "save": "Lưu"
+      },
+      "delegates": {
+        "manageDelegatesTitle": "Quản lý Delegates của Employee",
+        "manageTraineesTitle": "Quản lý Trainees của Employee",
+        "delegates": "Delegates",
+        "trainees": "Trainees",
+        "delegateEmployee": "Employee đại diện",
+        "validFrom": "Hiệu lực từ",
+        "validTo": "Hiệu lực đến",
+        "addDelegate": "Thêm Delegate",
+        "removeDelegate": "Xóa Delegate",
+        "addTrainee": "Thêm Trainee",
+        "removeTrainee": "Xóa Trainee",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "checkOut": "Check-Out",
+        "manage": "Quản lý"
       }
     },
     "maintenanceActivityOrder": {

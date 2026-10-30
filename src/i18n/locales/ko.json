@@ -1617,7 +1617,8 @@
         "cancel": "취소",
         "create": "생성",
         "save": "저장",
-        "clone": "복제"
+        "clone": "복제",
+        "remove": "제거"
       },
       "terminateDialog": {
         "title": "Employee 종료",
@@ -1693,6 +1694,23 @@
         "assign": "할당",
         "unassign": "할당 해제",
         "save": "저장"
+      },
+      "delegates": {
+        "manageDelegatesTitle": "Employee Delegates 관리",
+        "manageTraineesTitle": "Employee Trainees 관리",
+        "delegates": "Delegates",
+        "trainees": "Trainees",
+        "delegateEmployee": "대리 Employee",
+        "validFrom": "유효 시작일",
+        "validTo": "유효 종료일",
+        "addDelegate": "Delegate 추가",
+        "removeDelegate": "Delegate 제거",
+        "addTrainee": "Trainee 추가",
+        "removeTrainee": "Trainee 제거",
+        "cancel": "취소",
+        "update": "업데이트",
+        "checkOut": "Check-Out",
+        "manage": "관리"
       }
     },
     "maintenanceActivityOrder": {

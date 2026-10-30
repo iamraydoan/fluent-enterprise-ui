@@ -1617,7 +1617,8 @@
         "cancel": "キャンセル",
         "create": "作成",
         "save": "保存",
-        "clone": "複製"
+        "clone": "複製",
+        "remove": "削除"
       },
       "terminateDialog": {
         "title": "Employeeの終了",
@@ -1693,6 +1694,23 @@
         "assign": "割当",
         "unassign": "割当解除",
         "save": "保存"
+      },
+      "delegates": {
+        "manageDelegatesTitle": "Employee Delegatesの管理",
+        "manageTraineesTitle": "Employee Traineesの管理",
+        "delegates": "Delegates",
+        "trainees": "Trainees",
+        "delegateEmployee": "代理Employee",
+        "validFrom": "有効開始日",
+        "validTo": "有効終了日",
+        "addDelegate": "Delegateの追加",
+        "removeDelegate": "Delegateの削除",
+        "addTrainee": "Traineeの追加",
+        "removeTrainee": "Traineeの削除",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "checkOut": "Check-Out",
+        "manage": "管理"
       }
     },
     "maintenanceActivityOrder": {
