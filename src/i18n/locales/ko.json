@@ -1631,6 +1631,124 @@
           "state": "상태",
           "version": "버전"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Protocol",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "description": "Description",
+            "changeSet": "Change Set"
+          },
+          "hints": {
+            "changeSet": "It is necessary to associate the Protocol Version with a Change Set."
+          }
+        },
+        "edit": {
+          "title": "Edit Protocol",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Protocol cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Protocol",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Protocol",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "exceptionRules": {
+          "title": "Exception Management Rules",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Exception Management Rules for the Protocol."
+        },
+        "openInstance": {
+          "title": "Open Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Open",
+          "description": "Open a Protocol Instance."
+        },
+        "closeInstance": {
+          "title": "Close Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Close",
+          "description": "Close the Protocol Instance."
+        },
+        "performInstance": {
+          "title": "Perform Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Perform",
+          "description": "Perform the Protocol Instance."
+        },
+        "takeInstanceOwnership": {
+          "title": "Take Protocol Instance Ownership",
+          "cancel": "Cancel",
+          "submit": "Take Ownership",
+          "description": "Take ownership of the Protocol Instance."
+        },
+        "terminateInstance": {
+          "title": "Terminate Protocol Instance",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Terminate the Protocol Instance."
+        },
+        "changeInstanceState": {
+          "title": "Change Protocol Instance State",
+          "cancel": "Cancel",
+          "submit": "Change",
+          "description": "Change the state of the Protocol Instance."
+        },
+        "manageInstanceMaterials": {
+          "title": "Manage Protocol Instance Materials",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Manage Materials associated with the Protocol Instance."
+        },
+        "viewInstanceReports": {
+          "title": "View Protocol Instance Reports",
+          "close": "Close",
+          "description": "View reports for the Protocol Instance."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "parameters": "Parameters",
+        "instances": "Instances",
+        "attachments": "Attachments"
       }
     },
     "periodicInventory": {
