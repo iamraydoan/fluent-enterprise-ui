@@ -24,20 +24,27 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
+import { useSharedStyles } from "@/styles/shared";
 
 const usePageStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "10px" },
+  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
+  contentCard: {
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "12px",
+    padding: "16px",
+    flexGrow: 1,
+    minHeight: 0,
+  },
   filterBar: {
     display: "flex",
     alignItems: "center",
     columnGap: "16px",
-    padding: "8px 16px",
-    backgroundColor: tokens.colorNeutralBackground1,
-    borderRadius: tokens.borderRadiusMedium,
     flexWrap: "wrap",
     rowGap: "8px",
+    paddingBottom: "12px",
+    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
   },
   filterGroup: { display: "flex", alignItems: "center", columnGap: "8px" },
   filterLabel: {
@@ -53,14 +60,16 @@ const usePageStyles = makeStyles({
     paddingBottom: "8px",
   },
   tile: {
-    ...cardSurface,
     padding: "14px",
     cursor: "pointer",
     display: "flex",
     flexDirection: "column",
     rowGap: "10px",
     minHeight: "110px",
-    ":hover": { boxShadow: tokens.shadow8 },
+    backgroundColor: tokens.colorNeutralBackground1,
+    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRadius: tokens.borderRadiusMedium,
+    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
   },
   tileName: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
   tileMeta: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
@@ -105,6 +114,7 @@ const ALL_VALUE = "all";
 export function UIPagesPage() {
   const { t } = useAppTranslation();
   const styles = usePageStyles();
+  const sharedStyles = useSharedStyles();
   const [collapsed, setCollapsed] = useState(false);
   const [folder, setFolder] = useState("all");
   const [scope, setScope] = useState<"all" | UIPageScope>("all");
@@ -168,89 +178,91 @@ export function UIPagesPage() {
           ))}
         </SidePanel>
         <div className={styles.main}>
-          <div className={styles.filterBar} role="search">
-            <div className={styles.filterGroup}>
-              <Checkbox
-                checked={showTerminated}
-                onChange={(_, data) => setShowTerminated(data.checked === true)}
-                label={t("uiPages.filters.terminated")}
-              />
-            </div>
-            <div className={styles.filterGroup}>
-              <Checkbox
-                checked={showSystemItems}
-                onChange={(_, data) => setShowSystemItems(data.checked === true)}
-                label={t("uiPages.filters.systemItems")}
-              />
-            </div>
-            <div className={styles.filterGroup}>
-              <span className={styles.filterLabel}>{t("uiPages.filters.scope")}</span>
-              <Menu>
-                <MenuTrigger disableButtonEnhancement>
-                  <button className={styles.folderItem} style={{ width: "auto" }}>
-                    {scope === "all" ? t("uiPages.filters.all") : scope}
-                  </button>
-                </MenuTrigger>
-                <MenuPopover>
-                  <MenuList>
-                    {SCOPES.map((value) => (
-                      <MenuItem key={value} onClick={() => setScope(value)}>
-                        {value === "all" ? t("uiPages.filters.all") : value}
+          <div className={mergeClasses(sharedStyles.contentCard, styles.contentCard)}>
+            <div className={styles.filterBar} role="search">
+              <div className={styles.filterGroup}>
+                <Checkbox
+                  checked={showTerminated}
+                  onChange={(_, data) => setShowTerminated(data.checked === true)}
+                  label={t("uiPages.filters.terminated")}
+                />
+              </div>
+              <div className={styles.filterGroup}>
+                <Checkbox
+                  checked={showSystemItems}
+                  onChange={(_, data) => setShowSystemItems(data.checked === true)}
+                  label={t("uiPages.filters.systemItems")}
+                />
+              </div>
+              <div className={styles.filterGroup}>
+                <span className={styles.filterLabel}>{t("uiPages.filters.scope")}</span>
+                <Menu>
+                  <MenuTrigger disableButtonEnhancement>
+                    <button className={styles.folderItem} style={{ width: "auto" }}>
+                      {scope === "all" ? t("uiPages.filters.all") : scope}
+                    </button>
+                  </MenuTrigger>
+                  <MenuPopover>
+                    <MenuList>
+                      {SCOPES.map((value) => (
+                        <MenuItem key={value} onClick={() => setScope(value)}>
+                          {value === "all" ? t("uiPages.filters.all") : value}
+                        </MenuItem>
+                      ))}
+                    </MenuList>
+                  </MenuPopover>
+                </Menu>
+              </div>
+              <div className={styles.filterGroup}>
+                <span className={styles.filterLabel}>{t("uiPages.filters.section")}</span>
+                <Menu>
+                  <MenuTrigger disableButtonEnhancement>
+                    <button className={styles.folderItem} style={{ width: "auto" }}>
+                      {section === "all" ? t("uiPages.filters.all") : section}
+                    </button>
+                  </MenuTrigger>
+                  <MenuPopover>
+                    <MenuList>
+                      <MenuItem onClick={() => setSection(ALL_VALUE)}>
+                        {t("uiPages.filters.all")}
                       </MenuItem>
-                    ))}
-                  </MenuList>
-                </MenuPopover>
-              </Menu>
+                      {sections.map((value) => (
+                        <MenuItem key={value} onClick={() => setSection(value)}>
+                          {value}
+                        </MenuItem>
+                      ))}
+                    </MenuList>
+                  </MenuPopover>
+                </Menu>
+              </div>
+              <div className={styles.filterGroup}>
+                <span className={styles.filterLabel}>{t("uiPages.filters.entityType")}</span>
+                <Input
+                  value={entityType}
+                  onChange={(_, data) => setEntityType(data.value)}
+                  placeholder={t("uiPages.filters.entityTypePlaceholder")}
+                  style={{ width: "160px" }}
+                />
+              </div>
+              <div className={styles.filterGroup} style={{ marginLeft: "auto" }}>
+                <Input
+                  value={q}
+                  onChange={(_, data) => setQ(data.value)}
+                  placeholder={t("common.search")}
+                  style={{ width: "200px" }}
+                />
+              </div>
             </div>
-            <div className={styles.filterGroup}>
-              <span className={styles.filterLabel}>{t("uiPages.filters.section")}</span>
-              <Menu>
-                <MenuTrigger disableButtonEnhancement>
-                  <button className={styles.folderItem} style={{ width: "auto" }}>
-                    {section === "all" ? t("uiPages.filters.all") : section}
-                  </button>
-                </MenuTrigger>
-                <MenuPopover>
-                  <MenuList>
-                    <MenuItem onClick={() => setSection(ALL_VALUE)}>
-                      {t("uiPages.filters.all")}
-                    </MenuItem>
-                    {sections.map((value) => (
-                      <MenuItem key={value} onClick={() => setSection(value)}>
-                        {value}
-                      </MenuItem>
-                    ))}
-                  </MenuList>
-                </MenuPopover>
-              </Menu>
-            </div>
-            <div className={styles.filterGroup}>
-              <span className={styles.filterLabel}>{t("uiPages.filters.entityType")}</span>
-              <Input
-                value={entityType}
-                onChange={(_, data) => setEntityType(data.value)}
-                placeholder={t("uiPages.filters.entityTypePlaceholder")}
-                style={{ width: "160px" }}
-              />
-            </div>
-            <div className={styles.filterGroup} style={{ marginLeft: "auto" }}>
-              <Input
-                value={q}
-                onChange={(_, data) => setQ(data.value)}
-                placeholder={t("common.search")}
-                style={{ width: "200px" }}
-              />
-            </div>
+            {pages.length === 0 ? (
+              <div className={styles.empty}>{t("uiPages.noPages")}</div>
+            ) : (
+              <div className={styles.grid}>
+                {pages.map((page) => (
+                  <UIPageTile key={page.name} page={page} />
+                ))}
+              </div>
+            )}
           </div>
-          {pages.length === 0 ? (
-            <div className={styles.empty}>{t("uiPages.noPages")}</div>
-          ) : (
-            <div className={styles.grid}>
-              {pages.map((page) => (
-                <UIPageTile key={page.name} page={page} />
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </ListPage>
