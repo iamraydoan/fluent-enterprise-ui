@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SectionRouteImport } from './routes/$section'
 import { Route as AdministrationRouteImport } from './routes/administration'
 import { Route as AiRouteImport } from './routes/ai'
+import { Route as BusinessDataRouteImport } from './routes/business-data'
 import { Route as AdministrationTileRouteImport } from './routes/administration.$tile'
 import { Route as AdministrationAiAgentRouteImport } from './routes/administration.ai-agent'
 import { Route as AdministrationAiMcpServerRouteImport } from './routes/administration.ai-mcp-server'
@@ -47,6 +48,11 @@ const AdministrationRoute = AdministrationRouteImport.update({
 const AiRoute = AiRouteImport.update({
   id: '/ai',
   path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessDataRoute = BusinessDataRouteImport.update({
+  id: '/business-data',
+  path: '/business-data',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdministrationTileRoute = AdministrationTileRouteImport.update({
@@ -139,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/$section': typeof SectionRoute
   '/administration': typeof AdministrationRouteWithChildren
   '/ai': typeof AiRoute
+  '/business-data': typeof BusinessDataRoute
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
@@ -160,6 +167,7 @@ export interface FileRoutesByTo {
   '/$section': typeof SectionRoute
   '/administration': typeof AdministrationRouteWithChildren
   '/ai': typeof AiRoute
+  '/business-data': typeof BusinessDataRoute
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
@@ -182,6 +190,7 @@ export interface FileRoutesById {
   '/$section': typeof SectionRoute
   '/administration': typeof AdministrationRouteWithChildren
   '/ai': typeof AiRoute
+  '/business-data': typeof BusinessDataRoute
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
@@ -205,6 +214,7 @@ export interface FileRouteTypes {
     | '/$section'
     | '/administration'
     | '/ai'
+    | '/business-data'
     | '/administration/$tile'
     | '/administration/ai-agent'
     | '/administration/ai-mcp-server'
@@ -226,6 +236,7 @@ export interface FileRouteTypes {
     | '/$section'
     | '/administration'
     | '/ai'
+    | '/business-data'
     | '/administration/$tile'
     | '/administration/ai-agent'
     | '/administration/ai-mcp-server'
@@ -247,6 +258,7 @@ export interface FileRouteTypes {
     | '/$section'
     | '/administration'
     | '/ai'
+    | '/business-data'
     | '/administration/$tile'
     | '/administration/ai-agent'
     | '/administration/ai-mcp-server'
@@ -269,6 +281,7 @@ export interface RootRouteChildren {
   SectionRoute: typeof SectionRoute
   AdministrationRoute: typeof AdministrationRouteWithChildren
   AiRoute: typeof AiRoute
+  BusinessDataRoute: typeof BusinessDataRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -299,6 +312,13 @@ declare module '@tanstack/react-router' {
       path: '/ai'
       fullPath: '/ai'
       preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business-data': {
+      id: '/business-data'
+      path: '/business-data'
+      fullPath: '/business-data'
+      preLoaderRoute: typeof BusinessDataRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/administration/$tile': {
@@ -522,6 +542,7 @@ const rootRouteChildren: RootRouteChildren = {
   SectionRoute: SectionRoute,
   AdministrationRoute: AdministrationRouteWithChildren,
   AiRoute: AiRoute,
+  BusinessDataRoute: BusinessDataRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
