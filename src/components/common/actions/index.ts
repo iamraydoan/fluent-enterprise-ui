@@ -1,4 +1,5 @@
 export { aiEditorAction } from "./aiEditor";
+export { cloneAction } from "./clone";
 export { createAction } from "./create";
 export { deleteAction } from "./delete";
 export { downloadLbosAction } from "./downloadLbos";
@@ -11,3 +12,5 @@ export { importAction } from "./import";
 export { refreshAction } from "./refresh";
 export { saveAction } from "./save";
 export { settingsAction } from "./settings";
+export { terminateAction } from "./terminate";
+export { unterminateAction } from "./unterminate";

@@ -260,6 +260,11 @@ export default tseslint.config(
               "itemType",
               "titleKey",
               "listTitleKey",
+              "labelKey",
+              "submitLabelKey",
+              "messageKey",
+              "confirmLabelKey",
+              "top",
             ],
           },
           "object-properties": {

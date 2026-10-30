@@ -7,6 +7,7 @@ export type { DataFilter } from "./data-table/filters";
 export { ListPage } from "./ListPage";
 export {
   aiEditorAction,
+  cloneAction,
   createAction,
   deleteAction,
   downloadLbosAction,
@@ -19,6 +20,8 @@ export {
   refreshAction,
   saveAction,
   settingsAction,
+  terminateAction,
+  unterminateAction,
 } from "./actions";
 export type { HeaderAction } from "./ListPageHeader";
 export { RECORD_STATE_COLUMN_OPTIONS, RECORD_STATE_LABELS } from "./listState";
