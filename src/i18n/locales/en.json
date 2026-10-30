@@ -661,5 +661,101 @@
       "send": "Send"
     },
     "listTitle": "Queries ({{count}})"
+  },
+  "businessData": {
+    "material": {
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "primaryQuantity": "Primary Quantity",
+        "product": "Product",
+        "state": "State",
+        "step": "Step",
+        "type": "Type"
+      },
+      "detailsView": "Details View",
+      "emptyTab": "No data available.",
+      "fields": {
+        "approved": "Approved",
+        "container": "Container",
+        "description": "Description",
+        "facility": "Facility",
+        "flow": "Flow",
+        "flowPath": "Flow Path",
+        "form": "Form",
+        "name": "Name",
+        "primaryQuantity": "Primary Quantity",
+        "product": "Product",
+        "productDescription": "Product Description",
+        "resource": "Resource",
+        "secondaryQuantity": "Secondary Quantity",
+        "step": "Step",
+        "subMaterialCount": "Sub-Materials",
+        "systemState": "System State",
+        "type": "Type",
+        "universalState": "Universal State"
+      },
+      "listTitle": "Materials ({{count}})",
+      "pageLabel": "Material",
+      "sections": {
+        "basicInformation": "Basic Information",
+        "flowAndStep": "Flow and Step",
+        "material": "Material",
+        "quantities": "Quantities",
+        "resourceAndContainer": "Resource and Container",
+        "subMaterials": "Sub-Materials"
+      },
+      "sideSections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "carriers": "Carriers",
+        "characteristics": "Characteristics",
+        "collectedData": "Collected Data",
+        "costing": "Costing",
+        "defects": "Defects",
+        "dependencies": "Dependencies",
+        "details": "Details",
+        "experiments": "Experiments",
+        "futureActions": "Future Actions",
+        "holds": "Holds/Off-Flows/Reworks",
+        "maps": "Maps",
+        "notifications": "Notifications",
+        "packages": "Packages",
+        "protocols": "Protocols",
+        "scheduling": "Scheduling",
+        "subMaterials": "Sub-Materials",
+        "timeConstraints": "Time Constraints",
+        "transferRequirements": "Transfer Requirements"
+      },
+      "tabs": {
+        "compare": "Compare",
+        "container": "Container",
+        "defects": "Defects",
+        "details": "Details",
+        "genealogy": "Genealogy",
+        "history": "History",
+        "lineFlow": "Line Flow",
+        "maintenance": "Maintenance",
+        "references": "References",
+        "traceability": "Traceability"
+      },
+      "traceability": {
+        "details": "Details",
+        "filters": {
+          "bom": "BOM",
+          "checklist": "Checklist",
+          "dataCollection": "Data Collection",
+          "maintenancePlan": "Maintenance Plan",
+          "recipe": "Recipe",
+          "resource": "Resource"
+        },
+        "flowStructure": "Flow Structure",
+        "information": "Information"
+      },
+      "common": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
   }
 }

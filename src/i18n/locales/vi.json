@@ -661,5 +661,101 @@
       "send": "Gửi"
     },
     "listTitle": "Truy vấn ({{count}})"
+  },
+  "businessData": {
+    "material": {
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "primaryQuantity": "Số lượng chính",
+        "product": "Sản phẩm",
+        "state": "Trạng thái",
+        "step": "Công đoạn",
+        "type": "Loại"
+      },
+      "detailsView": "Chế độ xem chi tiết",
+      "emptyTab": "Không có dữ liệu.",
+      "fields": {
+        "approved": "Đã duyệt",
+        "container": "Container",
+        "description": "Mô tả",
+        "facility": "Nhà máy",
+        "flow": "Luồng",
+        "flowPath": "Đường luồng",
+        "form": "Dạng",
+        "name": "Tên",
+        "primaryQuantity": "Số lượng chính",
+        "product": "Sản phẩm",
+        "productDescription": "Mô tả sản phẩm",
+        "resource": "Tài nguyên",
+        "secondaryQuantity": "Số lượng phụ",
+        "step": "Công đoạn",
+        "subMaterialCount": "Vật liệu con",
+        "systemState": "Trạng thái hệ thống",
+        "type": "Loại",
+        "universalState": "Trạng thái chung"
+      },
+      "listTitle": "Vật liệu ({{count}})",
+      "pageLabel": "Vật liệu",
+      "sections": {
+        "basicInformation": "Thông tin cơ bản",
+        "flowAndStep": "Luồng và công đoạn",
+        "material": "Vật liệu",
+        "quantities": "Số lượng",
+        "resourceAndContainer": "Tài nguyên và Container",
+        "subMaterials": "Vật liệu con"
+      },
+      "sideSections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "carriers": "Giá đỡ",
+        "characteristics": "Đặc tính",
+        "collectedData": "Dữ liệu thu thập",
+        "costing": "Chi phí",
+        "defects": "Khuyết tật",
+        "dependencies": "Phụ thuộc",
+        "details": "Chi tiết",
+        "experiments": "Thử nghiệm",
+        "futureActions": "Hành động tương lai",
+        "holds": "Giữ/Chệch luồng/Làm lại",
+        "maps": "Bản đồ",
+        "notifications": "Thông báo",
+        "packages": "Kiện hàng",
+        "protocols": "Giao thức",
+        "scheduling": "Lập lịch",
+        "subMaterials": "Vật liệu con",
+        "timeConstraints": "Ràng buộc thời gian",
+        "transferRequirements": "Yêu cầu chuyển"
+      },
+      "tabs": {
+        "compare": "So sánh",
+        "container": "Container",
+        "defects": "Khuyết tật",
+        "details": "Chi tiết",
+        "genealogy": "Phả hệ",
+        "history": "Lịch sử",
+        "lineFlow": "Luồng dây chuyền",
+        "maintenance": "Bảo trì",
+        "references": "Tham chiếu",
+        "traceability": "Truy xuất"
+      },
+      "traceability": {
+        "details": "Chi tiết",
+        "filters": {
+          "bom": "BOM",
+          "checklist": "Danh mục kiểm tra",
+          "dataCollection": "Thu thập dữ liệu",
+          "maintenancePlan": "Kế hoạch bảo trì",
+          "recipe": "Công thức",
+          "resource": "Tài nguyên"
+        },
+        "flowStructure": "Cấu trúc luồng",
+        "information": "Thông tin"
+      },
+      "common": {
+        "yes": "Có",
+        "no": "Không"
+      }
+    }
   }
 }

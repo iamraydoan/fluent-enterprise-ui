@@ -661,5 +661,101 @@
       "send": "보내기"
     },
     "listTitle": "쿼리 ({{count}})"
+  },
+  "businessData": {
+    "material": {
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "primaryQuantity": "1차 수량",
+        "product": "제품",
+        "state": "상태",
+        "step": "공정",
+        "type": "유형"
+      },
+      "detailsView": "상세 보기",
+      "emptyTab": "데이터가 없습니다.",
+      "fields": {
+        "approved": "승인됨",
+        "container": "컨테이너",
+        "description": "설명",
+        "facility": "시설",
+        "flow": "플로우",
+        "flowPath": "플로우 경로",
+        "form": "형태",
+        "name": "이름",
+        "primaryQuantity": "1차 수량",
+        "product": "제품",
+        "productDescription": "제품 설명",
+        "resource": "리소스",
+        "secondaryQuantity": "2차 수량",
+        "step": "공정",
+        "subMaterialCount": "하위 자재",
+        "systemState": "시스템 상태",
+        "type": "유형",
+        "universalState": "통합 상태"
+      },
+      "listTitle": "자재 ({{count}})",
+      "pageLabel": "자재",
+      "sections": {
+        "basicInformation": "기본 정보",
+        "flowAndStep": "플로우 및 공정",
+        "material": "자재",
+        "quantities": "수량",
+        "resourceAndContainer": "리소스 및 컨테이너",
+        "subMaterials": "하위 자재"
+      },
+      "sideSections": {
+        "attachments": "첨부 파일",
+        "attributes": "특성",
+        "carriers": "캐리어",
+        "characteristics": "특성",
+        "collectedData": "수집 데이터",
+        "costing": "원가 계산",
+        "defects": "결함",
+        "dependencies": "종속성",
+        "details": "상세",
+        "experiments": "실험",
+        "futureActions": "향후 작업",
+        "holds": "홀드/오프플로우/재작업",
+        "maps": "맵",
+        "notifications": "알림",
+        "packages": "패키지",
+        "protocols": "프로토콜",
+        "scheduling": "스케줄링",
+        "subMaterials": "하위 자재",
+        "timeConstraints": "시간 제약",
+        "transferRequirements": "이송 요구사항"
+      },
+      "tabs": {
+        "compare": "비교",
+        "container": "컨테이너",
+        "defects": "결함",
+        "details": "상세",
+        "genealogy": "계보",
+        "history": "기록",
+        "lineFlow": "라인 플로우",
+        "maintenance": "유지보수",
+        "references": "참조",
+        "traceability": "추적성"
+      },
+      "traceability": {
+        "details": "상세",
+        "filters": {
+          "bom": "BOM",
+          "checklist": "체크리스트",
+          "dataCollection": "데이터 수집",
+          "maintenancePlan": "유지보수 계획",
+          "recipe": "레시피",
+          "resource": "리소스"
+        },
+        "flowStructure": "플로우 구조",
+        "information": "정보"
+      },
+      "common": {
+        "yes": "예",
+        "no": "아니요"
+      }
+    }
   }
 }

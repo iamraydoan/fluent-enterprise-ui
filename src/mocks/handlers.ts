@@ -7,6 +7,7 @@ import { genericTableHandlers } from "./handlers/genericTables";
 import { mcpServerHandlers } from "./handlers/mcpServer";
 import { queryHandlers } from "./handlers/queries";
 import { uiPageHandlers } from "./handlers/uiPages";
+import { materialHandlers } from "./handlers/businessData/material";
 
 export const handlers = [
   ...entityTypeHandlers,
@@ -18,4 +19,5 @@ export const handlers = [
   ...uiPageHandlers,
   ...mcpServerHandlers,
   ...queryHandlers,
+  ...materialHandlers,
 ];

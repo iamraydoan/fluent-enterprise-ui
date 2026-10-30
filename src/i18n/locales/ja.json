@@ -661,5 +661,101 @@
       "send": "送信"
     },
     "listTitle": "クエリ ({{count}})"
+  },
+  "businessData": {
+    "material": {
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "primaryQuantity": "一次数量",
+        "product": "製品",
+        "state": "状態",
+        "step": "ステップ",
+        "type": "タイプ"
+      },
+      "detailsView": "詳細ビュー",
+      "emptyTab": "データがありません。",
+      "fields": {
+        "approved": "承認済み",
+        "container": "コンテナ",
+        "description": "説明",
+        "facility": "ファシリティ",
+        "flow": "フロー",
+        "flowPath": "フローパス",
+        "form": "形態",
+        "name": "名前",
+        "primaryQuantity": "一次数量",
+        "product": "製品",
+        "productDescription": "製品説明",
+        "resource": "リソース",
+        "secondaryQuantity": "二次数量",
+        "step": "ステップ",
+        "subMaterialCount": "子マテリアル",
+        "systemState": "システム状態",
+        "type": "タイプ",
+        "universalState": "ユニバーサル状態"
+      },
+      "listTitle": "マテリアル ({{count}})",
+      "pageLabel": "マテリアル",
+      "sections": {
+        "basicInformation": "基本情報",
+        "flowAndStep": "フローとステップ",
+        "material": "マテリアル",
+        "quantities": "数量",
+        "resourceAndContainer": "リソースとコンテナ",
+        "subMaterials": "子マテリアル"
+      },
+      "sideSections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "carriers": "キャリア",
+        "characteristics": "特性",
+        "collectedData": "収集データ",
+        "costing": "原価計算",
+        "defects": "欠陥",
+        "dependencies": "依存関係",
+        "details": "詳細",
+        "experiments": "実験",
+        "futureActions": "将来のアクション",
+        "holds": "ホールド/オフフロー/リワーク",
+        "maps": "マップ",
+        "notifications": "通知",
+        "packages": "パッケージ",
+        "protocols": "プロトコル",
+        "scheduling": "スケジューリング",
+        "subMaterials": "子マテリアル",
+        "timeConstraints": "時間制約",
+        "transferRequirements": "転送要件"
+      },
+      "tabs": {
+        "compare": "比較",
+        "container": "コンテナ",
+        "defects": "欠陥",
+        "details": "詳細",
+        "genealogy": "系譜",
+        "history": "履歴",
+        "lineFlow": "ラインフロー",
+        "maintenance": "メンテナンス",
+        "references": "参照",
+        "traceability": "トレーサビリティ"
+      },
+      "traceability": {
+        "details": "詳細",
+        "filters": {
+          "bom": "BOM",
+          "checklist": "チェックリスト",
+          "dataCollection": "データ収集",
+          "maintenancePlan": "メンテナンス計画",
+          "recipe": "レシピ",
+          "resource": "リソース"
+        },
+        "flowStructure": "フロー構造",
+        "information": "情報"
+      },
+      "common": {
+        "yes": "はい",
+        "no": "いいえ"
+      }
+    }
   }
 }
