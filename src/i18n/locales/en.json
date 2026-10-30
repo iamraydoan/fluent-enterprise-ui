@@ -871,6 +871,59 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "businessPartner": {
+      "pageLabel": "Business Partners",
+      "listTitle": "Business Partners",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "role": "Role",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "businessPartner": "Business Partner",
+        "properties": "Properties",
+        "contactInformation": "Contact Information",
+        "addressInformation": "Address Information",
+        "otherInformation": "Other Information",
+        "name": "Name",
+        "description": "Description",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "contractor": "Contractor",
+        "customer": "Customer",
+        "supplier": "Supplier",
+        "manufacturer": "Manufacturer",
+        "labelSpecification": "Label Specification",
+        "contactTitle": "Title",
+        "contactName": "Name",
+        "email": "Email",
+        "mobilePhone": "Mobile Phone",
+        "businessPhone": "Business Phone",
+        "businessFax": "Business Fax",
+        "address": "Address",
+        "zipCode": "ZIP Code",
+        "country": "Country",
+        "state": "State",
+        "city": "City",
+        "taxNumber": "Tax Number",
+        "website": "Website",
+        "tabs": {
+          "details": "Details",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

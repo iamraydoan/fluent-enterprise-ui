@@ -871,6 +871,59 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "businessPartner": {
+      "pageLabel": "비즈니스 파트너",
+      "listTitle": "비즈니스 파트너",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "role": "역할",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "businessPartner": "Business Partner",
+        "properties": "Properties",
+        "contactInformation": "Contact Information",
+        "addressInformation": "Address Information",
+        "otherInformation": "Other Information",
+        "name": "이름",
+        "description": "설명",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "contractor": "계약자",
+        "customer": "고객",
+        "supplier": "공급업체",
+        "manufacturer": "제조업체",
+        "labelSpecification": "Label Specification",
+        "contactTitle": "Title",
+        "contactName": "이름",
+        "email": "Email",
+        "mobilePhone": "Mobile Phone",
+        "businessPhone": "Business Phone",
+        "businessFax": "Business Fax",
+        "address": "Address",
+        "zipCode": "ZIP Code",
+        "country": "Country",
+        "state": "상태",
+        "city": "City",
+        "taxNumber": "Tax Number",
+        "website": "Website",
+        "tabs": {
+          "details": "세부 정보",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

@@ -84,3 +84,5 @@ export { getBom, listBoms, useBomDetail, useBoms } from "./businessData/bom";
 export type { BomDetail, BomItem, BomRecord } from "./businessData/bom";
 export { useBinConverterDetail, useBinConverters } from "./businessData/binConverter";
 export type { BinConversion, BinConverterDetail, BinConverterRecord } from "./businessData/binConverter";
+export { useBusinessPartnerDetail, useBusinessPartners } from "./businessData/businessPartner";
+export type { BusinessPartnerDetail, BusinessPartnerRecord } from "./businessData/businessPartner";

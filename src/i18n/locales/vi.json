@@ -871,6 +871,59 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "businessPartner": {
+      "pageLabel": "Đối tác kinh doanh",
+      "listTitle": "Đối tác kinh doanh",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "role": "Vai trò",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "businessPartner": "Business Partner",
+        "properties": "Properties",
+        "contactInformation": "Contact Information",
+        "addressInformation": "Address Information",
+        "otherInformation": "Other Information",
+        "name": "Tên",
+        "description": "Mô tả",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "contractor": "Nhà thầu",
+        "customer": "Khách hàng",
+        "supplier": "Nhà cung cấp",
+        "manufacturer": "Nhà sản xuất",
+        "labelSpecification": "Label Specification",
+        "contactTitle": "Title",
+        "contactName": "Tên",
+        "email": "Email",
+        "mobilePhone": "Mobile Phone",
+        "businessPhone": "Business Phone",
+        "businessFax": "Business Fax",
+        "address": "Address",
+        "zipCode": "ZIP Code",
+        "country": "Country",
+        "state": "Trạng thái",
+        "city": "City",
+        "taxNumber": "Tax Number",
+        "website": "Website",
+        "tabs": {
+          "details": "Chi tiết",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

@@ -871,6 +871,59 @@
           "attachments": "添付ファイル"
         }
       }
+    },
+    "businessPartner": {
+      "pageLabel": "取引先",
+      "listTitle": "取引先",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "role": "役割",
+        "state": "状態"
+      },
+      "detail": {
+        "loading": "読み込み中...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "businessPartner": "Business Partner",
+        "properties": "Properties",
+        "contactInformation": "Contact Information",
+        "addressInformation": "Address Information",
+        "otherInformation": "Other Information",
+        "name": "名前",
+        "description": "説明",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "contractor": "請負業者",
+        "customer": "顧客",
+        "supplier": "サプライヤー",
+        "manufacturer": "メーカー",
+        "labelSpecification": "Label Specification",
+        "contactTitle": "Title",
+        "contactName": "名前",
+        "email": "Email",
+        "mobilePhone": "Mobile Phone",
+        "businessPhone": "Business Phone",
+        "businessFax": "Business Fax",
+        "address": "Address",
+        "zipCode": "ZIP Code",
+        "country": "Country",
+        "state": "状態",
+        "city": "City",
+        "taxNumber": "Tax Number",
+        "website": "Website",
+        "tabs": {
+          "details": "詳細",
+          "references": "参照",
+          "history": "履歴"
+        },
+        "sections": {
+          "details": "詳細",
+          "attachments": "添付ファイル"
+        }
+      }
     }
   }
 }
