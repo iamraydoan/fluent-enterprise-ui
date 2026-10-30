@@ -36,6 +36,58 @@ import { Route as BusinessDataChecklistRouteImport } from './routes/business-dat
 import { Route as BusinessDataContainerRouteImport } from './routes/business-data.container'
 import { Route as BusinessDataDataCollectionRouteImport } from './routes/business-data.data-collection'
 import { Route as BusinessDataDataCollectionLimitSetRouteImport } from './routes/business-data.data-collection-limit-set'
+import { Route as BusinessDataDataSiloRouteImport } from './routes/business-data.data-silo'
+import { Route as BusinessDataDocumentRouteImport } from './routes/business-data.document'
+import { Route as BusinessDataEmployeeRouteImport } from './routes/business-data.employee'
+import { Route as BusinessDataEnterpriseRouteImport } from './routes/business-data.enterprise'
+import { Route as BusinessDataExperimentDefinitionRouteImport } from './routes/business-data.experiment-definition'
+import { Route as BusinessDataFacilityRouteImport } from './routes/business-data.facility'
+import { Route as BusinessDataFlowRouteImport } from './routes/business-data.flow'
+import { Route as BusinessDataInspectionPlanRouteImport } from './routes/business-data.inspection-plan'
+import { Route as BusinessDataKpiRouteImport } from './routes/business-data.kpi'
+import { Route as BusinessDataMaintenanceActivityOrderRouteImport } from './routes/business-data.maintenance-activity-order'
+import { Route as BusinessDataMaintenancePlanRouteImport } from './routes/business-data.maintenance-plan'
+import { Route as BusinessDataMapRouteImport } from './routes/business-data.map'
+import { Route as BusinessDataMapDefinitionRouteImport } from './routes/business-data.map-definition'
+import { Route as BusinessDataMaterialRouteImport } from './routes/business-data.material'
+import { Route as BusinessDataMaterialTransferRouteImport } from './routes/business-data.material-transfer'
+import { Route as BusinessDataNotificationRouteImport } from './routes/business-data.notification'
+import { Route as BusinessDataPackageRouteImport } from './routes/business-data.package'
+import { Route as BusinessDataParameterRouteImport } from './routes/business-data.parameter'
+import { Route as BusinessDataPeriodicInventoryRouteImport } from './routes/business-data.periodic-inventory'
+import { Route as BusinessDataPickListRouteImport } from './routes/business-data.pick-list'
+import { Route as BusinessDataPlanRouteImport } from './routes/business-data.plan'
+import { Route as BusinessDataPrintableDocumentRouteImport } from './routes/business-data.printable-document'
+import { Route as BusinessDataProductRouteImport } from './routes/business-data.product'
+import { Route as BusinessDataProductGroupRouteImport } from './routes/business-data.product-group'
+import { Route as BusinessDataProductionOrderRouteImport } from './routes/business-data.production-order'
+import { Route as BusinessDataProtocolRouteImport } from './routes/business-data.protocol'
+import { Route as BusinessDataQualificationRouteImport } from './routes/business-data.qualification'
+import { Route as BusinessDataQualificationCheckRouteImport } from './routes/business-data.qualification-check'
+import { Route as BusinessDataReasonRouteImport } from './routes/business-data.reason'
+import { Route as BusinessDataRecipeRouteImport } from './routes/business-data.recipe'
+import { Route as BusinessDataResourceRouteImport } from './routes/business-data.resource'
+import { Route as BusinessDataResourceJobRouteImport } from './routes/business-data.resource-job'
+import { Route as BusinessDataSamplingPatternRouteImport } from './routes/business-data.sampling-pattern'
+import { Route as BusinessDataSamplingPlanRouteImport } from './routes/business-data.sampling-plan'
+import { Route as BusinessDataScheduleRouteImport } from './routes/business-data.schedule'
+import { Route as BusinessDataScheduleScenarioRouteImport } from './routes/business-data.schedule-scenario'
+import { Route as BusinessDataSendAheadRunRouteImport } from './routes/business-data.send-ahead-run'
+import { Route as BusinessDataServiceRouteImport } from './routes/business-data.service'
+import { Route as BusinessDataSetupMatrixRouteImport } from './routes/business-data.setup-matrix'
+import { Route as BusinessDataShiftDefinitionRouteImport } from './routes/business-data.shift-definition'
+import { Route as BusinessDataShiftLogbookRouteImport } from './routes/business-data.shift-logbook'
+import { Route as BusinessDataShiftPlanRouteImport } from './routes/business-data.shift-plan'
+import { Route as BusinessDataSiteRouteImport } from './routes/business-data.site'
+import { Route as BusinessDataSortRuleSetRouteImport } from './routes/business-data.sort-rule-set'
+import { Route as BusinessDataStepRouteImport } from './routes/business-data.step'
+import { Route as BusinessDataSubstrateMapRouteImport } from './routes/business-data.substrate-map'
+import { Route as BusinessDataSubstrateMapMaskRouteImport } from './routes/business-data.substrate-map-mask'
+import { Route as BusinessDataTaskRouteImport } from './routes/business-data.task'
+import { Route as BusinessDataTeamRouteImport } from './routes/business-data.team'
+import { Route as BusinessDataTransferOrderRouteImport } from './routes/business-data.transfer-order'
+import { Route as BusinessDataTransferRequirementRouteImport } from './routes/business-data.transfer-requirement'
+import { Route as BusinessDataWorkgroupRouteImport } from './routes/business-data.workgroup'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -55,6 +107,58 @@ import { Route as BusinessDataChecklistNameRouteImport } from './routes/business
 import { Route as BusinessDataContainerNameRouteImport } from './routes/business-data.container.$name'
 import { Route as BusinessDataDataCollectionLimitSetNameRouteImport } from './routes/business-data.data-collection-limit-set.$name'
 import { Route as BusinessDataDataCollectionNameRouteImport } from './routes/business-data.data-collection.$name'
+import { Route as BusinessDataDataSiloNameRouteImport } from './routes/business-data.data-silo.$name'
+import { Route as BusinessDataDocumentNameRouteImport } from './routes/business-data.document.$name'
+import { Route as BusinessDataEmployeeNameRouteImport } from './routes/business-data.employee.$name'
+import { Route as BusinessDataEnterpriseNameRouteImport } from './routes/business-data.enterprise.$name'
+import { Route as BusinessDataExperimentDefinitionNameRouteImport } from './routes/business-data.experiment-definition.$name'
+import { Route as BusinessDataFacilityNameRouteImport } from './routes/business-data.facility.$name'
+import { Route as BusinessDataFlowNameRouteImport } from './routes/business-data.flow.$name'
+import { Route as BusinessDataInspectionPlanNameRouteImport } from './routes/business-data.inspection-plan.$name'
+import { Route as BusinessDataKpiNameRouteImport } from './routes/business-data.kpi.$name'
+import { Route as BusinessDataMaintenanceActivityOrderNameRouteImport } from './routes/business-data.maintenance-activity-order.$name'
+import { Route as BusinessDataMaintenancePlanNameRouteImport } from './routes/business-data.maintenance-plan.$name'
+import { Route as BusinessDataMapDefinitionNameRouteImport } from './routes/business-data.map-definition.$name'
+import { Route as BusinessDataMapNameRouteImport } from './routes/business-data.map.$name'
+import { Route as BusinessDataMaterialTransferNameRouteImport } from './routes/business-data.material-transfer.$name'
+import { Route as BusinessDataMaterialNameRouteImport } from './routes/business-data.material.$name'
+import { Route as BusinessDataNotificationNameRouteImport } from './routes/business-data.notification.$name'
+import { Route as BusinessDataPackageNameRouteImport } from './routes/business-data.package.$name'
+import { Route as BusinessDataParameterNameRouteImport } from './routes/business-data.parameter.$name'
+import { Route as BusinessDataPeriodicInventoryNameRouteImport } from './routes/business-data.periodic-inventory.$name'
+import { Route as BusinessDataPickListNameRouteImport } from './routes/business-data.pick-list.$name'
+import { Route as BusinessDataPlanNameRouteImport } from './routes/business-data.plan.$name'
+import { Route as BusinessDataPrintableDocumentNameRouteImport } from './routes/business-data.printable-document.$name'
+import { Route as BusinessDataProductGroupNameRouteImport } from './routes/business-data.product-group.$name'
+import { Route as BusinessDataProductNameRouteImport } from './routes/business-data.product.$name'
+import { Route as BusinessDataProductionOrderNameRouteImport } from './routes/business-data.production-order.$name'
+import { Route as BusinessDataProtocolNameRouteImport } from './routes/business-data.protocol.$name'
+import { Route as BusinessDataQualificationCheckNameRouteImport } from './routes/business-data.qualification-check.$name'
+import { Route as BusinessDataQualificationNameRouteImport } from './routes/business-data.qualification.$name'
+import { Route as BusinessDataReasonNameRouteImport } from './routes/business-data.reason.$name'
+import { Route as BusinessDataRecipeNameRouteImport } from './routes/business-data.recipe.$name'
+import { Route as BusinessDataResourceJobNameRouteImport } from './routes/business-data.resource-job.$name'
+import { Route as BusinessDataResourceNameRouteImport } from './routes/business-data.resource.$name'
+import { Route as BusinessDataSamplingPatternNameRouteImport } from './routes/business-data.sampling-pattern.$name'
+import { Route as BusinessDataSamplingPlanNameRouteImport } from './routes/business-data.sampling-plan.$name'
+import { Route as BusinessDataScheduleScenarioNameRouteImport } from './routes/business-data.schedule-scenario.$name'
+import { Route as BusinessDataScheduleNameRouteImport } from './routes/business-data.schedule.$name'
+import { Route as BusinessDataSendAheadRunNameRouteImport } from './routes/business-data.send-ahead-run.$name'
+import { Route as BusinessDataServiceNameRouteImport } from './routes/business-data.service.$name'
+import { Route as BusinessDataSetupMatrixNameRouteImport } from './routes/business-data.setup-matrix.$name'
+import { Route as BusinessDataShiftDefinitionNameRouteImport } from './routes/business-data.shift-definition.$name'
+import { Route as BusinessDataShiftLogbookNameRouteImport } from './routes/business-data.shift-logbook.$name'
+import { Route as BusinessDataShiftPlanNameRouteImport } from './routes/business-data.shift-plan.$name'
+import { Route as BusinessDataSiteNameRouteImport } from './routes/business-data.site.$name'
+import { Route as BusinessDataSortRuleSetNameRouteImport } from './routes/business-data.sort-rule-set.$name'
+import { Route as BusinessDataStepNameRouteImport } from './routes/business-data.step.$name'
+import { Route as BusinessDataSubstrateMapMaskNameRouteImport } from './routes/business-data.substrate-map-mask.$name'
+import { Route as BusinessDataSubstrateMapNameRouteImport } from './routes/business-data.substrate-map.$name'
+import { Route as BusinessDataTaskNameRouteImport } from './routes/business-data.task.$name'
+import { Route as BusinessDataTeamNameRouteImport } from './routes/business-data.team.$name'
+import { Route as BusinessDataTransferOrderNameRouteImport } from './routes/business-data.transfer-order.$name'
+import { Route as BusinessDataTransferRequirementNameRouteImport } from './routes/business-data.transfer-requirement.$name'
+import { Route as BusinessDataWorkgroupNameRouteImport } from './routes/business-data.workgroup.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -199,6 +303,289 @@ const BusinessDataDataCollectionLimitSetRoute =
     path: '/data-collection-limit-set',
     getParentRoute: () => BusinessDataRoute,
   } as any)
+const BusinessDataDataSiloRoute = BusinessDataDataSiloRouteImport.update({
+  id: '/data-silo',
+  path: '/data-silo',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataDocumentRoute = BusinessDataDocumentRouteImport.update({
+  id: '/document',
+  path: '/document',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataEmployeeRoute = BusinessDataEmployeeRouteImport.update({
+  id: '/employee',
+  path: '/employee',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataEnterpriseRoute = BusinessDataEnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataExperimentDefinitionRoute =
+  BusinessDataExperimentDefinitionRouteImport.update({
+    id: '/experiment-definition',
+    path: '/experiment-definition',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataFacilityRoute = BusinessDataFacilityRouteImport.update({
+  id: '/facility',
+  path: '/facility',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataFlowRoute = BusinessDataFlowRouteImport.update({
+  id: '/flow',
+  path: '/flow',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataInspectionPlanRoute =
+  BusinessDataInspectionPlanRouteImport.update({
+    id: '/inspection-plan',
+    path: '/inspection-plan',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataKpiRoute = BusinessDataKpiRouteImport.update({
+  id: '/kpi',
+  path: '/kpi',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataMaintenanceActivityOrderRoute =
+  BusinessDataMaintenanceActivityOrderRouteImport.update({
+    id: '/maintenance-activity-order',
+    path: '/maintenance-activity-order',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataMaintenancePlanRoute =
+  BusinessDataMaintenancePlanRouteImport.update({
+    id: '/maintenance-plan',
+    path: '/maintenance-plan',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataMapRoute = BusinessDataMapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataMapDefinitionRoute =
+  BusinessDataMapDefinitionRouteImport.update({
+    id: '/map-definition',
+    path: '/map-definition',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataMaterialRoute = BusinessDataMaterialRouteImport.update({
+  id: '/material',
+  path: '/material',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataMaterialTransferRoute =
+  BusinessDataMaterialTransferRouteImport.update({
+    id: '/material-transfer',
+    path: '/material-transfer',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataNotificationRoute =
+  BusinessDataNotificationRouteImport.update({
+    id: '/notification',
+    path: '/notification',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataPackageRoute = BusinessDataPackageRouteImport.update({
+  id: '/package',
+  path: '/package',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataParameterRoute = BusinessDataParameterRouteImport.update({
+  id: '/parameter',
+  path: '/parameter',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataPeriodicInventoryRoute =
+  BusinessDataPeriodicInventoryRouteImport.update({
+    id: '/periodic-inventory',
+    path: '/periodic-inventory',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataPickListRoute = BusinessDataPickListRouteImport.update({
+  id: '/pick-list',
+  path: '/pick-list',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataPlanRoute = BusinessDataPlanRouteImport.update({
+  id: '/plan',
+  path: '/plan',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataPrintableDocumentRoute =
+  BusinessDataPrintableDocumentRouteImport.update({
+    id: '/printable-document',
+    path: '/printable-document',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataProductRoute = BusinessDataProductRouteImport.update({
+  id: '/product',
+  path: '/product',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataProductGroupRoute =
+  BusinessDataProductGroupRouteImport.update({
+    id: '/product-group',
+    path: '/product-group',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataProductionOrderRoute =
+  BusinessDataProductionOrderRouteImport.update({
+    id: '/production-order',
+    path: '/production-order',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataProtocolRoute = BusinessDataProtocolRouteImport.update({
+  id: '/protocol',
+  path: '/protocol',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataQualificationRoute =
+  BusinessDataQualificationRouteImport.update({
+    id: '/qualification',
+    path: '/qualification',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataQualificationCheckRoute =
+  BusinessDataQualificationCheckRouteImport.update({
+    id: '/qualification-check',
+    path: '/qualification-check',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataReasonRoute = BusinessDataReasonRouteImport.update({
+  id: '/reason',
+  path: '/reason',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataRecipeRoute = BusinessDataRecipeRouteImport.update({
+  id: '/recipe',
+  path: '/recipe',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataResourceRoute = BusinessDataResourceRouteImport.update({
+  id: '/resource',
+  path: '/resource',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataResourceJobRoute = BusinessDataResourceJobRouteImport.update({
+  id: '/resource-job',
+  path: '/resource-job',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataSamplingPatternRoute =
+  BusinessDataSamplingPatternRouteImport.update({
+    id: '/sampling-pattern',
+    path: '/sampling-pattern',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataSamplingPlanRoute =
+  BusinessDataSamplingPlanRouteImport.update({
+    id: '/sampling-plan',
+    path: '/sampling-plan',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataScheduleRoute = BusinessDataScheduleRouteImport.update({
+  id: '/schedule',
+  path: '/schedule',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataScheduleScenarioRoute =
+  BusinessDataScheduleScenarioRouteImport.update({
+    id: '/schedule-scenario',
+    path: '/schedule-scenario',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataSendAheadRunRoute =
+  BusinessDataSendAheadRunRouteImport.update({
+    id: '/send-ahead-run',
+    path: '/send-ahead-run',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataServiceRoute = BusinessDataServiceRouteImport.update({
+  id: '/service',
+  path: '/service',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataSetupMatrixRoute = BusinessDataSetupMatrixRouteImport.update({
+  id: '/setup-matrix',
+  path: '/setup-matrix',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataShiftDefinitionRoute =
+  BusinessDataShiftDefinitionRouteImport.update({
+    id: '/shift-definition',
+    path: '/shift-definition',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataShiftLogbookRoute =
+  BusinessDataShiftLogbookRouteImport.update({
+    id: '/shift-logbook',
+    path: '/shift-logbook',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataShiftPlanRoute = BusinessDataShiftPlanRouteImport.update({
+  id: '/shift-plan',
+  path: '/shift-plan',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataSiteRoute = BusinessDataSiteRouteImport.update({
+  id: '/site',
+  path: '/site',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataSortRuleSetRoute = BusinessDataSortRuleSetRouteImport.update({
+  id: '/sort-rule-set',
+  path: '/sort-rule-set',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataStepRoute = BusinessDataStepRouteImport.update({
+  id: '/step',
+  path: '/step',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataSubstrateMapRoute =
+  BusinessDataSubstrateMapRouteImport.update({
+    id: '/substrate-map',
+    path: '/substrate-map',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataSubstrateMapMaskRoute =
+  BusinessDataSubstrateMapMaskRouteImport.update({
+    id: '/substrate-map-mask',
+    path: '/substrate-map-mask',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataTaskRoute = BusinessDataTaskRouteImport.update({
+  id: '/task',
+  path: '/task',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataTeamRoute = BusinessDataTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
+const BusinessDataTransferOrderRoute =
+  BusinessDataTransferOrderRouteImport.update({
+    id: '/transfer-order',
+    path: '/transfer-order',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataTransferRequirementRoute =
+  BusinessDataTransferRequirementRouteImport.update({
+    id: '/transfer-requirement',
+    path: '/transfer-requirement',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
+const BusinessDataWorkgroupRoute = BusinessDataWorkgroupRouteImport.update({
+  id: '/workgroup',
+  path: '/workgroup',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -309,6 +696,305 @@ const BusinessDataDataCollectionNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataDataCollectionRoute,
   } as any)
+const BusinessDataDataSiloNameRoute =
+  BusinessDataDataSiloNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataDataSiloRoute,
+  } as any)
+const BusinessDataDocumentNameRoute =
+  BusinessDataDocumentNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataDocumentRoute,
+  } as any)
+const BusinessDataEmployeeNameRoute =
+  BusinessDataEmployeeNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataEmployeeRoute,
+  } as any)
+const BusinessDataEnterpriseNameRoute =
+  BusinessDataEnterpriseNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataEnterpriseRoute,
+  } as any)
+const BusinessDataExperimentDefinitionNameRoute =
+  BusinessDataExperimentDefinitionNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataExperimentDefinitionRoute,
+  } as any)
+const BusinessDataFacilityNameRoute =
+  BusinessDataFacilityNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataFacilityRoute,
+  } as any)
+const BusinessDataFlowNameRoute = BusinessDataFlowNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataFlowRoute,
+} as any)
+const BusinessDataInspectionPlanNameRoute =
+  BusinessDataInspectionPlanNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataInspectionPlanRoute,
+  } as any)
+const BusinessDataKpiNameRoute = BusinessDataKpiNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataKpiRoute,
+} as any)
+const BusinessDataMaintenanceActivityOrderNameRoute =
+  BusinessDataMaintenanceActivityOrderNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataMaintenanceActivityOrderRoute,
+  } as any)
+const BusinessDataMaintenancePlanNameRoute =
+  BusinessDataMaintenancePlanNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataMaintenancePlanRoute,
+  } as any)
+const BusinessDataMapDefinitionNameRoute =
+  BusinessDataMapDefinitionNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataMapDefinitionRoute,
+  } as any)
+const BusinessDataMapNameRoute = BusinessDataMapNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataMapRoute,
+} as any)
+const BusinessDataMaterialTransferNameRoute =
+  BusinessDataMaterialTransferNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataMaterialTransferRoute,
+  } as any)
+const BusinessDataMaterialNameRoute =
+  BusinessDataMaterialNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataMaterialRoute,
+  } as any)
+const BusinessDataNotificationNameRoute =
+  BusinessDataNotificationNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataNotificationRoute,
+  } as any)
+const BusinessDataPackageNameRoute = BusinessDataPackageNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataPackageRoute,
+} as any)
+const BusinessDataParameterNameRoute =
+  BusinessDataParameterNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataParameterRoute,
+  } as any)
+const BusinessDataPeriodicInventoryNameRoute =
+  BusinessDataPeriodicInventoryNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataPeriodicInventoryRoute,
+  } as any)
+const BusinessDataPickListNameRoute =
+  BusinessDataPickListNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataPickListRoute,
+  } as any)
+const BusinessDataPlanNameRoute = BusinessDataPlanNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataPlanRoute,
+} as any)
+const BusinessDataPrintableDocumentNameRoute =
+  BusinessDataPrintableDocumentNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataPrintableDocumentRoute,
+  } as any)
+const BusinessDataProductGroupNameRoute =
+  BusinessDataProductGroupNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataProductGroupRoute,
+  } as any)
+const BusinessDataProductNameRoute = BusinessDataProductNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataProductRoute,
+} as any)
+const BusinessDataProductionOrderNameRoute =
+  BusinessDataProductionOrderNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataProductionOrderRoute,
+  } as any)
+const BusinessDataProtocolNameRoute =
+  BusinessDataProtocolNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataProtocolRoute,
+  } as any)
+const BusinessDataQualificationCheckNameRoute =
+  BusinessDataQualificationCheckNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataQualificationCheckRoute,
+  } as any)
+const BusinessDataQualificationNameRoute =
+  BusinessDataQualificationNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataQualificationRoute,
+  } as any)
+const BusinessDataReasonNameRoute = BusinessDataReasonNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataReasonRoute,
+} as any)
+const BusinessDataRecipeNameRoute = BusinessDataRecipeNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataRecipeRoute,
+} as any)
+const BusinessDataResourceJobNameRoute =
+  BusinessDataResourceJobNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataResourceJobRoute,
+  } as any)
+const BusinessDataResourceNameRoute =
+  BusinessDataResourceNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataResourceRoute,
+  } as any)
+const BusinessDataSamplingPatternNameRoute =
+  BusinessDataSamplingPatternNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataSamplingPatternRoute,
+  } as any)
+const BusinessDataSamplingPlanNameRoute =
+  BusinessDataSamplingPlanNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataSamplingPlanRoute,
+  } as any)
+const BusinessDataScheduleScenarioNameRoute =
+  BusinessDataScheduleScenarioNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataScheduleScenarioRoute,
+  } as any)
+const BusinessDataScheduleNameRoute =
+  BusinessDataScheduleNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataScheduleRoute,
+  } as any)
+const BusinessDataSendAheadRunNameRoute =
+  BusinessDataSendAheadRunNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataSendAheadRunRoute,
+  } as any)
+const BusinessDataServiceNameRoute = BusinessDataServiceNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataServiceRoute,
+} as any)
+const BusinessDataSetupMatrixNameRoute =
+  BusinessDataSetupMatrixNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataSetupMatrixRoute,
+  } as any)
+const BusinessDataShiftDefinitionNameRoute =
+  BusinessDataShiftDefinitionNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataShiftDefinitionRoute,
+  } as any)
+const BusinessDataShiftLogbookNameRoute =
+  BusinessDataShiftLogbookNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataShiftLogbookRoute,
+  } as any)
+const BusinessDataShiftPlanNameRoute =
+  BusinessDataShiftPlanNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataShiftPlanRoute,
+  } as any)
+const BusinessDataSiteNameRoute = BusinessDataSiteNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataSiteRoute,
+} as any)
+const BusinessDataSortRuleSetNameRoute =
+  BusinessDataSortRuleSetNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataSortRuleSetRoute,
+  } as any)
+const BusinessDataStepNameRoute = BusinessDataStepNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataStepRoute,
+} as any)
+const BusinessDataSubstrateMapMaskNameRoute =
+  BusinessDataSubstrateMapMaskNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataSubstrateMapMaskRoute,
+  } as any)
+const BusinessDataSubstrateMapNameRoute =
+  BusinessDataSubstrateMapNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataSubstrateMapRoute,
+  } as any)
+const BusinessDataTaskNameRoute = BusinessDataTaskNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataTaskRoute,
+} as any)
+const BusinessDataTeamNameRoute = BusinessDataTeamNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataTeamRoute,
+} as any)
+const BusinessDataTransferOrderNameRoute =
+  BusinessDataTransferOrderNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataTransferOrderRoute,
+  } as any)
+const BusinessDataTransferRequirementNameRoute =
+  BusinessDataTransferRequirementNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataTransferRequirementRoute,
+  } as any)
+const BusinessDataWorkgroupNameRoute =
+  BusinessDataWorkgroupNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataWorkgroupRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -338,6 +1024,58 @@ export interface FileRoutesByFullPath {
   '/business-data/container': typeof BusinessDataContainerRouteWithChildren
   '/business-data/data-collection': typeof BusinessDataDataCollectionRouteWithChildren
   '/business-data/data-collection-limit-set': typeof BusinessDataDataCollectionLimitSetRouteWithChildren
+  '/business-data/data-silo': typeof BusinessDataDataSiloRouteWithChildren
+  '/business-data/document': typeof BusinessDataDocumentRouteWithChildren
+  '/business-data/employee': typeof BusinessDataEmployeeRouteWithChildren
+  '/business-data/enterprise': typeof BusinessDataEnterpriseRouteWithChildren
+  '/business-data/experiment-definition': typeof BusinessDataExperimentDefinitionRouteWithChildren
+  '/business-data/facility': typeof BusinessDataFacilityRouteWithChildren
+  '/business-data/flow': typeof BusinessDataFlowRouteWithChildren
+  '/business-data/inspection-plan': typeof BusinessDataInspectionPlanRouteWithChildren
+  '/business-data/kpi': typeof BusinessDataKpiRouteWithChildren
+  '/business-data/maintenance-activity-order': typeof BusinessDataMaintenanceActivityOrderRouteWithChildren
+  '/business-data/maintenance-plan': typeof BusinessDataMaintenancePlanRouteWithChildren
+  '/business-data/map': typeof BusinessDataMapRouteWithChildren
+  '/business-data/map-definition': typeof BusinessDataMapDefinitionRouteWithChildren
+  '/business-data/material': typeof BusinessDataMaterialRouteWithChildren
+  '/business-data/material-transfer': typeof BusinessDataMaterialTransferRouteWithChildren
+  '/business-data/notification': typeof BusinessDataNotificationRouteWithChildren
+  '/business-data/package': typeof BusinessDataPackageRouteWithChildren
+  '/business-data/parameter': typeof BusinessDataParameterRouteWithChildren
+  '/business-data/periodic-inventory': typeof BusinessDataPeriodicInventoryRouteWithChildren
+  '/business-data/pick-list': typeof BusinessDataPickListRouteWithChildren
+  '/business-data/plan': typeof BusinessDataPlanRouteWithChildren
+  '/business-data/printable-document': typeof BusinessDataPrintableDocumentRouteWithChildren
+  '/business-data/product': typeof BusinessDataProductRouteWithChildren
+  '/business-data/product-group': typeof BusinessDataProductGroupRouteWithChildren
+  '/business-data/production-order': typeof BusinessDataProductionOrderRouteWithChildren
+  '/business-data/protocol': typeof BusinessDataProtocolRouteWithChildren
+  '/business-data/qualification': typeof BusinessDataQualificationRouteWithChildren
+  '/business-data/qualification-check': typeof BusinessDataQualificationCheckRouteWithChildren
+  '/business-data/reason': typeof BusinessDataReasonRouteWithChildren
+  '/business-data/recipe': typeof BusinessDataRecipeRouteWithChildren
+  '/business-data/resource': typeof BusinessDataResourceRouteWithChildren
+  '/business-data/resource-job': typeof BusinessDataResourceJobRouteWithChildren
+  '/business-data/sampling-pattern': typeof BusinessDataSamplingPatternRouteWithChildren
+  '/business-data/sampling-plan': typeof BusinessDataSamplingPlanRouteWithChildren
+  '/business-data/schedule': typeof BusinessDataScheduleRouteWithChildren
+  '/business-data/schedule-scenario': typeof BusinessDataScheduleScenarioRouteWithChildren
+  '/business-data/send-ahead-run': typeof BusinessDataSendAheadRunRouteWithChildren
+  '/business-data/service': typeof BusinessDataServiceRouteWithChildren
+  '/business-data/setup-matrix': typeof BusinessDataSetupMatrixRouteWithChildren
+  '/business-data/shift-definition': typeof BusinessDataShiftDefinitionRouteWithChildren
+  '/business-data/shift-logbook': typeof BusinessDataShiftLogbookRouteWithChildren
+  '/business-data/shift-plan': typeof BusinessDataShiftPlanRouteWithChildren
+  '/business-data/site': typeof BusinessDataSiteRouteWithChildren
+  '/business-data/sort-rule-set': typeof BusinessDataSortRuleSetRouteWithChildren
+  '/business-data/step': typeof BusinessDataStepRouteWithChildren
+  '/business-data/substrate-map': typeof BusinessDataSubstrateMapRouteWithChildren
+  '/business-data/substrate-map-mask': typeof BusinessDataSubstrateMapMaskRouteWithChildren
+  '/business-data/task': typeof BusinessDataTaskRouteWithChildren
+  '/business-data/team': typeof BusinessDataTeamRouteWithChildren
+  '/business-data/transfer-order': typeof BusinessDataTransferOrderRouteWithChildren
+  '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
+  '/business-data/workgroup': typeof BusinessDataWorkgroupRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -357,6 +1095,58 @@ export interface FileRoutesByFullPath {
   '/business-data/container/$name': typeof BusinessDataContainerNameRoute
   '/business-data/data-collection-limit-set/$name': typeof BusinessDataDataCollectionLimitSetNameRoute
   '/business-data/data-collection/$name': typeof BusinessDataDataCollectionNameRoute
+  '/business-data/data-silo/$name': typeof BusinessDataDataSiloNameRoute
+  '/business-data/document/$name': typeof BusinessDataDocumentNameRoute
+  '/business-data/employee/$name': typeof BusinessDataEmployeeNameRoute
+  '/business-data/enterprise/$name': typeof BusinessDataEnterpriseNameRoute
+  '/business-data/experiment-definition/$name': typeof BusinessDataExperimentDefinitionNameRoute
+  '/business-data/facility/$name': typeof BusinessDataFacilityNameRoute
+  '/business-data/flow/$name': typeof BusinessDataFlowNameRoute
+  '/business-data/inspection-plan/$name': typeof BusinessDataInspectionPlanNameRoute
+  '/business-data/kpi/$name': typeof BusinessDataKpiNameRoute
+  '/business-data/maintenance-activity-order/$name': typeof BusinessDataMaintenanceActivityOrderNameRoute
+  '/business-data/maintenance-plan/$name': typeof BusinessDataMaintenancePlanNameRoute
+  '/business-data/map-definition/$name': typeof BusinessDataMapDefinitionNameRoute
+  '/business-data/map/$name': typeof BusinessDataMapNameRoute
+  '/business-data/material-transfer/$name': typeof BusinessDataMaterialTransferNameRoute
+  '/business-data/material/$name': typeof BusinessDataMaterialNameRoute
+  '/business-data/notification/$name': typeof BusinessDataNotificationNameRoute
+  '/business-data/package/$name': typeof BusinessDataPackageNameRoute
+  '/business-data/parameter/$name': typeof BusinessDataParameterNameRoute
+  '/business-data/periodic-inventory/$name': typeof BusinessDataPeriodicInventoryNameRoute
+  '/business-data/pick-list/$name': typeof BusinessDataPickListNameRoute
+  '/business-data/plan/$name': typeof BusinessDataPlanNameRoute
+  '/business-data/printable-document/$name': typeof BusinessDataPrintableDocumentNameRoute
+  '/business-data/product-group/$name': typeof BusinessDataProductGroupNameRoute
+  '/business-data/product/$name': typeof BusinessDataProductNameRoute
+  '/business-data/production-order/$name': typeof BusinessDataProductionOrderNameRoute
+  '/business-data/protocol/$name': typeof BusinessDataProtocolNameRoute
+  '/business-data/qualification-check/$name': typeof BusinessDataQualificationCheckNameRoute
+  '/business-data/qualification/$name': typeof BusinessDataQualificationNameRoute
+  '/business-data/reason/$name': typeof BusinessDataReasonNameRoute
+  '/business-data/recipe/$name': typeof BusinessDataRecipeNameRoute
+  '/business-data/resource-job/$name': typeof BusinessDataResourceJobNameRoute
+  '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
+  '/business-data/sampling-pattern/$name': typeof BusinessDataSamplingPatternNameRoute
+  '/business-data/sampling-plan/$name': typeof BusinessDataSamplingPlanNameRoute
+  '/business-data/schedule-scenario/$name': typeof BusinessDataScheduleScenarioNameRoute
+  '/business-data/schedule/$name': typeof BusinessDataScheduleNameRoute
+  '/business-data/send-ahead-run/$name': typeof BusinessDataSendAheadRunNameRoute
+  '/business-data/service/$name': typeof BusinessDataServiceNameRoute
+  '/business-data/setup-matrix/$name': typeof BusinessDataSetupMatrixNameRoute
+  '/business-data/shift-definition/$name': typeof BusinessDataShiftDefinitionNameRoute
+  '/business-data/shift-logbook/$name': typeof BusinessDataShiftLogbookNameRoute
+  '/business-data/shift-plan/$name': typeof BusinessDataShiftPlanNameRoute
+  '/business-data/site/$name': typeof BusinessDataSiteNameRoute
+  '/business-data/sort-rule-set/$name': typeof BusinessDataSortRuleSetNameRoute
+  '/business-data/step/$name': typeof BusinessDataStepNameRoute
+  '/business-data/substrate-map-mask/$name': typeof BusinessDataSubstrateMapMaskNameRoute
+  '/business-data/substrate-map/$name': typeof BusinessDataSubstrateMapNameRoute
+  '/business-data/task/$name': typeof BusinessDataTaskNameRoute
+  '/business-data/team/$name': typeof BusinessDataTeamNameRoute
+  '/business-data/transfer-order/$name': typeof BusinessDataTransferOrderNameRoute
+  '/business-data/transfer-requirement/$name': typeof BusinessDataTransferRequirementNameRoute
+  '/business-data/workgroup/$name': typeof BusinessDataWorkgroupNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -386,6 +1176,58 @@ export interface FileRoutesByTo {
   '/business-data/container': typeof BusinessDataContainerRouteWithChildren
   '/business-data/data-collection': typeof BusinessDataDataCollectionRouteWithChildren
   '/business-data/data-collection-limit-set': typeof BusinessDataDataCollectionLimitSetRouteWithChildren
+  '/business-data/data-silo': typeof BusinessDataDataSiloRouteWithChildren
+  '/business-data/document': typeof BusinessDataDocumentRouteWithChildren
+  '/business-data/employee': typeof BusinessDataEmployeeRouteWithChildren
+  '/business-data/enterprise': typeof BusinessDataEnterpriseRouteWithChildren
+  '/business-data/experiment-definition': typeof BusinessDataExperimentDefinitionRouteWithChildren
+  '/business-data/facility': typeof BusinessDataFacilityRouteWithChildren
+  '/business-data/flow': typeof BusinessDataFlowRouteWithChildren
+  '/business-data/inspection-plan': typeof BusinessDataInspectionPlanRouteWithChildren
+  '/business-data/kpi': typeof BusinessDataKpiRouteWithChildren
+  '/business-data/maintenance-activity-order': typeof BusinessDataMaintenanceActivityOrderRouteWithChildren
+  '/business-data/maintenance-plan': typeof BusinessDataMaintenancePlanRouteWithChildren
+  '/business-data/map': typeof BusinessDataMapRouteWithChildren
+  '/business-data/map-definition': typeof BusinessDataMapDefinitionRouteWithChildren
+  '/business-data/material': typeof BusinessDataMaterialRouteWithChildren
+  '/business-data/material-transfer': typeof BusinessDataMaterialTransferRouteWithChildren
+  '/business-data/notification': typeof BusinessDataNotificationRouteWithChildren
+  '/business-data/package': typeof BusinessDataPackageRouteWithChildren
+  '/business-data/parameter': typeof BusinessDataParameterRouteWithChildren
+  '/business-data/periodic-inventory': typeof BusinessDataPeriodicInventoryRouteWithChildren
+  '/business-data/pick-list': typeof BusinessDataPickListRouteWithChildren
+  '/business-data/plan': typeof BusinessDataPlanRouteWithChildren
+  '/business-data/printable-document': typeof BusinessDataPrintableDocumentRouteWithChildren
+  '/business-data/product': typeof BusinessDataProductRouteWithChildren
+  '/business-data/product-group': typeof BusinessDataProductGroupRouteWithChildren
+  '/business-data/production-order': typeof BusinessDataProductionOrderRouteWithChildren
+  '/business-data/protocol': typeof BusinessDataProtocolRouteWithChildren
+  '/business-data/qualification': typeof BusinessDataQualificationRouteWithChildren
+  '/business-data/qualification-check': typeof BusinessDataQualificationCheckRouteWithChildren
+  '/business-data/reason': typeof BusinessDataReasonRouteWithChildren
+  '/business-data/recipe': typeof BusinessDataRecipeRouteWithChildren
+  '/business-data/resource': typeof BusinessDataResourceRouteWithChildren
+  '/business-data/resource-job': typeof BusinessDataResourceJobRouteWithChildren
+  '/business-data/sampling-pattern': typeof BusinessDataSamplingPatternRouteWithChildren
+  '/business-data/sampling-plan': typeof BusinessDataSamplingPlanRouteWithChildren
+  '/business-data/schedule': typeof BusinessDataScheduleRouteWithChildren
+  '/business-data/schedule-scenario': typeof BusinessDataScheduleScenarioRouteWithChildren
+  '/business-data/send-ahead-run': typeof BusinessDataSendAheadRunRouteWithChildren
+  '/business-data/service': typeof BusinessDataServiceRouteWithChildren
+  '/business-data/setup-matrix': typeof BusinessDataSetupMatrixRouteWithChildren
+  '/business-data/shift-definition': typeof BusinessDataShiftDefinitionRouteWithChildren
+  '/business-data/shift-logbook': typeof BusinessDataShiftLogbookRouteWithChildren
+  '/business-data/shift-plan': typeof BusinessDataShiftPlanRouteWithChildren
+  '/business-data/site': typeof BusinessDataSiteRouteWithChildren
+  '/business-data/sort-rule-set': typeof BusinessDataSortRuleSetRouteWithChildren
+  '/business-data/step': typeof BusinessDataStepRouteWithChildren
+  '/business-data/substrate-map': typeof BusinessDataSubstrateMapRouteWithChildren
+  '/business-data/substrate-map-mask': typeof BusinessDataSubstrateMapMaskRouteWithChildren
+  '/business-data/task': typeof BusinessDataTaskRouteWithChildren
+  '/business-data/team': typeof BusinessDataTeamRouteWithChildren
+  '/business-data/transfer-order': typeof BusinessDataTransferOrderRouteWithChildren
+  '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
+  '/business-data/workgroup': typeof BusinessDataWorkgroupRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -405,6 +1247,58 @@ export interface FileRoutesByTo {
   '/business-data/container/$name': typeof BusinessDataContainerNameRoute
   '/business-data/data-collection-limit-set/$name': typeof BusinessDataDataCollectionLimitSetNameRoute
   '/business-data/data-collection/$name': typeof BusinessDataDataCollectionNameRoute
+  '/business-data/data-silo/$name': typeof BusinessDataDataSiloNameRoute
+  '/business-data/document/$name': typeof BusinessDataDocumentNameRoute
+  '/business-data/employee/$name': typeof BusinessDataEmployeeNameRoute
+  '/business-data/enterprise/$name': typeof BusinessDataEnterpriseNameRoute
+  '/business-data/experiment-definition/$name': typeof BusinessDataExperimentDefinitionNameRoute
+  '/business-data/facility/$name': typeof BusinessDataFacilityNameRoute
+  '/business-data/flow/$name': typeof BusinessDataFlowNameRoute
+  '/business-data/inspection-plan/$name': typeof BusinessDataInspectionPlanNameRoute
+  '/business-data/kpi/$name': typeof BusinessDataKpiNameRoute
+  '/business-data/maintenance-activity-order/$name': typeof BusinessDataMaintenanceActivityOrderNameRoute
+  '/business-data/maintenance-plan/$name': typeof BusinessDataMaintenancePlanNameRoute
+  '/business-data/map-definition/$name': typeof BusinessDataMapDefinitionNameRoute
+  '/business-data/map/$name': typeof BusinessDataMapNameRoute
+  '/business-data/material-transfer/$name': typeof BusinessDataMaterialTransferNameRoute
+  '/business-data/material/$name': typeof BusinessDataMaterialNameRoute
+  '/business-data/notification/$name': typeof BusinessDataNotificationNameRoute
+  '/business-data/package/$name': typeof BusinessDataPackageNameRoute
+  '/business-data/parameter/$name': typeof BusinessDataParameterNameRoute
+  '/business-data/periodic-inventory/$name': typeof BusinessDataPeriodicInventoryNameRoute
+  '/business-data/pick-list/$name': typeof BusinessDataPickListNameRoute
+  '/business-data/plan/$name': typeof BusinessDataPlanNameRoute
+  '/business-data/printable-document/$name': typeof BusinessDataPrintableDocumentNameRoute
+  '/business-data/product-group/$name': typeof BusinessDataProductGroupNameRoute
+  '/business-data/product/$name': typeof BusinessDataProductNameRoute
+  '/business-data/production-order/$name': typeof BusinessDataProductionOrderNameRoute
+  '/business-data/protocol/$name': typeof BusinessDataProtocolNameRoute
+  '/business-data/qualification-check/$name': typeof BusinessDataQualificationCheckNameRoute
+  '/business-data/qualification/$name': typeof BusinessDataQualificationNameRoute
+  '/business-data/reason/$name': typeof BusinessDataReasonNameRoute
+  '/business-data/recipe/$name': typeof BusinessDataRecipeNameRoute
+  '/business-data/resource-job/$name': typeof BusinessDataResourceJobNameRoute
+  '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
+  '/business-data/sampling-pattern/$name': typeof BusinessDataSamplingPatternNameRoute
+  '/business-data/sampling-plan/$name': typeof BusinessDataSamplingPlanNameRoute
+  '/business-data/schedule-scenario/$name': typeof BusinessDataScheduleScenarioNameRoute
+  '/business-data/schedule/$name': typeof BusinessDataScheduleNameRoute
+  '/business-data/send-ahead-run/$name': typeof BusinessDataSendAheadRunNameRoute
+  '/business-data/service/$name': typeof BusinessDataServiceNameRoute
+  '/business-data/setup-matrix/$name': typeof BusinessDataSetupMatrixNameRoute
+  '/business-data/shift-definition/$name': typeof BusinessDataShiftDefinitionNameRoute
+  '/business-data/shift-logbook/$name': typeof BusinessDataShiftLogbookNameRoute
+  '/business-data/shift-plan/$name': typeof BusinessDataShiftPlanNameRoute
+  '/business-data/site/$name': typeof BusinessDataSiteNameRoute
+  '/business-data/sort-rule-set/$name': typeof BusinessDataSortRuleSetNameRoute
+  '/business-data/step/$name': typeof BusinessDataStepNameRoute
+  '/business-data/substrate-map-mask/$name': typeof BusinessDataSubstrateMapMaskNameRoute
+  '/business-data/substrate-map/$name': typeof BusinessDataSubstrateMapNameRoute
+  '/business-data/task/$name': typeof BusinessDataTaskNameRoute
+  '/business-data/team/$name': typeof BusinessDataTeamNameRoute
+  '/business-data/transfer-order/$name': typeof BusinessDataTransferOrderNameRoute
+  '/business-data/transfer-requirement/$name': typeof BusinessDataTransferRequirementNameRoute
+  '/business-data/workgroup/$name': typeof BusinessDataWorkgroupNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -435,6 +1329,58 @@ export interface FileRoutesById {
   '/business-data/container': typeof BusinessDataContainerRouteWithChildren
   '/business-data/data-collection': typeof BusinessDataDataCollectionRouteWithChildren
   '/business-data/data-collection-limit-set': typeof BusinessDataDataCollectionLimitSetRouteWithChildren
+  '/business-data/data-silo': typeof BusinessDataDataSiloRouteWithChildren
+  '/business-data/document': typeof BusinessDataDocumentRouteWithChildren
+  '/business-data/employee': typeof BusinessDataEmployeeRouteWithChildren
+  '/business-data/enterprise': typeof BusinessDataEnterpriseRouteWithChildren
+  '/business-data/experiment-definition': typeof BusinessDataExperimentDefinitionRouteWithChildren
+  '/business-data/facility': typeof BusinessDataFacilityRouteWithChildren
+  '/business-data/flow': typeof BusinessDataFlowRouteWithChildren
+  '/business-data/inspection-plan': typeof BusinessDataInspectionPlanRouteWithChildren
+  '/business-data/kpi': typeof BusinessDataKpiRouteWithChildren
+  '/business-data/maintenance-activity-order': typeof BusinessDataMaintenanceActivityOrderRouteWithChildren
+  '/business-data/maintenance-plan': typeof BusinessDataMaintenancePlanRouteWithChildren
+  '/business-data/map': typeof BusinessDataMapRouteWithChildren
+  '/business-data/map-definition': typeof BusinessDataMapDefinitionRouteWithChildren
+  '/business-data/material': typeof BusinessDataMaterialRouteWithChildren
+  '/business-data/material-transfer': typeof BusinessDataMaterialTransferRouteWithChildren
+  '/business-data/notification': typeof BusinessDataNotificationRouteWithChildren
+  '/business-data/package': typeof BusinessDataPackageRouteWithChildren
+  '/business-data/parameter': typeof BusinessDataParameterRouteWithChildren
+  '/business-data/periodic-inventory': typeof BusinessDataPeriodicInventoryRouteWithChildren
+  '/business-data/pick-list': typeof BusinessDataPickListRouteWithChildren
+  '/business-data/plan': typeof BusinessDataPlanRouteWithChildren
+  '/business-data/printable-document': typeof BusinessDataPrintableDocumentRouteWithChildren
+  '/business-data/product': typeof BusinessDataProductRouteWithChildren
+  '/business-data/product-group': typeof BusinessDataProductGroupRouteWithChildren
+  '/business-data/production-order': typeof BusinessDataProductionOrderRouteWithChildren
+  '/business-data/protocol': typeof BusinessDataProtocolRouteWithChildren
+  '/business-data/qualification': typeof BusinessDataQualificationRouteWithChildren
+  '/business-data/qualification-check': typeof BusinessDataQualificationCheckRouteWithChildren
+  '/business-data/reason': typeof BusinessDataReasonRouteWithChildren
+  '/business-data/recipe': typeof BusinessDataRecipeRouteWithChildren
+  '/business-data/resource': typeof BusinessDataResourceRouteWithChildren
+  '/business-data/resource-job': typeof BusinessDataResourceJobRouteWithChildren
+  '/business-data/sampling-pattern': typeof BusinessDataSamplingPatternRouteWithChildren
+  '/business-data/sampling-plan': typeof BusinessDataSamplingPlanRouteWithChildren
+  '/business-data/schedule': typeof BusinessDataScheduleRouteWithChildren
+  '/business-data/schedule-scenario': typeof BusinessDataScheduleScenarioRouteWithChildren
+  '/business-data/send-ahead-run': typeof BusinessDataSendAheadRunRouteWithChildren
+  '/business-data/service': typeof BusinessDataServiceRouteWithChildren
+  '/business-data/setup-matrix': typeof BusinessDataSetupMatrixRouteWithChildren
+  '/business-data/shift-definition': typeof BusinessDataShiftDefinitionRouteWithChildren
+  '/business-data/shift-logbook': typeof BusinessDataShiftLogbookRouteWithChildren
+  '/business-data/shift-plan': typeof BusinessDataShiftPlanRouteWithChildren
+  '/business-data/site': typeof BusinessDataSiteRouteWithChildren
+  '/business-data/sort-rule-set': typeof BusinessDataSortRuleSetRouteWithChildren
+  '/business-data/step': typeof BusinessDataStepRouteWithChildren
+  '/business-data/substrate-map': typeof BusinessDataSubstrateMapRouteWithChildren
+  '/business-data/substrate-map-mask': typeof BusinessDataSubstrateMapMaskRouteWithChildren
+  '/business-data/task': typeof BusinessDataTaskRouteWithChildren
+  '/business-data/team': typeof BusinessDataTeamRouteWithChildren
+  '/business-data/transfer-order': typeof BusinessDataTransferOrderRouteWithChildren
+  '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
+  '/business-data/workgroup': typeof BusinessDataWorkgroupRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -454,6 +1400,58 @@ export interface FileRoutesById {
   '/business-data/container/$name': typeof BusinessDataContainerNameRoute
   '/business-data/data-collection-limit-set/$name': typeof BusinessDataDataCollectionLimitSetNameRoute
   '/business-data/data-collection/$name': typeof BusinessDataDataCollectionNameRoute
+  '/business-data/data-silo/$name': typeof BusinessDataDataSiloNameRoute
+  '/business-data/document/$name': typeof BusinessDataDocumentNameRoute
+  '/business-data/employee/$name': typeof BusinessDataEmployeeNameRoute
+  '/business-data/enterprise/$name': typeof BusinessDataEnterpriseNameRoute
+  '/business-data/experiment-definition/$name': typeof BusinessDataExperimentDefinitionNameRoute
+  '/business-data/facility/$name': typeof BusinessDataFacilityNameRoute
+  '/business-data/flow/$name': typeof BusinessDataFlowNameRoute
+  '/business-data/inspection-plan/$name': typeof BusinessDataInspectionPlanNameRoute
+  '/business-data/kpi/$name': typeof BusinessDataKpiNameRoute
+  '/business-data/maintenance-activity-order/$name': typeof BusinessDataMaintenanceActivityOrderNameRoute
+  '/business-data/maintenance-plan/$name': typeof BusinessDataMaintenancePlanNameRoute
+  '/business-data/map-definition/$name': typeof BusinessDataMapDefinitionNameRoute
+  '/business-data/map/$name': typeof BusinessDataMapNameRoute
+  '/business-data/material-transfer/$name': typeof BusinessDataMaterialTransferNameRoute
+  '/business-data/material/$name': typeof BusinessDataMaterialNameRoute
+  '/business-data/notification/$name': typeof BusinessDataNotificationNameRoute
+  '/business-data/package/$name': typeof BusinessDataPackageNameRoute
+  '/business-data/parameter/$name': typeof BusinessDataParameterNameRoute
+  '/business-data/periodic-inventory/$name': typeof BusinessDataPeriodicInventoryNameRoute
+  '/business-data/pick-list/$name': typeof BusinessDataPickListNameRoute
+  '/business-data/plan/$name': typeof BusinessDataPlanNameRoute
+  '/business-data/printable-document/$name': typeof BusinessDataPrintableDocumentNameRoute
+  '/business-data/product-group/$name': typeof BusinessDataProductGroupNameRoute
+  '/business-data/product/$name': typeof BusinessDataProductNameRoute
+  '/business-data/production-order/$name': typeof BusinessDataProductionOrderNameRoute
+  '/business-data/protocol/$name': typeof BusinessDataProtocolNameRoute
+  '/business-data/qualification-check/$name': typeof BusinessDataQualificationCheckNameRoute
+  '/business-data/qualification/$name': typeof BusinessDataQualificationNameRoute
+  '/business-data/reason/$name': typeof BusinessDataReasonNameRoute
+  '/business-data/recipe/$name': typeof BusinessDataRecipeNameRoute
+  '/business-data/resource-job/$name': typeof BusinessDataResourceJobNameRoute
+  '/business-data/resource/$name': typeof BusinessDataResourceNameRoute
+  '/business-data/sampling-pattern/$name': typeof BusinessDataSamplingPatternNameRoute
+  '/business-data/sampling-plan/$name': typeof BusinessDataSamplingPlanNameRoute
+  '/business-data/schedule-scenario/$name': typeof BusinessDataScheduleScenarioNameRoute
+  '/business-data/schedule/$name': typeof BusinessDataScheduleNameRoute
+  '/business-data/send-ahead-run/$name': typeof BusinessDataSendAheadRunNameRoute
+  '/business-data/service/$name': typeof BusinessDataServiceNameRoute
+  '/business-data/setup-matrix/$name': typeof BusinessDataSetupMatrixNameRoute
+  '/business-data/shift-definition/$name': typeof BusinessDataShiftDefinitionNameRoute
+  '/business-data/shift-logbook/$name': typeof BusinessDataShiftLogbookNameRoute
+  '/business-data/shift-plan/$name': typeof BusinessDataShiftPlanNameRoute
+  '/business-data/site/$name': typeof BusinessDataSiteNameRoute
+  '/business-data/sort-rule-set/$name': typeof BusinessDataSortRuleSetNameRoute
+  '/business-data/step/$name': typeof BusinessDataStepNameRoute
+  '/business-data/substrate-map-mask/$name': typeof BusinessDataSubstrateMapMaskNameRoute
+  '/business-data/substrate-map/$name': typeof BusinessDataSubstrateMapNameRoute
+  '/business-data/task/$name': typeof BusinessDataTaskNameRoute
+  '/business-data/team/$name': typeof BusinessDataTeamNameRoute
+  '/business-data/transfer-order/$name': typeof BusinessDataTransferOrderNameRoute
+  '/business-data/transfer-requirement/$name': typeof BusinessDataTransferRequirementNameRoute
+  '/business-data/workgroup/$name': typeof BusinessDataWorkgroupNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -485,6 +1483,58 @@ export interface FileRouteTypes {
     | '/business-data/container'
     | '/business-data/data-collection'
     | '/business-data/data-collection-limit-set'
+    | '/business-data/data-silo'
+    | '/business-data/document'
+    | '/business-data/employee'
+    | '/business-data/enterprise'
+    | '/business-data/experiment-definition'
+    | '/business-data/facility'
+    | '/business-data/flow'
+    | '/business-data/inspection-plan'
+    | '/business-data/kpi'
+    | '/business-data/maintenance-activity-order'
+    | '/business-data/maintenance-plan'
+    | '/business-data/map'
+    | '/business-data/map-definition'
+    | '/business-data/material'
+    | '/business-data/material-transfer'
+    | '/business-data/notification'
+    | '/business-data/package'
+    | '/business-data/parameter'
+    | '/business-data/periodic-inventory'
+    | '/business-data/pick-list'
+    | '/business-data/plan'
+    | '/business-data/printable-document'
+    | '/business-data/product'
+    | '/business-data/product-group'
+    | '/business-data/production-order'
+    | '/business-data/protocol'
+    | '/business-data/qualification'
+    | '/business-data/qualification-check'
+    | '/business-data/reason'
+    | '/business-data/recipe'
+    | '/business-data/resource'
+    | '/business-data/resource-job'
+    | '/business-data/sampling-pattern'
+    | '/business-data/sampling-plan'
+    | '/business-data/schedule'
+    | '/business-data/schedule-scenario'
+    | '/business-data/send-ahead-run'
+    | '/business-data/service'
+    | '/business-data/setup-matrix'
+    | '/business-data/shift-definition'
+    | '/business-data/shift-logbook'
+    | '/business-data/shift-plan'
+    | '/business-data/site'
+    | '/business-data/sort-rule-set'
+    | '/business-data/step'
+    | '/business-data/substrate-map'
+    | '/business-data/substrate-map-mask'
+    | '/business-data/task'
+    | '/business-data/team'
+    | '/business-data/transfer-order'
+    | '/business-data/transfer-requirement'
+    | '/business-data/workgroup'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -504,6 +1554,58 @@ export interface FileRouteTypes {
     | '/business-data/container/$name'
     | '/business-data/data-collection-limit-set/$name'
     | '/business-data/data-collection/$name'
+    | '/business-data/data-silo/$name'
+    | '/business-data/document/$name'
+    | '/business-data/employee/$name'
+    | '/business-data/enterprise/$name'
+    | '/business-data/experiment-definition/$name'
+    | '/business-data/facility/$name'
+    | '/business-data/flow/$name'
+    | '/business-data/inspection-plan/$name'
+    | '/business-data/kpi/$name'
+    | '/business-data/maintenance-activity-order/$name'
+    | '/business-data/maintenance-plan/$name'
+    | '/business-data/map-definition/$name'
+    | '/business-data/map/$name'
+    | '/business-data/material-transfer/$name'
+    | '/business-data/material/$name'
+    | '/business-data/notification/$name'
+    | '/business-data/package/$name'
+    | '/business-data/parameter/$name'
+    | '/business-data/periodic-inventory/$name'
+    | '/business-data/pick-list/$name'
+    | '/business-data/plan/$name'
+    | '/business-data/printable-document/$name'
+    | '/business-data/product-group/$name'
+    | '/business-data/product/$name'
+    | '/business-data/production-order/$name'
+    | '/business-data/protocol/$name'
+    | '/business-data/qualification-check/$name'
+    | '/business-data/qualification/$name'
+    | '/business-data/reason/$name'
+    | '/business-data/recipe/$name'
+    | '/business-data/resource-job/$name'
+    | '/business-data/resource/$name'
+    | '/business-data/sampling-pattern/$name'
+    | '/business-data/sampling-plan/$name'
+    | '/business-data/schedule-scenario/$name'
+    | '/business-data/schedule/$name'
+    | '/business-data/send-ahead-run/$name'
+    | '/business-data/service/$name'
+    | '/business-data/setup-matrix/$name'
+    | '/business-data/shift-definition/$name'
+    | '/business-data/shift-logbook/$name'
+    | '/business-data/shift-plan/$name'
+    | '/business-data/site/$name'
+    | '/business-data/sort-rule-set/$name'
+    | '/business-data/step/$name'
+    | '/business-data/substrate-map-mask/$name'
+    | '/business-data/substrate-map/$name'
+    | '/business-data/task/$name'
+    | '/business-data/team/$name'
+    | '/business-data/transfer-order/$name'
+    | '/business-data/transfer-requirement/$name'
+    | '/business-data/workgroup/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -533,6 +1635,58 @@ export interface FileRouteTypes {
     | '/business-data/container'
     | '/business-data/data-collection'
     | '/business-data/data-collection-limit-set'
+    | '/business-data/data-silo'
+    | '/business-data/document'
+    | '/business-data/employee'
+    | '/business-data/enterprise'
+    | '/business-data/experiment-definition'
+    | '/business-data/facility'
+    | '/business-data/flow'
+    | '/business-data/inspection-plan'
+    | '/business-data/kpi'
+    | '/business-data/maintenance-activity-order'
+    | '/business-data/maintenance-plan'
+    | '/business-data/map'
+    | '/business-data/map-definition'
+    | '/business-data/material'
+    | '/business-data/material-transfer'
+    | '/business-data/notification'
+    | '/business-data/package'
+    | '/business-data/parameter'
+    | '/business-data/periodic-inventory'
+    | '/business-data/pick-list'
+    | '/business-data/plan'
+    | '/business-data/printable-document'
+    | '/business-data/product'
+    | '/business-data/product-group'
+    | '/business-data/production-order'
+    | '/business-data/protocol'
+    | '/business-data/qualification'
+    | '/business-data/qualification-check'
+    | '/business-data/reason'
+    | '/business-data/recipe'
+    | '/business-data/resource'
+    | '/business-data/resource-job'
+    | '/business-data/sampling-pattern'
+    | '/business-data/sampling-plan'
+    | '/business-data/schedule'
+    | '/business-data/schedule-scenario'
+    | '/business-data/send-ahead-run'
+    | '/business-data/service'
+    | '/business-data/setup-matrix'
+    | '/business-data/shift-definition'
+    | '/business-data/shift-logbook'
+    | '/business-data/shift-plan'
+    | '/business-data/site'
+    | '/business-data/sort-rule-set'
+    | '/business-data/step'
+    | '/business-data/substrate-map'
+    | '/business-data/substrate-map-mask'
+    | '/business-data/task'
+    | '/business-data/team'
+    | '/business-data/transfer-order'
+    | '/business-data/transfer-requirement'
+    | '/business-data/workgroup'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -552,6 +1706,58 @@ export interface FileRouteTypes {
     | '/business-data/container/$name'
     | '/business-data/data-collection-limit-set/$name'
     | '/business-data/data-collection/$name'
+    | '/business-data/data-silo/$name'
+    | '/business-data/document/$name'
+    | '/business-data/employee/$name'
+    | '/business-data/enterprise/$name'
+    | '/business-data/experiment-definition/$name'
+    | '/business-data/facility/$name'
+    | '/business-data/flow/$name'
+    | '/business-data/inspection-plan/$name'
+    | '/business-data/kpi/$name'
+    | '/business-data/maintenance-activity-order/$name'
+    | '/business-data/maintenance-plan/$name'
+    | '/business-data/map-definition/$name'
+    | '/business-data/map/$name'
+    | '/business-data/material-transfer/$name'
+    | '/business-data/material/$name'
+    | '/business-data/notification/$name'
+    | '/business-data/package/$name'
+    | '/business-data/parameter/$name'
+    | '/business-data/periodic-inventory/$name'
+    | '/business-data/pick-list/$name'
+    | '/business-data/plan/$name'
+    | '/business-data/printable-document/$name'
+    | '/business-data/product-group/$name'
+    | '/business-data/product/$name'
+    | '/business-data/production-order/$name'
+    | '/business-data/protocol/$name'
+    | '/business-data/qualification-check/$name'
+    | '/business-data/qualification/$name'
+    | '/business-data/reason/$name'
+    | '/business-data/recipe/$name'
+    | '/business-data/resource-job/$name'
+    | '/business-data/resource/$name'
+    | '/business-data/sampling-pattern/$name'
+    | '/business-data/sampling-plan/$name'
+    | '/business-data/schedule-scenario/$name'
+    | '/business-data/schedule/$name'
+    | '/business-data/send-ahead-run/$name'
+    | '/business-data/service/$name'
+    | '/business-data/setup-matrix/$name'
+    | '/business-data/shift-definition/$name'
+    | '/business-data/shift-logbook/$name'
+    | '/business-data/shift-plan/$name'
+    | '/business-data/site/$name'
+    | '/business-data/sort-rule-set/$name'
+    | '/business-data/step/$name'
+    | '/business-data/substrate-map-mask/$name'
+    | '/business-data/substrate-map/$name'
+    | '/business-data/task/$name'
+    | '/business-data/team/$name'
+    | '/business-data/transfer-order/$name'
+    | '/business-data/transfer-requirement/$name'
+    | '/business-data/workgroup/$name'
   id:
     | '__root__'
     | '/'
@@ -581,6 +1787,58 @@ export interface FileRouteTypes {
     | '/business-data/container'
     | '/business-data/data-collection'
     | '/business-data/data-collection-limit-set'
+    | '/business-data/data-silo'
+    | '/business-data/document'
+    | '/business-data/employee'
+    | '/business-data/enterprise'
+    | '/business-data/experiment-definition'
+    | '/business-data/facility'
+    | '/business-data/flow'
+    | '/business-data/inspection-plan'
+    | '/business-data/kpi'
+    | '/business-data/maintenance-activity-order'
+    | '/business-data/maintenance-plan'
+    | '/business-data/map'
+    | '/business-data/map-definition'
+    | '/business-data/material'
+    | '/business-data/material-transfer'
+    | '/business-data/notification'
+    | '/business-data/package'
+    | '/business-data/parameter'
+    | '/business-data/periodic-inventory'
+    | '/business-data/pick-list'
+    | '/business-data/plan'
+    | '/business-data/printable-document'
+    | '/business-data/product'
+    | '/business-data/product-group'
+    | '/business-data/production-order'
+    | '/business-data/protocol'
+    | '/business-data/qualification'
+    | '/business-data/qualification-check'
+    | '/business-data/reason'
+    | '/business-data/recipe'
+    | '/business-data/resource'
+    | '/business-data/resource-job'
+    | '/business-data/sampling-pattern'
+    | '/business-data/sampling-plan'
+    | '/business-data/schedule'
+    | '/business-data/schedule-scenario'
+    | '/business-data/send-ahead-run'
+    | '/business-data/service'
+    | '/business-data/setup-matrix'
+    | '/business-data/shift-definition'
+    | '/business-data/shift-logbook'
+    | '/business-data/shift-plan'
+    | '/business-data/site'
+    | '/business-data/sort-rule-set'
+    | '/business-data/step'
+    | '/business-data/substrate-map'
+    | '/business-data/substrate-map-mask'
+    | '/business-data/task'
+    | '/business-data/team'
+    | '/business-data/transfer-order'
+    | '/business-data/transfer-requirement'
+    | '/business-data/workgroup'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -600,6 +1858,58 @@ export interface FileRouteTypes {
     | '/business-data/container/$name'
     | '/business-data/data-collection-limit-set/$name'
     | '/business-data/data-collection/$name'
+    | '/business-data/data-silo/$name'
+    | '/business-data/document/$name'
+    | '/business-data/employee/$name'
+    | '/business-data/enterprise/$name'
+    | '/business-data/experiment-definition/$name'
+    | '/business-data/facility/$name'
+    | '/business-data/flow/$name'
+    | '/business-data/inspection-plan/$name'
+    | '/business-data/kpi/$name'
+    | '/business-data/maintenance-activity-order/$name'
+    | '/business-data/maintenance-plan/$name'
+    | '/business-data/map-definition/$name'
+    | '/business-data/map/$name'
+    | '/business-data/material-transfer/$name'
+    | '/business-data/material/$name'
+    | '/business-data/notification/$name'
+    | '/business-data/package/$name'
+    | '/business-data/parameter/$name'
+    | '/business-data/periodic-inventory/$name'
+    | '/business-data/pick-list/$name'
+    | '/business-data/plan/$name'
+    | '/business-data/printable-document/$name'
+    | '/business-data/product-group/$name'
+    | '/business-data/product/$name'
+    | '/business-data/production-order/$name'
+    | '/business-data/protocol/$name'
+    | '/business-data/qualification-check/$name'
+    | '/business-data/qualification/$name'
+    | '/business-data/reason/$name'
+    | '/business-data/recipe/$name'
+    | '/business-data/resource-job/$name'
+    | '/business-data/resource/$name'
+    | '/business-data/sampling-pattern/$name'
+    | '/business-data/sampling-plan/$name'
+    | '/business-data/schedule-scenario/$name'
+    | '/business-data/schedule/$name'
+    | '/business-data/send-ahead-run/$name'
+    | '/business-data/service/$name'
+    | '/business-data/setup-matrix/$name'
+    | '/business-data/shift-definition/$name'
+    | '/business-data/shift-logbook/$name'
+    | '/business-data/shift-plan/$name'
+    | '/business-data/site/$name'
+    | '/business-data/sort-rule-set/$name'
+    | '/business-data/step/$name'
+    | '/business-data/substrate-map-mask/$name'
+    | '/business-data/substrate-map/$name'
+    | '/business-data/task/$name'
+    | '/business-data/team/$name'
+    | '/business-data/transfer-order/$name'
+    | '/business-data/transfer-requirement/$name'
+    | '/business-data/workgroup/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -801,6 +2111,370 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataDataCollectionLimitSetRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/data-silo': {
+      id: '/business-data/data-silo'
+      path: '/data-silo'
+      fullPath: '/business-data/data-silo'
+      preLoaderRoute: typeof BusinessDataDataSiloRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/document': {
+      id: '/business-data/document'
+      path: '/document'
+      fullPath: '/business-data/document'
+      preLoaderRoute: typeof BusinessDataDocumentRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/employee': {
+      id: '/business-data/employee'
+      path: '/employee'
+      fullPath: '/business-data/employee'
+      preLoaderRoute: typeof BusinessDataEmployeeRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/enterprise': {
+      id: '/business-data/enterprise'
+      path: '/enterprise'
+      fullPath: '/business-data/enterprise'
+      preLoaderRoute: typeof BusinessDataEnterpriseRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/experiment-definition': {
+      id: '/business-data/experiment-definition'
+      path: '/experiment-definition'
+      fullPath: '/business-data/experiment-definition'
+      preLoaderRoute: typeof BusinessDataExperimentDefinitionRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/facility': {
+      id: '/business-data/facility'
+      path: '/facility'
+      fullPath: '/business-data/facility'
+      preLoaderRoute: typeof BusinessDataFacilityRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/flow': {
+      id: '/business-data/flow'
+      path: '/flow'
+      fullPath: '/business-data/flow'
+      preLoaderRoute: typeof BusinessDataFlowRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/inspection-plan': {
+      id: '/business-data/inspection-plan'
+      path: '/inspection-plan'
+      fullPath: '/business-data/inspection-plan'
+      preLoaderRoute: typeof BusinessDataInspectionPlanRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/kpi': {
+      id: '/business-data/kpi'
+      path: '/kpi'
+      fullPath: '/business-data/kpi'
+      preLoaderRoute: typeof BusinessDataKpiRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/maintenance-activity-order': {
+      id: '/business-data/maintenance-activity-order'
+      path: '/maintenance-activity-order'
+      fullPath: '/business-data/maintenance-activity-order'
+      preLoaderRoute: typeof BusinessDataMaintenanceActivityOrderRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/maintenance-plan': {
+      id: '/business-data/maintenance-plan'
+      path: '/maintenance-plan'
+      fullPath: '/business-data/maintenance-plan'
+      preLoaderRoute: typeof BusinessDataMaintenancePlanRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/map': {
+      id: '/business-data/map'
+      path: '/map'
+      fullPath: '/business-data/map'
+      preLoaderRoute: typeof BusinessDataMapRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/map-definition': {
+      id: '/business-data/map-definition'
+      path: '/map-definition'
+      fullPath: '/business-data/map-definition'
+      preLoaderRoute: typeof BusinessDataMapDefinitionRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/material': {
+      id: '/business-data/material'
+      path: '/material'
+      fullPath: '/business-data/material'
+      preLoaderRoute: typeof BusinessDataMaterialRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/material-transfer': {
+      id: '/business-data/material-transfer'
+      path: '/material-transfer'
+      fullPath: '/business-data/material-transfer'
+      preLoaderRoute: typeof BusinessDataMaterialTransferRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/notification': {
+      id: '/business-data/notification'
+      path: '/notification'
+      fullPath: '/business-data/notification'
+      preLoaderRoute: typeof BusinessDataNotificationRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/package': {
+      id: '/business-data/package'
+      path: '/package'
+      fullPath: '/business-data/package'
+      preLoaderRoute: typeof BusinessDataPackageRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/parameter': {
+      id: '/business-data/parameter'
+      path: '/parameter'
+      fullPath: '/business-data/parameter'
+      preLoaderRoute: typeof BusinessDataParameterRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/periodic-inventory': {
+      id: '/business-data/periodic-inventory'
+      path: '/periodic-inventory'
+      fullPath: '/business-data/periodic-inventory'
+      preLoaderRoute: typeof BusinessDataPeriodicInventoryRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/pick-list': {
+      id: '/business-data/pick-list'
+      path: '/pick-list'
+      fullPath: '/business-data/pick-list'
+      preLoaderRoute: typeof BusinessDataPickListRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/plan': {
+      id: '/business-data/plan'
+      path: '/plan'
+      fullPath: '/business-data/plan'
+      preLoaderRoute: typeof BusinessDataPlanRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/printable-document': {
+      id: '/business-data/printable-document'
+      path: '/printable-document'
+      fullPath: '/business-data/printable-document'
+      preLoaderRoute: typeof BusinessDataPrintableDocumentRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/product': {
+      id: '/business-data/product'
+      path: '/product'
+      fullPath: '/business-data/product'
+      preLoaderRoute: typeof BusinessDataProductRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/product-group': {
+      id: '/business-data/product-group'
+      path: '/product-group'
+      fullPath: '/business-data/product-group'
+      preLoaderRoute: typeof BusinessDataProductGroupRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/production-order': {
+      id: '/business-data/production-order'
+      path: '/production-order'
+      fullPath: '/business-data/production-order'
+      preLoaderRoute: typeof BusinessDataProductionOrderRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/protocol': {
+      id: '/business-data/protocol'
+      path: '/protocol'
+      fullPath: '/business-data/protocol'
+      preLoaderRoute: typeof BusinessDataProtocolRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/qualification': {
+      id: '/business-data/qualification'
+      path: '/qualification'
+      fullPath: '/business-data/qualification'
+      preLoaderRoute: typeof BusinessDataQualificationRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/qualification-check': {
+      id: '/business-data/qualification-check'
+      path: '/qualification-check'
+      fullPath: '/business-data/qualification-check'
+      preLoaderRoute: typeof BusinessDataQualificationCheckRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/reason': {
+      id: '/business-data/reason'
+      path: '/reason'
+      fullPath: '/business-data/reason'
+      preLoaderRoute: typeof BusinessDataReasonRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/recipe': {
+      id: '/business-data/recipe'
+      path: '/recipe'
+      fullPath: '/business-data/recipe'
+      preLoaderRoute: typeof BusinessDataRecipeRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/resource': {
+      id: '/business-data/resource'
+      path: '/resource'
+      fullPath: '/business-data/resource'
+      preLoaderRoute: typeof BusinessDataResourceRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/resource-job': {
+      id: '/business-data/resource-job'
+      path: '/resource-job'
+      fullPath: '/business-data/resource-job'
+      preLoaderRoute: typeof BusinessDataResourceJobRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/sampling-pattern': {
+      id: '/business-data/sampling-pattern'
+      path: '/sampling-pattern'
+      fullPath: '/business-data/sampling-pattern'
+      preLoaderRoute: typeof BusinessDataSamplingPatternRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/sampling-plan': {
+      id: '/business-data/sampling-plan'
+      path: '/sampling-plan'
+      fullPath: '/business-data/sampling-plan'
+      preLoaderRoute: typeof BusinessDataSamplingPlanRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/schedule': {
+      id: '/business-data/schedule'
+      path: '/schedule'
+      fullPath: '/business-data/schedule'
+      preLoaderRoute: typeof BusinessDataScheduleRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/schedule-scenario': {
+      id: '/business-data/schedule-scenario'
+      path: '/schedule-scenario'
+      fullPath: '/business-data/schedule-scenario'
+      preLoaderRoute: typeof BusinessDataScheduleScenarioRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/send-ahead-run': {
+      id: '/business-data/send-ahead-run'
+      path: '/send-ahead-run'
+      fullPath: '/business-data/send-ahead-run'
+      preLoaderRoute: typeof BusinessDataSendAheadRunRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/service': {
+      id: '/business-data/service'
+      path: '/service'
+      fullPath: '/business-data/service'
+      preLoaderRoute: typeof BusinessDataServiceRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/setup-matrix': {
+      id: '/business-data/setup-matrix'
+      path: '/setup-matrix'
+      fullPath: '/business-data/setup-matrix'
+      preLoaderRoute: typeof BusinessDataSetupMatrixRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/shift-definition': {
+      id: '/business-data/shift-definition'
+      path: '/shift-definition'
+      fullPath: '/business-data/shift-definition'
+      preLoaderRoute: typeof BusinessDataShiftDefinitionRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/shift-logbook': {
+      id: '/business-data/shift-logbook'
+      path: '/shift-logbook'
+      fullPath: '/business-data/shift-logbook'
+      preLoaderRoute: typeof BusinessDataShiftLogbookRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/shift-plan': {
+      id: '/business-data/shift-plan'
+      path: '/shift-plan'
+      fullPath: '/business-data/shift-plan'
+      preLoaderRoute: typeof BusinessDataShiftPlanRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/site': {
+      id: '/business-data/site'
+      path: '/site'
+      fullPath: '/business-data/site'
+      preLoaderRoute: typeof BusinessDataSiteRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/sort-rule-set': {
+      id: '/business-data/sort-rule-set'
+      path: '/sort-rule-set'
+      fullPath: '/business-data/sort-rule-set'
+      preLoaderRoute: typeof BusinessDataSortRuleSetRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/step': {
+      id: '/business-data/step'
+      path: '/step'
+      fullPath: '/business-data/step'
+      preLoaderRoute: typeof BusinessDataStepRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/substrate-map': {
+      id: '/business-data/substrate-map'
+      path: '/substrate-map'
+      fullPath: '/business-data/substrate-map'
+      preLoaderRoute: typeof BusinessDataSubstrateMapRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/substrate-map-mask': {
+      id: '/business-data/substrate-map-mask'
+      path: '/substrate-map-mask'
+      fullPath: '/business-data/substrate-map-mask'
+      preLoaderRoute: typeof BusinessDataSubstrateMapMaskRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/task': {
+      id: '/business-data/task'
+      path: '/task'
+      fullPath: '/business-data/task'
+      preLoaderRoute: typeof BusinessDataTaskRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/team': {
+      id: '/business-data/team'
+      path: '/team'
+      fullPath: '/business-data/team'
+      preLoaderRoute: typeof BusinessDataTeamRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/transfer-order': {
+      id: '/business-data/transfer-order'
+      path: '/transfer-order'
+      fullPath: '/business-data/transfer-order'
+      preLoaderRoute: typeof BusinessDataTransferOrderRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/transfer-requirement': {
+      id: '/business-data/transfer-requirement'
+      path: '/transfer-requirement'
+      fullPath: '/business-data/transfer-requirement'
+      preLoaderRoute: typeof BusinessDataTransferRequirementRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
+    '/business-data/workgroup': {
+      id: '/business-data/workgroup'
+      path: '/workgroup'
+      fullPath: '/business-data/workgroup'
+      preLoaderRoute: typeof BusinessDataWorkgroupRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -933,6 +2607,370 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/data-collection/$name'
       preLoaderRoute: typeof BusinessDataDataCollectionNameRouteImport
       parentRoute: typeof BusinessDataDataCollectionRoute
+    }
+    '/business-data/data-silo/$name': {
+      id: '/business-data/data-silo/$name'
+      path: '/$name'
+      fullPath: '/business-data/data-silo/$name'
+      preLoaderRoute: typeof BusinessDataDataSiloNameRouteImport
+      parentRoute: typeof BusinessDataDataSiloRoute
+    }
+    '/business-data/document/$name': {
+      id: '/business-data/document/$name'
+      path: '/$name'
+      fullPath: '/business-data/document/$name'
+      preLoaderRoute: typeof BusinessDataDocumentNameRouteImport
+      parentRoute: typeof BusinessDataDocumentRoute
+    }
+    '/business-data/employee/$name': {
+      id: '/business-data/employee/$name'
+      path: '/$name'
+      fullPath: '/business-data/employee/$name'
+      preLoaderRoute: typeof BusinessDataEmployeeNameRouteImport
+      parentRoute: typeof BusinessDataEmployeeRoute
+    }
+    '/business-data/enterprise/$name': {
+      id: '/business-data/enterprise/$name'
+      path: '/$name'
+      fullPath: '/business-data/enterprise/$name'
+      preLoaderRoute: typeof BusinessDataEnterpriseNameRouteImport
+      parentRoute: typeof BusinessDataEnterpriseRoute
+    }
+    '/business-data/experiment-definition/$name': {
+      id: '/business-data/experiment-definition/$name'
+      path: '/$name'
+      fullPath: '/business-data/experiment-definition/$name'
+      preLoaderRoute: typeof BusinessDataExperimentDefinitionNameRouteImport
+      parentRoute: typeof BusinessDataExperimentDefinitionRoute
+    }
+    '/business-data/facility/$name': {
+      id: '/business-data/facility/$name'
+      path: '/$name'
+      fullPath: '/business-data/facility/$name'
+      preLoaderRoute: typeof BusinessDataFacilityNameRouteImport
+      parentRoute: typeof BusinessDataFacilityRoute
+    }
+    '/business-data/flow/$name': {
+      id: '/business-data/flow/$name'
+      path: '/$name'
+      fullPath: '/business-data/flow/$name'
+      preLoaderRoute: typeof BusinessDataFlowNameRouteImport
+      parentRoute: typeof BusinessDataFlowRoute
+    }
+    '/business-data/inspection-plan/$name': {
+      id: '/business-data/inspection-plan/$name'
+      path: '/$name'
+      fullPath: '/business-data/inspection-plan/$name'
+      preLoaderRoute: typeof BusinessDataInspectionPlanNameRouteImport
+      parentRoute: typeof BusinessDataInspectionPlanRoute
+    }
+    '/business-data/kpi/$name': {
+      id: '/business-data/kpi/$name'
+      path: '/$name'
+      fullPath: '/business-data/kpi/$name'
+      preLoaderRoute: typeof BusinessDataKpiNameRouteImport
+      parentRoute: typeof BusinessDataKpiRoute
+    }
+    '/business-data/maintenance-activity-order/$name': {
+      id: '/business-data/maintenance-activity-order/$name'
+      path: '/$name'
+      fullPath: '/business-data/maintenance-activity-order/$name'
+      preLoaderRoute: typeof BusinessDataMaintenanceActivityOrderNameRouteImport
+      parentRoute: typeof BusinessDataMaintenanceActivityOrderRoute
+    }
+    '/business-data/maintenance-plan/$name': {
+      id: '/business-data/maintenance-plan/$name'
+      path: '/$name'
+      fullPath: '/business-data/maintenance-plan/$name'
+      preLoaderRoute: typeof BusinessDataMaintenancePlanNameRouteImport
+      parentRoute: typeof BusinessDataMaintenancePlanRoute
+    }
+    '/business-data/map-definition/$name': {
+      id: '/business-data/map-definition/$name'
+      path: '/$name'
+      fullPath: '/business-data/map-definition/$name'
+      preLoaderRoute: typeof BusinessDataMapDefinitionNameRouteImport
+      parentRoute: typeof BusinessDataMapDefinitionRoute
+    }
+    '/business-data/map/$name': {
+      id: '/business-data/map/$name'
+      path: '/$name'
+      fullPath: '/business-data/map/$name'
+      preLoaderRoute: typeof BusinessDataMapNameRouteImport
+      parentRoute: typeof BusinessDataMapRoute
+    }
+    '/business-data/material-transfer/$name': {
+      id: '/business-data/material-transfer/$name'
+      path: '/$name'
+      fullPath: '/business-data/material-transfer/$name'
+      preLoaderRoute: typeof BusinessDataMaterialTransferNameRouteImport
+      parentRoute: typeof BusinessDataMaterialTransferRoute
+    }
+    '/business-data/material/$name': {
+      id: '/business-data/material/$name'
+      path: '/$name'
+      fullPath: '/business-data/material/$name'
+      preLoaderRoute: typeof BusinessDataMaterialNameRouteImport
+      parentRoute: typeof BusinessDataMaterialRoute
+    }
+    '/business-data/notification/$name': {
+      id: '/business-data/notification/$name'
+      path: '/$name'
+      fullPath: '/business-data/notification/$name'
+      preLoaderRoute: typeof BusinessDataNotificationNameRouteImport
+      parentRoute: typeof BusinessDataNotificationRoute
+    }
+    '/business-data/package/$name': {
+      id: '/business-data/package/$name'
+      path: '/$name'
+      fullPath: '/business-data/package/$name'
+      preLoaderRoute: typeof BusinessDataPackageNameRouteImport
+      parentRoute: typeof BusinessDataPackageRoute
+    }
+    '/business-data/parameter/$name': {
+      id: '/business-data/parameter/$name'
+      path: '/$name'
+      fullPath: '/business-data/parameter/$name'
+      preLoaderRoute: typeof BusinessDataParameterNameRouteImport
+      parentRoute: typeof BusinessDataParameterRoute
+    }
+    '/business-data/periodic-inventory/$name': {
+      id: '/business-data/periodic-inventory/$name'
+      path: '/$name'
+      fullPath: '/business-data/periodic-inventory/$name'
+      preLoaderRoute: typeof BusinessDataPeriodicInventoryNameRouteImport
+      parentRoute: typeof BusinessDataPeriodicInventoryRoute
+    }
+    '/business-data/pick-list/$name': {
+      id: '/business-data/pick-list/$name'
+      path: '/$name'
+      fullPath: '/business-data/pick-list/$name'
+      preLoaderRoute: typeof BusinessDataPickListNameRouteImport
+      parentRoute: typeof BusinessDataPickListRoute
+    }
+    '/business-data/plan/$name': {
+      id: '/business-data/plan/$name'
+      path: '/$name'
+      fullPath: '/business-data/plan/$name'
+      preLoaderRoute: typeof BusinessDataPlanNameRouteImport
+      parentRoute: typeof BusinessDataPlanRoute
+    }
+    '/business-data/printable-document/$name': {
+      id: '/business-data/printable-document/$name'
+      path: '/$name'
+      fullPath: '/business-data/printable-document/$name'
+      preLoaderRoute: typeof BusinessDataPrintableDocumentNameRouteImport
+      parentRoute: typeof BusinessDataPrintableDocumentRoute
+    }
+    '/business-data/product-group/$name': {
+      id: '/business-data/product-group/$name'
+      path: '/$name'
+      fullPath: '/business-data/product-group/$name'
+      preLoaderRoute: typeof BusinessDataProductGroupNameRouteImport
+      parentRoute: typeof BusinessDataProductGroupRoute
+    }
+    '/business-data/product/$name': {
+      id: '/business-data/product/$name'
+      path: '/$name'
+      fullPath: '/business-data/product/$name'
+      preLoaderRoute: typeof BusinessDataProductNameRouteImport
+      parentRoute: typeof BusinessDataProductRoute
+    }
+    '/business-data/production-order/$name': {
+      id: '/business-data/production-order/$name'
+      path: '/$name'
+      fullPath: '/business-data/production-order/$name'
+      preLoaderRoute: typeof BusinessDataProductionOrderNameRouteImport
+      parentRoute: typeof BusinessDataProductionOrderRoute
+    }
+    '/business-data/protocol/$name': {
+      id: '/business-data/protocol/$name'
+      path: '/$name'
+      fullPath: '/business-data/protocol/$name'
+      preLoaderRoute: typeof BusinessDataProtocolNameRouteImport
+      parentRoute: typeof BusinessDataProtocolRoute
+    }
+    '/business-data/qualification-check/$name': {
+      id: '/business-data/qualification-check/$name'
+      path: '/$name'
+      fullPath: '/business-data/qualification-check/$name'
+      preLoaderRoute: typeof BusinessDataQualificationCheckNameRouteImport
+      parentRoute: typeof BusinessDataQualificationCheckRoute
+    }
+    '/business-data/qualification/$name': {
+      id: '/business-data/qualification/$name'
+      path: '/$name'
+      fullPath: '/business-data/qualification/$name'
+      preLoaderRoute: typeof BusinessDataQualificationNameRouteImport
+      parentRoute: typeof BusinessDataQualificationRoute
+    }
+    '/business-data/reason/$name': {
+      id: '/business-data/reason/$name'
+      path: '/$name'
+      fullPath: '/business-data/reason/$name'
+      preLoaderRoute: typeof BusinessDataReasonNameRouteImport
+      parentRoute: typeof BusinessDataReasonRoute
+    }
+    '/business-data/recipe/$name': {
+      id: '/business-data/recipe/$name'
+      path: '/$name'
+      fullPath: '/business-data/recipe/$name'
+      preLoaderRoute: typeof BusinessDataRecipeNameRouteImport
+      parentRoute: typeof BusinessDataRecipeRoute
+    }
+    '/business-data/resource-job/$name': {
+      id: '/business-data/resource-job/$name'
+      path: '/$name'
+      fullPath: '/business-data/resource-job/$name'
+      preLoaderRoute: typeof BusinessDataResourceJobNameRouteImport
+      parentRoute: typeof BusinessDataResourceJobRoute
+    }
+    '/business-data/resource/$name': {
+      id: '/business-data/resource/$name'
+      path: '/$name'
+      fullPath: '/business-data/resource/$name'
+      preLoaderRoute: typeof BusinessDataResourceNameRouteImport
+      parentRoute: typeof BusinessDataResourceRoute
+    }
+    '/business-data/sampling-pattern/$name': {
+      id: '/business-data/sampling-pattern/$name'
+      path: '/$name'
+      fullPath: '/business-data/sampling-pattern/$name'
+      preLoaderRoute: typeof BusinessDataSamplingPatternNameRouteImport
+      parentRoute: typeof BusinessDataSamplingPatternRoute
+    }
+    '/business-data/sampling-plan/$name': {
+      id: '/business-data/sampling-plan/$name'
+      path: '/$name'
+      fullPath: '/business-data/sampling-plan/$name'
+      preLoaderRoute: typeof BusinessDataSamplingPlanNameRouteImport
+      parentRoute: typeof BusinessDataSamplingPlanRoute
+    }
+    '/business-data/schedule-scenario/$name': {
+      id: '/business-data/schedule-scenario/$name'
+      path: '/$name'
+      fullPath: '/business-data/schedule-scenario/$name'
+      preLoaderRoute: typeof BusinessDataScheduleScenarioNameRouteImport
+      parentRoute: typeof BusinessDataScheduleScenarioRoute
+    }
+    '/business-data/schedule/$name': {
+      id: '/business-data/schedule/$name'
+      path: '/$name'
+      fullPath: '/business-data/schedule/$name'
+      preLoaderRoute: typeof BusinessDataScheduleNameRouteImport
+      parentRoute: typeof BusinessDataScheduleRoute
+    }
+    '/business-data/send-ahead-run/$name': {
+      id: '/business-data/send-ahead-run/$name'
+      path: '/$name'
+      fullPath: '/business-data/send-ahead-run/$name'
+      preLoaderRoute: typeof BusinessDataSendAheadRunNameRouteImport
+      parentRoute: typeof BusinessDataSendAheadRunRoute
+    }
+    '/business-data/service/$name': {
+      id: '/business-data/service/$name'
+      path: '/$name'
+      fullPath: '/business-data/service/$name'
+      preLoaderRoute: typeof BusinessDataServiceNameRouteImport
+      parentRoute: typeof BusinessDataServiceRoute
+    }
+    '/business-data/setup-matrix/$name': {
+      id: '/business-data/setup-matrix/$name'
+      path: '/$name'
+      fullPath: '/business-data/setup-matrix/$name'
+      preLoaderRoute: typeof BusinessDataSetupMatrixNameRouteImport
+      parentRoute: typeof BusinessDataSetupMatrixRoute
+    }
+    '/business-data/shift-definition/$name': {
+      id: '/business-data/shift-definition/$name'
+      path: '/$name'
+      fullPath: '/business-data/shift-definition/$name'
+      preLoaderRoute: typeof BusinessDataShiftDefinitionNameRouteImport
+      parentRoute: typeof BusinessDataShiftDefinitionRoute
+    }
+    '/business-data/shift-logbook/$name': {
+      id: '/business-data/shift-logbook/$name'
+      path: '/$name'
+      fullPath: '/business-data/shift-logbook/$name'
+      preLoaderRoute: typeof BusinessDataShiftLogbookNameRouteImport
+      parentRoute: typeof BusinessDataShiftLogbookRoute
+    }
+    '/business-data/shift-plan/$name': {
+      id: '/business-data/shift-plan/$name'
+      path: '/$name'
+      fullPath: '/business-data/shift-plan/$name'
+      preLoaderRoute: typeof BusinessDataShiftPlanNameRouteImport
+      parentRoute: typeof BusinessDataShiftPlanRoute
+    }
+    '/business-data/site/$name': {
+      id: '/business-data/site/$name'
+      path: '/$name'
+      fullPath: '/business-data/site/$name'
+      preLoaderRoute: typeof BusinessDataSiteNameRouteImport
+      parentRoute: typeof BusinessDataSiteRoute
+    }
+    '/business-data/sort-rule-set/$name': {
+      id: '/business-data/sort-rule-set/$name'
+      path: '/$name'
+      fullPath: '/business-data/sort-rule-set/$name'
+      preLoaderRoute: typeof BusinessDataSortRuleSetNameRouteImport
+      parentRoute: typeof BusinessDataSortRuleSetRoute
+    }
+    '/business-data/step/$name': {
+      id: '/business-data/step/$name'
+      path: '/$name'
+      fullPath: '/business-data/step/$name'
+      preLoaderRoute: typeof BusinessDataStepNameRouteImport
+      parentRoute: typeof BusinessDataStepRoute
+    }
+    '/business-data/substrate-map-mask/$name': {
+      id: '/business-data/substrate-map-mask/$name'
+      path: '/$name'
+      fullPath: '/business-data/substrate-map-mask/$name'
+      preLoaderRoute: typeof BusinessDataSubstrateMapMaskNameRouteImport
+      parentRoute: typeof BusinessDataSubstrateMapMaskRoute
+    }
+    '/business-data/substrate-map/$name': {
+      id: '/business-data/substrate-map/$name'
+      path: '/$name'
+      fullPath: '/business-data/substrate-map/$name'
+      preLoaderRoute: typeof BusinessDataSubstrateMapNameRouteImport
+      parentRoute: typeof BusinessDataSubstrateMapRoute
+    }
+    '/business-data/task/$name': {
+      id: '/business-data/task/$name'
+      path: '/$name'
+      fullPath: '/business-data/task/$name'
+      preLoaderRoute: typeof BusinessDataTaskNameRouteImport
+      parentRoute: typeof BusinessDataTaskRoute
+    }
+    '/business-data/team/$name': {
+      id: '/business-data/team/$name'
+      path: '/$name'
+      fullPath: '/business-data/team/$name'
+      preLoaderRoute: typeof BusinessDataTeamNameRouteImport
+      parentRoute: typeof BusinessDataTeamRoute
+    }
+    '/business-data/transfer-order/$name': {
+      id: '/business-data/transfer-order/$name'
+      path: '/$name'
+      fullPath: '/business-data/transfer-order/$name'
+      preLoaderRoute: typeof BusinessDataTransferOrderNameRouteImport
+      parentRoute: typeof BusinessDataTransferOrderRoute
+    }
+    '/business-data/transfer-requirement/$name': {
+      id: '/business-data/transfer-requirement/$name'
+      path: '/$name'
+      fullPath: '/business-data/transfer-requirement/$name'
+      preLoaderRoute: typeof BusinessDataTransferRequirementNameRouteImport
+      parentRoute: typeof BusinessDataTransferRequirementRoute
+    }
+    '/business-data/workgroup/$name': {
+      id: '/business-data/workgroup/$name'
+      path: '/$name'
+      fullPath: '/business-data/workgroup/$name'
+      preLoaderRoute: typeof BusinessDataWorkgroupNameRouteImport
+      parentRoute: typeof BusinessDataWorkgroupRoute
     }
   }
 }
@@ -1211,6 +3249,676 @@ const BusinessDataDataCollectionLimitSetRouteWithChildren =
     BusinessDataDataCollectionLimitSetRouteChildren,
   )
 
+interface BusinessDataDataSiloRouteChildren {
+  BusinessDataDataSiloNameRoute: typeof BusinessDataDataSiloNameRoute
+}
+
+const BusinessDataDataSiloRouteChildren: BusinessDataDataSiloRouteChildren = {
+  BusinessDataDataSiloNameRoute: BusinessDataDataSiloNameRoute,
+}
+
+const BusinessDataDataSiloRouteWithChildren =
+  BusinessDataDataSiloRoute._addFileChildren(BusinessDataDataSiloRouteChildren)
+
+interface BusinessDataDocumentRouteChildren {
+  BusinessDataDocumentNameRoute: typeof BusinessDataDocumentNameRoute
+}
+
+const BusinessDataDocumentRouteChildren: BusinessDataDocumentRouteChildren = {
+  BusinessDataDocumentNameRoute: BusinessDataDocumentNameRoute,
+}
+
+const BusinessDataDocumentRouteWithChildren =
+  BusinessDataDocumentRoute._addFileChildren(BusinessDataDocumentRouteChildren)
+
+interface BusinessDataEmployeeRouteChildren {
+  BusinessDataEmployeeNameRoute: typeof BusinessDataEmployeeNameRoute
+}
+
+const BusinessDataEmployeeRouteChildren: BusinessDataEmployeeRouteChildren = {
+  BusinessDataEmployeeNameRoute: BusinessDataEmployeeNameRoute,
+}
+
+const BusinessDataEmployeeRouteWithChildren =
+  BusinessDataEmployeeRoute._addFileChildren(BusinessDataEmployeeRouteChildren)
+
+interface BusinessDataEnterpriseRouteChildren {
+  BusinessDataEnterpriseNameRoute: typeof BusinessDataEnterpriseNameRoute
+}
+
+const BusinessDataEnterpriseRouteChildren: BusinessDataEnterpriseRouteChildren =
+  {
+    BusinessDataEnterpriseNameRoute: BusinessDataEnterpriseNameRoute,
+  }
+
+const BusinessDataEnterpriseRouteWithChildren =
+  BusinessDataEnterpriseRoute._addFileChildren(
+    BusinessDataEnterpriseRouteChildren,
+  )
+
+interface BusinessDataExperimentDefinitionRouteChildren {
+  BusinessDataExperimentDefinitionNameRoute: typeof BusinessDataExperimentDefinitionNameRoute
+}
+
+const BusinessDataExperimentDefinitionRouteChildren: BusinessDataExperimentDefinitionRouteChildren =
+  {
+    BusinessDataExperimentDefinitionNameRoute:
+      BusinessDataExperimentDefinitionNameRoute,
+  }
+
+const BusinessDataExperimentDefinitionRouteWithChildren =
+  BusinessDataExperimentDefinitionRoute._addFileChildren(
+    BusinessDataExperimentDefinitionRouteChildren,
+  )
+
+interface BusinessDataFacilityRouteChildren {
+  BusinessDataFacilityNameRoute: typeof BusinessDataFacilityNameRoute
+}
+
+const BusinessDataFacilityRouteChildren: BusinessDataFacilityRouteChildren = {
+  BusinessDataFacilityNameRoute: BusinessDataFacilityNameRoute,
+}
+
+const BusinessDataFacilityRouteWithChildren =
+  BusinessDataFacilityRoute._addFileChildren(BusinessDataFacilityRouteChildren)
+
+interface BusinessDataFlowRouteChildren {
+  BusinessDataFlowNameRoute: typeof BusinessDataFlowNameRoute
+}
+
+const BusinessDataFlowRouteChildren: BusinessDataFlowRouteChildren = {
+  BusinessDataFlowNameRoute: BusinessDataFlowNameRoute,
+}
+
+const BusinessDataFlowRouteWithChildren =
+  BusinessDataFlowRoute._addFileChildren(BusinessDataFlowRouteChildren)
+
+interface BusinessDataInspectionPlanRouteChildren {
+  BusinessDataInspectionPlanNameRoute: typeof BusinessDataInspectionPlanNameRoute
+}
+
+const BusinessDataInspectionPlanRouteChildren: BusinessDataInspectionPlanRouteChildren =
+  {
+    BusinessDataInspectionPlanNameRoute: BusinessDataInspectionPlanNameRoute,
+  }
+
+const BusinessDataInspectionPlanRouteWithChildren =
+  BusinessDataInspectionPlanRoute._addFileChildren(
+    BusinessDataInspectionPlanRouteChildren,
+  )
+
+interface BusinessDataKpiRouteChildren {
+  BusinessDataKpiNameRoute: typeof BusinessDataKpiNameRoute
+}
+
+const BusinessDataKpiRouteChildren: BusinessDataKpiRouteChildren = {
+  BusinessDataKpiNameRoute: BusinessDataKpiNameRoute,
+}
+
+const BusinessDataKpiRouteWithChildren = BusinessDataKpiRoute._addFileChildren(
+  BusinessDataKpiRouteChildren,
+)
+
+interface BusinessDataMaintenanceActivityOrderRouteChildren {
+  BusinessDataMaintenanceActivityOrderNameRoute: typeof BusinessDataMaintenanceActivityOrderNameRoute
+}
+
+const BusinessDataMaintenanceActivityOrderRouteChildren: BusinessDataMaintenanceActivityOrderRouteChildren =
+  {
+    BusinessDataMaintenanceActivityOrderNameRoute:
+      BusinessDataMaintenanceActivityOrderNameRoute,
+  }
+
+const BusinessDataMaintenanceActivityOrderRouteWithChildren =
+  BusinessDataMaintenanceActivityOrderRoute._addFileChildren(
+    BusinessDataMaintenanceActivityOrderRouteChildren,
+  )
+
+interface BusinessDataMaintenancePlanRouteChildren {
+  BusinessDataMaintenancePlanNameRoute: typeof BusinessDataMaintenancePlanNameRoute
+}
+
+const BusinessDataMaintenancePlanRouteChildren: BusinessDataMaintenancePlanRouteChildren =
+  {
+    BusinessDataMaintenancePlanNameRoute: BusinessDataMaintenancePlanNameRoute,
+  }
+
+const BusinessDataMaintenancePlanRouteWithChildren =
+  BusinessDataMaintenancePlanRoute._addFileChildren(
+    BusinessDataMaintenancePlanRouteChildren,
+  )
+
+interface BusinessDataMapRouteChildren {
+  BusinessDataMapNameRoute: typeof BusinessDataMapNameRoute
+}
+
+const BusinessDataMapRouteChildren: BusinessDataMapRouteChildren = {
+  BusinessDataMapNameRoute: BusinessDataMapNameRoute,
+}
+
+const BusinessDataMapRouteWithChildren = BusinessDataMapRoute._addFileChildren(
+  BusinessDataMapRouteChildren,
+)
+
+interface BusinessDataMapDefinitionRouteChildren {
+  BusinessDataMapDefinitionNameRoute: typeof BusinessDataMapDefinitionNameRoute
+}
+
+const BusinessDataMapDefinitionRouteChildren: BusinessDataMapDefinitionRouteChildren =
+  {
+    BusinessDataMapDefinitionNameRoute: BusinessDataMapDefinitionNameRoute,
+  }
+
+const BusinessDataMapDefinitionRouteWithChildren =
+  BusinessDataMapDefinitionRoute._addFileChildren(
+    BusinessDataMapDefinitionRouteChildren,
+  )
+
+interface BusinessDataMaterialRouteChildren {
+  BusinessDataMaterialNameRoute: typeof BusinessDataMaterialNameRoute
+}
+
+const BusinessDataMaterialRouteChildren: BusinessDataMaterialRouteChildren = {
+  BusinessDataMaterialNameRoute: BusinessDataMaterialNameRoute,
+}
+
+const BusinessDataMaterialRouteWithChildren =
+  BusinessDataMaterialRoute._addFileChildren(BusinessDataMaterialRouteChildren)
+
+interface BusinessDataMaterialTransferRouteChildren {
+  BusinessDataMaterialTransferNameRoute: typeof BusinessDataMaterialTransferNameRoute
+}
+
+const BusinessDataMaterialTransferRouteChildren: BusinessDataMaterialTransferRouteChildren =
+  {
+    BusinessDataMaterialTransferNameRoute:
+      BusinessDataMaterialTransferNameRoute,
+  }
+
+const BusinessDataMaterialTransferRouteWithChildren =
+  BusinessDataMaterialTransferRoute._addFileChildren(
+    BusinessDataMaterialTransferRouteChildren,
+  )
+
+interface BusinessDataNotificationRouteChildren {
+  BusinessDataNotificationNameRoute: typeof BusinessDataNotificationNameRoute
+}
+
+const BusinessDataNotificationRouteChildren: BusinessDataNotificationRouteChildren =
+  {
+    BusinessDataNotificationNameRoute: BusinessDataNotificationNameRoute,
+  }
+
+const BusinessDataNotificationRouteWithChildren =
+  BusinessDataNotificationRoute._addFileChildren(
+    BusinessDataNotificationRouteChildren,
+  )
+
+interface BusinessDataPackageRouteChildren {
+  BusinessDataPackageNameRoute: typeof BusinessDataPackageNameRoute
+}
+
+const BusinessDataPackageRouteChildren: BusinessDataPackageRouteChildren = {
+  BusinessDataPackageNameRoute: BusinessDataPackageNameRoute,
+}
+
+const BusinessDataPackageRouteWithChildren =
+  BusinessDataPackageRoute._addFileChildren(BusinessDataPackageRouteChildren)
+
+interface BusinessDataParameterRouteChildren {
+  BusinessDataParameterNameRoute: typeof BusinessDataParameterNameRoute
+}
+
+const BusinessDataParameterRouteChildren: BusinessDataParameterRouteChildren = {
+  BusinessDataParameterNameRoute: BusinessDataParameterNameRoute,
+}
+
+const BusinessDataParameterRouteWithChildren =
+  BusinessDataParameterRoute._addFileChildren(
+    BusinessDataParameterRouteChildren,
+  )
+
+interface BusinessDataPeriodicInventoryRouteChildren {
+  BusinessDataPeriodicInventoryNameRoute: typeof BusinessDataPeriodicInventoryNameRoute
+}
+
+const BusinessDataPeriodicInventoryRouteChildren: BusinessDataPeriodicInventoryRouteChildren =
+  {
+    BusinessDataPeriodicInventoryNameRoute:
+      BusinessDataPeriodicInventoryNameRoute,
+  }
+
+const BusinessDataPeriodicInventoryRouteWithChildren =
+  BusinessDataPeriodicInventoryRoute._addFileChildren(
+    BusinessDataPeriodicInventoryRouteChildren,
+  )
+
+interface BusinessDataPickListRouteChildren {
+  BusinessDataPickListNameRoute: typeof BusinessDataPickListNameRoute
+}
+
+const BusinessDataPickListRouteChildren: BusinessDataPickListRouteChildren = {
+  BusinessDataPickListNameRoute: BusinessDataPickListNameRoute,
+}
+
+const BusinessDataPickListRouteWithChildren =
+  BusinessDataPickListRoute._addFileChildren(BusinessDataPickListRouteChildren)
+
+interface BusinessDataPlanRouteChildren {
+  BusinessDataPlanNameRoute: typeof BusinessDataPlanNameRoute
+}
+
+const BusinessDataPlanRouteChildren: BusinessDataPlanRouteChildren = {
+  BusinessDataPlanNameRoute: BusinessDataPlanNameRoute,
+}
+
+const BusinessDataPlanRouteWithChildren =
+  BusinessDataPlanRoute._addFileChildren(BusinessDataPlanRouteChildren)
+
+interface BusinessDataPrintableDocumentRouteChildren {
+  BusinessDataPrintableDocumentNameRoute: typeof BusinessDataPrintableDocumentNameRoute
+}
+
+const BusinessDataPrintableDocumentRouteChildren: BusinessDataPrintableDocumentRouteChildren =
+  {
+    BusinessDataPrintableDocumentNameRoute:
+      BusinessDataPrintableDocumentNameRoute,
+  }
+
+const BusinessDataPrintableDocumentRouteWithChildren =
+  BusinessDataPrintableDocumentRoute._addFileChildren(
+    BusinessDataPrintableDocumentRouteChildren,
+  )
+
+interface BusinessDataProductRouteChildren {
+  BusinessDataProductNameRoute: typeof BusinessDataProductNameRoute
+}
+
+const BusinessDataProductRouteChildren: BusinessDataProductRouteChildren = {
+  BusinessDataProductNameRoute: BusinessDataProductNameRoute,
+}
+
+const BusinessDataProductRouteWithChildren =
+  BusinessDataProductRoute._addFileChildren(BusinessDataProductRouteChildren)
+
+interface BusinessDataProductGroupRouteChildren {
+  BusinessDataProductGroupNameRoute: typeof BusinessDataProductGroupNameRoute
+}
+
+const BusinessDataProductGroupRouteChildren: BusinessDataProductGroupRouteChildren =
+  {
+    BusinessDataProductGroupNameRoute: BusinessDataProductGroupNameRoute,
+  }
+
+const BusinessDataProductGroupRouteWithChildren =
+  BusinessDataProductGroupRoute._addFileChildren(
+    BusinessDataProductGroupRouteChildren,
+  )
+
+interface BusinessDataProductionOrderRouteChildren {
+  BusinessDataProductionOrderNameRoute: typeof BusinessDataProductionOrderNameRoute
+}
+
+const BusinessDataProductionOrderRouteChildren: BusinessDataProductionOrderRouteChildren =
+  {
+    BusinessDataProductionOrderNameRoute: BusinessDataProductionOrderNameRoute,
+  }
+
+const BusinessDataProductionOrderRouteWithChildren =
+  BusinessDataProductionOrderRoute._addFileChildren(
+    BusinessDataProductionOrderRouteChildren,
+  )
+
+interface BusinessDataProtocolRouteChildren {
+  BusinessDataProtocolNameRoute: typeof BusinessDataProtocolNameRoute
+}
+
+const BusinessDataProtocolRouteChildren: BusinessDataProtocolRouteChildren = {
+  BusinessDataProtocolNameRoute: BusinessDataProtocolNameRoute,
+}
+
+const BusinessDataProtocolRouteWithChildren =
+  BusinessDataProtocolRoute._addFileChildren(BusinessDataProtocolRouteChildren)
+
+interface BusinessDataQualificationRouteChildren {
+  BusinessDataQualificationNameRoute: typeof BusinessDataQualificationNameRoute
+}
+
+const BusinessDataQualificationRouteChildren: BusinessDataQualificationRouteChildren =
+  {
+    BusinessDataQualificationNameRoute: BusinessDataQualificationNameRoute,
+  }
+
+const BusinessDataQualificationRouteWithChildren =
+  BusinessDataQualificationRoute._addFileChildren(
+    BusinessDataQualificationRouteChildren,
+  )
+
+interface BusinessDataQualificationCheckRouteChildren {
+  BusinessDataQualificationCheckNameRoute: typeof BusinessDataQualificationCheckNameRoute
+}
+
+const BusinessDataQualificationCheckRouteChildren: BusinessDataQualificationCheckRouteChildren =
+  {
+    BusinessDataQualificationCheckNameRoute:
+      BusinessDataQualificationCheckNameRoute,
+  }
+
+const BusinessDataQualificationCheckRouteWithChildren =
+  BusinessDataQualificationCheckRoute._addFileChildren(
+    BusinessDataQualificationCheckRouteChildren,
+  )
+
+interface BusinessDataReasonRouteChildren {
+  BusinessDataReasonNameRoute: typeof BusinessDataReasonNameRoute
+}
+
+const BusinessDataReasonRouteChildren: BusinessDataReasonRouteChildren = {
+  BusinessDataReasonNameRoute: BusinessDataReasonNameRoute,
+}
+
+const BusinessDataReasonRouteWithChildren =
+  BusinessDataReasonRoute._addFileChildren(BusinessDataReasonRouteChildren)
+
+interface BusinessDataRecipeRouteChildren {
+  BusinessDataRecipeNameRoute: typeof BusinessDataRecipeNameRoute
+}
+
+const BusinessDataRecipeRouteChildren: BusinessDataRecipeRouteChildren = {
+  BusinessDataRecipeNameRoute: BusinessDataRecipeNameRoute,
+}
+
+const BusinessDataRecipeRouteWithChildren =
+  BusinessDataRecipeRoute._addFileChildren(BusinessDataRecipeRouteChildren)
+
+interface BusinessDataResourceRouteChildren {
+  BusinessDataResourceNameRoute: typeof BusinessDataResourceNameRoute
+}
+
+const BusinessDataResourceRouteChildren: BusinessDataResourceRouteChildren = {
+  BusinessDataResourceNameRoute: BusinessDataResourceNameRoute,
+}
+
+const BusinessDataResourceRouteWithChildren =
+  BusinessDataResourceRoute._addFileChildren(BusinessDataResourceRouteChildren)
+
+interface BusinessDataResourceJobRouteChildren {
+  BusinessDataResourceJobNameRoute: typeof BusinessDataResourceJobNameRoute
+}
+
+const BusinessDataResourceJobRouteChildren: BusinessDataResourceJobRouteChildren =
+  {
+    BusinessDataResourceJobNameRoute: BusinessDataResourceJobNameRoute,
+  }
+
+const BusinessDataResourceJobRouteWithChildren =
+  BusinessDataResourceJobRoute._addFileChildren(
+    BusinessDataResourceJobRouteChildren,
+  )
+
+interface BusinessDataSamplingPatternRouteChildren {
+  BusinessDataSamplingPatternNameRoute: typeof BusinessDataSamplingPatternNameRoute
+}
+
+const BusinessDataSamplingPatternRouteChildren: BusinessDataSamplingPatternRouteChildren =
+  {
+    BusinessDataSamplingPatternNameRoute: BusinessDataSamplingPatternNameRoute,
+  }
+
+const BusinessDataSamplingPatternRouteWithChildren =
+  BusinessDataSamplingPatternRoute._addFileChildren(
+    BusinessDataSamplingPatternRouteChildren,
+  )
+
+interface BusinessDataSamplingPlanRouteChildren {
+  BusinessDataSamplingPlanNameRoute: typeof BusinessDataSamplingPlanNameRoute
+}
+
+const BusinessDataSamplingPlanRouteChildren: BusinessDataSamplingPlanRouteChildren =
+  {
+    BusinessDataSamplingPlanNameRoute: BusinessDataSamplingPlanNameRoute,
+  }
+
+const BusinessDataSamplingPlanRouteWithChildren =
+  BusinessDataSamplingPlanRoute._addFileChildren(
+    BusinessDataSamplingPlanRouteChildren,
+  )
+
+interface BusinessDataScheduleRouteChildren {
+  BusinessDataScheduleNameRoute: typeof BusinessDataScheduleNameRoute
+}
+
+const BusinessDataScheduleRouteChildren: BusinessDataScheduleRouteChildren = {
+  BusinessDataScheduleNameRoute: BusinessDataScheduleNameRoute,
+}
+
+const BusinessDataScheduleRouteWithChildren =
+  BusinessDataScheduleRoute._addFileChildren(BusinessDataScheduleRouteChildren)
+
+interface BusinessDataScheduleScenarioRouteChildren {
+  BusinessDataScheduleScenarioNameRoute: typeof BusinessDataScheduleScenarioNameRoute
+}
+
+const BusinessDataScheduleScenarioRouteChildren: BusinessDataScheduleScenarioRouteChildren =
+  {
+    BusinessDataScheduleScenarioNameRoute:
+      BusinessDataScheduleScenarioNameRoute,
+  }
+
+const BusinessDataScheduleScenarioRouteWithChildren =
+  BusinessDataScheduleScenarioRoute._addFileChildren(
+    BusinessDataScheduleScenarioRouteChildren,
+  )
+
+interface BusinessDataSendAheadRunRouteChildren {
+  BusinessDataSendAheadRunNameRoute: typeof BusinessDataSendAheadRunNameRoute
+}
+
+const BusinessDataSendAheadRunRouteChildren: BusinessDataSendAheadRunRouteChildren =
+  {
+    BusinessDataSendAheadRunNameRoute: BusinessDataSendAheadRunNameRoute,
+  }
+
+const BusinessDataSendAheadRunRouteWithChildren =
+  BusinessDataSendAheadRunRoute._addFileChildren(
+    BusinessDataSendAheadRunRouteChildren,
+  )
+
+interface BusinessDataServiceRouteChildren {
+  BusinessDataServiceNameRoute: typeof BusinessDataServiceNameRoute
+}
+
+const BusinessDataServiceRouteChildren: BusinessDataServiceRouteChildren = {
+  BusinessDataServiceNameRoute: BusinessDataServiceNameRoute,
+}
+
+const BusinessDataServiceRouteWithChildren =
+  BusinessDataServiceRoute._addFileChildren(BusinessDataServiceRouteChildren)
+
+interface BusinessDataSetupMatrixRouteChildren {
+  BusinessDataSetupMatrixNameRoute: typeof BusinessDataSetupMatrixNameRoute
+}
+
+const BusinessDataSetupMatrixRouteChildren: BusinessDataSetupMatrixRouteChildren =
+  {
+    BusinessDataSetupMatrixNameRoute: BusinessDataSetupMatrixNameRoute,
+  }
+
+const BusinessDataSetupMatrixRouteWithChildren =
+  BusinessDataSetupMatrixRoute._addFileChildren(
+    BusinessDataSetupMatrixRouteChildren,
+  )
+
+interface BusinessDataShiftDefinitionRouteChildren {
+  BusinessDataShiftDefinitionNameRoute: typeof BusinessDataShiftDefinitionNameRoute
+}
+
+const BusinessDataShiftDefinitionRouteChildren: BusinessDataShiftDefinitionRouteChildren =
+  {
+    BusinessDataShiftDefinitionNameRoute: BusinessDataShiftDefinitionNameRoute,
+  }
+
+const BusinessDataShiftDefinitionRouteWithChildren =
+  BusinessDataShiftDefinitionRoute._addFileChildren(
+    BusinessDataShiftDefinitionRouteChildren,
+  )
+
+interface BusinessDataShiftLogbookRouteChildren {
+  BusinessDataShiftLogbookNameRoute: typeof BusinessDataShiftLogbookNameRoute
+}
+
+const BusinessDataShiftLogbookRouteChildren: BusinessDataShiftLogbookRouteChildren =
+  {
+    BusinessDataShiftLogbookNameRoute: BusinessDataShiftLogbookNameRoute,
+  }
+
+const BusinessDataShiftLogbookRouteWithChildren =
+  BusinessDataShiftLogbookRoute._addFileChildren(
+    BusinessDataShiftLogbookRouteChildren,
+  )
+
+interface BusinessDataShiftPlanRouteChildren {
+  BusinessDataShiftPlanNameRoute: typeof BusinessDataShiftPlanNameRoute
+}
+
+const BusinessDataShiftPlanRouteChildren: BusinessDataShiftPlanRouteChildren = {
+  BusinessDataShiftPlanNameRoute: BusinessDataShiftPlanNameRoute,
+}
+
+const BusinessDataShiftPlanRouteWithChildren =
+  BusinessDataShiftPlanRoute._addFileChildren(
+    BusinessDataShiftPlanRouteChildren,
+  )
+
+interface BusinessDataSiteRouteChildren {
+  BusinessDataSiteNameRoute: typeof BusinessDataSiteNameRoute
+}
+
+const BusinessDataSiteRouteChildren: BusinessDataSiteRouteChildren = {
+  BusinessDataSiteNameRoute: BusinessDataSiteNameRoute,
+}
+
+const BusinessDataSiteRouteWithChildren =
+  BusinessDataSiteRoute._addFileChildren(BusinessDataSiteRouteChildren)
+
+interface BusinessDataSortRuleSetRouteChildren {
+  BusinessDataSortRuleSetNameRoute: typeof BusinessDataSortRuleSetNameRoute
+}
+
+const BusinessDataSortRuleSetRouteChildren: BusinessDataSortRuleSetRouteChildren =
+  {
+    BusinessDataSortRuleSetNameRoute: BusinessDataSortRuleSetNameRoute,
+  }
+
+const BusinessDataSortRuleSetRouteWithChildren =
+  BusinessDataSortRuleSetRoute._addFileChildren(
+    BusinessDataSortRuleSetRouteChildren,
+  )
+
+interface BusinessDataStepRouteChildren {
+  BusinessDataStepNameRoute: typeof BusinessDataStepNameRoute
+}
+
+const BusinessDataStepRouteChildren: BusinessDataStepRouteChildren = {
+  BusinessDataStepNameRoute: BusinessDataStepNameRoute,
+}
+
+const BusinessDataStepRouteWithChildren =
+  BusinessDataStepRoute._addFileChildren(BusinessDataStepRouteChildren)
+
+interface BusinessDataSubstrateMapRouteChildren {
+  BusinessDataSubstrateMapNameRoute: typeof BusinessDataSubstrateMapNameRoute
+}
+
+const BusinessDataSubstrateMapRouteChildren: BusinessDataSubstrateMapRouteChildren =
+  {
+    BusinessDataSubstrateMapNameRoute: BusinessDataSubstrateMapNameRoute,
+  }
+
+const BusinessDataSubstrateMapRouteWithChildren =
+  BusinessDataSubstrateMapRoute._addFileChildren(
+    BusinessDataSubstrateMapRouteChildren,
+  )
+
+interface BusinessDataSubstrateMapMaskRouteChildren {
+  BusinessDataSubstrateMapMaskNameRoute: typeof BusinessDataSubstrateMapMaskNameRoute
+}
+
+const BusinessDataSubstrateMapMaskRouteChildren: BusinessDataSubstrateMapMaskRouteChildren =
+  {
+    BusinessDataSubstrateMapMaskNameRoute:
+      BusinessDataSubstrateMapMaskNameRoute,
+  }
+
+const BusinessDataSubstrateMapMaskRouteWithChildren =
+  BusinessDataSubstrateMapMaskRoute._addFileChildren(
+    BusinessDataSubstrateMapMaskRouteChildren,
+  )
+
+interface BusinessDataTaskRouteChildren {
+  BusinessDataTaskNameRoute: typeof BusinessDataTaskNameRoute
+}
+
+const BusinessDataTaskRouteChildren: BusinessDataTaskRouteChildren = {
+  BusinessDataTaskNameRoute: BusinessDataTaskNameRoute,
+}
+
+const BusinessDataTaskRouteWithChildren =
+  BusinessDataTaskRoute._addFileChildren(BusinessDataTaskRouteChildren)
+
+interface BusinessDataTeamRouteChildren {
+  BusinessDataTeamNameRoute: typeof BusinessDataTeamNameRoute
+}
+
+const BusinessDataTeamRouteChildren: BusinessDataTeamRouteChildren = {
+  BusinessDataTeamNameRoute: BusinessDataTeamNameRoute,
+}
+
+const BusinessDataTeamRouteWithChildren =
+  BusinessDataTeamRoute._addFileChildren(BusinessDataTeamRouteChildren)
+
+interface BusinessDataTransferOrderRouteChildren {
+  BusinessDataTransferOrderNameRoute: typeof BusinessDataTransferOrderNameRoute
+}
+
+const BusinessDataTransferOrderRouteChildren: BusinessDataTransferOrderRouteChildren =
+  {
+    BusinessDataTransferOrderNameRoute: BusinessDataTransferOrderNameRoute,
+  }
+
+const BusinessDataTransferOrderRouteWithChildren =
+  BusinessDataTransferOrderRoute._addFileChildren(
+    BusinessDataTransferOrderRouteChildren,
+  )
+
+interface BusinessDataTransferRequirementRouteChildren {
+  BusinessDataTransferRequirementNameRoute: typeof BusinessDataTransferRequirementNameRoute
+}
+
+const BusinessDataTransferRequirementRouteChildren: BusinessDataTransferRequirementRouteChildren =
+  {
+    BusinessDataTransferRequirementNameRoute:
+      BusinessDataTransferRequirementNameRoute,
+  }
+
+const BusinessDataTransferRequirementRouteWithChildren =
+  BusinessDataTransferRequirementRoute._addFileChildren(
+    BusinessDataTransferRequirementRouteChildren,
+  )
+
+interface BusinessDataWorkgroupRouteChildren {
+  BusinessDataWorkgroupNameRoute: typeof BusinessDataWorkgroupNameRoute
+}
+
+const BusinessDataWorkgroupRouteChildren: BusinessDataWorkgroupRouteChildren = {
+  BusinessDataWorkgroupNameRoute: BusinessDataWorkgroupNameRoute,
+}
+
+const BusinessDataWorkgroupRouteWithChildren =
+  BusinessDataWorkgroupRoute._addFileChildren(
+    BusinessDataWorkgroupRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataAreaRoute: typeof BusinessDataAreaRouteWithChildren
   BusinessDataBatchRoute: typeof BusinessDataBatchRouteWithChildren
@@ -1225,6 +3933,58 @@ interface BusinessDataRouteChildren {
   BusinessDataContainerRoute: typeof BusinessDataContainerRouteWithChildren
   BusinessDataDataCollectionRoute: typeof BusinessDataDataCollectionRouteWithChildren
   BusinessDataDataCollectionLimitSetRoute: typeof BusinessDataDataCollectionLimitSetRouteWithChildren
+  BusinessDataDataSiloRoute: typeof BusinessDataDataSiloRouteWithChildren
+  BusinessDataDocumentRoute: typeof BusinessDataDocumentRouteWithChildren
+  BusinessDataEmployeeRoute: typeof BusinessDataEmployeeRouteWithChildren
+  BusinessDataEnterpriseRoute: typeof BusinessDataEnterpriseRouteWithChildren
+  BusinessDataExperimentDefinitionRoute: typeof BusinessDataExperimentDefinitionRouteWithChildren
+  BusinessDataFacilityRoute: typeof BusinessDataFacilityRouteWithChildren
+  BusinessDataFlowRoute: typeof BusinessDataFlowRouteWithChildren
+  BusinessDataInspectionPlanRoute: typeof BusinessDataInspectionPlanRouteWithChildren
+  BusinessDataKpiRoute: typeof BusinessDataKpiRouteWithChildren
+  BusinessDataMaintenanceActivityOrderRoute: typeof BusinessDataMaintenanceActivityOrderRouteWithChildren
+  BusinessDataMaintenancePlanRoute: typeof BusinessDataMaintenancePlanRouteWithChildren
+  BusinessDataMapRoute: typeof BusinessDataMapRouteWithChildren
+  BusinessDataMapDefinitionRoute: typeof BusinessDataMapDefinitionRouteWithChildren
+  BusinessDataMaterialRoute: typeof BusinessDataMaterialRouteWithChildren
+  BusinessDataMaterialTransferRoute: typeof BusinessDataMaterialTransferRouteWithChildren
+  BusinessDataNotificationRoute: typeof BusinessDataNotificationRouteWithChildren
+  BusinessDataPackageRoute: typeof BusinessDataPackageRouteWithChildren
+  BusinessDataParameterRoute: typeof BusinessDataParameterRouteWithChildren
+  BusinessDataPeriodicInventoryRoute: typeof BusinessDataPeriodicInventoryRouteWithChildren
+  BusinessDataPickListRoute: typeof BusinessDataPickListRouteWithChildren
+  BusinessDataPlanRoute: typeof BusinessDataPlanRouteWithChildren
+  BusinessDataPrintableDocumentRoute: typeof BusinessDataPrintableDocumentRouteWithChildren
+  BusinessDataProductRoute: typeof BusinessDataProductRouteWithChildren
+  BusinessDataProductGroupRoute: typeof BusinessDataProductGroupRouteWithChildren
+  BusinessDataProductionOrderRoute: typeof BusinessDataProductionOrderRouteWithChildren
+  BusinessDataProtocolRoute: typeof BusinessDataProtocolRouteWithChildren
+  BusinessDataQualificationRoute: typeof BusinessDataQualificationRouteWithChildren
+  BusinessDataQualificationCheckRoute: typeof BusinessDataQualificationCheckRouteWithChildren
+  BusinessDataReasonRoute: typeof BusinessDataReasonRouteWithChildren
+  BusinessDataRecipeRoute: typeof BusinessDataRecipeRouteWithChildren
+  BusinessDataResourceRoute: typeof BusinessDataResourceRouteWithChildren
+  BusinessDataResourceJobRoute: typeof BusinessDataResourceJobRouteWithChildren
+  BusinessDataSamplingPatternRoute: typeof BusinessDataSamplingPatternRouteWithChildren
+  BusinessDataSamplingPlanRoute: typeof BusinessDataSamplingPlanRouteWithChildren
+  BusinessDataScheduleRoute: typeof BusinessDataScheduleRouteWithChildren
+  BusinessDataScheduleScenarioRoute: typeof BusinessDataScheduleScenarioRouteWithChildren
+  BusinessDataSendAheadRunRoute: typeof BusinessDataSendAheadRunRouteWithChildren
+  BusinessDataServiceRoute: typeof BusinessDataServiceRouteWithChildren
+  BusinessDataSetupMatrixRoute: typeof BusinessDataSetupMatrixRouteWithChildren
+  BusinessDataShiftDefinitionRoute: typeof BusinessDataShiftDefinitionRouteWithChildren
+  BusinessDataShiftLogbookRoute: typeof BusinessDataShiftLogbookRouteWithChildren
+  BusinessDataShiftPlanRoute: typeof BusinessDataShiftPlanRouteWithChildren
+  BusinessDataSiteRoute: typeof BusinessDataSiteRouteWithChildren
+  BusinessDataSortRuleSetRoute: typeof BusinessDataSortRuleSetRouteWithChildren
+  BusinessDataStepRoute: typeof BusinessDataStepRouteWithChildren
+  BusinessDataSubstrateMapRoute: typeof BusinessDataSubstrateMapRouteWithChildren
+  BusinessDataSubstrateMapMaskRoute: typeof BusinessDataSubstrateMapMaskRouteWithChildren
+  BusinessDataTaskRoute: typeof BusinessDataTaskRouteWithChildren
+  BusinessDataTeamRoute: typeof BusinessDataTeamRouteWithChildren
+  BusinessDataTransferOrderRoute: typeof BusinessDataTransferOrderRouteWithChildren
+  BusinessDataTransferRequirementRoute: typeof BusinessDataTransferRequirementRouteWithChildren
+  BusinessDataWorkgroupRoute: typeof BusinessDataWorkgroupRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -1243,6 +4003,71 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataDataCollectionRoute: BusinessDataDataCollectionRouteWithChildren,
   BusinessDataDataCollectionLimitSetRoute:
     BusinessDataDataCollectionLimitSetRouteWithChildren,
+  BusinessDataDataSiloRoute: BusinessDataDataSiloRouteWithChildren,
+  BusinessDataDocumentRoute: BusinessDataDocumentRouteWithChildren,
+  BusinessDataEmployeeRoute: BusinessDataEmployeeRouteWithChildren,
+  BusinessDataEnterpriseRoute: BusinessDataEnterpriseRouteWithChildren,
+  BusinessDataExperimentDefinitionRoute:
+    BusinessDataExperimentDefinitionRouteWithChildren,
+  BusinessDataFacilityRoute: BusinessDataFacilityRouteWithChildren,
+  BusinessDataFlowRoute: BusinessDataFlowRouteWithChildren,
+  BusinessDataInspectionPlanRoute: BusinessDataInspectionPlanRouteWithChildren,
+  BusinessDataKpiRoute: BusinessDataKpiRouteWithChildren,
+  BusinessDataMaintenanceActivityOrderRoute:
+    BusinessDataMaintenanceActivityOrderRouteWithChildren,
+  BusinessDataMaintenancePlanRoute:
+    BusinessDataMaintenancePlanRouteWithChildren,
+  BusinessDataMapRoute: BusinessDataMapRouteWithChildren,
+  BusinessDataMapDefinitionRoute: BusinessDataMapDefinitionRouteWithChildren,
+  BusinessDataMaterialRoute: BusinessDataMaterialRouteWithChildren,
+  BusinessDataMaterialTransferRoute:
+    BusinessDataMaterialTransferRouteWithChildren,
+  BusinessDataNotificationRoute: BusinessDataNotificationRouteWithChildren,
+  BusinessDataPackageRoute: BusinessDataPackageRouteWithChildren,
+  BusinessDataParameterRoute: BusinessDataParameterRouteWithChildren,
+  BusinessDataPeriodicInventoryRoute:
+    BusinessDataPeriodicInventoryRouteWithChildren,
+  BusinessDataPickListRoute: BusinessDataPickListRouteWithChildren,
+  BusinessDataPlanRoute: BusinessDataPlanRouteWithChildren,
+  BusinessDataPrintableDocumentRoute:
+    BusinessDataPrintableDocumentRouteWithChildren,
+  BusinessDataProductRoute: BusinessDataProductRouteWithChildren,
+  BusinessDataProductGroupRoute: BusinessDataProductGroupRouteWithChildren,
+  BusinessDataProductionOrderRoute:
+    BusinessDataProductionOrderRouteWithChildren,
+  BusinessDataProtocolRoute: BusinessDataProtocolRouteWithChildren,
+  BusinessDataQualificationRoute: BusinessDataQualificationRouteWithChildren,
+  BusinessDataQualificationCheckRoute:
+    BusinessDataQualificationCheckRouteWithChildren,
+  BusinessDataReasonRoute: BusinessDataReasonRouteWithChildren,
+  BusinessDataRecipeRoute: BusinessDataRecipeRouteWithChildren,
+  BusinessDataResourceRoute: BusinessDataResourceRouteWithChildren,
+  BusinessDataResourceJobRoute: BusinessDataResourceJobRouteWithChildren,
+  BusinessDataSamplingPatternRoute:
+    BusinessDataSamplingPatternRouteWithChildren,
+  BusinessDataSamplingPlanRoute: BusinessDataSamplingPlanRouteWithChildren,
+  BusinessDataScheduleRoute: BusinessDataScheduleRouteWithChildren,
+  BusinessDataScheduleScenarioRoute:
+    BusinessDataScheduleScenarioRouteWithChildren,
+  BusinessDataSendAheadRunRoute: BusinessDataSendAheadRunRouteWithChildren,
+  BusinessDataServiceRoute: BusinessDataServiceRouteWithChildren,
+  BusinessDataSetupMatrixRoute: BusinessDataSetupMatrixRouteWithChildren,
+  BusinessDataShiftDefinitionRoute:
+    BusinessDataShiftDefinitionRouteWithChildren,
+  BusinessDataShiftLogbookRoute: BusinessDataShiftLogbookRouteWithChildren,
+  BusinessDataShiftPlanRoute: BusinessDataShiftPlanRouteWithChildren,
+  BusinessDataSiteRoute: BusinessDataSiteRouteWithChildren,
+  BusinessDataSortRuleSetRoute: BusinessDataSortRuleSetRouteWithChildren,
+  BusinessDataStepRoute: BusinessDataStepRouteWithChildren,
+  BusinessDataSubstrateMapRoute: BusinessDataSubstrateMapRouteWithChildren,
+  BusinessDataSubstrateMapMaskRoute:
+    BusinessDataSubstrateMapMaskRouteWithChildren,
+  BusinessDataTaskRoute: BusinessDataTaskRouteWithChildren,
+  BusinessDataTeamRoute: BusinessDataTeamRouteWithChildren,
+  BusinessDataTransferOrderRoute: BusinessDataTransferOrderRouteWithChildren,
+  BusinessDataTransferRequirementRoute:
+    BusinessDataTransferRequirementRouteWithChildren,
+  BusinessDataWorkgroupRoute: BusinessDataWorkgroupRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(
