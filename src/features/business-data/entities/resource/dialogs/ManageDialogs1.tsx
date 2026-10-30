@@ -173,28 +173,28 @@ const ITEMS_4: ManageItem[] = [{ name: "Feed-01", detail: "Active" }];
 
 
 const FIELDS_0: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "service", labelKey: "businessData.resource.dialogs.manage.service" as TranslationKey, type: "text" },
-        { key: "priority", labelKey: "businessData.resource.dialogs.manage.priority" as TranslationKey, type: "text" },
-        { key: "requiresRunningMode", labelKey: "businessData.resource.dialogs.manage.requiresRunningMode" as TranslationKey, type: "checkbox" },
-        { key: "isEnabled", labelKey: "businessData.resource.dialogs.manage.isEnabled" as TranslationKey, type: "checkbox" },
-        { key: "qualificationCheck", labelKey: "businessData.resource.dialogs.manage.qualificationCheck" as TranslationKey, type: "text" },
+        { key: "service", labelKey: "businessData.resource.dialogs.manage.service", type: "text" },
+        { key: "priority", labelKey: "businessData.resource.dialogs.manage.priority", type: "text" },
+        { key: "requiresRunningMode", labelKey: "businessData.resource.dialogs.manage.requiresRunningMode", type: "checkbox" },
+        { key: "isEnabled", labelKey: "businessData.resource.dialogs.manage.isEnabled", type: "checkbox" },
+        { key: "qualificationCheck", labelKey: "businessData.resource.dialogs.manage.qualificationCheck", type: "text" },
       ];
 const FIELDS_1: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "recipe", labelKey: "businessData.resource.dialogs.manage.recipe" as TranslationKey, type: "text" },
-        { key: "isEnabled", labelKey: "businessData.resource.dialogs.manage.isEnabled" as TranslationKey, type: "checkbox" },
-        { key: "qualificationCheck", labelKey: "businessData.resource.dialogs.manage.qualificationCheck" as TranslationKey, type: "text" },
+        { key: "recipe", labelKey: "businessData.resource.dialogs.manage.recipe", type: "text" },
+        { key: "isEnabled", labelKey: "businessData.resource.dialogs.manage.isEnabled", type: "checkbox" },
+        { key: "qualificationCheck", labelKey: "businessData.resource.dialogs.manage.qualificationCheck", type: "text" },
       ];
 const FIELDS_2: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "resource", labelKey: "businessData.resource.dialogs.manage.resource" as TranslationKey, type: "text" },
-        { key: "parentResource", labelKey: "businessData.resource.dialogs.manage.parentResource" as TranslationKey, type: "text" },
+        { key: "resource", labelKey: "businessData.resource.dialogs.manage.resource", type: "text" },
+        { key: "parentResource", labelKey: "businessData.resource.dialogs.manage.parentResource", type: "text" },
       ];
 const FIELDS_3: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "runningMode", labelKey: "businessData.resource.dialogs.manage.runningMode" as TranslationKey, type: "text" },
-        { key: "description", labelKey: "businessData.resource.dialogs.manage.description" as TranslationKey, type: "text" },
+        { key: "runningMode", labelKey: "businessData.resource.dialogs.manage.runningMode", type: "text" },
+        { key: "description", labelKey: "businessData.resource.dialogs.manage.description", type: "text" },
       ];
 const FIELDS_4: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "consumableFeed", labelKey: "businessData.resource.dialogs.manage.consumableFeed" as TranslationKey, type: "text" },
-        { key: "isShared", labelKey: "businessData.resource.dialogs.manage.isShared" as TranslationKey, type: "checkbox" },
+        { key: "consumableFeed", labelKey: "businessData.resource.dialogs.manage.consumableFeed", type: "text" },
+        { key: "isShared", labelKey: "businessData.resource.dialogs.manage.isShared", type: "checkbox" },
       ];
 
 export function ManageResourceServicesDialog(p: ManageDialogProps) {

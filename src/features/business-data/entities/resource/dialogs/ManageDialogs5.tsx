@@ -169,21 +169,21 @@ const ITEMS_3: ManageItem[] = [{ name: "Schedule-01", detail: "Planned" }];
 
 
 const FIELDS_0: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "bin", labelKey: "businessData.resource.dialogs.manage.storageBin" as TranslationKey, type: "text" },
-        { key: "description", labelKey: "businessData.resource.dialogs.manage.description" as TranslationKey, type: "text" },
-        { key: "isEnabled", labelKey: "businessData.resource.dialogs.manage.isEnabled" as TranslationKey, type: "checkbox" },
+        { key: "bin", labelKey: "businessData.resource.dialogs.manage.storageBin", type: "text" },
+        { key: "description", labelKey: "businessData.resource.dialogs.manage.description", type: "text" },
+        { key: "isEnabled", labelKey: "businessData.resource.dialogs.manage.isEnabled", type: "checkbox" },
       ];
 const FIELDS_1: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "trainee", labelKey: "businessData.resource.dialogs.manage.trainee" as TranslationKey, type: "text" },
-        { key: "trainer", labelKey: "businessData.resource.dialogs.manage.trainer" as TranslationKey, type: "text" },
+        { key: "trainee", labelKey: "businessData.resource.dialogs.manage.trainee", type: "text" },
+        { key: "trainer", labelKey: "businessData.resource.dialogs.manage.trainer", type: "text" },
       ];
 const FIELDS_2: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "material", labelKey: "businessData.resource.dialogs.manage.material" as TranslationKey, type: "text" },
+        { key: "material", labelKey: "businessData.resource.dialogs.manage.material", type: "text" },
       ];
 const FIELDS_3: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "schedule", labelKey: "businessData.resource.dialogs.manage.schedule" as TranslationKey, type: "text" },
-        { key: "startDate", labelKey: "businessData.resource.dialogs.manage.startDate" as TranslationKey, type: "text" },
-        { key: "endDate", labelKey: "businessData.resource.dialogs.manage.endDate" as TranslationKey, type: "text" },
+        { key: "schedule", labelKey: "businessData.resource.dialogs.manage.schedule", type: "text" },
+        { key: "startDate", labelKey: "businessData.resource.dialogs.manage.startDate", type: "text" },
+        { key: "endDate", labelKey: "businessData.resource.dialogs.manage.endDate", type: "text" },
       ];
 
 export function ManageResourceStorageBinsDialog(p: ManageDialogProps) {

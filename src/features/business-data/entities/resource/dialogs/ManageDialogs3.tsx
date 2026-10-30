@@ -173,23 +173,23 @@ const ITEMS_4: ManageItem[] = [{ name: "Consumable-01", detail: "100 units" }];
 
 
 const FIELDS_0: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "part", labelKey: "businessData.resource.dialogs.manage.part" as TranslationKey, type: "text" },
-        { key: "isRepairable", labelKey: "businessData.resource.dialogs.manage.isRepairable" as TranslationKey, type: "checkbox" },
+        { key: "part", labelKey: "businessData.resource.dialogs.manage.part", type: "text" },
+        { key: "isRepairable", labelKey: "businessData.resource.dialogs.manage.isRepairable", type: "checkbox" },
       ];
 const FIELDS_1: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "durable", labelKey: "businessData.resource.dialogs.manage.durable" as TranslationKey, type: "text" },
+        { key: "durable", labelKey: "businessData.resource.dialogs.manage.durable", type: "text" },
       ];
 const FIELDS_2: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "employee", labelKey: "businessData.resource.dialogs.manage.employee" as TranslationKey, type: "text" },
-        { key: "role", labelKey: "businessData.resource.dialogs.manage.role" as TranslationKey, type: "text" },
+        { key: "employee", labelKey: "businessData.resource.dialogs.manage.employee", type: "text" },
+        { key: "role", labelKey: "businessData.resource.dialogs.manage.role", type: "text" },
       ];
 const FIELDS_3: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "instrument", labelKey: "businessData.resource.dialogs.manage.instrument" as TranslationKey, type: "text" },
-        { key: "calibrationStatus", labelKey: "businessData.resource.dialogs.manage.calibrationStatus" as TranslationKey, type: "select", options: ["Calibrated", "In Calibration", "Not Calibrated"] },
+        { key: "instrument", labelKey: "businessData.resource.dialogs.manage.instrument", type: "text" },
+        { key: "calibrationStatus", labelKey: "businessData.resource.dialogs.manage.calibrationStatus", type: "select", options: ["Calibrated", "In Calibration", "Not Calibrated"] },
       ];
 const FIELDS_4: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "item", labelKey: "businessData.resource.dialogs.manage.item" as TranslationKey, type: "text" },
-        { key: "quantity", labelKey: "businessData.resource.dialogs.manage.quantity" as TranslationKey, type: "text" },
+        { key: "item", labelKey: "businessData.resource.dialogs.manage.item", type: "text" },
+        { key: "quantity", labelKey: "businessData.resource.dialogs.manage.quantity", type: "text" },
       ];
 
 export function ManageRepairablePartsDialog(p: ManageDialogProps) {

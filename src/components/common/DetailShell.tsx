@@ -238,7 +238,7 @@ interface DetailShellProps {
   onTop: (value: string) => void;
   leftItems: TranslationKey[];
   left: string;
-  onLeft: (value: string) => void;
+  onLeft: (value: TranslationKey) => void;
   onEdit: () => void;
   onAskAi: () => void;
   moreActions?: DetailShellMoreAction[];

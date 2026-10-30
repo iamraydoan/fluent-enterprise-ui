@@ -173,26 +173,26 @@ const ITEMS_4: ManageItem[] = [{ name: "John Doe", detail: "Checked In" }];
 
 
 const FIELDS_0: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "consumable", labelKey: "businessData.resource.dialogs.manage.consumable" as TranslationKey, type: "text" },
-        { key: "quantity", labelKey: "businessData.resource.dialogs.manage.quantity" as TranslationKey, type: "text" },
+        { key: "consumable", labelKey: "businessData.resource.dialogs.manage.consumable", type: "text" },
+        { key: "quantity", labelKey: "businessData.resource.dialogs.manage.quantity", type: "text" },
       ];
 const FIELDS_1: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "costType", labelKey: "businessData.resource.dialogs.manage.costType" as TranslationKey, type: "text" },
-        { key: "amount", labelKey: "businessData.resource.dialogs.manage.amount" as TranslationKey, type: "text" },
-        { key: "currency", labelKey: "businessData.resource.dialogs.manage.currency" as TranslationKey, type: "text" },
+        { key: "costType", labelKey: "businessData.resource.dialogs.manage.costType", type: "text" },
+        { key: "amount", labelKey: "businessData.resource.dialogs.manage.amount", type: "text" },
+        { key: "currency", labelKey: "businessData.resource.dialogs.manage.currency", type: "text" },
       ];
 const FIELDS_2: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "material", labelKey: "businessData.resource.dialogs.manage.material" as TranslationKey, type: "text" },
-        { key: "priority", labelKey: "businessData.resource.dialogs.manage.priority" as TranslationKey, type: "text" },
+        { key: "material", labelKey: "businessData.resource.dialogs.manage.material", type: "text" },
+        { key: "priority", labelKey: "businessData.resource.dialogs.manage.priority", type: "text" },
       ];
 const FIELDS_3: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "capability", labelKey: "businessData.resource.dialogs.manage.capability" as TranslationKey, type: "text" },
-        { key: "units", labelKey: "businessData.resource.dialogs.manage.units" as TranslationKey, type: "text" },
+        { key: "capability", labelKey: "businessData.resource.dialogs.manage.capability", type: "text" },
+        { key: "units", labelKey: "businessData.resource.dialogs.manage.units", type: "text" },
       ];
 const FIELDS_4: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "employee", labelKey: "businessData.resource.dialogs.manage.employee" as TranslationKey, type: "text" },
-        { key: "checkIn", labelKey: "businessData.resource.dialogs.manage.checkIn" as TranslationKey, type: "text" },
-        { key: "checkOut", labelKey: "businessData.resource.dialogs.manage.checkOut" as TranslationKey, type: "text" },
+        { key: "employee", labelKey: "businessData.resource.dialogs.manage.employee", type: "text" },
+        { key: "checkIn", labelKey: "businessData.resource.dialogs.manage.checkIn", type: "text" },
+        { key: "checkOut", labelKey: "businessData.resource.dialogs.manage.checkOut", type: "text" },
       ];
 
 export function ManageConsumablesDialog(p: ManageDialogProps) {

@@ -36,7 +36,7 @@ export function ReasonDetailPage({ name }: ReasonDetailPageProps) {
   const { data, isLoading } = useReasonDetail(name);
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<TranslationKey>("businessData.reason.sections.details");
-  const handleLeft = (value: string) => setLeft(value as TranslationKey);
+  const handleLeft = (value: TranslationKey) => setLeft(value);
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
   const [terminateOpen, setTerminateOpen] = useState(false);

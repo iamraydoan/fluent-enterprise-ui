@@ -39,7 +39,7 @@ export function SamplingPatternDetailPage({ name }: SamplingPatternDetailPagePro
   const { data, isLoading } = useSamplingPatternDetail(name);
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<TranslationKey>("businessData.samplingPattern.sections.details");
-  const handleLeft = (value: string) => setLeft(value as TranslationKey);
+  const handleLeft = (value: TranslationKey) => setLeft(value);
   const [dialog, setDialog] = useState<string | null>(null);
   const close = () => setDialog(null);
   const open = (key: string) => () => setDialog(key);

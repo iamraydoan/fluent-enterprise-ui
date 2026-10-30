@@ -43,7 +43,7 @@ export function RecipeDetailPage({ name }: RecipeDetailPageProps) {
   const { data, isLoading } = useRecipeDetail(name);
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<TranslationKey>("businessData.recipe.sections.details");
-  const handleLeft = (value: string) => setLeft(value as TranslationKey);
+  const handleLeft = (value: TranslationKey) => setLeft(value);
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
   const [terminateOpen, setTerminateOpen] = useState(false);

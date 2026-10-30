@@ -173,28 +173,28 @@ const ITEMS_4: ManageItem[] = [{ name: "Heating Element", detail: "Active" }];
 
 
 const FIELDS_0: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "lane", labelKey: "businessData.resource.dialogs.manage.lane" as TranslationKey, type: "text" },
-        { key: "description", labelKey: "businessData.resource.dialogs.manage.description" as TranslationKey, type: "text" },
-        { key: "currentRecipe", labelKey: "businessData.resource.dialogs.manage.currentRecipe" as TranslationKey, type: "text" },
+        { key: "lane", labelKey: "businessData.resource.dialogs.manage.lane", type: "text" },
+        { key: "description", labelKey: "businessData.resource.dialogs.manage.description", type: "text" },
+        { key: "currentRecipe", labelKey: "businessData.resource.dialogs.manage.currentRecipe", type: "text" },
       ];
 const FIELDS_1: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "location", labelKey: "businessData.resource.dialogs.manage.location" as TranslationKey, type: "text" },
-        { key: "description", labelKey: "businessData.resource.dialogs.manage.description" as TranslationKey, type: "text" },
-        { key: "barcodeId", labelKey: "businessData.resource.dialogs.manage.barcodeId" as TranslationKey, type: "text" },
-        { key: "locationX", labelKey: "businessData.resource.dialogs.manage.locationX" as TranslationKey, type: "text" },
-        { key: "locationY", labelKey: "businessData.resource.dialogs.manage.locationY" as TranslationKey, type: "text" },
+        { key: "location", labelKey: "businessData.resource.dialogs.manage.location", type: "text" },
+        { key: "description", labelKey: "businessData.resource.dialogs.manage.description", type: "text" },
+        { key: "barcodeId", labelKey: "businessData.resource.dialogs.manage.barcodeId", type: "text" },
+        { key: "locationX", labelKey: "businessData.resource.dialogs.manage.locationX", type: "text" },
+        { key: "locationY", labelKey: "businessData.resource.dialogs.manage.locationY", type: "text" },
       ];
 const FIELDS_2: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "material", labelKey: "businessData.resource.dialogs.manage.material" as TranslationKey, type: "text" },
-        { key: "consumable", labelKey: "businessData.resource.dialogs.manage.consumable" as TranslationKey, type: "text" },
+        { key: "material", labelKey: "businessData.resource.dialogs.manage.material", type: "text" },
+        { key: "consumable", labelKey: "businessData.resource.dialogs.manage.consumable", type: "text" },
       ];
 const FIELDS_3: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "material", labelKey: "businessData.resource.dialogs.manage.material" as TranslationKey, type: "text" },
-        { key: "durable", labelKey: "businessData.resource.dialogs.manage.durable" as TranslationKey, type: "text" },
+        { key: "material", labelKey: "businessData.resource.dialogs.manage.material", type: "text" },
+        { key: "durable", labelKey: "businessData.resource.dialogs.manage.durable", type: "text" },
       ];
 const FIELDS_4: { key: string; labelKey: TranslationKey; type: "text" | "select" | "checkbox"; options?: string[] }[] = [
-        { key: "part", labelKey: "businessData.resource.dialogs.manage.part" as TranslationKey, type: "text" },
-        { key: "description", labelKey: "businessData.resource.dialogs.manage.description" as TranslationKey, type: "text" },
+        { key: "part", labelKey: "businessData.resource.dialogs.manage.part", type: "text" },
+        { key: "description", labelKey: "businessData.resource.dialogs.manage.description", type: "text" },
       ];
 
 export function ManageResourceLanesDialog(p: ManageDialogProps) {
