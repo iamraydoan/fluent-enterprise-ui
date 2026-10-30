@@ -1338,6 +1338,53 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "dataCollectionLimitSet": {
+      "pageLabel": "Bộ giới hạn thu thập dữ liệu",
+      "listTitle": "Bộ giới hạn thu thập dữ liệu",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "dataCollection": "Thu thập dữ liệu",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "dataCollectionLimitSet": "Data Collection Limit Set",
+        "information": "Information",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "dataCollection": "Thu thập dữ liệu",
+        "limitsTitle": "Parameters ({{count}})",
+        "limitColumns": {
+          "parameter": "Parameter",
+          "overrideParameter": "Override Parameter",
+          "includeSampleLimits": "Include Sample Limits",
+          "limitType": "Limit Type",
+          "lowerErrorLimit": "Lower Error Limit",
+          "lowerWarningLimit": "Lower Warning Limit",
+          "target": "Target",
+          "upperWarningLimit": "Upper Warning Limit",
+          "upperErrorLimit": "Upper Error Limit"
+        },
+        "tabs": {
+          "details": "Chi tiết",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "parameterLimits": "Giới hạn tham số",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

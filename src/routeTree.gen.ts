@@ -35,6 +35,7 @@ import { Route as BusinessDataChartRouteImport } from './routes/business-data.ch
 import { Route as BusinessDataChecklistRouteImport } from './routes/business-data.checklist'
 import { Route as BusinessDataContainerRouteImport } from './routes/business-data.container'
 import { Route as BusinessDataDataCollectionRouteImport } from './routes/business-data.data-collection'
+import { Route as BusinessDataDataCollectionLimitSetRouteImport } from './routes/business-data.data-collection-limit-set'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -52,6 +53,7 @@ import { Route as BusinessDataChangeSetNameRouteImport } from './routes/business
 import { Route as BusinessDataChartNameRouteImport } from './routes/business-data.chart.$name'
 import { Route as BusinessDataChecklistNameRouteImport } from './routes/business-data.checklist.$name'
 import { Route as BusinessDataContainerNameRouteImport } from './routes/business-data.container.$name'
+import { Route as BusinessDataDataCollectionLimitSetNameRouteImport } from './routes/business-data.data-collection-limit-set.$name'
 import { Route as BusinessDataDataCollectionNameRouteImport } from './routes/business-data.data-collection.$name'
 
 const IndexRoute = IndexRouteImport.update({
@@ -191,6 +193,12 @@ const BusinessDataDataCollectionRoute =
     path: '/data-collection',
     getParentRoute: () => BusinessDataRoute,
   } as any)
+const BusinessDataDataCollectionLimitSetRoute =
+  BusinessDataDataCollectionLimitSetRouteImport.update({
+    id: '/data-collection-limit-set',
+    path: '/data-collection-limit-set',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -289,6 +297,12 @@ const BusinessDataContainerNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataContainerRoute,
   } as any)
+const BusinessDataDataCollectionLimitSetNameRoute =
+  BusinessDataDataCollectionLimitSetNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataDataCollectionLimitSetRoute,
+  } as any)
 const BusinessDataDataCollectionNameRoute =
   BusinessDataDataCollectionNameRouteImport.update({
     id: '/$name',
@@ -323,6 +337,7 @@ export interface FileRoutesByFullPath {
   '/business-data/checklist': typeof BusinessDataChecklistRouteWithChildren
   '/business-data/container': typeof BusinessDataContainerRouteWithChildren
   '/business-data/data-collection': typeof BusinessDataDataCollectionRouteWithChildren
+  '/business-data/data-collection-limit-set': typeof BusinessDataDataCollectionLimitSetRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -340,6 +355,7 @@ export interface FileRoutesByFullPath {
   '/business-data/chart/$name': typeof BusinessDataChartNameRoute
   '/business-data/checklist/$name': typeof BusinessDataChecklistNameRoute
   '/business-data/container/$name': typeof BusinessDataContainerNameRoute
+  '/business-data/data-collection-limit-set/$name': typeof BusinessDataDataCollectionLimitSetNameRoute
   '/business-data/data-collection/$name': typeof BusinessDataDataCollectionNameRoute
 }
 export interface FileRoutesByTo {
@@ -369,6 +385,7 @@ export interface FileRoutesByTo {
   '/business-data/checklist': typeof BusinessDataChecklistRouteWithChildren
   '/business-data/container': typeof BusinessDataContainerRouteWithChildren
   '/business-data/data-collection': typeof BusinessDataDataCollectionRouteWithChildren
+  '/business-data/data-collection-limit-set': typeof BusinessDataDataCollectionLimitSetRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -386,6 +403,7 @@ export interface FileRoutesByTo {
   '/business-data/chart/$name': typeof BusinessDataChartNameRoute
   '/business-data/checklist/$name': typeof BusinessDataChecklistNameRoute
   '/business-data/container/$name': typeof BusinessDataContainerNameRoute
+  '/business-data/data-collection-limit-set/$name': typeof BusinessDataDataCollectionLimitSetNameRoute
   '/business-data/data-collection/$name': typeof BusinessDataDataCollectionNameRoute
 }
 export interface FileRoutesById {
@@ -416,6 +434,7 @@ export interface FileRoutesById {
   '/business-data/checklist': typeof BusinessDataChecklistRouteWithChildren
   '/business-data/container': typeof BusinessDataContainerRouteWithChildren
   '/business-data/data-collection': typeof BusinessDataDataCollectionRouteWithChildren
+  '/business-data/data-collection-limit-set': typeof BusinessDataDataCollectionLimitSetRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -433,6 +452,7 @@ export interface FileRoutesById {
   '/business-data/chart/$name': typeof BusinessDataChartNameRoute
   '/business-data/checklist/$name': typeof BusinessDataChecklistNameRoute
   '/business-data/container/$name': typeof BusinessDataContainerNameRoute
+  '/business-data/data-collection-limit-set/$name': typeof BusinessDataDataCollectionLimitSetNameRoute
   '/business-data/data-collection/$name': typeof BusinessDataDataCollectionNameRoute
 }
 export interface FileRouteTypes {
@@ -464,6 +484,7 @@ export interface FileRouteTypes {
     | '/business-data/checklist'
     | '/business-data/container'
     | '/business-data/data-collection'
+    | '/business-data/data-collection-limit-set'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -481,6 +502,7 @@ export interface FileRouteTypes {
     | '/business-data/chart/$name'
     | '/business-data/checklist/$name'
     | '/business-data/container/$name'
+    | '/business-data/data-collection-limit-set/$name'
     | '/business-data/data-collection/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -510,6 +532,7 @@ export interface FileRouteTypes {
     | '/business-data/checklist'
     | '/business-data/container'
     | '/business-data/data-collection'
+    | '/business-data/data-collection-limit-set'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -527,6 +550,7 @@ export interface FileRouteTypes {
     | '/business-data/chart/$name'
     | '/business-data/checklist/$name'
     | '/business-data/container/$name'
+    | '/business-data/data-collection-limit-set/$name'
     | '/business-data/data-collection/$name'
   id:
     | '__root__'
@@ -556,6 +580,7 @@ export interface FileRouteTypes {
     | '/business-data/checklist'
     | '/business-data/container'
     | '/business-data/data-collection'
+    | '/business-data/data-collection-limit-set'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -573,6 +598,7 @@ export interface FileRouteTypes {
     | '/business-data/chart/$name'
     | '/business-data/checklist/$name'
     | '/business-data/container/$name'
+    | '/business-data/data-collection-limit-set/$name'
     | '/business-data/data-collection/$name'
   fileRoutesById: FileRoutesById
 }
@@ -768,6 +794,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataDataCollectionRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/data-collection-limit-set': {
+      id: '/business-data/data-collection-limit-set'
+      path: '/data-collection-limit-set'
+      fullPath: '/business-data/data-collection-limit-set'
+      preLoaderRoute: typeof BusinessDataDataCollectionLimitSetRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -886,6 +919,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/container/$name'
       preLoaderRoute: typeof BusinessDataContainerNameRouteImport
       parentRoute: typeof BusinessDataContainerRoute
+    }
+    '/business-data/data-collection-limit-set/$name': {
+      id: '/business-data/data-collection-limit-set/$name'
+      path: '/$name'
+      fullPath: '/business-data/data-collection-limit-set/$name'
+      preLoaderRoute: typeof BusinessDataDataCollectionLimitSetNameRouteImport
+      parentRoute: typeof BusinessDataDataCollectionLimitSetRoute
     }
     '/business-data/data-collection/$name': {
       id: '/business-data/data-collection/$name'
@@ -1156,6 +1196,21 @@ const BusinessDataDataCollectionRouteWithChildren =
     BusinessDataDataCollectionRouteChildren,
   )
 
+interface BusinessDataDataCollectionLimitSetRouteChildren {
+  BusinessDataDataCollectionLimitSetNameRoute: typeof BusinessDataDataCollectionLimitSetNameRoute
+}
+
+const BusinessDataDataCollectionLimitSetRouteChildren: BusinessDataDataCollectionLimitSetRouteChildren =
+  {
+    BusinessDataDataCollectionLimitSetNameRoute:
+      BusinessDataDataCollectionLimitSetNameRoute,
+  }
+
+const BusinessDataDataCollectionLimitSetRouteWithChildren =
+  BusinessDataDataCollectionLimitSetRoute._addFileChildren(
+    BusinessDataDataCollectionLimitSetRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataAreaRoute: typeof BusinessDataAreaRouteWithChildren
   BusinessDataBatchRoute: typeof BusinessDataBatchRouteWithChildren
@@ -1169,6 +1224,7 @@ interface BusinessDataRouteChildren {
   BusinessDataChecklistRoute: typeof BusinessDataChecklistRouteWithChildren
   BusinessDataContainerRoute: typeof BusinessDataContainerRouteWithChildren
   BusinessDataDataCollectionRoute: typeof BusinessDataDataCollectionRouteWithChildren
+  BusinessDataDataCollectionLimitSetRoute: typeof BusinessDataDataCollectionLimitSetRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -1185,6 +1241,8 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataChecklistRoute: BusinessDataChecklistRouteWithChildren,
   BusinessDataContainerRoute: BusinessDataContainerRouteWithChildren,
   BusinessDataDataCollectionRoute: BusinessDataDataCollectionRouteWithChildren,
+  BusinessDataDataCollectionLimitSetRoute:
+    BusinessDataDataCollectionLimitSetRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

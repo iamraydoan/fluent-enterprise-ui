@@ -19,7 +19,8 @@ type DetailRoute =
   | "/business-data/chart/$name"
   | "/business-data/checklist/$name"
   | "/business-data/container/$name"
-  | "/business-data/data-collection/$name";
+  | "/business-data/data-collection/$name"
+  | "/business-data/data-collection-limit-set/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

@@ -1338,6 +1338,53 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "dataCollectionLimitSet": {
+      "pageLabel": "Data Collection Limit Sets",
+      "listTitle": "Data Collection Limit Sets",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "dataCollection": "Data Collection",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "dataCollectionLimitSet": "Data Collection Limit Set",
+        "information": "Information",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "dataCollection": "Data Collection",
+        "limitsTitle": "Parameters ({{count}})",
+        "limitColumns": {
+          "parameter": "Parameter",
+          "overrideParameter": "Override Parameter",
+          "includeSampleLimits": "Include Sample Limits",
+          "limitType": "Limit Type",
+          "lowerErrorLimit": "Lower Error Limit",
+          "lowerWarningLimit": "Lower Warning Limit",
+          "target": "Target",
+          "upperWarningLimit": "Upper Warning Limit",
+          "upperErrorLimit": "Upper Error Limit"
+        },
+        "tabs": {
+          "details": "Details",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "parameterLimits": "Parameter Limits",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

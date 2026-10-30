@@ -1,0 +1,140 @@
+import { useState } from "react";
+import { useParams } from "@tanstack/react-router";
+import { useDataCollectionLimitSetDetail } from "@/api";
+import { DetailShell, ListPage, editAction, refreshAction } from "@/components/common";
+import { Box24Regular } from "@/components/icons";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  Text,
+  makeStyles,
+  tokens,
+} from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
+import type { TranslationKey } from "@/i18n";
+import { useSharedStyles } from "@/styles/shared";
+
+const useDetailStyles = makeStyles({
+  cards: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "12px" },
+  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  cardTitle: { fontSize: "14px", fontWeight: tokens.fontWeightSemibold, paddingBottom: "8px", borderBottom: `1px solid ${tokens.colorNeutralStroke2}` },
+  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  label: { color: tokens.colorNeutralForeground3, minWidth: "180px" },
+  tabs: { display: "flex", columnGap: "4px", padding: "0 16px" },
+  tab: { padding: "10px 16px", border: "none", backgroundColor: "transparent", cursor: "pointer", fontFamily: "inherit", fontSize: "13px", borderBottom: "2px solid transparent", ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover } },
+  tabActive: { fontWeight: tokens.fontWeightSemibold, borderBottom: `2px solid ${tokens.colorBrandStroke1}` },
+  tabContent: { padding: "16px", flexGrow: 1, minHeight: 0, overflowY: "auto" },
+  empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+});
+
+const TABS = ["details", "references", "history"] as const;
+const LEFT_SECTIONS: TranslationKey[] = [
+  "businessData.dataCollectionLimitSet.detail.sections.details",
+  "businessData.dataCollectionLimitSet.detail.sections.parameterLimits",
+  "businessData.dataCollectionLimitSet.detail.sections.attachments",
+];
+
+export function DataCollectionLimitSetDetailPage() {
+  const { t } = useAppTranslation();
+  const styles = useDetailStyles();
+  const sharedStyles = useSharedStyles();
+  const [tab, setTab] = useState<string>("details");
+  const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
+  const { name } = useParams({ strict: false }) as { name: string };
+  const displayName = decodeURIComponent(name);
+  const { data: ls, isLoading } = useDataCollectionLimitSetDetail(displayName);
+
+  if (isLoading || !ls) {
+    return (
+      <ListPage header={{ icon: <Box24Regular />, title: displayName, actions: [refreshAction, editAction] }}>
+        <div className={styles.empty}>{t("businessData.dataCollectionLimitSet.detail.loading")}</div>
+      </ListPage>
+    );
+  }
+
+  const showLimits = left === "businessData.dataCollectionLimitSet.detail.sections.parameterLimits";
+
+  return (
+    <ListPage header={{ icon: <Box24Regular />, title: `${ls.name} (${ls.state})`, actions: [refreshAction, editAction] }}>
+      <div className={styles.tabs} role="tablist">
+        {TABS.map((value) => (
+          <button key={value} role="tab" aria-selected={tab === value}
+            className={`${styles.tab} ${tab === value ? styles.tabActive : ""}`} onClick={() => setTab(value)}>
+            {t(`businessData.dataCollectionLimitSet.detail.tabs.${value}`)}
+          </button>
+        ))}
+      </div>
+      <div className={styles.tabContent}>
+        {tab === "details" && (
+          <DetailShell title={ls.name} icon={<Box24Regular />} topTabs={[]} top="details" onTop={() => undefined}
+            leftItems={LEFT_SECTIONS} left={left} onLeft={setLeft} onEdit={() => undefined} onAskAi={() => undefined} showState={false}>
+            {showLimits ? (
+              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <Text className={styles.cardTitle}>{t("businessData.dataCollectionLimitSet.detail.limitsTitle", { count: ls.parameterLimits.length })}</Text>
+                <Table>
+                  <TableHeader><TableRow>
+                    <TableHeaderCell>{t("businessData.dataCollectionLimitSet.detail.limitColumns.parameter")}</TableHeaderCell>
+                    <TableHeaderCell>{t("businessData.dataCollectionLimitSet.detail.limitColumns.overrideParameter")}</TableHeaderCell>
+                    <TableHeaderCell>{t("businessData.dataCollectionLimitSet.detail.limitColumns.includeSampleLimits")}</TableHeaderCell>
+                    <TableHeaderCell>{t("businessData.dataCollectionLimitSet.detail.limitColumns.limitType")}</TableHeaderCell>
+                    <TableHeaderCell>{t("businessData.dataCollectionLimitSet.detail.limitColumns.lowerErrorLimit")}</TableHeaderCell>
+                    <TableHeaderCell>{t("businessData.dataCollectionLimitSet.detail.limitColumns.lowerWarningLimit")}</TableHeaderCell>
+                    <TableHeaderCell>{t("businessData.dataCollectionLimitSet.detail.limitColumns.target")}</TableHeaderCell>
+                    <TableHeaderCell>{t("businessData.dataCollectionLimitSet.detail.limitColumns.upperWarningLimit")}</TableHeaderCell>
+                    <TableHeaderCell>{t("businessData.dataCollectionLimitSet.detail.limitColumns.upperErrorLimit")}</TableHeaderCell>
+                  </TableRow></TableHeader>
+                  <TableBody>
+                    {ls.parameterLimits.map((p) => (
+                      <TableRow key={p.parameter}>
+                        <TableCell>{p.parameter}</TableCell>
+                        <TableCell>{p.overrideParameter ? t("businessData.dataCollectionLimitSet.detail.yes") : t("businessData.dataCollectionLimitSet.detail.no")}</TableCell>
+                        <TableCell>{p.includeSampleLimits ? t("businessData.dataCollectionLimitSet.detail.yes") : t("businessData.dataCollectionLimitSet.detail.no")}</TableCell>
+                        <TableCell>{p.limitType}</TableCell>
+                        <TableCell>{p.lowerErrorLimit}</TableCell>
+                        <TableCell>{p.lowerWarningLimit}</TableCell>
+                        <TableCell>{p.target}</TableCell>
+                        <TableCell>{p.upperWarningLimit}</TableCell>
+                        <TableCell>{p.upperErrorLimit}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            ) : (
+              <div className={styles.cards}>
+                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <Text className={styles.cardTitle}>{t("businessData.dataCollectionLimitSet.detail.dataCollectionLimitSet")}</Text>
+                  <KV label={t("businessData.dataCollectionLimitSet.detail.name")} value={ls.name} />
+                  <KV label={t("businessData.dataCollectionLimitSet.detail.description")} value={ls.description} />
+                  <KV label={t("businessData.dataCollectionLimitSet.detail.type")} value={ls.type} />
+                  <KV label={t("businessData.dataCollectionLimitSet.detail.universalState")} value={ls.universalState} />
+                  <KV label={t("businessData.dataCollectionLimitSet.detail.dataGroup")} value={ls.dataGroup} />
+                </div>
+                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <Text className={styles.cardTitle}>{t("businessData.dataCollectionLimitSet.detail.information")}</Text>
+                  <KV label={t("businessData.dataCollectionLimitSet.detail.dataCollection")} value={ls.dataCollection} />
+                </div>
+              </div>
+            )}
+          </DetailShell>
+        )}
+        {tab !== "details" && <div className={styles.empty}>{t("businessData.dataCollectionLimitSet.detail.historyEmpty")}</div>}
+      </div>
+    </ListPage>
+  );
+}
+
+function KV({ label, value }: { label: string; value: string }) {
+  const styles = useDetailStyles();
+  const { t } = useAppTranslation();
+  return (
+    <div className={styles.row}>
+      <span className={styles.label}>{label}:</span>
+      <span>{value === "" ? t("businessData.dataCollectionLimitSet.detail.emptyValue") : value}</span>
+    </div>
+  );
+}

@@ -11,6 +11,7 @@ import { chartHandlers } from "./handlers/businessData/chart";
 import { checklistHandlers } from "./handlers/businessData/checklist";
 import { containerHandlers } from "./handlers/businessData/container";
 import { dataCollectionHandlers } from "./handlers/businessData/dataCollection";
+import { dataCollectionLimitSetHandlers } from "./handlers/businessData/dataCollectionLimitSet";
 import { aiChatHandlers } from "./handlers/aiChat";
 import { appHandlers } from "./handlers/apps";
 import { configurationHandlers } from "./handlers/configuration";
@@ -35,6 +36,7 @@ export const handlers = [
   ...checklistHandlers,
   ...containerHandlers,
   ...dataCollectionHandlers,
+  ...dataCollectionLimitSetHandlers,
   ...aiChatHandlers,
   ...appHandlers,
   ...configurationHandlers,

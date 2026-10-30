@@ -1338,6 +1338,53 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "dataCollectionLimitSet": {
+      "pageLabel": "데이터 수집 제한 집합",
+      "listTitle": "데이터 수집 제한 집합",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "dataCollection": "데이터 수집",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "yes": "Yes",
+        "no": "No",
+        "dataCollectionLimitSet": "Data Collection Limit Set",
+        "information": "Information",
+        "name": "이름",
+        "description": "설명",
+        "type": "Type",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "dataCollection": "데이터 수집",
+        "limitsTitle": "Parameters ({{count}})",
+        "limitColumns": {
+          "parameter": "Parameter",
+          "overrideParameter": "Override Parameter",
+          "includeSampleLimits": "Include Sample Limits",
+          "limitType": "Limit Type",
+          "lowerErrorLimit": "Lower Error Limit",
+          "lowerWarningLimit": "Lower Warning Limit",
+          "target": "Target",
+          "upperWarningLimit": "Upper Warning Limit",
+          "upperErrorLimit": "Upper Error Limit"
+        },
+        "tabs": {
+          "details": "세부 정보",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "parameterLimits": "매개변수 제한",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }
