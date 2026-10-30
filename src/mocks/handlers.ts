@@ -7,6 +7,7 @@ import { employeeHandlers } from "./handlers/businessData/employee";
 import { enterpriseHandlers } from "./handlers/businessData/enterprise";
 import { experimentDefinitionHandlers } from "./handlers/businessData/experimentDefinition";
 import { facilityHandlers } from "./handlers/businessData/facility";
+import { flowHandlers } from "./handlers/businessData/flow";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -26,6 +27,7 @@ export const handlers = [
   ...enterpriseHandlers,
   ...experimentDefinitionHandlers,
   ...facilityHandlers,
+  ...flowHandlers,
   ...genericTableHandlers,
   ...uiPageHandlers,
   ...mcpServerHandlers,
