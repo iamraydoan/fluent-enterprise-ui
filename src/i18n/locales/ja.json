@@ -1668,6 +1668,31 @@
         "assign": "割当",
         "unassign": "割当解除",
         "manage": "管理"
+      },
+      "attendance": {
+        "checkInTitle": "EmployeeのCheck-In",
+        "checkOutTitle": "EmployeeのCheck-Out",
+        "clockInTitle": "EmployeeのClock-In",
+        "clockOutTitle": "EmployeeのClock-Out",
+        "assignSubordinatesTitle": "Employeeへの部下の割当",
+        "unassignSubordinatesTitle": "Employeeからの部下の割当解除",
+        "assignTeamTitle": "TeamとWorkgroupの割当",
+        "resource": "Resource",
+        "certification": "Certification",
+        "subordinates": "部下",
+        "team": "Team",
+        "workgroup": "Workgroup",
+        "area": "Area",
+        "comment": "コメント",
+        "reason": "理由",
+        "cancel": "キャンセル",
+        "checkIn": "Check-In",
+        "checkOut": "Check-Out",
+        "clockIn": "Clock-In",
+        "clockOut": "Clock-Out",
+        "assign": "割当",
+        "unassign": "割当解除",
+        "save": "保存"
       }
     },
     "maintenanceActivityOrder": {

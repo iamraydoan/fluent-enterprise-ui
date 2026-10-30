@@ -1668,6 +1668,31 @@
         "assign": "Gán",
         "unassign": "Hủy gán",
         "manage": "Quản lý"
+      },
+      "attendance": {
+        "checkInTitle": "Check-In Employee",
+        "checkOutTitle": "Check-Out Employee",
+        "clockInTitle": "Clock-In Employee",
+        "clockOutTitle": "Clock-Out Employee",
+        "assignSubordinatesTitle": "Gán Subordinate(s) cho Employee",
+        "unassignSubordinatesTitle": "Hủy gán Subordinate(s) của Employee",
+        "assignTeamTitle": "Gán Team và Workgroup",
+        "resource": "Resource",
+        "certification": "Certification",
+        "subordinates": "Subordinates",
+        "team": "Team",
+        "workgroup": "Workgroup",
+        "area": "Area",
+        "comment": "Bình luận",
+        "reason": "Lý do",
+        "cancel": "Hủy",
+        "checkIn": "Check-In",
+        "checkOut": "Check-Out",
+        "clockIn": "Clock-In",
+        "clockOut": "Clock-Out",
+        "assign": "Gán",
+        "unassign": "Hủy gán",
+        "save": "Lưu"
       }
     },
     "maintenanceActivityOrder": {

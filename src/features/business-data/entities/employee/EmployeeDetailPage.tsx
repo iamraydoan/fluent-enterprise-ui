@@ -20,6 +20,14 @@ import {
   AssignQualificationDialog,
   ManageQualificationDialog,
 } from "./EmployeeQualificationDialogs";
+import {
+  AssignSubordinatesDialog,
+  AssignTeamWorkgroupDialog,
+  CheckInDialog,
+  CheckOutDialog,
+  ClockInDialog,
+  ClockOutDialog,
+} from "./EmployeeAttendanceDialogs";
 
 
 const TOP_TABS: DetailTab[] = [
@@ -81,6 +89,12 @@ export function EmployeeDetailPage({ name }: { name: string }) {
     {assignCertOpen && <AssignCertificationDialog name={name} onClose={() => setAssignCertOpen(false)} />}
     {manageQualOpen && <ManageQualificationDialog name={name} onClose={() => setManageQualOpen(false)} />}
     {assignQualOpen && <AssignQualificationDialog name={name} onClose={() => setAssignQualOpen(false)} />}
+    {checkInOpen && <CheckInDialog name={name} onClose={() => setCheckInOpen(false)} />}
+    {checkOutOpen && <CheckOutDialog name={name} onClose={() => setCheckOutOpen(false)} />}
+    {clockInOpen && <ClockInDialog name={name} onClose={() => setClockInOpen(false)} />}
+    {clockOutOpen && <ClockOutDialog name={name} onClose={() => setClockOutOpen(false)} />}
+    {assignSubOpen && <AssignSubordinatesDialog name={name} onClose={() => setAssignSubOpen(false)} />}
+    {assignTeamOpen && <AssignTeamWorkgroupDialog name={name} onClose={() => setAssignTeamOpen(false)} />}
     </>
   );
 
@@ -161,6 +175,26 @@ export function EmployeeDetailPage({ name }: { name: string }) {
           </Button>
           <Button onClick={() => setAssignQualOpen(true)}>
             {t(tk("businessData.employee.qualifications.assign"))}
+          </Button>
+        </div>
+        <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <Button size="small" onClick={() => setCheckInOpen(true)}>
+            {t(tk("businessData.employee.attendance.checkIn"))}
+          </Button>
+          <Button size="small" onClick={() => setCheckOutOpen(true)}>
+            {t(tk("businessData.employee.attendance.checkOut"))}
+          </Button>
+          <Button size="small" onClick={() => setClockInOpen(true)}>
+            {t(tk("businessData.employee.attendance.clockIn"))}
+          </Button>
+          <Button size="small" onClick={() => setClockOutOpen(true)}>
+            {t(tk("businessData.employee.attendance.clockOut"))}
+          </Button>
+          <Button size="small" onClick={() => setAssignSubOpen(true)}>
+            {t(tk("businessData.employee.attendance.assign"))}
+          </Button>
+          <Button size="small" onClick={() => setAssignTeamOpen(true)}>
+            {t(tk("businessData.employee.attendance.save"))}
           </Button>
         </div>
       </Card>

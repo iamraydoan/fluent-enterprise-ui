@@ -1668,6 +1668,31 @@
         "assign": "Assign",
         "unassign": "Unassign",
         "manage": "Manage"
+      },
+      "attendance": {
+        "checkInTitle": "Check-In Employee",
+        "checkOutTitle": "Check-Out Employee",
+        "clockInTitle": "Clock-In Employee",
+        "clockOutTitle": "Clock-Out Employee",
+        "assignSubordinatesTitle": "Assign Subordinate(s) to Employee",
+        "unassignSubordinatesTitle": "Unassign Subordinate(s) from Employee",
+        "assignTeamTitle": "Assign Team and Workgroup",
+        "resource": "Resource",
+        "certification": "Certification",
+        "subordinates": "Subordinates",
+        "team": "Team",
+        "workgroup": "Workgroup",
+        "area": "Area",
+        "comment": "Comment",
+        "reason": "Reason",
+        "cancel": "Cancel",
+        "checkIn": "Check-In",
+        "checkOut": "Check-Out",
+        "clockIn": "Clock-In",
+        "clockOut": "Clock-Out",
+        "assign": "Assign",
+        "unassign": "Unassign",
+        "save": "Save"
       }
     },
     "maintenanceActivityOrder": {

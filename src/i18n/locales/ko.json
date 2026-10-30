@@ -1668,6 +1668,31 @@
         "assign": "할당",
         "unassign": "할당 해제",
         "manage": "관리"
+      },
+      "attendance": {
+        "checkInTitle": "Employee Check-In",
+        "checkOutTitle": "Employee Check-Out",
+        "clockInTitle": "Employee Clock-In",
+        "clockOutTitle": "Employee Clock-Out",
+        "assignSubordinatesTitle": "Employee에게 부하 할당",
+        "unassignSubordinatesTitle": "Employee의 부하 할당 해제",
+        "assignTeamTitle": "Team 및 Workgroup 할당",
+        "resource": "Resource",
+        "certification": "Certification",
+        "subordinates": "부하",
+        "team": "Team",
+        "workgroup": "Workgroup",
+        "area": "Area",
+        "comment": "설명",
+        "reason": "사유",
+        "cancel": "취소",
+        "checkIn": "Check-In",
+        "checkOut": "Check-Out",
+        "clockIn": "Clock-In",
+        "clockOut": "Clock-Out",
+        "assign": "할당",
+        "unassign": "할당 해제",
+        "save": "저장"
       }
     },
     "maintenanceActivityOrder": {
