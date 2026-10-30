@@ -114,3 +114,13 @@ export type {
   EnterpriseDetail,
   EnterpriseRecord,
 } from "./businessData/enterprise";
+export {
+  getExperimentDefinition,
+  listExperimentDefinitions,
+  useExperimentDefinitionDetail,
+  useExperimentDefinitions,
+} from "./businessData/experimentDefinition";
+export type {
+  ExperimentDefinitionDetail,
+  ExperimentDefinitionRecord,
+} from "./businessData/experimentDefinition";
