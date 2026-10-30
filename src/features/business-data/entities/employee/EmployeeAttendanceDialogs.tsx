@@ -4,31 +4,29 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
-
-const L = {
-  checkInTitle: tk("businessData.employee.attendance.checkInTitle"),
-  checkOutTitle: tk("businessData.employee.attendance.checkOutTitle"),
-  clockInTitle: tk("businessData.employee.attendance.clockInTitle"),
-  clockOutTitle: tk("businessData.employee.attendance.clockOutTitle"),
-  assignSubordinatesTitle: tk("businessData.employee.attendance.assignSubordinatesTitle"),
-  unassignSubordinatesTitle: tk("businessData.employee.attendance.unassignSubordinatesTitle"),
-  assignTeamTitle: tk("businessData.employee.attendance.assignTeamTitle"),
-  resource: tk("businessData.employee.attendance.resource"),
-  certification: tk("businessData.employee.attendance.certification"),
-  subordinates: tk("businessData.employee.attendance.subordinates"),
-  team: tk("businessData.employee.attendance.team"),
-  workgroup: tk("businessData.employee.attendance.workgroup"),
-  area: tk("businessData.employee.attendance.area"),
-  comment: tk("businessData.employee.attendance.comment"),
-  reason: tk("businessData.employee.attendance.reason"),
-  cancel: tk("businessData.employee.attendance.cancel"),
-  checkIn: tk("businessData.employee.attendance.checkIn"),
-  checkOut: tk("businessData.employee.attendance.checkOut"),
-  clockIn: tk("businessData.employee.attendance.clockIn"),
-  clockOut: tk("businessData.employee.attendance.clockOut"),
-  assign: tk("businessData.employee.attendance.assign"),
-  save: tk("businessData.employee.attendance.save"),
+const L: Record<string, TranslationKey> = {
+  checkInTitle: "businessData.employee.attendance.checkInTitle",
+  checkOutTitle: "businessData.employee.attendance.checkOutTitle",
+  clockInTitle: "businessData.employee.attendance.clockInTitle",
+  clockOutTitle: "businessData.employee.attendance.clockOutTitle",
+  assignSubordinatesTitle: "businessData.employee.attendance.assignSubordinatesTitle",
+  unassignSubordinatesTitle: "businessData.employee.attendance.unassignSubordinatesTitle",
+  assignTeamTitle: "businessData.employee.attendance.assignTeamTitle",
+  resource: "businessData.employee.attendance.resource",
+  certification: "businessData.employee.attendance.certification",
+  subordinates: "businessData.employee.attendance.subordinates",
+  team: "businessData.employee.attendance.team",
+  workgroup: "businessData.employee.attendance.workgroup",
+  area: "businessData.employee.attendance.area",
+  comment: "businessData.employee.attendance.comment",
+  reason: "businessData.employee.attendance.reason",
+  cancel: "businessData.employee.attendance.cancel",
+  checkIn: "businessData.employee.attendance.checkIn",
+  checkOut: "businessData.employee.attendance.checkOut",
+  clockIn: "businessData.employee.attendance.clockIn",
+  clockOut: "businessData.employee.attendance.clockOut",
+  assign: "businessData.employee.attendance.assign",
+  save: "businessData.employee.attendance.save",
 };
 
 const useDialogStyles = makeStyles({
@@ -41,14 +39,26 @@ const useDialogStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "560px", maxWidth: "95vw", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+  surface: {
+    width: "560px",
+    maxWidth: "95vw",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "90vh",
+  },
   head: {
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase400,
   },
-  body: { padding: "16px", display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto" },
+  body: {
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    overflowY: "auto",
+  },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -81,7 +91,12 @@ function Shell({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>
           {t(title)} {name}
         </div>
@@ -160,7 +175,12 @@ export function ClockInDialog({ name, onClose }: DialogProps) {
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(L.clockInTitle)}</div>
         <div className={styles.body}>
           <div>{name}</div>

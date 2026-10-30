@@ -4,24 +4,22 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 
-const tk = (key: string) => key as TranslationKey;
-
-const L = {
-  manageTitle: tk("businessData.employee.qualifications.manageTitle"),
-  assignTitle: tk("businessData.employee.qualifications.assignTitle"),
-  unassignTitle: tk("businessData.employee.qualifications.unassignTitle"),
-  unassignMessage: tk("businessData.employee.qualifications.unassignMessage"),
-  qualification: tk("businessData.employee.qualifications.qualification"),
-  qualificationDate: tk("businessData.employee.qualifications.qualificationDate"),
-  validTo: tk("businessData.employee.qualifications.validTo"),
-  reason: tk("businessData.employee.qualifications.reason"),
-  proficiency: tk("businessData.employee.qualifications.proficiency"),
-  remarks: tk("businessData.employee.qualifications.remarks"),
-  comment: tk("businessData.employee.qualifications.comment"),
-  cancel: tk("businessData.employee.qualifications.cancel"),
-  update: tk("businessData.employee.qualifications.update"),
-  assign: tk("businessData.employee.qualifications.assign"),
-  unassign: tk("businessData.employee.qualifications.unassign"),
+const L: Record<string, TranslationKey> = {
+  manageTitle: "businessData.employee.qualifications.manageTitle",
+  assignTitle: "businessData.employee.qualifications.assignTitle",
+  unassignTitle: "businessData.employee.qualifications.unassignTitle",
+  unassignMessage: "businessData.employee.qualifications.unassignMessage",
+  qualification: "businessData.employee.qualifications.qualification",
+  qualificationDate: "businessData.employee.qualifications.qualificationDate",
+  validTo: "businessData.employee.qualifications.validTo",
+  reason: "businessData.employee.qualifications.reason",
+  proficiency: "businessData.employee.qualifications.proficiency",
+  remarks: "businessData.employee.qualifications.remarks",
+  comment: "businessData.employee.qualifications.comment",
+  cancel: "businessData.employee.qualifications.cancel",
+  update: "businessData.employee.qualifications.update",
+  assign: "businessData.employee.qualifications.assign",
+  unassign: "businessData.employee.qualifications.unassign",
 };
 
 const useDialogStyles = makeStyles({
@@ -34,14 +32,26 @@ const useDialogStyles = makeStyles({
     justifyContent: "center",
     zIndex: 1000,
   },
-  surface: { width: "560px", maxWidth: "95vw", display: "flex", flexDirection: "column", maxHeight: "90vh" },
+  surface: {
+    width: "560px",
+    maxWidth: "95vw",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "90vh",
+  },
   head: {
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase400,
   },
-  body: { padding: "16px", display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto" },
+  body: {
+    padding: "16px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    overflowY: "auto",
+  },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -57,7 +67,13 @@ interface DialogProps {
   onClose: () => void;
 }
 
-function QualificationForm({ onClose, submitLabel }: { onClose: () => void; submitLabel: TranslationKey }) {
+function QualificationForm({
+  onClose,
+  submitLabel,
+}: {
+  onClose: () => void;
+  submitLabel: TranslationKey;
+}) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [qualification, setQualification] = useState("");
@@ -130,7 +146,12 @@ function Shell({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>
           {t(title)} {name}
         </div>
@@ -171,7 +192,12 @@ export function UnassignQualificationDialog({
 
   return (
     <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div className={`${shared.contentCard} ${styles.surface}`} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div
+        className={`${shared.contentCard} ${styles.surface}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.head}>{t(L.unassignTitle)}</div>
         <div className={styles.body}>
           <div>{t(L.unassignMessage, { name, qualification })}</div>
