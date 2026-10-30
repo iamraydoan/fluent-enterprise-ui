@@ -2,11 +2,19 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBatchDetail } from "@/api";
 import { DetailShell, ListPage, editAction, refreshAction } from "@/components/common";
-import { Box24Regular } from "@/components/icons";
+import type { HeaderAction } from "@/components/common";
+import {
+  ArrowDownload24Regular,
+  ArrowExportUp24Regular,
+  ArrowUp20Regular,
+  Box24Regular,
+  MoreVertical24Regular,
+} from "@/components/icons";
 import { Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { useBatchDialogs } from "./useBatchDialogs";
 
 const useDetailStyles = makeStyles({
   cards: {
@@ -61,6 +69,14 @@ export function BatchDetailPage() {
   const { name } = useParams({ strict: false }) as { name: string };
   const displayName = decodeURIComponent(name);
   const { data: batch, isLoading } = useBatchDetail(displayName);
+  const {
+    dialogs,
+    openEdit,
+    openManageMaterials,
+    openManageContainers,
+    openChangeResource,
+    openTransition,
+  } = useBatchDialogs(batch);
 
   if (isLoading || !batch) {
     return (
@@ -72,14 +88,51 @@ export function BatchDetailPage() {
     );
   }
 
+  const actions: HeaderAction[] = [
+    refreshAction,
+    { ...editAction, onClick: openEdit },
+    {
+      id: "release",
+      icon: <ArrowExportUp24Regular />,
+      labelKey: "businessData.batch.operations.release",
+      onClick: () => openTransition("release"),
+    },
+    {
+      id: "trackIn",
+      icon: <ArrowDownload24Regular />,
+      labelKey: "businessData.batch.operations.trackIn",
+      onClick: () => openTransition("trackIn"),
+    },
+    {
+      id: "trackOut",
+      icon: <ArrowUp20Regular />,
+      labelKey: "businessData.batch.operations.trackOut",
+      onClick: () => openTransition("trackOut"),
+    },
+    {
+      id: "more",
+      icon: <MoreVertical24Regular />,
+      labelKey: "actionBar.more",
+      menu: [
+        { label: t("businessData.batch.operations.unrelease"), onClick: () => openTransition("unrelease") },
+        { label: t("businessData.batch.operations.abort"), onClick: () => openTransition("abort") },
+        { label: t("businessData.batch.operations.cancel"), onClick: () => openTransition("cancel") },
+        { label: t("businessData.batch.operations.manageMaterials"), onClick: openManageMaterials },
+        { label: t("businessData.batch.operations.manageContainers"), onClick: openManageContainers },
+        { label: t("businessData.batch.operations.changeResource"), onClick: openChangeResource },
+      ],
+    },
+  ];
+
   return (
     <ListPage
       header={{
         icon: <Box24Regular />,
         title: `${batch.name} (${batch.state})`,
-        actions: [refreshAction, editAction],
+        actions,
       }}
     >
+      {dialogs}
       <div className={styles.tabs} role="tablist">
         {TABS.map((value) => (
           <button

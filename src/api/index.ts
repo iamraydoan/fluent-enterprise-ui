@@ -89,8 +89,19 @@ export {
   useUpdateArea,
 } from "./businessData/area";
 export type { AreaDetail, AreaRecord, AreaUpsertInput } from "./businessData/area";
-export { getBatch, listBatches, useBatchDetail, useBatches } from "./businessData/batch";
-export type { BatchDetail, BatchRecord } from "./businessData/batch";
+export {
+  createBatchRecord,
+  getBatch,
+  listBatches,
+  setBatchRecordState,
+  updateBatchRecord,
+  useBatchDetail,
+  useBatches,
+  useCreateBatch,
+  useSetBatchState,
+  useUpdateBatch,
+} from "./businessData/batch";
+export type { BatchDetail, BatchRecord, BatchUpsertInput } from "./businessData/batch";
 export { getBom, listBoms, useBomDetail, useBoms } from "./businessData/bom";
 export type { BomDetail, BomItem, BomRecord } from "./businessData/bom";
 export { useBinConverterDetail, useBinConverters } from "./businessData/binConverter";

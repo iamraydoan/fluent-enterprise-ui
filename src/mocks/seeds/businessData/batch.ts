@@ -54,6 +54,7 @@ export function buildBatchDetail(name: string): BatchDetail {
     loadState: "Not Loaded",
     state: "Active",
   };
+  const overlay = BATCH_DETAIL_OVERLAYS[record.name] ?? {};
   return {
     ...record,
     type: "Standard",
@@ -77,5 +78,50 @@ export function buildBatchDetail(name: string): BatchDetail {
     quantity: "900 Cookies",
     batchSize: "70 %",
     containerType: "General",
+    ...overlay,
   };
+}
+
+const BATCH_DETAIL_OVERLAYS: Record<string, Partial<BatchDetail>> = {};
+
+export interface BatchUpsertInput extends Partial<BatchDetail> {
+  name: string;
+}
+
+export function createBatchDetail(input: BatchUpsertInput): BatchDetail {
+  const record: BatchRecord = {
+    name: input.name,
+    description: input.description ?? "",
+    resource: input.resource ?? "",
+    systemState: "Created",
+    loadState: "Not Loaded",
+    state: "Active",
+  };
+  BATCHES.push(record);
+  const overlay: Partial<BatchDetail> = { ...input };
+  delete overlay.name;
+  delete overlay.description;
+  delete overlay.resource;
+  delete overlay.systemState;
+  delete overlay.loadState;
+  delete overlay.state;
+  BATCH_DETAIL_OVERLAYS[input.name] = overlay;
+  return buildBatchDetail(input.name);
+}
+
+export function updateBatchDetail(name: string, input: Partial<BatchDetail>): BatchDetail | undefined {
+  const record = BATCHES.find((b) => b.name === name);
+  if (!record) return undefined;
+  if (input.description !== undefined) record.description = input.description;
+  if (input.resource !== undefined) record.resource = input.resource;
+  if (input.systemState !== undefined) record.systemState = input.systemState;
+  BATCH_DETAIL_OVERLAYS[name] = { ...BATCH_DETAIL_OVERLAYS[name], ...input };
+  return buildBatchDetail(name);
+}
+
+export function setBatchState(name: string, state: string): BatchDetail | undefined {
+  const record = BATCHES.find((b) => b.name === name);
+  if (!record) return undefined;
+  record.state = state;
+  return buildBatchDetail(name);
 }

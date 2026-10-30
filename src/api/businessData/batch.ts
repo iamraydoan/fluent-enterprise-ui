@@ -1,4 +1,4 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiFetch } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
@@ -61,5 +61,75 @@ export function useBatchDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "batches", name],
     queryFn: () => getBatch(name),
+  });
+}
+
+export interface BatchUpsertInput extends Partial<BatchDetail> {
+  name: string;
+}
+
+function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
+  return apiFetch<T>(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+export function createBatchRecord(input: BatchUpsertInput): Promise<BatchDetail> {
+  return postJson<BatchDetail>("/business-data/batches", "POST", input);
+}
+
+export function updateBatchRecord(name: string, input: Partial<BatchDetail>): Promise<BatchDetail> {
+  return postJson<BatchDetail>(`/business-data/batches/${encodeURIComponent(name)}`, "PUT", input);
+}
+
+export function setBatchRecordState(
+  name: string,
+  patch: { state?: string; systemState?: string },
+): Promise<BatchDetail> {
+  return postJson<BatchDetail>(
+    `/business-data/batches/${encodeURIComponent(name)}/state`,
+    "PATCH",
+    patch,
+  );
+}
+
+const BATCH_QUERY_KEY = ["business-data", "batches"];
+
+export function useCreateBatch() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: createBatchRecord,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BATCH_QUERY_KEY });
+    },
+  });
+}
+
+export function useUpdateBatch() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ name, input }: { name: string; input: Partial<BatchDetail> }) =>
+      updateBatchRecord(name, input),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BATCH_QUERY_KEY });
+    },
+  });
+}
+
+export function useSetBatchState() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({
+      name,
+      patch,
+    }: {
+      name: string;
+      patch: { state?: string; systemState?: string };
+    }) => setBatchRecordState(name, patch),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: BATCH_QUERY_KEY });
+    },
   });
 }
