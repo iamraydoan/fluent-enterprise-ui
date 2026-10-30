@@ -792,6 +792,176 @@
         "refuse": "거부",
         "reject": "기각",
         "send": "발송"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "approve": {
+          "title": "Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "cancel": {
+          "title": "Cancel Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Cancel",
+          "confirmText": "Select Cancel to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "changeInfo": {
+          "title": "Change Material Transfer Information",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "deliver": {
+          "title": "Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "prepare": {
+          "title": "Prepare Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Prepare",
+          "confirmText": "Select Prepare to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "receive": {
+          "title": "Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "refuse": {
+          "title": "Refuse Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Refuse",
+          "confirmText": "Select Refuse to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "reject": {
+          "title": "Reject Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Reject",
+          "confirmText": "Select Reject to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "request": {
+          "title": "Request for Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "fields": {
+            "product": "Product",
+            "quantity": "Quantity"
+          }
+        },
+        "requestForMAO": {
+          "title": "Request for Material Transfer for a Maintenance Activity Order",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Part for a Maintenance Activity Order."
+        },
+        "requestForCostCenter": {
+          "title": "Request for Material Transfer for Cost Center",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Request a Material for a Cost Center."
+        },
+        "returnInventory": {
+          "title": "Return Inventory",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Inventory to the Warehouse."
+        },
+        "returnMaterial": {
+          "title": "Return Material",
+          "cancel": "Cancel",
+          "submit": "Return",
+          "description": "Return Material to the Warehouse."
+        },
+        "send": {
+          "title": "Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialApprove": {
+          "title": "Special Approve Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Approve",
+          "confirmText": "Select Approve to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialDeliver": {
+          "title": "Special Deliver Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Deliver",
+          "confirmText": "Select Deliver to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialReceive": {
+          "title": "Special Receive Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "confirmText": "Select Receive to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        },
+        "specialRequest": {
+          "title": "Special Request for Material",
+          "cancel": "Cancel",
+          "submit": "Request",
+          "description": "Special request for Material."
+        },
+        "specialSend": {
+          "title": "Special Send Material Transfer",
+          "cancel": "Cancel",
+          "submit": "Send",
+          "confirmText": "Select Send to perform the operation.",
+          "fields": {
+            "comment": "Comment"
+          }
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "materials": "Materials",
+        "attachments": "Attachments"
       }
     },
     "notification": {
