@@ -876,6 +876,49 @@
         "ownerRole": "Vai trò chủ sở hữu",
         "resources": "Tài nguyên"
       }
+    },
+    "site": {
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "enterprise": "Doanh nghiệp",
+        "isRemote": "Từ xa",
+        "name": "Tên",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "enterprise": "Doanh nghiệp:",
+        "isRemote": "Là từ xa:",
+        "name": "Tên:",
+        "remoteExportAddress": "Địa chỉ xuất từ xa:",
+        "remoteShipping": "Vận chuyển từ xa",
+        "state": "Trạng thái chung:"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Địa điểm ({{count}})",
+      "notFound": "Không tìm thấy địa điểm.",
+      "pageLabel": "Địa điểm",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết",
+        "facilities": "Cơ sở"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      }
     }
   }
 }

@@ -9,6 +9,7 @@ import { queryHandlers } from "./handlers/queries";
 import { shiftDefinitionHandlers } from "./handlers/businessData/shiftDefinition";
 import { shiftLogbookHandlers } from "./handlers/businessData/shiftLogbook";
 import { shiftPlanHandlers } from "./handlers/businessData/shiftPlan";
+import { siteHandlers } from "./handlers/businessData/site";
 import { uiPageHandlers } from "./handlers/uiPages";
 
 export const handlers = [
@@ -24,4 +25,5 @@ export const handlers = [
   ...shiftDefinitionHandlers,
   ...shiftLogbookHandlers,
   ...shiftPlanHandlers,
+  ...siteHandlers,
 ];

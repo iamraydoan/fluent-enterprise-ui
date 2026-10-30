@@ -876,6 +876,49 @@
         "ownerRole": "所有者ロール",
         "resources": "リソース"
       }
+    },
+    "site": {
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "enterprise": "企業",
+        "isRemote": "リモート",
+        "name": "名前",
+        "state": "状態"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "enterprise": "企業:",
+        "isRemote": "リモート:",
+        "name": "名前:",
+        "remoteExportAddress": "リモートエクスポートアドレス:",
+        "remoteShipping": "リモート配送",
+        "state": "ユニバーサル状態:"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "サイト ({{count}})",
+      "notFound": "サイトが見つかりません。",
+      "pageLabel": "サイト",
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細",
+        "facilities": "施設"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      }
     }
   }
 }

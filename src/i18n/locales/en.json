@@ -876,6 +876,49 @@
         "ownerRole": "Owner Role",
         "resources": "Resources"
       }
+    },
+    "site": {
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "enterprise": "Enterprise",
+        "isRemote": "Remote",
+        "name": "Name",
+        "state": "State"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "enterprise": "Enterprise:",
+        "isRemote": "Is Remote:",
+        "name": "Name:",
+        "remoteExportAddress": "Remote Export Address:",
+        "remoteShipping": "Remote Shipping",
+        "state": "Universal State:"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Sites ({{count}})",
+      "notFound": "Site not found.",
+      "pageLabel": "Site",
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details",
+        "facilities": "Facilities"
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      }
     }
   }
 }
