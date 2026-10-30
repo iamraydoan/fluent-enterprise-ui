@@ -186,3 +186,13 @@ export type {
   MaintenancePlanDetail,
   MaintenancePlanRecord,
 } from "./businessData/maintenancePlan";
+export {
+  getMap,
+  listMaps,
+  useMapDetail,
+  useMaps,
+} from "./businessData/map";
+export type {
+  MapDetail,
+  MapRecord,
+} from "./businessData/map";

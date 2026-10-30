@@ -12,6 +12,7 @@ import { inspectionPlanHandlers } from "./handlers/businessData/inspectionPlan";
 import { kpiHandlers } from "./handlers/businessData/kpi";
 import { maintenanceActivityOrderHandlers } from "./handlers/businessData/maintenanceActivityOrder";
 import { maintenancePlanHandlers } from "./handlers/businessData/maintenancePlan";
+import { mapHandlers } from "./handlers/businessData/map";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -36,6 +37,7 @@ export const handlers = [
   ...kpiHandlers,
   ...maintenanceActivityOrderHandlers,
   ...maintenancePlanHandlers,
+  ...mapHandlers,
   ...genericTableHandlers,
   ...uiPageHandlers,
   ...mcpServerHandlers,
