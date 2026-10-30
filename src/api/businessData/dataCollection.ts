@@ -84,7 +84,9 @@ function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
   });
 }
 
-export function createDataCollectionRecord(input: DataCollectionUpsertInput): Promise<DataCollectionDetail> {
+export function createDataCollectionRecord(
+  input: DataCollectionUpsertInput,
+): Promise<DataCollectionDetail> {
   return postJson<DataCollectionDetail>("/business-data/data-collections", "POST", input);
 }
 
@@ -180,7 +182,10 @@ export function correctDataCollectionInstance(
   );
 }
 
-export function resetDataCollectionInstance(name: string, instance: string): Promise<DataCollectionDetail> {
+export function resetDataCollectionInstance(
+  name: string,
+  instance: string,
+): Promise<DataCollectionDetail> {
   return postJson<DataCollectionDetail>(
     `/business-data/data-collections/${encodeURIComponent(name)}/instances/${encodeURIComponent(instance)}/reset`,
     "POST",
@@ -247,8 +252,15 @@ export function usePerformImmediateDataCollection() {
 export function useUpdateDataCollectionInstance() {
   const invalidate = useInvalidateDataCollections();
   return useMutation({
-    mutationFn: ({ name, instance, patch }: { name: string; instance: string; patch: { state: string } }) =>
-      updateDataCollectionInstance(name, instance, patch),
+    mutationFn: ({
+      name,
+      instance,
+      patch,
+    }: {
+      name: string;
+      instance: string;
+      patch: { state: string };
+    }) => updateDataCollectionInstance(name, instance, patch),
     onSuccess: invalidate,
   });
 }
@@ -304,7 +316,8 @@ export function useDataCollections(params: ListQueryParams) {
   if (params.filters?.state) search.set("state", params.filters.state);
   return useQuery<Page<DataCollectionRecord>>({
     queryKey: ["business-data", "data-collections", params],
-    queryFn: () => apiFetch<Page<DataCollectionRecord>>(`/business-data/data-collections?${search.toString()}`),
+    queryFn: () =>
+      apiFetch<Page<DataCollectionRecord>>(`/business-data/data-collections?${search.toString()}`),
     placeholderData: keepPreviousData,
   });
 }
@@ -312,6 +325,19 @@ export function useDataCollections(params: ListQueryParams) {
 export function useDataCollectionDetail(name: string) {
   return useQuery({
     queryKey: ["business-data", "data-collections", name],
-    queryFn: () => apiFetch<DataCollectionDetail>(`/business-data/data-collections/${encodeURIComponent(name)}`),
+    queryFn: () =>
+      apiFetch<DataCollectionDetail>(`/business-data/data-collections/${encodeURIComponent(name)}`),
   });
+}
+
+export function useDataCollectionParameters(name: string | undefined): DataCollectionParameter[] {
+  const query = useQuery({
+    queryKey: ["business-data", "data-collections", name ?? "", "parameters"],
+    queryFn: () =>
+      apiFetch<DataCollectionDetail>(
+        `/business-data/data-collections/${encodeURIComponent(name ?? "")}`,
+      ).then((detail) => detail.parameters),
+    enabled: !!name,
+  });
+  return query.data ?? [];
 }

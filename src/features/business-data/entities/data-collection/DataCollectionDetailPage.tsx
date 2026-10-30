@@ -17,6 +17,7 @@ import { Button, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { useCopyDataCollectionLimitSetsDialog } from "../data-collection-limit-set/useDataCollectionLimitSetDialogs";
 import { useDataCollectionDialogs } from "./useDataCollectionDialogs";
 
 const useDetailStyles = makeStyles({
@@ -102,6 +103,9 @@ export function DataCollectionDetailPage() {
     openTerminateInstance,
     openUnterminateInstance,
   } = useDataCollectionDialogs(dc);
+  const { copyDialog, openCopy: openCopyLimitSets } = useCopyDataCollectionLimitSetsDialog(
+    dc?.name ?? "",
+  );
 
   if (isLoading || !dc) {
     return (
@@ -209,11 +213,18 @@ export function DataCollectionDetailPage() {
               </div>
             ) : left === "businessData.dataCollection.detail.sections.limitSets" ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.dataCollection.detail.limitSetsTitle", {
-                    count: dc.limitSets.length,
-                  })}
-                </Text>
+                <div
+                  style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
+                >
+                  <Text className={styles.cardTitle}>
+                    {t("businessData.dataCollection.detail.limitSetsTitle", {
+                      count: dc.limitSets.length,
+                    })}
+                  </Text>
+                  <Button appearance="secondary" size="small" onClick={openCopyLimitSets}>
+                    {t("businessData.dataCollectionLimitSet.operations.copyTitle")}
+                  </Button>
+                </div>
                 {dc.limitSets.map((l) => (
                   <div key={l.name} className={styles.row}>
                     <span>{l.name}</span>
@@ -294,6 +305,7 @@ export function DataCollectionDetailPage() {
         )}
       </div>
       {dialogs}
+      {copyDialog}
     </ListPage>
   );
 }

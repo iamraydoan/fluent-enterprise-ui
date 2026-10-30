@@ -268,6 +268,7 @@ export {
   useCorrectDataCollectionInstance,
   useCreateDataCollection,
   useDataCollectionDetail,
+  useDataCollectionParameters,
   useDataCollections,
   useManageDataCollectionParameters,
   useOpenDataCollectionInstance,
@@ -288,11 +289,21 @@ export type {
   PerformImmediateInput,
 } from "./businessData/dataCollection";
 export {
+  useCopyDataCollectionLimitSets,
+  useCreateDataCollectionLimitSet,
   useDataCollectionLimitSetDetail,
+  useDataCollectionLimitSetSourceParameters,
   useDataCollectionLimitSets,
+  useManageDataCollectionLimitSetParameters,
+  useSetDataCollectionLimitSetState,
+  useUpdateDataCollectionLimitSet,
 } from "./businessData/dataCollectionLimitSet";
 export type {
+  CopyDataCollectionLimitSetsInput,
   DataCollectionLimitSetDetail,
   DataCollectionLimitSetRecord,
+  DataCollectionLimitSetUpsertInput,
+  ManageLimitSetParametersInput,
   ParameterLimit,
+  SampleLimit,
 } from "./businessData/dataCollectionLimitSet";
