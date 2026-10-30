@@ -1037,6 +1037,94 @@
         "title": "KPIの終了",
         "warning": "KPIオブジェクトは終了を取り消すことができません。終了すると完全に失われます。"
       }
+    },
+    "map": {
+      "pageLabel": "マップ",
+      "listTitle": "マップ ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "mapDefinition": "マップ定義",
+        "state": "状態"
+      },
+      "tabs": {
+        "content": "コンテンツ"
+      },
+      "sections": {
+        "details": "詳細",
+        "layers": "レイヤー",
+        "attachments": "添付ファイル",
+        "map": "マップ",
+        "mapDefinition": "マップ定義",
+        "context": "コンテキスト",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "state": "ユニバーサル状態",
+        "mapDefinition": "マップ定義",
+        "step": "ステップ",
+        "resource": "リソース",
+        "material": "材料"
+      },
+      "dialog": {
+        "createTitle": "Mapの作成",
+        "editTitle": "Mapの編集",
+        "cloneTitle": "Mapの複製",
+        "step1": "ステップ1: 一般データ",
+        "step2": "ステップ2: レイヤー",
+        "name": "名前",
+        "description": "説明",
+        "mapDefinition": "Map定義",
+        "step": "ステップ",
+        "resource": "リソース",
+        "layers": "レイヤー",
+        "layersHint": "レイヤーごとにG85ファイルを1つアップロードします。アップロードしない場合、各レイヤーはデフォルト値で初期化されます。",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製"
+      },
+      "terminateDialog": {
+        "title": "Mapの終了",
+        "message": "Map「{{name}}」を終了しますか?",
+        "unterminateTitle": "Mapの終了取消",
+        "unterminateMessage": "Map「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "linkDialog": {
+        "linkTitle": "Map「{{name}}」とMaterialのリンク",
+        "material": "Material",
+        "mapOrder": "Map順序",
+        "isMasterMap": "マスターMap",
+        "linkageMode": "リンケージモード",
+        "linkageVerify": "検証",
+        "linkageSynchronize": "同期",
+        "isDefault": "デフォルトMap",
+        "isMerged": "マージMap",
+        "comment": "コメント",
+        "link": "リンク",
+        "cancel": "キャンセル",
+        "unlinkTitle": "MapとMaterialのリンク解除",
+        "unlinkMessage": "Map「{{name}}」からMaterialのリンクを解除しますか?",
+        "unlink": "リンク解除"
+      },
+      "actions": {
+        "downloadLayer": "レイヤーのダウンロード",
+        "linkMaterial": "Materialとリンク",
+        "unlinkMaterial": "Materialのリンク解除"
+      },
+      "layers": {
+        "name": "名前",
+        "type": "タイプ",
+        "units": "単位"
+      }
     }
   }
 }

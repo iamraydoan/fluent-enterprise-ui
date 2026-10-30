@@ -1037,6 +1037,94 @@
         "title": "Terminate KPI",
         "warning": "KPI objects cannot be unterminated. If you terminate a KPI object, it will be permanently lost."
       }
+    },
+    "map": {
+      "pageLabel": "Map",
+      "listTitle": "Maps ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "mapDefinition": "Map Definition",
+        "state": "State"
+      },
+      "tabs": {
+        "content": "Content"
+      },
+      "sections": {
+        "details": "Details",
+        "layers": "Layers",
+        "attachments": "Attachments",
+        "map": "Map",
+        "mapDefinition": "Map Definition",
+        "context": "Context",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "mapDefinition": "Map Definition",
+        "step": "Step",
+        "resource": "Resource",
+        "material": "Material"
+      },
+      "dialog": {
+        "createTitle": "Create Map",
+        "editTitle": "Edit Map",
+        "cloneTitle": "Clone Map",
+        "step1": "Step 1: General Data",
+        "step2": "Step 2: Layers",
+        "name": "Name",
+        "description": "Description",
+        "mapDefinition": "Map Definition",
+        "step": "Step",
+        "resource": "Resource",
+        "layers": "Layers",
+        "layersHint": "Upload one G85 file per layer. If no file is uploaded, each layer will be initialized with its default value.",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      },
+      "terminateDialog": {
+        "title": "Terminate Map",
+        "message": "Terminate Map \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Map",
+        "unterminateMessage": "Unterminate Map \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "linkDialog": {
+        "linkTitle": "Link Map with Material \"{{name}}\"",
+        "material": "Material",
+        "mapOrder": "Map Order",
+        "isMasterMap": "Master Map",
+        "linkageMode": "Linkage Mode",
+        "linkageVerify": "Verify",
+        "linkageSynchronize": "Synchronize",
+        "isDefault": "Default Map",
+        "isMerged": "Merged Map",
+        "comment": "Comment",
+        "link": "Link",
+        "cancel": "Cancel",
+        "unlinkTitle": "Unlink Map from Material",
+        "unlinkMessage": "Unlink Material from Map \"{{name}}\"?",
+        "unlink": "Unlink"
+      },
+      "actions": {
+        "downloadLayer": "Download Layer",
+        "linkMaterial": "Link with Material",
+        "unlinkMaterial": "Unlink from Material"
+      },
+      "layers": {
+        "name": "Name",
+        "type": "Type",
+        "units": "Units"
+      }
     }
   }
 }

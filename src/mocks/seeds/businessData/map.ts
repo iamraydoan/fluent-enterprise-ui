@@ -31,6 +31,10 @@ const DETAILS: Record<string, MapDetail> = {
     step: "Baking",
     resource: "Baker-01",
     material: "",
+    layers: [
+      { name: "Bin", type: "Bin", units: "Units" },
+      { name: "Loss", type: "Loss", units: "Units" },
+    ],
   },
 };
 

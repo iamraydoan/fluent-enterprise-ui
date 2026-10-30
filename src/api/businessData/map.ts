@@ -11,10 +11,17 @@ export interface MapRecord {
   state: RecordState;
 }
 
+export interface MapLayer {
+  name: string;
+  type: string;
+  units: string;
+}
+
 export interface MapDetail extends MapRecord {
   step: string;
   resource: string;
   material: string;
+  layers: MapLayer[];
 }
 
 export function listMaps(params: ListQueryParams): Promise<Page<MapRecord>> {

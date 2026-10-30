@@ -1037,6 +1037,94 @@
         "title": "KPI 종료",
         "warning": "KPI 개체는 종료를 취소할 수 없습니다. 종료하면 영구적으로 손실됩니다."
       }
+    },
+    "map": {
+      "pageLabel": "맵",
+      "listTitle": "맵 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "mapDefinition": "맵 정의",
+        "state": "상태"
+      },
+      "tabs": {
+        "content": "콘텐츠"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "layers": "레이어",
+        "attachments": "첨부 파일",
+        "map": "맵",
+        "mapDefinition": "맵 정의",
+        "context": "컨텍스트",
+        "empty": "항목 없음",
+        "emptyBody": "표시할 내용이 아직 없습니다."
+      },
+      "details": {
+        "name": "이름",
+        "description": "설명",
+        "state": "유니버설 상태",
+        "mapDefinition": "맵 정의",
+        "step": "단계",
+        "resource": "리소스",
+        "material": "자재"
+      },
+      "dialog": {
+        "createTitle": "Map 생성",
+        "editTitle": "Map 편집",
+        "cloneTitle": "Map 복제",
+        "step1": "1단계: 일반 데이터",
+        "step2": "2단계: 레이어",
+        "name": "이름",
+        "description": "설명",
+        "mapDefinition": "Map 정의",
+        "step": "공정",
+        "resource": "리소스",
+        "layers": "레이어",
+        "layersHint": "레이어당 하나의 G85 파일을 업로드합니다. 업로드하지 않으면 각 레이어가 기본값으로 초기화됩니다.",
+        "back": "뒤로",
+        "next": "다음",
+        "cancel": "취소",
+        "create": "생성",
+        "save": "저장",
+        "clone": "복제"
+      },
+      "terminateDialog": {
+        "title": "Map 종료",
+        "message": "Map \"{{name}}\"을(를) 종료하시겠습니까?",
+        "unterminateTitle": "Map 종료 취소",
+        "unterminateMessage": "Map \"{{name}}\"의 종료를 취소하시겠습니까?",
+        "cancel": "취소",
+        "terminate": "종료",
+        "unterminate": "종료 취소"
+      },
+      "linkDialog": {
+        "linkTitle": "Map \"{{name}}\"와 Material 연결",
+        "material": "Material",
+        "mapOrder": "Map 순서",
+        "isMasterMap": "마스터 Map",
+        "linkageMode": "연결 모드",
+        "linkageVerify": "검증",
+        "linkageSynchronize": "동기화",
+        "isDefault": "기본 Map",
+        "isMerged": "병합 Map",
+        "comment": "설명",
+        "link": "연결",
+        "cancel": "취소",
+        "unlinkTitle": "Map와 Material 연결 해제",
+        "unlinkMessage": "Map \"{{name}}\"에서 Material 연결을 해제하시겠습니까?",
+        "unlink": "연결 해제"
+      },
+      "actions": {
+        "downloadLayer": "레이어 다운로드",
+        "linkMaterial": "Material과 연결",
+        "unlinkMaterial": "Material 연결 해제"
+      },
+      "layers": {
+        "name": "이름",
+        "type": "유형",
+        "units": "단위"
+      }
     }
   }
 }

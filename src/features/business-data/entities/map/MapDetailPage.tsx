@@ -3,9 +3,22 @@ import { useMapDetail } from "@/api";
 import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
-import { Text } from "@/components/ui";
+import {
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  Text,
+} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { MapDialog } from "./MapDialog";
+import { MapLinkDialog, MapUnlinkDialog } from "./MapLinkDialog";
+import { MapTerminateDialog } from "./MapTerminateDialog";
+import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "./wizardMode";
 
 const tk = (key: string) => key as TranslationKey;
 
@@ -26,23 +39,56 @@ export function MapDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<string>(tk("businessData.map.sections.details"));
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
+  const [terminateOpen, setTerminateOpen] = useState(false);
+  const [unterminateOpen, setUnterminateOpen] = useState(false);
+  const [linkOpen, setLinkOpen] = useState(false);
+  const [unlinkOpen, setUnlinkOpen] = useState(false);
   const { data, isLoading } = useMapDetail(name);
 
   const shell = (content: React.ReactNode) => (
-    <DetailShell
-      title={name}
-      icon={<Grid24Regular />}
-      topTabs={TOP_TABS}
-      top={top}
-      onTop={setTop}
-      leftItems={LEFT_ITEMS}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => undefined}
-      onAskAi={() => undefined}
-    >
-      {content}
-    </DetailShell>
+    <>
+      <DetailShell
+        title={name}
+        icon={<Grid24Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={LEFT_ITEMS}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onClone={() => setCloneOpen(true)}
+        onTerminate={() => setTerminateOpen(true)}
+        onUnterminate={() => setUnterminateOpen(true)}
+        onAskAi={() => undefined}
+      >
+        {content}
+      </DetailShell>
+      {editOpen && (
+        <MapDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />
+      )}
+      {cloneOpen && (
+        <MapDialog
+          mode={MODE_CLONE}
+          initialName={`${name} (Copy)`}
+          onClose={() => setCloneOpen(false)}
+        />
+      )}
+      {terminateOpen && (
+        <MapTerminateDialog name={name} mode={TERMINATE} onClose={() => setTerminateOpen(false)} />
+      )}
+      {unterminateOpen && (
+        <MapTerminateDialog
+          name={name}
+          mode={UNTERMINATE}
+          onClose={() => setUnterminateOpen(false)}
+        />
+      )}
+      {linkOpen && <MapLinkDialog mapName={name} onClose={() => setLinkOpen(false)} />}
+      {unlinkOpen && <MapUnlinkDialog mapName={name} onClose={() => setUnlinkOpen(false)} />}
+    </>
   );
 
   if (isLoading || !data) {
@@ -50,6 +96,42 @@ export function MapDetailPage({ name }: { name: string }) {
       <Empty>
         <Text>{t(tk("businessData.map.sections.emptyBody"))}</Text>
       </Empty>,
+    );
+  }
+
+  if (top === "details" && left === tk("businessData.map.sections.layers")) {
+    return shell(
+      <Card title={t(tk("businessData.map.sections.layers"))}>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHeaderCell>{t(tk("businessData.map.layers.name"))}</TableHeaderCell>
+              <TableHeaderCell>{t(tk("businessData.map.layers.type"))}</TableHeaderCell>
+              <TableHeaderCell>{t(tk("businessData.map.layers.units"))}</TableHeaderCell>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {(data.layers ?? []).map((layer) => (
+              <TableRow key={layer.name}>
+                <TableCell>{layer.name}</TableCell>
+                <TableCell>{layer.type}</TableCell>
+                <TableCell>{layer.units}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
+          <Button onClick={() => undefined}>
+            {t(tk("businessData.map.actions.downloadLayer"))}
+          </Button>
+          <Button onClick={() => setLinkOpen(true)}>
+            {t(tk("businessData.map.actions.linkMaterial"))}
+          </Button>
+          <Button onClick={() => setUnlinkOpen(true)}>
+            {t(tk("businessData.map.actions.unlinkMaterial"))}
+          </Button>
+        </div>
+      </Card>,
     );
   }
 
@@ -73,11 +155,7 @@ export function MapDetailPage({ name }: { name: string }) {
         />
       </Card>
       <Card title={t(tk("businessData.map.sections.mapDefinition"))}>
-        <KV
-          rows={[
-            [t(tk("businessData.map.details.mapDefinition")), data.mapDefinition],
-          ]}
-        />
+        <KV rows={[[t(tk("businessData.map.details.mapDefinition")), data.mapDefinition]]} />
       </Card>
       <Card title={t(tk("businessData.map.sections.context"))}>
         <KV

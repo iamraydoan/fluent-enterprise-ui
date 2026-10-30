@@ -1037,6 +1037,94 @@
         "title": "Kết thúc KPI",
         "warning": "Đối tượng KPI không thể hủy kết thúc. Nếu bạn kết thúc một KPI, nó sẽ bị mất vĩnh viễn."
       }
+    },
+    "map": {
+      "pageLabel": "Bản đồ",
+      "listTitle": "Bản đồ ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "mapDefinition": "Định nghĩa bản đồ",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "content": "Nội dung"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "layers": "Lớp",
+        "attachments": "Tệp đính kèm",
+        "map": "Bản đồ",
+        "mapDefinition": "Định nghĩa bản đồ",
+        "context": "Ngữ cảnh",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái chung",
+        "mapDefinition": "Định nghĩa bản đồ",
+        "step": "Bước",
+        "resource": "Tài nguyên",
+        "material": "Vật liệu"
+      },
+      "dialog": {
+        "createTitle": "Tạo Map",
+        "editTitle": "Sửa Map",
+        "cloneTitle": "Nhân bản Map",
+        "step1": "Bước 1: Dữ liệu chung",
+        "step2": "Bước 2: Layers",
+        "name": "Tên",
+        "description": "Mô tả",
+        "mapDefinition": "Map Definition",
+        "step": "Công đoạn",
+        "resource": "Tài nguyên",
+        "layers": "Layers",
+        "layersHint": "Tải lên một file G85 cho mỗi layer. Nếu không tải file, mỗi layer sẽ được khởi tạo với giá trị mặc định.",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Map",
+        "message": "Kết thúc Map \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Map",
+        "unterminateMessage": "Hủy kết thúc Map \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "linkDialog": {
+        "linkTitle": "Liên kết Map \"{{name}}\" với Material",
+        "material": "Material",
+        "mapOrder": "Thứ tự Map",
+        "isMasterMap": "Master Map",
+        "linkageMode": "Chế độ liên kết",
+        "linkageVerify": "Verify",
+        "linkageSynchronize": "Synchronize",
+        "isDefault": "Map mặc định",
+        "isMerged": "Map gộp",
+        "comment": "Ghi chú",
+        "link": "Liên kết",
+        "cancel": "Hủy",
+        "unlinkTitle": "Hủy liên kết Map khỏi Material",
+        "unlinkMessage": "Hủy liên kết Material khỏi Map \"{{name}}\"?",
+        "unlink": "Hủy liên kết"
+      },
+      "actions": {
+        "downloadLayer": "Tải Layer",
+        "linkMaterial": "Liên kết với Material",
+        "unlinkMaterial": "Hủy liên kết Material"
+      },
+      "layers": {
+        "name": "Tên",
+        "type": "Loại",
+        "units": "Đơn vị"
+      }
     }
   }
 }
