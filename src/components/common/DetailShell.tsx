@@ -12,11 +12,6 @@ import {
   Body1Strong,
   Button,
   makeStyles,
-  Menu,
-  MenuItem,
-  MenuList,
-  MenuPopover,
-  MenuTrigger,
   mergeClasses,
   Tab,
   TabList,
@@ -323,37 +318,21 @@ export function DetailShell({
             </div>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
-                {moreMenuItems && moreMenuItems.length > 0 ? (
-                  <Menu>
-                    <MenuTrigger disableButtonEnhancement>
-                      <RibbonButton
-                        sharedStyles={sharedStyles}
-                        icon={<MoreVertical24Regular />}
-                        label={t("actionBar.more")}
-                      />
-                    </MenuTrigger>
-                    <MenuPopover>
-                      <MenuList>
-                        {moreMenuItems.map((item) => (
-                          <MenuItem
-                            key={item.key}
-                            icon={item.icon}
-                            disabled={item.disabled}
-                            onClick={item.onClick}
-                          >
-                            {t(item.labelKey)}
-                          </MenuItem>
-                        ))}
-                      </MenuList>
-                    </MenuPopover>
-                  </Menu>
-                ) : (
-                  <RibbonButton
-                    sharedStyles={sharedStyles}
-                    icon={<MoreVertical24Regular />}
-                    label={t("actionBar.more")}
-                  />
-                )}
+                <RibbonButton
+                  sharedStyles={sharedStyles}
+                  icon={<MoreVertical24Regular />}
+                  label={t("actionBar.more")}
+                  menu={
+                    moreMenuItems && moreMenuItems.length > 0
+                      ? moreMenuItems.map((item) => ({
+                          label: t(item.labelKey),
+                          icon: item.icon,
+                          disabled: item.disabled,
+                          onClick: item.onClick,
+                        }))
+                      : undefined
+                  }
+                />
               </div>
               <div className={sharedStyles.actionBarGroupLabel}>
                 {t("actionBar.groups.actions")}
