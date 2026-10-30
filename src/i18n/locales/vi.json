@@ -661,5 +661,52 @@
       "send": "Gửi"
     },
     "listTitle": "Truy vấn ({{count}})"
+  },
+  "businessData": {
+    "qualification": {
+      "cards": {
+        "gracePeriod": "Thời gian gia hạn",
+        "information": "Thông tin",
+        "permissions": "Quyền",
+        "qualification": "Trình độ",
+        "validityPeriod": "Thời hạn hiệu lực"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái",
+        "type": "Loại"
+      },
+      "details": {
+        "allowAssignmentByManager": "Cho phép quản lý gán",
+        "allowOverride": "Cho phép ghi đè",
+        "allowSelfAssignment": "Cho phép tự gán",
+        "dataGroup": "Nhóm dữ liệu",
+        "defaultReason": "Lý do mặc định",
+        "description": "Mô tả",
+        "duration": "Thời lượng",
+        "informationUrl": "URL thông tin",
+        "name": "Tên",
+        "ownerRole": "Vai trò sở hữu",
+        "state": "Trạng thái chung",
+        "type": "Loại",
+        "validFor": "Hiệu lực trong"
+      },
+      "listTitle": "Trình độ",
+      "pageLabel": "Trình độ",
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "certifications": "Chứng chỉ",
+        "details": "Chi tiết",
+        "employees": "Nhân viên",
+        "empty": "Không có dữ liệu",
+        "emptyBody": "Mục này chưa có nội dung."
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      }
+    }
   }
 }

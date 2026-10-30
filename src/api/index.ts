@@ -76,3 +76,14 @@ export type {
   UIPageScope,
   UIPageType,
 } from "./uiPages";
+export {
+  getQualification,
+  listQualifications,
+  useQualificationDetail,
+  useQualifications,
+} from "./businessData/qualification";
+export type {
+  QualificationDetail,
+  QualificationListParams,
+  QualificationRecord,
+} from "./businessData/qualification";

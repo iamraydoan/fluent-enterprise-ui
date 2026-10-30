@@ -101,6 +101,8 @@ export {
   TextNumberListLtr20Regular,
   TextStrikethrough20Regular,
   TextUnderline20Regular,
+  Trophy20Regular,
+  Trophy24Regular,
   Save24Regular,
   Send24Regular,
   Timer24Regular,

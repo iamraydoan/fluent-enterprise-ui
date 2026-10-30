@@ -661,5 +661,52 @@
       "send": "보내기"
     },
     "listTitle": "쿼리 ({{count}})"
+  },
+  "businessData": {
+    "qualification": {
+      "cards": {
+        "gracePeriod": "유예 기간",
+        "information": "정보",
+        "permissions": "권한",
+        "qualification": "자격",
+        "validityPeriod": "유효 기간"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "state": "상태",
+        "type": "유형"
+      },
+      "details": {
+        "allowAssignmentByManager": "관리자의 할당 허용",
+        "allowOverride": "재정의 허용",
+        "allowSelfAssignment": "자체 할당 허용",
+        "dataGroup": "데이터 그룹",
+        "defaultReason": "기본 사유",
+        "description": "설명",
+        "duration": "기간",
+        "informationUrl": "정보 URL",
+        "name": "이름",
+        "ownerRole": "소유자 역할",
+        "state": "범용 상태",
+        "type": "유형",
+        "validFor": "유효 기간"
+      },
+      "listTitle": "자격",
+      "pageLabel": "자격",
+      "sections": {
+        "attachments": "첨부파일",
+        "certifications": "인증",
+        "details": "세부정보",
+        "employees": "직원",
+        "empty": "데이터 없음",
+        "emptyBody": "이 섹션에는 아직 콘텐츠가 없습니다."
+      },
+      "tabs": {
+        "details": "세부정보",
+        "history": "기록",
+        "references": "참조"
+      }
+    }
   }
 }

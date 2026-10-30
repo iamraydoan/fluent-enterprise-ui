@@ -661,5 +661,52 @@
       "send": "送信"
     },
     "listTitle": "クエリ ({{count}})"
+  },
+  "businessData": {
+    "qualification": {
+      "cards": {
+        "gracePeriod": "猶予期間",
+        "information": "情報",
+        "permissions": "権限",
+        "qualification": "資格",
+        "validityPeriod": "有効期間"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "state": "状態",
+        "type": "タイプ"
+      },
+      "details": {
+        "allowAssignmentByManager": "マネージャーによる割当を許可",
+        "allowOverride": "上書きを許可",
+        "allowSelfAssignment": "自己割当を許可",
+        "dataGroup": "データグループ",
+        "defaultReason": "デフォルト理由",
+        "description": "説明",
+        "duration": "期間",
+        "informationUrl": "情報URL",
+        "name": "名前",
+        "ownerRole": "所有者ロール",
+        "state": "ユニバーサル状態",
+        "type": "タイプ",
+        "validFor": "有効期間"
+      },
+      "listTitle": "資格",
+      "pageLabel": "資格",
+      "sections": {
+        "attachments": "添付ファイル",
+        "certifications": "認定",
+        "details": "詳細",
+        "employees": "従業員",
+        "empty": "データなし",
+        "emptyBody": "このセクションにはまだコンテンツがありません。"
+      },
+      "tabs": {
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      }
+    }
   }
 }

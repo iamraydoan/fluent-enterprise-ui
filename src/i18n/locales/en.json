@@ -661,5 +661,52 @@
       "send": "Send"
     },
     "listTitle": "Queries ({{count}})"
+  },
+  "businessData": {
+    "qualification": {
+      "cards": {
+        "gracePeriod": "Grace Period",
+        "information": "Information",
+        "permissions": "Permissions",
+        "qualification": "Qualification",
+        "validityPeriod": "Validity Period"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "state": "State",
+        "type": "Type"
+      },
+      "details": {
+        "allowAssignmentByManager": "Allow Assignment By Manager",
+        "allowOverride": "Allow Override",
+        "allowSelfAssignment": "Allow Self-Assignment",
+        "dataGroup": "Data Group",
+        "defaultReason": "Default Reason",
+        "description": "Description",
+        "duration": "Duration",
+        "informationUrl": "Information URL",
+        "name": "Name",
+        "ownerRole": "Owner Role",
+        "state": "Universal State",
+        "type": "Type",
+        "validFor": "Valid For"
+      },
+      "listTitle": "Qualifications",
+      "pageLabel": "Qualifications",
+      "sections": {
+        "attachments": "Attachments",
+        "certifications": "Certifications",
+        "details": "Details",
+        "employees": "Employees",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "tabs": {
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      }
+    }
   }
 }
