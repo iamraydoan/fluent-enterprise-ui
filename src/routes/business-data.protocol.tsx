@@ -1,0 +1,12 @@
+import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
+import { ProtocolListPage } from "@/features/business-data/entities/protocol/ProtocolListPage";
+
+function ProtocolRoute() {
+  const location = useLocation();
+  if (location.pathname === "/business-data/protocol") return <ProtocolListPage />;
+  return <Outlet />;
+}
+
+export const Route = createFileRoute("/business-data/protocol")({
+  component: ProtocolRoute,
+});
