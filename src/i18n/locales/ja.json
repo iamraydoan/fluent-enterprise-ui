@@ -816,6 +816,85 @@
           "validTo": "有効期限",
           "tracking": "トラッキング"
         }
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close"
+        },
+        "create": {
+          "title": "Create Notification",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "type": "Type",
+            "title": "Title",
+            "details": "Details",
+            "severity": "Severity",
+            "assignment": "Assignment",
+            "sendEmail": "Send email",
+            "visibility": "Visibility Filter",
+            "clearance": "Clearance Mode",
+            "validTo": "Valid To"
+          },
+          "hints": {
+            "name": "Can be left empty if a Name Generator is configured.",
+            "type": "The list of possible values is taken from the NotificationType lookup table.",
+            "title": "Hyperlinks: [Entity Type Entity Name] for unversioned, [Entity Type Revision Name] for versioned.",
+            "visibility": "Filter Notifications displayed in the Notifications window according to the user's Employee Workgroup.",
+            "validTo": "Mandatory for ManualEveryUser and Automatic, optional for ManualSingleUser."
+          },
+          "placeholders": {
+            "validTo": "MM/DD/YYYY"
+          }
+        },
+        "edit": {
+          "title": "Edit Notification",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "title": "Title",
+            "severity": "Severity"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Notification cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Notification",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Notification",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "confirmText": "Select Terminate to perform the operation."
+        },
+        "clear": {
+          "title": "Clear Notification",
+          "cancel": "Cancel",
+          "submit": "Clear",
+          "confirmText": "Clear this Notification? This will close the alarm for the current user."
+        }
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "left": {
+        "details": "Details",
+        "clearHistory": "Clear History Information",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
       }
     },
     "package": {
