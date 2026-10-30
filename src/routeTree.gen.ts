@@ -24,12 +24,14 @@ import { Route as AdministrationQueriesRouteImport } from './routes/administrati
 import { Route as AdministrationTablesRouteImport } from './routes/administration.tables'
 import { Route as AdministrationUipagesRouteImport } from './routes/administration.uipages'
 import { Route as BusinessDataMaterialRouteImport } from './routes/business-data.material'
+import { Route as BusinessDataMaterialTransferRouteImport } from './routes/business-data.material-transfer'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
 import { Route as AdministrationEntityTypesNameRouteImport } from './routes/administration.entity-types.$name'
 import { Route as AdministrationQueriesNameRouteImport } from './routes/administration.queries.$name'
 import { Route as AdministrationTablesNameRouteImport } from './routes/administration.tables.$name'
+import { Route as BusinessDataMaterialTransferNameRouteImport } from './routes/business-data.material-transfer.$name'
 import { Route as BusinessDataMaterialNameRouteImport } from './routes/business-data.material.$name'
 
 const IndexRoute = IndexRouteImport.update({
@@ -110,6 +112,12 @@ const BusinessDataMaterialRoute = BusinessDataMaterialRouteImport.update({
   path: '/material',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataMaterialTransferRoute =
+  BusinessDataMaterialTransferRouteImport.update({
+    id: '/material-transfer',
+    path: '/material-transfer',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -146,6 +154,12 @@ const AdministrationTablesNameRoute =
     path: '/$name',
     getParentRoute: () => AdministrationTablesRoute,
   } as any)
+const BusinessDataMaterialTransferNameRoute =
+  BusinessDataMaterialTransferNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataMaterialTransferRoute,
+  } as any)
 const BusinessDataMaterialNameRoute =
   BusinessDataMaterialNameRouteImport.update({
     id: '/$name',
@@ -169,12 +183,14 @@ export interface FileRoutesByFullPath {
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/material': typeof BusinessDataMaterialRouteWithChildren
+  '/business-data/material-transfer': typeof BusinessDataMaterialTransferRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
   '/administration/entity-types/$name': typeof AdministrationEntityTypesNameRoute
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
+  '/business-data/material-transfer/$name': typeof BusinessDataMaterialTransferNameRoute
   '/business-data/material/$name': typeof BusinessDataMaterialNameRoute
 }
 export interface FileRoutesByTo {
@@ -193,12 +209,14 @@ export interface FileRoutesByTo {
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/material': typeof BusinessDataMaterialRouteWithChildren
+  '/business-data/material-transfer': typeof BusinessDataMaterialTransferRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
   '/administration/entity-types/$name': typeof AdministrationEntityTypesNameRoute
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
+  '/business-data/material-transfer/$name': typeof BusinessDataMaterialTransferNameRoute
   '/business-data/material/$name': typeof BusinessDataMaterialNameRoute
 }
 export interface FileRoutesById {
@@ -218,12 +236,14 @@ export interface FileRoutesById {
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/material': typeof BusinessDataMaterialRouteWithChildren
+  '/business-data/material-transfer': typeof BusinessDataMaterialTransferRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
   '/administration/entity-types/$name': typeof AdministrationEntityTypesNameRoute
   '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
+  '/business-data/material-transfer/$name': typeof BusinessDataMaterialTransferNameRoute
   '/business-data/material/$name': typeof BusinessDataMaterialNameRoute
 }
 export interface FileRouteTypes {
@@ -244,12 +264,14 @@ export interface FileRouteTypes {
     | '/administration/tables'
     | '/administration/uipages'
     | '/business-data/material'
+    | '/business-data/material-transfer'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
     | '/administration/entity-types/$name'
     | '/administration/queries/$name'
     | '/administration/tables/$name'
+    | '/business-data/material-transfer/$name'
     | '/business-data/material/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -268,12 +290,14 @@ export interface FileRouteTypes {
     | '/administration/tables'
     | '/administration/uipages'
     | '/business-data/material'
+    | '/business-data/material-transfer'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
     | '/administration/entity-types/$name'
     | '/administration/queries/$name'
     | '/administration/tables/$name'
+    | '/business-data/material-transfer/$name'
     | '/business-data/material/$name'
   id:
     | '__root__'
@@ -292,12 +316,14 @@ export interface FileRouteTypes {
     | '/administration/tables'
     | '/administration/uipages'
     | '/business-data/material'
+    | '/business-data/material-transfer'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
     | '/administration/entity-types/$name'
     | '/administration/queries/$name'
     | '/administration/tables/$name'
+    | '/business-data/material-transfer/$name'
     | '/business-data/material/$name'
   fileRoutesById: FileRoutesById
 }
@@ -416,6 +442,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataMaterialRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/material-transfer': {
+      id: '/business-data/material-transfer'
+      path: '/material-transfer'
+      fullPath: '/business-data/material-transfer'
+      preLoaderRoute: typeof BusinessDataMaterialTransferRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -457,6 +490,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/administration/tables/$name'
       preLoaderRoute: typeof AdministrationTablesNameRouteImport
       parentRoute: typeof AdministrationTablesRoute
+    }
+    '/business-data/material-transfer/$name': {
+      id: '/business-data/material-transfer/$name'
+      path: '/$name'
+      fullPath: '/business-data/material-transfer/$name'
+      preLoaderRoute: typeof BusinessDataMaterialTransferNameRouteImport
+      parentRoute: typeof BusinessDataMaterialTransferRoute
     }
     '/business-data/material/$name': {
       id: '/business-data/material/$name'
@@ -587,12 +627,30 @@ const BusinessDataMaterialRouteChildren: BusinessDataMaterialRouteChildren = {
 const BusinessDataMaterialRouteWithChildren =
   BusinessDataMaterialRoute._addFileChildren(BusinessDataMaterialRouteChildren)
 
+interface BusinessDataMaterialTransferRouteChildren {
+  BusinessDataMaterialTransferNameRoute: typeof BusinessDataMaterialTransferNameRoute
+}
+
+const BusinessDataMaterialTransferRouteChildren: BusinessDataMaterialTransferRouteChildren =
+  {
+    BusinessDataMaterialTransferNameRoute:
+      BusinessDataMaterialTransferNameRoute,
+  }
+
+const BusinessDataMaterialTransferRouteWithChildren =
+  BusinessDataMaterialTransferRoute._addFileChildren(
+    BusinessDataMaterialTransferRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataMaterialRoute: typeof BusinessDataMaterialRouteWithChildren
+  BusinessDataMaterialTransferRoute: typeof BusinessDataMaterialTransferRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataMaterialRoute: BusinessDataMaterialRouteWithChildren,
+  BusinessDataMaterialTransferRoute:
+    BusinessDataMaterialTransferRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(

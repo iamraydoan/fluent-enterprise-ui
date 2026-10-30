@@ -756,6 +756,43 @@
         "yes": "Có",
         "no": "Không"
       }
+    },
+    "materialTransfer": {
+      "pageLabel": "Chuyển kho vật liệu",
+      "listTitle": "Chuyển kho ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "type": "Loại",
+        "state": "Trạng thái",
+        "material": "Vật liệu",
+        "quantity": "Số lượng",
+        "fromFacility": "Từ nhà máy",
+        "toFacility": "Đến nhà máy"
+      },
+      "detail": {
+        "generalData": "Dữ liệu chung",
+        "fields": {
+          "name": "Tên",
+          "type": "Loại",
+          "state": "Trạng thái",
+          "material": "Vật liệu",
+          "quantity": "Số lượng",
+          "fromFacility": "Từ nhà máy",
+          "toFacility": "Đến nhà máy",
+          "requester": "Người yêu cầu",
+          "urgency": "Mức khẩn"
+        }
+      },
+      "actions": {
+        "approve": "Duyệt",
+        "cancel": "Hủy",
+        "deliver": "Giao",
+        "prepare": "Chuẩn bị",
+        "receive": "Nhận",
+        "refuse": "Từ chối",
+        "reject": "Bác bỏ",
+        "send": "Gửi"
+      }
     }
   }
 }

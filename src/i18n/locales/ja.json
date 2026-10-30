@@ -756,6 +756,43 @@
         "yes": "はい",
         "no": "いいえ"
       }
+    },
+    "materialTransfer": {
+      "pageLabel": "資材移動",
+      "listTitle": "資材移動 ({{count}})",
+      "columns": {
+        "name": "名前",
+        "type": "タイプ",
+        "state": "状態",
+        "material": "資材",
+        "quantity": "数量",
+        "fromFacility": "出荷工場",
+        "toFacility": "受入工場"
+      },
+      "detail": {
+        "generalData": "一般データ",
+        "fields": {
+          "name": "名前",
+          "type": "タイプ",
+          "state": "状態",
+          "material": "資材",
+          "quantity": "数量",
+          "fromFacility": "出荷工場",
+          "toFacility": "受入工場",
+          "requester": "要求者",
+          "urgency": "緊急度"
+        }
+      },
+      "actions": {
+        "approve": "承認",
+        "cancel": "キャンセル",
+        "deliver": "納品",
+        "prepare": "準備",
+        "receive": "受領",
+        "refuse": "拒否",
+        "reject": "却下",
+        "send": "送信"
+      }
     }
   }
 }

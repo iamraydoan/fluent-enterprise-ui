@@ -756,6 +756,43 @@
         "yes": "예",
         "no": "아니요"
       }
+    },
+    "materialTransfer": {
+      "pageLabel": "자재 이동",
+      "listTitle": "자재 이동 ({{count}})",
+      "columns": {
+        "name": "이름",
+        "type": "유형",
+        "state": "상태",
+        "material": "자재",
+        "quantity": "수량",
+        "fromFacility": "출발 공장",
+        "toFacility": "도착 공장"
+      },
+      "detail": {
+        "generalData": "일반 데이터",
+        "fields": {
+          "name": "이름",
+          "type": "유형",
+          "state": "상태",
+          "material": "자재",
+          "quantity": "수량",
+          "fromFacility": "출발 공장",
+          "toFacility": "도착 공장",
+          "requester": "요청자",
+          "urgency": "긴급도"
+        }
+      },
+      "actions": {
+        "approve": "승인",
+        "cancel": "취소",
+        "deliver": "납품",
+        "prepare": "준비",
+        "receive": "수령",
+        "refuse": "거부",
+        "reject": "기각",
+        "send": "발송"
+      }
     }
   }
 }

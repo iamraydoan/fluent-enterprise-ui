@@ -756,6 +756,43 @@
         "yes": "Yes",
         "no": "No"
       }
+    },
+    "materialTransfer": {
+      "pageLabel": "Material Transfer",
+      "listTitle": "Material Transfers ({{count}})",
+      "columns": {
+        "name": "Name",
+        "type": "Type",
+        "state": "State",
+        "material": "Material",
+        "quantity": "Quantity",
+        "fromFacility": "From Facility",
+        "toFacility": "To Facility"
+      },
+      "detail": {
+        "generalData": "General Data",
+        "fields": {
+          "name": "Name",
+          "type": "Type",
+          "state": "State",
+          "material": "Material",
+          "quantity": "Quantity",
+          "fromFacility": "From Facility",
+          "toFacility": "To Facility",
+          "requester": "Requester",
+          "urgency": "Urgency"
+        }
+      },
+      "actions": {
+        "approve": "Approve",
+        "cancel": "Cancel",
+        "deliver": "Deliver",
+        "prepare": "Prepare",
+        "receive": "Receive",
+        "refuse": "Refuse",
+        "reject": "Reject",
+        "send": "Send"
+      }
     }
   }
 }

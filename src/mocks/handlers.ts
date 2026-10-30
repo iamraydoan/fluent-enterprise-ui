@@ -8,6 +8,7 @@ import { mcpServerHandlers } from "./handlers/mcpServer";
 import { queryHandlers } from "./handlers/queries";
 import { uiPageHandlers } from "./handlers/uiPages";
 import { materialHandlers } from "./handlers/businessData/material";
+import { materialTransferHandlers } from "./handlers/businessData/materialTransfer";
 
 export const handlers = [
   ...entityTypeHandlers,
@@ -20,4 +21,5 @@ export const handlers = [
   ...mcpServerHandlers,
   ...queryHandlers,
   ...materialHandlers,
+  ...materialTransferHandlers,
 ];
