@@ -146,7 +146,8 @@
     "terminated": "Terminated",
     "update": "Update",
     "yes": "Yes",
-    "expandPanel": "Expand panel"
+    "expandPanel": "Expand panel",
+    "none": "None"
   },
   "configuration": {
     "pageLabel": "Configuration",
@@ -1337,6 +1338,87 @@
       },
       "actions": {
         "setEffective": "Set Effective"
+      }
+    },
+    "facility": {
+      "pageLabel": "Facility",
+      "listTitle": "Facilities ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "site": "Site",
+        "state": "State"
+      },
+      "sections": {
+        "details": "Details",
+        "areas": "Areas",
+        "shippingInformation": "Shipping Information",
+        "attachments": "Attachments",
+        "facility": "Facility",
+        "information": "Information",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "displayOrder": "Display Order",
+        "defaultCalendar": "Default Calendar",
+        "site": "Site",
+        "remote": "Remote",
+        "terminateOnShipToThisFacility": "Terminate On Ship to This Facility"
+      },
+      "dialog": {
+        "createTitle": "Create Facility",
+        "editTitle": "Edit Facility",
+        "cloneTitle": "Clone Facility",
+        "step1": "Step 1: General Data",
+        "step2": "Step 2: Information",
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "dataGroup": "Data Group",
+        "displayOrder": "Display Order",
+        "defaultCalendar": "Default Calendar",
+        "site": "Site",
+        "remote": "Remote",
+        "terminateOnShip": "Terminate on Ship to This Facility",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone",
+        "typeManufacturing": "Manufacturing",
+        "typeDistribution": "Distribution Center",
+        "typeWarehouse": "Warehouse"
+      },
+      "terminateDialog": {
+        "title": "Terminate Facility",
+        "message": "Terminate Facility \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Facility",
+        "unterminateMessage": "Unterminate Facility \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "manageShipping": {
+        "title": "Manage Facilities to Ship to",
+        "facilities": "Facilities",
+        "facilityDetails": "Facility Details",
+        "addFacility": "Add Facility",
+        "removeFacility": "Remove Facility",
+        "facility": "Facility",
+        "description": "Description",
+        "type": "Type",
+        "isRemote": "Is Remote",
+        "cancel": "Cancel",
+        "update": "Update",
+        "manage": "Manage"
       }
     }
   }

@@ -146,7 +146,8 @@
     "terminated": "Đã kết thúc",
     "update": "Cập nhật",
     "yes": "Có",
-    "expandPanel": "Mở rộng bảng"
+    "expandPanel": "Mở rộng bảng",
+    "none": "Không có"
   },
   "configuration": {
     "pageLabel": "Cấu hình",
@@ -1337,6 +1338,87 @@
       },
       "actions": {
         "setEffective": "Đặt hiệu lực"
+      }
+    },
+    "facility": {
+      "pageLabel": "Cơ sở",
+      "listTitle": "Cơ sở ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "site": "Site",
+        "state": "Trạng thái"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "areas": "Khu vực",
+        "shippingInformation": "Thông tin vận chuyển",
+        "attachments": "Tệp đính kèm",
+        "facility": "Cơ sở",
+        "information": "Thông tin",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "displayOrder": "Thứ tự hiển thị",
+        "defaultCalendar": "Lịch mặc định",
+        "site": "Site",
+        "remote": "Từ xa",
+        "terminateOnShipToThisFacility": "Kết thúc khi ship tới cơ sở này"
+      },
+      "dialog": {
+        "createTitle": "Tạo Facility",
+        "editTitle": "Sửa Facility",
+        "cloneTitle": "Nhân bản Facility",
+        "step1": "Bước 1: Dữ liệu chung",
+        "step2": "Bước 2: Thông tin",
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "dataGroup": "Nhóm dữ liệu",
+        "displayOrder": "Thứ tự hiển thị",
+        "defaultCalendar": "Lịch mặc định",
+        "site": "Site",
+        "remote": "Remote",
+        "terminateOnShip": "Kết thúc khi gửi đến Facility này",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản",
+        "typeManufacturing": "Manufacturing",
+        "typeDistribution": "Distribution Center",
+        "typeWarehouse": "Warehouse"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Facility",
+        "message": "Kết thúc Facility \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Facility",
+        "unterminateMessage": "Hủy kết thúc Facility \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "manageShipping": {
+        "title": "Quản lý Facility nhận gửi",
+        "facilities": "Facilities",
+        "facilityDetails": "Chi tiết Facility",
+        "addFacility": "Thêm Facility",
+        "removeFacility": "Xóa Facility",
+        "facility": "Facility",
+        "description": "Mô tả",
+        "type": "Loại",
+        "isRemote": "Remote",
+        "cancel": "Hủy",
+        "update": "Cập nhật",
+        "manage": "Quản lý"
       }
     }
   }

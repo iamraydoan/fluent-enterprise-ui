@@ -146,7 +146,8 @@
     "terminated": "終了",
     "update": "更新",
     "yes": "はい",
-    "expandPanel": "パネルを展開する"
+    "expandPanel": "パネルを展開する",
+    "none": "なし"
   },
   "configuration": {
     "pageLabel": "構成",
@@ -1337,6 +1338,87 @@
       },
       "actions": {
         "setEffective": "有効化"
+      }
+    },
+    "facility": {
+      "pageLabel": "ファシリティ",
+      "listTitle": "ファシリティ ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "site": "サイト",
+        "state": "状態"
+      },
+      "sections": {
+        "details": "詳細",
+        "areas": "エリア",
+        "shippingInformation": "出荷情報",
+        "attachments": "添付ファイル",
+        "facility": "ファシリティ",
+        "information": "情報",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "displayOrder": "表示順",
+        "defaultCalendar": "既定のカレンダー",
+        "site": "サイト",
+        "remote": "リモート",
+        "terminateOnShipToThisFacility": "このファシリティへの出荷で終了"
+      },
+      "dialog": {
+        "createTitle": "Facilityの作成",
+        "editTitle": "Facilityの編集",
+        "cloneTitle": "Facilityの複製",
+        "step1": "ステップ1: 一般データ",
+        "step2": "ステップ2: 情報",
+        "name": "名前",
+        "description": "説明",
+        "type": "タイプ",
+        "dataGroup": "データグループ",
+        "displayOrder": "表示順",
+        "defaultCalendar": "デフォルトカレンダー",
+        "site": "サイト",
+        "remote": "リモート",
+        "terminateOnShip": "このFacilityへの出荷時に終了",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製",
+        "typeManufacturing": "製造",
+        "typeDistribution": "流通センター",
+        "typeWarehouse": "倉庫"
+      },
+      "terminateDialog": {
+        "title": "Facilityの終了",
+        "message": "Facility「{{name}}」を終了しますか?",
+        "unterminateTitle": "Facilityの終了取消",
+        "unterminateMessage": "Facility「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "manageShipping": {
+        "title": "出荷先Facilityの管理",
+        "facilities": "Facilities",
+        "facilityDetails": "Facility詳細",
+        "addFacility": "Facilityの追加",
+        "removeFacility": "Facilityの削除",
+        "facility": "Facility",
+        "description": "説明",
+        "type": "タイプ",
+        "isRemote": "リモート",
+        "cancel": "キャンセル",
+        "update": "更新",
+        "manage": "管理"
       }
     }
   }
