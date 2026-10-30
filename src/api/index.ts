@@ -249,8 +249,21 @@ export type {
   ChecklistRecord,
   ChecklistUpsertInput,
 } from "./businessData/checklist";
-export { useContainerDetail, useContainers } from "./businessData/container";
-export type { ContainerDetail, ContainerPosition, ContainerRecord } from "./businessData/container";
+export {
+  useContainerDetail,
+  useContainerOperation,
+  useContainers,
+  useCreateContainer,
+  useSetContainerState,
+  useUpdateContainer,
+} from "./businessData/container";
+export type {
+  ContainerDetail,
+  ContainerOperationType,
+  ContainerPosition,
+  ContainerRecord,
+  ContainerUpsertInput,
+} from "./businessData/container";
 export { useDataCollectionDetail, useDataCollections } from "./businessData/dataCollection";
 export type {
   DataCollectionDetail,
