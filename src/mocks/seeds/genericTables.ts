@@ -55,12 +55,53 @@ const SYSTEM_TABLES: Array<[string, string]> = [
 ];
 
 export function buildGenericTableSeeds(): GenericTableRecord[] {
-  return SYSTEM_TABLES.map(([name, description], index) => ({
+  const generic = SYSTEM_TABLES.map(([name, description], index) => ({
     name,
     description,
     isSystem: true,
     state: index % 9 === 8 ? RecordState.Terminated : RecordState.Active,
+    kind: "generic" as const,
   }));
+  const lookup: GenericTableRecord[] = [
+    {
+      name: "Country",
+      description: "List of countries for address information.",
+      isSystem: true,
+      state: RecordState.Active,
+      kind: "lookup",
+    },
+    {
+      name: "Currency",
+      description: "List of currencies.",
+      isSystem: true,
+      state: RecordState.Active,
+      kind: "lookup",
+    },
+    {
+      name: "Language",
+      description: "List of languages.",
+      isSystem: true,
+      state: RecordState.Active,
+      kind: "lookup",
+    },
+  ];
+  const smart: GenericTableRecord[] = [
+    {
+      name: "ChangeSetApprovalContext",
+      description: "Resolves the approval role/workflow for Change Sets by context.",
+      isSystem: true,
+      state: RecordState.Active,
+      kind: "smart",
+    },
+    {
+      name: "ResourceContext",
+      description: "Resolves resources by context.",
+      isSystem: true,
+      state: RecordState.Active,
+      kind: "smart",
+    },
+  ];
+  return [...generic, ...lookup, ...smart];
 }
 
 const CALENDAR_DAY_TYPE_COLUMNS: GenericTableColumnDef[] = [
@@ -151,6 +192,7 @@ export function buildGenericTableDetail(name: string): GenericTableDetail {
     description: `${name} Generic Table.`,
     isSystem: false,
     state: RecordState.Active,
+    kind: "generic" as const,
   };
   if (name === "CalendarDayType") {
     return {

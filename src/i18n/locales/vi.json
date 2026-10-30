@@ -518,5 +518,18 @@
       "empty": "Chưa có lịch sử",
       "emptyBody": "Lịch sử chưa có trong demo."
     }
+  },
+  "tables": {
+    "pageLabel": "Bảng",
+    "typesTitle": "Loại bảng",
+    "kinds": {
+      "generic": "Bảng chung",
+      "genericDesc": "Bảng mục đích chung",
+      "lookup": "Bảng tra cứu",
+      "lookupDesc": "Bảng tham chiếu",
+      "smart": "Bảng thông minh",
+      "smartDesc": "Bảng phân giải ngữ cảnh"
+    },
+    "gridTitle": "{{kind}} ({{count}})"
   }
 }

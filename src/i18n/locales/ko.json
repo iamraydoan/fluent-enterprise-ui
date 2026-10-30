@@ -518,5 +518,18 @@
       "empty": "기록이 없습니다",
       "emptyBody": "데모에서 사용할 수 없습니다."
     }
+  },
+  "tables": {
+    "pageLabel": "테이블",
+    "typesTitle": "테이블 유형",
+    "kinds": {
+      "generic": "일반 테이블",
+      "genericDesc": "범용 테이블",
+      "lookup": "조회 테이블",
+      "lookupDesc": "참조 테이블",
+      "smart": "스마트 테이블",
+      "smartDesc": "컨텍스트 확인 테이블"
+    },
+    "gridTitle": "{{kind}} ({{count}})"
   }
 }

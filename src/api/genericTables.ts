@@ -4,11 +4,14 @@ import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
 
+export type GenericTableKind = "generic" | "lookup" | "smart";
+
 export interface GenericTableRecord {
   name: string;
   description: string;
   isSystem: boolean;
   state: RecordState;
+  kind: GenericTableKind;
 }
 
 export type GenericTableColumnType = "string" | "boolean" | "number";
@@ -28,16 +31,19 @@ export interface GenericTableDetail extends GenericTableRecord {
   rows: Record<string, unknown>[];
 }
 
-export function listGenericTables(params: ListQueryParams): Promise<Page<GenericTableRecord>> {
+export function listGenericTables(
+  params: ListQueryParams & { kind?: GenericTableKind },
+): Promise<Page<GenericTableRecord>> {
   const search = new URLSearchParams();
   search.set("page", String(params.page));
   search.set("limit", String(params.limit));
   if (params.filters?.q) search.set("q", params.filters.q);
   if (params.filters?.state) search.set("state", params.filters.state);
+  if (params.kind) search.set("kind", params.kind);
   return apiFetch<Page<GenericTableRecord>>(`/generic-tables?${search.toString()}`);
 }
 
-export function useGenericTables(params: ListQueryParams) {
+export function useGenericTables(params: ListQueryParams & { kind?: GenericTableKind }) {
   return useQuery({
     queryKey: ["generic-tables", params],
     queryFn: () => listGenericTables(params),

@@ -518,5 +518,18 @@
       "empty": "No history yet",
       "emptyBody": "History is not available in the demo."
     }
+  },
+  "tables": {
+    "pageLabel": "Tables",
+    "typesTitle": "Table Types",
+    "kinds": {
+      "generic": "Generic Tables",
+      "genericDesc": "General purpose tables",
+      "lookup": "Lookup Tables",
+      "lookupDesc": "Reference tables",
+      "smart": "Smart Tables",
+      "smartDesc": "Context resolution tables"
+    },
+    "gridTitle": "{{kind}} ({{count}})"
   }
 }

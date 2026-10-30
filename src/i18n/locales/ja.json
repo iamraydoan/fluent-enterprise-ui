@@ -518,5 +518,18 @@
       "empty": "履歴がありません",
       "emptyBody": "デモでは利用できません。"
     }
+  },
+  "tables": {
+    "pageLabel": "テーブル",
+    "typesTitle": "テーブルタイプ",
+    "kinds": {
+      "generic": "汎用テーブル",
+      "genericDesc": "汎用テーブル",
+      "lookup": "ルックアップテーブル",
+      "lookupDesc": "参照テーブル",
+      "smart": "スマートテーブル",
+      "smartDesc": "コンテキスト解決テーブル"
+    },
+    "gridTitle": "{{kind}} ({{count}})"
   }
 }

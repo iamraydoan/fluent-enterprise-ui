@@ -9,8 +9,12 @@ export function queryGenericTables(
   limit: number,
   q?: string,
   state?: string,
+  kind?: string,
 ): Page<GenericTableRecord> {
   let rows = RECORDS;
+  if (kind !== undefined && kind !== "") {
+    rows = rows.filter((record) => record.kind === kind);
+  }
   if (q !== undefined && q !== "") {
     const needle = q.toLowerCase();
     rows = rows.filter(
@@ -35,12 +39,14 @@ export const genericTableHandlers = [
     const params = new URL(request.url).searchParams;
     const q = params.get("q");
     const state = params.get("state");
+    const kind = params.get("kind");
     return HttpResponse.json(
       queryGenericTables(
         Number(params.get("page") ?? 1),
         Number(params.get("limit") ?? 20),
         q === null || q === "" ? undefined : q,
         state === null || state === "" ? undefined : state,
+        kind === null || kind === "" ? undefined : kind,
       ),
     );
   }),

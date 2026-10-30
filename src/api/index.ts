@@ -50,5 +50,6 @@ export type {
   GenericTableColumnDef,
   GenericTableColumnType,
   GenericTableDetail,
+  GenericTableKind,
   GenericTableRecord,
 } from "./genericTables";
