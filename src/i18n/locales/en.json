@@ -1125,6 +1125,101 @@
         "type": "Type",
         "units": "Units"
       }
+    },
+    "flow": {
+      "pageLabel": "Flow",
+      "listTitle": "Flows ({{count}})",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "flowType": "Flow Type",
+        "state": "State"
+      },
+      "tabs": {
+        "flowStructure": "Flow Structure",
+        "contextStructure": "Context Structure",
+        "contextMatrix": "Context Matrix",
+        "compare": "Compare"
+      },
+      "sections": {
+        "details": "Details",
+        "logicalNames": "Logical Names",
+        "attachments": "Attachments",
+        "flow": "Flow",
+        "settings": "Settings",
+        "flowStructure": "Flow Structure",
+        "flowDetails": "Flow Details",
+        "empty": "No items",
+        "emptyBody": "There is nothing to show here yet."
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "flow": "Flow",
+        "flowType": "Flow Type",
+        "enabled": "Enabled"
+      },
+      "dialog": {
+        "createTitle": "Create Flow",
+        "editTitle": "Edit Flow",
+        "cloneTitle": "Clone Flow",
+        "step1": "Step 1: Change Set",
+        "step2": "Step 2: General Data",
+        "step3": "Step 3: Flow Items",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Use Automatic Change Set",
+        "approvalRole": "Approval Role",
+        "makeEffectiveOnApproval": "Make Effective on Approval",
+        "name": "Name",
+        "revision": "Revision",
+        "description": "Description",
+        "flowType": "Flow Type",
+        "flowKind": "Flow Kind",
+        "kindSequential": "Sequential",
+        "kindAlternate": "Alternate",
+        "kindNonSequential": "Non-Sequential Block",
+        "kindLine": "Line",
+        "isEnabled": "Enabled",
+        "flowItems": "Flow Items",
+        "flowItemsHint": "Add Steps or Flows to build the Flow structure.",
+        "addStep": "Add Step",
+        "addFlow": "Add Flow",
+        "remove": "Remove",
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "create": "Create",
+        "save": "Save",
+        "clone": "Clone"
+      },
+      "terminateDialog": {
+        "title": "Terminate Flow",
+        "message": "Terminate Flow \"{{name}}\"?",
+        "unterminateTitle": "Unterminate Flow",
+        "unterminateMessage": "Unterminate Flow \"{{name}}\"?",
+        "cancel": "Cancel",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "manageDialog": {
+        "logicalNamesTitle": "Manage Flow Logical Names",
+        "logicalName": "Logical Name",
+        "addLogicalName": "Add Logical Name",
+        "remove": "Remove",
+        "update": "Update",
+        "cancel": "Cancel",
+        "reworkPathsTitle": "View Rework Paths",
+        "filterByStep": "Filter by Step",
+        "close": "Close"
+      },
+      "actions": {
+        "manageLogicalNames": "Manage Logical Names",
+        "viewReworkPaths": "View Rework Paths"
+      }
     }
   }
 }

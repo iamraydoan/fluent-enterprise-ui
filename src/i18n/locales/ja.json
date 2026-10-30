@@ -1125,6 +1125,101 @@
         "type": "タイプ",
         "units": "単位"
       }
+    },
+    "flow": {
+      "pageLabel": "フロー",
+      "listTitle": "フロー ({{count}})",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "flowType": "フロータイプ",
+        "state": "状態"
+      },
+      "tabs": {
+        "flowStructure": "フロー構造",
+        "contextStructure": "コンテキスト構造",
+        "contextMatrix": "コンテキストマトリックス",
+        "compare": "比較"
+      },
+      "sections": {
+        "details": "詳細",
+        "logicalNames": "論理名",
+        "attachments": "添付ファイル",
+        "flow": "フロー",
+        "settings": "設定",
+        "flowStructure": "フロー構造",
+        "flowDetails": "フローの詳細",
+        "empty": "項目なし",
+        "emptyBody": "表示するものはまだありません。"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "type": "種類",
+        "state": "ユニバーサル状態",
+        "dataGroup": "データグループ",
+        "flow": "フロー",
+        "flowType": "フロータイプ",
+        "enabled": "有効"
+      },
+      "dialog": {
+        "createTitle": "Flowの作成",
+        "editTitle": "Flowの編集",
+        "cloneTitle": "Flowの複製",
+        "step1": "ステップ1: Change Set",
+        "step2": "ステップ2: 一般データ",
+        "step3": "ステップ3: Flow Items",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "自動Change Setを使用",
+        "approvalRole": "承認ロール",
+        "makeEffectiveOnApproval": "承認時に有効化",
+        "name": "名前",
+        "revision": "リビジョン",
+        "description": "説明",
+        "flowType": "Flowタイプ",
+        "flowKind": "Flow種別",
+        "kindSequential": "シーケンシャル",
+        "kindAlternate": "オルタネート",
+        "kindNonSequential": "非シーケンシャルブロック",
+        "kindLine": "ライン",
+        "isEnabled": "有効",
+        "flowItems": "Flow Items",
+        "flowItemsHint": "StepまたはFlowを追加してFlow構造を構築します。",
+        "addStep": "Stepの追加",
+        "addFlow": "Flowの追加",
+        "remove": "削除",
+        "back": "戻る",
+        "next": "次へ",
+        "cancel": "キャンセル",
+        "create": "作成",
+        "save": "保存",
+        "clone": "複製"
+      },
+      "terminateDialog": {
+        "title": "Flowの終了",
+        "message": "Flow「{{name}}」を終了しますか?",
+        "unterminateTitle": "Flowの終了取消",
+        "unterminateMessage": "Flow「{{name}}」の終了を取り消しますか?",
+        "cancel": "キャンセル",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "manageDialog": {
+        "logicalNamesTitle": "Flow論理名の管理",
+        "logicalName": "論理名",
+        "addLogicalName": "論理名の追加",
+        "remove": "削除",
+        "update": "更新",
+        "cancel": "キャンセル",
+        "reworkPathsTitle": "リワークパスの表示",
+        "filterByStep": "Stepでフィルター",
+        "close": "閉じる"
+      },
+      "actions": {
+        "manageLogicalNames": "論理名の管理",
+        "viewReworkPaths": "リワークパスの表示"
+      }
     }
   }
 }

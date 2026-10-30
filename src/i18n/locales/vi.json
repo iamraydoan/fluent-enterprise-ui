@@ -1125,6 +1125,101 @@
         "type": "Loại",
         "units": "Đơn vị"
       }
+    },
+    "flow": {
+      "pageLabel": "Luồng",
+      "listTitle": "Luồng ({{count}})",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "flowType": "Loại luồng",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "flowStructure": "Cấu trúc luồng",
+        "contextStructure": "Cấu trúc ngữ cảnh",
+        "contextMatrix": "Ma trận ngữ cảnh",
+        "compare": "So sánh"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "logicalNames": "Tên logic",
+        "attachments": "Tệp đính kèm",
+        "flow": "Luồng",
+        "settings": "Cài đặt",
+        "flowStructure": "Cấu trúc luồng",
+        "flowDetails": "Chi tiết luồng",
+        "empty": "Không có mục",
+        "emptyBody": "Chưa có gì để hiển thị."
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "type": "Loại",
+        "state": "Trạng thái chung",
+        "dataGroup": "Nhóm dữ liệu",
+        "flow": "Luồng",
+        "flowType": "Loại luồng",
+        "enabled": "Bật"
+      },
+      "dialog": {
+        "createTitle": "Tạo Flow",
+        "editTitle": "Sửa Flow",
+        "cloneTitle": "Nhân bản Flow",
+        "step1": "Bước 1: Change Set",
+        "step2": "Bước 2: Dữ liệu chung",
+        "step3": "Bước 3: Flow Items",
+        "changeSet": "Change Set",
+        "useAutomaticChangeSet": "Dùng Automatic Change Set",
+        "approvalRole": "Vai trò phê duyệt",
+        "makeEffectiveOnApproval": "Hiệu lực khi phê duyệt",
+        "name": "Tên",
+        "revision": "Revision",
+        "description": "Mô tả",
+        "flowType": "Loại Flow",
+        "flowKind": "Kiểu Flow",
+        "kindSequential": "Tuần tự",
+        "kindAlternate": "Luân phiên",
+        "kindNonSequential": "Khối không tuần tự",
+        "kindLine": "Dây chuyền",
+        "isEnabled": "Kích hoạt",
+        "flowItems": "Flow Items",
+        "flowItemsHint": "Thêm Steps hoặc Flows để xây dựng cấu trúc Flow.",
+        "addStep": "Thêm Step",
+        "addFlow": "Thêm Flow",
+        "remove": "Xóa",
+        "back": "Quay lại",
+        "next": "Tiếp",
+        "cancel": "Hủy",
+        "create": "Tạo",
+        "save": "Lưu",
+        "clone": "Nhân bản"
+      },
+      "terminateDialog": {
+        "title": "Kết thúc Flow",
+        "message": "Kết thúc Flow \"{{name}}\"?",
+        "unterminateTitle": "Hủy kết thúc Flow",
+        "unterminateMessage": "Hủy kết thúc Flow \"{{name}}\"?",
+        "cancel": "Hủy",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "manageDialog": {
+        "logicalNamesTitle": "Quản lý Logical Names",
+        "logicalName": "Logical Name",
+        "addLogicalName": "Thêm Logical Name",
+        "remove": "Xóa",
+        "update": "Cập nhật",
+        "cancel": "Hủy",
+        "reworkPathsTitle": "Xem Rework Paths",
+        "filterByStep": "Lọc theo Step",
+        "close": "Đóng"
+      },
+      "actions": {
+        "manageLogicalNames": "Quản lý Logical Names",
+        "viewReworkPaths": "Xem Rework Paths"
+      }
     }
   }
 }
