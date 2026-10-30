@@ -1047,6 +1047,73 @@
       "unterminate": {
         "menuLabel": "Hủy kết thúc"
       }
+    },
+    "substrateMap": {
+      "active": "Đang hoạt động",
+      "changeBinValues": {
+        "menuLabel": "Thay đổi giá trị bin"
+      },
+      "clone": {
+        "menuLabel": "Nhân bản"
+      },
+      "columns": {
+        "description": "Mô tả",
+        "name": "Tên",
+        "state": "Trạng thái",
+        "substrateType": "Loại đế"
+      },
+      "content": {
+        "empty": "Biểu diễn bản đồ trực quan sẽ hiện ở đây.",
+        "hint": "Biểu diễn trực quan nội dung bản đồ đế.",
+        "title": "Nội dung bản đồ đế"
+      },
+      "createOverlay": {
+        "menuLabel": "Tạo lớp phủ bản đồ đế"
+      },
+      "detail": {
+        "dataGroup": "Nhóm dữ liệu:",
+        "description": "Mô tả:",
+        "name": "Tên:",
+        "state": "Trạng thái chung:",
+        "substrateType": "Loại đế:"
+      },
+      "download": {
+        "menuLabel": "Tải xuống bản đồ đế"
+      },
+      "emptySection": "Không có dữ liệu cho mục này.",
+      "listTitle": "Bản đồ đế ({{count}})",
+      "manageOverlayInfo": "Quản lý thông tin lớp phủ bản đồ đế",
+      "notFound": "Không tìm thấy bản đồ đế.",
+      "pageLabel": "Bản đồ đế",
+      "search": {
+        "menuLabel": "Tìm kiếm bản đồ đế"
+      },
+      "sections": {
+        "attachments": "Tệp đính kèm",
+        "attributes": "Thuộc tính",
+        "details": "Chi tiết",
+        "overlayBinConverters": "Bộ chuyển đổi bin lớp phủ",
+        "overlayInformation": "Thông tin lớp phủ"
+      },
+      "tabs": {
+        "compare": "So sánh",
+        "content": "Nội dung",
+        "details": "Chi tiết",
+        "history": "Lịch sử",
+        "references": "Tham chiếu"
+      },
+      "terminate": {
+        "menuLabel": "Kết thúc"
+      },
+      "unterminate": {
+        "menuLabel": "Hủy kết thúc"
+      },
+      "viewGenealogy": {
+        "menuLabel": "Xem phả hệ thiết bị"
+      },
+      "viewHistory": {
+        "menuLabel": "Xem lịch sử mã bin thiết bị"
+      }
     }
   }
 }

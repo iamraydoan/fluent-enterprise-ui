@@ -1047,6 +1047,73 @@
       "unterminate": {
         "menuLabel": "終了取消"
       }
+    },
+    "substrateMap": {
+      "active": "アクティブ",
+      "changeBinValues": {
+        "menuLabel": "ビン値の変更"
+      },
+      "clone": {
+        "menuLabel": "複製"
+      },
+      "columns": {
+        "description": "説明",
+        "name": "名前",
+        "state": "状態",
+        "substrateType": "基板タイプ"
+      },
+      "content": {
+        "empty": "視覚的なマップ表示がここに表示されます。",
+        "hint": "基板マップ内容の視覚的表現。",
+        "title": "基板マップコンテンツ"
+      },
+      "createOverlay": {
+        "menuLabel": "基板マップオーバーレイの作成"
+      },
+      "detail": {
+        "dataGroup": "データグループ:",
+        "description": "説明:",
+        "name": "名前:",
+        "state": "ユニバーサル状態:",
+        "substrateType": "基板タイプ:"
+      },
+      "download": {
+        "menuLabel": "基板マップのダウンロード"
+      },
+      "emptySection": "このセクションにはデータがありません。",
+      "listTitle": "基板マップ ({{count}})",
+      "manageOverlayInfo": "基板マップオーバーレイ情報の管理",
+      "notFound": "基板マップが見つかりません。",
+      "pageLabel": "基板マップ",
+      "search": {
+        "menuLabel": "基板マップの検索"
+      },
+      "sections": {
+        "attachments": "添付ファイル",
+        "attributes": "属性",
+        "details": "詳細",
+        "overlayBinConverters": "オーバーレイビンコンバータ",
+        "overlayInformation": "オーバーレイ情報"
+      },
+      "tabs": {
+        "compare": "比較",
+        "content": "コンテンツ",
+        "details": "詳細",
+        "history": "履歴",
+        "references": "参照"
+      },
+      "terminate": {
+        "menuLabel": "終了"
+      },
+      "unterminate": {
+        "menuLabel": "終了取消"
+      },
+      "viewGenealogy": {
+        "menuLabel": "デバイス系譜の表示"
+      },
+      "viewHistory": {
+        "menuLabel": "デバイスビンコード履歴の表示"
+      }
     }
   }
 }

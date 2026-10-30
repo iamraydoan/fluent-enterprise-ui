@@ -129,3 +129,15 @@ export type {
 } from "./businessData/sortRuleSet";
 export { getStep, listSteps, useStepDetail, useSteps } from "./businessData/step";
 export type { StepDetail, StepListParams, StepRecord } from "./businessData/step";
+export {
+  getSubstrateMap,
+  listSubstrateMaps,
+  useSubstrateMapDetail,
+  useSubstrateMaps,
+} from "./businessData/substrateMap";
+export type {
+  SubstrateMapDetail,
+  SubstrateMapListParams,
+  SubstrateMapOverlay,
+  SubstrateMapRecord,
+} from "./businessData/substrateMap";

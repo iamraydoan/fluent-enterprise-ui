@@ -1047,6 +1047,73 @@
       "unterminate": {
         "menuLabel": "종료 취소"
       }
+    },
+    "substrateMap": {
+      "active": "활성",
+      "changeBinValues": {
+        "menuLabel": "빈 값 변경"
+      },
+      "clone": {
+        "menuLabel": "복제"
+      },
+      "columns": {
+        "description": "설명",
+        "name": "이름",
+        "state": "상태",
+        "substrateType": "기판 유형"
+      },
+      "content": {
+        "empty": "시각적 맵 표현이 여기에 표시됩니다.",
+        "hint": "기판 맵 내용의 시각적 표현.",
+        "title": "기판 맵 콘텐츠"
+      },
+      "createOverlay": {
+        "menuLabel": "기판 맵 오버레이 생성"
+      },
+      "detail": {
+        "dataGroup": "데이터 그룹:",
+        "description": "설명:",
+        "name": "이름:",
+        "state": "범용 상태:",
+        "substrateType": "기판 유형:"
+      },
+      "download": {
+        "menuLabel": "기판 맵 다운로드"
+      },
+      "emptySection": "이 섹션에 데이터가 없습니다.",
+      "listTitle": "기판 맵 ({{count}})",
+      "manageOverlayInfo": "기판 맵 오버레이 정보 관리",
+      "notFound": "기판 맵을 찾을 수 없습니다.",
+      "pageLabel": "기판 맵",
+      "search": {
+        "menuLabel": "기판 맵 검색"
+      },
+      "sections": {
+        "attachments": "첨부 파일",
+        "attributes": "특성",
+        "details": "세부 정보",
+        "overlayBinConverters": "오버레이 빈 변환기",
+        "overlayInformation": "오버레이 정보"
+      },
+      "tabs": {
+        "compare": "비교",
+        "content": "콘텐츠",
+        "details": "세부 정보",
+        "history": "기록",
+        "references": "참조"
+      },
+      "terminate": {
+        "menuLabel": "종료"
+      },
+      "unterminate": {
+        "menuLabel": "종료 취소"
+      },
+      "viewGenealogy": {
+        "menuLabel": "장치 계보 보기"
+      },
+      "viewHistory": {
+        "menuLabel": "장치 빈 코드 기록 보기"
+      }
     }
   }
 }

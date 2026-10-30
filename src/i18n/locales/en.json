@@ -1047,6 +1047,73 @@
       "unterminate": {
         "menuLabel": "Unterminate"
       }
+    },
+    "substrateMap": {
+      "active": "Active",
+      "changeBinValues": {
+        "menuLabel": "Change Bin Values"
+      },
+      "clone": {
+        "menuLabel": "Clone"
+      },
+      "columns": {
+        "description": "Description",
+        "name": "Name",
+        "state": "State",
+        "substrateType": "Substrate Type"
+      },
+      "content": {
+        "empty": "Visual map representation will appear here.",
+        "hint": "Visual representation of the Substrate Map contents.",
+        "title": "Substrate Map Content"
+      },
+      "createOverlay": {
+        "menuLabel": "Create Substrate Map Overlay"
+      },
+      "detail": {
+        "dataGroup": "Data Group:",
+        "description": "Description:",
+        "name": "Name:",
+        "state": "Universal State:",
+        "substrateType": "Substrate Type:"
+      },
+      "download": {
+        "menuLabel": "Download Substrate Map"
+      },
+      "emptySection": "No data available for this section.",
+      "listTitle": "Substrate Maps ({{count}})",
+      "manageOverlayInfo": "Manage Substrate Map Overlay Information",
+      "notFound": "Substrate Map not found.",
+      "pageLabel": "Substrate Map",
+      "search": {
+        "menuLabel": "Search Substrate Map"
+      },
+      "sections": {
+        "attachments": "Attachments",
+        "attributes": "Attributes",
+        "details": "Details",
+        "overlayBinConverters": "Overlay Bin Converters",
+        "overlayInformation": "Overlay Information"
+      },
+      "tabs": {
+        "compare": "Compare",
+        "content": "Content",
+        "details": "Details",
+        "history": "History",
+        "references": "References"
+      },
+      "terminate": {
+        "menuLabel": "Terminate"
+      },
+      "unterminate": {
+        "menuLabel": "Unterminate"
+      },
+      "viewGenealogy": {
+        "menuLabel": "View Device Genealogy"
+      },
+      "viewHistory": {
+        "menuLabel": "View Device Bin Code History"
+      }
     }
   }
 }
