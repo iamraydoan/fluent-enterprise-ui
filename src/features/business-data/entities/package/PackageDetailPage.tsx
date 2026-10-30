@@ -51,32 +51,30 @@ export function PackageDetailPage({ name }: { name: string }) {
 
   const isTerminated = detail.state === "Terminated";
 
+  const terminateItem: DetailMoreMenuItem = isTerminated
+    ? {
+        key: "unterminate",
+        labelKey: "businessData.package.operations.unterminate.title",
+        onClick: () => setUnterminateOpen(true),
+      }
+    : {
+        key: "terminate",
+        labelKey: "businessData.package.operations.terminate.title",
+        onClick: () => setTerminateOpen(true),
+      };
+
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "ship",
-      labelKey: "businessData.package.operations.ship.title" as TranslationKey,
+      labelKey: "businessData.package.operations.ship.title",
       onClick: () => setShipOpen(true),
     },
     {
       key: "report",
-      labelKey: "businessData.package.operations.report.title" as TranslationKey,
+      labelKey: "businessData.package.operations.report.title",
       onClick: () => setReportOpen(true),
     },
-    ...(isTerminated
-      ? [
-          {
-            key: "unterminate",
-            labelKey: "businessData.package.operations.unterminate.title" as TranslationKey,
-            onClick: () => setUnterminateOpen(true),
-          },
-        ]
-      : [
-          {
-            key: "terminate",
-            labelKey: "businessData.package.operations.terminate.title" as TranslationKey,
-            onClick: () => setTerminateOpen(true),
-          },
-        ]),
+    terminateItem,
   ];
 
   return (
@@ -108,10 +106,7 @@ export function PackageDetailPage({ name }: { name: string }) {
                   [t("businessData.package.detail.fields.product"), detail.product],
                   [t("businessData.package.detail.fields.level"), detail.level],
                   [t("businessData.package.detail.fields.state"), detail.state],
-                  [
-                    t("businessData.package.detail.fields.packedQuantity"),
-                    detail.packedQuantity,
-                  ],
+                  [t("businessData.package.detail.fields.packedQuantity"), detail.packedQuantity],
                   [t("businessData.package.detail.fields.contentType"), detail.contentType],
                 ]}
               />
@@ -149,10 +144,7 @@ export function PackageDetailPage({ name }: { name: string }) {
       </DetailShell>
 
       <TerminatePackageDialog open={terminateOpen} onClose={() => setTerminateOpen(false)} />
-      <UnterminatePackageDialog
-        open={unterminateOpen}
-        onClose={() => setUnterminateOpen(false)}
-      />
+      <UnterminatePackageDialog open={unterminateOpen} onClose={() => setUnterminateOpen(false)} />
       <ShipPackagesDialog open={shipOpen} onClose={() => setShipOpen(false)} />
       <PackageReportDialog open={reportOpen} onClose={() => setReportOpen(false)} />
     </>

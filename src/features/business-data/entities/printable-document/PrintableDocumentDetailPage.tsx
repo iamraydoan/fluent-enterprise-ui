@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { usePrintableDocumentDetail } from "@/api";
-import type { DetailMoreMenuItem } from "@/components/common";
+import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
 import { DetailShell, KV } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
@@ -48,10 +48,10 @@ export function PrintableDocumentDetailPage({ name }: { name: string }) {
 
   const isTerminated = detail.state === "Terminated";
 
-  const topTabs = [
-    { value: "details", labelKey: "businessData.printableDocument.tabs.details" as TranslationKey },
-    { value: "references", labelKey: "businessData.printableDocument.tabs.references" as TranslationKey },
-    { value: "history", labelKey: "businessData.printableDocument.tabs.history" as TranslationKey },
+  const topTabs: DetailTab[] = [
+    { value: "details", labelKey: "businessData.printableDocument.tabs.details" },
+    { value: "references", labelKey: "businessData.printableDocument.tabs.references" },
+    { value: "history", labelKey: "businessData.printableDocument.tabs.history" },
   ];
 
   const leftItems: TranslationKey[] = [
@@ -62,86 +62,84 @@ export function PrintableDocumentDetailPage({ name }: { name: string }) {
     "businessData.printableDocument.left.attachments",
   ];
 
+  const terminateItem: DetailMoreMenuItem = isTerminated
+    ? {
+        key: "unterminate",
+        labelKey: "businessData.printableDocument.operations.unterminate.title",
+        onClick: () => setUnterminateOpen(true),
+      }
+    : {
+        key: "terminate",
+        labelKey: "businessData.printableDocument.operations.terminate.title",
+        onClick: () => setTerminateOpen(true),
+      };
+
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "print",
-      labelKey: "businessData.printableDocument.operations.print.title" as TranslationKey,
+      labelKey: "businessData.printableDocument.operations.print.title",
       onClick: () => setPrintOpen(true),
     },
     {
       key: "layout",
-      labelKey: "businessData.printableDocument.operations.layoutCreation.title" as TranslationKey,
+      labelKey: "businessData.printableDocument.operations.layoutCreation.title",
       onClick: () => setLayoutOpen(true),
     },
     {
       key: "lotTraveler",
-      labelKey: "businessData.printableDocument.operations.lotTraveler.title" as TranslationKey,
+      labelKey: "businessData.printableDocument.operations.lotTraveler.title",
       onClick: () => setLotTravelerOpen(true),
     },
     {
       key: "printers",
-      labelKey: "businessData.printableDocument.operations.printers.title" as TranslationKey,
+      labelKey: "businessData.printableDocument.operations.printers.title",
       onClick: () => setPrintersOpen(true),
     },
     {
       key: "clone",
-      labelKey: "businessData.printableDocument.operations.clone.title" as TranslationKey,
+      labelKey: "businessData.printableDocument.operations.clone.title",
       onClick: () => setCloneOpen(true),
     },
-    ...(isTerminated
-      ? [
-          {
-            key: "unterminate",
-            labelKey: "businessData.printableDocument.operations.unterminate.title" as TranslationKey,
-            onClick: () => setUnterminateOpen(true),
-          },
-        ]
-      : [
-          {
-            key: "terminate",
-            labelKey: "businessData.printableDocument.operations.terminate.title" as TranslationKey,
-            onClick: () => setTerminateOpen(true),
-          },
-        ]),
+    terminateItem,
   ];
 
   return (
     <>
-    <DetailShell
-      title={detail.name}
-      icon={<Box24Regular />}
-      topTabs={topTabs}
-      top={top}
-      onTop={setTop}
-      leftItems={leftItems}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onAskAi={() => undefined}
-      showState={false}
-      moreMenuItems={moreMenuItems}
-    >
-      <div className={styles.cards}>
-        <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-          <Text weight="semibold" size={400} className={styles.sectionTitle}>
-            {t("businessData.printableDocument.detail.generalData")}
-          </Text>
-          <KV
-            rows={[
-              [t("businessData.printableDocument.detail.fields.name"), detail.name],
-              [t("businessData.printableDocument.detail.fields.description"), detail.description],
-              [t("businessData.printableDocument.detail.fields.documentType"), detail.documentType],
-              [t("businessData.printableDocument.detail.fields.state"), detail.state],
-              [t("businessData.printableDocument.detail.fields.version"), detail.version],
-            ]}
-          />
+      <DetailShell
+        title={detail.name}
+        icon={<Box24Regular />}
+        topTabs={topTabs}
+        top={top}
+        onTop={setTop}
+        leftItems={leftItems}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onAskAi={() => undefined}
+        showState={false}
+        moreMenuItems={moreMenuItems}
+      >
+        <div className={styles.cards}>
+          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+            <Text weight="semibold" size={400} className={styles.sectionTitle}>
+              {t("businessData.printableDocument.detail.generalData")}
+            </Text>
+            <KV
+              rows={[
+                [t("businessData.printableDocument.detail.fields.name"), detail.name],
+                [t("businessData.printableDocument.detail.fields.description"), detail.description],
+                [
+                  t("businessData.printableDocument.detail.fields.documentType"),
+                  detail.documentType,
+                ],
+                [t("businessData.printableDocument.detail.fields.state"), detail.state],
+                [t("businessData.printableDocument.detail.fields.version"), detail.version],
+              ]}
+            />
+          </div>
         </div>
-      </div>
-    </DetailShell>
-      <CreatePrintableDocumentDialog
-        open={createOpen}
-        onClose={() => setCreateOpen(false)}
-      />
+      </DetailShell>
+      <CreatePrintableDocumentDialog open={createOpen} onClose={() => setCreateOpen(false)} />
       <EditPrintableDocumentDialog
         open={editOpen}
         onClose={() => setEditOpen(false)}

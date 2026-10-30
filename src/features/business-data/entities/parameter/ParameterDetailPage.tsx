@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParameterDetail } from "@/api";
-import type { DetailMoreMenuItem } from "@/components/common";
+import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
 import { DetailShell, KV } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
@@ -40,10 +40,10 @@ export function ParameterDetailPage({ name }: { name: string }) {
 
   const isTerminated = detail.state === "Terminated";
 
-  const topTabs = [
-    { value: "details", labelKey: "businessData.parameter.tabs.details" as TranslationKey },
-    { value: "references", labelKey: "businessData.parameter.tabs.references" as TranslationKey },
-    { value: "history", labelKey: "businessData.parameter.tabs.history" as TranslationKey },
+  const topTabs: DetailTab[] = [
+    { value: "details", labelKey: "businessData.parameter.tabs.details" },
+    { value: "references", labelKey: "businessData.parameter.tabs.references" },
+    { value: "history", labelKey: "businessData.parameter.tabs.history" },
   ];
 
   const leftItems: TranslationKey[] = [
@@ -52,62 +52,60 @@ export function ParameterDetailPage({ name }: { name: string }) {
     "businessData.parameter.left.attachments",
   ];
 
+  const terminateItem: DetailMoreMenuItem = isTerminated
+    ? {
+        key: "unterminate",
+        labelKey: "businessData.parameter.operations.unterminate.title",
+        onClick: () => setUnterminateOpen(true),
+      }
+    : {
+        key: "terminate",
+        labelKey: "businessData.parameter.operations.terminate.title",
+        onClick: () => setTerminateOpen(true),
+      };
+
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "clone",
-      labelKey: "businessData.parameter.operations.clone.title" as TranslationKey,
+      labelKey: "businessData.parameter.operations.clone.title",
       onClick: () => setCloneOpen(true),
     },
-    ...(isTerminated
-      ? [
-          {
-            key: "unterminate",
-            labelKey: "businessData.parameter.operations.unterminate.title" as TranslationKey,
-            onClick: () => setUnterminateOpen(true),
-          },
-        ]
-      : [
-          {
-            key: "terminate",
-            labelKey: "businessData.parameter.operations.terminate.title" as TranslationKey,
-            onClick: () => setTerminateOpen(true),
-          },
-        ]),
+    terminateItem,
   ];
 
   return (
     <>
-    <DetailShell
-      title={detail.name}
-      icon={<Box24Regular />}
-      topTabs={topTabs}
-      top={top}
-      onTop={setTop}
-      leftItems={leftItems}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onAskAi={() => undefined}
-      showState={false}
-      moreMenuItems={moreMenuItems}
-    >
-      <div className={styles.cards}>
-        <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-          <Text weight="semibold" size={400} className={styles.sectionTitle}>
-            {t("businessData.parameter.detail.generalData")}
-          </Text>
-          <KV
-            rows={[
-              [t("businessData.parameter.detail.fields.name"), detail.name],
-              [t("businessData.parameter.detail.fields.description"), detail.description],
-              [t("businessData.parameter.detail.fields.dataType"), detail.dataType],
-              [t("businessData.parameter.detail.fields.value"), detail.value],
-              [t("businessData.parameter.detail.fields.state"), detail.state],
-            ]}
-          />
+      <DetailShell
+        title={detail.name}
+        icon={<Box24Regular />}
+        topTabs={topTabs}
+        top={top}
+        onTop={setTop}
+        leftItems={leftItems}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onAskAi={() => undefined}
+        showState={false}
+        moreMenuItems={moreMenuItems}
+      >
+        <div className={styles.cards}>
+          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+            <Text weight="semibold" size={400} className={styles.sectionTitle}>
+              {t("businessData.parameter.detail.generalData")}
+            </Text>
+            <KV
+              rows={[
+                [t("businessData.parameter.detail.fields.name"), detail.name],
+                [t("businessData.parameter.detail.fields.description"), detail.description],
+                [t("businessData.parameter.detail.fields.dataType"), detail.dataType],
+                [t("businessData.parameter.detail.fields.value"), detail.value],
+                [t("businessData.parameter.detail.fields.state"), detail.state],
+              ]}
+            />
+          </div>
         </div>
-      </div>
-    </DetailShell>
+      </DetailShell>
 
       <CreateParameterDialog open={createOpen} onClose={() => setCreateOpen(false)} />
       <EditParameterDialog
@@ -116,10 +114,7 @@ export function ParameterDetailPage({ name }: { name: string }) {
         initialName={detail.name}
       />
       <CloneParameterDialog open={cloneOpen} onClose={() => setCloneOpen(false)} />
-      <TerminateParameterDialog
-        open={terminateOpen}
-        onClose={() => setTerminateOpen(false)}
-      />
+      <TerminateParameterDialog open={terminateOpen} onClose={() => setTerminateOpen(false)} />
       <UnterminateParameterDialog
         open={unterminateOpen}
         onClose={() => setUnterminateOpen(false)}

@@ -52,17 +52,17 @@ export function NotificationDetailPage({ name }: { name: string }) {
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "clear",
-      labelKey: "businessData.notification.operations.clear.title" as TranslationKey,
+      labelKey: "businessData.notification.operations.clear.title",
       onClick: () => setClearOpen(true),
     },
     {
       key: "clone",
-      labelKey: "businessData.notification.operations.clone.title" as TranslationKey,
+      labelKey: "businessData.notification.operations.clone.title",
       onClick: () => setCloneOpen(true),
     },
     {
       key: "terminate",
-      labelKey: "businessData.notification.operations.terminate.title" as TranslationKey,
+      labelKey: "businessData.notification.operations.terminate.title",
       onClick: () => setTerminateOpen(true),
     },
   ];
@@ -92,10 +92,7 @@ export function NotificationDetailPage({ name }: { name: string }) {
               <KV
                 rows={[
                   [t("businessData.notification.detail.fields.name"), detail.name],
-                  [
-                    t("businessData.notification.detail.fields.description"),
-                    detail.description,
-                  ],
+                  [t("businessData.notification.detail.fields.description"), detail.description],
                   [t("businessData.notification.detail.fields.severity"), detail.severity],
                   [t("businessData.notification.detail.fields.type"), detail.type],
                   [t("businessData.notification.detail.fields.state"), detail.state],
@@ -135,10 +132,7 @@ export function NotificationDetailPage({ name }: { name: string }) {
         initialName={detail.name}
       />
       <CloneNotificationDialog open={cloneOpen} onClose={() => setCloneOpen(false)} />
-      <TerminateNotificationDialog
-        open={terminateOpen}
-        onClose={() => setTerminateOpen(false)}
-      />
+      <TerminateNotificationDialog open={terminateOpen} onClose={() => setTerminateOpen(false)} />
       <ClearNotificationDialog open={clearOpen} onClose={() => setClearOpen(false)} />
     </>
   );

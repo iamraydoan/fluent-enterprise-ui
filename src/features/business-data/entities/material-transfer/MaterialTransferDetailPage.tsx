@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMaterialTransferDetail } from "@/api";
-import type { DetailMoreMenuItem } from "@/components/common";
+import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
 import { DetailShell, KV } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
@@ -79,10 +79,10 @@ export function MaterialTransferDetailPage({ name }: { name: string }) {
     return <Text>{t("businessData.materialTransfer.pageLabel")}</Text>;
   }
 
-  const topTabs = [
-    { value: "details", labelKey: "businessData.materialTransfer.tabs.details" as TranslationKey },
-    { value: "references", labelKey: "businessData.materialTransfer.tabs.references" as TranslationKey },
-    { value: "history", labelKey: "businessData.materialTransfer.tabs.history" as TranslationKey },
+  const topTabs: DetailTab[] = [
+    { value: "details", labelKey: "businessData.materialTransfer.tabs.details" },
+    { value: "references", labelKey: "businessData.materialTransfer.tabs.references" },
+    { value: "history", labelKey: "businessData.materialTransfer.tabs.history" },
   ];
 
   const leftItems: TranslationKey[] = [
@@ -94,62 +94,62 @@ export function MaterialTransferDetailPage({ name }: { name: string }) {
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "request",
-      labelKey: "businessData.materialTransfer.operations.request.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.request.title",
       onClick: () => setRequestOpen(true),
     },
     {
       key: "approve",
-      labelKey: "businessData.materialTransfer.operations.approve.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.approve.title",
       onClick: () => setApproveOpen(true),
     },
     {
       key: "reject",
-      labelKey: "businessData.materialTransfer.operations.reject.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.reject.title",
       onClick: () => setRejectOpen(true),
     },
     {
       key: "cancel",
-      labelKey: "businessData.materialTransfer.operations.cancel.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.cancel.title",
       onClick: () => setCancelOpen(true),
     },
     {
       key: "prepare",
-      labelKey: "businessData.materialTransfer.operations.prepare.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.prepare.title",
       onClick: () => setPrepareOpen(true),
     },
     {
       key: "send",
-      labelKey: "businessData.materialTransfer.operations.send.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.send.title",
       onClick: () => setSendOpen(true),
     },
     {
       key: "receive",
-      labelKey: "businessData.materialTransfer.operations.receive.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.receive.title",
       onClick: () => setReceiveOpen(true),
     },
     {
       key: "deliver",
-      labelKey: "businessData.materialTransfer.operations.deliver.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.deliver.title",
       onClick: () => setDeliverOpen(true),
     },
     {
       key: "refuse",
-      labelKey: "businessData.materialTransfer.operations.refuse.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.refuse.title",
       onClick: () => setRefuseOpen(true),
     },
     {
       key: "changeInfo",
-      labelKey: "businessData.materialTransfer.operations.changeInfo.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.changeInfo.title",
       onClick: () => setChangeInfoOpen(true),
     },
     {
       key: "returnMaterial",
-      labelKey: "businessData.materialTransfer.operations.returnMaterial.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.returnMaterial.title",
       onClick: () => setReturnMaterialOpen(true),
     },
     {
       key: "returnInventory",
-      labelKey: "businessData.materialTransfer.operations.returnInventory.title" as TranslationKey,
+      labelKey: "businessData.materialTransfer.operations.returnInventory.title",
       onClick: () => setReturnInventoryOpen(true),
     },
   ];
@@ -157,43 +157,43 @@ export function MaterialTransferDetailPage({ name }: { name: string }) {
   const f = "businessData.materialTransfer.detail.fields" as const;
   return (
     <>
-    <DetailShell
-      title={detail.name}
-      icon={<Box24Regular />}
-      topTabs={topTabs}
-      top={top}
-      onTop={setTop}
-      leftItems={leftItems}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => undefined}
-      onAskAi={() => undefined}
-      showState={false}
-      moreMenuItems={moreMenuItems}
-    >
-      <div className={styles.cards}>
-        <Card
-          titleKey="businessData.materialTransfer.detail.generalData"
-          rows={[
-            [t(`${f}.name`), detail.name],
-            [t(`${f}.type`), detail.type],
-            [t(`${f}.state`), detail.state],
-            [t(`${f}.material`), detail.material],
-            [t(`${f}.quantity`), detail.quantity],
-          ]}
-        />
-        <Card
-          titleKey="businessData.materialTransfer.detail.generalData"
-          rows={[
-            [t(`${f}.fromFacility`), detail.fromFacility],
-            [t(`${f}.toFacility`), detail.toFacility],
-            [t(`${f}.requester`), detail.requester],
-            [t(`${f}.urgency`), detail.urgency],
-            [t(`${f}.quantity`), detail.quantity],
-          ]}
-        />
-      </div>
-    </DetailShell>
+      <DetailShell
+        title={detail.name}
+        icon={<Box24Regular />}
+        topTabs={topTabs}
+        top={top}
+        onTop={setTop}
+        leftItems={leftItems}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => undefined}
+        onAskAi={() => undefined}
+        showState={false}
+        moreMenuItems={moreMenuItems}
+      >
+        <div className={styles.cards}>
+          <Card
+            titleKey="businessData.materialTransfer.detail.generalData"
+            rows={[
+              [t(`${f}.name`), detail.name],
+              [t(`${f}.type`), detail.type],
+              [t(`${f}.state`), detail.state],
+              [t(`${f}.material`), detail.material],
+              [t(`${f}.quantity`), detail.quantity],
+            ]}
+          />
+          <Card
+            titleKey="businessData.materialTransfer.detail.generalData"
+            rows={[
+              [t(`${f}.fromFacility`), detail.fromFacility],
+              [t(`${f}.toFacility`), detail.toFacility],
+              [t(`${f}.requester`), detail.requester],
+              [t(`${f}.urgency`), detail.urgency],
+              [t(`${f}.quantity`), detail.quantity],
+            ]}
+          />
+        </div>
+      </DetailShell>
       <ApproveMaterialTransferDialog open={approveOpen} onClose={() => setApproveOpen(false)} />
       <CancelMaterialTransferDialog open={cancelOpen} onClose={() => setCancelOpen(false)} />
       <ChangeMaterialTransferInfoDialog
@@ -206,10 +206,7 @@ export function MaterialTransferDetailPage({ name }: { name: string }) {
       <RefuseMaterialTransferDialog open={refuseOpen} onClose={() => setRefuseOpen(false)} />
       <RejectMaterialTransferDialog open={rejectOpen} onClose={() => setRejectOpen(false)} />
       <RequestMaterialTransferDialog open={requestOpen} onClose={() => setRequestOpen(false)} />
-      <RequestForMAODialog
-        open={requestForMAOOpen}
-        onClose={() => setRequestForMAOOpen(false)}
-      />
+      <RequestForMAODialog open={requestForMAOOpen} onClose={() => setRequestForMAOOpen(false)} />
       <RequestForCostCenterDialog
         open={requestForCostCenterOpen}
         onClose={() => setRequestForCostCenterOpen(false)}

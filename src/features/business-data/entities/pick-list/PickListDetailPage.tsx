@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { usePickListDetail } from "@/api";
-import type { DetailMoreMenuItem } from "@/components/common";
+import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
 import { DetailShell, KV } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
@@ -40,10 +40,10 @@ export function PickListDetailPage({ name }: { name: string }) {
     return <Text>{t("businessData.pickList.pageLabel")}</Text>;
   }
 
-  const topTabs = [
-    { value: "details", labelKey: "businessData.pickList.tabs.details" as TranslationKey },
-    { value: "references", labelKey: "businessData.pickList.tabs.references" as TranslationKey },
-    { value: "history", labelKey: "businessData.pickList.tabs.history" as TranslationKey },
+  const topTabs: DetailTab[] = [
+    { value: "details", labelKey: "businessData.pickList.tabs.details" },
+    { value: "references", labelKey: "businessData.pickList.tabs.references" },
+    { value: "history", labelKey: "businessData.pickList.tabs.history" },
   ];
 
   const leftItems: TranslationKey[] = [
@@ -55,83 +55,77 @@ export function PickListDetailPage({ name }: { name: string }) {
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "manageItems",
-      labelKey: "businessData.pickList.operations.manageItems.title" as TranslationKey,
+      labelKey: "businessData.pickList.operations.manageItems.title",
       onClick: () => setManageItemsOpen(true),
     },
     {
       key: "pick",
-      labelKey: "businessData.pickList.operations.pick.title" as TranslationKey,
+      labelKey: "businessData.pickList.operations.pick.title",
       onClick: () => setPickOpen(true),
     },
     {
       key: "takeOwnership",
-      labelKey: "businessData.pickList.operations.takeOwnership.title" as TranslationKey,
+      labelKey: "businessData.pickList.operations.takeOwnership.title",
       onClick: () => setTakeOwnershipOpen(true),
     },
     {
       key: "unpick",
-      labelKey: "businessData.pickList.operations.unpick.title" as TranslationKey,
+      labelKey: "businessData.pickList.operations.unpick.title",
       onClick: () => setUnpickOpen(true),
     },
     {
       key: "viewReport",
-      labelKey: "businessData.pickList.operations.viewReport.title" as TranslationKey,
+      labelKey: "businessData.pickList.operations.viewReport.title",
       onClick: () => setViewReportOpen(true),
     },
   ];
 
   return (
     <>
-    <DetailShell
-      title={detail.name}
-      icon={<Box24Regular />}
-      topTabs={topTabs}
-      top={top}
-      onTop={setTop}
-      leftItems={leftItems}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onAskAi={() => undefined}
-      showState={false}
-      moreMenuItems={moreMenuItems}
-    >
-      <div className={styles.cards}>
-        <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-          <Text weight="semibold" size={400} className={styles.sectionTitle}>
-            {t("businessData.pickList.detail.generalData")}
-          </Text>
-          <KV
-            rows={[
-              [t("businessData.pickList.detail.fields.name"), detail.name],
-              [t("businessData.pickList.detail.fields.description"), detail.description],
-              [t("businessData.pickList.detail.fields.state"), detail.state],
-              [t("businessData.pickList.detail.fields.itemCount"), detail.itemCount],
-              [t("businessData.pickList.detail.fields.createdOn"), detail.createdOn],
-            ]}
-          />
+      <DetailShell
+        title={detail.name}
+        icon={<Box24Regular />}
+        topTabs={topTabs}
+        top={top}
+        onTop={setTop}
+        leftItems={leftItems}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onAskAi={() => undefined}
+        showState={false}
+        moreMenuItems={moreMenuItems}
+      >
+        <div className={styles.cards}>
+          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+            <Text weight="semibold" size={400} className={styles.sectionTitle}>
+              {t("businessData.pickList.detail.generalData")}
+            </Text>
+            <KV
+              rows={[
+                [t("businessData.pickList.detail.fields.name"), detail.name],
+                [t("businessData.pickList.detail.fields.description"), detail.description],
+                [t("businessData.pickList.detail.fields.state"), detail.state],
+                [t("businessData.pickList.detail.fields.itemCount"), detail.itemCount],
+                [t("businessData.pickList.detail.fields.createdOn"), detail.createdOn],
+              ]}
+            />
+          </div>
         </div>
-      </div>
-    </DetailShell>
+      </DetailShell>
       <EditPickListDialog
         open={editOpen}
         onClose={() => setEditOpen(false)}
         initialName={detail.name}
       />
-      <ManagePickListItemsDialog
-        open={manageItemsOpen}
-        onClose={() => setManageItemsOpen(false)}
-      />
+      <ManagePickListItemsDialog open={manageItemsOpen} onClose={() => setManageItemsOpen(false)} />
       <PickPickListDialog open={pickOpen} onClose={() => setPickOpen(false)} />
       <TakePickListOwnershipDialog
         open={takeOwnershipOpen}
         onClose={() => setTakeOwnershipOpen(false)}
       />
       <UnpickPickListItemsDialog open={unpickOpen} onClose={() => setUnpickOpen(false)} />
-      <PickListReportDialog
-        open={viewReportOpen}
-        onClose={() => setViewReportOpen(false)}
-      />
+      <PickListReportDialog open={viewReportOpen} onClose={() => setViewReportOpen(false)} />
     </>
   );
 }

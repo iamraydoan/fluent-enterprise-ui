@@ -55,35 +55,30 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
 
   const isTerminated = detail.state === "Terminated";
 
+  const terminateItem: DetailMoreMenuItem = isTerminated
+    ? {
+        key: "unterminate",
+        labelKey: "businessData.productGroup.operations.unterminate.title",
+        onClick: () => setUnterminateOpen(true),
+      }
+    : {
+        key: "terminate",
+        labelKey: "businessData.productGroup.operations.terminate.title",
+        onClick: () => setTerminateOpen(true),
+      };
+
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "clone",
-      labelKey: "businessData.productGroup.operations.clone.title" as TranslationKey,
+      labelKey: "businessData.productGroup.operations.clone.title",
       onClick: () => setCloneOpen(true),
     },
     {
       key: "manageParameters",
-      labelKey:
-        "businessData.productGroup.operations.manageParameters.title" as TranslationKey,
+      labelKey: "businessData.productGroup.operations.manageParameters.title",
       onClick: () => setManageParamsOpen(true),
     },
-    ...(isTerminated
-      ? [
-          {
-            key: "unterminate",
-            labelKey:
-              "businessData.productGroup.operations.unterminate.title" as TranslationKey,
-            onClick: () => setUnterminateOpen(true),
-          },
-        ]
-      : [
-          {
-            key: "terminate",
-            labelKey:
-              "businessData.productGroup.operations.terminate.title" as TranslationKey,
-            onClick: () => setTerminateOpen(true),
-          },
-        ]),
+    terminateItem,
   ];
 
   return (
@@ -111,15 +106,9 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
               <KV
                 rows={[
                   [t("businessData.productGroup.detail.fields.name"), detail.name],
-                  [
-                    t("businessData.productGroup.detail.fields.description"),
-                    detail.description,
-                  ],
+                  [t("businessData.productGroup.detail.fields.description"), detail.description],
                   [t("businessData.productGroup.detail.fields.state"), detail.state],
-                  [
-                    t("businessData.productGroup.detail.fields.productCount"),
-                    detail.productCount,
-                  ],
+                  [t("businessData.productGroup.detail.fields.productCount"), detail.productCount],
                 ]}
               />
             </div>
@@ -194,10 +183,7 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
         initialName={detail.name}
       />
       <CloneProductGroupDialog open={cloneOpen} onClose={() => setCloneOpen(false)} />
-      <TerminateProductGroupDialog
-        open={terminateOpen}
-        onClose={() => setTerminateOpen(false)}
-      />
+      <TerminateProductGroupDialog open={terminateOpen} onClose={() => setTerminateOpen(false)} />
       <UnterminateProductGroupDialog
         open={unterminateOpen}
         onClose={() => setUnterminateOpen(false)}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useProductionOrderDetail } from "@/api";
-import type { DetailMoreMenuItem } from "@/components/common";
+import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
 import { DetailShell, KV } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
@@ -68,10 +68,10 @@ export function ProductionOrderDetailPage({ name }: { name: string }) {
 
   const isTerminated = detail.state === "Terminated";
 
-  const topTabs = [
-    { value: "details", labelKey: "businessData.productionOrder.tabs.details" as TranslationKey },
-    { value: "references", labelKey: "businessData.productionOrder.tabs.references" as TranslationKey },
-    { value: "history", labelKey: "businessData.productionOrder.tabs.history" as TranslationKey },
+  const topTabs: DetailTab[] = [
+    { value: "details", labelKey: "businessData.productionOrder.tabs.details" },
+    { value: "references", labelKey: "businessData.productionOrder.tabs.references" },
+    { value: "history", labelKey: "businessData.productionOrder.tabs.history" },
   ];
 
   const leftItems: TranslationKey[] = [
@@ -81,103 +81,101 @@ export function ProductionOrderDetailPage({ name }: { name: string }) {
     "businessData.productionOrder.left.attachments",
   ];
 
+  const terminateItem: DetailMoreMenuItem = isTerminated
+    ? {
+        key: "unterminate",
+        labelKey: "businessData.productionOrder.operations.unterminate.title",
+        onClick: () => setUnterminateOpen(true),
+      }
+    : {
+        key: "terminate",
+        labelKey: "businessData.productionOrder.operations.terminate.title",
+        onClick: () => setTerminateOpen(true),
+      };
+
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "release",
-      labelKey: "businessData.productionOrder.operations.release.title" as TranslationKey,
+      labelKey: "businessData.productionOrder.operations.release.title",
       onClick: () => setReleaseOpen(true),
     },
     {
       key: "start",
-      labelKey: "businessData.productionOrder.operations.start.title" as TranslationKey,
+      labelKey: "businessData.productionOrder.operations.start.title",
       onClick: () => setStartOpen(true),
     },
     {
       key: "close",
-      labelKey: "businessData.productionOrder.operations.close.title" as TranslationKey,
+      labelKey: "businessData.productionOrder.operations.close.title",
       onClick: () => setCloseOpen(true),
     },
     {
       key: "reopen",
-      labelKey: "businessData.productionOrder.operations.reopen.title" as TranslationKey,
+      labelKey: "businessData.productionOrder.operations.reopen.title",
       onClick: () => setReopenOpen(true),
     },
     {
       key: "cancel",
-      labelKey: "businessData.productionOrder.operations.cancel.title" as TranslationKey,
+      labelKey: "businessData.productionOrder.operations.cancel.title",
       onClick: () => setCancelOpen(true),
     },
     {
       key: "assignMaterials",
-      labelKey: "businessData.productionOrder.operations.assignMaterials.title" as TranslationKey,
+      labelKey: "businessData.productionOrder.operations.assignMaterials.title",
       onClick: () => setAssignOpen(true),
     },
     {
       key: "createMaterial",
-      labelKey: "businessData.productionOrder.operations.createMaterial.title" as TranslationKey,
+      labelKey: "businessData.productionOrder.operations.createMaterial.title",
       onClick: () => setCreateMaterialOpen(true),
     },
     {
       key: "manageSteps",
-      labelKey: "businessData.productionOrder.operations.manageSteps.title" as TranslationKey,
+      labelKey: "businessData.productionOrder.operations.manageSteps.title",
       onClick: () => setManageStepsOpen(true),
     },
     {
       key: "clone",
-      labelKey: "businessData.productionOrder.operations.clone.title" as TranslationKey,
+      labelKey: "businessData.productionOrder.operations.clone.title",
       onClick: () => setCloneOpen(true),
     },
-    ...(isTerminated
-      ? [
-          {
-            key: "unterminate",
-            labelKey: "businessData.productionOrder.operations.unterminate.title" as TranslationKey,
-            onClick: () => setUnterminateOpen(true),
-          },
-        ]
-      : [
-          {
-            key: "terminate",
-            labelKey: "businessData.productionOrder.operations.terminate.title" as TranslationKey,
-            onClick: () => setTerminateOpen(true),
-          },
-        ]),
+    terminateItem,
   ];
 
   return (
     <>
-    <DetailShell
-      title={detail.name}
-      icon={<Box24Regular />}
-      topTabs={topTabs}
-      top={top}
-      onTop={setTop}
-      leftItems={leftItems}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onAskAi={() => undefined}
-      showState={false}
-      moreMenuItems={moreMenuItems}
-    >
-      <div className={styles.cards}>
-        <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-          <Text weight="semibold" size={400} className={styles.sectionTitle}>
-            {t("businessData.productionOrder.detail.generalData")}
-          </Text>
-          <KV
-            rows={[
-              [t("businessData.productionOrder.detail.fields.name"), detail.name],
-              [t("businessData.productionOrder.detail.fields.description"), detail.description],
-              [t("businessData.productionOrder.detail.fields.product"), detail.product],
-              [t("businessData.productionOrder.detail.fields.quantity"), detail.quantity],
-              [t("businessData.productionOrder.detail.fields.state"), detail.state],
-              [t("businessData.productionOrder.detail.fields.priority"), detail.priority],
-            ]}
-          />
+      <DetailShell
+        title={detail.name}
+        icon={<Box24Regular />}
+        topTabs={topTabs}
+        top={top}
+        onTop={setTop}
+        leftItems={leftItems}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onAskAi={() => undefined}
+        showState={false}
+        moreMenuItems={moreMenuItems}
+      >
+        <div className={styles.cards}>
+          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+            <Text weight="semibold" size={400} className={styles.sectionTitle}>
+              {t("businessData.productionOrder.detail.generalData")}
+            </Text>
+            <KV
+              rows={[
+                [t("businessData.productionOrder.detail.fields.name"), detail.name],
+                [t("businessData.productionOrder.detail.fields.description"), detail.description],
+                [t("businessData.productionOrder.detail.fields.product"), detail.product],
+                [t("businessData.productionOrder.detail.fields.quantity"), detail.quantity],
+                [t("businessData.productionOrder.detail.fields.state"), detail.state],
+                [t("businessData.productionOrder.detail.fields.priority"), detail.priority],
+              ]}
+            />
+          </div>
         </div>
-      </div>
-    </DetailShell>
+      </DetailShell>
       <CreateProductionOrderDialog open={createOpen} onClose={() => setCreateOpen(false)} />
       <EditProductionOrderDialog
         open={editOpen}

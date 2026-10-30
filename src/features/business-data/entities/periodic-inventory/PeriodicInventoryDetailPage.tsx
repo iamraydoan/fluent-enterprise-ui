@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { usePeriodicInventoryDetail } from "@/api";
-import type { DetailMoreMenuItem } from "@/components/common";
+import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
 import { DetailShell, KV } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
@@ -50,10 +50,10 @@ export function PeriodicInventoryDetailPage({ name }: { name: string }) {
 
   const isTerminated = detail.state === "Terminated";
 
-  const topTabs = [
-    { value: "details", labelKey: "businessData.periodicInventory.tabs.details" as TranslationKey },
-    { value: "references", labelKey: "businessData.periodicInventory.tabs.references" as TranslationKey },
-    { value: "history", labelKey: "businessData.periodicInventory.tabs.history" as TranslationKey },
+  const topTabs: DetailTab[] = [
+    { value: "details", labelKey: "businessData.periodicInventory.tabs.details" },
+    { value: "references", labelKey: "businessData.periodicInventory.tabs.references" },
+    { value: "history", labelKey: "businessData.periodicInventory.tabs.history" },
   ];
 
   const leftItems: TranslationKey[] = [
@@ -63,92 +63,90 @@ export function PeriodicInventoryDetailPage({ name }: { name: string }) {
     "businessData.periodicInventory.left.attachments",
   ];
 
+  const terminateItem: DetailMoreMenuItem = isTerminated
+    ? {
+        key: "unterminate",
+        labelKey: "businessData.periodicInventory.operations.unterminate.title",
+        onClick: () => setUnterminateOpen(true),
+      }
+    : {
+        key: "terminate",
+        labelKey: "businessData.periodicInventory.operations.terminate.title",
+        onClick: () => setTerminateOpen(true),
+      };
+
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "begin",
-      labelKey: "businessData.periodicInventory.operations.begin.title" as TranslationKey,
+      labelKey: "businessData.periodicInventory.operations.begin.title",
       onClick: () => setBeginOpen(true),
     },
     {
       key: "perform",
-      labelKey: "businessData.periodicInventory.operations.perform.title" as TranslationKey,
+      labelKey: "businessData.periodicInventory.operations.perform.title",
       onClick: () => setPerformOpen(true),
     },
     {
       key: "complete",
-      labelKey: "businessData.periodicInventory.operations.complete.title" as TranslationKey,
+      labelKey: "businessData.periodicInventory.operations.complete.title",
       onClick: () => setCompleteOpen(true),
     },
     {
       key: "cancel",
-      labelKey: "businessData.periodicInventory.operations.cancel.title" as TranslationKey,
+      labelKey: "businessData.periodicInventory.operations.cancel.title",
       onClick: () => setCancelOpen(true),
     },
     {
       key: "takeOwnership",
-      labelKey: "businessData.periodicInventory.operations.takeOwnership.title" as TranslationKey,
+      labelKey: "businessData.periodicInventory.operations.takeOwnership.title",
       onClick: () => setTakeOwnershipOpen(true),
     },
     {
       key: "viewReport",
-      labelKey: "businessData.periodicInventory.operations.viewReport.title" as TranslationKey,
+      labelKey: "businessData.periodicInventory.operations.viewReport.title",
       onClick: () => setViewReportOpen(true),
     },
     {
       key: "clone",
-      labelKey: "businessData.periodicInventory.operations.clone.title" as TranslationKey,
+      labelKey: "businessData.periodicInventory.operations.clone.title",
       onClick: () => setCloneOpen(true),
     },
-    ...(isTerminated
-      ? [
-          {
-            key: "unterminate",
-            labelKey: "businessData.periodicInventory.operations.unterminate.title" as TranslationKey,
-            onClick: () => setUnterminateOpen(true),
-          },
-        ]
-      : [
-          {
-            key: "terminate",
-            labelKey: "businessData.periodicInventory.operations.terminate.title" as TranslationKey,
-            onClick: () => setTerminateOpen(true),
-          },
-        ]),
+    terminateItem,
   ];
 
   return (
     <>
-    <DetailShell
-      title={detail.name}
-      icon={<Box24Regular />}
-      topTabs={topTabs}
-      top={top}
-      onTop={setTop}
-      leftItems={leftItems}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onAskAi={() => undefined}
-      showState={false}
-      moreMenuItems={moreMenuItems}
-    >
-      <div className={styles.cards}>
-        <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-          <Text weight="semibold" size={400} className={styles.sectionTitle}>
-            {t("businessData.periodicInventory.detail.generalData")}
-          </Text>
-          <KV
-            rows={[
-              [t("businessData.periodicInventory.detail.fields.name"), detail.name],
-              [t("businessData.periodicInventory.detail.fields.description"), detail.description],
-              [t("businessData.periodicInventory.detail.fields.facility"), detail.facility],
-              [t("businessData.periodicInventory.detail.fields.state"), detail.state],
-              [t("businessData.periodicInventory.detail.fields.scheduledOn"), detail.scheduledOn],
-            ]}
-          />
+      <DetailShell
+        title={detail.name}
+        icon={<Box24Regular />}
+        topTabs={topTabs}
+        top={top}
+        onTop={setTop}
+        leftItems={leftItems}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onAskAi={() => undefined}
+        showState={false}
+        moreMenuItems={moreMenuItems}
+      >
+        <div className={styles.cards}>
+          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+            <Text weight="semibold" size={400} className={styles.sectionTitle}>
+              {t("businessData.periodicInventory.detail.generalData")}
+            </Text>
+            <KV
+              rows={[
+                [t("businessData.periodicInventory.detail.fields.name"), detail.name],
+                [t("businessData.periodicInventory.detail.fields.description"), detail.description],
+                [t("businessData.periodicInventory.detail.fields.facility"), detail.facility],
+                [t("businessData.periodicInventory.detail.fields.state"), detail.state],
+                [t("businessData.periodicInventory.detail.fields.scheduledOn"), detail.scheduledOn],
+              ]}
+            />
+          </div>
         </div>
-      </div>
-    </DetailShell>
+      </DetailShell>
 
       <EditPeriodicInventoryDialog
         open={editOpen}
@@ -166,14 +164,8 @@ export function PeriodicInventoryDetailPage({ name }: { name: string }) {
       />
       <BeginPeriodicInventoryDialog open={beginOpen} onClose={() => setBeginOpen(false)} />
       <CancelPeriodicInventoryDialog open={cancelOpen} onClose={() => setCancelOpen(false)} />
-      <CompletePeriodicInventoryDialog
-        open={completeOpen}
-        onClose={() => setCompleteOpen(false)}
-      />
-      <PerformPeriodicInventoryDialog
-        open={performOpen}
-        onClose={() => setPerformOpen(false)}
-      />
+      <CompletePeriodicInventoryDialog open={completeOpen} onClose={() => setCompleteOpen(false)} />
+      <PerformPeriodicInventoryDialog open={performOpen} onClose={() => setPerformOpen(false)} />
       <TakeOwnershipPeriodicInventoryDialog
         open={takeOwnershipOpen}
         onClose={() => setTakeOwnershipOpen(false)}

@@ -119,162 +119,163 @@ export function MaterialDetailPage({ name }: { name: string }) {
 
   const isTerminated = detail.state === "Terminated";
 
+  const terminateItem: DetailMoreMenuItem = isTerminated
+    ? {
+        key: "unterminate",
+        labelKey: "businessData.material.operations.unterminate.title",
+        onClick: () => setUnterminateOpen(true),
+      }
+    : {
+        key: "terminate",
+        labelKey: "businessData.material.operations.terminate.title",
+        onClick: () => setTerminateOpen(true),
+      };
+
   const moreMenuItems: DetailMoreMenuItem[] = [
     {
       key: "dispatch",
-      labelKey: "businessData.material.operations.dispatch.title" as TranslationKey,
+      labelKey: "businessData.material.operations.dispatch.title",
       onClick: () => setDispatchOpen(true),
     },
     {
       key: "trackIn",
-      labelKey: "businessData.material.operations.trackIn.title" as TranslationKey,
+      labelKey: "businessData.material.operations.trackIn.title",
       onClick: () => setTrackInOpen(true),
     },
     {
       key: "trackOut",
-      labelKey: "businessData.material.operations.trackOut.title" as TranslationKey,
+      labelKey: "businessData.material.operations.trackOut.title",
       onClick: () => setTrackOutOpen(true),
     },
     {
       key: "moveNext",
-      labelKey: "businessData.material.operations.moveNext.title" as TranslationKey,
+      labelKey: "businessData.material.operations.moveNext.title",
       onClick: () => setMoveNextOpen(true),
     },
     {
       key: "ship",
-      labelKey: "businessData.material.operations.ship.title" as TranslationKey,
+      labelKey: "businessData.material.operations.ship.title",
       onClick: () => setShipOpen(true),
     },
     {
       key: "receive",
-      labelKey: "businessData.material.operations.receive.title" as TranslationKey,
+      labelKey: "businessData.material.operations.receive.title",
       onClick: () => setReceiveOpen(true),
     },
     {
       key: "hold",
-      labelKey: "businessData.material.operations.hold.title" as TranslationKey,
+      labelKey: "businessData.material.operations.hold.title",
       onClick: () => setHoldOpen(true),
     },
     {
       key: "split",
-      labelKey: "businessData.material.operations.split.title" as TranslationKey,
+      labelKey: "businessData.material.operations.split.title",
       onClick: () => setSplitOpen(true),
     },
     {
       key: "merge",
-      labelKey: "businessData.material.operations.merge.title" as TranslationKey,
+      labelKey: "businessData.material.operations.merge.title",
       onClick: () => setMergeOpen(true),
     },
     {
       key: "attach",
-      labelKey: "businessData.material.operations.attach.title" as TranslationKey,
+      labelKey: "businessData.material.operations.attach.title",
       onClick: () => setAttachOpen(true),
     },
     {
       key: "grade",
-      labelKey: "businessData.material.operations.grade.title" as TranslationKey,
+      labelKey: "businessData.material.operations.grade.title",
       onClick: () => setGradeOpen(true),
     },
     {
       key: "viewReports",
-      labelKey: "businessData.material.operations.viewReports.title" as TranslationKey,
+      labelKey: "businessData.material.operations.viewReports.title",
       onClick: () => setViewReportsOpen(true),
     },
     {
       key: "clone",
-      labelKey: "businessData.material.operations.clone.title" as TranslationKey,
+      labelKey: "businessData.material.operations.clone.title",
       onClick: () => setCloneOpen(true),
     },
-    ...(isTerminated
-      ? [
-          {
-            key: "unterminate",
-            labelKey: "businessData.material.operations.unterminate.title" as TranslationKey,
-            onClick: () => setUnterminateOpen(true),
-          },
-        ]
-      : [
-          {
-            key: "terminate",
-            labelKey: "businessData.material.operations.terminate.title" as TranslationKey,
-            onClick: () => setTerminateOpen(true),
-          },
-        ]),
+    terminateItem,
   ];
 
   return (
     <>
-    <DetailShell
-      title={detail.name}
-      icon={<Box24Regular />}
-      topTabs={TOP_TABS}
-      top={top}
-      onTop={setTop}
-      leftItems={LEFT_SECTIONS}
-      left={left}
-      onLeft={setLeft}
-      onEdit={() => setEditOpen(true)}
-      onAskAi={() => undefined}
-      showState={false}
-      moreMenuItems={moreMenuItems}
-    >
-      {top === "details" && (
-        <div className={styles.cards}>
-          <Card
-            titleKey="businessData.material.sections.material"
-            rows={[
-              [t("businessData.material.fields.name"), detail.name],
-              [t("businessData.material.fields.description"), detail.description],
-              [t("businessData.material.fields.type"), detail.type],
-              [t("businessData.material.fields.universalState"), detail.universalState],
-              [t("businessData.material.fields.systemState"), detail.systemState],
-            ]}
-          />
-          <Card
-            titleKey="businessData.material.sections.basicInformation"
-            rows={[
-              [t("businessData.material.fields.form"), detail.form],
-              [t("businessData.material.fields.facility"), detail.facility],
-              [t("businessData.material.fields.product"), detail.product],
-              [t("businessData.material.fields.productDescription"), detail.productDescription],
-            ]}
-          />
-          <Card
-            titleKey="businessData.material.sections.flowAndStep"
-            rows={[
-              [t("businessData.material.fields.flow"), detail.flow],
-              [t("businessData.material.fields.step"), detail.step],
-              [t("businessData.material.fields.flowPath"), detail.flowPath],
-            ]}
-          />
-          <Card
-            titleKey="businessData.material.sections.quantities"
-            rows={[
-              [t("businessData.material.fields.primaryQuantity"), detail.primaryQuantity],
-              [t("businessData.material.fields.secondaryQuantity"), detail.secondaryQuantity],
-            ]}
-          />
-          <Card
-            titleKey="businessData.material.sections.subMaterials"
-            rows={[
-              [t("businessData.material.fields.subMaterialCount"), String(detail.subMaterialCount)],
-            ]}
-          />
-          <Card
-            titleKey="businessData.material.sections.resourceAndContainer"
-            rows={[
-              [t("businessData.material.fields.resource"), ""],
-              [t("businessData.material.fields.container"), ""],
-            ]}
-          />
-        </div>
-      )}
-      {top !== "details" && (
-        <div className={styles.cards}>
-          <Text>{t("businessData.material.emptyTab")}</Text>
-        </div>
-      )}
-    </DetailShell>
+      <DetailShell
+        title={detail.name}
+        icon={<Box24Regular />}
+        topTabs={TOP_TABS}
+        top={top}
+        onTop={setTop}
+        leftItems={LEFT_SECTIONS}
+        left={left}
+        onLeft={setLeft}
+        onEdit={() => setEditOpen(true)}
+        onAskAi={() => undefined}
+        showState={false}
+        moreMenuItems={moreMenuItems}
+      >
+        {top === "details" && (
+          <div className={styles.cards}>
+            <Card
+              titleKey="businessData.material.sections.material"
+              rows={[
+                [t("businessData.material.fields.name"), detail.name],
+                [t("businessData.material.fields.description"), detail.description],
+                [t("businessData.material.fields.type"), detail.type],
+                [t("businessData.material.fields.universalState"), detail.universalState],
+                [t("businessData.material.fields.systemState"), detail.systemState],
+              ]}
+            />
+            <Card
+              titleKey="businessData.material.sections.basicInformation"
+              rows={[
+                [t("businessData.material.fields.form"), detail.form],
+                [t("businessData.material.fields.facility"), detail.facility],
+                [t("businessData.material.fields.product"), detail.product],
+                [t("businessData.material.fields.productDescription"), detail.productDescription],
+              ]}
+            />
+            <Card
+              titleKey="businessData.material.sections.flowAndStep"
+              rows={[
+                [t("businessData.material.fields.flow"), detail.flow],
+                [t("businessData.material.fields.step"), detail.step],
+                [t("businessData.material.fields.flowPath"), detail.flowPath],
+              ]}
+            />
+            <Card
+              titleKey="businessData.material.sections.quantities"
+              rows={[
+                [t("businessData.material.fields.primaryQuantity"), detail.primaryQuantity],
+                [t("businessData.material.fields.secondaryQuantity"), detail.secondaryQuantity],
+              ]}
+            />
+            <Card
+              titleKey="businessData.material.sections.subMaterials"
+              rows={[
+                [
+                  t("businessData.material.fields.subMaterialCount"),
+                  String(detail.subMaterialCount),
+                ],
+              ]}
+            />
+            <Card
+              titleKey="businessData.material.sections.resourceAndContainer"
+              rows={[
+                [t("businessData.material.fields.resource"), ""],
+                [t("businessData.material.fields.container"), ""],
+              ]}
+            />
+          </div>
+        )}
+        {top !== "details" && (
+          <div className={styles.cards}>
+            <Text>{t("businessData.material.emptyTab")}</Text>
+          </div>
+        )}
+      </DetailShell>
       <CreateMaterialDialog open={createOpen} onClose={() => setCreateOpen(false)} />
       <EditMaterialDialog
         open={editOpen}
@@ -283,10 +284,7 @@ export function MaterialDetailPage({ name }: { name: string }) {
       />
       <CloneMaterialDialog open={cloneOpen} onClose={() => setCloneOpen(false)} />
       <TerminateMaterialDialog open={terminateOpen} onClose={() => setTerminateOpen(false)} />
-      <UnterminateMaterialDialog
-        open={unterminateOpen}
-        onClose={() => setUnterminateOpen(false)}
-      />
+      <UnterminateMaterialDialog open={unterminateOpen} onClose={() => setUnterminateOpen(false)} />
       <DispatchMaterialDialog open={dispatchOpen} onClose={() => setDispatchOpen(false)} />
       <UndispatchMaterialDialog open={undispatchOpen} onClose={() => setUndispatchOpen(false)} />
       <TrackInMaterialDialog open={trackInOpen} onClose={() => setTrackInOpen(false)} />
@@ -313,10 +311,7 @@ export function MaterialDetailPage({ name }: { name: string }) {
         open={changeFlowStepOpen}
         onClose={() => setChangeFlowStepOpen(false)}
       />
-      <ViewMaterialReportsDialog
-        open={viewReportsOpen}
-        onClose={() => setViewReportsOpen(false)}
-      />
+      <ViewMaterialReportsDialog open={viewReportsOpen} onClose={() => setViewReportsOpen(false)} />
       <ViewMaterialDocumentsDialog
         open={viewDocumentsOpen}
         onClose={() => setViewDocumentsOpen(false)}
