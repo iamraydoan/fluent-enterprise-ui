@@ -16,6 +16,8 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
 import { useBooleanLabel } from "../propertyLabels";
+import { DocumentWizardDialog } from "./DocumentWizardDialog";
+import { MODE_CLONE, MODE_EDIT } from "./wizardMode";
 
 const tk = (key: string) => key as TranslationKey;
 
@@ -38,11 +40,14 @@ const LEFT_ITEMS: TranslationKey[] = [
 export function DocumentDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
   const [top, setTop] = useState("details");
+  const [editOpen, setEditOpen] = useState(false);
+  const [cloneOpen, setCloneOpen] = useState(false);
   const [left, setLeft] = useState<string>(tk("businessData.document.sections.details"));
   const { data, isLoading } = useDocumentDetail(name);
   const booleanLabel = useBooleanLabel();
 
   const shell = (content: React.ReactNode) => (
+    <>
     <DetailShell
       title={name}
       icon={<DocumentBulletList24Regular />}
@@ -52,11 +57,31 @@ export function DocumentDetailPage({ name }: { name: string }) {
       leftItems={LEFT_ITEMS}
       left={left}
       onLeft={setLeft}
-      onEdit={() => undefined}
+      onEdit={() => setEditOpen(true)}
+      onClone={() => setCloneOpen(true)}
       onAskAi={() => undefined}
     >
       {content}
     </DetailShell>
+    {editOpen && data && (
+      <DocumentWizardDialog
+        mode={MODE_EDIT}
+        initialName={data.name}
+        initialDescription={data.description}
+        initialType={data.type}
+        onClose={() => setEditOpen(false)}
+      />
+    )}
+    {cloneOpen && data && (
+      <DocumentWizardDialog
+        mode={MODE_CLONE}
+        initialName={`${data.name} (Copy)`}
+        initialDescription={data.description}
+        initialType={data.type}
+        onClose={() => setCloneOpen(false)}
+      />
+    )}
+    </>
   );
 
   if (isLoading || !data) {

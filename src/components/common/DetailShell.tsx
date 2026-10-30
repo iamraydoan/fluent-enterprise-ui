@@ -2,6 +2,8 @@ import { useState } from "react";
 import type { ReactElement, ReactNode } from "react";
 import {
   ArrowSync24Regular,
+  Delete20Regular,
+  DocumentBulletList24Regular,
   Edit24Regular,
   MoreVertical24Regular,
   PanelLeftContract20Regular,
@@ -23,6 +25,8 @@ import { useSharedStyles, cardSurface } from "@/styles/shared";
 import { ActionBar } from "./ActionBar";
 import { PageHeader } from "./PageHeader";
 import { RibbonButton } from "./RibbonButton";
+
+const tk = (key: string) => key as TranslationKey;
 
 const useDetailShellStyles = makeStyles({
   tabsRow: {
@@ -235,6 +239,9 @@ interface DetailShellProps {
   onLeft: (value: string) => void;
   onEdit: () => void;
   onAskAi: () => void;
+  onClone?: () => void;
+  onTerminate?: () => void;
+  onUnterminate?: () => void;
   showState?: boolean;
   children: ReactNode;
 }
@@ -250,6 +257,9 @@ export function DetailShell({
   onLeft,
   onEdit,
   onAskAi,
+  onClone,
+  onTerminate,
+  onUnterminate,
   showState = true,
   children,
 }: DetailShellProps) {
@@ -287,6 +297,33 @@ export function DetailShell({
                     label={t("actionBar.edit")}
                   />
                 </span>
+                {onClone && (
+                  <span onClick={onClone}>
+                    <RibbonButton
+                      sharedStyles={sharedStyles}
+                      icon={<DocumentBulletList24Regular />}
+                      label={t(tk("actionBar.clone"))}
+                    />
+                  </span>
+                )}
+                {onTerminate && (
+                  <span onClick={onTerminate}>
+                    <RibbonButton
+                      sharedStyles={sharedStyles}
+                      icon={<Delete20Regular />}
+                      label={t(tk("actionBar.terminate"))}
+                    />
+                  </span>
+                )}
+                {onUnterminate && (
+                  <span onClick={onUnterminate}>
+                    <RibbonButton
+                      sharedStyles={sharedStyles}
+                      icon={<ArrowSync24Regular />}
+                      label={t(tk("actionBar.unterminate"))}
+                    />
+                  </span>
+                )}
               </div>
               <div className={sharedStyles.actionBarGroupLabel}>
                 {t("actionBar.groups.general")}
