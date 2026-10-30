@@ -124,3 +124,13 @@ export type {
   ExperimentDefinitionDetail,
   ExperimentDefinitionRecord,
 } from "./businessData/experimentDefinition";
+export {
+  getFacility,
+  listFacilities,
+  useFacilities,
+  useFacilityDetail,
+} from "./businessData/facility";
+export type {
+  FacilityDetail,
+  FacilityRecord,
+} from "./businessData/facility";
