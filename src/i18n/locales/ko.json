@@ -2086,6 +2086,116 @@
           "message": "Are you sure you want to perform '{{operation}}' on Send-Ahead Run '{{name}}'?"
         }
       }
+    },
+    "service": {
+      "pageLabel": "Service",
+      "listTitle": "Services",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "enabled": "Enabled",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "contexts": "Contexts",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "resources": "Resources",
+        "compatibleServices": "Compatible Services",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "service": "Service"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "processingType": "Processing Type",
+        "enabled": "Enabled",
+        "state": "Universal State",
+        "dataGroup": "Data Group"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "disable": "Disable Service",
+        "enable": "Enable Service",
+        "manageCompatible": "Manage Compatible Services",
+        "manageResources": "Manage Service Resources"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Service",
+          "editTitle": "Edit Service",
+          "step1": "General Data",
+          "step2": "Manage Service Resources",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "dataGroup": "Data Group",
+          "processingType": "Processing Type",
+          "enabled": "Enabled",
+          "comments": "Comments",
+          "step2Body": "Add one entry in the left side panel for each of the Resources that will provide the Service. Each entry should be configured on the right side panel by selecting the Resource and by setting the Service as enabled or disabled in that specific Resource."
+        },
+        "clone": {
+          "title": "Clone Service",
+          "message": "Clone the Service '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Service",
+          "message": "Are you sure you want to terminate the Service '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Service",
+          "message": "Are you sure you want to unterminate the Service '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "disable": {
+          "title": "Disable Service",
+          "message": "Are you sure you want to disable the Service '{{name}}'?",
+          "confirm": "Disable"
+        },
+        "enable": {
+          "title": "Enable Service",
+          "message": "Are you sure you want to enable the Service '{{name}}'?",
+          "confirm": "Enable"
+        },
+        "compatible": {
+          "title": "Manage Compatible Services",
+          "canBeFulfilledBy": "Can be Fulfilled by",
+          "canFulfill": "Can Fulfill",
+          "services": "Services ({{count}})",
+          "newService": "New Service",
+          "detailsTitle": "Service Details",
+          "service": "Service",
+          "description": "Description",
+          "update": "Update"
+        },
+        "resources": {
+          "title": "Manage Service Resources",
+          "resources": "Resources ({{count}})",
+          "newResource": "New Resource",
+          "detailsTitle": "Resource Details",
+          "resource": "Resource",
+          "enabledInResource": "Enabled in Resource",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "update": "Update"
+        }
+      }
     }
   }
 }

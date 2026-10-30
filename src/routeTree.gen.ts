@@ -34,6 +34,7 @@ import { Route as BusinessDataSamplingPlanRouteImport } from './routes/business-
 import { Route as BusinessDataScheduleRouteImport } from './routes/business-data.schedule'
 import { Route as BusinessDataScheduleScenarioRouteImport } from './routes/business-data.schedule-scenario'
 import { Route as BusinessDataSendAheadRunRouteImport } from './routes/business-data.send-ahead-run'
+import { Route as BusinessDataServiceRouteImport } from './routes/business-data.service'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -51,6 +52,7 @@ import { Route as BusinessDataSamplingPlanNameRouteImport } from './routes/busin
 import { Route as BusinessDataScheduleScenarioNameRouteImport } from './routes/business-data.schedule-scenario.$name'
 import { Route as BusinessDataScheduleNameRouteImport } from './routes/business-data.schedule.$name'
 import { Route as BusinessDataSendAheadRunNameRouteImport } from './routes/business-data.send-ahead-run.$name'
+import { Route as BusinessDataServiceNameRouteImport } from './routes/business-data.service.$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -186,6 +188,11 @@ const BusinessDataSendAheadRunRoute =
     path: '/send-ahead-run',
     getParentRoute: () => BusinessDataRoute,
   } as any)
+const BusinessDataServiceRoute = BusinessDataServiceRouteImport.update({
+  id: '/service',
+  path: '/service',
+  getParentRoute: () => BusinessDataRoute,
+} as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -286,6 +293,11 @@ const BusinessDataSendAheadRunNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataSendAheadRunRoute,
   } as any)
+const BusinessDataServiceNameRoute = BusinessDataServiceNameRouteImport.update({
+  id: '/$name',
+  path: '/$name',
+  getParentRoute: () => BusinessDataServiceRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -313,6 +325,7 @@ export interface FileRoutesByFullPath {
   '/business-data/schedule': typeof BusinessDataScheduleRouteWithChildren
   '/business-data/schedule-scenario': typeof BusinessDataScheduleScenarioRouteWithChildren
   '/business-data/send-ahead-run': typeof BusinessDataSendAheadRunRouteWithChildren
+  '/business-data/service': typeof BusinessDataServiceRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -330,6 +343,7 @@ export interface FileRoutesByFullPath {
   '/business-data/schedule-scenario/$name': typeof BusinessDataScheduleScenarioNameRoute
   '/business-data/schedule/$name': typeof BusinessDataScheduleNameRoute
   '/business-data/send-ahead-run/$name': typeof BusinessDataSendAheadRunNameRoute
+  '/business-data/service/$name': typeof BusinessDataServiceNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -357,6 +371,7 @@ export interface FileRoutesByTo {
   '/business-data/schedule': typeof BusinessDataScheduleRouteWithChildren
   '/business-data/schedule-scenario': typeof BusinessDataScheduleScenarioRouteWithChildren
   '/business-data/send-ahead-run': typeof BusinessDataSendAheadRunRouteWithChildren
+  '/business-data/service': typeof BusinessDataServiceRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -374,6 +389,7 @@ export interface FileRoutesByTo {
   '/business-data/schedule-scenario/$name': typeof BusinessDataScheduleScenarioNameRoute
   '/business-data/schedule/$name': typeof BusinessDataScheduleNameRoute
   '/business-data/send-ahead-run/$name': typeof BusinessDataSendAheadRunNameRoute
+  '/business-data/service/$name': typeof BusinessDataServiceNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -402,6 +418,7 @@ export interface FileRoutesById {
   '/business-data/schedule': typeof BusinessDataScheduleRouteWithChildren
   '/business-data/schedule-scenario': typeof BusinessDataScheduleScenarioRouteWithChildren
   '/business-data/send-ahead-run': typeof BusinessDataSendAheadRunRouteWithChildren
+  '/business-data/service': typeof BusinessDataServiceRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -419,6 +436,7 @@ export interface FileRoutesById {
   '/business-data/schedule-scenario/$name': typeof BusinessDataScheduleScenarioNameRoute
   '/business-data/schedule/$name': typeof BusinessDataScheduleNameRoute
   '/business-data/send-ahead-run/$name': typeof BusinessDataSendAheadRunNameRoute
+  '/business-data/service/$name': typeof BusinessDataServiceNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -448,6 +466,7 @@ export interface FileRouteTypes {
     | '/business-data/schedule'
     | '/business-data/schedule-scenario'
     | '/business-data/send-ahead-run'
+    | '/business-data/service'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -465,6 +484,7 @@ export interface FileRouteTypes {
     | '/business-data/schedule-scenario/$name'
     | '/business-data/schedule/$name'
     | '/business-data/send-ahead-run/$name'
+    | '/business-data/service/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -492,6 +512,7 @@ export interface FileRouteTypes {
     | '/business-data/schedule'
     | '/business-data/schedule-scenario'
     | '/business-data/send-ahead-run'
+    | '/business-data/service'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -509,6 +530,7 @@ export interface FileRouteTypes {
     | '/business-data/schedule-scenario/$name'
     | '/business-data/schedule/$name'
     | '/business-data/send-ahead-run/$name'
+    | '/business-data/service/$name'
   id:
     | '__root__'
     | '/'
@@ -536,6 +558,7 @@ export interface FileRouteTypes {
     | '/business-data/schedule'
     | '/business-data/schedule-scenario'
     | '/business-data/send-ahead-run'
+    | '/business-data/service'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -553,6 +576,7 @@ export interface FileRouteTypes {
     | '/business-data/schedule-scenario/$name'
     | '/business-data/schedule/$name'
     | '/business-data/send-ahead-run/$name'
+    | '/business-data/service/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -740,6 +764,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataSendAheadRunRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/service': {
+      id: '/business-data/service'
+      path: '/service'
+      fullPath: '/business-data/service'
+      preLoaderRoute: typeof BusinessDataServiceRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -858,6 +889,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/send-ahead-run/$name'
       preLoaderRoute: typeof BusinessDataSendAheadRunNameRouteImport
       parentRoute: typeof BusinessDataSendAheadRunRoute
+    }
+    '/business-data/service/$name': {
+      id: '/business-data/service/$name'
+      path: '/$name'
+      fullPath: '/business-data/service/$name'
+      preLoaderRoute: typeof BusinessDataServiceNameRouteImport
+      parentRoute: typeof BusinessDataServiceRoute
     }
   }
 }
@@ -1114,6 +1152,17 @@ const BusinessDataSendAheadRunRouteWithChildren =
     BusinessDataSendAheadRunRouteChildren,
   )
 
+interface BusinessDataServiceRouteChildren {
+  BusinessDataServiceNameRoute: typeof BusinessDataServiceNameRoute
+}
+
+const BusinessDataServiceRouteChildren: BusinessDataServiceRouteChildren = {
+  BusinessDataServiceNameRoute: BusinessDataServiceNameRoute,
+}
+
+const BusinessDataServiceRouteWithChildren =
+  BusinessDataServiceRoute._addFileChildren(BusinessDataServiceRouteChildren)
+
 interface BusinessDataRouteChildren {
   BusinessDataQualificationRoute: typeof BusinessDataQualificationRouteWithChildren
   BusinessDataQualificationCheckRoute: typeof BusinessDataQualificationCheckRouteWithChildren
@@ -1126,6 +1175,7 @@ interface BusinessDataRouteChildren {
   BusinessDataScheduleRoute: typeof BusinessDataScheduleRouteWithChildren
   BusinessDataScheduleScenarioRoute: typeof BusinessDataScheduleScenarioRouteWithChildren
   BusinessDataSendAheadRunRoute: typeof BusinessDataSendAheadRunRouteWithChildren
+  BusinessDataServiceRoute: typeof BusinessDataServiceRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -1143,6 +1193,7 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataScheduleScenarioRoute:
     BusinessDataScheduleScenarioRouteWithChildren,
   BusinessDataSendAheadRunRoute: BusinessDataSendAheadRunRouteWithChildren,
+  BusinessDataServiceRoute: BusinessDataServiceRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(
