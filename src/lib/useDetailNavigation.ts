@@ -59,7 +59,20 @@ type DetailRoute =
   | "/business-data/schedule-scenario/$name"
   | "/business-data/send-ahead-run/$name"
   | "/business-data/service/$name"
-  | "/business-data/setup-matrix/$name";
+  | "/business-data/setup-matrix/$name"
+  | "/business-data/shift-definition/$name"
+  | "/business-data/shift-logbook/$name"
+  | "/business-data/shift-plan/$name"
+  | "/business-data/site/$name"
+  | "/business-data/sort-rule-set/$name"
+  | "/business-data/step/$name"
+  | "/business-data/substrate-map/$name"
+  | "/business-data/substrate-map-mask/$name"
+  | "/business-data/task/$name"
+  | "/business-data/team/$name"
+  | "/business-data/transfer-order/$name"
+  | "/business-data/transfer-requirement/$name"
+  | "/business-data/workgroup/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

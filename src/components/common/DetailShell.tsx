@@ -236,7 +236,8 @@ export interface DetailMoreMenuItem {
 }
 
 export interface DetailShellMoreAction {
-  label: string;
+  label?: string;
+  labelKey?: TranslationKey;
   onClick: () => void;
   disabled?: boolean;
 }
@@ -376,7 +377,9 @@ export function DetailShell({
                           onClick: item.onClick,
                         })),
                         ...(moreActions ?? []).map((action) => ({
-                          label: action.label,
+                          label:
+                            action.label ??
+                            (action.labelKey ? t(action.labelKey) : ""),
                           icon: undefined,
                           disabled: action.disabled,
                           onClick: action.onClick,
