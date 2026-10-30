@@ -11,7 +11,8 @@
       "mesCopilot": "MES Copilot"
     },
     "more": "Thêm",
-    "refresh": "Làm mới"
+    "refresh": "Làm mới",
+    "import": "Nhập"
   },
   "administration": {
     "pageLabel": "Quản trị"
@@ -531,5 +532,21 @@
       "smartDesc": "Bảng phân giải ngữ cảnh"
     },
     "gridTitle": "{{kind}} ({{count}})"
+  },
+  "uiPages": {
+    "pageLabel": "Trang giao diện",
+    "foldersTitle": "Trang giao diện",
+    "allUIPages": "Tất cả trang",
+    "foldersSection": "Thư mục",
+    "filters": {
+      "terminated": "Đã kết thúc",
+      "systemItems": "Mục hệ thống",
+      "scope": "Phạm vi",
+      "section": "Mục",
+      "entityType": "Loại thực thể",
+      "all": "Tất cả",
+      "entityTypePlaceholder": "Lọc theo loại thực thể"
+    },
+    "noPages": "Không tìm thấy trang giao diện nào."
   }
 }

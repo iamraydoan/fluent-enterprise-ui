@@ -11,7 +11,8 @@
       "mesCopilot": "MES Copilot"
     },
     "more": "More",
-    "refresh": "Refresh"
+    "refresh": "Refresh",
+    "import": "Import"
   },
   "administration": {
     "pageLabel": "Administration"
@@ -531,5 +532,21 @@
       "smartDesc": "Context resolution tables"
     },
     "gridTitle": "{{kind}} ({{count}})"
+  },
+  "uiPages": {
+    "pageLabel": "UI Pages",
+    "foldersTitle": "UI Pages",
+    "allUIPages": "All UI Pages",
+    "foldersSection": "Folders",
+    "filters": {
+      "terminated": "Terminated",
+      "systemItems": "System Items",
+      "scope": "Scope",
+      "section": "Section",
+      "entityType": "Entity Type",
+      "all": "All",
+      "entityTypePlaceholder": "Filter by entity type"
+    },
+    "noPages": "No UI Pages found."
   }
 }

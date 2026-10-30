@@ -5,6 +5,7 @@ import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
 import { mcpServerHandlers } from "./handlers/mcpServer";
+import { uiPageHandlers } from "./handlers/uiPages";
 
 export const handlers = [
   ...entityTypeHandlers,
@@ -13,5 +14,6 @@ export const handlers = [
   ...appHandlers,
   ...configurationHandlers,
   ...genericTableHandlers,
+  ...uiPageHandlers,
   ...mcpServerHandlers,
 ];

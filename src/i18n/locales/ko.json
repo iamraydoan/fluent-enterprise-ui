@@ -11,7 +11,8 @@
       "mesCopilot": "MES Copilot"
     },
     "more": "더 보기",
-    "refresh": "새로 고침"
+    "refresh": "새로 고침",
+    "import": "가져오기"
   },
   "administration": {
     "pageLabel": "관리"
@@ -531,5 +532,21 @@
       "smartDesc": "컨텍스트 확인 테이블"
     },
     "gridTitle": "{{kind}} ({{count}})"
+  },
+  "uiPages": {
+    "pageLabel": "UI 페이지",
+    "foldersTitle": "UI 페이지",
+    "allUIPages": "모든 UI 페이지",
+    "foldersSection": "폴더",
+    "filters": {
+      "terminated": "종료됨",
+      "systemItems": "시스템 항목",
+      "scope": "범위",
+      "section": "섹션",
+      "entityType": "엔터티 유형",
+      "all": "전체",
+      "entityTypePlaceholder": "엔터티 유형으로 필터"
+    },
+    "noPages": "UI 페이지를 찾을 수 없습니다."
   }
 }

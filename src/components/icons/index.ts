@@ -41,6 +41,8 @@ export {
   DocumentBulletList20Regular,
   DocumentBulletList24Regular,
   DocumentSearch24Regular,
+  Folder24Regular,
+  Grid24Regular,
   Edit20Regular,
   Edit24Regular,
   Eye20Filled,

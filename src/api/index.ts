@@ -53,3 +53,11 @@ export type {
   GenericTableKind,
   GenericTableRecord,
 } from "./genericTables";
+export { listUIPageFolders, listUIPages, useUIPageFolders, useUIPages } from "./uiPages";
+export type {
+  UIPageFolder,
+  UIPageListParams,
+  UIPageRecord,
+  UIPageScope,
+  UIPageType,
+} from "./uiPages";

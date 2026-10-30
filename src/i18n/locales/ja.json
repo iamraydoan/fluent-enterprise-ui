@@ -11,7 +11,8 @@
       "mesCopilot": "MES Copilot"
     },
     "more": "その他",
-    "refresh": "更新"
+    "refresh": "更新",
+    "import": "インポート"
   },
   "administration": {
     "pageLabel": "管理"
@@ -531,5 +532,21 @@
       "smartDesc": "コンテキスト解決テーブル"
     },
     "gridTitle": "{{kind}} ({{count}})"
+  },
+  "uiPages": {
+    "pageLabel": "UIページ",
+    "foldersTitle": "UIページ",
+    "allUIPages": "すべてのUIページ",
+    "foldersSection": "フォルダー",
+    "filters": {
+      "terminated": "終了済み",
+      "systemItems": "システム項目",
+      "scope": "スコープ",
+      "section": "セクション",
+      "entityType": "エンティティタイプ",
+      "all": "すべて",
+      "entityTypePlaceholder": "エンティティタイプで絞り込み"
+    },
+    "noPages": "UIページが見つかりません。"
   }
 }
