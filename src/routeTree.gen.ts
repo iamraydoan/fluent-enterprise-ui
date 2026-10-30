@@ -19,12 +19,14 @@ import { Route as AdministrationAiMcpServerRouteImport } from './routes/administ
 import { Route as AdministrationAppsRouteImport } from './routes/administration.apps'
 import { Route as AdministrationConfigurationRouteImport } from './routes/administration.configuration'
 import { Route as AdministrationEntityTypesRouteImport } from './routes/administration.entity-types'
+import { Route as AdministrationQueriesRouteImport } from './routes/administration.queries'
 import { Route as AdministrationTablesRouteImport } from './routes/administration.tables'
 import { Route as AdministrationUipagesRouteImport } from './routes/administration.uipages'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
 import { Route as AdministrationEntityTypesNameRouteImport } from './routes/administration.entity-types.$name'
+import { Route as AdministrationQueriesNameRouteImport } from './routes/administration.queries.$name'
 import { Route as AdministrationTablesNameRouteImport } from './routes/administration.tables.$name'
 
 const IndexRoute = IndexRouteImport.update({
@@ -80,6 +82,11 @@ const AdministrationEntityTypesRoute =
     path: '/entity-types',
     getParentRoute: () => AdministrationRoute,
   } as any)
+const AdministrationQueriesRoute = AdministrationQueriesRouteImport.update({
+  id: '/queries',
+  path: '/queries',
+  getParentRoute: () => AdministrationRoute,
+} as any)
 const AdministrationTablesRoute = AdministrationTablesRouteImport.update({
   id: '/tables',
   path: '/tables',
@@ -114,6 +121,12 @@ const AdministrationEntityTypesNameRoute =
     path: '/$name',
     getParentRoute: () => AdministrationEntityTypesRoute,
   } as any)
+const AdministrationQueriesNameRoute =
+  AdministrationQueriesNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => AdministrationQueriesRoute,
+  } as any)
 const AdministrationTablesNameRoute =
   AdministrationTablesNameRouteImport.update({
     id: '/$name',
@@ -132,12 +145,14 @@ export interface FileRoutesByFullPath {
   '/administration/apps': typeof AdministrationAppsRoute
   '/administration/configuration': typeof AdministrationConfigurationRouteWithChildren
   '/administration/entity-types': typeof AdministrationEntityTypesRouteWithChildren
+  '/administration/queries': typeof AdministrationQueriesRouteWithChildren
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
   '/administration/entity-types/$name': typeof AdministrationEntityTypesNameRoute
+  '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
 }
 export interface FileRoutesByTo {
@@ -151,12 +166,14 @@ export interface FileRoutesByTo {
   '/administration/apps': typeof AdministrationAppsRoute
   '/administration/configuration': typeof AdministrationConfigurationRouteWithChildren
   '/administration/entity-types': typeof AdministrationEntityTypesRouteWithChildren
+  '/administration/queries': typeof AdministrationQueriesRouteWithChildren
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
   '/administration/entity-types/$name': typeof AdministrationEntityTypesNameRoute
+  '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
 }
 export interface FileRoutesById {
@@ -171,12 +188,14 @@ export interface FileRoutesById {
   '/administration/apps': typeof AdministrationAppsRoute
   '/administration/configuration': typeof AdministrationConfigurationRouteWithChildren
   '/administration/entity-types': typeof AdministrationEntityTypesRouteWithChildren
+  '/administration/queries': typeof AdministrationQueriesRouteWithChildren
   '/administration/tables': typeof AdministrationTablesRouteWithChildren
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
   '/administration/entity-types/$name': typeof AdministrationEntityTypesNameRoute
+  '/administration/queries/$name': typeof AdministrationQueriesNameRoute
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
 }
 export interface FileRouteTypes {
@@ -192,12 +211,14 @@ export interface FileRouteTypes {
     | '/administration/apps'
     | '/administration/configuration'
     | '/administration/entity-types'
+    | '/administration/queries'
     | '/administration/tables'
     | '/administration/uipages'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
     | '/administration/entity-types/$name'
+    | '/administration/queries/$name'
     | '/administration/tables/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -211,12 +232,14 @@ export interface FileRouteTypes {
     | '/administration/apps'
     | '/administration/configuration'
     | '/administration/entity-types'
+    | '/administration/queries'
     | '/administration/tables'
     | '/administration/uipages'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
     | '/administration/entity-types/$name'
+    | '/administration/queries/$name'
     | '/administration/tables/$name'
   id:
     | '__root__'
@@ -230,12 +253,14 @@ export interface FileRouteTypes {
     | '/administration/apps'
     | '/administration/configuration'
     | '/administration/entity-types'
+    | '/administration/queries'
     | '/administration/tables'
     | '/administration/uipages'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
     | '/administration/entity-types/$name'
+    | '/administration/queries/$name'
     | '/administration/tables/$name'
   fileRoutesById: FileRoutesById
 }
@@ -318,6 +343,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdministrationEntityTypesRouteImport
       parentRoute: typeof AdministrationRoute
     }
+    '/administration/queries': {
+      id: '/administration/queries'
+      path: '/queries'
+      fullPath: '/administration/queries'
+      preLoaderRoute: typeof AdministrationQueriesRouteImport
+      parentRoute: typeof AdministrationRoute
+    }
     '/administration/tables': {
       id: '/administration/tables'
       path: '/tables'
@@ -359,6 +391,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/administration/entity-types/$name'
       preLoaderRoute: typeof AdministrationEntityTypesNameRouteImport
       parentRoute: typeof AdministrationEntityTypesRoute
+    }
+    '/administration/queries/$name': {
+      id: '/administration/queries/$name'
+      path: '/$name'
+      fullPath: '/administration/queries/$name'
+      preLoaderRoute: typeof AdministrationQueriesNameRouteImport
+      parentRoute: typeof AdministrationQueriesRoute
     }
     '/administration/tables/$name': {
       id: '/administration/tables/$name'
@@ -425,6 +464,19 @@ const AdministrationEntityTypesRouteWithChildren =
     AdministrationEntityTypesRouteChildren,
   )
 
+interface AdministrationQueriesRouteChildren {
+  AdministrationQueriesNameRoute: typeof AdministrationQueriesNameRoute
+}
+
+const AdministrationQueriesRouteChildren: AdministrationQueriesRouteChildren = {
+  AdministrationQueriesNameRoute: AdministrationQueriesNameRoute,
+}
+
+const AdministrationQueriesRouteWithChildren =
+  AdministrationQueriesRoute._addFileChildren(
+    AdministrationQueriesRouteChildren,
+  )
+
 interface AdministrationTablesRouteChildren {
   AdministrationTablesNameRoute: typeof AdministrationTablesNameRoute
 }
@@ -443,6 +495,7 @@ interface AdministrationRouteChildren {
   AdministrationAppsRoute: typeof AdministrationAppsRoute
   AdministrationConfigurationRoute: typeof AdministrationConfigurationRouteWithChildren
   AdministrationEntityTypesRoute: typeof AdministrationEntityTypesRouteWithChildren
+  AdministrationQueriesRoute: typeof AdministrationQueriesRouteWithChildren
   AdministrationTablesRoute: typeof AdministrationTablesRouteWithChildren
   AdministrationUipagesRoute: typeof AdministrationUipagesRoute
 }
@@ -455,6 +508,7 @@ const AdministrationRouteChildren: AdministrationRouteChildren = {
   AdministrationConfigurationRoute:
     AdministrationConfigurationRouteWithChildren,
   AdministrationEntityTypesRoute: AdministrationEntityTypesRouteWithChildren,
+  AdministrationQueriesRoute: AdministrationQueriesRouteWithChildren,
   AdministrationTablesRoute: AdministrationTablesRouteWithChildren,
   AdministrationUipagesRoute: AdministrationUipagesRoute,
 }

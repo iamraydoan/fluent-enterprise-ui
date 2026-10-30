@@ -12,7 +12,14 @@
     },
     "more": "Thêm",
     "refresh": "Làm mới",
-    "import": "Nhập"
+    "import": "Nhập",
+    "save": "Lưu",
+    "settings": "Cài đặt",
+    "delete": "Xóa",
+    "generate": "Tạo mã",
+    "execute": "Thực thi",
+    "aiEditor": "AI Editor",
+    "endpoint": "Endpoint"
   },
   "administration": {
     "pageLabel": "Quản trị"
@@ -548,5 +555,44 @@
       "entityTypePlaceholder": "Lọc theo loại thực thể"
     },
     "noPages": "Không tìm thấy trang giao diện nào."
+  },
+  "queries": {
+    "pageLabel": "Truy vấn",
+    "foldersTitle": "Truy vấn",
+    "allQueries": "Tất cả truy vấn",
+    "foldersSection": "Thư mục",
+    "columns": {
+      "query": "Truy vấn",
+      "description": "Mô tả",
+      "entityType": "Loại thực thể",
+      "modifiedBy": "Sửa bởi",
+      "modifiedOn": "Sửa lúc"
+    },
+    "filters": {
+      "systemItems": "Mục hệ thống"
+    },
+    "noQueries": "Không tìm thấy truy vấn nào.",
+    "detail": {
+      "generalData": "Dữ liệu chung",
+      "name": "Tên",
+      "description": "Mô tả",
+      "filters": "Bộ lọc",
+      "results": "Kết quả",
+      "addFilter": "Thêm bộ lọc",
+      "loading": "Đang tải truy vấn…",
+      "parameter": "Tham số",
+      "optional": "Tùy chọn",
+      "filtersCount": "Bộ lọc ({{count}})",
+      "resultsCount": "Kết quả ({{count}})"
+    },
+    "aiEditor": {
+      "title": "AI Editor",
+      "placeholder": "Nhắn cho Entity Query Builder Agent",
+      "sampleUserMsg": "Thêm cột mới với mô tả",
+      "sampleAgentMsg": "Tôi sẽ bắt đầu bằng cách đọc truy vấn như hiện tại.",
+      "agentName": "Entity Query Builder",
+      "send": "Gửi"
+    },
+    "listTitle": "Truy vấn ({{count}})"
   }
 }

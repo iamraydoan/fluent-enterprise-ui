@@ -53,6 +53,21 @@ export type {
   GenericTableKind,
   GenericTableRecord,
 } from "./genericTables";
+export {
+  getQuery,
+  listQueries,
+  listQueryFolders,
+  useQueries,
+  useQueryDetail,
+  useQueryFolders,
+} from "./queries";
+export type {
+  QueryDetail,
+  QueryFilter,
+  QueryFolder,
+  QueryListParams,
+  QueryRecord,
+} from "./queries";
 export { listUIPageFolders, listUIPages, useUIPageFolders, useUIPages } from "./uiPages";
 export type {
   UIPageFolder,

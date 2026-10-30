@@ -12,7 +12,14 @@
     },
     "more": "More",
     "refresh": "Refresh",
-    "import": "Import"
+    "import": "Import",
+    "save": "Save",
+    "settings": "Settings",
+    "delete": "Delete",
+    "generate": "Generate",
+    "execute": "Execute",
+    "aiEditor": "AI Editor",
+    "endpoint": "Endpoint"
   },
   "administration": {
     "pageLabel": "Administration"
@@ -548,5 +555,44 @@
       "entityTypePlaceholder": "Filter by entity type"
     },
     "noPages": "No UI Pages found."
+  },
+  "queries": {
+    "pageLabel": "Queries",
+    "foldersTitle": "Queries",
+    "allQueries": "All Queries",
+    "foldersSection": "Folders",
+    "columns": {
+      "query": "Query",
+      "description": "Description",
+      "entityType": "Entity Type",
+      "modifiedBy": "Modified By",
+      "modifiedOn": "Modified On"
+    },
+    "filters": {
+      "systemItems": "System Items"
+    },
+    "noQueries": "No queries found.",
+    "detail": {
+      "generalData": "General Data",
+      "name": "Name",
+      "description": "Description",
+      "filters": "Filters",
+      "results": "Results",
+      "addFilter": "Add Filter",
+      "loading": "Loading query…",
+      "parameter": "Parameter",
+      "optional": "Optional",
+      "filtersCount": "Filters ({{count}})",
+      "resultsCount": "Results ({{count}})"
+    },
+    "aiEditor": {
+      "title": "AI Editor",
+      "placeholder": "Message Entity Query Builder Agent",
+      "sampleUserMsg": "Add a new column with the description",
+      "sampleAgentMsg": "I'll start by reading the query as it is now.",
+      "agentName": "Entity Query Builder",
+      "send": "Send"
+    },
+    "listTitle": "Queries ({{count}})"
   }
 }

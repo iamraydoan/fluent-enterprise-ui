@@ -12,7 +12,14 @@
     },
     "more": "더 보기",
     "refresh": "새로 고침",
-    "import": "가져오기"
+    "import": "가져오기",
+    "save": "저장",
+    "settings": "설정",
+    "delete": "삭제",
+    "generate": "생성",
+    "execute": "실행",
+    "aiEditor": "AI 편집기",
+    "endpoint": "엔드포인트"
   },
   "administration": {
     "pageLabel": "관리"
@@ -548,5 +555,44 @@
       "entityTypePlaceholder": "엔터티 유형으로 필터"
     },
     "noPages": "UI 페이지를 찾을 수 없습니다."
+  },
+  "queries": {
+    "pageLabel": "쿼리",
+    "foldersTitle": "쿼리",
+    "allQueries": "모든 쿼리",
+    "foldersSection": "폴더",
+    "columns": {
+      "query": "쿼리",
+      "description": "설명",
+      "entityType": "엔터티 유형",
+      "modifiedBy": "수정한 사람",
+      "modifiedOn": "수정 일시"
+    },
+    "filters": {
+      "systemItems": "시스템 항목"
+    },
+    "noQueries": "쿼리를 찾을 수 없습니다.",
+    "detail": {
+      "generalData": "일반 데이터",
+      "name": "이름",
+      "description": "설명",
+      "filters": "필터",
+      "results": "결과",
+      "addFilter": "필터 추가",
+      "loading": "쿼리를 불러오는 중…",
+      "parameter": "매개변수",
+      "optional": "선택 사항",
+      "filtersCount": "필터 ({{count}})",
+      "resultsCount": "결과 ({{count}})"
+    },
+    "aiEditor": {
+      "title": "AI Editor",
+      "placeholder": "Entity Query Builder Agent에게 메시지",
+      "sampleUserMsg": "설명 열을 새로 추가",
+      "sampleAgentMsg": "현재 쿼리를 먼저 읽겠습니다.",
+      "agentName": "Entity Query Builder",
+      "send": "보내기"
+    },
+    "listTitle": "쿼리 ({{count}})"
   }
 }

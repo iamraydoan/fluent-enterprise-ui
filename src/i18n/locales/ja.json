@@ -12,7 +12,14 @@
     },
     "more": "その他",
     "refresh": "更新",
-    "import": "インポート"
+    "import": "インポート",
+    "save": "保存",
+    "settings": "設定",
+    "delete": "削除",
+    "generate": "生成",
+    "execute": "実行",
+    "aiEditor": "AI エディター",
+    "endpoint": "エンドポイント"
   },
   "administration": {
     "pageLabel": "管理"
@@ -548,5 +555,44 @@
       "entityTypePlaceholder": "エンティティタイプで絞り込み"
     },
     "noPages": "UIページが見つかりません。"
+  },
+  "queries": {
+    "pageLabel": "クエリ",
+    "foldersTitle": "クエリ",
+    "allQueries": "すべてのクエリ",
+    "foldersSection": "フォルダー",
+    "columns": {
+      "query": "クエリ",
+      "description": "説明",
+      "entityType": "エンティティタイプ",
+      "modifiedBy": "更新者",
+      "modifiedOn": "更新日時"
+    },
+    "filters": {
+      "systemItems": "システム項目"
+    },
+    "noQueries": "クエリが見つかりません。",
+    "detail": {
+      "generalData": "一般データ",
+      "name": "名前",
+      "description": "説明",
+      "filters": "フィルター",
+      "results": "結果",
+      "addFilter": "フィルターを追加",
+      "loading": "クエリを読み込み中…",
+      "parameter": "パラメーター",
+      "optional": "オプション",
+      "filtersCount": "フィルター ({{count}})",
+      "resultsCount": "結果 ({{count}})"
+    },
+    "aiEditor": {
+      "title": "AI Editor",
+      "placeholder": "Entity Query Builder Agent にメッセージ",
+      "sampleUserMsg": "説明の新しい列を追加",
+      "sampleAgentMsg": "まず現在のクエリを読み取ります。",
+      "agentName": "Entity Query Builder",
+      "send": "送信"
+    },
+    "listTitle": "クエリ ({{count}})"
   }
 }
