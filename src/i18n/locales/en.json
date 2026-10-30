@@ -728,16 +728,13 @@
         "transferRequirements": "Transfer Requirements"
       },
       "tabs": {
-        "compare": "Compare",
+        "details": "Details",
+        "traceability": "Traceability",
         "container": "Container",
         "defects": "Defects",
-        "details": "Details",
         "genealogy": "Genealogy",
         "history": "History",
-        "lineFlow": "Line Flow",
-        "maintenance": "Maintenance",
-        "references": "References",
-        "traceability": "Traceability"
+        "compare": "Compare"
       },
       "traceability": {
         "details": "Details",
@@ -755,6 +752,195 @@
       "common": {
         "yes": "Yes",
         "no": "No"
+      },
+      "operations": {
+        "_shared": {
+          "close": "Close",
+          "cancel": "Cancel"
+        },
+        "create": {
+          "title": "Create Material",
+          "cancel": "Cancel",
+          "submit": "Create",
+          "fields": {
+            "name": "Name",
+            "product": "Product",
+            "quantity": "Quantity"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "edit": {
+          "title": "Edit Material",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "fields": {
+            "name": "Name",
+            "description": "Description"
+          },
+          "hints": {
+            "nameLocked": "The Name of the Material cannot be altered."
+          }
+        },
+        "clone": {
+          "title": "Clone Material",
+          "cancel": "Cancel",
+          "submit": "Clone",
+          "fields": {
+            "name": "Name"
+          },
+          "hints": {
+            "nameGenerator": "If a Name Generator is configured, you can leave the name blank."
+          }
+        },
+        "terminate": {
+          "title": "Terminate Material",
+          "cancel": "Cancel",
+          "submit": "Terminate",
+          "description": "Select Terminate to perform the operation."
+        },
+        "unterminate": {
+          "title": "Unterminate Material",
+          "cancel": "Cancel",
+          "submit": "Unterminate",
+          "description": "Select Unterminate to perform the operation."
+        },
+        "dispatch": {
+          "title": "Dispatch Material",
+          "cancel": "Cancel",
+          "submit": "Dispatch",
+          "description": "Dispatch the Material."
+        },
+        "undispatch": {
+          "title": "Undispatch Material",
+          "cancel": "Cancel",
+          "submit": "Undispatch",
+          "description": "Undispatch the Material."
+        },
+        "trackIn": {
+          "title": "Track-In Material",
+          "cancel": "Cancel",
+          "submit": "Track-In",
+          "description": "Track-In the Material."
+        },
+        "trackOut": {
+          "title": "Track-Out Material",
+          "cancel": "Cancel",
+          "submit": "Track-Out",
+          "description": "Track-Out the Material."
+        },
+        "moveNext": {
+          "title": "Material Move-Next",
+          "cancel": "Cancel",
+          "submit": "Move Next",
+          "description": "Move the Material to the next Step."
+        },
+        "abort": {
+          "title": "Abort Material",
+          "cancel": "Cancel",
+          "submit": "Abort",
+          "description": "Abort the Material processing."
+        },
+        "ship": {
+          "title": "Ship Material",
+          "cancel": "Cancel",
+          "submit": "Ship",
+          "description": "Ship the Material."
+        },
+        "receive": {
+          "title": "Receive Material",
+          "cancel": "Cancel",
+          "submit": "Receive",
+          "description": "Receive the Material."
+        },
+        "unship": {
+          "title": "Unship Material",
+          "cancel": "Cancel",
+          "submit": "Unship",
+          "description": "Unship the Material."
+        },
+        "hold": {
+          "title": "Hold Material",
+          "cancel": "Cancel",
+          "submit": "Hold",
+          "description": "Hold the Material."
+        },
+        "split": {
+          "title": "Split Material",
+          "cancel": "Cancel",
+          "submit": "Split",
+          "description": "Split the Material."
+        },
+        "merge": {
+          "title": "Merge Material",
+          "cancel": "Cancel",
+          "submit": "Merge",
+          "description": "Merge the Material."
+        },
+        "combine": {
+          "title": "Combine Material",
+          "cancel": "Cancel",
+          "submit": "Combine",
+          "description": "Combine the Material."
+        },
+        "attach": {
+          "title": "Attach Material",
+          "cancel": "Cancel",
+          "submit": "Attach",
+          "description": "Attach Material as Sub-Material."
+        },
+        "detach": {
+          "title": "Detach Material",
+          "cancel": "Cancel",
+          "submit": "Detach",
+          "description": "Detach Sub-Material."
+        },
+        "grade": {
+          "title": "Grade Material",
+          "cancel": "Cancel",
+          "submit": "Grade",
+          "description": "Grade the Material."
+        },
+        "rework": {
+          "title": "Rework Material",
+          "cancel": "Cancel",
+          "submit": "Rework",
+          "description": "Rework the Material."
+        },
+        "changeProduct": {
+          "title": "Change Material Product",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Product of the Material."
+        },
+        "changeQuantity": {
+          "title": "Change Material Quantity",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Quantity of the Material."
+        },
+        "changeFlowStep": {
+          "title": "Change Material Flow/Step",
+          "cancel": "Cancel",
+          "submit": "Update",
+          "description": "Change the Flow/Step of the Material."
+        },
+        "viewReports": {
+          "title": "View Material Reports",
+          "close": "Close",
+          "description": "View Material Reports: Material Cost History Report, Material Future Flow Report."
+        },
+        "viewDocuments": {
+          "title": "View Material Documents",
+          "close": "Close",
+          "description": "View documents attached to the Material."
+        }
+      },
+      "left": {
+        "details": "Details",
+        "subMaterials": "Sub-Materials",
+        "attachments": "Attachments"
       }
     },
     "materialTransfer": {
