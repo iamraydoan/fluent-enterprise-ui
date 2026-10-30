@@ -8,6 +8,7 @@ import { recipeHandlers } from "./handlers/businessData/recipe";
 import { resourceHandlers } from "./handlers/businessData/resource";
 import { resourceJobHandlers } from "./handlers/businessData/resourceJob";
 import { samplingPatternHandlers } from "./handlers/businessData/samplingPattern";
+import { samplingPlanHandlers } from "./handlers/businessData/samplingPlan";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
 import { genericTableHandlers } from "./handlers/genericTables";
@@ -32,4 +33,5 @@ export const handlers = [
   ...resourceHandlers,
   ...resourceJobHandlers,
   ...samplingPatternHandlers,
+  ...samplingPlanHandlers,
 ];

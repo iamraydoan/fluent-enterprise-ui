@@ -1738,6 +1738,98 @@
           "confirm": "Unterminate"
         }
       }
+    },
+    "samplingPlan": {
+      "pageLabel": "Sampling Plan",
+      "listTitle": "Sampling Plans",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "defaultSamplingType": "Default Sampling Type",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "context": "Context",
+        "instances": "Instances",
+        "steps": "Steps",
+        "attributes": "Attributes",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "samplingPlan": "Sampling Plan",
+        "defaultSampling": "Default Sampling"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "defaultSamplingType": "Default Sampling Type",
+        "counterFrequency": "Counter Frequency",
+        "timeFrequency": "Time Frequency"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate",
+        "manageInstance": "Manage Sampling Plan Instance"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Sampling Plan",
+          "editTitle": "Edit Sampling Plan",
+          "generalData": "General Data",
+          "context": "Context",
+          "name": "Name",
+          "description": "Description",
+          "type": "Type",
+          "defaultSampling": "Default Sampling",
+          "samplingType": "Sampling Type",
+          "counterFrequency": "Counter Frequency",
+          "timeFrequency": "Time Frequency (hours)",
+          "comments": "Comments",
+          "contextBody": "Specify the context information for the Sampling Plan. At minimum it must have one context defined (Material Product, Material Resource, Material Step, etc.)."
+        },
+        "clone": {
+          "title": "Clone Sampling Plan",
+          "message": "Clone the Sampling Plan '{{name}}'?",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Sampling Plan",
+          "message": "Are you sure you want to terminate the Sampling Plan '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Sampling Plan",
+          "message": "Are you sure you want to unterminate the Sampling Plan '{{name}}'?",
+          "confirm": "Unterminate"
+        },
+        "instance": {
+          "title": "Manage Sampling Plan Instance",
+          "instances": "Instances ({{count}})",
+          "newInstance": "New Instance",
+          "detailsTitle": "Instance Details",
+          "samplingType": "Sampling Type",
+          "materialType": "Material Type",
+          "counterFrequency": "Sampling Counter Frequency",
+          "currentCounter": "Current Sampling Counter",
+          "timeFrequency": "Sampling Time Frequency",
+          "lastSamplingDate": "Last Sampling Date",
+          "comments": "Comments",
+          "update": "Update"
+        }
+      }
     }
   }
 }
