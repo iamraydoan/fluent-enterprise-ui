@@ -123,3 +123,15 @@ export type {
   RecipeRecord,
   RecipeState,
 } from "./businessData/recipe";
+export {
+  getResource,
+  listResources,
+  useResourceDetail,
+  useResources,
+} from "./businessData/resource";
+export type {
+  ResourceDetail,
+  ResourceListParams,
+  ResourceProcessingType,
+  ResourceRecord,
+} from "./businessData/resource";
