@@ -196,3 +196,14 @@ export type {
   MapDetail,
   MapRecord,
 } from "./businessData/map";
+export {
+  getMapDefinition,
+  listMapDefinitions,
+  useMapDefinitionDetail,
+  useMapDefinitions,
+} from "./businessData/mapDefinition";
+export type {
+  MapDefinitionDetail,
+  MapDefinitionLayer,
+  MapDefinitionRecord,
+} from "./businessData/mapDefinition";

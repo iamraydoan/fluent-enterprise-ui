@@ -19,7 +19,8 @@ type DetailRoute =
   | "/business-data/kpi/$name"
   | "/business-data/maintenance-activity-order/$name"
   | "/business-data/maintenance-plan/$name"
-  | "/business-data/map/$name";
+  | "/business-data/map/$name"
+  | "/business-data/map-definition/$name";
 
 export function useDetailNavigation(detailRoute: DetailRoute, openRoute: (route: string) => void) {
   const navigate = useNavigate();

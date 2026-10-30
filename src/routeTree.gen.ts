@@ -35,6 +35,7 @@ import { Route as BusinessDataKpiRouteImport } from './routes/business-data.kpi'
 import { Route as BusinessDataMaintenanceActivityOrderRouteImport } from './routes/business-data.maintenance-activity-order'
 import { Route as BusinessDataMaintenancePlanRouteImport } from './routes/business-data.maintenance-plan'
 import { Route as BusinessDataMapRouteImport } from './routes/business-data.map'
+import { Route as BusinessDataMapDefinitionRouteImport } from './routes/business-data.map-definition'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -52,6 +53,7 @@ import { Route as BusinessDataInspectionPlanNameRouteImport } from './routes/bus
 import { Route as BusinessDataKpiNameRouteImport } from './routes/business-data.kpi.$name'
 import { Route as BusinessDataMaintenanceActivityOrderNameRouteImport } from './routes/business-data.maintenance-activity-order.$name'
 import { Route as BusinessDataMaintenancePlanNameRouteImport } from './routes/business-data.maintenance-plan.$name'
+import { Route as BusinessDataMapDefinitionNameRouteImport } from './routes/business-data.map-definition.$name'
 import { Route as BusinessDataMapNameRouteImport } from './routes/business-data.map.$name'
 
 const IndexRoute = IndexRouteImport.update({
@@ -191,6 +193,12 @@ const BusinessDataMapRoute = BusinessDataMapRouteImport.update({
   path: '/map',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataMapDefinitionRoute =
+  BusinessDataMapDefinitionRouteImport.update({
+    id: '/map-definition',
+    path: '/map-definition',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -291,6 +299,12 @@ const BusinessDataMaintenancePlanNameRoute =
     path: '/$name',
     getParentRoute: () => BusinessDataMaintenancePlanRoute,
   } as any)
+const BusinessDataMapDefinitionNameRoute =
+  BusinessDataMapDefinitionNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataMapDefinitionRoute,
+  } as any)
 const BusinessDataMapNameRoute = BusinessDataMapNameRouteImport.update({
   id: '/$name',
   path: '/$name',
@@ -324,6 +338,7 @@ export interface FileRoutesByFullPath {
   '/business-data/maintenance-activity-order': typeof BusinessDataMaintenanceActivityOrderRouteWithChildren
   '/business-data/maintenance-plan': typeof BusinessDataMaintenancePlanRouteWithChildren
   '/business-data/map': typeof BusinessDataMapRouteWithChildren
+  '/business-data/map-definition': typeof BusinessDataMapDefinitionRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -341,6 +356,7 @@ export interface FileRoutesByFullPath {
   '/business-data/kpi/$name': typeof BusinessDataKpiNameRoute
   '/business-data/maintenance-activity-order/$name': typeof BusinessDataMaintenanceActivityOrderNameRoute
   '/business-data/maintenance-plan/$name': typeof BusinessDataMaintenancePlanNameRoute
+  '/business-data/map-definition/$name': typeof BusinessDataMapDefinitionNameRoute
   '/business-data/map/$name': typeof BusinessDataMapNameRoute
 }
 export interface FileRoutesByTo {
@@ -370,6 +386,7 @@ export interface FileRoutesByTo {
   '/business-data/maintenance-activity-order': typeof BusinessDataMaintenanceActivityOrderRouteWithChildren
   '/business-data/maintenance-plan': typeof BusinessDataMaintenancePlanRouteWithChildren
   '/business-data/map': typeof BusinessDataMapRouteWithChildren
+  '/business-data/map-definition': typeof BusinessDataMapDefinitionRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -387,6 +404,7 @@ export interface FileRoutesByTo {
   '/business-data/kpi/$name': typeof BusinessDataKpiNameRoute
   '/business-data/maintenance-activity-order/$name': typeof BusinessDataMaintenanceActivityOrderNameRoute
   '/business-data/maintenance-plan/$name': typeof BusinessDataMaintenancePlanNameRoute
+  '/business-data/map-definition/$name': typeof BusinessDataMapDefinitionNameRoute
   '/business-data/map/$name': typeof BusinessDataMapNameRoute
 }
 export interface FileRoutesById {
@@ -417,6 +435,7 @@ export interface FileRoutesById {
   '/business-data/maintenance-activity-order': typeof BusinessDataMaintenanceActivityOrderRouteWithChildren
   '/business-data/maintenance-plan': typeof BusinessDataMaintenancePlanRouteWithChildren
   '/business-data/map': typeof BusinessDataMapRouteWithChildren
+  '/business-data/map-definition': typeof BusinessDataMapDefinitionRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -434,6 +453,7 @@ export interface FileRoutesById {
   '/business-data/kpi/$name': typeof BusinessDataKpiNameRoute
   '/business-data/maintenance-activity-order/$name': typeof BusinessDataMaintenanceActivityOrderNameRoute
   '/business-data/maintenance-plan/$name': typeof BusinessDataMaintenancePlanNameRoute
+  '/business-data/map-definition/$name': typeof BusinessDataMapDefinitionNameRoute
   '/business-data/map/$name': typeof BusinessDataMapNameRoute
 }
 export interface FileRouteTypes {
@@ -465,6 +485,7 @@ export interface FileRouteTypes {
     | '/business-data/maintenance-activity-order'
     | '/business-data/maintenance-plan'
     | '/business-data/map'
+    | '/business-data/map-definition'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -482,6 +503,7 @@ export interface FileRouteTypes {
     | '/business-data/kpi/$name'
     | '/business-data/maintenance-activity-order/$name'
     | '/business-data/maintenance-plan/$name'
+    | '/business-data/map-definition/$name'
     | '/business-data/map/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -511,6 +533,7 @@ export interface FileRouteTypes {
     | '/business-data/maintenance-activity-order'
     | '/business-data/maintenance-plan'
     | '/business-data/map'
+    | '/business-data/map-definition'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -528,6 +551,7 @@ export interface FileRouteTypes {
     | '/business-data/kpi/$name'
     | '/business-data/maintenance-activity-order/$name'
     | '/business-data/maintenance-plan/$name'
+    | '/business-data/map-definition/$name'
     | '/business-data/map/$name'
   id:
     | '__root__'
@@ -557,6 +581,7 @@ export interface FileRouteTypes {
     | '/business-data/maintenance-activity-order'
     | '/business-data/maintenance-plan'
     | '/business-data/map'
+    | '/business-data/map-definition'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -574,6 +599,7 @@ export interface FileRouteTypes {
     | '/business-data/kpi/$name'
     | '/business-data/maintenance-activity-order/$name'
     | '/business-data/maintenance-plan/$name'
+    | '/business-data/map-definition/$name'
     | '/business-data/map/$name'
   fileRoutesById: FileRoutesById
 }
@@ -769,6 +795,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataMapRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/map-definition': {
+      id: '/business-data/map-definition'
+      path: '/map-definition'
+      fullPath: '/business-data/map-definition'
+      preLoaderRoute: typeof BusinessDataMapDefinitionRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
       path: '/$name'
@@ -887,6 +920,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/maintenance-plan/$name'
       preLoaderRoute: typeof BusinessDataMaintenancePlanNameRouteImport
       parentRoute: typeof BusinessDataMaintenancePlanRoute
+    }
+    '/business-data/map-definition/$name': {
+      id: '/business-data/map-definition/$name'
+      path: '/$name'
+      fullPath: '/business-data/map-definition/$name'
+      preLoaderRoute: typeof BusinessDataMapDefinitionNameRouteImport
+      parentRoute: typeof BusinessDataMapDefinitionRoute
     }
     '/business-data/map/$name': {
       id: '/business-data/map/$name'
@@ -1157,6 +1197,20 @@ const BusinessDataMapRouteWithChildren = BusinessDataMapRoute._addFileChildren(
   BusinessDataMapRouteChildren,
 )
 
+interface BusinessDataMapDefinitionRouteChildren {
+  BusinessDataMapDefinitionNameRoute: typeof BusinessDataMapDefinitionNameRoute
+}
+
+const BusinessDataMapDefinitionRouteChildren: BusinessDataMapDefinitionRouteChildren =
+  {
+    BusinessDataMapDefinitionNameRoute: BusinessDataMapDefinitionNameRoute,
+  }
+
+const BusinessDataMapDefinitionRouteWithChildren =
+  BusinessDataMapDefinitionRoute._addFileChildren(
+    BusinessDataMapDefinitionRouteChildren,
+  )
+
 interface BusinessDataRouteChildren {
   BusinessDataDataSiloRoute: typeof BusinessDataDataSiloRouteWithChildren
   BusinessDataDocumentRoute: typeof BusinessDataDocumentRouteWithChildren
@@ -1170,6 +1224,7 @@ interface BusinessDataRouteChildren {
   BusinessDataMaintenanceActivityOrderRoute: typeof BusinessDataMaintenanceActivityOrderRouteWithChildren
   BusinessDataMaintenancePlanRoute: typeof BusinessDataMaintenancePlanRouteWithChildren
   BusinessDataMapRoute: typeof BusinessDataMapRouteWithChildren
+  BusinessDataMapDefinitionRoute: typeof BusinessDataMapDefinitionRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
@@ -1188,6 +1243,7 @@ const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataMaintenancePlanRoute:
     BusinessDataMaintenancePlanRouteWithChildren,
   BusinessDataMapRoute: BusinessDataMapRouteWithChildren,
+  BusinessDataMapDefinitionRoute: BusinessDataMapDefinitionRouteWithChildren,
 }
 
 const BusinessDataRouteWithChildren = BusinessDataRoute._addFileChildren(
