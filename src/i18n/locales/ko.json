@@ -829,6 +829,48 @@
           "attachments": "첨부 파일"
         }
       }
+    },
+    "binConverter": {
+      "pageLabel": "빈 변환기",
+      "listTitle": "빈 변환기",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "converterType": "변환기 유형",
+        "binType": "빈 유형",
+        "state": "상태"
+      },
+      "detail": {
+        "loading": "로딩 중...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "binConverter": "Bin Converter",
+        "name": "이름",
+        "description": "설명",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "converterType": "Bin Converter Type",
+        "binType": "빈 유형",
+        "conversionsTitle": "Bin Conversions ({{count}})",
+        "convColumns": {
+          "fromBinCode": "From Bin Code",
+          "toBinCode": "To Bin Code",
+          "toBinDescription": "To Bin Description",
+          "toBinQuality": "To Bin Quality",
+          "toBinColor": "To Bin Color"
+        },
+        "tabs": {
+          "details": "세부 정보",
+          "compare": "비교",
+          "references": "참조",
+          "history": "기록"
+        },
+        "sections": {
+          "details": "세부 정보",
+          "conversions": "변환",
+          "attachments": "첨부 파일"
+        }
+      }
     }
   }
 }

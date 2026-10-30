@@ -829,6 +829,48 @@
           "attachments": "Attachments"
         }
       }
+    },
+    "binConverter": {
+      "pageLabel": "Bin Converters",
+      "listTitle": "Bin Converters",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "converterType": "Converter Type",
+        "binType": "Bin Type",
+        "state": "State"
+      },
+      "detail": {
+        "loading": "Loading...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "binConverter": "Bin Converter",
+        "name": "Name",
+        "description": "Description",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "converterType": "Bin Converter Type",
+        "binType": "Bin Type",
+        "conversionsTitle": "Bin Conversions ({{count}})",
+        "convColumns": {
+          "fromBinCode": "From Bin Code",
+          "toBinCode": "To Bin Code",
+          "toBinDescription": "To Bin Description",
+          "toBinQuality": "To Bin Quality",
+          "toBinColor": "To Bin Color"
+        },
+        "tabs": {
+          "details": "Details",
+          "compare": "Compare",
+          "references": "References",
+          "history": "History"
+        },
+        "sections": {
+          "details": "Details",
+          "conversions": "Conversions",
+          "attachments": "Attachments"
+        }
+      }
     }
   }
 }

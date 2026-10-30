@@ -82,3 +82,5 @@ export { getBatch, listBatches, useBatchDetail, useBatches } from "./businessDat
 export type { BatchDetail, BatchRecord } from "./businessData/batch";
 export { getBom, listBoms, useBomDetail, useBoms } from "./businessData/bom";
 export type { BomDetail, BomItem, BomRecord } from "./businessData/bom";
+export { useBinConverterDetail, useBinConverters } from "./businessData/binConverter";
+export type { BinConversion, BinConverterDetail, BinConverterRecord } from "./businessData/binConverter";

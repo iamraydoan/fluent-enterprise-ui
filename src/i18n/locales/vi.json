@@ -829,6 +829,48 @@
           "attachments": "Tệp đính kèm"
         }
       }
+    },
+    "binConverter": {
+      "pageLabel": "Bộ chuyển đổi bin",
+      "listTitle": "Bộ chuyển đổi bin",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "converterType": "Loại chuyển đổi",
+        "binType": "Loại bin",
+        "state": "Trạng thái"
+      },
+      "detail": {
+        "loading": "Đang tải...",
+        "emptyValue": "—",
+        "historyEmpty": "No history records found.",
+        "binConverter": "Bin Converter",
+        "name": "Tên",
+        "description": "Mô tả",
+        "universalState": "Universal State",
+        "dataGroup": "Data Group",
+        "converterType": "Bin Converter Type",
+        "binType": "Loại bin",
+        "conversionsTitle": "Bin Conversions ({{count}})",
+        "convColumns": {
+          "fromBinCode": "From Bin Code",
+          "toBinCode": "To Bin Code",
+          "toBinDescription": "To Bin Description",
+          "toBinQuality": "To Bin Quality",
+          "toBinColor": "To Bin Color"
+        },
+        "tabs": {
+          "details": "Chi tiết",
+          "compare": "So sánh",
+          "references": "Tham chiếu",
+          "history": "Lịch sử"
+        },
+        "sections": {
+          "details": "Chi tiết",
+          "conversions": "Chuyển đổi",
+          "attachments": "Tệp đính kèm"
+        }
+      }
     }
   }
 }

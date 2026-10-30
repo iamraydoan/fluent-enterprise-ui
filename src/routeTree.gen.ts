@@ -25,6 +25,7 @@ import { Route as AdministrationTablesRouteImport } from './routes/administratio
 import { Route as AdministrationUipagesRouteImport } from './routes/administration.uipages'
 import { Route as BusinessDataAreaRouteImport } from './routes/business-data.area'
 import { Route as BusinessDataBatchRouteImport } from './routes/business-data.batch'
+import { Route as BusinessDataBinConverterRouteImport } from './routes/business-data.bin-converter'
 import { Route as BusinessDataBomRouteImport } from './routes/business-data.bom'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
@@ -34,6 +35,7 @@ import { Route as AdministrationQueriesNameRouteImport } from './routes/administ
 import { Route as AdministrationTablesNameRouteImport } from './routes/administration.tables.$name'
 import { Route as BusinessDataAreaNameRouteImport } from './routes/business-data.area.$name'
 import { Route as BusinessDataBatchNameRouteImport } from './routes/business-data.batch.$name'
+import { Route as BusinessDataBinConverterNameRouteImport } from './routes/business-data.bin-converter.$name'
 import { Route as BusinessDataBomNameRouteImport } from './routes/business-data.bom.$name'
 
 const IndexRoute = IndexRouteImport.update({
@@ -119,6 +121,12 @@ const BusinessDataBatchRoute = BusinessDataBatchRouteImport.update({
   path: '/batch',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const BusinessDataBinConverterRoute =
+  BusinessDataBinConverterRouteImport.update({
+    id: '/bin-converter',
+    path: '/bin-converter',
+    getParentRoute: () => BusinessDataRoute,
+  } as any)
 const BusinessDataBomRoute = BusinessDataBomRouteImport.update({
   id: '/bom',
   path: '/bom',
@@ -170,6 +178,12 @@ const BusinessDataBatchNameRoute = BusinessDataBatchNameRouteImport.update({
   path: '/$name',
   getParentRoute: () => BusinessDataBatchRoute,
 } as any)
+const BusinessDataBinConverterNameRoute =
+  BusinessDataBinConverterNameRouteImport.update({
+    id: '/$name',
+    path: '/$name',
+    getParentRoute: () => BusinessDataBinConverterRoute,
+  } as any)
 const BusinessDataBomNameRoute = BusinessDataBomNameRouteImport.update({
   id: '/$name',
   path: '/$name',
@@ -193,6 +207,7 @@ export interface FileRoutesByFullPath {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/area': typeof BusinessDataAreaRouteWithChildren
   '/business-data/batch': typeof BusinessDataBatchRouteWithChildren
+  '/business-data/bin-converter': typeof BusinessDataBinConverterRouteWithChildren
   '/business-data/bom': typeof BusinessDataBomRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
@@ -202,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/area/$name': typeof BusinessDataAreaNameRoute
   '/business-data/batch/$name': typeof BusinessDataBatchNameRoute
+  '/business-data/bin-converter/$name': typeof BusinessDataBinConverterNameRoute
   '/business-data/bom/$name': typeof BusinessDataBomNameRoute
 }
 export interface FileRoutesByTo {
@@ -221,6 +237,7 @@ export interface FileRoutesByTo {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/area': typeof BusinessDataAreaRouteWithChildren
   '/business-data/batch': typeof BusinessDataBatchRouteWithChildren
+  '/business-data/bin-converter': typeof BusinessDataBinConverterRouteWithChildren
   '/business-data/bom': typeof BusinessDataBomRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
@@ -230,6 +247,7 @@ export interface FileRoutesByTo {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/area/$name': typeof BusinessDataAreaNameRoute
   '/business-data/batch/$name': typeof BusinessDataBatchNameRoute
+  '/business-data/bin-converter/$name': typeof BusinessDataBinConverterNameRoute
   '/business-data/bom/$name': typeof BusinessDataBomNameRoute
 }
 export interface FileRoutesById {
@@ -250,6 +268,7 @@ export interface FileRoutesById {
   '/administration/uipages': typeof AdministrationUipagesRoute
   '/business-data/area': typeof BusinessDataAreaRouteWithChildren
   '/business-data/batch': typeof BusinessDataBatchRouteWithChildren
+  '/business-data/bin-converter': typeof BusinessDataBinConverterRouteWithChildren
   '/business-data/bom': typeof BusinessDataBomRouteWithChildren
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
@@ -259,6 +278,7 @@ export interface FileRoutesById {
   '/administration/tables/$name': typeof AdministrationTablesNameRoute
   '/business-data/area/$name': typeof BusinessDataAreaNameRoute
   '/business-data/batch/$name': typeof BusinessDataBatchNameRoute
+  '/business-data/bin-converter/$name': typeof BusinessDataBinConverterNameRoute
   '/business-data/bom/$name': typeof BusinessDataBomNameRoute
 }
 export interface FileRouteTypes {
@@ -280,6 +300,7 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/area'
     | '/business-data/batch'
+    | '/business-data/bin-converter'
     | '/business-data/bom'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
@@ -289,6 +310,7 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/area/$name'
     | '/business-data/batch/$name'
+    | '/business-data/bin-converter/$name'
     | '/business-data/bom/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -308,6 +330,7 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/area'
     | '/business-data/batch'
+    | '/business-data/bin-converter'
     | '/business-data/bom'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
@@ -317,6 +340,7 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/area/$name'
     | '/business-data/batch/$name'
+    | '/business-data/bin-converter/$name'
     | '/business-data/bom/$name'
   id:
     | '__root__'
@@ -336,6 +360,7 @@ export interface FileRouteTypes {
     | '/administration/uipages'
     | '/business-data/area'
     | '/business-data/batch'
+    | '/business-data/bin-converter'
     | '/business-data/bom'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
@@ -345,6 +370,7 @@ export interface FileRouteTypes {
     | '/administration/tables/$name'
     | '/business-data/area/$name'
     | '/business-data/batch/$name'
+    | '/business-data/bin-converter/$name'
     | '/business-data/bom/$name'
   fileRoutesById: FileRoutesById
 }
@@ -470,6 +496,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessDataBatchRouteImport
       parentRoute: typeof BusinessDataRoute
     }
+    '/business-data/bin-converter': {
+      id: '/business-data/bin-converter'
+      path: '/bin-converter'
+      fullPath: '/business-data/bin-converter'
+      preLoaderRoute: typeof BusinessDataBinConverterRouteImport
+      parentRoute: typeof BusinessDataRoute
+    }
     '/business-data/bom': {
       id: '/business-data/bom'
       path: '/bom'
@@ -532,6 +565,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/batch/$name'
       preLoaderRoute: typeof BusinessDataBatchNameRouteImport
       parentRoute: typeof BusinessDataBatchRoute
+    }
+    '/business-data/bin-converter/$name': {
+      id: '/business-data/bin-converter/$name'
+      path: '/$name'
+      fullPath: '/business-data/bin-converter/$name'
+      preLoaderRoute: typeof BusinessDataBinConverterNameRouteImport
+      parentRoute: typeof BusinessDataBinConverterRoute
     }
     '/business-data/bom/$name': {
       id: '/business-data/bom/$name'
@@ -673,6 +713,20 @@ const BusinessDataBatchRouteChildren: BusinessDataBatchRouteChildren = {
 const BusinessDataBatchRouteWithChildren =
   BusinessDataBatchRoute._addFileChildren(BusinessDataBatchRouteChildren)
 
+interface BusinessDataBinConverterRouteChildren {
+  BusinessDataBinConverterNameRoute: typeof BusinessDataBinConverterNameRoute
+}
+
+const BusinessDataBinConverterRouteChildren: BusinessDataBinConverterRouteChildren =
+  {
+    BusinessDataBinConverterNameRoute: BusinessDataBinConverterNameRoute,
+  }
+
+const BusinessDataBinConverterRouteWithChildren =
+  BusinessDataBinConverterRoute._addFileChildren(
+    BusinessDataBinConverterRouteChildren,
+  )
+
 interface BusinessDataBomRouteChildren {
   BusinessDataBomNameRoute: typeof BusinessDataBomNameRoute
 }
@@ -688,12 +742,14 @@ const BusinessDataBomRouteWithChildren = BusinessDataBomRoute._addFileChildren(
 interface BusinessDataRouteChildren {
   BusinessDataAreaRoute: typeof BusinessDataAreaRouteWithChildren
   BusinessDataBatchRoute: typeof BusinessDataBatchRouteWithChildren
+  BusinessDataBinConverterRoute: typeof BusinessDataBinConverterRouteWithChildren
   BusinessDataBomRoute: typeof BusinessDataBomRouteWithChildren
 }
 
 const BusinessDataRouteChildren: BusinessDataRouteChildren = {
   BusinessDataAreaRoute: BusinessDataAreaRouteWithChildren,
   BusinessDataBatchRoute: BusinessDataBatchRouteWithChildren,
+  BusinessDataBinConverterRoute: BusinessDataBinConverterRouteWithChildren,
   BusinessDataBomRoute: BusinessDataBomRouteWithChildren,
 }
 
