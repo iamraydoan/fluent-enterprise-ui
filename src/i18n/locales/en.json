@@ -793,6 +793,77 @@
           "unassign": "Unassign"
         }
       }
+    },
+    "qualificationCheck": {
+      "pageLabel": "Qualification Check",
+      "listTitle": "Qualification Checks",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "instanceType": "Instance Type",
+        "state": "State"
+      },
+      "tabs": {
+        "details": "Details",
+        "compare": "Compare",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "attachments": "Attachments",
+        "empty": "No data",
+        "emptyBody": "This section has no content yet."
+      },
+      "cards": {
+        "qualificationCheck": "Qualification Check",
+        "information": "Information"
+      },
+      "details": {
+        "name": "Name",
+        "description": "Description",
+        "state": "Universal State",
+        "dataGroup": "Data Group",
+        "instanceType": "Instance Type"
+      },
+      "more": {
+        "clone": "Clone",
+        "terminate": "Terminate",
+        "unterminate": "Unterminate"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Create Qualification Check",
+          "editTitle": "Edit Qualification Check",
+          "generalData": "General Data",
+          "name": "Name",
+          "description": "Description",
+          "dataGroup": "Data Group",
+          "instanceType": "Instance Type",
+          "single": "Single",
+          "multiple": "Multiple",
+          "comments": "Comments"
+        },
+        "clone": {
+          "title": "Clone Qualification Check",
+          "clones": "Clones ({{count}})",
+          "name": "Name",
+          "instanceType": "Instance Type",
+          "source": "Source: {{name}}",
+          "comments": "Comments",
+          "clone": "Clone"
+        },
+        "terminate": {
+          "title": "Terminate Qualification Check",
+          "message": "Are you sure you want to terminate the Qualification Check '{{name}}'?",
+          "confirm": "Terminate"
+        },
+        "unterminate": {
+          "title": "Unterminate Qualification Check",
+          "message": "Are you sure you want to unterminate the Qualification Check '{{name}}'?",
+          "confirm": "Unterminate"
+        }
+      }
     }
   }
 }

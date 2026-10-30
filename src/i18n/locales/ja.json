@@ -793,6 +793,77 @@
           "unassign": "割当解除"
         }
       }
+    },
+    "qualificationCheck": {
+      "pageLabel": "Qualification Check",
+      "listTitle": "Qualification Checks",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "instanceType": "インスタンスタイプ",
+        "state": "状態"
+      },
+      "tabs": {
+        "details": "詳細",
+        "compare": "比較",
+        "references": "参照",
+        "history": "履歴"
+      },
+      "sections": {
+        "details": "詳細",
+        "attachments": "添付",
+        "empty": "データなし",
+        "emptyBody": "このセクションにはまだコンテンツがありません。"
+      },
+      "cards": {
+        "qualificationCheck": "Qualification Check",
+        "information": "情報"
+      },
+      "details": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態",
+        "dataGroup": "データグループ",
+        "instanceType": "インスタンスタイプ"
+      },
+      "more": {
+        "clone": "複製",
+        "terminate": "終了",
+        "unterminate": "終了取消"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Qualification Check作成",
+          "editTitle": "Qualification Check編集",
+          "generalData": "一般データ",
+          "name": "名前",
+          "description": "説明",
+          "dataGroup": "データグループ",
+          "instanceType": "インスタンスタイプ",
+          "single": "単一",
+          "multiple": "複数",
+          "comments": "コメント"
+        },
+        "clone": {
+          "title": "Qualification Check複製",
+          "clones": "複製 ({{count}})",
+          "name": "名前",
+          "instanceType": "インスタンスタイプ",
+          "source": "ソース: {{name}}",
+          "comments": "コメント",
+          "clone": "複製"
+        },
+        "terminate": {
+          "title": "Qualification Check終了",
+          "message": "Qualification Check '{{name}}' を終了しますか?",
+          "confirm": "終了"
+        },
+        "unterminate": {
+          "title": "Qualification Check終了取消",
+          "message": "Qualification Check '{{name}}' の終了を取り消しますか?",
+          "confirm": "終了取消"
+        }
+      }
     }
   }
 }

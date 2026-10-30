@@ -793,6 +793,77 @@
           "unassign": "Bỏ gán"
         }
       }
+    },
+    "qualificationCheck": {
+      "pageLabel": "Qualification Check",
+      "listTitle": "Qualification Checks",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "instanceType": "Loại instance",
+        "state": "Trạng thái"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "compare": "So sánh",
+        "references": "Tham chiếu",
+        "history": "Lịch sử"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "attachments": "Đính kèm",
+        "empty": "Không có dữ liệu",
+        "emptyBody": "Mục này chưa có nội dung."
+      },
+      "cards": {
+        "qualificationCheck": "Qualification Check",
+        "information": "Thông tin"
+      },
+      "details": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái",
+        "dataGroup": "Nhóm dữ liệu",
+        "instanceType": "Loại instance"
+      },
+      "more": {
+        "clone": "Nhân bản",
+        "terminate": "Kết thúc",
+        "unterminate": "Hủy kết thúc"
+      },
+      "dialogs": {
+        "form": {
+          "createTitle": "Tạo Qualification Check",
+          "editTitle": "Sửa Qualification Check",
+          "generalData": "Dữ liệu chung",
+          "name": "Tên",
+          "description": "Mô tả",
+          "dataGroup": "Nhóm dữ liệu",
+          "instanceType": "Loại instance",
+          "single": "Đơn",
+          "multiple": "Nhiều",
+          "comments": "Ghi chú"
+        },
+        "clone": {
+          "title": "Nhân bản Qualification Check",
+          "clones": "Bản sao ({{count}})",
+          "name": "Tên",
+          "instanceType": "Loại instance",
+          "source": "Nguồn: {{name}}",
+          "comments": "Ghi chú",
+          "clone": "Nhân bản"
+        },
+        "terminate": {
+          "title": "Kết thúc Qualification Check",
+          "message": "Bạn có chắc muốn kết thúc Qualification Check '{{name}}'?",
+          "confirm": "Kết thúc"
+        },
+        "unterminate": {
+          "title": "Hủy kết thúc Qualification Check",
+          "message": "Bạn có chắc muốn hủy kết thúc Qualification Check '{{name}}'?",
+          "confirm": "Hủy kết thúc"
+        }
+      }
     }
   }
 }
