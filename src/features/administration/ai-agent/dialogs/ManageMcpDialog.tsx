@@ -47,7 +47,7 @@ const useManageStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     padding: "0 10px",
-    backgroundColor: "#E6E6E6",
+    backgroundColor: theme.color.borderSubtle,
     fontSize: "13px",
     columnGap: "8px",
     position: "sticky",
@@ -70,7 +70,7 @@ const useManageStyles = makeStyles({
     fontFamily: "inherit",
     textAlign: "left",
     width: "100%",
-    ":hover": { backgroundColor: "#E3EAF3" },
+    ":hover": { backgroundColor: theme.color.brandSubtle },
   },
   rowOn: { backgroundColor: theme.color.brandSubtle },
   trow: {
@@ -194,7 +194,7 @@ export function ManageMcpDialog({
             />
           </div>
           <div className={manageStyles.box}>
-            <div className={manageStyles.list} style={{ borderRight: "1px solid #BDBDBD" }}>
+            <div className={manageStyles.list} style={{ borderRight: `1px solid ${theme.color.border}` }}>
               <div className={manageStyles.listHead}>{t("dialogs.manageMcp.mcpServers")}</div>
               {AGENT_MCP_SERVERS.map((server) => {
                 const count = Object.keys(draft[server.name] ?? {}).length;

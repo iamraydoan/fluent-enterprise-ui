@@ -24,7 +24,7 @@ const useScanStyles = makeStyles({
     height: "96px",
   },
   bar: {
-    backgroundColor: "#e8e8e8",
+    backgroundColor: theme.color.borderSubtle,
   },
   scanLine: {
     position: "absolute",
