@@ -1,44 +1,20 @@
 import { useState } from "react";
 import type { ShiftDefinitionShift } from "@/api";
-import { Add24Regular, Delete20Regular, Dismiss16Regular } from "@/components/icons";
-import {
-  Body1Strong,
-  Button,
-  Caption1,
-  Input,
-  Text,
-  makeStyles,
-  mergeClasses,
-  tokens,
-} from "@/components/ui";
+import { BaseDialog } from "@/components/common";
+import { Add24Regular, Delete20Regular } from "@/components/icons";
+import { Button, Caption1, Input, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
+import type { TranslationKey } from "@/i18n";
+
+const L: Record<string, TranslationKey> = {
+  title: "businessData.shiftDefinition.create.title",
+  cancel: "businessData.shiftDefinition.cancel",
+  back: "businessData.shiftDefinition.create.back",
+  next: "businessData.shiftDefinition.create.next",
+  create: "actionBar.create",
+};
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(900px, 100%)",
-    maxHeight: "100%",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-  },
-  header: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "16px 20px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   steps: {
     display: "flex",
     columnGap: "8px",
@@ -78,13 +54,6 @@ const useDialogStyles = makeStyles({
     alignItems: "center",
     padding: "4px 0",
   },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 20px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
 });
 
 interface ShiftEntry extends ShiftDefinitionShift {
@@ -104,7 +73,6 @@ const EMPTY_SHIFT: ShiftEntry = {
 export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
-  const sharedStyles = useSharedStyles();
   const [step, setStep] = useState(0);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -270,51 +238,43 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
   }
 
   return (
-    <div
-      className={styles.overlay}
-      role="dialog"
-      aria-label={t("businessData.shiftDefinition.create.title")}
-    >
-      <div className={mergeClasses(sharedStyles.contentCard, styles.surface)}>
-        <div className={styles.header}>
-          <Body1Strong>{t("businessData.shiftDefinition.create.title")}</Body1Strong>
-          <Button
-            appearance="subtle"
-            icon={<Dismiss16Regular />}
-            onClick={onClose}
-            aria-label={t("common.close")}
-          />
-        </div>
-        <div className={styles.steps}>
-          {steps.map((label, i) => (
-            <div
-              key={i}
-              className={mergeClasses(styles.step, i === step && styles.stepActive)}
-              onClick={() => setStep(i)}
-            >
-              <Text>{`${i + 1}. ${label}`}</Text>
-            </div>
-          ))}
-        </div>
-        <div className={styles.body}>{body}</div>
-        <div className={styles.footer}>
-          <Button onClick={onClose}>{t("businessData.shiftDefinition.cancel")}</Button>
+    <BaseDialog
+      open
+      title={t(L.title)}
+      onClose={onClose}
+      width="min(900px, 100%)"
+      footer={
+        <>
+          <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step > 0 && (
             <Button appearance="secondary" onClick={() => setStep(step - 1)}>
-              {t("businessData.shiftDefinition.create.back")}
+              {t(L.back)}
             </Button>
           )}
           {step < 2 ? (
             <Button appearance="primary" onClick={() => setStep(step + 1)}>
-              {t("businessData.shiftDefinition.create.next")}
+              {t(L.next)}
             </Button>
           ) : (
             <Button appearance="primary" onClick={onClose}>
-              {t("actionBar.create")}
+              {t(L.create)}
             </Button>
           )}
-        </div>
+        </>
+      }
+    >
+      <div className={styles.steps} style={{ margin: "-16px -20px 0" }}>
+        {steps.map((label, i) => (
+          <div
+            key={i}
+            className={mergeClasses(styles.step, i === step && styles.stepActive)}
+            onClick={() => setStep(i)}
+          >
+            <Text>{`${i + 1}. ${label}`}</Text>
+          </div>
+        ))}
       </div>
-    </div>
+      {body}
+    </BaseDialog>
   );
 }
