@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BaseDialog } from "@/components/common";
 import {
   ChevronRight20Regular,
   Delete20Regular,
@@ -10,7 +11,7 @@ import { Button, Checkbox, Input, makeStyles, Text, tokens } from "@/components/
 import { useAppTranslation } from "@/i18n";
 import { AGENT_MCP_SERVERS, agentServerTools } from "../data";
 import type { ToolSelection } from "../data";
-import { DialogAgentSub, DialogShell } from "./DialogShell";
+import { DialogAgentSub } from "./DialogAgentSub";
 
 const useManageStyles = makeStyles({
   cols: {
@@ -160,11 +161,13 @@ export function ManageMcpDialog({
     Object.entries(toolsForServer).map(([tool, deferred]) => ({ server, tool, deferred })),
   );
   return (
-    <DialogShell
+    <BaseDialog
+      open
       title={t("dialogs.manageMcp.title")}
       icon={<Settings20Regular />}
+      size="fullscreen"
       onClose={onClose}
-      sub={<DialogAgentSub agentName={agentName} agentDescription={agentDescription} />}
+      subHeader={<DialogAgentSub agentName={agentName} agentDescription={agentDescription} />}
       footer={
         <>
           <Button onClick={onClose}>{t("common.cancel")}</Button>
@@ -287,6 +290,6 @@ export function ManageMcpDialog({
           </div>
         </div>
       </div>
-    </DialogShell>
+    </BaseDialog>
   );
 }

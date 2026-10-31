@@ -4,7 +4,7 @@ import { Card, SidePanel } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
 import { Button, makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
+import { useSharedStyles, tileSurface } from "@/styles/shared";
 import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
 
@@ -17,7 +17,7 @@ const useViewStyles = makeStyles({
     gap: "12px",
   },
   tile: {
-    backgroundColor: "#EAF3F9",
+    backgroundColor: tileSurface.backgroundColor,
     borderRadius: "4px",
     padding: "12px",
     cursor: "pointer",
@@ -25,7 +25,7 @@ const useViewStyles = makeStyles({
     flexDirection: "column",
     rowGap: "8px",
     minHeight: "100px",
-    ":hover": { backgroundColor: "#DCEBF5" },
+    ":hover": { backgroundColor: tileSurface.hoverBackgroundColor },
   },
   tileFooter: {
     display: "flex",

@@ -24,7 +24,16 @@ export interface FabFacility {
   areaCount: number;
 }
 
-export type FabResourceState = "Up" | "Down" | "Maintenance" | "NonScheduled" | string;
+export type FabResourceState =
+  | "Up"
+  | "Down"
+  | "Maintenance"
+  | "NonScheduled"
+  | "Productive"
+  | "Standby"
+  | "Unscheduled Down"
+  | "Scheduled Down"
+  | "Engineering";
 
 export interface FabResourceStateCount {
   up: number;

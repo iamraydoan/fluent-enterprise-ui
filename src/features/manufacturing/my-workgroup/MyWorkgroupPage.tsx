@@ -27,7 +27,7 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
+import { useSharedStyles, tileSurface} from "@/styles/shared";
 import { PanelSettingsDialog } from "./dialogs";
 
 const usePageStyles = makeStyles({
@@ -235,7 +235,7 @@ function ResourceTile({ tile, onOpen }: { tile: WorkgroupResourceTile; onOpen: (
     <div
       className={mergeClasses(sharedStyles.contentCard, styles.tile)}
       style={{
-        backgroundColor: isUp ? "#EAF3FB" : "#FDECEC",
+        backgroundColor: isUp ? tileSurface.backgroundColor : "#FDECEC",
       }}
       onClick={onOpen}
       role="button"
@@ -282,7 +282,7 @@ function StepTile({ tile, onOpen }: { tile: WorkgroupStepTile; onOpen: () => voi
   return (
     <div
       className={mergeClasses(sharedStyles.contentCard, styles.tile)}
-      style={{ backgroundColor: "#EAF3FB" }}
+      style={{ backgroundColor: tileSurface.backgroundColor }}
       onClick={onOpen}
       role="button"
       tabIndex={0}

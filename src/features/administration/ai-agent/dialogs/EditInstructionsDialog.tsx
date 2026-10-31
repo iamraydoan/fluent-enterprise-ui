@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import type { ReactElement } from "react";
+import { BaseDialog } from "@/components/common";
 import {
   ChevronDown16Regular,
   DocumentAdd20Regular,
@@ -36,7 +37,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { DialogAgentSub, DialogShell } from "./DialogShell";
+import { DialogAgentSub } from "./DialogAgentSub";
 
 const useEditStyles = makeStyles({
   field: { display: "flex", columnGap: "12px", padding: "0 32px", alignItems: "flex-start" },
@@ -211,11 +212,13 @@ export function EditInstructionsDialog({
     </Menu>
   );
   return (
-    <DialogShell
+    <BaseDialog
+      open
       title={t("dialogs.editInstructions.title")}
       icon={<Edit20Regular />}
+      size="fullscreen"
       onClose={onClose}
-      sub={<DialogAgentSub agentName={agentName} />}
+      subHeader={<DialogAgentSub agentName={agentName} />}
       footer={
         <>
           <Button onClick={onClose}>{t("common.cancel")}</Button>
@@ -408,6 +411,6 @@ export function EditInstructionsDialog({
           />
         </div>
       </div>
-    </DialogShell>
+    </BaseDialog>
   );
 }

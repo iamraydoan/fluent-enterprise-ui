@@ -155,7 +155,8 @@
     "add": "Thêm",
     "remove": "Xóa",
     "none": "Không có",
-    "wizardSteps": "Các bước wizard"
+    "wizardSteps": "Các bước wizard",
+    "selectAll": "Chọn tất cả"
   },
   "configuration": {
     "pageLabel": "Cấu hình",
@@ -7772,7 +7773,9 @@
           "materialName": "Tên vật liệu",
           "processingType": "LOẠI XỬ LÝ",
           "systemState": "TRẠNG THÁI HỆ THỐNG",
-          "resourceName": "Tên tài nguyên"
+          "resourceName": "Tên tài nguyên",
+          "stateQueued": "Queued",
+          "stateInProcess": "In Process"
         },
         "columns": {
           "material": "VẬT LIỆU",
@@ -7792,7 +7795,9 @@
           "order": "THỨ TỰ",
           "storagePosition": "VỊ TRÍ KHO",
           "container": "THÙNG CHỨA"
-        }
+        },
+        "materialsTitle": "Materials ({{count}})",
+        "resourcesTitle": "Resources ({{count}})"
       },
       "resourceView": {
         "back": "Quay lại",
@@ -7820,7 +7825,9 @@
           "step": "CÔNG ĐOẠN",
           "state": "TRẠNG THÁI",
           "all": "TẤT CẢ"
-        }
+        },
+        "storageTitle": "Stored Materials ({{count}})",
+        "materialsTitle": "Materials ({{count}})"
       },
       "operations": {
         "refresh": "Làm mới",

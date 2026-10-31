@@ -8,6 +8,7 @@ export interface ListQueryParams {
 export interface ListQueryResult<TRow> {
   data?: { data: TRow[]; meta: { total: number } };
   isLoading: boolean;
+  refetch?: () => void;
 }
 
 const RESERVED_KEYS = new Set(["page", "limit", "sort", "filters"]);

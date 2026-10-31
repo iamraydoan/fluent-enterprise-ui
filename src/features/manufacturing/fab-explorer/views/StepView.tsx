@@ -1,19 +1,25 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { postFabOperation, useStepMaterials, useStepResources, useStepSummary } from "@/api";
-import type { FabMaterial, FabResource } from "@/api";
-import { ActionBar, RibbonButton, SidePanel } from "@/components/common";
-import type { RibbonMenuItem } from "@/components/common";
+import type { FabResource } from "@/api";
+import {
+  ActionBar,
+  DataTableCard,
+  RibbonButton,
+  SidePanel,
+  searchFilter,
+} from "@/components/common";
+import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
 import {
   ArrowSync24Regular,
   Box24Regular,
   ChevronLeft20Regular,
   Send24Regular,
 } from "@/components/icons";
-import { Input, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { FabGrid } from "../components/FabGrid";
-import type { FabGridColumn } from "../components/FabGrid";
+import type { ListQueryParams } from "@/lib/listQuery";
+import { useSharedStyles } from "@/styles/shared";
 import {
   AbortDialog,
   ChangeMaterialTypeDialog,
@@ -39,6 +45,7 @@ import {
   TrackOutDialog,
   UndispatchDialog,
 } from "../dialogs";
+import { MATERIAL_COLUMNS } from "./materialColumns";
 
 const useViewStyles = makeStyles({
   page: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0 },
@@ -149,7 +156,50 @@ const MOCK_HOLD = "No Salt";
 const MOCK_PROTOCOL = "PDCA - Warning";
 const MOCK_DOC = "Doc C images.jpg";
 
-const MATERIAL_STATES = ["Queued", "In Process"];
+const RESOURCE_COLUMNS: DataColumn<FabResource>[] = [
+  {
+    field: "name",
+    headerName: "manufacturing.fabExplorer.stepView.columns.resource",
+    cellRenderer: (r) => <Text size={300}>{r.name}</Text>,
+  },
+  {
+    field: "description",
+    headerName: "manufacturing.fabExplorer.stepView.columns.description",
+  },
+  {
+    field: "processingType",
+    headerName: "manufacturing.fabExplorer.stepView.columns.processingType",
+  },
+  {
+    field: "group",
+    headerName: "manufacturing.fabExplorer.stepView.columns.group",
+  },
+  {
+    field: "systemState",
+    headerName: "manufacturing.fabExplorer.stepView.columns.systemState",
+  },
+  {
+    field: "state",
+    headerName: "manufacturing.fabExplorer.stepView.columns.state",
+  },
+];
+
+const MATERIAL_FILTERS: DataFilter[] = [
+  {
+    type: "select",
+    param: "state",
+    labelKey: "manufacturing.fabExplorer.stepView.filters.state",
+    includeAll: true,
+    options: [
+      { value: "Queued", labelKey: "manufacturing.fabExplorer.stepView.filters.stateQueued" },
+      {
+        value: "In Process",
+        labelKey: "manufacturing.fabExplorer.stepView.filters.stateInProcess",
+      },
+    ],
+  },
+  searchFilter("q"),
+];
 
 const OP = {
   abort: "abort",
@@ -205,10 +255,7 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
   const { t } = useAppTranslation();
   const styles = useViewStyles();
   const [category, setCategory] = useState<Category>("materials");
-  const [page, setPage] = useState(1);
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [stateFilter, setStateFilter] = useState("");
-  const [q, setQ] = useState("");
 
   const [dlg, setDlg] = useState<string | null>(null);
   const closeDlg = () => setDlg(null);
@@ -219,124 +266,22 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
   };
 
   const { data: summary } = useStepSummary(name);
-  const materialFilters: Record<string, string> = {};
-  if (q) materialFilters.q = q;
-  if (stateFilter) materialFilters.state = stateFilter;
-  const materialsQuery = useStepMaterials(name, { page, limit: 25, filters: materialFilters });
-  const resourcesQuery = useStepResources(name, { page: 1, limit: 100, filters: {} });
+  const materialsApiRef = useRef<DataTableCardApi | null>(null);
+  const resourcesApiRef = useRef<DataTableCardApi | null>(null);
 
-  const materials = materialsQuery.data?.data ?? [];
-  const total = materialsQuery.data?.meta.total ?? 0;
-  const totalPages = Math.max(1, Math.ceil(total / 25));
-  const resources = resourcesQuery.data?.data ?? [];
-
-  const toggle = (id: string) =>
-    setSelected((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  const toggleAll = () =>
-    setSelected((prev) => {
-      if (materials.every((m: FabMaterial) => prev.has(m.name))) return new Set<string>();
-      return new Set(materials.map((m: FabMaterial) => m.name));
-    });
-
-  const materialColumns: FabGridColumn<FabMaterial>[] = useMemo(
-    () => [
-      {
-        key: "material",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.material"),
-        render: (r) => (
-          <Text size={300}>
-            {r.name}
-            {r.subMaterialCount > 0 && (
-              <span style={{ color: tokens.colorBrandForeground1, fontWeight: 600, marginLeft: 8 }}>
-                ({r.subMaterialCount})
-              </span>
-            )}
-          </Text>
-        ),
+  const useMaterialsQuery = useMemo(
+    () =>
+      function useMaterialsQuery(params: ListQueryParams) {
+        return useStepMaterials(name, params);
       },
-      {
-        key: "qty",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.qty"),
-        render: (r) => r.qty.toLocaleString(),
-      },
-      {
-        key: "units",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.units"),
-        render: (r) => r.units,
-      },
-      {
-        key: "product",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.product"),
-        render: (r) => r.product,
-      },
-      {
-        key: "flow",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.flow"),
-        render: (r) => r.flow,
-      },
-      {
-        key: "step",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.step"),
-        render: (r) => r.step,
-      },
-      {
-        key: "priority",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.priority"),
-        render: (r) => r.priority,
-      },
-      {
-        key: "state",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.state"),
-        render: (r) => r.state,
-      },
-      {
-        key: "inOffFlow",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.inOffFlow"),
-        render: (r) => (r.inOffFlow ? "✓" : "✗"),
-      },
-    ],
-    [t],
+    [name],
   );
-
-  const resourceColumns: FabGridColumn<FabResource>[] = useMemo(
-    () => [
-      {
-        key: "resource",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.resource"),
-        render: (r) => <Text size={300}>{r.name}</Text>,
+  const useResourcesQuery = useMemo(
+    () =>
+      function useResourcesQuery(params: ListQueryParams) {
+        return useStepResources(name, params);
       },
-      {
-        key: "description",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.description"),
-        render: (r) => r.description,
-      },
-      {
-        key: "processingType",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.processingType"),
-        render: (r) => r.processingType,
-      },
-      {
-        key: "group",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.group"),
-        render: (r) => r.group,
-      },
-      {
-        key: "systemState",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.systemState"),
-        render: (r) => r.systemState,
-      },
-      {
-        key: "state",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.state"),
-        render: (r) => r.state,
-      },
-    ],
-    [t],
+    [name],
   );
 
   const moreMenu: RibbonMenuItem[] = [
@@ -405,8 +350,8 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
 
   const selectedMaterials = [...selected];
   const refreshCategory = (cat: Category) => {
-    if (cat === "materials") materialsQuery.refetch();
-    else resourcesQuery.refetch();
+    if (cat === "materials") materialsApiRef.current?.refresh();
+    else resourcesApiRef.current?.refresh();
   };
 
   return (
@@ -507,7 +452,6 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
                 className={mergeClasses(styles.catRow, category === cat && styles.catActive)}
                 onClick={() => {
                   setCategory(cat);
-                  setPage(1);
                   setSelected(new Set());
                 }}
               >
@@ -536,65 +480,30 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
         </div>
 
         <div className={styles.center}>
-          <div className={styles.filterBar}>
-            <span className={styles.filterLabel}>
-              {t("manufacturing.fabExplorer.stepView.filters.state")}:
-            </span>
-            <select
-              value={stateFilter}
-              onChange={(e) => {
-                setStateFilter(e.target.value);
-                setPage(1);
-              }}
-              style={{ padding: "4px 8px" }}
-            >
-              <option value="">{t("manufacturing.fabExplorer.stepView.filters.all")}</option>
-              <option value={MATERIAL_STATES[0]}>{MATERIAL_STATES[0]}</option>
-              <option value={MATERIAL_STATES[1]}>{MATERIAL_STATES[1]}</option>
-            </select>
-            <Input
-              placeholder={t("manufacturing.fabExplorer.stepView.filters.materialName")}
-              value={q}
-              onChange={(_, d) => {
-                setQ(d.value);
-                setPage(1);
-              }}
-              style={{ width: "200px" }}
-            />
-          </div>
           {category === "materials" ? (
-            <FabGrid
-              columns={materialColumns}
-              rows={materials}
-              selectedIds={selected}
-              onToggle={toggle}
-              onToggleAll={toggleAll}
+            <DataTableCard
+              title={(count) => t("manufacturing.fabExplorer.stepView.materialsTitle", { count })}
+              ariaLabel={t("manufacturing.fabExplorer.stepView.materialsTitle", { count: 0 })}
+              columns={MATERIAL_COLUMNS}
+              filters={MATERIAL_FILTERS}
+              useListQuery={useMaterialsQuery}
               getRowId={(r) => r.name}
-              selectedLabel={t("manufacturing.fabExplorer.stepView.itemsSelected", {
-                count: selected.size,
-              })}
-              page={page}
-              totalPages={totalPages}
-              total={total}
-              onPageChange={setPage}
-              t={t}
+              selectable
+              selectedIds={selected}
+              onSelectionChange={setSelected}
+              apiRef={materialsApiRef}
             />
           ) : (
-            <FabGrid
-              columns={resourceColumns}
-              rows={resources}
-              selectedIds={selected}
-              onToggle={toggle}
-              onToggleAll={toggleAll}
+            <DataTableCard
+              title={(count) => t("manufacturing.fabExplorer.stepView.resourcesTitle", { count })}
+              ariaLabel={t("manufacturing.fabExplorer.stepView.resourcesTitle", { count: 0 })}
+              columns={RESOURCE_COLUMNS}
+              useListQuery={useResourcesQuery}
               getRowId={(r) => r.name}
-              selectedLabel={t("manufacturing.fabExplorer.stepView.itemsSelected", {
-                count: selected.size,
-              })}
-              page={1}
-              totalPages={1}
-              total={resources.length}
-              onPageChange={() => undefined}
-              t={t}
+              selectable
+              selectedIds={selected}
+              onSelectionChange={setSelected}
+              apiRef={resourcesApiRef}
             />
           )}
         </div>

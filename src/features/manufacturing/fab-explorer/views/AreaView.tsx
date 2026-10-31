@@ -4,7 +4,7 @@ import type { FabResourceState } from "@/api";
 import { Card, SidePanel } from "@/components/common";
 import { makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
+import { useSharedStyles, tileSurface } from "@/styles/shared";
 import type { FabNavigation } from "../FabExplorerPage";
 
 const useViewStyles = makeStyles({
@@ -81,6 +81,11 @@ const STATE_COLORS: Record<FabResourceState, string> = {
   Down: tokens.colorPaletteRedBackground3,
   Maintenance: tokens.colorPaletteYellowBackground3,
   NonScheduled: tokens.colorNeutralBackground4,
+  Productive: tokens.colorPaletteGreenBackground3,
+  Standby: tokens.colorPaletteYellowBackground3,
+  "Unscheduled Down": tokens.colorPaletteRedBackground3,
+  "Scheduled Down": tokens.colorPaletteRedBackground3,
+  Engineering: tokens.colorPaletteBlueBackground2,
 };
 
 export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps) {
@@ -212,7 +217,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                       key={r.name}
                       className={styles.resourceTile}
                       style={{
-                        backgroundColor: "#EAF3F9",
+                        backgroundColor: tileSurface.backgroundColor,
                         borderLeftColor: STATE_COLORS[r.state],
                       }}
                       onClick={() => onSelectResource(r.name)}

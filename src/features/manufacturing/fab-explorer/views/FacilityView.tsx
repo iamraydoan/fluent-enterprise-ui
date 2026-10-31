@@ -4,6 +4,7 @@ import { Card, DetailTabs, SidePanel, SidebarNavItem } from "@/components/common
 import { Box24Regular, Grid24Regular } from "@/components/icons";
 import { Button, makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { tileSurface } from "@/styles/shared";
 import type { FabNavigation } from "../FabExplorerPage";
 import { ChangeResourcesDialog } from "../dialogs/ChangeResourcesDialog";
 import { ManageResourceEmployeesDialog } from "../dialogs/ManageResourceEmployeesDialog";
@@ -20,7 +21,7 @@ const useViewStyles = makeStyles({
     gap: "12px",
   },
   tile: {
-    backgroundColor: "#EAF3F9",
+    backgroundColor: tileSurface.backgroundColor,
     borderRadius: "4px",
     padding: "12px",
     cursor: "pointer",
@@ -28,7 +29,7 @@ const useViewStyles = makeStyles({
     flexDirection: "column",
     rowGap: "8px",
     minHeight: "110px",
-    ":hover": { backgroundColor: "#DCEBF5" },
+    ":hover": { backgroundColor: tileSurface.hoverBackgroundColor },
   },
   stateCounts: {
     display: "flex",

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import type { FabMaterial } from "@/api";
 import {
   postFabOperation,
@@ -6,8 +6,14 @@ import {
   useFabResourceDetail,
   useResourceMaterials,
 } from "@/api";
-import { ActionBar, RibbonButton, SidePanel } from "@/components/common";
-import type { RibbonMenuItem } from "@/components/common";
+import {
+  ActionBar,
+  DataTableCard,
+  RibbonButton,
+  SidePanel,
+  searchFilter,
+} from "@/components/common";
+import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
 import {
   ArrowSync24Regular,
   Box24Regular,
@@ -15,11 +21,11 @@ import {
   Send24Regular,
   Settings20Regular,
 } from "@/components/icons";
-import { Input, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { FabGrid } from "../components/FabGrid";
-import type { FabGridColumn } from "../components/FabGrid";
+import type { ListQueryParams } from "@/lib/listQuery";
+import { useSharedStyles } from "@/styles/shared";
 import {
   AbortDialog,
   ChangeMaterialTypeDialog,
@@ -51,6 +57,7 @@ import {
   UndispatchDialog,
 } from "../dialogs";
 import type { PanelSection } from "../dialogs";
+import { MATERIAL_COLUMNS } from "./materialColumns";
 
 const useViewStyles = makeStyles({
   page: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0 },
@@ -178,7 +185,43 @@ const L: Record<Category, TranslationKey> = {
 
 const MOCK_DOC = "Doc C images.jpg";
 
-const MATERIAL_STATES = ["Queued", "In Process"];
+const STORAGE_COLUMNS: DataColumn<FabMaterial>[] = [
+  {
+    field: "storagePosition",
+    headerName: "manufacturing.fabExplorer.stepView.columns.storagePosition",
+    valueGetter: () => "",
+  },
+  {
+    field: "name",
+    headerName: "manufacturing.fabExplorer.stepView.columns.material",
+    cellRenderer: (r) => <Text size={300}>{r.name}</Text>,
+  },
+  {
+    field: "state",
+    headerName: "manufacturing.fabExplorer.stepView.columns.state",
+  },
+  {
+    field: "product",
+    headerName: "manufacturing.fabExplorer.stepView.columns.product",
+  },
+];
+
+const RESOURCE_MATERIAL_FILTERS: DataFilter[] = [
+  {
+    type: "select",
+    param: "state",
+    labelKey: "manufacturing.fabExplorer.resourceView.filters.state",
+    includeAll: true,
+    options: [
+      { value: "Queued", labelKey: "manufacturing.fabExplorer.stepView.filters.stateQueued" },
+      {
+        value: "In Process",
+        labelKey: "manufacturing.fabExplorer.stepView.filters.stateInProcess",
+      },
+    ],
+  },
+  searchFilter("q"),
+];
 
 const OP = {
   abort: "abort",
@@ -246,10 +289,7 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
   const styles = useViewStyles();
   const [category, setCategory] = useState<Category>("materialsAtResource");
   const [visibleCategories, setVisibleCategories] = useState<Category[]>(ALL_CATEGORIES);
-  const [page, setPage] = useState(1);
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [q, setQ] = useState("");
-  const [stateFilter, setStateFilter] = useState("");
   const [storageTab, setStorageTab] = useState<"storable" | "stored">("stored");
 
   const [dlg, setDlg] = useState<string | null>(null);
@@ -262,138 +302,28 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
 
   const { data: detail } = useFabResourceDetail(name);
   const isStorage = detail?.processingType === "Storage";
-
-  const materialFilters: Record<string, string> = {};
-  if (q) materialFilters.q = q;
-  if (stateFilter) materialFilters.state = stateFilter;
-  const materialsQuery = useResourceMaterials(name, { page, limit: 25, filters: materialFilters });
-  const dispatchFilters: Record<string, string> = {};
-  if (q) dispatchFilters.q = q;
-  const dispatchQuery = useDispatchList(name, { page, limit: 25, filters: dispatchFilters });
-
   const isDispatch = category === "dispatchList";
-  const activeQuery = isDispatch ? dispatchQuery : materialsQuery;
-  const rows = activeQuery.data?.data ?? [];
-  const total = activeQuery.data?.meta.total ?? 0;
-  const totalPages = Math.max(1, Math.ceil(total / 25));
 
-  const toggle = (id: string) =>
-    setSelected((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  const toggleAll = () =>
-    setSelected((prev) => {
-      if (rows.every((m: FabMaterial) => prev.has(m.name))) return new Set<string>();
-      return new Set(rows.map((m: FabMaterial) => m.name));
-    });
+  const gridApiRef = useRef<DataTableCardApi | null>(null);
 
-  const materialColumns: FabGridColumn<FabMaterial>[] = useMemo(
-    () => [
-      {
-        key: "material",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.material"),
-        render: (r: FabMaterial) => (
-          <Text size={300}>
-            {r.name}
-            {r.subMaterialCount > 0 && (
-              <span style={{ color: tokens.colorBrandForeground1, fontWeight: 600, marginLeft: 8 }}>
-                ({r.subMaterialCount})
-              </span>
-            )}
-          </Text>
-        ),
+  const useStoredMaterialsQuery = useMemo(
+    () =>
+      function useStoredMaterialsQuery(params: ListQueryParams) {
+        const query = useResourceMaterials(name, params);
+        return storageTab === "stored"
+          ? query
+          : { data: { data: [], meta: { total: 0 } }, isLoading: false };
       },
-      {
-        key: "qty",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.qty"),
-        render: (r: FabMaterial) => r.qty.toLocaleString(),
-      },
-      {
-        key: "units",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.units"),
-        render: (r: FabMaterial) => r.units,
-      },
-      {
-        key: "product",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.product"),
-        render: (r: FabMaterial) => r.product,
-      },
-      {
-        key: "flow",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.flow"),
-        render: (r: FabMaterial) => r.flow,
-      },
-      {
-        key: "step",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.step"),
-        render: (r: FabMaterial) => r.step,
-      },
-      {
-        key: "priority",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.priority"),
-        render: (r: FabMaterial) => r.priority,
-      },
-      {
-        key: "state",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.state"),
-        render: (r: FabMaterial) => r.state,
-      },
-      {
-        key: "inOffFlow",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.inOffFlow"),
-        render: (r: FabMaterial) => (r.inOffFlow ? "✓" : "✗"),
-      },
-    ],
-    [t],
+    [name, storageTab],
   );
-
-  const storageColumns: FabGridColumn<FabMaterial>[] = useMemo(
-    () => [
-      {
-        key: "storagePosition",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.storagePosition"),
-        render: () => "",
+  const useGridMaterialsQuery = useMemo(
+    () =>
+      function useGridMaterialsQuery(params: ListQueryParams) {
+        const materialsQuery = useResourceMaterials(name, params);
+        const dispatchQuery = useDispatchList(name, params);
+        return isDispatch ? dispatchQuery : materialsQuery;
       },
-      {
-        key: "material",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.material"),
-        render: (r: FabMaterial) => <Text size={300}>{r.name}</Text>,
-      },
-      {
-        key: "state",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.state"),
-        render: (r: FabMaterial) => r.state,
-      },
-      {
-        key: "product",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.product"),
-        render: (r: FabMaterial) => r.product,
-      },
-      {
-        key: "step",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.step"),
-        render: (r: FabMaterial) => r.step,
-      },
-      {
-        key: "qty",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.qty"),
-        render: (r: FabMaterial) => r.qty.toLocaleString(),
-      },
-      {
-        key: "flow",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.flow"),
-        render: (r: FabMaterial) => r.flow,
-      },
-      {
-        key: "container",
-        headerKey: t("manufacturing.fabExplorer.stepView.columns.container"),
-        render: () => "",
-      },
-    ],
-    [t],
+    [name, isDispatch],
   );
 
   const moreMenu: RibbonMenuItem[] = [
@@ -498,7 +428,6 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
 
   const selectCategory = (cat: Category) => {
     setCategory(cat);
-    setPage(1);
     setSelected(new Set());
   };
 
@@ -527,7 +456,7 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
           <RibbonButton
             icon={<ArrowSync24Regular />}
             label={t("manufacturing.fabExplorer.operations.refresh")}
-            onClick={() => materialsQuery.refetch()}
+            onClick={() => gridApiRef.current?.refresh()}
           />
           <RibbonButton
             icon={<Box24Regular />}
@@ -566,7 +495,7 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
           <RibbonButton
             icon={<ArrowSync24Regular />}
             label={t("manufacturing.fabExplorer.operations.refresh")}
-            onClick={() => activeQuery.refetch()}
+            onClick={() => gridApiRef.current?.refresh()}
           />
           <RibbonButton
             icon={<Box24Regular />}
@@ -692,70 +621,35 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
                   </button>
                 ))}
               </div>
-              <FabGrid
-                columns={storageColumns}
-                rows={storageTab === "stored" ? rows : []}
-                selectedIds={selected}
-                onToggle={toggle}
-                onToggleAll={toggleAll}
+              <DataTableCard
+                title={(count) =>
+                  t("manufacturing.fabExplorer.resourceView.storageTitle", { count })
+                }
+                ariaLabel={t("manufacturing.fabExplorer.resourceView.storageTitle", { count: 0 })}
+                columns={STORAGE_COLUMNS}
+                useListQuery={useStoredMaterialsQuery}
                 getRowId={(r) => r.name}
-                selectedLabel={t("manufacturing.fabExplorer.resourceView.itemsSelected", {
-                  count: selected.size,
-                })}
-                page={page}
-                totalPages={totalPages}
-                total={storageTab === "stored" ? total : 0}
-                onPageChange={setPage}
-                t={t}
+                selectable
+                selectedIds={selected}
+                onSelectionChange={setSelected}
+                apiRef={gridApiRef}
               />
             </>
           ) : (
-            <>
-              <div className={styles.filterBar}>
-                <span className={styles.filterLabel}>
-                  {t("manufacturing.fabExplorer.resourceView.filters.state")}:
-                </span>
-                <select
-                  value={stateFilter}
-                  onChange={(e) => {
-                    setStateFilter(e.target.value);
-                    setPage(1);
-                  }}
-                  style={{ padding: "4px 8px" }}
-                >
-                  <option value="">
-                    {t("manufacturing.fabExplorer.resourceView.filters.all")}
-                  </option>
-                  <option value={MATERIAL_STATES[0]}>{MATERIAL_STATES[0]}</option>
-                  <option value={MATERIAL_STATES[1]}>{MATERIAL_STATES[1]}</option>
-                </select>
-                <Input
-                  placeholder={t("manufacturing.fabExplorer.resourceView.search")}
-                  value={q}
-                  onChange={(_, d) => {
-                    setQ(d.value);
-                    setPage(1);
-                  }}
-                  style={{ width: "200px", marginLeft: "auto" }}
-                />
-              </div>
-              <FabGrid
-                columns={materialColumns}
-                rows={rows}
-                selectedIds={selected}
-                onToggle={toggle}
-                onToggleAll={toggleAll}
-                getRowId={(r) => r.name}
-                selectedLabel={t("manufacturing.fabExplorer.resourceView.itemsSelected", {
-                  count: selected.size,
-                })}
-                page={page}
-                totalPages={totalPages}
-                total={total}
-                onPageChange={setPage}
-                t={t}
-              />
-            </>
+            <DataTableCard
+              title={(count) =>
+                t("manufacturing.fabExplorer.resourceView.materialsTitle", { count })
+              }
+              ariaLabel={t("manufacturing.fabExplorer.resourceView.materialsTitle", { count: 0 })}
+              columns={MATERIAL_COLUMNS}
+              filters={RESOURCE_MATERIAL_FILTERS}
+              useListQuery={useGridMaterialsQuery}
+              getRowId={(r) => r.name}
+              selectable
+              selectedIds={selected}
+              onSelectionChange={setSelected}
+              apiRef={gridApiRef}
+            />
           )}
         </div>
 

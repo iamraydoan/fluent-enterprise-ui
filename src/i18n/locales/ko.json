@@ -155,7 +155,8 @@
     "add": "추가",
     "remove": "제거",
     "none": "없음",
-    "wizardSteps": "마법사 단계"
+    "wizardSteps": "마법사 단계",
+    "selectAll": "모두 선택"
   },
   "configuration": {
     "pageLabel": "구성",
@@ -7772,7 +7773,9 @@
           "materialName": "자재명",
           "processingType": "처리 유형",
           "systemState": "시스템 상태",
-          "resourceName": "리소스명"
+          "resourceName": "리소스명",
+          "stateQueued": "Queued",
+          "stateInProcess": "In Process"
         },
         "columns": {
           "material": "자재",
@@ -7792,7 +7795,9 @@
           "order": "순서",
           "storagePosition": "보관 위치",
           "container": "컨테이너"
-        }
+        },
+        "materialsTitle": "Materials ({{count}})",
+        "resourcesTitle": "Resources ({{count}})"
       },
       "resourceView": {
         "back": "뒤로",
@@ -7820,7 +7825,9 @@
           "step": "공정",
           "state": "상태",
           "all": "전체"
-        }
+        },
+        "storageTitle": "Stored Materials ({{count}})",
+        "materialsTitle": "Materials ({{count}})"
       },
       "operations": {
         "refresh": "새로고침",
