@@ -72,6 +72,7 @@ import { fabExplorerHandlers } from "./handlers/fabExplorer";
 import { genericTableHandlers } from "./handlers/genericTables";
 import { fabLiveHandlers } from "./handlers/manufacturing";
 import { barcodeIdentificationHandlers } from "./handlers/manufacturing/barcodeIdentification";
+import { fabExplorerHandlers as fabExplorerDetailHandlers } from "./handlers/manufacturing/fabExplorer";
 import { mcpServerHandlers } from "./handlers/mcpServer";
 import { myWorkgroupHandlers } from "./handlers/myWorkgroup";
 import { queryHandlers } from "./handlers/queries";
@@ -80,6 +81,7 @@ import { uiPageHandlers } from "./handlers/uiPages";
 export const handlers = [
   ...entityTypeHandlers,
   ...fabExplorerHandlers,
+  ...fabExplorerDetailHandlers,
   ...aiAgentHandlers,
   ...fabLiveHandlers,
   ...areaHandlers,

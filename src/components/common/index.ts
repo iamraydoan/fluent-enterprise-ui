@@ -35,6 +35,9 @@ export type { HeaderAction } from "./ListPageHeader";
 export { RECORD_STATE_COLUMN_OPTIONS } from "./listState";
 export { SidePanel } from "./SidePanel";
 export { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "./DetailShell";
+export { ActionBar } from "./ActionBar";
+export { RibbonButton } from "./RibbonButton";
+export type { RibbonMenuItem } from "./RibbonButton";
 export type {
   DetailMoreMenuItem,
   DetailShellMoreAction,

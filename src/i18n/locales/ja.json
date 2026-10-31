@@ -7748,6 +7748,304 @@
           "container": "コンテナ"
         }
       }
+    },
+    "fabExplorer": {
+      "stepView": {
+        "materials": "材料",
+        "resources": "リソース",
+        "back": "戻る",
+        "refreshCategory": "更新 {{category}}",
+        "itemsSelected": "{{count}} item selected",
+        "itemsSelected_plural": "{{count}} items selected",
+        "details": "詳細",
+        "holdsOffFlows": "保留/オフフロー",
+        "protocols": "プロトコル",
+        "documents": "ドキュメント",
+        "filters": {
+          "state": "状態",
+          "all": "すべて",
+          "product": "製品",
+          "productPlaceholder": "製品",
+          "flow": "フロー",
+          "flowPlaceholder": "フロー",
+          "materialName": "材料名",
+          "processingType": "処理タイプ",
+          "systemState": "システム状態",
+          "resourceName": "リソース名"
+        },
+        "columns": {
+          "material": "材料",
+          "qty": "数量",
+          "units": "単位",
+          "product": "製品",
+          "flow": "フロー",
+          "step": "工程",
+          "priority": "優先度",
+          "state": "状態",
+          "inOffFlow": "オフフロー",
+          "resource": "リソース",
+          "description": "説明",
+          "processingType": "処理タイプ",
+          "group": "グループ",
+          "systemState": "システム状態",
+          "order": "順序",
+          "storagePosition": "保管位置",
+          "container": "コンテナ"
+        }
+      },
+      "resourceView": {
+        "back": "戻る",
+        "dispatchList": "ディスパッチリスト",
+        "materialsAtResource": "リソースの材料",
+        "loadPorts": "ロードポート",
+        "subResources": "サブリソース",
+        "consumables": "消耗品",
+        "durables": "耐久品",
+        "recipe": "レシピ",
+        "upcomingMaintenances": "今後のメンテナンス",
+        "alerts": "アラート",
+        "details": "詳細",
+        "panelSettings": "パネル設定",
+        "availableSections": "利用可能なセクション",
+        "selectedSections": "選択中のセクション",
+        "itemsSelected": "{{count}} items selected",
+        "storable": "保管可能",
+        "stored": "保管済み",
+        "resourceMaterials": "リソース材料",
+        "search": "検索",
+        "filters": {
+          "product": "製品",
+          "flow": "フロー",
+          "step": "工程",
+          "state": "状態",
+          "all": "すべて"
+        }
+      },
+      "operations": {
+        "refresh": "更新",
+        "dispatch": "ディスパッチ",
+        "dispatchAndTrackIn": "ディスパッチとトラックイン",
+        "undispatch": "ディスパッチ解除",
+        "trackIn": "トラックイン",
+        "trackOut": "トラックアウト",
+        "trackOutAndMoveNext": "トラックアウトと次工程へ",
+        "moveNext": "次工程へ",
+        "specialMoveNext": "特殊次工程移動",
+        "changeResourceState": "状態変更",
+        "changeMaterialState": "変更",
+        "split": "分割",
+        "merge": "結合",
+        "changeMaterialType": "材料タイプ変更",
+        "rework": "リワーク",
+        "recordLossBonus": "ロス/ボーナス記録",
+        "recordAssembledLossBonus": "組立ロス/ボーナス記録",
+        "recordSubMaterialLosses": "サブ材料ロス記録",
+        "holdMaterial": "材料保留",
+        "releaseMaterial": "材料保留解除",
+        "postData": "データ入力",
+        "performChecklist": "チェックリスト実行",
+        "checkInEmployee": "従業員チェックイン",
+        "checkOutEmployee": "従業員チェックアウト",
+        "abort": "中止",
+        "store": "保管",
+        "retrieve": "取出し",
+        "more": "その他",
+        "build": "ビルド",
+        "manage": "管理",
+        "request": "要求",
+        "openInstance": "インスタンスを開く"
+      },
+      "layout": {
+        "views": "ビュー",
+        "layout": "レイアウト",
+        "saveLayout": "レイアウト保存",
+        "saveAsMyDefault": "自分のデフォルトレイアウトとして保存",
+        "saveAsDefaultForAllUsers": "全ユーザーのデフォルトとして保存",
+        "resetToMyDefault": "自分のデフォルトにリセット",
+        "resetToAllUsersDefault": "全ユーザーのデフォルトにリセット",
+        "resetToApplicationDefault": "アプリケーションデフォルトにリセット",
+        "saveLayoutTitle": "レイアウト保存",
+        "selectOption": "以下のオプションから1つ選択",
+        "save": "保存",
+        "resetLayoutTitle": "リセット レイアウト",
+        "reset": "リセット",
+        "layoutSaved": "レイアウトを保存しました",
+        "layoutReset": "レイアウトをデフォルトにリセットしました"
+      },
+      "dialogs": {
+        "changeResourceState": {
+          "title": "変更 Resource State",
+          "resource": "Resource",
+          "newState": "新しい状態",
+          "comment": "コメント"
+        },
+        "dispatch": {
+          "title": "ディスパッチ",
+          "materials": "材料",
+          "resource": "Resource",
+          "message": "ディスパッチ {{count}} material(s) to {{resource}}?"
+        },
+        "undispatch": {
+          "title": "ディスパッチ解除",
+          "message": "ディスパッチ解除 {{count}} material(s)?"
+        },
+        "trackIn": {
+          "title": "トラックイン",
+          "materials": "材料",
+          "resource": "Resource",
+          "message": "トラックイン {{count}} material(s) at {{resource}}?"
+        },
+        "trackOut": {
+          "title": "トラックアウト",
+          "materials": "材料",
+          "message": "トラックアウト {{count}} material(s)?"
+        },
+        "trackOutAndMoveNext": {
+          "title": "トラックアウトと次工程へ",
+          "materials": "材料",
+          "nextStep": "次の工程",
+          "message": "トラックアウト {{count}} material(s) and move to {{step}}?"
+        },
+        "moveNext": {
+          "title": "次工程へ",
+          "materials": "材料",
+          "nextStep": "次の工程",
+          "message": "Move {{count}} material(s) to {{step}}?"
+        },
+        "specialMoveNext": {
+          "title": "特殊次工程移動",
+          "materials": "材料",
+          "step": "Step",
+          "flow": "フロー",
+          "message": "Move {{count}} material(s) to the selected step?"
+        },
+        "dispatchAndTrackIn": {
+          "title": "ディスパッチとトラックイン",
+          "materials": "材料",
+          "resource": "Resource",
+          "message": "ディスパッチとトラックイン {{count}} material(s) at {{resource}}?"
+        },
+        "abort": {
+          "title": "中止",
+          "materials": "材料",
+          "comment": "コメント",
+          "message": "中止 {{count}} material(s)? This cannot be undone."
+        },
+        "split": {
+          "title": "分割",
+          "material": "Material",
+          "qty": "数量",
+          "units": "単位",
+          "newQty": "新しい数量",
+          "message": "分割 {{name}} into two materials?"
+        },
+        "merge": {
+          "title": "結合",
+          "materials": "材料",
+          "targetMaterial": "ターゲット材料",
+          "message": "結合 {{count}} material(s) into {{target}}?"
+        },
+        "changeMaterialType": {
+          "title": "材料タイプ変更",
+          "materials": "材料",
+          "newType": "新しいタイプ",
+          "comment": "コメント"
+        },
+        "rework": {
+          "title": "リワーク",
+          "materials": "材料",
+          "step": "Step",
+          "comment": "コメント",
+          "message": "Send {{count}} material(s) to rework at {{step}}?"
+        },
+        "recordLossBonus": {
+          "title": "ロス/ボーナス記録",
+          "material": "Material",
+          "type": "タイプ",
+          "loss": "ロス",
+          "bonus": "ボーナス",
+          "qty": "数量",
+          "reason": "理由",
+          "comment": "コメント"
+        },
+        "recordAssembledLossBonus": {
+          "title": "組立ロス/ボーナス記録",
+          "material": "Material",
+          "qty": "数量",
+          "reason": "理由"
+        },
+        "recordSubMaterialLosses": {
+          "title": "サブ材料ロス記録",
+          "material": "Material",
+          "subMaterial": "サブ材料",
+          "qty": "数量",
+          "reason": "理由"
+        },
+        "holdMaterial": {
+          "title": "材料保留",
+          "materials": "材料",
+          "hold": "保留",
+          "comment": "コメント",
+          "message": "保留 {{count}} material(s)?"
+        },
+        "releaseMaterial": {
+          "title": "材料保留解除",
+          "materials": "材料",
+          "comment": "コメント",
+          "message": "Release {{count}} material(s)?"
+        },
+        "postData": {
+          "title": "データ入力",
+          "materials": "材料",
+          "parameter": "パラメータ",
+          "value": "値"
+        },
+        "performChecklist": {
+          "title": "チェックリスト実行",
+          "materials": "材料",
+          "checklist": "チェックリスト"
+        },
+        "checkInEmployee": {
+          "title": "従業員チェックイン",
+          "resource": "Resource",
+          "employee": "従業員"
+        },
+        "checkOutEmployee": {
+          "title": "従業員チェックアウト",
+          "resource": "Resource",
+          "employee": "従業員",
+          "message": "Check-Out {{employee}} from {{resource}}?"
+        },
+        "store": {
+          "title": "保管",
+          "materials": "材料",
+          "resource": "Resource",
+          "message": "保管 {{count}} material(s) at {{resource}}?"
+        },
+        "retrieve": {
+          "title": "取出し",
+          "materials": "材料",
+          "message": "取出し {{count}} material(s)?"
+        },
+        "saveLayout": {
+          "title": "レイアウト保存",
+          "selectOption": "以下のオプションから1つ選択",
+          "saveAsMyDefault": "自分のデフォルトレイアウトとして保存",
+          "saveAsDefaultForAllUsers": "全ユーザーのデフォルトとして保存"
+        },
+        "resetLayout": {
+          "title": "リセット レイアウト",
+          "resetToMyDefault": "自分のデフォルトにリセット",
+          "resetToAllUsersDefault": "全ユーザーのデフォルトにリセット",
+          "resetToApplicationDefault": "アプリケーションデフォルトにリセット"
+        },
+        "panelSettings": {
+          "title": "パネル設定",
+          "availableSections": "利用可能なセクション",
+          "selectedSections": "選択中のセクション",
+          "update": "更新"
+        }
+      }
     }
   },
   "myWorkgroup": {

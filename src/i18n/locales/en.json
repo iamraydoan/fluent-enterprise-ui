@@ -7748,6 +7748,304 @@
           "container": "Container"
         }
       }
+    },
+    "fabExplorer": {
+      "stepView": {
+        "materials": "Materials",
+        "resources": "Resources",
+        "back": "Back",
+        "refreshCategory": "Refresh {{category}}",
+        "itemsSelected": "{{count}} item selected",
+        "itemsSelected_plural": "{{count}} items selected",
+        "details": "DETAILS",
+        "holdsOffFlows": "HOLDS/OFF-FLOWS",
+        "protocols": "PROTOCOLS",
+        "documents": "DOCUMENTS",
+        "filters": {
+          "state": "STATE",
+          "all": "ALL",
+          "product": "PRODUCT",
+          "productPlaceholder": "Product",
+          "flow": "FLOW",
+          "flowPlaceholder": "Flow",
+          "materialName": "Material Name",
+          "processingType": "PROCESSING TYPE",
+          "systemState": "SYSTEM STATE",
+          "resourceName": "Resource Name"
+        },
+        "columns": {
+          "material": "MATERIAL",
+          "qty": "QTY",
+          "units": "UNITS",
+          "product": "PRODUCT",
+          "flow": "FLOW",
+          "step": "STEP",
+          "priority": "PRIORITY",
+          "state": "STATE",
+          "inOffFlow": "IN OFF-FLOW",
+          "resource": "RESOURCE",
+          "description": "DESCRIPTION",
+          "processingType": "PROCESSING TYPE",
+          "group": "GROUP",
+          "systemState": "SYSTEM STATE",
+          "order": "ORDER",
+          "storagePosition": "STORAGE POSITION",
+          "container": "CONTAINER"
+        }
+      },
+      "resourceView": {
+        "back": "Back",
+        "dispatchList": "Dispatch List",
+        "materialsAtResource": "Materials at Resource",
+        "loadPorts": "Load Ports",
+        "subResources": "Sub-Resources",
+        "consumables": "Consumables",
+        "durables": "Durables",
+        "recipe": "Recipe",
+        "upcomingMaintenances": "Upcoming Maintenances",
+        "alerts": "Alerts",
+        "details": "DETAILS",
+        "panelSettings": "Panel Settings",
+        "availableSections": "Available Sections",
+        "selectedSections": "Selected Sections",
+        "itemsSelected": "{{count}} items selected",
+        "storable": "STORABLE",
+        "stored": "STORED",
+        "resourceMaterials": "Resource materials",
+        "search": "Search",
+        "filters": {
+          "product": "PRODUCT",
+          "flow": "FLOW",
+          "step": "STEP",
+          "state": "STATE",
+          "all": "ALL"
+        }
+      },
+      "operations": {
+        "refresh": "Refresh",
+        "dispatch": "Dispatch",
+        "dispatchAndTrackIn": "Dispatch and Track-In",
+        "undispatch": "Undispatch",
+        "trackIn": "Track-In",
+        "trackOut": "Track-Out",
+        "trackOutAndMoveNext": "Track-Out and Move-Next",
+        "moveNext": "Move-Next",
+        "specialMoveNext": "Special Move-Next",
+        "changeResourceState": "Change State",
+        "changeMaterialState": "Change",
+        "split": "Split",
+        "merge": "Merge",
+        "changeMaterialType": "Change Material Type",
+        "rework": "Rework",
+        "recordLossBonus": "Record Loss/Bonus",
+        "recordAssembledLossBonus": "Record Assembled Loss/Bonus",
+        "recordSubMaterialLosses": "Record SubMaterial Losses",
+        "holdMaterial": "Hold Material",
+        "releaseMaterial": "Release Material",
+        "postData": "Post Data",
+        "performChecklist": "Perform Checklist",
+        "checkInEmployee": "Check-In Employee",
+        "checkOutEmployee": "Check-Out Employee",
+        "abort": "Abort",
+        "store": "Store",
+        "retrieve": "Retrieve",
+        "more": "More",
+        "build": "Build",
+        "manage": "Manage",
+        "request": "Request",
+        "openInstance": "Open Instance"
+      },
+      "layout": {
+        "views": "Views",
+        "layout": "Layout",
+        "saveLayout": "Save Layout",
+        "saveAsMyDefault": "Save as my default layout",
+        "saveAsDefaultForAllUsers": "Save as default for all users",
+        "resetToMyDefault": "Reset to my default",
+        "resetToAllUsersDefault": "Reset to all users default",
+        "resetToApplicationDefault": "Reset to application default",
+        "saveLayoutTitle": "Save Layout",
+        "selectOption": "Select one of the following options",
+        "save": "Save",
+        "resetLayoutTitle": "Reset Layout",
+        "reset": "Reset",
+        "layoutSaved": "Layout saved",
+        "layoutReset": "Layout reset to default"
+      },
+      "dialogs": {
+        "changeResourceState": {
+          "title": "Change Resource State",
+          "resource": "Resource",
+          "newState": "New State",
+          "comment": "Comment"
+        },
+        "dispatch": {
+          "title": "Dispatch",
+          "materials": "Materials",
+          "resource": "Resource",
+          "message": "Dispatch {{count}} material(s) to {{resource}}?"
+        },
+        "undispatch": {
+          "title": "Undispatch",
+          "message": "Undispatch {{count}} material(s)?"
+        },
+        "trackIn": {
+          "title": "Track-In",
+          "materials": "Materials",
+          "resource": "Resource",
+          "message": "Track-In {{count}} material(s) at {{resource}}?"
+        },
+        "trackOut": {
+          "title": "Track-Out",
+          "materials": "Materials",
+          "message": "Track-Out {{count}} material(s)?"
+        },
+        "trackOutAndMoveNext": {
+          "title": "Track-Out and Move-Next",
+          "materials": "Materials",
+          "nextStep": "Next Step",
+          "message": "Track-Out {{count}} material(s) and move to {{step}}?"
+        },
+        "moveNext": {
+          "title": "Move-Next",
+          "materials": "Materials",
+          "nextStep": "Next Step",
+          "message": "Move {{count}} material(s) to {{step}}?"
+        },
+        "specialMoveNext": {
+          "title": "Special Move-Next",
+          "materials": "Materials",
+          "step": "Step",
+          "flow": "Flow",
+          "message": "Move {{count}} material(s) to the selected step?"
+        },
+        "dispatchAndTrackIn": {
+          "title": "Dispatch and Track-In",
+          "materials": "Materials",
+          "resource": "Resource",
+          "message": "Dispatch and Track-In {{count}} material(s) at {{resource}}?"
+        },
+        "abort": {
+          "title": "Abort",
+          "materials": "Materials",
+          "comment": "Comment",
+          "message": "Abort {{count}} material(s)? This cannot be undone."
+        },
+        "split": {
+          "title": "Split",
+          "material": "Material",
+          "qty": "Quantity",
+          "units": "Units",
+          "newQty": "New Quantity",
+          "message": "Split {{name}} into two materials?"
+        },
+        "merge": {
+          "title": "Merge",
+          "materials": "Materials",
+          "targetMaterial": "Target Material",
+          "message": "Merge {{count}} material(s) into {{target}}?"
+        },
+        "changeMaterialType": {
+          "title": "Change Material Type",
+          "materials": "Materials",
+          "newType": "New Type",
+          "comment": "Comment"
+        },
+        "rework": {
+          "title": "Rework",
+          "materials": "Materials",
+          "step": "Step",
+          "comment": "Comment",
+          "message": "Send {{count}} material(s) to rework at {{step}}?"
+        },
+        "recordLossBonus": {
+          "title": "Record Loss/Bonus",
+          "material": "Material",
+          "type": "Type",
+          "loss": "Loss",
+          "bonus": "Bonus",
+          "qty": "Quantity",
+          "reason": "Reason",
+          "comment": "Comment"
+        },
+        "recordAssembledLossBonus": {
+          "title": "Record Assembled Loss/Bonus",
+          "material": "Material",
+          "qty": "Quantity",
+          "reason": "Reason"
+        },
+        "recordSubMaterialLosses": {
+          "title": "Record SubMaterial Losses",
+          "material": "Material",
+          "subMaterial": "SubMaterial",
+          "qty": "Quantity",
+          "reason": "Reason"
+        },
+        "holdMaterial": {
+          "title": "Hold Material",
+          "materials": "Materials",
+          "hold": "Hold",
+          "comment": "Comment",
+          "message": "Hold {{count}} material(s)?"
+        },
+        "releaseMaterial": {
+          "title": "Release Material",
+          "materials": "Materials",
+          "comment": "Comment",
+          "message": "Release {{count}} material(s)?"
+        },
+        "postData": {
+          "title": "Post Data",
+          "materials": "Materials",
+          "parameter": "Parameter",
+          "value": "Value"
+        },
+        "performChecklist": {
+          "title": "Perform Checklist",
+          "materials": "Materials",
+          "checklist": "Checklist"
+        },
+        "checkInEmployee": {
+          "title": "Check-In Employee",
+          "resource": "Resource",
+          "employee": "Employee"
+        },
+        "checkOutEmployee": {
+          "title": "Check-Out Employee",
+          "resource": "Resource",
+          "employee": "Employee",
+          "message": "Check-Out {{employee}} from {{resource}}?"
+        },
+        "store": {
+          "title": "Store",
+          "materials": "Materials",
+          "resource": "Resource",
+          "message": "Store {{count}} material(s) at {{resource}}?"
+        },
+        "retrieve": {
+          "title": "Retrieve",
+          "materials": "Materials",
+          "message": "Retrieve {{count}} material(s)?"
+        },
+        "saveLayout": {
+          "title": "Save Layout",
+          "selectOption": "Select one of the following options",
+          "saveAsMyDefault": "Save as my default layout",
+          "saveAsDefaultForAllUsers": "Save as default for all users"
+        },
+        "resetLayout": {
+          "title": "Reset Layout",
+          "resetToMyDefault": "Reset to my default",
+          "resetToAllUsersDefault": "Reset to all users default",
+          "resetToApplicationDefault": "Reset to application default"
+        },
+        "panelSettings": {
+          "title": "Panel Settings",
+          "availableSections": "Available Sections",
+          "selectedSections": "Selected Sections",
+          "update": "Update"
+        }
+      }
     }
   },
   "myWorkgroup": {

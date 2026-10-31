@@ -674,7 +674,6 @@ export type {
   WorkgroupListParams,
   WorkgroupRecord,
 } from "./businessData/workgroup";
-<<<<<<< HEAD
 export {
   BARCODE_ENTITIES,
   BARCODE_PROPERTY_OPTIONS,
@@ -694,6 +693,25 @@ export type {
   BarcodeIdentificationSettings,
   ScannedBarcode,
 } from "./manufacturing/barcodeIdentification";
-=======
-export * from "./manufacturing/fabExplorer";
->>>>>>> mfg/agent4
+export {
+  getFabResourceDetail,
+  getStepSummary,
+  listDispatchList,
+  listResourceMaterials,
+  listStepMaterials,
+  listStepResources,
+  postFabOperation,
+  useDispatchList,
+  useFabResourceDetail,
+  useResourceMaterials,
+  useStepMaterials,
+  useStepResources,
+  useStepSummary,
+} from "./manufacturing/fabExplorer";
+export type {
+  FabMaterial,
+  FabOperationInput,
+  FabResource,
+  FabResourceDetail,
+  StepSummary,
+} from "./manufacturing/fabExplorer";
