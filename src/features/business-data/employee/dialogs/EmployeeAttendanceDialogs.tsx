@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { BaseDialog } from "@/components/common";
 import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 
 const L: Record<string, TranslationKey> = {
   checkInTitle: "businessData.employee.attendance.checkInTitle",
@@ -30,80 +30,12 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    backgroundColor: "rgba(0,0,0,0.4)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-  },
-  surface: {
-    width: "560px",
-    maxWidth: "95vw",
-    display: "flex",
-    flexDirection: "column",
-    maxHeight: "90vh",
-  },
-  head: {
-    padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    fontWeight: tokens.fontWeightSemibold,
-    fontSize: tokens.fontSizeBase400,
-  },
-  body: {
-    padding: "16px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    overflowY: "auto",
-  },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "12px 16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   field: { display: "grid", gridTemplateColumns: "180px 1fr", gap: "12px", alignItems: "center" },
 });
 
 interface DialogProps {
   name: string;
   onClose: () => void;
-}
-
-function Shell({
-  title,
-  name,
-  onClose,
-  children,
-}: {
-  title: TranslationKey;
-  name: string;
-  onClose: () => void;
-  children: React.ReactNode;
-}) {
-  const { t } = useAppTranslation();
-  const shared = useSharedStyles();
-  const styles = useDialogStyles();
-
-  return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>
-          {t(title)} {name}
-        </div>
-        {children}
-      </div>
-    </div>
-  );
 }
 
 export function CheckInDialog({ name, onClose }: DialogProps) {
@@ -113,27 +45,31 @@ export function CheckInDialog({ name, onClose }: DialogProps) {
   const [certification, setCertification] = useState("");
 
   return (
-    <Shell title={L.checkInTitle} name={name} onClose={onClose}>
-      <div className={styles.body}>
-        <div className={styles.field}>
-          <label>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-            {t(L.resource)}
-          </label>
-          <Input value={resource} onChange={(_, d) => setResource(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.certification)}</label>
-          <Input value={certification} onChange={(_, d) => setCertification(d.value)} />
-        </div>
+    <BaseDialog
+      open
+      title={`${t(L.checkInTitle)} ${name}`}
+      onClose={onClose}
+      footer={
+        <>
+          <Button onClick={onClose}>{t(L.cancel)}</Button>
+          <Button appearance="primary" onClick={onClose} disabled={!resource.trim()}>
+            {t(L.checkIn)}
+          </Button>
+        </>
+      }
+    >
+      <div className={styles.field}>
+        <label>
+          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+          {t(L.resource)}
+        </label>
+        <Input value={resource} onChange={(_, d) => setResource(d.value)} />
       </div>
-      <div className={styles.footer}>
-        <Button onClick={onClose}>{t(L.cancel)}</Button>
-        <Button appearance="primary" onClick={onClose} disabled={!resource.trim()}>
-          {t(L.checkIn)}
-        </Button>
+      <div className={styles.field}>
+        <label>{t(L.certification)}</label>
+        <Input value={certification} onChange={(_, d) => setCertification(d.value)} />
       </div>
-    </Shell>
+    </BaseDialog>
   );
 }
 
@@ -144,55 +80,53 @@ export function CheckOutDialog({ name, onClose }: DialogProps) {
   const [reason, setReason] = useState("");
 
   return (
-    <Shell title={L.checkOutTitle} name={name} onClose={onClose}>
-      <div className={styles.body}>
-        <div className={styles.field}>
-          <label>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-            {t(L.resource)}
-          </label>
-          <Input value={resource} onChange={(_, d) => setResource(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.reason)}</label>
-          <Input value={reason} onChange={(_, d) => setReason(d.value)} />
-        </div>
+    <BaseDialog
+      open
+      title={`${t(L.checkOutTitle)} ${name}`}
+      onClose={onClose}
+      footer={
+        <>
+          <Button onClick={onClose}>{t(L.cancel)}</Button>
+          <Button appearance="primary" onClick={onClose} disabled={!resource.trim()}>
+            {t(L.checkOut)}
+          </Button>
+        </>
+      }
+    >
+      <div className={styles.field}>
+        <label>
+          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+          {t(L.resource)}
+        </label>
+        <Input value={resource} onChange={(_, d) => setResource(d.value)} />
       </div>
-      <div className={styles.footer}>
-        <Button onClick={onClose}>{t(L.cancel)}</Button>
-        <Button appearance="primary" onClick={onClose} disabled={!resource.trim()}>
-          {t(L.checkOut)}
-        </Button>
+      <div className={styles.field}>
+        <label>{t(L.reason)}</label>
+        <Input value={reason} onChange={(_, d) => setReason(d.value)} />
       </div>
-    </Shell>
+    </BaseDialog>
   );
 }
 
 export function ClockInDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const shared = useSharedStyles();
-  const styles = useDialogStyles();
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>{t(L.clockInTitle)}</div>
-        <div className={styles.body}>
-          <div>{name}</div>
-        </div>
-        <div className={styles.footer}>
+    <BaseDialog
+      open
+      title={t(L.clockInTitle)}
+      onClose={onClose}
+      footer={
+        <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           <Button appearance="primary" onClick={onClose}>
             {t(L.clockIn)}
           </Button>
-        </div>
-      </div>
-    </div>
+        </>
+      }
+    >
+      <div>{name}</div>
+    </BaseDialog>
   );
 }
 
@@ -202,20 +136,24 @@ export function ClockOutDialog({ name, onClose }: DialogProps) {
   const [comment, setComment] = useState("");
 
   return (
-    <Shell title={L.clockOutTitle} name={name} onClose={onClose}>
-      <div className={styles.body}>
-        <div className={styles.field}>
-          <label>{t(L.comment)}</label>
-          <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-        </div>
+    <BaseDialog
+      open
+      title={`${t(L.clockOutTitle)} ${name}`}
+      onClose={onClose}
+      footer={
+        <>
+          <Button onClick={onClose}>{t(L.cancel)}</Button>
+          <Button appearance="primary" onClick={onClose}>
+            {t(L.clockOut)}
+          </Button>
+        </>
+      }
+    >
+      <div className={styles.field}>
+        <label>{t(L.comment)}</label>
+        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
       </div>
-      <div className={styles.footer}>
-        <Button onClick={onClose}>{t(L.cancel)}</Button>
-        <Button appearance="primary" onClick={onClose}>
-          {t(L.clockOut)}
-        </Button>
-      </div>
-    </Shell>
+    </BaseDialog>
   );
 }
 
@@ -225,23 +163,27 @@ export function AssignSubordinatesDialog({ name, onClose }: DialogProps) {
   const [subordinates, setSubordinates] = useState("");
 
   return (
-    <Shell title={L.assignSubordinatesTitle} name={name} onClose={onClose}>
-      <div className={styles.body}>
-        <div className={styles.field}>
-          <label>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-            {t(L.subordinates)}
-          </label>
-          <Input value={subordinates} onChange={(_, d) => setSubordinates(d.value)} />
-        </div>
+    <BaseDialog
+      open
+      title={`${t(L.assignSubordinatesTitle)} ${name}`}
+      onClose={onClose}
+      footer={
+        <>
+          <Button onClick={onClose}>{t(L.cancel)}</Button>
+          <Button appearance="primary" onClick={onClose} disabled={!subordinates.trim()}>
+            {t(L.assign)}
+          </Button>
+        </>
+      }
+    >
+      <div className={styles.field}>
+        <label>
+          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+          {t(L.subordinates)}
+        </label>
+        <Input value={subordinates} onChange={(_, d) => setSubordinates(d.value)} />
       </div>
-      <div className={styles.footer}>
-        <Button onClick={onClose}>{t(L.cancel)}</Button>
-        <Button appearance="primary" onClick={onClose} disabled={!subordinates.trim()}>
-          {t(L.assign)}
-        </Button>
-      </div>
-    </Shell>
+    </BaseDialog>
   );
 }
 
@@ -253,27 +195,31 @@ export function AssignTeamWorkgroupDialog({ name, onClose }: DialogProps) {
   const [area, setArea] = useState("");
 
   return (
-    <Shell title={L.assignTeamTitle} name={name} onClose={onClose}>
-      <div className={styles.body}>
-        <div className={styles.field}>
-          <label>{t(L.team)}</label>
-          <Input value={team} onChange={(_, d) => setTeam(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.workgroup)}</label>
-          <Input value={workgroup} onChange={(_, d) => setWorkgroup(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.area)}</label>
-          <Input value={area} onChange={(_, d) => setArea(d.value)} />
-        </div>
+    <BaseDialog
+      open
+      title={`${t(L.assignTeamTitle)} ${name}`}
+      onClose={onClose}
+      footer={
+        <>
+          <Button onClick={onClose}>{t(L.cancel)}</Button>
+          <Button appearance="primary" onClick={onClose}>
+            {t(L.save)}
+          </Button>
+        </>
+      }
+    >
+      <div className={styles.field}>
+        <label>{t(L.team)}</label>
+        <Input value={team} onChange={(_, d) => setTeam(d.value)} />
       </div>
-      <div className={styles.footer}>
-        <Button onClick={onClose}>{t(L.cancel)}</Button>
-        <Button appearance="primary" onClick={onClose}>
-          {t(L.save)}
-        </Button>
+      <div className={styles.field}>
+        <label>{t(L.workgroup)}</label>
+        <Input value={workgroup} onChange={(_, d) => setWorkgroup(d.value)} />
       </div>
-    </Shell>
+      <div className={styles.field}>
+        <label>{t(L.area)}</label>
+        <Input value={area} onChange={(_, d) => setArea(d.value)} />
+      </div>
+    </BaseDialog>
   );
 }

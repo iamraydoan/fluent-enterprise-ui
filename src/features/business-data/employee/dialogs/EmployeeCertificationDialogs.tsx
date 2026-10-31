@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { BaseDialog } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 
 const L: Record<string, TranslationKey> = {
   manageTitle: "businessData.employee.certifications.manageTitle",
@@ -28,42 +28,6 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    backgroundColor: "rgba(0,0,0,0.4)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-  },
-  surface: {
-    width: "560px",
-    maxWidth: "95vw",
-    display: "flex",
-    flexDirection: "column",
-    maxHeight: "90vh",
-  },
-  head: {
-    padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    fontWeight: tokens.fontWeightSemibold,
-    fontSize: tokens.fontSizeBase400,
-  },
-  body: {
-    padding: "16px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    overflowY: "auto",
-  },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "12px 16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   field: { display: "grid", gridTemplateColumns: "180px 1fr", gap: "12px", alignItems: "center" },
 });
 
@@ -72,13 +36,7 @@ interface DialogProps {
   onClose: () => void;
 }
 
-function CertificationForm({
-  onClose,
-  submitLabel,
-}: {
-  onClose: () => void;
-  submitLabel: TranslationKey;
-}) {
+function useCertificationForm() {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [certification, setCertification] = useState("");
@@ -88,9 +46,10 @@ function CertificationForm({
   const [isTrainee, setIsTrainee] = useState(false);
   const [comment, setComment] = useState("");
 
-  return (
-    <>
-      <div className={styles.body}>
+  return {
+    canSubmit: !!certification.trim(),
+    fields: (
+      <>
         <div className={styles.field}>
           <label>
             <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
@@ -124,69 +83,68 @@ function CertificationForm({
           <label>{t(L.comment)}</label>
           <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
         </div>
-      </div>
-      <div className={styles.footer}>
-        <Button onClick={onClose}>{t(L.cancel)}</Button>
-        <Button appearance="primary" onClick={onClose} disabled={!certification.trim()}>
-          {t(submitLabel)}
-        </Button>
-      </div>
-    </>
-  );
+      </>
+    ),
+  };
 }
 
-function Shell({
-  title,
+function CertificationDialog({
   name,
   onClose,
-  children,
-}: {
-  title: TranslationKey;
-  name: string;
-  onClose: () => void;
-  children: React.ReactNode;
-}) {
+  titleKey,
+  submitKey,
+}: DialogProps & { titleKey: TranslationKey; submitKey: TranslationKey }) {
   const { t } = useAppTranslation();
-  const shared = useSharedStyles();
-  const styles = useDialogStyles();
+  const { fields, canSubmit } = useCertificationForm();
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>
-          {t(title)} {name}
-        </div>
-        {children}
-      </div>
-    </div>
+    <BaseDialog
+      open
+      title={`${t(titleKey)} ${name}`}
+      onClose={onClose}
+      footer={
+        <>
+          <Button onClick={onClose}>{t(L.cancel)}</Button>
+          <Button appearance="primary" onClick={onClose} disabled={!canSubmit}>
+            {t(submitKey)}
+          </Button>
+        </>
+      }
+    >
+      {fields}
+    </BaseDialog>
   );
 }
 
 export function ManageCertificationDialog({ name, onClose }: DialogProps) {
   return (
-    <Shell title={L.manageTitle} name={name} onClose={onClose}>
-      <CertificationForm onClose={onClose} submitLabel={L.update} />
-    </Shell>
+    <CertificationDialog
+      name={name}
+      onClose={onClose}
+      titleKey={L.manageTitle}
+      submitKey={L.update}
+    />
   );
 }
 
 export function GrantCertificationDialog({ name, onClose }: DialogProps) {
   return (
-    <Shell title={L.grantTitle} name={name} onClose={onClose}>
-      <CertificationForm onClose={onClose} submitLabel={L.grant} />
-    </Shell>
+    <CertificationDialog
+      name={name}
+      onClose={onClose}
+      titleKey={L.grantTitle}
+      submitKey={L.grant}
+    />
   );
 }
 
 export function AssignCertificationDialog({ name, onClose }: DialogProps) {
   return (
-    <Shell title={L.assignTitle} name={name} onClose={onClose}>
-      <CertificationForm onClose={onClose} submitLabel={L.assign} />
-    </Shell>
+    <CertificationDialog
+      name={name}
+      onClose={onClose}
+      titleKey={L.assignTitle}
+      submitKey={L.assign}
+    />
   );
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { BaseDialog, DialogFooter } from "@/components/common";
 import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 
 const L: Record<string, TranslationKey> = {
   setNonWorkingTimeTitle: "businessData.employee.calendarDays.setNonWorkingTimeTitle",
@@ -22,80 +22,12 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    backgroundColor: "rgba(0,0,0,0.4)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-  },
-  surface: {
-    width: "560px",
-    maxWidth: "95vw",
-    display: "flex",
-    flexDirection: "column",
-    maxHeight: "90vh",
-  },
-  head: {
-    padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    fontWeight: tokens.fontWeightSemibold,
-    fontSize: tokens.fontSizeBase400,
-  },
-  body: {
-    padding: "16px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    overflowY: "auto",
-  },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "12px 16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   field: { display: "grid", gridTemplateColumns: "180px 1fr", gap: "12px", alignItems: "center" },
 });
 
 interface DialogProps {
   name: string;
   onClose: () => void;
-}
-
-function Shell({
-  title,
-  name,
-  onClose,
-  children,
-}: {
-  title: TranslationKey;
-  name: string;
-  onClose: () => void;
-  children: React.ReactNode;
-}) {
-  const { t } = useAppTranslation();
-  const shared = useSharedStyles();
-  const styles = useDialogStyles();
-
-  return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>
-          {t(title)} {name}
-        </div>
-        {children}
-      </div>
-    </div>
-  );
 }
 
 export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
@@ -108,49 +40,53 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
   const [comment, setComment] = useState("");
 
   return (
-    <Shell title={L.setNonWorkingTimeTitle} name={name} onClose={onClose}>
-      <div className={styles.body}>
-        <div className={styles.field}>
-          <label>{t(L.description)}</label>
-          <Input value={description} onChange={(_, d) => setDescription(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-            {t(L.nonWorkingTimeType)}
-          </label>
-          <Input value={nonWorkingTimeType} onChange={(_, d) => setNonWorkingTimeType(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-            {t(L.startTime)}
-          </label>
-          <Input value={startTime} onChange={(_, d) => setStartTime(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-            {t(L.endTime)}
-          </label>
-          <Input value={endTime} onChange={(_, d) => setEndTime(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.comment)}</label>
-          <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-        </div>
+    <BaseDialog
+      open
+      title={`${t(L.setNonWorkingTimeTitle)} ${name}`}
+      onClose={onClose}
+      footer={
+        <>
+          <Button onClick={onClose}>{t(L.cancel)}</Button>
+          <Button
+            appearance="primary"
+            onClick={onClose}
+            disabled={!nonWorkingTimeType.trim() || !startTime.trim() || !endTime.trim()}
+          >
+            {t(L.set)}
+          </Button>
+        </>
+      }
+    >
+      <div className={styles.field}>
+        <label>{t(L.description)}</label>
+        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
       </div>
-      <div className={styles.footer}>
-        <Button onClick={onClose}>{t(L.cancel)}</Button>
-        <Button
-          appearance="primary"
-          onClick={onClose}
-          disabled={!nonWorkingTimeType.trim() || !startTime.trim() || !endTime.trim()}
-        >
-          {t(L.set)}
-        </Button>
+      <div className={styles.field}>
+        <label>
+          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+          {t(L.nonWorkingTimeType)}
+        </label>
+        <Input value={nonWorkingTimeType} onChange={(_, d) => setNonWorkingTimeType(d.value)} />
       </div>
-    </Shell>
+      <div className={styles.field}>
+        <label>
+          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+          {t(L.startTime)}
+        </label>
+        <Input value={startTime} onChange={(_, d) => setStartTime(d.value)} />
+      </div>
+      <div className={styles.field}>
+        <label>
+          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+          {t(L.endTime)}
+        </label>
+        <Input value={endTime} onChange={(_, d) => setEndTime(d.value)} />
+      </div>
+      <div className={styles.field}>
+        <label>{t(L.comment)}</label>
+        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+      </div>
+    </BaseDialog>
   );
 }
 
@@ -160,83 +96,50 @@ export function SetWorkAvailabilityDialog({ name, onClose }: DialogProps) {
   const [comment, setComment] = useState("");
 
   return (
-    <Shell title={L.setWorkAvailabilityTitle} name={name} onClose={onClose}>
-      <div className={styles.body}>
-        <div className={styles.field}>
-          <label>{t(L.comment)}</label>
-          <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-        </div>
+    <BaseDialog
+      open
+      title={`${t(L.setWorkAvailabilityTitle)} ${name}`}
+      onClose={onClose}
+      footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.set)} />}
+    >
+      <div className={styles.field}>
+        <label>{t(L.comment)}</label>
+        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
       </div>
-      <div className={styles.footer}>
-        <Button onClick={onClose}>{t(L.cancel)}</Button>
-        <Button appearance="primary" onClick={onClose}>
-          {t(L.set)}
-        </Button>
-      </div>
-    </Shell>
+    </BaseDialog>
   );
 }
 
 export function RemoveNonWorkingTimesDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const shared = useSharedStyles();
-  const styles = useDialogStyles();
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>{t(L.removeNonWorkingTimesTitle)}</div>
-        <div className={styles.body}>
-          <div>{t(L.removeNonWorkingTimesMessage, { name })}</div>
-        </div>
-        <div className={styles.footer}>
-          <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button
-            appearance="primary"
-            onClick={onClose}
-            style={{ backgroundColor: tokens.colorPaletteRedBackground3 }}
-          >
-            {t(L.remove)}
-          </Button>
-        </div>
-      </div>
-    </div>
+    <BaseDialog
+      open
+      title={t(L.removeNonWorkingTimesTitle)}
+      onClose={onClose}
+      footer={
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.remove)} danger />
+      }
+    >
+      <div>{t(L.removeNonWorkingTimesMessage, { name })}</div>
+    </BaseDialog>
   );
 }
 
 export function RemoveWorkAvailabilityDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const shared = useSharedStyles();
-  const styles = useDialogStyles();
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>{t(L.removeWorkAvailabilityTitle)}</div>
-        <div className={styles.body}>
-          <div>{t(L.removeWorkAvailabilityMessage, { name })}</div>
-        </div>
-        <div className={styles.footer}>
-          <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button
-            appearance="primary"
-            onClick={onClose}
-            style={{ backgroundColor: tokens.colorPaletteRedBackground3 }}
-          >
-            {t(L.remove)}
-          </Button>
-        </div>
-      </div>
-    </div>
+    <BaseDialog
+      open
+      title={t(L.removeWorkAvailabilityTitle)}
+      onClose={onClose}
+      footer={
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.remove)} danger />
+      }
+    >
+      <div>{t(L.removeWorkAvailabilityMessage, { name })}</div>
+    </BaseDialog>
   );
 }
