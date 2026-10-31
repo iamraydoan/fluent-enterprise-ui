@@ -69,11 +69,12 @@
     "check:deps": "depcruise src",
     "knip": "knip",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "test:ui": "vitest --ui",
-    "test:browser": "vitest",
+    "test:watch": "vitest --project unit",
+    "test:ui": "vitest --ui --project unit",
+    "test:browser": "vitest run --project browser",
     "test:coverage": "vitest run --coverage",
-    "test:browser:install": "playwright install chromium --with-deps"
+    "test:browser:install": "playwright install chromium --with-deps",
+    "test:unit": "vitest run --project unit"
   },
   "type": "module",
   "version": "1.0.0",

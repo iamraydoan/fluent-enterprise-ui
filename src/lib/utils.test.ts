@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { containsIgnoreCase } from "@/lib/utils";
+import { containsIgnoreCase, formatList } from "@/lib/utils";
 
 describe("containsIgnoreCase", () => {
   it("matches an empty query against any text", () => {
@@ -18,5 +18,19 @@ describe("containsIgnoreCase", () => {
 
   it("matches a substring in the middle of the text", () => {
     expect(containsIgnoreCase("Quality Assistant", "assist")).toBe(true);
+  });
+});
+
+describe("formatList", () => {
+  it("joins items with a comma and space", () => {
+    expect(formatList(["Mixing", "Moulding", "Baking"])).toBe("Mixing, Moulding, Baking");
+  });
+
+  it("returns the single item unchanged", () => {
+    expect(formatList(["Mixing"])).toBe("Mixing");
+  });
+
+  it("returns an empty string for no items", () => {
+    expect(formatList([])).toBe("");
   });
 });
