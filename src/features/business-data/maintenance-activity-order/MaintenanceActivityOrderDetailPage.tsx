@@ -228,7 +228,7 @@ export function MaintenanceActivityOrderDetailPage({ name }: { name: string }) {
         />
         <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
           {STATE_ACTIONS.map((action) => (
-            <Button key={action.id} size="small" onClick={() => setChangeStateAction(action.id)}>
+            <Button key={action.id} size="sm" onClick={() => setChangeStateAction(action.id)}>
               {t(action.labelKey)}
             </Button>
           ))}

@@ -86,10 +86,10 @@ function ManageDialogBase({
           >
             <Body1Strong>{t(listLabelKey, { count: list.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addItem}>
+              <Button size="sm" variant="subtle" onClick={addItem}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeItem(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeItem(selected)}>
                 🗑
               </Button>
             </div>
@@ -126,8 +126,8 @@ function ManageDialogBase({
               {f.type === "checkbox" ? (
                 <Checkbox
                   checked={(fieldValues[f.key] as boolean) ?? false}
-                  onChange={(_, d) =>
-                    setFieldValues({ ...fieldValues, [f.key]: d.checked === true })
+                  onChange={(checked) =>
+                    setFieldValues({ ...fieldValues, [f.key]: checked === true })
                   }
                 />
               ) : f.type === "select" ? (
@@ -144,7 +144,7 @@ function ManageDialogBase({
               ) : (
                 <Input
                   value={(fieldValues[f.key] as string) ?? ""}
-                  onChange={(_, d) => setFieldValues({ ...fieldValues, [f.key]: d.value })}
+                  onChange={(value) => setFieldValues({ ...fieldValues, [f.key]: value })}
                 />
               )}
             </Field>
@@ -152,7 +152,7 @@ function ManageDialogBase({
         </div>
       </div>
       <Field label={t(commentsKey)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

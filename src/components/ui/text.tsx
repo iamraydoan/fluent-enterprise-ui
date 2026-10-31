@@ -4,24 +4,47 @@ import {
   Text as FluentText,
 } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type { ComponentProps, ComponentRef } from "react";
+import type { CSSProperties, MouseEvent, ReactNode } from "react";
 
-export type TextProps = ComponentProps<typeof FluentText>;
+export type TextSize = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000;
+export type TextWeight = "regular" | "medium" | "semibold" | "bold";
 
-export const Text = forwardRef<ComponentRef<typeof FluentText>, TextProps>(
-  function Text(props, ref) {
-    return <FluentText ref={ref} {...props} />;
-  },
-);
-
-export type Body1StrongProps = ComponentProps<typeof FluentBody1Strong>;
-
-export function Body1Strong(props: Body1StrongProps) {
-  return <FluentBody1Strong {...props} />;
+export interface TextProps {
+  size?: TextSize;
+  weight?: TextWeight;
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
+  block?: boolean;
+  truncate?: boolean;
+  wrap?: boolean;
+  onClick?: (e: MouseEvent<HTMLElement>) => void;
+  className?: string;
+  style?: CSSProperties;
+  title?: string;
+  children?: ReactNode;
 }
 
-export type Caption1Props = ComponentProps<typeof FluentCaption1>;
+export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, ref) {
+  return <FluentText ref={ref} {...props} />;
+});
 
-export function Caption1(props: Caption1Props) {
-  return <FluentCaption1 {...props} />;
+export function Body1Strong({
+  children,
+  style,
+}: {
+  children?: ReactNode;
+  style?: CSSProperties;
+}) {
+  return <FluentBody1Strong style={style}>{children}</FluentBody1Strong>;
+}
+
+export function Caption1({
+  children,
+  style,
+}: {
+  children?: ReactNode;
+  style?: CSSProperties;
+}) {
+  return <FluentCaption1 style={style}>{children}</FluentCaption1>;
 }

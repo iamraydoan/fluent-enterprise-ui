@@ -97,7 +97,7 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
       <div className={styles.main}>
         <div className={styles.dashboardBar}>
           <Button
-            appearance={dashboard === DASHBOARD_MANUFACTURING ? "primary" : "secondary"}
+            variant={dashboard === DASHBOARD_MANUFACTURING ? "primary" : "secondary"}
             onClick={() =>
               setDashboard(dashboard === DASHBOARD_MANUFACTURING ? null : DASHBOARD_MANUFACTURING)
             }
@@ -105,13 +105,13 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
             {t("fabExplorer.manufacturingDashboard")}
           </Button>
           <Button
-            appearance={dashboard === DASHBOARD_QUALITY ? "primary" : "secondary"}
+            variant={dashboard === DASHBOARD_QUALITY ? "primary" : "secondary"}
             onClick={() => setDashboard(dashboard === DASHBOARD_QUALITY ? null : DASHBOARD_QUALITY)}
           >
             {t("fabExplorer.qualityDashboard")}
           </Button>
           <Button
-            appearance={dashboard === "maintenance" ? "primary" : "secondary"}
+            variant={dashboard === "maintenance" ? "primary" : "secondary"}
             onClick={() =>
               setDashboard(dashboard === DASHBOARD_MAINTENANCE ? null : DASHBOARD_MAINTENANCE)
             }

@@ -43,7 +43,7 @@ export function EnterpriseDialog({ mode, initialName, initialDescription, onClos
       footer={
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} disabled={!canSubmit}>
+          <Button variant="primary" onClick={onClose} disabled={!canSubmit}>
             {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
           </Button>
         </>
@@ -58,10 +58,10 @@ export function EnterpriseDialog({ mode, initialName, initialDescription, onClos
         }
         labelWidth="150px"
       >
-        <Input value={name} onChange={(_, d) => setName(d.value)} disabled={mode === MODE_EDIT} />
+        <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />
       </FormField>
       <FormField label={<>{t(L.description)}</>} labelWidth="150px">
-        <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Textarea value={description} onChange={setDescription} />
       </FormField>
     </BaseDialog>
   );

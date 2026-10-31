@@ -44,7 +44,7 @@ export function ManageDelegatesDialog({ name, onClose }: DialogProps) {
     >
       <div className={styles.row}>
         <Button
-          size="small"
+          size="sm"
           onClick={() => setDelegates([...delegates, { employee: "", validFrom: "", validTo: "" }])}
         >
           + {t(L.addDelegate)}
@@ -55,25 +55,25 @@ export function ManageDelegatesDialog({ name, onClose }: DialogProps) {
           <Input
             placeholder={t(L.delegateEmployee)}
             value={d.employee}
-            onChange={(_, v) =>
-              setDelegates(delegates.map((x, j) => (j === i ? { ...x, employee: v.value } : x)))
+            onChange={(value) =>
+              setDelegates(delegates.map((x, j) => (j === i ? { ...x, employee: value } : x)))
             }
           />
           <Input
             placeholder={t(L.validFrom)}
             value={d.validFrom}
-            onChange={(_, v) =>
-              setDelegates(delegates.map((x, j) => (j === i ? { ...x, validFrom: v.value } : x)))
+            onChange={(value) =>
+              setDelegates(delegates.map((x, j) => (j === i ? { ...x, validFrom: value } : x)))
             }
           />
           <Input
             placeholder={t(L.validTo)}
             value={d.validTo}
-            onChange={(_, v) =>
-              setDelegates(delegates.map((x, j) => (j === i ? { ...x, validTo: v.value } : x)))
+            onChange={(value) =>
+              setDelegates(delegates.map((x, j) => (j === i ? { ...x, validTo: value } : x)))
             }
           />
-          <Button size="small" onClick={() => setDelegates(delegates.filter((_, j) => j !== i))}>
+          <Button size="sm" onClick={() => setDelegates(delegates.filter((_, j) => j !== i))}>
             {t(L.remove)}
           </Button>
         </div>
@@ -96,7 +96,7 @@ export function ManageTraineesDialog({ name, onClose }: DialogProps) {
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.checkOut)} />}
     >
       <div className={styles.row}>
-        <Button size="small" onClick={() => setTrainees([...trainees, ""])}>
+        <Button size="sm" onClick={() => setTrainees([...trainees, ""])}>
           + {t(L.addTrainee)}
         </Button>
       </div>
@@ -104,9 +104,9 @@ export function ManageTraineesDialog({ name, onClose }: DialogProps) {
         <div key={i} className={styles.row}>
           <Input
             value={tr}
-            onChange={(_, v) => setTrainees(trainees.map((x, j) => (j === i ? v.value : x)))}
+            onChange={(value) => setTrainees(trainees.map((x, j) => (j === i ? value : x)))}
           />
-          <Button size="small" onClick={() => setTrainees(trainees.filter((_, j) => j !== i))}>
+          <Button size="sm" onClick={() => setTrainees(trainees.filter((_, j) => j !== i))}>
             {t(L.remove)}
           </Button>
         </div>

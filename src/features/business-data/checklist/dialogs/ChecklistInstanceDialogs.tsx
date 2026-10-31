@@ -36,10 +36,10 @@ export function OpenChecklistInstanceDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={onConfirm}>
+          <Button variant="primary" onClick={onConfirm}>
             {t("businessData.checklist.operations.open")}
           </Button>
         </>
@@ -73,11 +73,11 @@ export function OpenForMaterialDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={material.trim() === ""}
             onClick={() => onConfirm(material)}
           >
@@ -91,7 +91,7 @@ export function OpenForMaterialDialog({
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.checklist.operations.material")}</span>
-        <Input value={material} onChange={(_, d) => setMaterial(d.value)} />
+        <Input value={material} onChange={setMaterial} />
       </div>
     </DialogShell>
   );
@@ -119,11 +119,11 @@ export function PauseChecklistInstanceDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={reason.trim() === ""}
             onClick={() => onConfirm(reason, comment)}
           >
@@ -142,12 +142,12 @@ export function PauseChecklistInstanceDialog({
         <Input
           placeholder={t("businessData.checklist.operations.pauseReasonPlaceholder")}
           value={reason}
-          onChange={(_, d) => setReason(d.value)}
+          onChange={setReason}
         />
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.checklist.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );
@@ -175,11 +175,11 @@ function SignItemDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={username.trim() === "" || password === ""}
             onClick={() => onSign(username, password)}
           >
@@ -193,11 +193,11 @@ function SignItemDialog({
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.checklist.operations.username")}</span>
-        <Input value={username} onChange={(_, d) => setUsername(d.value)} />
+        <Input value={username} onChange={setUsername} />
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.checklist.operations.password")}</span>
-        <Input type="password" value={password} onChange={(_, d) => setPassword(d.value)} />
+        <Input type="password" value={password} onChange={setPassword} />
       </div>
     </DialogShell>
   );
@@ -259,16 +259,16 @@ export function PerformChecklistDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {!immediate && (
-            <Button appearance="secondary" onClick={() => onPerform(snapshot(), false)}>
+            <Button variant="secondary" onClick={() => onPerform(snapshot(), false)}>
               {t("businessData.checklist.operations.saveAndClose")}
             </Button>
           )}
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={!allDone}
             onClick={() => onPerform(snapshot(), true)}
           >
@@ -279,13 +279,13 @@ export function PerformChecklistDialog({
     >
       <div className={styles.toolbar}>
         <Button
-          appearance={show === SHOW_MANDATORY ? "primary" : "secondary"}
+          variant={show === SHOW_MANDATORY ? "primary" : "secondary"}
           onClick={() => setShow(SHOW_MANDATORY)}
         >
           {t("businessData.checklist.operations.mandatory")}
         </Button>
         <Button
-          appearance={show === SHOW_OPTIONAL ? "primary" : "secondary"}
+          variant={show === SHOW_OPTIONAL ? "primary" : "secondary"}
           onClick={() => setShow(SHOW_OPTIONAL)}
         >
           {t("businessData.checklist.operations.optionalList")}
@@ -309,22 +309,22 @@ export function PerformChecklistDialog({
             <div style={{ display: "flex", columnGap: "4px" }}>
               {s === ITEM_STATE_NOT_STARTED && (
                 <Button
-                  appearance="secondary"
-                  size="small"
+                  variant="secondary"
+                  size="sm"
                   onClick={() => setState(item.name, ITEM_STATE_STARTED)}
                 >
                   {t("businessData.checklist.operations.start")}
                 </Button>
               )}
               {(s === ITEM_STATE_STARTED || s === ITEM_STATE_NOT_STARTED) && (
-                <Button appearance="secondary" size="small" onClick={() => completeItem(item.name)}>
+                <Button variant="secondary" size="sm" onClick={() => completeItem(item.name)}>
                   {t("businessData.checklist.operations.complete")}
                 </Button>
               )}
               {item.optional && (s === ITEM_STATE_NOT_STARTED || s === ITEM_STATE_STARTED) && (
                 <Button
-                  appearance="secondary"
-                  size="small"
+                  variant="secondary"
+                  size="sm"
                   onClick={() => setState(item.name, ITEM_STATE_SKIPPED)}
                 >
                   {t("businessData.checklist.operations.skip")}
@@ -386,11 +386,11 @@ export function OpenMaterialDeviationDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={itemName === ""}
             onClick={() =>
               onConfirm({
@@ -438,31 +438,31 @@ export function OpenMaterialDeviationDialog({
             <span className={styles.fieldLabel}>
               {t("businessData.checklist.operations.product")}
             </span>
-            <Input value={product} onChange={(_, d) => setProduct(d.value)} />
+            <Input value={product} onChange={setProduct} />
           </div>
           <div className={styles.fieldRow}>
             <span className={styles.fieldLabel}>
               {t("businessData.checklist.operations.quantity")}
             </span>
-            <Input type="number" value={quantity} onChange={(_, d) => setQuantity(d.value)} />
+            <Input type="number" value={quantity} onChange={setQuantity} />
           </div>
           <div className={styles.fieldRow}>
             <span className={styles.fieldLabel}>
               {t("businessData.checklist.operations.units")}
             </span>
-            <Input value={units} onChange={(_, d) => setUnits(d.value)} />
+            <Input value={units} onChange={setUnits} />
           </div>
           <div className={styles.fieldRow}>
             <span className={styles.fieldLabel}>
               {t("businessData.checklist.operations.color")}
             </span>
-            <Input value={color} onChange={(_, d) => setColor(d.value)} />
+            <Input value={color} onChange={setColor} />
           </div>
         </>
       )}
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.checklist.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );

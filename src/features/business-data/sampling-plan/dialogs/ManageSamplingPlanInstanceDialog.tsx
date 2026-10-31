@@ -125,10 +125,10 @@ export function ManageSamplingPlanInstanceDialog({
           >
             <Body1Strong>{t(`${k}.instances`, { count: instances.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addInstance}>
+              <Button size="sm" variant="subtle" onClick={addInstance}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeInstance(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeInstance(selected)}>
                 🗑
               </Button>
             </div>
@@ -173,14 +173,14 @@ export function ManageSamplingPlanInstanceDialog({
             <Field key={f.key} label={t(f.labelKey)}>
               <Input
                 value={values[f.key] ?? instances[selected]?.[f.key] ?? ""}
-                onChange={(_, d) => setValues({ ...values, [f.key]: d.value })}
+                onChange={(value) => setValues({ ...values, [f.key]: value })}
               />
             </Field>
           ))}
         </div>
       </div>
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

@@ -63,19 +63,19 @@ function NameListEditor({
           <Input
             placeholder={t(namePlaceholderKey)}
             value={row.name}
-            onChange={(_, data) => updateRow(row.id, { name: data.value })}
+            onChange={(value) => updateRow(row.id, { name: value })}
           />
           <Input
             placeholder={t(extraPlaceholderKey)}
             value={row.extra}
-            onChange={(_, data) => updateRow(row.id, { extra: data.value })}
+            onChange={(value) => updateRow(row.id, { extra: value })}
           />
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>
@@ -126,7 +126,7 @@ function ListDialogShell({
       {commentLabel && (
         <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
           <span className={styles.fieldLabel}>{commentLabel}</span>
-          <Input value={comment} onChange={(_, data) => setComment(data.value)} />
+          <Input value={comment} onChange={setComment} />
         </div>
       )}
     </BaseDialog>
@@ -344,7 +344,7 @@ export function TakeOwnershipDialog({
         }
         labelWidth="170px"
       >
-        <Input value={owner} onChange={(_, d) => setOwner(d.value)} />
+        <Input value={owner} onChange={setOwner} />
       </FormField>
       <FormField
         label={
@@ -356,7 +356,7 @@ export function TakeOwnershipDialog({
         }
         labelWidth="170px"
       >
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -407,7 +407,7 @@ export function ChangeChangeSetDialog({
         }
         labelWidth="170px"
       >
-        <Input value={owner} onChange={(_, d) => setOwner(d.value)} />
+        <Input value={owner} onChange={setOwner} />
       </FormField>
       <FormField
         label={
@@ -419,7 +419,7 @@ export function ChangeChangeSetDialog({
         }
         labelWidth="170px"
       >
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );

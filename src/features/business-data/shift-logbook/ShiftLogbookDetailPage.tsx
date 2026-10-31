@@ -63,7 +63,7 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
           <Body1Strong>
             {t("businessData.shiftLogbook.sections.entries")} ({data.entries.length})
           </Body1Strong>
-          <Button appearance="primary" onClick={() => setAddOpen(true)}>
+          <Button variant="primary" onClick={() => setAddOpen(true)}>
             {t("businessData.shiftLogbook.addEntry.add")}
           </Button>
         </div>
@@ -81,7 +81,7 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
                   }}
                 >
                   <Body1Strong>{entry.title}</Body1Strong>
-                  <Button appearance="subtle" onClick={() => setEditEntry(entry)}>
+                  <Button variant="subtle" onClick={() => setEditEntry(entry)}>
                     {t("actionBar.edit")}
                   </Button>
                 </div>

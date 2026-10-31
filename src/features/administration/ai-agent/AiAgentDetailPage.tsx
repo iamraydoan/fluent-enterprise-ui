@@ -128,12 +128,12 @@ function ToolsGrid({
         <Text size={400}>{t("aiAgent.toolsTitle", { count: countSelectedTools(selection) })}</Text>
         <div>
           <Button
-            appearance="subtle"
+            variant="subtle"
             icon={<ColumnTriple20Regular />}
             aria-label={t("common.chooseColumns")}
           />
           <Button
-            appearance="subtle"
+            variant="subtle"
             icon={<MoreVertical20Regular />}
             aria-label={t("common.moreOptions")}
           />
@@ -208,8 +208,8 @@ function ToolsGrid({
                         <TableCell className={detailStyles.td}>
                           <div style={{ display: "flex", justifyContent: "center" }}>
                             <Button
-                              size="small"
-                              appearance="transparent"
+                              size="sm"
+                              variant="transparent"
                               icon={<Eye20Filled />}
                               aria-label={t("aiAgent.viewDescription", { tool })}
                               onClick={() => onView(serverName, tool)}
@@ -359,7 +359,7 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
             </div>
             <Tooltip content={t("aiAgent.createdBy")} relationship="description">
               <Button
-                appearance="transparent"
+                variant="transparent"
                 icon={<Info20Regular style={{ color: "#0F6CBD" }} />}
                 aria-label={t("common.information")}
               />

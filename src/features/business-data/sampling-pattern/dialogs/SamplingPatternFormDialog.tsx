@@ -56,13 +56,13 @@ export function SamplingPatternFormDialog({
     >
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
         <Field label={t(`${k}.name`)} required>
-          <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+          <Input value={name} readOnly={nameReadOnly} onChange={setName} />
         </Field>
         <Field label={t(`${k}.description`)}>
-          <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+          <Input value={description} onChange={setDescription} />
         </Field>
         <Field label={t(`${k}.type`)}>
-          <Input value={type} onChange={(_, d) => setType(d.value)} />
+          <Input value={type} onChange={setType} />
         </Field>
         <Field label={t(`${k}.mode`)} required>
           <select value={mode} onChange={(e) => setMode(e.target.value as SamplingPatternMode)}>
@@ -75,26 +75,26 @@ export function SamplingPatternFormDialog({
         </Field>
         {mode === "Manual" && (
           <Field label={t(`${k}.samplingSelection`)}>
-            <Input value={samplingSelection} onChange={(_, d) => setSamplingSelection(d.value)} />
+            <Input value={samplingSelection} onChange={setSamplingSelection} />
           </Field>
         )}
         {mode === "Rule" && (
           <Field label={t(`${k}.rule`)}>
-            <Input value={rule} onChange={(_, d) => setRule(d.value)} />
+            <Input value={rule} onChange={setRule} />
           </Field>
         )}
         {mode === "System" && (
           <>
             <Field label={t(`${k}.sourceForm`)}>
-              <Input value={sourceForm} onChange={(_, d) => setSourceForm(d.value)} />
+              <Input value={sourceForm} onChange={setSourceForm} />
             </Field>
             <Field label={t(`${k}.materialCount`)}>
-              <Input value={materialCount} onChange={(_, d) => setMaterialCount(d.value)} />
+              <Input value={materialCount} onChange={setMaterialCount} />
             </Field>
             <Field label={t(`${k}.countIsPercentage`)}>
               <Checkbox
                 checked={countIsPercentage}
-                onChange={(_, d) => setCountIsPercentage(d.checked === true)}
+                onChange={setCountIsPercentage}
               />
             </Field>
             <Field label={t(`${k}.selectionMethod`)}>
@@ -122,7 +122,7 @@ export function SamplingPatternFormDialog({
         )}
       </div>
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

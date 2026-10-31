@@ -76,11 +76,11 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
             </Button>
           )}
           {step < 1 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+            <Button variant="primary" onClick={() => setStep(step + 1)}>
               {t("businessData.productGroup.operations.create.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={handleSubmit} disabled={!name || !type}>
+            <Button variant="primary" onClick={handleSubmit} disabled={!name || !type}>
               {t("businessData.productGroup.operations.create.submit")}
             </Button>
           )}
@@ -117,7 +117,7 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
             </Field>
             <Checkbox
               checked={useAutoChangeSet}
-              onChange={(_, d) => setUseAutoChangeSet(d.checked === true)}
+              onChange={setUseAutoChangeSet}
               label={t("businessData.productGroup.operations.create.fields.useAutomaticChangeSet")}
             />
           </>
@@ -127,7 +127,7 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
             <Field label={t("businessData.productGroup.operations.create.fields.name")} required>
               <Input
                 value={name}
-                onChange={(_, d) => setName(d.value)}
+                onChange={setName}
                 placeholder={t(
                   "businessData.productGroup.operations.create.placeholders.enterName",
                 )}
@@ -139,7 +139,7 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
             >
               <Input
                 value={revision}
-                onChange={(_, d) => setRevision(d.value)}
+                onChange={setRevision}
                 placeholder={t(
                   "businessData.productGroup.operations.create.placeholders.revisionHint",
                 )}
@@ -148,7 +148,7 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
             <Field label={t("businessData.productGroup.operations.create.fields.description")}>
               <Input
                 value={description}
-                onChange={(_, d) => setDescription(d.value)}
+                onChange={setDescription}
                 placeholder={t(
                   "businessData.productGroup.operations.create.placeholders.enterDescription",
                 )}
@@ -235,7 +235,7 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
             >
               <Input
                 value={flowPath}
-                onChange={(_, d) => setFlowPath(d.value)}
+                onChange={setFlowPath}
                 placeholder={t(
                   "businessData.productGroup.operations.create.placeholders.selectFlowPath",
                 )}
@@ -244,7 +244,7 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
             <Field label={t("businessData.productGroup.operations.create.fields.comments")}>
               <Input
                 value={comments}
-                onChange={(_, d) => setComments(d.value)}
+                onChange={setComments}
                 placeholder={t(
                   "businessData.productGroup.operations.create.placeholders.enterComments",
                 )}
@@ -305,7 +305,7 @@ export function EditProductGroupDialog({
       <Field label={t("businessData.productGroup.operations.edit.fields.description")}>
         <Input
           value={description}
-          onChange={(_, d) => setDescription(d.value)}
+          onChange={setDescription}
           placeholder={t(
             "businessData.productGroup.operations.create.placeholders.enterDescription",
           )}
@@ -423,7 +423,7 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
         <Text weight="semibold">
           {t("businessData.productGroup.operations.clone.newInstances")}
         </Text>
-        <Button appearance="subtle" icon={<Add24Regular />} onClick={addRow}>
+        <Button variant="subtle" icon={<Add24Regular />} onClick={addRow}>
           {t("businessData.productGroup.operations.clone.add")}
         </Button>
       </div>
@@ -432,14 +432,14 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
           <div className={styles.col}>
             <Input
               value={row.name}
-              onChange={(_, d) => updateRowName(i, d.value)}
+              onChange={(value) => updateRowName(i, value)}
               placeholder={t("businessData.productGroup.operations.clone.placeholders.newRowName")}
             />
           </div>
           <div className={styles.col}>
             <Input
               value={row.revision}
-              onChange={(_, d) => updateRowRevision(i, d.value)}
+              onChange={(value) => updateRowRevision(i, value)}
               placeholder={t(
                 "businessData.productGroup.operations.clone.placeholders.newRowRevision",
               )}
@@ -447,7 +447,7 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
           </div>
           {rows.length > 1 && (
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<Delete20Regular />}
               onClick={() => removeRow(i)}
               aria-label={t("businessData.productGroup.operations.clone.removeRow")}
@@ -461,7 +461,7 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
       <Field label={t("businessData.productGroup.operations.clone.fields.comment")}>
         <Input
           value={comment}
-          onChange={(_, d) => setComment(d.value)}
+          onChange={setComment}
           placeholder={t("businessData.productGroup.operations.create.placeholders.enterComment")}
         />
       </Field>

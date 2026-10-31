@@ -44,11 +44,11 @@ export function ShiftDefinitionCloneDialog({
         <div key={i} className={styles.gridRow}>
           <Input
             value={name}
-            onChange={(_, d) => setNames((prev) => prev.map((n, j) => (j === i ? d.value : n)))}
+            onChange={(value) => setNames((prev) => prev.map((n, j) => (j === i ? value : n)))}
             placeholder={t("businessData.shiftDefinition.clone.namePlaceholder")}
           />
           <Button
-            appearance="subtle"
+            variant="subtle"
             icon={<Delete20Regular />}
             onClick={() => setNames((prev) => prev.filter((_, j) => j !== i))}
             aria-label={t("actionBar.delete")}
@@ -57,14 +57,14 @@ export function ShiftDefinitionCloneDialog({
         </div>
       ))}
       <Button
-        appearance="subtle"
+        variant="subtle"
         icon={<Add24Regular />}
         onClick={() => setNames((prev) => [...prev, ""])}
       >
         {t("actionBar.create")}
       </Button>
       <FormField label={<>{t("businessData.shiftDefinition.clone.comment")}</>}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );

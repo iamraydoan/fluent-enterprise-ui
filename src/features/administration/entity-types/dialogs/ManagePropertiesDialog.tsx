@@ -152,10 +152,10 @@ export function ManagePropertiesDialog({
       width="1100px"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={handleUpdate} disabled={update.isPending}>
+          <Button variant="primary" onClick={handleUpdate} disabled={update.isPending}>
             {t("common.update")}
           </Button>
         </>
@@ -169,15 +169,15 @@ export function ManagePropertiesDialog({
             </Text>
             <div className={styles.listActions}>
               <Button
-                appearance="subtle"
-                size="small"
+                variant="subtle"
+                size="sm"
                 icon={<Add24Regular />}
                 aria-label={t("entityTypes.manage.add")}
                 onClick={() => {}}
               />
               <Button
-                appearance="subtle"
-                size="small"
+                variant="subtle"
+                size="sm"
                 icon={<Delete20Regular />}
                 aria-label={t("entityTypes.manage.remove")}
                 onClick={() => {}}
@@ -250,9 +250,9 @@ function PropertyForm({
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("entityTypes.property.description")}</span>
         <Input
-          size="small"
+          size="sm"
           value={property.description}
-          onChange={(_, data) => onPatch({ description: data.value })}
+          onChange={(value) => onPatch({ description: value })}
           disabled={property.isSystem}
         />
       </div>
@@ -264,7 +264,7 @@ function PropertyForm({
         <span className={styles.fieldLabel}>{t("entityTypes.property.enabled")}</span>
         <Checkbox
           checked={property.enabled}
-          onChange={(_, data) => onPatch({ enabled: data.checked === true })}
+          onChange={(checked) => onPatch({ enabled: checked === true })}
           disabled={property.isSystem}
         />
       </div>
@@ -291,8 +291,8 @@ function PropertyForm({
         <Checkbox
           checked={property.searchable}
           disabled={!searchableAllowed || isName || property.isSystem}
-          onChange={(_, data) => {
-            const searchable = data.checked === true;
+          onChange={(checked) => {
+            const searchable = checked === true;
             onPatch({
               searchable,
               searchType: searchable ? (property.searchType ?? DEFAULT_SEARCH_TYPE) : undefined,
@@ -311,7 +311,7 @@ function PropertyForm({
           <span className={styles.fieldLabel}>{t("entityTypes.property.searchType")}</span>
           <Menu>
             <MenuTrigger disableButtonEnhancement>
-              <Button appearance="subtle" size="small" disabled={isName || property.isSystem}>
+              <Button variant="subtle" size="sm" disabled={isName || property.isSystem}>
                 {t(searchTypeLabelKey(property.searchType ?? DEFAULT_SEARCH_TYPE))}
               </Button>
             </MenuTrigger>

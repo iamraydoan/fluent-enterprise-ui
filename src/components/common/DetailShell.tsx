@@ -205,7 +205,7 @@ export function MiniBar({ groups }: { groups: MiniBarGroup[] }) {
             {group.buttons.map((button) => (
               <Button
                 key={button.label}
-                appearance="subtle"
+                variant="subtle"
                 icon={button.icon}
                 onClick={button.onClick}
                 disabled={button.disabled}
@@ -387,8 +387,8 @@ export function DetailShell({
             <div className={detailShellStyles.leftHead}>
               <Body1Strong>{t("common.detailsView")}</Body1Strong>
               <Button
-                size="small"
-                appearance="subtle"
+                size="sm"
+                variant="subtle"
                 icon={<PanelLeftContract20Regular />}
                 aria-label={t("common.collapsePanel")}
                 onClick={() => setShowLeft(false)}
@@ -413,8 +413,8 @@ export function DetailShell({
           {showPanel && !showLeft && (
             <div style={{ marginBottom: 6 }}>
               <Button
-                size="small"
-                appearance="subtle"
+                size="sm"
+                variant="subtle"
                 icon={<PanelLeftExpand20Regular />}
                 onClick={() => setShowLeft(true)}
               >

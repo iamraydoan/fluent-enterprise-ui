@@ -53,20 +53,20 @@ export function ScheduleFormDialog({
       width="min(950px, 92vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {!nameReadOnly && step > 1 && (
-            <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+            <Button variant="secondary" onClick={() => setStep(step - 1)}>
               {t("common.back")}
             </Button>
           )}
           {!nameReadOnly && step < 4 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+            <Button variant="primary" onClick={() => setStep(step + 1)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {submitLabel}
             </Button>
           )}
@@ -80,10 +80,10 @@ export function ScheduleFormDialog({
       {(step === 1 || nameReadOnly) && (
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.name`)} required>
-            <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+            <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
           <Field label={t(`${k}.description`)}>
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Input value={description} onChange={setDescription} />
           </Field>
           <Field label={t(`${k}.defaultView`)}>
             <select value={defaultView} onChange={(e) => setDefaultView(e.target.value)}>
@@ -97,11 +97,11 @@ export function ScheduleFormDialog({
           <Field label={t(`${k}.defaultFrozenPeriod`)}>
             <Input
               value={defaultFrozenPeriod}
-              onChange={(_, d) => setDefaultFrozenPeriod(d.value)}
+              onChange={setDefaultFrozenPeriod}
             />
           </Field>
           <Field label={t(`${k}.timeQuantum`)}>
-            <Input value={timeQuantum} onChange={(_, d) => setTimeQuantum(d.value)} />
+            <Input value={timeQuantum} onChange={setTimeQuantum} />
           </Field>
         </div>
       )}
@@ -131,7 +131,7 @@ export function ScheduleFormDialog({
       )}
 
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

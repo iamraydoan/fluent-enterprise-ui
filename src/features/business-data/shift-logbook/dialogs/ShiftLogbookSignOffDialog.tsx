@@ -49,7 +49,7 @@ export function ShiftLogbookSignOffDialog({
       <div style={{ marginTop: "12px" }}>
         <Text>{t("businessData.shiftLogbook.signOff.comment")}</Text>
         <div style={{ marginTop: "4px" }}>
-          <Textarea value={comment} onChange={(_, d) => setComment(d.value)} rows={3} />
+          <Textarea value={comment} onChange={setComment} rows={3} />
         </div>
       </div>
     </BaseDialog>

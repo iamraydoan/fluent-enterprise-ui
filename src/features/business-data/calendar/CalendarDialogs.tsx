@@ -74,7 +74,7 @@ export function GenerateCalendarDaysDialog({
         }
         labelWidth="190px"
       >
-        <Input type="date" value={startDate} onChange={(_, data) => setStartDate(data.value)} />
+        <Input type="date" value={startDate} onChange={setStartDate} />
       </FormField>
       <FormField
         label={
@@ -86,7 +86,7 @@ export function GenerateCalendarDaysDialog({
         }
         labelWidth="190px"
       >
-        <Input type="date" value={endDate} onChange={(_, data) => setEndDate(data.value)} />
+        <Input type="date" value={endDate} onChange={setEndDate} />
       </FormField>
       <FormField
         label={
@@ -99,7 +99,7 @@ export function GenerateCalendarDaysDialog({
         <Checkbox
           label={t("businessData.calendar.operations.overrideExisting")}
           checked={override}
-          onChange={(_, data) => setOverride(data.checked === true)}
+          onChange={setOverride}
         />
       </FormField>
       <FormField
@@ -112,7 +112,7 @@ export function GenerateCalendarDaysDialog({
         }
         labelWidth="190px"
       >
-        <Input value={comment} onChange={(_, data) => setComment(data.value)} />
+        <Input value={comment} onChange={setComment} />
       </FormField>
     </DialogShell>
   );
@@ -155,7 +155,7 @@ export function EditCalendarDaysDialog({
       >
         <Input
           value={shiftDefinition}
-          onChange={(_, data) => setShiftDefinition(data.value)}
+          onChange={setShiftDefinition}
           placeholder={t("businessData.calendar.operations.shiftDefinitionPlaceholder")}
         />
       </FormField>
@@ -171,7 +171,7 @@ export function EditCalendarDaysDialog({
       >
         <Input
           value={String(values.fiscalYear ?? "")}
-          onChange={(_, data) => setValues((p) => ({ ...p, fiscalYear: data.value }))}
+          onChange={(value) => setValues((p) => ({ ...p, fiscalYear: value }))}
         />
       </FormField>
       <FormField
@@ -186,7 +186,7 @@ export function EditCalendarDaysDialog({
       >
         <Input
           value={String(values.fiscalQuarter ?? "")}
-          onChange={(_, data) => setValues((p) => ({ ...p, fiscalQuarter: data.value }))}
+          onChange={(value) => setValues((p) => ({ ...p, fiscalQuarter: value }))}
         />
       </FormField>
     </DialogShell>
@@ -228,7 +228,7 @@ export function RemoveCalendarDaysDialog({
         }
         labelWidth="190px"
       >
-        <Input type="date" value={startDate} onChange={(_, data) => setStartDate(data.value)} />
+        <Input type="date" value={startDate} onChange={setStartDate} />
       </FormField>
       <FormField
         label={
@@ -240,7 +240,7 @@ export function RemoveCalendarDaysDialog({
         }
         labelWidth="190px"
       >
-        <Input type="date" value={endDate} onChange={(_, data) => setEndDate(data.value)} />
+        <Input type="date" value={endDate} onChange={setEndDate} />
       </FormField>
     </DialogShell>
   );

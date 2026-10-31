@@ -71,10 +71,10 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
           >
             <Body1Strong>{t(`${k}.steps`, { count: steps.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addStep}>
+              <Button size="sm" variant="subtle" onClick={addStep}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeStep(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeStep(selected)}>
                 🗑
               </Button>
             </div>
@@ -110,7 +110,7 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
             <Field key={f.key} label={t(f.labelKey)}>
               <Input
                 value={values[f.key] ?? steps[selected]?.[f.key] ?? ""}
-                onChange={(_, d) => setValues({ ...values, [f.key]: d.value })}
+                onChange={(value) => setValues({ ...values, [f.key]: value })}
               />
             </Field>
           ))}

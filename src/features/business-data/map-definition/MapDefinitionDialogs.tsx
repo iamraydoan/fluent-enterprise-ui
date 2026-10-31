@@ -192,24 +192,24 @@ export function MapDefinitionWizardDialog({
       width="1100px"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t(L.cancel)}
           </Button>
           {step > 0 && (
-            <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+            <Button variant="secondary" onClick={() => setStep(step - 1)}>
               {t(L.back)}
             </Button>
           )}
           {step < 2 ? (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => setStep(step + 1)}
               disabled={name.trim() === ""}
             >
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose} disabled={name.trim() === ""}>
+            <Button variant="primary" onClick={onClose} disabled={name.trim() === ""}>
               {finishLabel}
             </Button>
           )}
@@ -235,15 +235,15 @@ export function MapDefinitionWizardDialog({
             <Input
               value={name}
               disabled={mode === MODE_EDIT}
-              onChange={(_, d) => setName(d.value)}
+              onChange={setName}
             />,
           )}
           {field(
             L.description,
             false,
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />,
+            <Input value={description} onChange={setDescription} />,
           )}
-          {field(L.type, true, <Input value={mapType} onChange={(_, d) => setMapType(d.value)} />)}
+          {field(L.type, true, <Input value={mapType} onChange={setMapType} />)}
           <div className={styles.sectionTitle}>{t(L.information)}</div>
           {field(
             L.layoutType,
@@ -267,26 +267,26 @@ export function MapDefinitionWizardDialog({
               </label>
             </div>,
           )}
-          {field(L.rows, true, <Input value={rows} onChange={(_, d) => setRows(d.value)} />)}
+          {field(L.rows, true, <Input value={rows} onChange={setRows} />)}
           {field(
             L.columns,
             true,
-            <Input value={columns} onChange={(_, d) => setColumns(d.value)} />,
+            <Input value={columns} onChange={setColumns} />,
           )}
-          {field(L.height, false, <Input value={height} onChange={(_, d) => setHeight(d.value)} />)}
-          {field(L.width, false, <Input value={width} onChange={(_, d) => setWidth(d.value)} />)}
+          {field(L.height, false, <Input value={height} onChange={setHeight} />)}
+          {field(L.width, false, <Input value={width} onChange={setWidth} />)}
           {field(
             L.dimensionUnits,
             false,
-            <Input value={dimensionUnits} onChange={(_, d) => setDimensionUnits(d.value)} />,
+            <Input value={dimensionUnits} onChange={setDimensionUnits} />,
           )}
           {field(
             L.maskFile,
             false,
             <div style={{ display: "flex", gap: 8 }}>
               <Input value={maskFile} style={{ flex: 1 }} readOnly />
-              <Button appearance="secondary">{t(L.browse)}</Button>
-              <Button appearance="secondary" onClick={() => setMaskFile("")}>
+              <Button variant="secondary">{t(L.browse)}</Button>
+              <Button variant="secondary" onClick={() => setMaskFile("")}>
                 {t(L.clear)}
               </Button>
             </div>,
@@ -315,30 +315,30 @@ export function MapDefinitionWizardDialog({
             false,
             <Checkbox
               checked={showGridLines}
-              onChange={(_, d) => setShowGridLines(d.checked === true)}
+              onChange={setShowGridLines}
             />,
           )}
           <div className={styles.sectionTitle}>{t(L.options)}</div>
-          {field(L.notch, false, <Input value={notch} onChange={(_, d) => setNotch(d.value)} />)}
+          {field(L.notch, false, <Input value={notch} onChange={setNotch} />)}
           {field(
             L.defaultRotation,
             false,
-            <Input value={rotation} onChange={(_, d) => setRotation(d.value)} />,
+            <Input value={rotation} onChange={setRotation} />,
           )}
           {field(
             L.materialUnits,
             false,
-            <Input value={materialUnits} onChange={(_, d) => setMaterialUnits(d.value)} />,
+            <Input value={materialUnits} onChange={setMaterialUnits} />,
           )}
           {field(
             L.rulerMode,
             false,
-            <Input value={rulerMode} onChange={(_, d) => setRulerMode(d.value)} />,
+            <Input value={rulerMode} onChange={setRulerMode} />,
           )}
           {field(
             L.showRulerByDefault,
             false,
-            <Checkbox checked={showRuler} onChange={(_, d) => setShowRuler(d.checked === true)} />,
+            <Checkbox checked={showRuler} onChange={setShowRuler} />,
           )}
           {field(L.comments, false, <Input />)}
         </>
@@ -351,29 +351,29 @@ export function MapDefinitionWizardDialog({
               <Input
                 placeholder={t(L.layerName)}
                 value={layer.name}
-                onChange={(_, d) => updateLayer(index, { name: d.value })}
+                onChange={(value) => updateLayer(index, { name: value })}
               />
               <Input
                 placeholder={t(L.layerType)}
                 value={layer.layerType}
-                onChange={(_, d) => updateLayer(index, { layerType: d.value })}
+                onChange={(value) => updateLayer(index, { layerType: value })}
               />
               <Input
                 placeholder={t(L.dataType)}
                 value={layer.dataType}
-                onChange={(_, d) => updateLayer(index, { dataType: d.value })}
+                onChange={(value) => updateLayer(index, { dataType: value })}
               />
               <Checkbox
                 checked={layer.isDefault}
-                onChange={(_, d) => updateLayer(index, { isDefault: d.checked === true })}
+                onChange={(checked) => updateLayer(index, { isDefault: checked === true })}
                 label={t(L.isDefault)}
               />
-              <Button appearance="subtle" onClick={() => removeLayer(index)}>
+              <Button variant="subtle" onClick={() => removeLayer(index)}>
                 {t(L.removeLayer)}
               </Button>
             </div>
           ))}
-          <Button appearance="secondary" onClick={addLayer}>
+          <Button variant="secondary" onClick={addLayer}>
             {t(L.addLayer)}
           </Button>
           <div style={{ marginTop: 12 }}>

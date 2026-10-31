@@ -44,20 +44,20 @@ export function SamplingPlanFormDialog({
       width="min(900px, 90vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {!nameReadOnly && step === 2 && (
-            <Button appearance="secondary" onClick={() => setStep(1)}>
+            <Button variant="secondary" onClick={() => setStep(1)}>
               {t("common.back")}
             </Button>
           )}
           {!nameReadOnly && step === 1 ? (
-            <Button appearance="primary" onClick={() => setStep(2)}>
+            <Button variant="primary" onClick={() => setStep(2)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {submitLabel}
             </Button>
           )}
@@ -71,13 +71,13 @@ export function SamplingPlanFormDialog({
       {(step === 1 || nameReadOnly) && (
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.name`)} required>
-            <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+            <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
           <Field label={t(`${k}.description`)}>
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Input value={description} onChange={setDescription} />
           </Field>
           <Field label={t(`${k}.type`)}>
-            <Input value={type} onChange={(_, d) => setType(d.value)} />
+            <Input value={type} onChange={setType} />
           </Field>
           <Body1Strong>{t(`${k}.defaultSampling`)}</Body1Strong>
           <Field label={t(`${k}.samplingType`)}>
@@ -93,10 +93,10 @@ export function SamplingPlanFormDialog({
             </select>
           </Field>
           <Field label={t(`${k}.counterFrequency`)}>
-            <Input value={counterFrequency} onChange={(_, d) => setCounterFrequency(d.value)} />
+            <Input value={counterFrequency} onChange={setCounterFrequency} />
           </Field>
           <Field label={t(`${k}.timeFrequency`)}>
-            <Input value={timeFrequency} onChange={(_, d) => setTimeFrequency(d.value)} />
+            <Input value={timeFrequency} onChange={setTimeFrequency} />
           </Field>
         </div>
       )}
@@ -106,7 +106,7 @@ export function SamplingPlanFormDialog({
       )}
 
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

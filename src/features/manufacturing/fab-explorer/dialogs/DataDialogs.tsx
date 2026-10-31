@@ -29,10 +29,10 @@ export function PostDataDialog({ open, onClose, onConfirm }: OpDialogProps) {
       }
     >
       <FormField label={t("manufacturing.fabExplorer.dialogs.postData.parameter")}>
-        <Input value={parameter} onChange={(_, d) => setParameter(d.value)} />
+        <Input value={parameter} onChange={setParameter} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.postData.value")}>
-        <Input value={value} onChange={(_, d) => setValue(d.value)} />
+        <Input value={value} onChange={setValue} />
       </FormField>
     </BaseDialog>
   );
@@ -56,7 +56,7 @@ export function PerformChecklistDialog({ open, onClose, onConfirm }: OpDialogPro
       }
     >
       <FormField label={t("manufacturing.fabExplorer.dialogs.performChecklist.checklist")}>
-        <Input value={checklist} onChange={(_, d) => setChecklist(d.value)} />
+        <Input value={checklist} onChange={setChecklist} />
       </FormField>
     </BaseDialog>
   );

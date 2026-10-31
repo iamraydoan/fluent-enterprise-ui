@@ -75,7 +75,7 @@ export function ManageShippingFacilitiesDialog({
           <div className={styles.panelHead}>
             <span>{t(L.facilities)}</span>
             <Button
-              size="small"
+              size="sm"
               onClick={() => {
                 const next = [...facilities, ""];
                 setFacilities(next);
@@ -102,7 +102,7 @@ export function ManageShippingFacilitiesDialog({
           </div>
           {facilities.length > 0 && (
             <Button
-              size="small"
+              size="sm"
               style={{ marginTop: "8px" }}
               onClick={() => {
                 const next = facilities.filter((_, i) => i !== selected);
@@ -128,9 +128,9 @@ export function ManageShippingFacilitiesDialog({
           >
             <Input
               value={facilityName}
-              onChange={(_, d) => {
-                setFacilityName(d.value);
-                setFacilities(facilities.map((f, i) => (i === selected ? d.value : f)));
+              onChange={(value) => {
+                setFacilityName(value);
+                setFacilities(facilities.map((f, i) => (i === selected ? value : f)));
               }}
             />
           </FormField>

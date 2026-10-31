@@ -39,20 +39,20 @@ export function GenerateScheduleScenarioDialog({
       width="min(900px, 90vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {step > 1 && (
-            <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+            <Button variant="secondary" onClick={() => setStep(step - 1)}>
               {t("common.back")}
             </Button>
           )}
           {step < 3 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+            <Button variant="primary" onClick={() => setStep(step + 1)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(`${k}.generate`)}
             </Button>
           )}

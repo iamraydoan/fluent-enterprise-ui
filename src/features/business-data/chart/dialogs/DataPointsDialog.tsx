@@ -42,11 +42,11 @@ export function OpenProtocolDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={protocol === ""}
             onClick={() => onConfirm(protocol, comment)}
           >
@@ -68,7 +68,7 @@ export function OpenProtocolDialog({
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.chart.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );
@@ -101,52 +101,52 @@ export function DataPointsDialog({
       title={t("businessData.chart.operations.dataPointsTitle", { name: logicalChartName })}
       onClose={onClose}
       footer={
-        <Button appearance="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose}>
           {t("common.close")}
         </Button>
       }
     >
       <div className={styles.toolbar}>
-        <Button appearance="secondary" onClick={onPost}>
+        <Button variant="secondary" onClick={onPost}>
           {t("businessData.chart.operations.postDataPoint")}
         </Button>
         <Button
-          appearance="secondary"
+          variant="secondary"
           disabled={!canAct}
           onClick={() => dp && onAction(DATA_POINT_ACTION_KEYS.annotate, dp)}
         >
           {t("businessData.chart.operations.annotate")}
         </Button>
         <Button
-          appearance="secondary"
+          variant="secondary"
           disabled={!canAct || dp?.aggregated}
           onClick={() => dp && onAction(DATA_POINT_ACTION_KEYS.edit, dp)}
         >
           {t("businessData.chart.operations.editDataPoint")}
         </Button>
         <Button
-          appearance="secondary"
+          variant="secondary"
           disabled={!canAct || (dp?.status !== "Active" && dp?.status !== "Edited")}
           onClick={() => dp && onAction(DATA_POINT_ACTION_KEYS.exclude, dp)}
         >
           {t("businessData.chart.operations.exclude")}
         </Button>
         <Button
-          appearance="secondary"
+          variant="secondary"
           disabled={!canAct || dp?.status !== "Excluded"}
           onClick={() => dp && onAction(DATA_POINT_ACTION_KEYS.include, dp)}
         >
           {t("businessData.chart.operations.include")}
         </Button>
         <Button
-          appearance="secondary"
+          variant="secondary"
           disabled={!canAct}
           onClick={() => dp && onAction(DATA_POINT_ACTION_KEYS.remove, dp)}
         >
           {t("businessData.chart.operations.removeDataPoint")}
         </Button>
         <Button
-          appearance="secondary"
+          variant="secondary"
           disabled={!canAct}
           onClick={() => dp && onAction(DATA_POINT_ACTION_KEYS.protocol, dp)}
         >

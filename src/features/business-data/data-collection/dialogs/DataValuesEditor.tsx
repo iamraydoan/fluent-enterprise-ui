@@ -44,7 +44,7 @@ export function DataValuesEditor({
             {p.parameter}
             {p.isOptional ? "" : " *"}
           </span>
-          <Input value={valueOf(p.parameter)} onChange={(_, d) => setValue(p.parameter, d.value)} />
+          <Input value={valueOf(p.parameter)} onChange={(value) => setValue(p.parameter, value)} />
         </div>
       ))}
     </div>

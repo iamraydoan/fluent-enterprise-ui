@@ -49,25 +49,25 @@ function useQualificationForm() {
             </>
           }
         >
-          <Input value={qualification} onChange={(_, d) => setQualification(d.value)} />
+          <Input value={qualification} onChange={setQualification} />
         </FormField>
         <FormField label={<>{t(L.qualificationDate)}</>}>
-          <Input value={qualificationDate} onChange={(_, d) => setQualificationDate(d.value)} />
+          <Input value={qualificationDate} onChange={setQualificationDate} />
         </FormField>
         <FormField label={<>{t(L.validTo)}</>}>
-          <Input value={validTo} onChange={(_, d) => setValidTo(d.value)} />
+          <Input value={validTo} onChange={setValidTo} />
         </FormField>
         <FormField label={<>{t(L.reason)}</>}>
-          <Input value={reason} onChange={(_, d) => setReason(d.value)} />
+          <Input value={reason} onChange={setReason} />
         </FormField>
         <FormField label={<>{t(L.proficiency)}</>}>
-          <Input value={proficiency} onChange={(_, d) => setProficiency(d.value)} />
+          <Input value={proficiency} onChange={setProficiency} />
         </FormField>
         <FormField label={<>{t(L.remarks)}</>}>
-          <Textarea value={remarks} onChange={(_, d) => setRemarks(d.value)} />
+          <Textarea value={remarks} onChange={setRemarks} />
         </FormField>
         <FormField label={<>{t(L.comment)}</>}>
-          <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+          <Textarea value={comment} onChange={setComment} />
         </FormField>
       </>
     ),
@@ -91,7 +91,7 @@ function QualificationDialog({
       footer={
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} disabled={!canSubmit}>
+          <Button variant="primary" onClick={onClose} disabled={!canSubmit}>
             {t(submitKey)}
           </Button>
         </>

@@ -47,11 +47,11 @@ export function CloneDataCollectionDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={rows.length === 0 || rows.some((r) => r.name.trim() === "")}
             onClick={() => onClone(rows)}
           >
@@ -74,29 +74,29 @@ export function CloneDataCollectionDialog({
             <Input
               placeholder={t("businessData.dataCollection.detail.name")}
               value={row.name}
-              onChange={(_, d) => update(row.id, { name: d.value })}
+              onChange={(value) => update(row.id, { name: value })}
             />
           </div>
           <div className={styles.grow}>
             <Input
               placeholder={t("businessData.dataCollection.operations.revision")}
               value={row.revision}
-              onChange={(_, d) => update(row.id, { revision: d.value })}
+              onChange={(value) => update(row.id, { revision: value })}
             />
           </div>
           <div className={styles.grow}>
             <Input
               placeholder={t("businessData.dataCollection.operations.comment")}
               value={row.comment}
-              onChange={(_, d) => update(row.id, { comment: d.value })}
+              onChange={(value) => update(row.id, { comment: value })}
             />
           </div>
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </BaseDialog>

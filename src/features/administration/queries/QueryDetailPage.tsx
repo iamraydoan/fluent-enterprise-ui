@@ -194,7 +194,7 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
                 {data.name}
               </Text>
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<Info20Regular />}
                 aria-label={t("queries.detail.generalData")}
               />
@@ -224,7 +224,7 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
                   <FilterRow key={filter.property} filter={filter} />
                 ))}
                 <div className={styles.addFilterRow}>
-                  <Button appearance="subtle" icon={<Add24Regular />}>
+                  <Button variant="subtle" icon={<Add24Regular />}>
                     {t("queries.detail.addFilter")}
                   </Button>
                 </div>
@@ -276,7 +276,7 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
                 {t("queries.aiEditor.title")}
               </Text>
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<Dismiss20Regular />}
                 aria-label={t("common.close")}
                 onClick={() => setAiOpen(false)}
@@ -299,7 +299,7 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
             <div className={styles.aiInputRow}>
               <Input className={styles.aiInput} placeholder={t("queries.aiEditor.placeholder")} />
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<Send24Regular />}
                 aria-label={t("queries.aiEditor.send")}
               />

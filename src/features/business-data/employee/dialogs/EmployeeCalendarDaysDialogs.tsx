@@ -43,7 +43,7 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={onClose}
             disabled={!nonWorkingTimeType.trim() || !startTime.trim() || !endTime.trim()}
           >
@@ -53,7 +53,7 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
       }
     >
       <FormField label={<>{t(L.description)}</>}>
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Input value={description} onChange={setDescription} />
       </FormField>
       <FormField
         label={
@@ -63,7 +63,7 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
           </>
         }
       >
-        <Input value={nonWorkingTimeType} onChange={(_, d) => setNonWorkingTimeType(d.value)} />
+        <Input value={nonWorkingTimeType} onChange={setNonWorkingTimeType} />
       </FormField>
       <FormField
         label={
@@ -73,7 +73,7 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
           </>
         }
       >
-        <Input value={startTime} onChange={(_, d) => setStartTime(d.value)} />
+        <Input value={startTime} onChange={setStartTime} />
       </FormField>
       <FormField
         label={
@@ -83,10 +83,10 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
           </>
         }
       >
-        <Input value={endTime} onChange={(_, d) => setEndTime(d.value)} />
+        <Input value={endTime} onChange={setEndTime} />
       </FormField>
       <FormField label={<>{t(L.comment)}</>}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -104,7 +104,7 @@ export function SetWorkAvailabilityDialog({ name, onClose }: DialogProps) {
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.set)} />}
     >
       <FormField label={<>{t(L.comment)}</>}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );

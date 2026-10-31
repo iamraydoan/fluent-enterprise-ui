@@ -61,7 +61,7 @@ function ConfirmDialog({
             {t("businessData.periodicInventory.operations._shared.cancel" as never)}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();
@@ -102,7 +102,7 @@ export function EditPeriodicInventoryDialog({
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -117,7 +117,7 @@ export function EditPeriodicInventoryDialog({
         <Input value={initialName ?? ""} disabled />
       </Field>
       <Field label={t(`${P}.fields.description` as never)}>
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Input value={description} onChange={setDescription} />
       </Field>
     </BaseDialog>
   );
@@ -143,7 +143,7 @@ export function ClonePeriodicInventoryDialog({ open, onClose, onSubmit }: Dialog
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -155,7 +155,7 @@ export function ClonePeriodicInventoryDialog({ open, onClose, onSubmit }: Dialog
       }
     >
       <Field label={t(`${P}.fields.name` as never)} hint={t(`${P}.hints.nameGenerator` as never)}>
-        <Input value={name} onChange={(_, d) => setName(d.value)} />
+        <Input value={name} onChange={setName} />
       </Field>
     </BaseDialog>
   );

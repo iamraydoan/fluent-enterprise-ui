@@ -34,7 +34,7 @@ export function CheckInEmployeeDialog({
         <Input value={resource} disabled />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.checkInEmployee.employee")}>
-        <Input value={employee} onChange={(_, d) => setEmployee(d.value)} />
+        <Input value={employee} onChange={setEmployee} />
       </FormField>
     </BaseDialog>
   );
@@ -74,7 +74,7 @@ export function CheckOutEmployeeDialog({
         })}
       </div>
       <FormField label={t("manufacturing.fabExplorer.dialogs.checkOutEmployee.employee")}>
-        <Input value={employee} onChange={(_, d) => setEmployee(d.value)} />
+        <Input value={employee} onChange={setEmployee} />
       </FormField>
     </BaseDialog>
   );

@@ -113,13 +113,13 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
     body = (
       <>
         <FormField label={<>{t("businessData.shiftDefinition.create.name")}</>}>
-          <Input value={name} onChange={(_, d) => setName(d.value)} />
+          <Input value={name} onChange={setName} />
         </FormField>
         <FormField label={<>{t("businessData.shiftDefinition.create.description")}</>}>
-          <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+          <Input value={description} onChange={setDescription} />
         </FormField>
         <FormField label={<>{t("businessData.shiftDefinition.create.calendar")}</>}>
-          <Input value={calendar} onChange={(_, d) => setCalendar(d.value)} />
+          <Input value={calendar} onChange={setCalendar} />
         </FormField>
         <Caption1>{t("businessData.shiftDefinition.create.calendarHint")}</Caption1>
       </>
@@ -138,26 +138,26 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
         </div>
         {shifts.map((shift, i) => (
           <div key={i} className={styles.gridRow}>
-            <Input value={shift.name} onChange={(_, d) => updateShift(i, { name: d.value })} />
+            <Input value={shift.name} onChange={(value) => updateShift(i, { name: value })} />
             <Input
               value={shift.startTime}
-              onChange={(_, d) => updateShift(i, { startTime: d.value })}
+              onChange={(value) => updateShift(i, { startTime: value })}
             />
             <Input
               value={shift.endTime}
-              onChange={(_, d) => updateShift(i, { endTime: d.value })}
+              onChange={(value) => updateShift(i, { endTime: value })}
             />
-            <Input value={shift.code} onChange={(_, d) => updateShift(i, { code: d.value })} />
+            <Input value={shift.code} onChange={(value) => updateShift(i, { code: value })} />
             <Input
               value={String(shift.costOvertimeFactor)}
-              onChange={(_, d) => updateShift(i, { costOvertimeFactor: Number(d.value) || 1 })}
+              onChange={(value) => updateShift(i, { costOvertimeFactor: Number(value) || 1 })}
             />
             <Input
               value={shift.teamPattern}
-              onChange={(_, d) => updateShift(i, { teamPattern: d.value })}
+              onChange={(value) => updateShift(i, { teamPattern: value })}
             />
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<Delete20Regular />}
               onClick={() => setShifts((prev) => prev.filter((_, j) => j !== i))}
               aria-label={t("actionBar.delete")}
@@ -167,7 +167,7 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
         ))}
         <div style={{ marginTop: "8px" }}>
           <Button
-            appearance="subtle"
+            variant="subtle"
             icon={<Add24Regular />}
             onClick={() => setShifts((prev) => [...prev, { ...EMPTY_SHIFT }])}
           >
@@ -184,7 +184,7 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
           {shifts.map((s, i) => (
             <Button
               key={i}
-              appearance={i === activeShift ? "primary" : "secondary"}
+              variant={i === activeShift ? "primary" : "secondary"}
               onClick={() => setActiveShift(i)}
             >
               {s.name || `${t("businessData.shiftDefinition.create.shift")} ${i + 1}`}
@@ -199,19 +199,19 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
           >
             <Input
               value={nwt.name}
-              onChange={(_, d) => updateNonWorking(i, { name: d.value })}
+              onChange={(value) => updateNonWorking(i, { name: value })}
               placeholder={t("businessData.shiftDefinition.create.nonWorkingName")}
             />
             <Input
               value={nwt.startTime}
-              onChange={(_, d) => updateNonWorking(i, { startTime: d.value })}
+              onChange={(value) => updateNonWorking(i, { startTime: value })}
             />
             <Input
               value={nwt.endTime}
-              onChange={(_, d) => updateNonWorking(i, { endTime: d.value })}
+              onChange={(value) => updateNonWorking(i, { endTime: value })}
             />
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<Delete20Regular />}
               onClick={() => removeNonWorking(i)}
               aria-label={t("actionBar.delete")}
@@ -219,7 +219,7 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
           </div>
         ))}
         <div style={{ marginTop: "8px" }}>
-          <Button appearance="subtle" icon={<Add24Regular />} onClick={addNonWorking}>
+          <Button variant="subtle" icon={<Add24Regular />} onClick={addNonWorking}>
             {t("actionBar.create")}
           </Button>
         </div>
@@ -237,16 +237,16 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step > 0 && (
-            <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+            <Button variant="secondary" onClick={() => setStep(step - 1)}>
               {t(L.back)}
             </Button>
           )}
           {step < 2 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+            <Button variant="primary" onClick={() => setStep(step + 1)}>
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(L.create)}
             </Button>
           )}

@@ -31,13 +31,13 @@ export function AddResourceToContainerDialog({
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
         <Field label={t(`${k}.container`)} required>
-          <Input value={container} onChange={(_, d) => setContainer(d.value)} />
+          <Input value={container} onChange={setContainer} />
         </Field>
         <Field label={t(`${k}.position`)}>
-          <Input value={position} onChange={(_, d) => setPosition(d.value)} />
+          <Input value={position} onChange={setPosition} />
         </Field>
         <Field label={t(`${k}.comment`)}>
-          <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+          <Input value={comment} onChange={setComment} />
         </Field>
       </div>
     </BaseDialog>
@@ -65,7 +65,7 @@ export function RemoveResourceFromContainerDialog({
     >
       <div style={{ padding: "12px 0" }}>{t(`${k}.removeMessage`, { name: resourceName })}</div>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -96,16 +96,16 @@ export function TransferResourceBetweenContainersDialog({
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
         <Field label={t(`${k}.sourceContainer`)} required>
-          <Input value={sourceContainer} onChange={(_, d) => setSourceContainer(d.value)} />
+          <Input value={sourceContainer} onChange={setSourceContainer} />
         </Field>
         <Field label={t(`${k}.targetContainer`)} required>
-          <Input value={targetContainer} onChange={(_, d) => setTargetContainer(d.value)} />
+          <Input value={targetContainer} onChange={setTargetContainer} />
         </Field>
         <Field label={t(`${k}.position`)}>
-          <Input value={position} onChange={(_, d) => setPosition(d.value)} />
+          <Input value={position} onChange={setPosition} />
         </Field>
         <Field label={t(`${k}.comment`)}>
-          <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+          <Input value={comment} onChange={setComment} />
         </Field>
       </div>
     </BaseDialog>
@@ -134,10 +134,10 @@ export function StoreContainersInResourceDialog({
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.container`)} required>
-        <Input value={container} onChange={(_, d) => setContainer(d.value)} />
+        <Input value={container} onChange={setContainer} />
       </Field>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -165,10 +165,10 @@ export function StoreMaterialsInResourceDialog({
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.material`)} required>
-        <Input value={material} onChange={(_, d) => setMaterial(d.value)} />
+        <Input value={material} onChange={setMaterial} />
       </Field>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -192,10 +192,10 @@ export function StoreResourceDialog({ open, onClose, resourceName }: ContainerDi
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.storageResource`)} required>
-        <Input value={storageResource} onChange={(_, d) => setStorageResource(d.value)} />
+        <Input value={storageResource} onChange={setStorageResource} />
       </Field>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -218,7 +218,7 @@ export function RetrieveResourceDialog({ open, onClose, resourceName }: Containe
     >
       <div style={{ padding: "12px 0" }}>{t(`${k}.retrieveMessage`, { name: resourceName })}</div>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );

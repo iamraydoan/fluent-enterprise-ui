@@ -53,28 +53,28 @@ function useCertificationForm() {
             </>
           }
         >
-          <Input value={certification} onChange={(_, d) => setCertification(d.value)} />
+          <Input value={certification} onChange={setCertification} />
         </FormField>
         <FormField label={<>{t(L.plannedDate)}</>}>
-          <Input value={plannedDate} onChange={(_, d) => setPlannedDate(d.value)} />
+          <Input value={plannedDate} onChange={setPlannedDate} />
         </FormField>
         <FormField label={<>{t(L.certificationDate)}</>}>
-          <Input value={certificationDate} onChange={(_, d) => setCertificationDate(d.value)} />
+          <Input value={certificationDate} onChange={setCertificationDate} />
         </FormField>
         <FormField label={<>{t(L.isTrainer)}</>}>
           <Checkbox
             checked={isTrainer === true}
-            onChange={(_, d) => setIsTrainer(d.checked === true)}
+            onChange={setIsTrainer}
           />
         </FormField>
         <FormField label={<>{t(L.isTrainee)}</>}>
           <Checkbox
             checked={isTrainee === true}
-            onChange={(_, d) => setIsTrainee(d.checked === true)}
+            onChange={setIsTrainee}
           />
         </FormField>
         <FormField label={<>{t(L.comment)}</>}>
-          <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+          <Textarea value={comment} onChange={setComment} />
         </FormField>
       </>
     ),
@@ -98,7 +98,7 @@ function CertificationDialog({
       footer={
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} disabled={!canSubmit}>
+          <Button variant="primary" onClick={onClose} disabled={!canSubmit}>
             {t(submitKey)}
           </Button>
         </>

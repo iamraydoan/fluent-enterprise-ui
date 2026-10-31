@@ -95,10 +95,10 @@ export function ManageRepairActionsDialog({
           >
             <Body1Strong>{t(`${k}.repairActions`, { count: actions.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addAction}>
+              <Button size="sm" variant="subtle" onClick={addAction}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeAction(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeAction(selected)}>
                 🗑
               </Button>
             </div>
@@ -131,10 +131,10 @@ export function ManageRepairActionsDialog({
         <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.repairAction`)} required>
-            <Input value={actionName} onChange={(_, d) => setActionName(d.value)} />
+            <Input value={actionName} onChange={setActionName} />
           </Field>
           <Field label={t(`${k}.description`)}>
-            <Input value={actionDescription} onChange={(_, d) => setActionDescription(d.value)} />
+            <Input value={actionDescription} onChange={setActionDescription} />
           </Field>
           <Field label={t(`${k}.partReplacementMode`)} required>
             <select value={actionMode} onChange={(e) => setActionMode(e.target.value)}>
@@ -148,7 +148,7 @@ export function ManageRepairActionsDialog({
         </div>
       </div>
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

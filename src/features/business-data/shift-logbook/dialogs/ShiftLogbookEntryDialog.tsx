@@ -67,7 +67,7 @@ export function ShiftLogbookEntryDialog({ initial, onClose }: EntryDialogProps) 
         }
         labelWidth="140px"
       >
-        <Input value={title} onChange={(_, d) => setTitle(d.value)} />
+        <Input value={title} onChange={setTitle} />
       </FormField>
       <FormField
         label={
@@ -78,7 +78,7 @@ export function ShiftLogbookEntryDialog({ initial, onClose }: EntryDialogProps) 
         }
         labelWidth="140px"
       >
-        <Input value={category} onChange={(_, d) => setCategory(d.value)} />
+        <Input value={category} onChange={setCategory} />
       </FormField>
       <FormField
         label={
@@ -89,18 +89,18 @@ export function ShiftLogbookEntryDialog({ initial, onClose }: EntryDialogProps) 
         }
         labelWidth="140px"
       >
-        <Input value={severity} onChange={(_, d) => setSeverity(d.value)} />
+        <Input value={severity} onChange={setSeverity} />
       </FormField>
       <FormField label={<>{t("businessData.shiftLogbook.addEntry.resource")}</>} labelWidth="140px">
-        <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+        <Input value={resource} onChange={setResource} />
       </FormField>
       <div className={styles.fieldRow} style={{ alignItems: "start" }}>
         <Text>{t("businessData.shiftLogbook.addEntry.description")}</Text>
-        <Textarea value={description} onChange={(_, d) => setDescription(d.value)} rows={5} />
+        <Textarea value={description} onChange={setDescription} rows={5} />
       </div>
       <div className={styles.fieldRow} style={{ alignItems: "start" }}>
         <Text>{t("businessData.shiftLogbook.addEntry.comments")}</Text>
-        <Textarea value={comments} onChange={(_, d) => setComments(d.value)} rows={2} />
+        <Textarea value={comments} onChange={setComments} rows={2} />
       </div>
     </BaseDialog>
   );

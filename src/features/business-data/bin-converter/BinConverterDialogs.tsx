@@ -67,34 +67,34 @@ export function BinConversionListEditor({
           <Input
             placeholder={t("businessData.binConverter.operations.fromBinCode")}
             value={row.fromBinCode}
-            onChange={(_, data) => updateRow(row.id, { fromBinCode: data.value })}
+            onChange={(value) => updateRow(row.id, { fromBinCode: value })}
           />
           <Input
             placeholder={t("businessData.binConverter.operations.toBinCode")}
             value={row.toBinCode}
-            onChange={(_, data) => updateRow(row.id, { toBinCode: data.value })}
+            onChange={(value) => updateRow(row.id, { toBinCode: value })}
           />
           <Input
             placeholder={t("businessData.binConverter.operations.toBinDescription")}
             value={row.toBinDescription}
-            onChange={(_, data) => updateRow(row.id, { toBinDescription: data.value })}
+            onChange={(value) => updateRow(row.id, { toBinDescription: value })}
           />
           <Input
             placeholder={t("businessData.binConverter.operations.toBinQuality")}
             value={row.toBinQuality}
-            onChange={(_, data) => updateRow(row.id, { toBinQuality: data.value })}
+            onChange={(value) => updateRow(row.id, { toBinQuality: value })}
           />
           <Input
             placeholder={t("businessData.binConverter.operations.toBinColor")}
             value={row.toBinColor}
-            onChange={(_, data) => updateRow(row.id, { toBinColor: data.value })}
+            onChange={(value) => updateRow(row.id, { toBinColor: value })}
           />
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>

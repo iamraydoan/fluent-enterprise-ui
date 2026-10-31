@@ -120,7 +120,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
     <Card title={t("entityTypes.properties.title", { count: properties.length })}>
       <div className={styles.toolbar}>
         <Button
-          appearance="subtle"
+          variant="subtle"
           icon={<ArrowSync20Regular />}
           onClick={() => refetch()}
           aria-label={t("actionBar.refresh")}
@@ -128,7 +128,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
           {t("actionBar.refresh")}
         </Button>
         <Button
-          appearance="subtle"
+          variant="subtle"
           icon={<Settings20Regular />}
           onClick={() => setManageOpen(true)}
           aria-label={t("entityTypes.properties.manage")}
@@ -140,11 +140,11 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
         <Checkbox
           label={t("entityTypes.properties.searchableFilter")}
           checked={searchableOnly}
-          onChange={(_, data) => setSearchableOnly(data.checked === true)}
+          onChange={setSearchableOnly}
         />
         <Menu>
           <MenuTrigger disableButtonEnhancement>
-            <Button appearance="subtle" size="small">
+            <Button variant="subtle" size="sm">
               {t("entityTypes.properties.referenceTypeFilter", {
                 value: referenceType === ALL ? t("common.all") : referenceType,
               })}
@@ -164,11 +164,11 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
           </MenuPopover>
         </Menu>
         <Input
-          size="small"
+          size="sm"
           contentBefore={<Search20Regular />}
           placeholder={t("common.search")}
           value={search}
-          onChange={(_, data) => setSearch(data.value)}
+          onChange={setSearch}
           aria-label={t("common.search")}
         />
       </div>

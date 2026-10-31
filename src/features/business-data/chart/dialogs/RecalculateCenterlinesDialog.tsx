@@ -45,13 +45,13 @@ export function RecalculateCenterlinesDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="secondary" onClick={doPreview}>
+          <Button variant="secondary" onClick={doPreview}>
             {t("businessData.chart.operations.preview")}
           </Button>
-          <Button appearance="primary" onClick={() => onRecalculate(points)}>
+          <Button variant="primary" onClick={() => onRecalculate(points)}>
             {t("businessData.chart.operations.recalculateSet")}
           </Button>
         </>
@@ -67,7 +67,7 @@ export function RecalculateCenterlinesDialog({
         <Input
           type="number"
           value={String(points)}
-          onChange={(_, d) => setPoints(Number(d.value) || 0)}
+          onChange={(value) => setPoints(Number(value) || 0)}
         />
       </div>
       {preview && (
@@ -80,7 +80,7 @@ export function RecalculateCenterlinesDialog({
       )}
       <div className={styles.fieldRow} style={{ marginTop: "12px" }}>
         <span className={styles.fieldLabel}>{t("businessData.chart.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );

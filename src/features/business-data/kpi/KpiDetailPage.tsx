@@ -91,7 +91,7 @@ export function KpiDetailPage({ name }: { name: string }) {
   if (top === "details" && left === "businessData.kpi.sections.dimensionsAndTimeFrames") {
     return shell(
       <Card title={t("businessData.kpi.sections.dimensionsAndTimeFrames")}>
-        <Button appearance="primary" onClick={() => setDimensionsOpen(true)}>
+        <Button variant="primary" onClick={() => setDimensionsOpen(true)}>
           {t("businessData.kpi.actions.manageDimensions")}
         </Button>
       </Card>,

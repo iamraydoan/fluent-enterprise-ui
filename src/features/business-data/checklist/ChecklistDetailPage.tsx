@@ -376,19 +376,19 @@ function InstanceRow({
         </div>
       </div>
       <div style={{ display: "flex", columnGap: "4px", flexWrap: "wrap" }}>
-        <Button appearance="secondary" size="small" onClick={onPerform}>
+        <Button variant="secondary" size="sm" onClick={onPerform}>
           {t("businessData.checklist.operations.perform")}
         </Button>
-        <Button appearance="secondary" size="small" onClick={onPause}>
+        <Button variant="secondary" size="sm" onClick={onPause}>
           {t("businessData.checklist.operations.pause")}
         </Button>
-        <Button appearance="secondary" size="small" onClick={onResume}>
+        <Button variant="secondary" size="sm" onClick={onResume}>
           {t("businessData.checklist.operations.resume")}
         </Button>
-        <Button appearance="secondary" size="small" onClick={onTerminate}>
+        <Button variant="secondary" size="sm" onClick={onTerminate}>
           {t("businessData.checklist.operations.terminateInstance")}
         </Button>
-        <Button appearance="secondary" size="small" onClick={onDeviation}>
+        <Button variant="secondary" size="sm" onClick={onDeviation}>
           {t("businessData.checklist.operations.openDeviation")}
         </Button>
       </div>

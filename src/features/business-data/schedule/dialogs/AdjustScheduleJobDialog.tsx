@@ -36,20 +36,20 @@ export function AdjustScheduleJobDialog({
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
         <Body1Strong>{t(`${k}.jobBody`)}</Body1Strong>
         <Field label={t(`${k}.resource`)}>
-          <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+          <Input value={resource} onChange={setResource} />
         </Field>
         <Field label={t(`${k}.plannedStart`)}>
           <Input
             value={plannedStart}
             type="datetime-local"
-            onChange={(_, d) => setPlannedStart(d.value)}
+            onChange={setPlannedStart}
           />
         </Field>
         <Field label={t(`${k}.plannedEnd`)}>
           <Input
             value={plannedEnd}
             type="datetime-local"
-            onChange={(_, d) => setPlannedEnd(d.value)}
+            onChange={setPlannedEnd}
           />
         </Field>
       </div>

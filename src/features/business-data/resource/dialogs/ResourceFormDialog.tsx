@@ -75,20 +75,20 @@ export function ResourceFormDialog({
       width="min(1000px, 92vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {!nameReadOnly && step > 1 && (
-            <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+            <Button variant="secondary" onClick={() => setStep(step - 1)}>
               {t("common.back")}
             </Button>
           )}
           {!nameReadOnly && step < 3 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+            <Button variant="primary" onClick={() => setStep(step + 1)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {submitLabel}
             </Button>
           )}
@@ -102,13 +102,13 @@ export function ResourceFormDialog({
       {(step === 1 || nameReadOnly) && (
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.name`)} required>
-            <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+            <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
           <Field label={t(`${k}.description`)}>
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Input value={description} onChange={setDescription} />
           </Field>
           <Field label={t(`${k}.type`)} required>
-            <Input value={type} onChange={(_, d) => setType(d.value)} />
+            <Input value={type} onChange={setType} />
           </Field>
           <Field label={t(`${k}.processingType`)} required>
             <select
@@ -123,26 +123,26 @@ export function ResourceFormDialog({
             </select>
           </Field>
           <Field label={t(`${k}.area`)}>
-            <Input value={area} onChange={(_, d) => setArea(d.value)} />
+            <Input value={area} onChange={setArea} />
           </Field>
           <div style={{ display: "flex", columnGap: 12 }}>
             <Field label={t(`${k}.priority`)}>
-              <Input value={priority} onChange={(_, d) => setPriority(d.value)} />
+              <Input value={priority} onChange={setPriority} />
             </Field>
             <Field label={t(`${k}.displayOrder`)}>
-              <Input value={displayOrder} onChange={(_, d) => setDisplayOrder(d.value)} />
+              <Input value={displayOrder} onChange={setDisplayOrder} />
             </Field>
           </div>
           <div style={{ display: "flex", columnGap: 12 }}>
             <Field label={t(`${k}.vendor`)}>
-              <Input value={vendor} onChange={(_, d) => setVendor(d.value)} />
+              <Input value={vendor} onChange={setVendor} />
             </Field>
             <Field label={t(`${k}.model`)}>
-              <Input value={model} onChange={(_, d) => setModel(d.value)} />
+              <Input value={model} onChange={setModel} />
             </Field>
           </div>
           <Field label={t(`${k}.serialNumber`)}>
-            <Input value={serialNumber} onChange={(_, d) => setSerialNumber(d.value)} />
+            <Input value={serialNumber} onChange={setSerialNumber} />
           </Field>
           <Field label={t(`${k}.criticality`)}>
             <select value={criticality} onChange={(e) => setCriticality(e.target.value)}>
@@ -154,7 +154,7 @@ export function ResourceFormDialog({
             </select>
           </Field>
           <Field label={t(`${k}.stateModel`)}>
-            <Input value={stateModel} onChange={(_, d) => setStateModel(d.value)} />
+            <Input value={stateModel} onChange={setStateModel} />
           </Field>
         </div>
       )}
@@ -165,32 +165,32 @@ export function ResourceFormDialog({
           <Field label={t(`${k}.allowProductMix`)}>
             <Checkbox
               checked={allowProductMix}
-              onChange={(_, d) => setAllowProductMix(d.checked === true)}
+              onChange={setAllowProductMix}
             />
           </Field>
           <Field label={t(`${k}.enableSubMaterialTracking`)}>
             <Checkbox
               checked={enableSubMaterialTracking}
-              onChange={(_, d) => setEnableSubMaterialTracking(d.checked === true)}
+              onChange={setEnableSubMaterialTracking}
             />
           </Field>
           <Field label={t(`${k}.recipeManagementEnabled`)}>
             <Checkbox
               checked={recipeManagementEnabled}
-              onChange={(_, d) => setRecipeManagementEnabled(d.checked === true)}
+              onChange={setRecipeManagementEnabled}
             />
           </Field>
           <Field label={t(`${k}.trackResourceRecipes`)}>
             <Checkbox
               checked={trackResourceRecipes}
-              onChange={(_, d) => setTrackResourceRecipes(d.checked === true)}
+              onChange={setTrackResourceRecipes}
             />
           </Field>
           <Body1Strong>{t(`${k}.materialLogistics`)}</Body1Strong>
           <Field label={t(`${k}.hasStorageBins`)}>
             <Checkbox
               checked={hasStorageBins}
-              onChange={(_, d) => setHasStorageBins(d.checked === true)}
+              onChange={setHasStorageBins}
             />
           </Field>
           <Body1Strong>{t(`${k}.setup`)}</Body1Strong>
@@ -206,10 +206,10 @@ export function ResourceFormDialog({
           <Body1Strong>{t(`${k}.coordinates`)}</Body1Strong>
           <div style={{ display: "flex", columnGap: 12 }}>
             <Field label={t(`${k}.latitude`)}>
-              <Input value={latitude} onChange={(_, d) => setLatitude(d.value)} />
+              <Input value={latitude} onChange={setLatitude} />
             </Field>
             <Field label={t(`${k}.longitude`)}>
-              <Input value={longitude} onChange={(_, d) => setLongitude(d.value)} />
+              <Input value={longitude} onChange={setLongitude} />
             </Field>
           </div>
         </div>
@@ -221,14 +221,14 @@ export function ResourceFormDialog({
           <Field label={t(`${k}.enableAutomationScenarios`)}>
             <Checkbox
               checked={enableAutomationScenarios}
-              onChange={(_, d) => setEnableAutomationScenarios(d.checked === true)}
+              onChange={setEnableAutomationScenarios}
             />
           </Field>
         </div>
       )}
 
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

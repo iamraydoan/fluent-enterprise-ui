@@ -58,8 +58,8 @@ export function MaterialListEditor({
           <Input
             placeholder={t("businessData.batch.operations.materialName")}
             value={row.material}
-            onChange={(_, data) =>
-              setRows(rows.map((r) => (r.id === row.id ? { ...r, material: data.value } : r)))
+            onChange={(value) =>
+              setRows(rows.map((r) => (r.id === row.id ? { ...r, material: value } : r)))
             }
           />
           <Checkbox
@@ -67,12 +67,12 @@ export function MaterialListEditor({
             checked={row.isMain}
             onChange={() => setMain(row.id)}
           />
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>
@@ -107,17 +107,17 @@ export function ContainerListEditor({
           <Input
             placeholder={t("businessData.batch.operations.containerName")}
             value={row.container}
-            onChange={(_, data) =>
-              setRows(rows.map((r) => (r.id === row.id ? { ...r, container: data.value } : r)))
+            onChange={(value) =>
+              setRows(rows.map((r) => (r.id === row.id ? { ...r, container: value } : r)))
             }
           />
           <span />
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>
@@ -168,7 +168,7 @@ export function ManageBatchMaterialsDialog({
       </div>
       <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
         <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
-        <Input value={comment} onChange={(_, data) => setComment(data.value)} />
+        <Input value={comment} onChange={setComment} />
       </div>
     </BaseDialog>
   );
@@ -250,7 +250,7 @@ export function ChangeBatchResourceDialog({
         }
         labelWidth="170px"
       >
-        <Input value={resource} onChange={(_, data) => setResource(data.value)} />
+        <Input value={resource} onChange={setResource} />
       </FormField>
       <FormField
         label={
@@ -260,7 +260,7 @@ export function ChangeBatchResourceDialog({
         }
         labelWidth="170px"
       >
-        <Input value={comment} onChange={(_, data) => setComment(data.value)} />
+        <Input value={comment} onChange={setComment} />
       </FormField>
       <Text>{t("businessData.batch.operations.changeResourceHint", { name: batchName })}</Text>
     </BaseDialog>

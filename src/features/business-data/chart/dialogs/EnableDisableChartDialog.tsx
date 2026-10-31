@@ -31,10 +31,10 @@ export function EnableDisableChartDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={() => onConfirm(comment)}>
+          <Button variant="primary" onClick={() => onConfirm(comment)}>
             {t(
               enabling
                 ? "businessData.chart.operations.enable"
@@ -56,7 +56,7 @@ export function EnableDisableChartDialog({
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.chart.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );

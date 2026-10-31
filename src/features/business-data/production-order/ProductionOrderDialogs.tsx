@@ -89,7 +89,7 @@ export function CreateProductionOrderDialog({ open, onClose, onSubmit }: DialogP
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -102,13 +102,13 @@ export function CreateProductionOrderDialog({ open, onClose, onSubmit }: DialogP
       }
     >
       <Field label={t(`${P}.fields.name` as never)} required>
-        <Input value={name} onChange={(_, d) => setName(d.value)} />
+        <Input value={name} onChange={setName} />
       </Field>
       <Field label={t(`${P}.fields.product` as never)} required>
-        <Input value={product} onChange={(_, d) => setProduct(d.value)} />
+        <Input value={product} onChange={setProduct} />
       </Field>
       <Field label={t(`${P}.fields.quantity` as never)} required>
-        <Input value={quantity} onChange={(_, d) => setQuantity(d.value)} />
+        <Input value={quantity} onChange={setQuantity} />
       </Field>
     </BaseDialog>
   );
@@ -150,7 +150,7 @@ export function EditProductionOrderDialog({
         <Input value={initialName ?? ""} disabled />
       </Field>
       <Field label={t(`${P}.fields.description` as never)}>
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Input value={description} onChange={setDescription} />
       </Field>
     </BaseDialog>
   );
@@ -184,7 +184,7 @@ export function CloneProductionOrderDialog({ open, onClose, onSubmit }: DialogPr
       }
     >
       <Field label={t(`${P}.fields.name` as never)} hint={t(`${P}.hints.nameGenerator` as never)}>
-        <Input value={name} onChange={(_, d) => setName(d.value)} />
+        <Input value={name} onChange={setName} />
       </Field>
     </BaseDialog>
   );
@@ -345,10 +345,10 @@ export function ChangeProductQuantityDialog({ open, onClose, onSubmit }: DialogP
       }
     >
       <Field label={t(`${P}.fields.product` as never)}>
-        <Input value={product} onChange={(_, d) => setProduct(d.value)} />
+        <Input value={product} onChange={setProduct} />
       </Field>
       <Field label={t(`${P}.fields.quantity` as never)}>
-        <Input value={quantity} onChange={(_, d) => setQuantity(d.value)} />
+        <Input value={quantity} onChange={setQuantity} />
       </Field>
     </BaseDialog>
   );

@@ -59,29 +59,29 @@ function BomItemListEditor({
           <Input
             placeholder={t("businessData.bom.operations.product")}
             value={row.product}
-            onChange={(_, data) => updateRow(row.id, { product: data.value })}
+            onChange={(value) => updateRow(row.id, { product: value })}
           />
           <Input
             placeholder={t("businessData.bom.operations.quantity")}
             value={row.quantity}
-            onChange={(_, data) => updateRow(row.id, { quantity: data.value })}
+            onChange={(value) => updateRow(row.id, { quantity: value })}
           />
           <Input
             placeholder={t("businessData.bom.operations.units")}
             value={row.units}
-            onChange={(_, data) => updateRow(row.id, { units: data.value })}
+            onChange={(value) => updateRow(row.id, { units: value })}
           />
           <Input
             placeholder={t("businessData.bom.operations.position")}
             value={row.position}
-            onChange={(_, data) => updateRow(row.id, { position: data.value })}
+            onChange={(value) => updateRow(row.id, { position: value })}
           />
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>
@@ -127,7 +127,7 @@ export function ManageBomItemsDialog({
         <Checkbox
           label={t("businessData.bom.operations.makeEffective")}
           checked={effective}
-          onChange={(_, data) => setEffective(data.checked === true)}
+          onChange={setEffective}
         />
       </div>
     </BaseDialog>

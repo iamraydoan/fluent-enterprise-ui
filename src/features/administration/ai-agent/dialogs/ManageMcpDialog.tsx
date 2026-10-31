@@ -171,7 +171,7 @@ export function ManageMcpDialog({
       footer={
         <>
           <Button onClick={onClose}>{t("common.cancel")}</Button>
-          <Button appearance="primary" onClick={() => onUpdate(draft)}>
+          <Button variant="primary" onClick={() => onUpdate(draft)}>
             {t("common.update")}
           </Button>
         </>
@@ -182,11 +182,11 @@ export function ManageMcpDialog({
           <div className={manageStyles.colHead}>
             <Text size={400}>{t("dialogs.manageMcp.selectTools")}</Text>
             <Input
-              appearance="outline"
+              variant="outline"
               contentBefore={<Search20Regular />}
               placeholder={t("common.search")}
               value={searchQuery}
-              onChange={(_, d) => setSearchQuery(d.value)}
+              onChange={setSearchQuery}
               aria-label={t("dialogs.manageMcp.searchTools")}
               style={{ width: 204 }}
             />
@@ -238,8 +238,8 @@ export function ManageMcpDialog({
                     onChange={() => toggle(activeServer, tool)}
                   />
                   <Button
-                    size="small"
-                    appearance="transparent"
+                    size="sm"
+                    variant="transparent"
                     icon={<Eye20Filled />}
                     aria-label={t("dialogs.manageMcp.viewTool", { tool })}
                     onClick={() => onViewTool(activeServer, tool)}
@@ -255,7 +255,7 @@ export function ManageMcpDialog({
               {t("dialogs.manageMcp.selectedTools", { count: selectedList.length })}
             </Text>
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<Delete20Regular />}
               aria-label={t("dialogs.manageMcp.clearSelected")}
               disabled={selectedList.length === 0}

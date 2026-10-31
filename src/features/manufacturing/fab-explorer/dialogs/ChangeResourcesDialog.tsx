@@ -79,19 +79,19 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
   const footer =
     step === 0 ? (
       <>
-        <Button appearance="secondary" onClick={handleClose}>
+        <Button variant="secondary" onClick={handleClose}>
           {t("fabExplorer.cancel")}
         </Button>
-        <Button appearance="primary" disabled={selected.length === 0} onClick={() => setStep(1)}>
+        <Button variant="primary" disabled={selected.length === 0} onClick={() => setStep(1)}>
           {t("fabExplorer.next")}
         </Button>
       </>
     ) : (
       <>
-        <Button appearance="secondary" onClick={() => setStep(0)}>
+        <Button variant="secondary" onClick={() => setStep(0)}>
           {t("fabExplorer.back")}
         </Button>
-        <Button appearance="primary" onClick={handleClose}>
+        <Button variant="primary" onClick={handleClose}>
           {t("fabExplorer.finish")}
         </Button>
       </>
@@ -117,7 +117,7 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
             <Input
               placeholder={t("fabExplorer.search")}
               value={search}
-              onChange={(_, data) => setSearch(data.value)}
+              onChange={setSearch}
               style={{ width: "200px" }}
             />
           </div>
@@ -159,7 +159,7 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
           </table>
           <div className={styles.commentsBox}>
             <FormField label={t("fabExplorer.comments")}>
-              <Textarea value={comments} onChange={(_, data) => setComments(data.value)} rows={3} />
+              <Textarea value={comments} onChange={setComments} rows={3} />
             </FormField>
           </div>
         </>

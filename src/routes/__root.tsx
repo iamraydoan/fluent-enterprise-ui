@@ -14,7 +14,7 @@ function NotFound() {
       <Text weight="semibold" size={400}>
         {t("placeholder.notFoundTitle")}
       </Text>
-      <Button appearance="primary" onClick={() => navigate({ to: "/administration" })}>
+      <Button variant="primary" onClick={() => navigate({ to: "/administration" })}>
         {t("mainLayout.openAdministration")}
       </Button>
     </section>

@@ -101,13 +101,13 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
       </SidePanel>
       <div className={styles.main}>
         <div className={styles.toolbar}>
-          <Button appearance="primary" onClick={() => setChangeResourcesOpen(true)}>
+          <Button variant="primary" onClick={() => setChangeResourcesOpen(true)}>
             {t("fabExplorer.changeResources")}
           </Button>
-          <Button appearance="secondary" onClick={() => setManageEmployeesOpen(true)}>
+          <Button variant="secondary" onClick={() => setManageEmployeesOpen(true)}>
             {t("fabExplorer.manageResourceEmployees")}
           </Button>
-          <Button appearance="secondary" onClick={() => setManageTraineesOpen(true)}>
+          <Button variant="secondary" onClick={() => setManageTraineesOpen(true)}>
             {t("fabExplorer.manageResourceTrainees")}
           </Button>
         </div>

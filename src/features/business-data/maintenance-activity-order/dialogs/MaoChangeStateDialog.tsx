@@ -61,7 +61,7 @@ export function MaoChangeStateDialog({
       <Textarea
         placeholder={t(L.comment)}
         value={comment}
-        onChange={(_, d) => setComment(d.value)}
+        onChange={setComment}
       />
     </BaseDialog>
   );

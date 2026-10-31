@@ -41,13 +41,13 @@ export function QualificationCheckFormDialog({
       <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
         <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
         <Field label={t(`${k}.name`)} required>
-          <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+          <Input value={name} readOnly={nameReadOnly} onChange={setName} />
         </Field>
         <Field label={t(`${k}.description`)}>
-          <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+          <Input value={description} onChange={setDescription} />
         </Field>
         <Field label={t(`${k}.dataGroup`)}>
-          <Input value={dataGroup} onChange={(_, d) => setDataGroup(d.value)} />
+          <Input value={dataGroup} onChange={setDataGroup} />
         </Field>
         <Field label={t(`${k}.instanceType`)} required>
           <div style={{ display: "flex", columnGap: 16 }}>
@@ -72,7 +72,7 @@ export function QualificationCheckFormDialog({
           </div>
         </Field>
         <Field label={t(`${k}.comments`)}>
-          <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+          <Input value={comments} onChange={setComments} />
         </Field>
       </div>
     </BaseDialog>

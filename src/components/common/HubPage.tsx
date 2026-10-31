@@ -73,12 +73,12 @@ export function HubPage({ tiles, ariaLabelKey, searchWidth = 210, onTileClick }:
     <section className={hubStyles.page} aria-label={t(ariaLabelKey)}>
       <div className={hubStyles.top}>
         <Input
-          appearance="outline"
+          variant="outline"
           style={{ width: searchWidth, fontStyle: "italic" }}
           contentBefore={<Search20Regular />}
           placeholder={t("common.search")}
           value={searchQuery}
-          onChange={(_, d) => setSearchQuery(d.value)}
+          onChange={setSearchQuery}
           aria-label={t("common.search")}
         />
       </div>

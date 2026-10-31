@@ -54,13 +54,13 @@ export function RecordLossBonusDialog({ open, materials, onClose, onConfirm }: O
         </select>
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.recordLossBonus.qty")}>
-        <Input value={qty} onChange={(_, d) => setQty(d.value)} />
+        <Input value={qty} onChange={setQty} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.recordLossBonus.reason")}>
-        <Input value={reason} onChange={(_, d) => setReason(d.value)} />
+        <Input value={reason} onChange={setReason} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.recordLossBonus.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -94,10 +94,10 @@ export function RecordAssembledLossBonusDialog({
         <Input value={material} disabled />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.recordAssembledLossBonus.qty")}>
-        <Input value={qty} onChange={(_, d) => setQty(d.value)} />
+        <Input value={qty} onChange={setQty} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.recordAssembledLossBonus.reason")}>
-        <Input value={reason} onChange={(_, d) => setReason(d.value)} />
+        <Input value={reason} onChange={setReason} />
       </FormField>
     </BaseDialog>
   );
@@ -132,13 +132,13 @@ export function RecordSubMaterialLossesDialog({
         <Input value={material} disabled />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.recordSubMaterialLosses.subMaterial")}>
-        <Input value={subMaterial} onChange={(_, d) => setSubMaterial(d.value)} />
+        <Input value={subMaterial} onChange={setSubMaterial} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.recordSubMaterialLosses.qty")}>
-        <Input value={qty} onChange={(_, d) => setQty(d.value)} />
+        <Input value={qty} onChange={setQty} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.recordSubMaterialLosses.reason")}>
-        <Input value={reason} onChange={(_, d) => setReason(d.value)} />
+        <Input value={reason} onChange={setReason} />
       </FormField>
     </BaseDialog>
   );

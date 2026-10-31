@@ -25,10 +25,10 @@ export function RemoveLogicalChartDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={() => onConfirm(comment)}>
+          <Button variant="primary" onClick={() => onConfirm(comment)}>
             {t("common.remove")}
           </Button>
         </>
@@ -39,7 +39,7 @@ export function RemoveLogicalChartDialog({
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.chart.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );

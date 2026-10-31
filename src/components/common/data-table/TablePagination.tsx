@@ -60,14 +60,14 @@ export function TablePagination({
       </div>
       <div>
         <Button
-          appearance="subtle"
+          variant="subtle"
           icon={<ChevronLeft20Regular />}
           disabled={currentPage <= 1}
           onClick={() => onPageChange(currentPage - 1)}
           aria-label={t("common.previousPage")}
         />
         <Button
-          appearance="subtle"
+          variant="subtle"
           icon={<ChevronRight20Regular />}
           disabled={currentPage >= pages}
           onClick={() => onPageChange(currentPage + 1)}

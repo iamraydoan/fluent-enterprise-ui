@@ -19,7 +19,7 @@ export function MiniSelect({
       onCheckedValueChange={(_, data) => onSelect(data.checkedItems[0] ?? "")}
     >
       <MenuTrigger disableButtonEnhancement>
-        <Button appearance="secondary" aria-label={ariaLabel}>
+        <Button variant="secondary" aria-label={ariaLabel}>
           {selected?.label ?? value}
         </Button>
       </MenuTrigger>

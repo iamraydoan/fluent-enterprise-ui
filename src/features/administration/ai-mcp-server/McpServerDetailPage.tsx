@@ -220,12 +220,12 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
           <Text size={400}>{t("mcpServer.toolsTitle", { count: detail.tools.length })}</Text>
           <div>
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<ColumnTriple20Regular />}
               aria-label={t("common.chooseColumns")}
             />
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<MoreVertical20Regular />}
               aria-label={t("common.moreOptions")}
             />
@@ -289,13 +289,13 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
           </div>
           <div>
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<ChevronLeft20Regular />}
               disabled
               aria-label={t("common.previousPage")}
             />
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<ChevronRight20Regular />}
               disabled
               aria-label={t("common.nextPage")}

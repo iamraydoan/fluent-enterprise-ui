@@ -124,14 +124,14 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 5 ? (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => setStep(step + 1)}
               disabled={step === 2 && !canSubmit}
             >
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
             </Button>
           )}
@@ -150,7 +150,7 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
           <FormField label={<>{t(L.changeSet)}</>}>
             <Input
               value={changeSet}
-              onChange={(_, d) => setChangeSet(d.value)}
+              onChange={setChangeSet}
               disabled={useAutoCs}
             />
           </FormField>
@@ -164,11 +164,11 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
             <Checkbox
               label={t(L.useAutomaticChangeSet)}
               checked={useAutoCs === true}
-              onChange={(_, d) => setUseAutoCs(d.checked === true)}
+              onChange={setUseAutoCs}
             />
           </FormField>
           <FormField label={<>{t(L.approvalRole)}</>}>
-            <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />
+            <Input value={approvalRole} onChange={setApprovalRole} />
           </FormField>
           <FormField
             label={
@@ -180,7 +180,7 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
             <Checkbox
               label={t(L.makeEffectiveOnApproval)}
               checked={effectiveOnApproval === true}
-              onChange={(_, d) => setEffectiveOnApproval(d.checked === true)}
+              onChange={setEffectiveOnApproval}
             />
           </FormField>
         </>
@@ -197,24 +197,24 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
           >
             <Input
               value={name}
-              onChange={(_, d) => setName(d.value)}
+              onChange={setName}
               disabled={mode === MODE_EDIT}
             />
           </FormField>
           <FormField label={<>{t(L.description)}</>}>
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Textarea value={description} onChange={setDescription} />
           </FormField>
           <FormField label={<>{t(L.type)}</>}>
-            <Input value={type} onChange={(_, d) => setType(d.value)} />
+            <Input value={type} onChange={setType} />
           </FormField>
           <FormField label={<>{t(L.ownerRole)}</>}>
-            <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />
+            <Input value={ownerRole} onChange={setOwnerRole} />
           </FormField>
           <FormField label={<>{t(L.purpose)}</>}>
-            <Textarea value={purpose} onChange={(_, d) => setPurpose(d.value)} />
+            <Textarea value={purpose} onChange={setPurpose} />
           </FormField>
           <FormField label={<>{t(L.note)}</>}>
-            <Textarea value={note} onChange={(_, d) => setNote(d.value)} />
+            <Textarea value={note} onChange={setNote} />
           </FormField>
           <FormField label={<>{t(L.applicableTo)}</>}>
             <select
@@ -228,24 +228,24 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
           </FormField>
           {applicableTo === "Product" ? (
             <FormField label={<>{t(L.product)}</>}>
-              <Input value={product} onChange={(_, d) => setProduct(d.value)} />
+              <Input value={product} onChange={setProduct} />
             </FormField>
           ) : (
             <FormField label={<>{t(L.productGroup)}</>}>
-              <Input value={productGroup} onChange={(_, d) => setProductGroup(d.value)} />
+              <Input value={productGroup} onChange={setProductGroup} />
             </FormField>
           )}
           <FormField label={<>{t(L.flow)}</>}>
-            <Input value={flow} onChange={(_, d) => setFlow(d.value)} />
+            <Input value={flow} onChange={setFlow} />
           </FormField>
           <FormField label={<>{t(L.maxMaterials)}</>}>
-            <Input value={maxMaterials} onChange={(_, d) => setMaxMaterials(d.value)} />
+            <Input value={maxMaterials} onChange={setMaxMaterials} />
           </FormField>
           <FormField label={<>{t(L.requiredMaterialType)}</>}>
-            <Input value={materialType} onChange={(_, d) => setMaterialType(d.value)} />
+            <Input value={materialType} onChange={setMaterialType} />
           </FormField>
           <FormField label={<>{t(L.requiredMaterialForm)}</>}>
-            <Input value={materialForm} onChange={(_, d) => setMaterialForm(d.value)} />
+            <Input value={materialForm} onChange={setMaterialForm} />
           </FormField>
           <FormField label={<>{t(L.mode)}</>}>
             <select
@@ -269,7 +269,7 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
         <>
           <div className={styles.row}>
             <Button
-              size="small"
+              size="sm"
               onClick={() => setObjectives([...objectives, { name: "", target: "" }])}
             >
               + {t(L.addObjective)}
@@ -280,19 +280,19 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
               <Input
                 placeholder={t(L.objectiveName)}
                 value={o.name}
-                onChange={(_, d) =>
-                  setObjectives(objectives.map((x, j) => (j === i ? { ...x, name: d.value } : x)))
+                onChange={(value) =>
+                  setObjectives(objectives.map((x, j) => (j === i ? { ...x, name: value } : x)))
                 }
               />
               <Input
                 placeholder={t(L.objectiveTarget)}
                 value={o.target}
-                onChange={(_, d) =>
-                  setObjectives(objectives.map((x, j) => (j === i ? { ...x, target: d.value } : x)))
+                onChange={(value) =>
+                  setObjectives(objectives.map((x, j) => (j === i ? { ...x, target: value } : x)))
                 }
               />
               <Button
-                size="small"
+                size="sm"
                 onClick={() => setObjectives(objectives.filter((_, j) => j !== i))}
               >
                 {t(L.remove)}

@@ -371,14 +371,14 @@ export function AiChatPage() {
         />
         <div className={chatStyles.composerRow}>
           <Button
-            appearance="subtle"
+            variant="subtle"
             shape="circular"
             icon={<Attach20Regular />}
             aria-label={t("aiChat.attachFile")}
           />
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 4 }}>
             <Button
-              appearance="subtle"
+              variant="subtle"
               shape="circular"
               icon={<Mic20Regular />}
               aria-label={t("aiChat.dictate")}

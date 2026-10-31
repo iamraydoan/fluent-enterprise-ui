@@ -98,14 +98,14 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 3 ? (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => setStep(step + 1)}
               disabled={step === 1 && !user.trim()}
             >
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose} disabled={!canSubmit}>
+            <Button variant="primary" onClick={onClose} disabled={!canSubmit}>
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
             </Button>
           )}
@@ -128,19 +128,19 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
             }
             labelWidth="220px"
           >
-            <Input value={user} onChange={(_, d) => setUser(d.value)} />
+            <Input value={user} onChange={setUser} />
           </FormField>
           <FormField label={<>{t(L.userAccount)}</>} labelWidth="220px">
-            <Input value={userAccount} onChange={(_, d) => setUserAccount(d.value)} />
+            <Input value={userAccount} onChange={setUserAccount} />
           </FormField>
           <FormField label={<>{t(L.userName)}</>} labelWidth="220px">
-            <Input value={userName} onChange={(_, d) => setUserName(d.value)} />
+            <Input value={userName} onChange={setUserName} />
           </FormField>
           <FormField label={<>{t(L.userEmail)}</>} labelWidth="220px">
-            <Input value={userEmail} onChange={(_, d) => setUserEmail(d.value)} />
+            <Input value={userEmail} onChange={setUserEmail} />
           </FormField>
           <FormField label={<>{t(L.primaryRole)}</>} labelWidth="220px">
-            <Input value={primaryRole} onChange={(_, d) => setPrimaryRole(d.value)} />
+            <Input value={primaryRole} onChange={setPrimaryRole} />
           </FormField>
         </>
       )}
@@ -173,15 +173,15 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
           >
             <Input
               value={name}
-              onChange={(_, d) => setName(d.value)}
+              onChange={setName}
               disabled={mode === MODE_EDIT}
             />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="220px">
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Textarea value={description} onChange={setDescription} />
           </FormField>
           <FormField label={<>{t(L.type)}</>} labelWidth="220px">
-            <Input value={type} onChange={(_, d) => setType(d.value)} />
+            <Input value={type} onChange={setType} />
           </FormField>
           <FormField
             label={
@@ -192,37 +192,37 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
             }
             labelWidth="220px"
           >
-            <Input value={employeeNumber} onChange={(_, d) => setEmployeeNumber(d.value)} />
+            <Input value={employeeNumber} onChange={setEmployeeNumber} />
           </FormField>
           <FormField label={<>{t(L.area)}</>} labelWidth="220px">
-            <Input value={area} onChange={(_, d) => setArea(d.value)} />
+            <Input value={area} onChange={setArea} />
           </FormField>
           <FormField label={<>{t(L.calendar)}</>} labelWidth="220px">
-            <Input value={calendar} onChange={(_, d) => setCalendar(d.value)} />
+            <Input value={calendar} onChange={setCalendar} />
           </FormField>
           <FormField label={<>{t(L.costPerHour)}</>} labelWidth="220px">
-            <Input value={costPerHour} onChange={(_, d) => setCostPerHour(d.value)} />
+            <Input value={costPerHour} onChange={setCostPerHour} />
           </FormField>
           <FormField label={<>{t(L.costCenter)}</>} labelWidth="220px">
-            <Input value={costCenter} onChange={(_, d) => setCostCenter(d.value)} />
+            <Input value={costCenter} onChange={setCostCenter} />
           </FormField>
           <FormField label={<>{t(L.requireClockIn)}</>} labelWidth="220px">
             <Checkbox
               checked={requireClockIn === true}
-              onChange={(_, d) => setRequireClockIn(d.checked === true)}
+              onChange={setRequireClockIn}
             />
           </FormField>
           <FormField label={<>{t(L.automaticClockIn)}</>} labelWidth="220px">
             <Checkbox
               checked={automaticClockIn === true}
-              onChange={(_, d) => setAutomaticClockIn(d.checked === true)}
+              onChange={setAutomaticClockIn}
               disabled={!requireClockIn}
             />
           </FormField>
           <FormField label={<>{t(L.automaticClockOutAtEndOfShift)}</>} labelWidth="220px">
             <Checkbox
               checked={automaticClockOut === true}
-              onChange={(_, d) => setAutomaticClockOut(d.checked === true)}
+              onChange={setAutomaticClockOut}
             />
           </FormField>
         </>

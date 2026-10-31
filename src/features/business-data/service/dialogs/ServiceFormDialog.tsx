@@ -48,20 +48,20 @@ export function ServiceFormDialog({
       width="min(950px, 92vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {!nameReadOnly && step === 2 && (
-            <Button appearance="secondary" onClick={() => setStep(1)}>
+            <Button variant="secondary" onClick={() => setStep(1)}>
               {t("common.back")}
             </Button>
           )}
           {!nameReadOnly && step === 1 ? (
-            <Button appearance="primary" onClick={() => setStep(2)}>
+            <Button variant="primary" onClick={() => setStep(2)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {submitLabel}
             </Button>
           )}
@@ -75,16 +75,16 @@ export function ServiceFormDialog({
       {(step === 1 || nameReadOnly) && (
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.name`)} required>
-            <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+            <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
           <Field label={t(`${k}.description`)}>
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Input value={description} onChange={setDescription} />
           </Field>
           <Field label={t(`${k}.type`)}>
-            <Input value={type} onChange={(_, d) => setType(d.value)} />
+            <Input value={type} onChange={setType} />
           </Field>
           <Field label={t(`${k}.dataGroup`)}>
-            <Input value={dataGroup} onChange={(_, d) => setDataGroup(d.value)} />
+            <Input value={dataGroup} onChange={setDataGroup} />
           </Field>
           <Field label={t(`${k}.processingType`)}>
             <select value={processingType} onChange={(e) => setProcessingType(e.target.value)}>
@@ -96,7 +96,7 @@ export function ServiceFormDialog({
             </select>
           </Field>
           <Field label={t(`${k}.enabled`)}>
-            <Switch checked={enabled} onChange={(_, d) => setEnabled(d.checked)} />
+            <Switch checked={enabled} onChange={setEnabled} />
           </Field>
         </div>
       )}
@@ -106,7 +106,7 @@ export function ServiceFormDialog({
       )}
 
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

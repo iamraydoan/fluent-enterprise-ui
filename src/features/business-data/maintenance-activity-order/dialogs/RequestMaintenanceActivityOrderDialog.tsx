@@ -64,14 +64,14 @@ export function RequestMaintenanceActivityOrderDialog({ onClose }: { onClose: ()
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 2 ? (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => setStep(step + 1)}
               disabled={!entity.trim()}
             >
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(L.request)}
             </Button>
           )}
@@ -106,17 +106,17 @@ export function RequestMaintenanceActivityOrderDialog({ onClose }: { onClose: ()
             }
             labelWidth="160px"
           >
-            <Input value={entity} onChange={(_, d) => setEntity(d.value)} />
+            <Input value={entity} onChange={setEntity} />
           </FormField>
         </>
       )}
       {step === 2 && (
         <>
           <FormField label={<>{t(L.scheduleDate)}</>} labelWidth="160px">
-            <Input value={scheduleDate} onChange={(_, d) => setScheduleDate(d.value)} />
+            <Input value={scheduleDate} onChange={setScheduleDate} />
           </FormField>
           <FormField label={<>{t(L.comment)}</>} labelWidth="160px">
-            <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+            <Textarea value={comment} onChange={setComment} />
           </FormField>
         </>
       )}

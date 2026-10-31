@@ -69,7 +69,7 @@ export function DataCollectionParametersEditor({
               <Input
                 placeholder={t("businessData.dataCollection.operations.parameterName")}
                 value={row.parameter}
-                onChange={(_, d) => update(row.id, { parameter: d.value })}
+                onChange={(value) => update(row.id, { parameter: value })}
               />
             </div>
             <div>
@@ -97,7 +97,7 @@ export function DataCollectionParametersEditor({
               <Input
                 type="number"
                 value={String(row.minimumSamples)}
-                onChange={(_, d) => update(row.id, { minimumSamples: Number(d.value) })}
+                onChange={(value) => update(row.id, { minimumSamples: Number(value) })}
               />
             </div>
             <div className={styles.numWrap}>
@@ -107,7 +107,7 @@ export function DataCollectionParametersEditor({
               <Input
                 type="number"
                 value={String(row.maximumSamples)}
-                onChange={(_, d) => update(row.id, { maximumSamples: Number(d.value) })}
+                onChange={(value) => update(row.id, { maximumSamples: Number(value) })}
               />
             </div>
             <div className={styles.numWrap}>
@@ -117,7 +117,7 @@ export function DataCollectionParametersEditor({
               <Input
                 type="number"
                 value={String(row.minimumSampleReadings)}
-                onChange={(_, d) => update(row.id, { minimumSampleReadings: Number(d.value) })}
+                onChange={(value) => update(row.id, { minimumSampleReadings: Number(value) })}
               />
             </div>
             <div className={styles.numWrap}>
@@ -127,7 +127,7 @@ export function DataCollectionParametersEditor({
               <Input
                 type="number"
                 value={String(row.maximumSampleReadings)}
-                onChange={(_, d) => update(row.id, { maximumSampleReadings: Number(d.value) })}
+                onChange={(value) => update(row.id, { maximumSampleReadings: Number(value) })}
               />
             </div>
             <div>
@@ -143,29 +143,29 @@ export function DataCollectionParametersEditor({
             </div>
             <div className={styles.rowActions}>
               <Button
-                appearance="secondary"
-                size="small"
+                variant="secondary"
+                size="sm"
                 disabled={idx === 0}
                 onClick={() => move(idx, -1)}
               >
                 <ArrowUp16Regular />
               </Button>
               <Button
-                appearance="secondary"
-                size="small"
+                variant="secondary"
+                size="sm"
                 disabled={idx === rows.length - 1}
                 onClick={() => move(idx, 1)}
               >
                 <ArrowDown16Regular />
               </Button>
-              <Button appearance="secondary" size="small" onClick={() => removeRow(row.id)}>
+              <Button variant="secondary" size="sm" onClick={() => removeRow(row.id)}>
                 {t("common.remove")}
               </Button>
             </div>
           </div>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>

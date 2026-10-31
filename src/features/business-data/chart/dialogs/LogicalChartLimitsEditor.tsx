@@ -76,7 +76,7 @@ export function LogicalChartLimitsEditor({
             }}
           >
             <Text weight="semibold">{row.name}</Text>
-            <Button appearance="secondary" onClick={() => copyChartLimits(row.name)}>
+            <Button variant="secondary" onClick={() => copyChartLimits(row.name)}>
               {t("businessData.chart.operations.copyChartLimits")}
             </Button>
           </div>

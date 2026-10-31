@@ -84,10 +84,10 @@ export function ManageRecipeSubRecipesDialog({
           >
             <Body1Strong>{t(`${k}.subRecipes`)}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addSubRecipe}>
+              <Button size="sm" variant="subtle" onClick={addSubRecipe}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeSubRecipe(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeSubRecipe(selected)}>
                 🗑
               </Button>
             </div>
@@ -120,10 +120,10 @@ export function ManageRecipeSubRecipesDialog({
         <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.recipe`)} required>
-            <Input value={recipe} onChange={(_, d) => setRecipe(d.value)} />
+            <Input value={recipe} onChange={setRecipe} />
           </Field>
           <Field label={t(`${k}.displayName`)} required>
-            <Input value={displayName} onChange={(_, d) => setDisplayName(d.value)} />
+            <Input value={displayName} onChange={setDisplayName} />
           </Field>
           <Field label={t(`${k}.parametersMapping`)}>
             <textarea
@@ -134,14 +134,14 @@ export function ManageRecipeSubRecipesDialog({
             />
           </Field>
           <div>
-            <Button appearance="secondary" onClick={() => setExpressions("")}>
+            <Button variant="secondary" onClick={() => setExpressions("")}>
               {t(`${k}.clearAllExpressions`)}
             </Button>
           </div>
         </div>
       </div>
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

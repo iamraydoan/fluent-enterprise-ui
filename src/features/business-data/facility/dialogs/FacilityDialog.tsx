@@ -88,11 +88,11 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 2 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)} disabled={!canSubmit}>
+            <Button variant="primary" onClick={() => setStep(step + 1)} disabled={!canSubmit}>
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
             </Button>
           )}
@@ -116,12 +116,12 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
           >
             <Input
               value={name}
-              onChange={(_, d) => setName(d.value)}
+              onChange={setName}
               disabled={mode === MODE_EDIT}
             />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="200px">
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Textarea value={description} onChange={setDescription} />
           </FormField>
           <FormField
             label={
@@ -148,7 +148,7 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
             </select>
           </FormField>
           <FormField label={<>{t(L.dataGroup)}</>} labelWidth="200px">
-            <Input value={dataGroup} onChange={(_, d) => setDataGroup(d.value)} />
+            <Input value={dataGroup} onChange={setDataGroup} />
           </FormField>
         </>
       )}
@@ -163,25 +163,25 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
             }
             labelWidth="200px"
           >
-            <Input value={displayOrder} onChange={(_, d) => setDisplayOrder(d.value)} />
+            <Input value={displayOrder} onChange={setDisplayOrder} />
           </FormField>
           <FormField label={<>{t(L.defaultCalendar)}</>} labelWidth="200px">
-            <Input value={defaultCalendar} onChange={(_, d) => setDefaultCalendar(d.value)} />
+            <Input value={defaultCalendar} onChange={setDefaultCalendar} />
           </FormField>
           <FormField label={<>{t(L.site)}</>} labelWidth="200px">
-            <Input value={site} onChange={(_, d) => setSite(d.value)} />
+            <Input value={site} onChange={setSite} />
           </FormField>
           <FormField label={<>{t(L.remote)}</>} labelWidth="200px">
             <Checkbox
               checked={remote === true}
-              onChange={(_, d) => setRemote(d.checked === true)}
+              onChange={setRemote}
               disabled
             />
           </FormField>
           <FormField label={<>{t(L.terminateOnShip)}</>} labelWidth="200px">
             <Checkbox
               checked={terminateOnShip === true}
-              onChange={(_, d) => setTerminateOnShip(d.checked === true)}
+              onChange={setTerminateOnShip}
               disabled={remote}
             />
           </FormField>

@@ -29,11 +29,11 @@ export function AnnotateDataPointDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={annotation.trim() === ""}
             onClick={() => onConfirm({ annotation, annotationCode: code, comment })}
           >
@@ -49,15 +49,15 @@ export function AnnotateDataPointDialog({
         <span className={styles.fieldLabel}>
           {t("businessData.chart.operations.annotationCode")}
         </span>
-        <Input value={code} onChange={(_, d) => setCode(d.value)} />
+        <Input value={code} onChange={setCode} />
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.chart.operations.annotation")} *</span>
-        <Textarea value={annotation} onChange={(_, d) => setAnnotation(d.value)} />
+        <Textarea value={annotation} onChange={setAnnotation} />
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.chart.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );
@@ -91,11 +91,11 @@ export function EditDataPointDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() =>
               onConfirm({
                 readings: readings.map((r) => Number(r)).filter((n) => !Number.isNaN(n)),
@@ -116,12 +116,12 @@ export function EditDataPointDialog({
           <span style={{ minWidth: "110px", fontSize: "13px" }}>
             {t("businessData.chart.operations.reading", { index: i + 1 })}
           </span>
-          <Input type="number" value={r} onChange={(_, d) => setAt(i, d.value)} />
+          <Input type="number" value={r} onChange={(value) => setAt(i, value)} />
         </div>
       ))}
       <div className={styles.fieldRow} style={{ marginTop: "12px" }}>
         <span className={styles.fieldLabel}>{t("businessData.chart.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );
@@ -155,10 +155,10 @@ export function DataPointConfirmDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={() => onConfirm(comment)}>
+          <Button variant="primary" onClick={() => onConfirm(comment)}>
             {confirmLabel}
           </Button>
         </>
@@ -167,7 +167,7 @@ export function DataPointConfirmDialog({
       <div className={styles.hint}>{message}</div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.chart.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );

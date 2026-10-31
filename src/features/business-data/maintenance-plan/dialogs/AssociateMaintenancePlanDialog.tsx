@@ -48,10 +48,10 @@ export function AssociateMaintenancePlanDialog({
       size="md"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t(L.cancel)}
           </Button>
-          <Button appearance="primary" onClick={onClose} disabled={!entity.trim()}>
+          <Button variant="primary" onClick={onClose} disabled={!entity.trim()}>
             {t(L.associate)}
           </Button>
         </>
@@ -78,7 +78,7 @@ export function AssociateMaintenancePlanDialog({
         }
         labelWidth="160px"
       >
-        <Input value={entity} onChange={(_, d) => setEntity(d.value)} />
+        <Input value={entity} onChange={setEntity} />
       </FormField>
     </BaseDialog>
   );

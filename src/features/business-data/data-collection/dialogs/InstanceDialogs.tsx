@@ -40,11 +40,11 @@ export function OpenDataCollectionInstanceDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => onConfirm({ instanceName, description, limitSet, material, comment })}
           >
             {t("businessData.dataCollection.operations.open")}
@@ -65,14 +65,14 @@ export function OpenDataCollectionInstanceDialog({
         <Input
           placeholder={t("businessData.dataCollection.operations.instanceNamePlaceholder")}
           value={instanceName}
-          onChange={(_, d) => setInstanceName(d.value)}
+          onChange={setInstanceName}
         />
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>
           {t("businessData.dataCollection.detail.description")}
         </span>
-        <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Textarea value={description} onChange={setDescription} />
       </div>
       <div className={styles.sectionTitle}>
         {t("businessData.dataCollection.operations.context")}
@@ -93,13 +93,13 @@ export function OpenDataCollectionInstanceDialog({
         <span className={styles.fieldLabel}>
           {t("businessData.dataCollection.operations.material")}
         </span>
-        <Input value={material} onChange={(_, d) => setMaterial(d.value)} />
+        <Input value={material} onChange={setMaterial} />
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>
           {t("businessData.dataCollection.operations.comment")}
         </span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </BaseDialog>
   );
@@ -125,7 +125,7 @@ export function ViewDataCollectionInstanceDialog({
       title={t("businessData.dataCollection.operations.viewInstanceTitle")}
       onClose={onClose}
       footer={
-        <Button appearance="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose}>
           {t("common.close")}
         </Button>
       }

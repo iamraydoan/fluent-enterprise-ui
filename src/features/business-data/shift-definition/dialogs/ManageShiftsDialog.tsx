@@ -66,12 +66,12 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
             <Text weight="semibold">{t("businessData.shiftDefinition.sections.shifts")}</Text>
             <div style={{ display: "flex", columnGap: "4px" }}>
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<Add24Regular />}
                 aria-label={t("actionBar.create")}
               />
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<Delete20Regular />}
                 aria-label={t("actionBar.delete")}
               />

@@ -49,7 +49,7 @@ export function ContextListEditor({
           <Input
             type="number"
             value={String(row.keyOrder)}
-            onChange={(_, d) => update(row.id, { keyOrder: Number(d.value) || 0 })}
+            onChange={(value) => update(row.id, { keyOrder: Number(value) || 0 })}
             aria-label={t("businessData.chart.operations.keyOrder")}
           />
           <Checkbox
@@ -60,12 +60,12 @@ export function ContextListEditor({
           <Input
             placeholder={t("businessData.chart.operations.contextName")}
             value={row.name}
-            onChange={(_, d) => update(row.id, { name: d.value })}
+            onChange={(value) => update(row.id, { name: value })}
           />
           <Input
             placeholder={t("businessData.chart.operations.contextDescription")}
             value={row.description}
-            onChange={(_, d) => update(row.id, { description: d.value })}
+            onChange={(value) => update(row.id, { description: value })}
           />
           <MiniSelect
             value={row.elementType}
@@ -75,14 +75,14 @@ export function ContextListEditor({
           <Input
             placeholder={t("businessData.chart.operations.contextSource")}
             value={row.source}
-            onChange={(_, d) => update(row.id, { source: d.value })}
+            onChange={(value) => update(row.id, { source: value })}
           />
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>
@@ -118,7 +118,7 @@ export function ReadingsEditor({
           <Input
             type="number"
             value={readings[i] === undefined || readings[i] === "" ? "" : String(readings[i])}
-            onChange={(_, d) => setAt(i, d.value)}
+            onChange={(value) => setAt(i, value)}
           />
         </div>
       ))}
@@ -149,7 +149,7 @@ export function PostContextEditor({
             {c.name}
             {c.isKey ? " *" : ""}
           </span>
-          <Input value={map[c.name] ?? ""} onChange={(_, d) => setValue(c.name, d.value)} />
+          <Input value={map[c.name] ?? ""} onChange={(value) => setValue(c.name, value)} />
         </div>
       ))}
     </div>

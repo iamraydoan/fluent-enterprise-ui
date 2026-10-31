@@ -64,10 +64,10 @@ export function CloneQualificationCheckDialog({
           >
             <Body1Strong>{t(`${k}.clones`, { count: clones.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addClone}>
+              <Button size="sm" variant="subtle" onClick={addClone}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeClone(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeClone(selected)}>
                 🗑
               </Button>
             </div>
@@ -98,7 +98,7 @@ export function CloneQualificationCheckDialog({
         </div>
         <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.name`)}>
-            <Input value={cloneName} onChange={(_, d) => setCloneName(d.value)} />
+            <Input value={cloneName} onChange={setCloneName} />
           </Field>
           <Field label={t(`${k}.instanceType`)}>
             <Input value={sourceInstanceType} readOnly onChange={() => {}} />
@@ -109,7 +109,7 @@ export function CloneQualificationCheckDialog({
         </div>
       </div>
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

@@ -67,11 +67,11 @@ export function ManageChartRulesDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() =>
               onSave(
                 rows.map((r) => ({
@@ -115,26 +115,26 @@ export function ManageChartRulesDialog({
             <Input
               placeholder={t("businessData.chart.operations.protocol")}
               value={row.protocol}
-              onChange={(_, d) => update(row.id, { protocol: d.value })}
+              onChange={(value) => update(row.id, { protocol: value })}
             />
             <Input
               placeholder={t("businessData.chart.operations.actionRule")}
               value={row.actionRule}
-              onChange={(_, d) => update(row.id, { actionRule: d.value })}
+              onChange={(value) => update(row.id, { actionRule: value })}
             />
             <Input
               placeholder={t("businessData.chart.operations.comment")}
               value={row.comment}
-              onChange={(_, d) => update(row.id, { comment: d.value })}
+              onChange={(value) => update(row.id, { comment: value })}
             />
-            <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+            <Button variant="secondary" onClick={() => removeRow(row.id)}>
               {t("common.remove")}
             </Button>
           </div>
           <div className={styles.hint}>{descriptionOf(row.rule)}</div>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </DialogShell>

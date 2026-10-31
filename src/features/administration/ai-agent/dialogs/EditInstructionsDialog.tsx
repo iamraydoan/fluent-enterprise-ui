@@ -154,8 +154,8 @@ export function EditInstructionsDialog({
     disabled?: boolean;
   }) => (
     <Button
-      size="small"
-      appearance="subtle"
+      size="sm"
+      variant="subtle"
       icon={icon}
       aria-label={label}
       title={label}
@@ -176,8 +176,8 @@ export function EditInstructionsDialog({
     <Menu>
       <MenuTrigger disableButtonEnhancement>
         <Button
-          size="small"
-          appearance="subtle"
+          size="sm"
+          variant="subtle"
           icon={icon}
           iconPosition="before"
           aria-label={label}
@@ -223,7 +223,7 @@ export function EditInstructionsDialog({
         <>
           <Button onClick={onClose}>{t("common.cancel")}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => onSave(editorRef.current?.innerText ?? value)}
           >
             {t("common.save")}

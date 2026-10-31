@@ -75,10 +75,10 @@ export function KpiDialog({ mode, initialName, onClose }: DialogProps) {
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t(L.cancel)}
           </Button>
-          <Button appearance="primary" onClick={onClose} disabled={!canSubmit}>
+          <Button variant="primary" onClick={onClose} disabled={!canSubmit}>
             {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
           </Button>
         </>
@@ -93,13 +93,13 @@ export function KpiDialog({ mode, initialName, onClose }: DialogProps) {
         }
         labelWidth="150px"
       >
-        <Input value={name} onChange={(_, d) => setName(d.value)} disabled={mode === MODE_EDIT} />
+        <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />
       </FormField>
       <FormField label={<>{t(L.description)}</>} labelWidth="150px">
-        <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Textarea value={description} onChange={setDescription} />
       </FormField>
       <FormField label={<>{t(L.type)}</>} labelWidth="150px">
-        <Input value={type} onChange={(_, d) => setType(d.value)} />
+        <Input value={type} onChange={setType} />
       </FormField>
       <FormField label={<>{t(L.sourceType)}</>} labelWidth="150px">
         <select
@@ -112,10 +112,10 @@ export function KpiDialog({ mode, initialName, onClose }: DialogProps) {
         </select>
       </FormField>
       <FormField label={<>{t(L.entityType)}</>} labelWidth="150px">
-        <Input value={entityType} onChange={(_, d) => setEntityType(d.value)} />
+        <Input value={entityType} onChange={setEntityType} />
       </FormField>
       <FormField label={<>{t(L.parameter)}</>} labelWidth="150px">
-        <Input value={parameter} onChange={(_, d) => setParameter(d.value)} />
+        <Input value={parameter} onChange={setParameter} />
       </FormField>
       <FormField label={<>{t(L.kpiType)}</>} labelWidth="150px">
         <select
@@ -141,7 +141,7 @@ export function KpiDialog({ mode, initialName, onClose }: DialogProps) {
         </select>
       </FormField>
       <FormField label={<>{t(L.ownerRole)}</>} labelWidth="150px">
-        <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />
+        <Input value={ownerRole} onChange={setOwnerRole} />
       </FormField>
     </BaseDialog>
   );

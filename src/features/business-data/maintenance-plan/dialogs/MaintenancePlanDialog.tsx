@@ -107,14 +107,14 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 3 ? (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => setStep(step + 1)}
               disabled={step === 2 && !canSubmit}
             >
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
             </Button>
           )}
@@ -131,7 +131,7 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
           <FormField label={<>{t(L.changeSet)}</>} labelWidth="200px">
             <Input
               value={changeSet}
-              onChange={(_, d) => setChangeSet(d.value)}
+              onChange={setChangeSet}
               disabled={useAutoCs}
             />
           </FormField>
@@ -146,11 +146,11 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
             <Checkbox
               label={t(L.useAutomaticChangeSet)}
               checked={useAutoCs === true}
-              onChange={(_, d) => setUseAutoCs(d.checked === true)}
+              onChange={setUseAutoCs}
             />
           </FormField>
           <FormField label={<>{t(L.approvalRole)}</>} labelWidth="200px">
-            <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />
+            <Input value={approvalRole} onChange={setApprovalRole} />
           </FormField>
           <FormField
             label={
@@ -163,7 +163,7 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
             <Checkbox
               label={t(L.makeEffectiveOnApproval)}
               checked={effectiveOnApproval === true}
-              onChange={(_, d) => setEffectiveOnApproval(d.checked === true)}
+              onChange={setEffectiveOnApproval}
             />
           </FormField>
         </>
@@ -181,15 +181,15 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
           >
             <Input
               value={name}
-              onChange={(_, d) => setName(d.value)}
+              onChange={setName}
               disabled={mode === MODE_EDIT}
             />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="200px">
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Textarea value={description} onChange={setDescription} />
           </FormField>
           <FormField label={<>{t(L.type)}</>} labelWidth="200px">
-            <Input value={type} onChange={(_, d) => setType(d.value)} />
+            <Input value={type} onChange={setType} />
           </FormField>
           <FormField label={<>{t(L.scope)}</>} labelWidth="200px">
             <select
@@ -208,7 +208,7 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
         <>
           <div className={styles.row}>
             <Button
-              size="small"
+              size="sm"
               onClick={() =>
                 setActivities([
                   ...activities,
@@ -229,8 +229,8 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
               <Input
                 placeholder={t(L.activityName)}
                 value={a.name}
-                onChange={(_, d) =>
-                  setActivities(activities.map((x, j) => (j === i ? { ...x, name: d.value } : x)))
+                onChange={(value) =>
+                  setActivities(activities.map((x, j) => (j === i ? { ...x, name: value } : x)))
                 }
               />
               <select
@@ -252,14 +252,14 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
               <Input
                 placeholder={t(L.expectedDuration)}
                 value={a.expectedDuration}
-                onChange={(_, d) =>
+                onChange={(value) =>
                   setActivities(
-                    activities.map((x, j) => (j === i ? { ...x, expectedDuration: d.value } : x)),
+                    activities.map((x, j) => (j === i ? { ...x, expectedDuration: value } : x)),
                   )
                 }
               />
               <Button
-                size="small"
+                size="sm"
                 onClick={() => setActivities(activities.filter((_, j) => j !== i))}
               >
                 {t(L.remove)}

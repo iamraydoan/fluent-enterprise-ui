@@ -59,10 +59,10 @@ export function MapLinkDialog({
       width="600px"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t(L.cancel)}
           </Button>
-          <Button appearance="primary" onClick={onClose} disabled={material.trim().length === 0}>
+          <Button variant="primary" onClick={onClose} disabled={material.trim().length === 0}>
             {t(L.link)}
           </Button>
         </>
@@ -77,10 +77,10 @@ export function MapLinkDialog({
         }
         labelWidth="150px"
       >
-        <Input value={material} onChange={(_, d) => setMaterial(d.value)} />
+        <Input value={material} onChange={setMaterial} />
       </FormField>
       <FormField label={<>{t(L.mapOrder)}</>} labelWidth="150px">
-        <Input value={mapOrder} onChange={(_, d) => setMapOrder(d.value)} />
+        <Input value={mapOrder} onChange={setMapOrder} />
       </FormField>
       <FormField
         label={
@@ -93,7 +93,7 @@ export function MapLinkDialog({
         <Checkbox
           label={t(L.isMasterMap)}
           checked={isMasterMap === true}
-          onChange={(_, d) => setIsMasterMap(d.checked === true)}
+          onChange={setIsMasterMap}
         />
       </FormField>
       {isMasterMap && (
@@ -119,7 +119,7 @@ export function MapLinkDialog({
         <Checkbox
           label={t(L.isDefault)}
           checked={isDefault === true}
-          onChange={(_, d) => setIsDefault(d.checked === true)}
+          onChange={setIsDefault}
         />
       </FormField>
       <FormField
@@ -133,11 +133,11 @@ export function MapLinkDialog({
         <Checkbox
           label={t(L.isMerged)}
           checked={isMerged === true}
-          onChange={(_, d) => setIsMerged(d.checked === true)}
+          onChange={setIsMerged}
         />
       </FormField>
       <FormField label={<>{t(L.comment)}</>} labelWidth="150px">
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -165,7 +165,7 @@ export function MapUnlinkDialog({
     >
       <div>{t(L.unlinkMessage, { name: mapName })}</div>
       <FormField label={<>{t(L.comment)}</>} labelWidth="150px">
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );

@@ -165,11 +165,11 @@ export function DocumentWizardDialog({
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step > 0 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < steps.length - 1 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)} disabled={!canNext}>
+            <Button variant="primary" onClick={() => setStep(step + 1)} disabled={!canNext}>
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose} disabled={!canNext}>
+            <Button variant="primary" onClick={onClose} disabled={!canNext}>
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
             </Button>
           )}
@@ -191,17 +191,17 @@ export function DocumentWizardDialog({
           {field(
             L.changeSet,
             false,
-            <Input value={changeSet} onChange={(_, d) => setChangeSet(d.value)} />,
+            <Input value={changeSet} onChange={setChangeSet} />,
           )}
           {field(
             L.approvalRole,
             false,
-            <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />,
+            <Input value={approvalRole} onChange={setApprovalRole} />,
           )}
           <Checkbox
             label={t(L.useAutomaticChangeSet)}
             checked={autoChangeSet}
-            onChange={(_, d) => setAutoChangeSet(!!d.checked)}
+            onChange={(checked) => setAutoChangeSet(!!checked)}
           />
         </>
       )}
@@ -212,7 +212,7 @@ export function DocumentWizardDialog({
             true,
             <Input
               value={name}
-              onChange={(_, d) => setName(d.value)}
+              onChange={setName}
               disabled={mode === MODE_EDIT}
             />,
           )}
@@ -220,14 +220,14 @@ export function DocumentWizardDialog({
             field(
               L.revision,
               false,
-              <Input value={revision} onChange={(_, d) => setRevision(d.value)} />,
+              <Input value={revision} onChange={setRevision} />,
             )}
           {field(
             L.description,
             false,
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />,
+            <Textarea value={description} onChange={setDescription} />,
           )}
-          {field(L.type, true, <Input value={type} onChange={(_, d) => setType(d.value)} />)}
+          {field(L.type, true, <Input value={type} onChange={setType} />)}
           <div className={styles.sectionTitle}>{t(L.source)}</div>
           <div style={{ display: "flex", gap: "16px", marginBottom: "12px" }}>
             <Checkbox
@@ -246,58 +246,58 @@ export function DocumentWizardDialog({
                 L.file,
                 false,
                 <div style={{ display: "flex", gap: "8px" }}>
-                  <Input value={file} onChange={(_, d) => setFile(d.value)} style={{ flex: 1 }} />
+                  <Input value={file} onChange={setFile} style={{ flex: 1 }} />
                   <Button>{t(L.browse)}</Button>
                 </div>,
               )
-            : field(L.url, false, <Input value={url} onChange={(_, d) => setUrl(d.value)} />)}
+            : field(L.url, false, <Input value={url} onChange={setUrl} />)}
           {field(
             L.changeDescription,
             false,
             <Textarea
               value={changeDescription}
-              onChange={(_, d) => setChangeDescription(d.value)}
+              onChange={setChangeDescription}
             />,
           )}
-          {field(L.folder, false, <Input value={folder} onChange={(_, d) => setFolder(d.value)} />)}
+          {field(L.folder, false, <Input value={folder} onChange={setFolder} />)}
           {field(
             L.ownerRole,
             false,
-            <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />,
+            <Input value={ownerRole} onChange={setOwnerRole} />,
           )}
-          {field(L.group, false, <Input value={group} onChange={(_, d) => setGroup(d.value)} />)}
-          {field(L.author, false, <Input value={author} onChange={(_, d) => setAuthor(d.value)} />)}
+          {field(L.group, false, <Input value={group} onChange={setGroup} />)}
+          {field(L.author, false, <Input value={author} onChange={setAuthor} />)}
           {field(
             L.keywords,
             false,
-            <Input value={keywords} onChange={(_, d) => setKeywords(d.value)} />,
+            <Input value={keywords} onChange={setKeywords} />,
           )}
           {field(
             L.distNewVersion,
             false,
-            <Input value={distNewVersion} onChange={(_, d) => setDistNewVersion(d.value)} />,
+            <Input value={distNewVersion} onChange={setDistNewVersion} />,
           )}
           {field(
             L.distNewEffective,
             false,
-            <Input value={distNewEffective} onChange={(_, d) => setDistNewEffective(d.value)} />,
+            <Input value={distNewEffective} onChange={setDistNewEffective} />,
           )}
           <Checkbox
             label={t(L.requireSignature)}
             checked={requireSignature}
-            onChange={(_, d) => setRequireSignature(!!d.checked)}
+            onChange={(checked) => setRequireSignature(!!checked)}
           />
           {requireSignature &&
             field(
               L.expirationDays,
               false,
-              <Input value={expirationDays} onChange={(_, d) => setExpirationDays(d.value)} />,
+              <Input value={expirationDays} onChange={setExpirationDays} />,
             )}
           {mode === MODE_CLONE &&
             field(
               L.comment,
               false,
-              <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />,
+              <Textarea value={comment} onChange={setComment} />,
             )}
         </>
       )}

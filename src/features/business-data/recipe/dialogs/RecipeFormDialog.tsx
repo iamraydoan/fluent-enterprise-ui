@@ -50,20 +50,20 @@ export function RecipeFormDialog({
       width="min(900px, 90vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {stepCount === 2 && step === 2 && (
-            <Button appearance="secondary" onClick={() => setStep(1)}>
+            <Button variant="secondary" onClick={() => setStep(1)}>
               {t("common.back")}
             </Button>
           )}
           {stepCount === 2 && step === 1 ? (
-            <Button appearance="primary" onClick={() => setStep(2)}>
+            <Button variant="primary" onClick={() => setStep(2)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {submitLabel}
             </Button>
           )}
@@ -78,19 +78,19 @@ export function RecipeFormDialog({
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.changeSet`)}>
             <div style={{ display: "flex", columnGap: 8 }}>
-              <Input value={changeSet} onChange={(_, d) => setChangeSet(d.value)} />
-              <Button appearance="secondary" onClick={() => {}}>
+              <Input value={changeSet} onChange={setChangeSet} />
+              <Button variant="secondary" onClick={() => {}}>
                 {t(`${k}.createNew`)}
               </Button>
             </div>
           </Field>
           <Field label={t(`${k}.approverRole`)}>
-            <Input value={approverRole} onChange={(_, d) => setApproverRole(d.value)} />
+            <Input value={approverRole} onChange={setApproverRole} />
           </Field>
           <Field label={t(`${k}.useAutomaticChangeSet`)}>
             <Checkbox
               checked={automaticChangeSet}
-              onChange={(_, d) => setAutomaticChangeSet(d.checked === true)}
+              onChange={setAutomaticChangeSet}
             />
           </Field>
         </div>
@@ -99,15 +99,15 @@ export function RecipeFormDialog({
       {(step === 2 || nameReadOnly) && (
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.name`)} required>
-            <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+            <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
           {!nameReadOnly && (
             <Field label={t(`${k}.revision`)}>
-              <Input value={revision} onChange={(_, d) => setRevision(d.value)} />
+              <Input value={revision} onChange={setRevision} />
             </Field>
           )}
           <Field label={t(`${k}.description`)}>
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Input value={description} onChange={setDescription} />
           </Field>
           <Field label={t(`${k}.type`)} required>
             <select value={type} onChange={(e) => setType(e.target.value)}>
@@ -119,31 +119,31 @@ export function RecipeFormDialog({
             </select>
           </Field>
           <Field label={t(`${k}.isEnabled`)}>
-            <Checkbox checked={isEnabled} onChange={(_, d) => setIsEnabled(d.checked === true)} />
+            <Checkbox checked={isEnabled} onChange={setIsEnabled} />
           </Field>
           <Field label={t(`${k}.isExecutable`)}>
             <Checkbox
               checked={isExecutable}
-              onChange={(_, d) => setIsExecutable(d.checked === true)}
+              onChange={setIsExecutable}
             />
           </Field>
           <Field label={t(`${k}.resourceRecipeName`)} required>
-            <Input value={resourceRecipeName} onChange={(_, d) => setResourceRecipeName(d.value)} />
+            <Input value={resourceRecipeName} onChange={setResourceRecipeName} />
           </Field>
           <Field label={t(`${k}.userInformation`)}>
-            <Input value={userInformation} onChange={(_, d) => setUserInformation(d.value)} />
+            <Input value={userInformation} onChange={setUserInformation} />
           </Field>
           <Field label={t(`${k}.supplierInformation`)}>
             <Input
               value={supplierInformation}
-              onChange={(_, d) => setSupplierInformation(d.value)}
+              onChange={setSupplierInformation}
             />
           </Field>
         </div>
       )}
 
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

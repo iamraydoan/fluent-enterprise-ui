@@ -72,7 +72,7 @@ export function ChecklistItemsEditor({
               <Input
                 placeholder={t("businessData.checklist.operations.itemName")}
                 value={row.name}
-                onChange={(_, d) => update(row.id, { name: d.value })}
+                onChange={(value) => update(row.id, { name: value })}
               />
             </div>
             <MiniSelect
@@ -98,12 +98,12 @@ export function ChecklistItemsEditor({
               onChange={() => update(row.id, { optional: !row.optional })}
             />
             <Button
-              appearance="secondary"
+              variant="secondary"
               onClick={() => setExpanded(expanded === row.id ? null : row.id)}
             >
               {t("businessData.checklist.operations.details")}
             </Button>
-            <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+            <Button variant="secondary" onClick={() => removeRow(row.id)}>
               {t("common.remove")}
             </Button>
           </div>
@@ -112,23 +112,23 @@ export function ChecklistItemsEditor({
               <Field label={t("businessData.checklist.detail.description")}>
                 <Input
                   value={row.description}
-                  onChange={(_, d) => update(row.id, { description: d.value })}
+                  onChange={(value) => update(row.id, { description: value })}
                 />
               </Field>
               <Field label={t("businessData.checklist.operations.itemType")}>
                 <Input
                   value={row.itemType}
-                  onChange={(_, d) => update(row.id, { itemType: d.value })}
+                  onChange={(value) => update(row.id, { itemType: value })}
                 />
               </Field>
               <Field label={t("businessData.checklist.operations.documentationUrl")}>
                 <Input
                   value={row.documentationUrl}
-                  onChange={(_, d) => update(row.id, { documentationUrl: d.value })}
+                  onChange={(value) => update(row.id, { documentationUrl: value })}
                 />
               </Field>
               <Field label={t("businessData.checklist.operations.rule")}>
-                <Input value={row.rule} onChange={(_, d) => update(row.id, { rule: d.value })} />
+                <Input value={row.rule} onChange={(value) => update(row.id, { rule: value })} />
               </Field>
               <Field label={t("businessData.checklist.operations.timeCategory")}>
                 <MiniSelect
@@ -140,11 +140,11 @@ export function ChecklistItemsEditor({
               <Field label={t("businessData.checklist.detail.standardDuration")}>
                 <Input
                   value={row.standardDuration}
-                  onChange={(_, d) => update(row.id, { standardDuration: d.value })}
+                  onChange={(value) => update(row.id, { standardDuration: value })}
                 />
               </Field>
               <Field label={t("businessData.checklist.operations.group")}>
-                <Input value={row.group} onChange={(_, d) => update(row.id, { group: d.value })} />
+                <Input value={row.group} onChange={(value) => update(row.id, { group: value })} />
               </Field>
               <Field label={t("businessData.checklist.operations.conditionType")}>
                 <MiniSelect
@@ -156,7 +156,7 @@ export function ChecklistItemsEditor({
               <Field label={t("businessData.checklist.operations.conditionExpression")}>
                 <Input
                   value={row.conditionExpression}
-                  onChange={(_, d) => update(row.id, { conditionExpression: d.value })}
+                  onChange={(value) => update(row.id, { conditionExpression: value })}
                 />
               </Field>
               <div className={styles.fieldRow}>
@@ -172,7 +172,7 @@ export function ChecklistItemsEditor({
                 </span>
                 <Textarea
                   value={row.instructions}
-                  onChange={(_, d) => update(row.id, { instructions: d.value })}
+                  onChange={(value) => update(row.id, { instructions: value })}
                 />
               </div>
               <div style={{ gridColumn: "1 / -1" }}>
@@ -185,7 +185,7 @@ export function ChecklistItemsEditor({
           )}
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("businessData.checklist.operations.addItem")}
       </Button>
     </div>
@@ -224,7 +224,7 @@ function ItemParametersEditor({
             <Input
               placeholder={t("businessData.checklist.operations.parameterName")}
               value={p.name}
-              onChange={(_, d) => update(idx, { name: d.value })}
+              onChange={(value) => update(idx, { name: value })}
             />
           </div>
           <Checkbox
@@ -245,14 +245,14 @@ function ItemParametersEditor({
           <Input
             placeholder={t("businessData.checklist.operations.defaultValue")}
             value={p.defaultValue}
-            onChange={(_, d) => update(idx, { defaultValue: d.value })}
+            onChange={(value) => update(idx, { defaultValue: value })}
           />
-          <Button appearance="secondary" onClick={() => removeParam(idx)}>
+          <Button variant="secondary" onClick={() => removeParam(idx)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addParam}>
+      <Button variant="secondary" onClick={addParam}>
         {t("common.add")}
       </Button>
     </div>

@@ -99,11 +99,11 @@ export function ConfirmOperationDialog({
           <Text>{t(messageKey, messageParams)}</Text>
         </div>
         <div className={styles.foot}>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onConfirm();
               onClose();

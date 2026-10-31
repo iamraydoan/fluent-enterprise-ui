@@ -40,10 +40,10 @@ export function PostDataDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={() => onConfirm(rows, comment)}>
+          <Button variant="primary" onClick={() => onConfirm(rows, comment)}>
             {t("businessData.dataCollection.operations.post")}
           </Button>
         </>
@@ -58,14 +58,14 @@ export function PostDataDialog({
             {p.parameter}
             {p.isOptional ? "" : " *"}
           </span>
-          <Input value={valueOf(p.parameter)} onChange={(_, d) => setValue(p.parameter, d.value)} />
+          <Input value={valueOf(p.parameter)} onChange={(value) => setValue(p.parameter, value)} />
         </div>
       ))}
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>
           {t("businessData.dataCollection.operations.comment")}
         </span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </BaseDialog>
   );
@@ -105,10 +105,10 @@ export function CorrectDataDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={() => onConfirm(rows)}>
+          <Button variant="primary" onClick={() => onConfirm(rows)}>
             {t("businessData.dataCollection.operations.correct")}
           </Button>
         </>
@@ -120,7 +120,7 @@ export function CorrectDataDialog({
       {parameters.map((p) => (
         <div key={p.parameter} className={styles.fieldRow}>
           <span className={styles.fieldLabel}>{p.parameter}</span>
-          <Input value={valueOf(p.parameter)} onChange={(_, d) => setValue(p.parameter, d.value)} />
+          <Input value={valueOf(p.parameter)} onChange={(value) => setValue(p.parameter, value)} />
         </div>
       ))}
       <Checkbox

@@ -283,8 +283,8 @@ export function DataTableCard<TRow extends RowData>({
               <Checkbox
                 key={filter.param}
                 checked={checkboxValues[filter.param] ?? false}
-                onChange={(_, d) => {
-                  setCheckboxValues((prev) => ({ ...prev, [filter.param]: !!d.checked }));
+                onChange={(checked) => {
+                  setCheckboxValues((prev) => ({ ...prev, [filter.param]: checked }));
                   resetPage();
                 }}
                 label={t(filter.labelKey)}
@@ -293,12 +293,12 @@ export function DataTableCard<TRow extends RowData>({
               <Input
                 key={filter.param}
                 className={sharedStyles.searchInput}
-                appearance="outline"
+                variant="outline"
                 contentBefore={<Search20Regular />}
                 placeholder={filter.placeholderKey ? t(filter.placeholderKey) : t("common.search")}
                 value={searchValues[filter.param] ?? ""}
-                onChange={(_, d) => {
-                  setSearchValues((prev) => ({ ...prev, [filter.param]: d.value }));
+                onChange={(value) => {
+                  setSearchValues((prev) => ({ ...prev, [filter.param]: value }));
                   resetPage();
                 }}
                 aria-label={t("common.search")}
@@ -316,7 +316,7 @@ export function DataTableCard<TRow extends RowData>({
           <Menu>
             <MenuTrigger disableButtonEnhancement>
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<MoreVertical20Regular />}
                 aria-label={t("common.moreOptions")}
               />

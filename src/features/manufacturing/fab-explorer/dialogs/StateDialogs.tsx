@@ -67,7 +67,7 @@ export function ChangeResourceStateDialog({
         </select>
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.changeResourceState.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -95,10 +95,10 @@ export function HoldMaterialDialog({ open, materials, onClose, onConfirm }: OpDi
         {t("manufacturing.fabExplorer.dialogs.holdMaterial.message", { count: materials.length })}
       </div>
       <FormField label={t("manufacturing.fabExplorer.dialogs.holdMaterial.hold")}>
-        <Input value={hold} onChange={(_, d) => setHold(d.value)} />
+        <Input value={hold} onChange={setHold} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.holdMaterial.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -126,7 +126,7 @@ export function ReleaseMaterialDialog({ open, materials, onClose, onConfirm }: O
         })}
       </div>
       <FormField label={t("manufacturing.fabExplorer.dialogs.releaseMaterial.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -151,7 +151,7 @@ export function AbortDialog({ open, materials, onClose, onConfirm }: OpDialogPro
     >
       <div>{t("manufacturing.fabExplorer.dialogs.abort.message", { count: materials.length })}</div>
       <FormField label={t("manufacturing.fabExplorer.dialogs.abort.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -182,10 +182,10 @@ export function ReworkDialog({ open, materials, onClose, onConfirm }: OpDialogPr
         })}
       </div>
       <FormField label={t("manufacturing.fabExplorer.dialogs.rework.step")}>
-        <Input value={step} onChange={(_, d) => setStep(d.value)} />
+        <Input value={step} onChange={setStep} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.rework.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -210,10 +210,10 @@ export function ChangeMaterialTypeDialog({ open, onClose, onConfirm }: OpDialogP
       }
     >
       <FormField label={t("manufacturing.fabExplorer.dialogs.changeMaterialType.newType")}>
-        <Input value={newType} onChange={(_, d) => setNewType(d.value)} />
+        <Input value={newType} onChange={setNewType} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.changeMaterialType.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );

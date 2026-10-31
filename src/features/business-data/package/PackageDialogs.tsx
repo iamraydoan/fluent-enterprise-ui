@@ -47,7 +47,7 @@ export function TerminatePackageDialog({ open, onClose, onSubmit }: DialogProps)
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();
@@ -76,7 +76,7 @@ export function UnterminatePackageDialog({ open, onClose, onSubmit }: DialogProp
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();
@@ -118,7 +118,7 @@ export function ShipPackagesDialog({ open, onClose, onSubmit }: DialogProps) {
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -130,13 +130,13 @@ export function ShipPackagesDialog({ open, onClose, onSubmit }: DialogProps) {
       }
     >
       <Field label={t(`${P}.fields.facility` as never)} hint={t(`${P}.hints.facility` as never)}>
-        <Input value={facility} onChange={(_, d) => setFacility(d.value)} />
+        <Input value={facility} onChange={setFacility} />
       </Field>
       <Field
         label={t(`${P}.fields.shippingLabel` as never)}
         hint={t(`${P}.hints.shippingLabel` as never)}
       >
-        <Input value={label} onChange={(_, d) => setLabel(d.value)} />
+        <Input value={label} onChange={setLabel} />
       </Field>
       <Field
         label={t(`${P}.fields.shipContainers` as never)}
@@ -144,12 +144,12 @@ export function ShipPackagesDialog({ open, onClose, onSubmit }: DialogProps) {
       >
         <Checkbox
           checked={shipContainers}
-          onChange={(_, d) => setShipContainers(d.checked === true)}
+          onChange={setShipContainers}
           label={t(`${P}.fields.shipContainers` as never)}
         />
       </Field>
       <Field label={t(`${P}.fields.comment` as never)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );

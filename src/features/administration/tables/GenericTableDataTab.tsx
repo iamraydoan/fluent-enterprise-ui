@@ -87,10 +87,10 @@ export function GenericTableDataTab({ table }: { table: GenericTableDetail }) {
   return (
     <div>
       <div className={styles.toolbar}>
-        <Button appearance="subtle" icon={<ArrowSync20Regular />}>
+        <Button variant="subtle" icon={<ArrowSync20Regular />}>
           {t("actionBar.refresh")}
         </Button>
-        <Button appearance="subtle" icon={<Add24Regular />}>
+        <Button variant="subtle" icon={<Add24Regular />}>
           {t("genericTables.data.add")}
         </Button>
       </div>
@@ -104,8 +104,8 @@ export function GenericTableDataTab({ table }: { table: GenericTableDetail }) {
               <TableHeaderCell className={styles.th}>
                 <Checkbox
                   checked={selected.size === table.rows.length && table.rows.length > 0}
-                  onChange={(_, data) => {
-                    if (data.checked) toggleAll();
+                  onChange={(checked) => {
+                    if (checked) toggleAll();
                     else setSelected(new Set());
                   }}
                   aria-label={t("genericTables.data.selectAll")}
