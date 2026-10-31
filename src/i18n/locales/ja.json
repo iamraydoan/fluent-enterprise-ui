@@ -7622,5 +7622,43 @@
         "menuLabel": "終了取消"
       }
     }
+  },
+  "myWorkgroup": {
+    "pageLabel": "マイ ワークグループ",
+    "workgroup": "ワークグループ",
+    "resources": "リソース",
+    "steps": "ステップ",
+    "settings": "パネル設定",
+    "filters": {
+      "type": "タイプ",
+      "systemState": "システム状態",
+      "facility": "ファシリティ",
+      "state": "状態",
+      "processingType": "処理タイプ",
+      "all": "すべて",
+      "facilityPlaceholder": "ファシリティ",
+      "resourceNamePlaceholder": "リソース名",
+      "stepNamePlaceholder": "ステップ名"
+    },
+    "tiles": {
+      "dispatched": "ディスパッチ済み",
+      "inProcess": "処理中",
+      "processed": "処理済み",
+      "materials": "マテリアル",
+      "resources": "リソース"
+    },
+    "panelSettings": {
+      "title": "パネル設定",
+      "availableSections": "利用可能なセクション",
+      "itemsSelected": "{{count}} 件選択中",
+      "sections": "セクション",
+      "selectedSections": "選択中のセクション",
+      "comments": "コメント",
+      "cancel": "キャンセル",
+      "update": "更新"
+    },
+    "noResources": "リソースが見つかりません。",
+    "noSteps": "ステップが見つかりません。",
+    "loading": "読み込み中…"
   }
 }

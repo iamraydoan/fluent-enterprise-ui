@@ -88,6 +88,7 @@ import { Route as BusinessDataTeamRouteImport } from './routes/business-data.tea
 import { Route as BusinessDataTransferOrderRouteImport } from './routes/business-data.transfer-order'
 import { Route as BusinessDataTransferRequirementRouteImport } from './routes/business-data.transfer-requirement'
 import { Route as BusinessDataWorkgroupRouteImport } from './routes/business-data.workgroup'
+import { Route as ManufacturingMyWorkgroupRouteImport } from './routes/manufacturing.my-workgroup'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -586,6 +587,12 @@ const BusinessDataWorkgroupRoute = BusinessDataWorkgroupRouteImport.update({
   path: '/workgroup',
   getParentRoute: () => BusinessDataRoute,
 } as any)
+const ManufacturingMyWorkgroupRoute =
+  ManufacturingMyWorkgroupRouteImport.update({
+    id: '/manufacturing/my-workgroup',
+    path: '/manufacturing/my-workgroup',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -1076,6 +1083,7 @@ export interface FileRoutesByFullPath {
   '/business-data/transfer-order': typeof BusinessDataTransferOrderRouteWithChildren
   '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
   '/business-data/workgroup': typeof BusinessDataWorkgroupRouteWithChildren
+  '/manufacturing/my-workgroup': typeof ManufacturingMyWorkgroupRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -1228,6 +1236,7 @@ export interface FileRoutesByTo {
   '/business-data/transfer-order': typeof BusinessDataTransferOrderRouteWithChildren
   '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
   '/business-data/workgroup': typeof BusinessDataWorkgroupRouteWithChildren
+  '/manufacturing/my-workgroup': typeof ManufacturingMyWorkgroupRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -1381,6 +1390,7 @@ export interface FileRoutesById {
   '/business-data/transfer-order': typeof BusinessDataTransferOrderRouteWithChildren
   '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
   '/business-data/workgroup': typeof BusinessDataWorkgroupRouteWithChildren
+  '/manufacturing/my-workgroup': typeof ManufacturingMyWorkgroupRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -1535,6 +1545,7 @@ export interface FileRouteTypes {
     | '/business-data/transfer-order'
     | '/business-data/transfer-requirement'
     | '/business-data/workgroup'
+    | '/manufacturing/my-workgroup'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -1687,6 +1698,7 @@ export interface FileRouteTypes {
     | '/business-data/transfer-order'
     | '/business-data/transfer-requirement'
     | '/business-data/workgroup'
+    | '/manufacturing/my-workgroup'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -1839,6 +1851,7 @@ export interface FileRouteTypes {
     | '/business-data/transfer-order'
     | '/business-data/transfer-requirement'
     | '/business-data/workgroup'
+    | '/manufacturing/my-workgroup'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -1918,6 +1931,7 @@ export interface RootRouteChildren {
   AdministrationRoute: typeof AdministrationRouteWithChildren
   AiRoute: typeof AiRoute
   BusinessDataRoute: typeof BusinessDataRouteWithChildren
+  ManufacturingMyWorkgroupRoute: typeof ManufacturingMyWorkgroupRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -2474,6 +2488,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business-data/workgroup'
       preLoaderRoute: typeof BusinessDataWorkgroupRouteImport
       parentRoute: typeof BusinessDataRoute
+    }
+    '/manufacturing/my-workgroup': {
+      id: '/manufacturing/my-workgroup'
+      path: '/manufacturing/my-workgroup'
+      fullPath: '/manufacturing/my-workgroup'
+      preLoaderRoute: typeof ManufacturingMyWorkgroupRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/administration/ai-agent/$name': {
       id: '/administration/ai-agent/$name'
@@ -4080,6 +4101,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdministrationRoute: AdministrationRouteWithChildren,
   AiRoute: AiRoute,
   BusinessDataRoute: BusinessDataRouteWithChildren,
+  ManufacturingMyWorkgroupRoute: ManufacturingMyWorkgroupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

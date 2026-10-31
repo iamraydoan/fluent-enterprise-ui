@@ -29,6 +29,22 @@ export type {
 export { sendChatMessage, useSendChat } from "./aiChat";
 export type { SendChatRequest, SendChatResponse } from "./aiChat";
 export { listApps, useApps } from "./apps";
+export {
+  listMyWorkgroupResources,
+  listMyWorkgroupSteps,
+  listMyWorkgroups,
+  useMyWorkgroupResources,
+  useMyWorkgroupSteps,
+  useMyWorkgroups,
+} from "./myWorkgroup";
+export type {
+  MyWorkgroupInfo,
+  MyWorkgroupResourceParams,
+  MyWorkgroupStepParams,
+  WorkgroupResourceTile,
+  WorkgroupStepTile,
+  WorkgroupSystemState,
+} from "./myWorkgroup";
 export { AppType } from "./apps";
 export type { AppListParams, AppRecord } from "./apps";
 export {
