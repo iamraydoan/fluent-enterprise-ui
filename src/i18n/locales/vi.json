@@ -7749,5 +7749,43 @@
         }
       }
     }
+  },
+  "myWorkgroup": {
+    "pageLabel": "Nhóm làm việc của tôi",
+    "workgroup": "Nhóm làm việc",
+    "resources": "Tài nguyên",
+    "steps": "Công đoạn",
+    "settings": "Cài đặt panel",
+    "filters": {
+      "type": "Loại",
+      "systemState": "Trạng thái hệ thống",
+      "facility": "Cơ sở",
+      "state": "Trạng thái",
+      "processingType": "Loại xử lý",
+      "all": "Tất cả",
+      "facilityPlaceholder": "Cơ sở",
+      "resourceNamePlaceholder": "Tên tài nguyên",
+      "stepNamePlaceholder": "Tên công đoạn"
+    },
+    "tiles": {
+      "dispatched": "Đã điều phối",
+      "inProcess": "Đang xử lý",
+      "processed": "Đã xử lý",
+      "materials": "Vật liệu",
+      "resources": "Tài nguyên"
+    },
+    "panelSettings": {
+      "title": "Cài đặt panel",
+      "availableSections": "Các mục có sẵn",
+      "itemsSelected": "Đã chọn {{count}} mục",
+      "sections": "Các mục",
+      "selectedSections": "Các mục đã chọn",
+      "comments": "Ghi chú",
+      "cancel": "Hủy",
+      "update": "Cập nhật"
+    },
+    "noResources": "Không tìm thấy tài nguyên.",
+    "noSteps": "Không tìm thấy công đoạn.",
+    "loading": "Đang tải…"
   }
 }

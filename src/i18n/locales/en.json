@@ -7749,5 +7749,43 @@
         }
       }
     }
+  },
+  "myWorkgroup": {
+    "pageLabel": "My Workgroup",
+    "workgroup": "Workgroup",
+    "resources": "Resources",
+    "steps": "Steps",
+    "settings": "Panel Settings",
+    "filters": {
+      "type": "Type",
+      "systemState": "System State",
+      "facility": "Facility",
+      "state": "State",
+      "processingType": "Processing Type",
+      "all": "All",
+      "facilityPlaceholder": "Facility",
+      "resourceNamePlaceholder": "Resource Name",
+      "stepNamePlaceholder": "Step Name"
+    },
+    "tiles": {
+      "dispatched": "Dispatched",
+      "inProcess": "In Process",
+      "processed": "Processed",
+      "materials": "Materials",
+      "resources": "Resources"
+    },
+    "panelSettings": {
+      "title": "Panel Settings",
+      "availableSections": "Available Sections",
+      "itemsSelected": "{{count}} items selected",
+      "sections": "Sections",
+      "selectedSections": "Selected Sections",
+      "comments": "Comments",
+      "cancel": "Cancel",
+      "update": "Update"
+    },
+    "noResources": "No resources found.",
+    "noSteps": "No steps found.",
+    "loading": "Loading…"
   }
 }

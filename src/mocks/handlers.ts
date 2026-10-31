@@ -72,6 +72,7 @@ import { genericTableHandlers } from "./handlers/genericTables";
 import { fabLiveHandlers } from "./handlers/manufacturing";
 import { barcodeIdentificationHandlers } from "./handlers/manufacturing/barcodeIdentification";
 import { mcpServerHandlers } from "./handlers/mcpServer";
+import { myWorkgroupHandlers } from "./handlers/myWorkgroup";
 import { queryHandlers } from "./handlers/queries";
 import { uiPageHandlers } from "./handlers/uiPages";
 
@@ -111,6 +112,7 @@ export const handlers = [
   ...genericTableHandlers,
   ...uiPageHandlers,
   ...mcpServerHandlers,
+  ...myWorkgroupHandlers,
   ...queryHandlers,
   ...materialHandlers,
   ...materialTransferHandlers,
