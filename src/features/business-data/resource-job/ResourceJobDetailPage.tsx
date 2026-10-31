@@ -5,6 +5,7 @@ import {
   Card,
   CardGrid,
   DetailShell,
+  DialogEntityBanner,
   DialogFooter,
   Empty,
   KV,
@@ -89,7 +90,7 @@ function LifecycleDialog({
       width="min(700px, 85vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(actionKey)} />}
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>📋 {jobName}</div>
+      <DialogEntityBanner icon="📋" name={jobName} />
       <Field label={t("businessData.resourceJob.dialogs.lifecycle.comment")}>
         <Input value={comment} onChange={(_, d) => setComment(d.value)} />
       </Field>

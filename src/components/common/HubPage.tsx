@@ -4,12 +4,13 @@ import { Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
+import { cardSurface } from "@/styles/shared";
 
 const useHubStyles = makeStyles({
   page: {
     flexGrow: 1,
     minHeight: 0,
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
     borderRadius: "0 0 12px 12px",
     display: "flex",
     flexDirection: "column",
@@ -30,16 +31,19 @@ const useHubStyles = makeStyles({
     justifyContent: "center",
     rowGap: "10px",
     padding: "8px",
-    backgroundColor: "#F0F0F0",
-    border: "1px solid #CFCFCF",
+    backgroundColor: tokens.colorNeutralBackground2,
+    border: `1px solid ${tokens.colorNeutralStroke1}`,
     borderRadius: "4px",
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
     lineHeight: "16px",
-    color: "#222",
+    color: tokens.colorNeutralForeground1,
     textAlign: "center",
-    ":hover": { backgroundColor: "#E6EBF5", border: "1px solid #9DB5E8" },
+    ":hover": {
+      backgroundColor: tokens.colorNeutralBackground1Hover,
+      border: `1px solid ${tokens.colorBrandStroke1}`,
+    },
     ":focus-visible": { outline: `2px solid ${tokens.colorBrandStroke1}`, outlineOffset: "1px" },
   },
   tileIcon: { fontSize: "32px", display: "grid", placeItems: "center", height: "32px" },
@@ -87,7 +91,7 @@ export function HubPage({ tiles, ariaLabelKey, searchWidth = 210, onTileClick }:
         ))}
       </div>
       {filtered.length === 0 && (
-        <div style={{ padding: 40, textAlign: "center", color: "#777" }}>
+        <div style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}>
           {t("common.noResults")}
         </div>
       )}

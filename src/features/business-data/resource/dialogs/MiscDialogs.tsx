@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import {
   Body1Strong,
   Button,
@@ -133,7 +133,7 @@ export function SetResourceRecipeDialog({ open, onClose, resourceName }: MiscDia
       width="min(800px, 88vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.set`)} />}
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.recipe`)} required>
         <Input value={recipe} onChange={(_, d) => setRecipe(d.value)} />
       </Field>
@@ -158,7 +158,7 @@ export function ResourceOEEConfigurationDialog({ open, onClose, resourceName }: 
       width="min(800px, 88vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.save`)} />}
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
         <Field label={t(`${k}.idealCycleTime`)}>
           <Input value={idealCycleTime} onChange={(_, d) => setIdealCycleTime(d.value)} />
@@ -197,7 +197,7 @@ function ViewDialogBase({
         />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Table>
         <TableHeader>
           <TableRow>

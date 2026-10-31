@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ResourceDetail, ResourceProcessingType, ResourceRecord } from "@/api";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, WizardSteps } from "@/components/common";
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
@@ -96,29 +96,7 @@ export function ResourceFormDialog({
       }
     >
       {!nameReadOnly && (
-        <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-          {steps.map((s, i) => (
-            <span key={s} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
-              {i > 0 && <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />}
-              <span
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: "50%",
-                  backgroundColor: step === s ? "#0078d4" : "#ccc",
-                  color: "#fff",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 12,
-                }}
-              >
-                {s}
-              </span>
-              <Body1Strong>{stepLabels[i]}</Body1Strong>
-            </span>
-          ))}
-        </div>
+        <WizardSteps steps={stepLabels.slice(0, steps.length)} current={step} />
       )}
 
       {(step === 1 || nameReadOnly) && (

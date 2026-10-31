@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -58,7 +58,7 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.manage`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>📊 {scheduleName}</div>
+      <DialogEntityBanner icon="📊" name={scheduleName} />
       <div style={{ display: "flex", columnGap: 16 }}>
         <div style={{ width: 300, flexShrink: 0 }}>
           <div

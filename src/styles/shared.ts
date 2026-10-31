@@ -5,6 +5,13 @@ export const cardSurface = {
   borderRadius: "12px",
 };
 
+export const detailTileColors = {
+  background: "#C9E0EC",
+  foreground: "#0F5C93",
+};
+
+export const aiAccentColor = "#B24BF3";
+
 export const useSharedStyles = makeStyles({
   pageTabsBar: {
     display: "flex",
@@ -20,7 +27,7 @@ export const useSharedStyles = makeStyles({
     height: "42px",
     width: "244px",
     padding: "0 10px",
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
     borderRadius: "12px 12px 0 0",
     boxSizing: "border-box",
   },
@@ -32,7 +39,7 @@ export const useSharedStyles = makeStyles({
     paddingRight: "6px",
   },
 
-  headerBlock: { backgroundColor: "#FAFAFA", borderRadius: "0 0 12px 12px", flexShrink: 0 },
+  headerBlock: { ...cardSurface, borderRadius: "0 0 12px 12px", flexShrink: 0 },
   actionBarButtons: { display: "flex", alignItems: "stretch", padding: "6px 8px 0" },
   actionBarGroup: {
     display: "flex",
@@ -63,10 +70,10 @@ export const useSharedStyles = makeStyles({
     borderRadius: "6px",
     fontFamily: "inherit",
     fontSize: "10px",
-    color: "#222",
+    color: tokens.colorNeutralForeground1,
     lineHeight: "12px",
     textAlign: "center",
-    ":hover": { backgroundColor: "#ECEEF1" },
+    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
   },
   pageHeader: {
     display: "flex",
@@ -100,7 +107,7 @@ export const useSharedStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "12px",
-    color: "#222",
+    color: tokens.colorNeutralForeground1,
     display: "inline-flex",
     alignItems: "center",
     columnGap: "4px",
@@ -122,7 +129,7 @@ export const useSharedStyles = makeStyles({
     position: "sticky",
     top: 0,
     zIndex: 1,
-    backgroundColor: "#EFEFEF",
+    backgroundColor: tokens.colorNeutralBackground2,
     borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
     height: "38px",
     fontSize: "12px",
@@ -138,12 +145,12 @@ export const useSharedStyles = makeStyles({
     font: "inherit",
     textTransform: "inherit",
     cursor: "pointer",
-    color: "#222",
+    color: tokens.colorNeutralForeground1,
     padding: 0,
   },
   tableCell: { height: "36.5px", fontSize: "13px" },
   tableLink: {
-    color: "#1a6fc4",
+    color: tokens.colorBrandForeground1,
     cursor: "pointer",
     textDecorationLine: "none",
     ":hover": { textDecorationLine: "underline" },

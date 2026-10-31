@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { ResourceJobDetail, ResourceJobRecord } from "@/api";
-import { BaseDialog } from "@/components/common";
-import { Body1Strong, Button, Field, Input } from "@/components/ui";
+import { BaseDialog, WizardSteps } from "@/components/common";
+import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
 interface ResourceJobFormDialogProps {
@@ -69,29 +69,7 @@ export function ResourceJobFormDialog({
       }
     >
       {!nameReadOnly && (
-        <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-          {[t(`${k}.step1`), t(`${k}.step2`), t(`${k}.step3`)].map((label, i) => (
-            <span key={i} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
-              {i > 0 && <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />}
-              <span
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: "50%",
-                  backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
-                  color: "#fff",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 12,
-                }}
-              >
-                {i + 1}
-              </span>
-              <Body1Strong>{label}</Body1Strong>
-            </span>
-          ))}
-        </div>
+        <WizardSteps steps={[t(`${k}.step1`), t(`${k}.step2`), t(`${k}.step3`)]} current={step} />
       )}
 
       {(step === 1 || nameReadOnly) && (

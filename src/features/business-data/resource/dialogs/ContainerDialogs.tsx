@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
@@ -28,7 +28,7 @@ export function AddResourceToContainerDialog({
       width="min(800px, 88vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.add`)} />}
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
         <Field label={t(`${k}.container`)} required>
           <Input value={container} onChange={(_, d) => setContainer(d.value)} />
@@ -93,7 +93,7 @@ export function TransferResourceBetweenContainersDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.transfer`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
         <Field label={t(`${k}.sourceContainer`)} required>
           <Input value={sourceContainer} onChange={(_, d) => setSourceContainer(d.value)} />
@@ -132,7 +132,7 @@ export function StoreContainersInResourceDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.store`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.container`)} required>
         <Input value={container} onChange={(_, d) => setContainer(d.value)} />
       </Field>
@@ -163,7 +163,7 @@ export function StoreMaterialsInResourceDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.store`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.material`)} required>
         <Input value={material} onChange={(_, d) => setMaterial(d.value)} />
       </Field>
@@ -190,7 +190,7 @@ export function StoreResourceDialog({ open, onClose, resourceName }: ContainerDi
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.store`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.storageResource`)} required>
         <Input value={storageResource} onChange={(_, d) => setStorageResource(d.value)} />
       </Field>

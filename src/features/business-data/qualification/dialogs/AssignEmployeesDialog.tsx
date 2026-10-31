@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, WizardSteps } from "@/components/common";
 import {
   Body1Strong,
   Button,
@@ -107,43 +107,9 @@ export function AssignEmployeesDialog({
         </>
       }
     >
-      <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-        <span
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: "50%",
-            backgroundColor: step === 1 ? "#0078d4" : "#ccc",
-            color: "#fff",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 12,
-          }}
-        >
-          1
-        </span>
-        <Body1Strong>{t(`${k}.stepEmployees`)}</Body1Strong>
-        <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />
-        <span
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: "50%",
-            backgroundColor: step === 2 ? "#0078d4" : "#ccc",
-            color: "#fff",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 12,
-          }}
-        >
-          2
-        </span>
-        <Body1Strong>{t(`${k}.stepQualification`)}</Body1Strong>
-      </div>
+            <WizardSteps steps={[t(`${k}.stepEmployees`), t(`${k}.stepQualification`)]} current={step} />
 
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🏆 {qualificationName}</div>
+      <DialogEntityBanner icon="🏆" name={qualificationName} />
 
       {step === 1 && (
         <div style={{ display: "flex", columnGap: 16 }}>

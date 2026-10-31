@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import {
   Body1Strong,
   Checkbox,
@@ -54,7 +54,7 @@ export function UploadRecipeToResourceDialog({
         />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🎛 {recipeName}</div>
+      <DialogEntityBanner icon="🎛" name={recipeName} />
       <Body1Strong>{t(`${k}.resources`)}</Body1Strong>
       <Table>
         <TableHeader>

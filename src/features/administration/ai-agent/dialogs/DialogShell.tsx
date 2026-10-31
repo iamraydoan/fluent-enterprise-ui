@@ -45,7 +45,7 @@ const useDialogShellStyles = makeStyles({
     justifyContent: "space-between",
     padding: "8px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    backgroundColor: "#FAFAFA",
+    backgroundColor: cardSurface.backgroundColor,
     flexShrink: 0,
     fontSize: "13px",
   },
