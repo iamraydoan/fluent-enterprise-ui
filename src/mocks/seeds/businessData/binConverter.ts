@@ -114,4 +114,3 @@ export function updateBinConverterDetail(
   BIN_CONVERTER_OVERLAYS[name] = { ...BIN_CONVERTER_OVERLAYS[name], ...input };
   return buildBinConverterDetail(name);
 }
-

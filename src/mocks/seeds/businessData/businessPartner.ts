@@ -104,4 +104,3 @@ export function updateBusinessPartnerDetail(
   BUSINESS_PARTNER_OVERLAYS[name] = { ...BUSINESS_PARTNER_OVERLAYS[name], ...input };
   return buildBusinessPartnerDetail(name);
 }
-

@@ -81,4 +81,3 @@ export function updateCalendarDetail(
   CALENDAR_OVERLAYS[name] = { ...CALENDAR_OVERLAYS[name], ...input };
   return buildCalendarDetail(name);
 }
-

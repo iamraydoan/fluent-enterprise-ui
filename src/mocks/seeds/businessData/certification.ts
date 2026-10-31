@@ -92,4 +92,3 @@ export function updateCertificationDetail(
   CERTIFICATION_OVERLAYS[name] = { ...CERTIFICATION_OVERLAYS[name], ...input };
   return buildCertificationDetail(name);
 }
-

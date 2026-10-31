@@ -76,7 +76,6 @@ const PAGES: UIPageRecord[] = [
   },
 ];
 
-
 export interface UIPageQuery {
   folder?: string;
   scope?: string;

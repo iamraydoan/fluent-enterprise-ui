@@ -105,4 +105,3 @@ export function updateBomDetail(name: string, input: Partial<BomDetail>): BomDet
   BOM_DETAIL_OVERLAYS[name] = { ...BOM_DETAIL_OVERLAYS[name], ...input };
   return buildBomDetail(name);
 }
-

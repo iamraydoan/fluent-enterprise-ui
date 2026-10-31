@@ -126,4 +126,3 @@ export function updateBatchDetail(
   BATCH_DETAIL_OVERLAYS[name] = { ...BATCH_DETAIL_OVERLAYS[name], ...input };
   return buildBatchDetail(name);
 }
-

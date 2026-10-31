@@ -117,4 +117,3 @@ export function updateChangeSetDetail(
   CHANGE_SET_OVERLAYS[name] = { ...CHANGE_SET_OVERLAYS[name], ...input };
   return buildChangeSetDetail(name);
 }
-
