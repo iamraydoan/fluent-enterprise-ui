@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Database20Regular, Dismiss20Regular } from "@/components/icons";
-import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog } from "@/components/common";
+import { Button, Checkbox, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 
 const L: Record<string, TranslationKey> = {
   title: "businessData.dataSilo.create.title",
@@ -26,39 +25,6 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(960px, calc(100vw - 48px))",
-    maxHeight: "calc(100vh - 48px)",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-  },
-  head: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "10px",
-    height: "48px",
-    padding: "0 16px",
-    backgroundColor: "#DDE1E7",
-    flexShrink: 0,
-  },
-  body: {
-    padding: "20px 24px",
-    overflowY: "auto",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "12px",
-  },
   field: {
     display: "grid",
     gridTemplateColumns: "160px 1fr",
@@ -68,29 +34,11 @@ const useDialogStyles = makeStyles({
   label: { fontSize: "13px", textAlign: "right" },
   required: { color: tokens.colorPaletteRedForeground1 },
   sectionTitle: { fontSize: "14px", fontWeight: 600, paddingTop: "8px" },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
-  closeBtn: {
-    marginLeft: "auto",
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    display: "grid",
-    placeItems: "center",
-    padding: "4px",
-  },
 });
 
 export function CreateDataSiloDialog({ onClose }: { onClose: () => void }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
-  const shared = useSharedStyles();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [isExternal, setIsExternal] = useState(false);
@@ -107,23 +55,22 @@ export function CreateDataSiloDialog({ onClose }: { onClose: () => void }) {
   );
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-label={t(L.title)}
-      >
-        <div className={styles.head}>
-          <Database20Regular />
-          <Text weight="semibold" size={400}>
-            {t(L.title)}
-          </Text>
-          <button className={styles.closeBtn} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss20Regular />
-          </button>
-        </div>
-        <div className={styles.body}>
+    <BaseDialog
+      open
+      title={t(L.title)}
+      onClose={onClose}
+      size="xl"
+      footer={
+        <>
+          <Button appearance="secondary" onClick={onClose}>
+            {t(L.cancel)}
+          </Button>
+          <Button appearance="primary" onClick={onClose} disabled={name.trim() === ""}>
+            {t(L.create)}
+          </Button>
+        </>
+      }
+    >
           {field(L.name, false, <Input value={name} onChange={(_, d) => setName(d.value)} />)}
           {field(
             L.description,
@@ -152,16 +99,6 @@ export function CreateDataSiloDialog({ onClose }: { onClose: () => void }) {
           {field(L.siteName, false, <Input />)}
           {field(L.user, true, <Input />)}
           {field(L.comments, false, <Input />)}
-        </div>
-        <div className={styles.footer}>
-          <Button appearance="secondary" onClick={onClose}>
-            {t(L.cancel)}
-          </Button>
-          <Button appearance="primary" onClick={onClose} disabled={name.trim() === ""}>
-            {t(L.create)}
-          </Button>
-        </div>
-      </div>
-    </div>
+    </BaseDialog>
   );
 }
