@@ -24,13 +24,29 @@ export default defineConfig({
   },
   test: {
     silent: true,
-    setupFiles: ["./src/test-setup.ts"],
-    browser: {
-      enabled: true,
-      provider: playwright(),
-      headless: true,
-      instances: [{ browser: "chromium" }],
-    },
+    projects: [
+      {
+        // Fast unit tests: pure logic, no DOM, no browser. Run on every push.
+        test: {
+          name: "unit",
+          include: ["src/**/*.test.ts"],
+        },
+      },
+      {
+        // Component + E2E tests: need a real browser (Fluent UI, router, MSW).
+        test: {
+          name: "browser",
+          include: ["src/**/*.browser.test.tsx"],
+          setupFiles: ["./src/test-setup.ts"],
+          browser: {
+            enabled: true,
+            provider: playwright(),
+            headless: true,
+            instances: [{ browser: "chromium" }],
+          },
+        },
+      },
+    ],
     coverage: {
       exclude: ["src/components/ui/**", "src/routeTree.gen.ts", "src/routes/**"],
     },
