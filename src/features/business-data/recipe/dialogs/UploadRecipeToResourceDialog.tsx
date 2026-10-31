@@ -1,14 +1,8 @@
 import { useState } from "react";
+import { BaseDialog, DialogFooter } from "@/components/common";
 import {
   Body1Strong,
-  Button,
   Checkbox,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
   Field,
   Input,
   Table,
@@ -46,50 +40,45 @@ export function UploadRecipeToResourceDialog({
   };
 
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 1000, width: "92vw" }}>
-        <DialogBody>
-          <DialogTitle>{t(`${k}.title`)}</DialogTitle>
-          <DialogContent>
-            <div style={{ marginBottom: 12, color: "#0078d4" }}>🎛 {recipeName}</div>
-            <Body1Strong>{t(`${k}.resources`)}</Body1Strong>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderCell />
-                  <TableHeaderCell>{t(`${k}.resource`)}</TableHeaderCell>
-                  <TableHeaderCell>{t(`${k}.lastUploadDate`)}</TableHeaderCell>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {RESOURCES.map((r) => (
-                  <TableRow key={r.name}>
-                    <TableCell>
-                      <Checkbox
-                        checked={selected.includes(r.name)}
-                        onChange={() => toggle(r.name)}
-                      />
-                    </TableCell>
-                    <TableCell>{r.name}</TableCell>
-                    <TableCell>{r.lastUploadDate}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-            <Field label={t(`${k}.comments`)}>
-              <Input value={comments} onChange={(_, d) => setComments(d.value)} />
-            </Field>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
-            </Button>
-            <Button appearance="primary" onClick={onClose} disabled={selected.length === 0}>
-              {t(`${k}.upload`)}
-            </Button>
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+    <BaseDialog
+      open={open}
+      title={t(`${k}.title`)}
+      onClose={onClose}
+      width="min(1000px, 92vw)"
+      footer={
+        <DialogFooter
+          onCancel={onClose}
+          onConfirm={onClose}
+          confirmLabel={t(`${k}.upload`)}
+          disabled={selected.length === 0}
+        />
+      }
+    >
+      <div style={{ marginBottom: 12, color: "#0078d4" }}>🎛 {recipeName}</div>
+      <Body1Strong>{t(`${k}.resources`)}</Body1Strong>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell />
+            <TableHeaderCell>{t(`${k}.resource`)}</TableHeaderCell>
+            <TableHeaderCell>{t(`${k}.lastUploadDate`)}</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {RESOURCES.map((r) => (
+            <TableRow key={r.name}>
+              <TableCell>
+                <Checkbox checked={selected.includes(r.name)} onChange={() => toggle(r.name)} />
+              </TableCell>
+              <TableCell>{r.name}</TableCell>
+              <TableCell>{r.lastUploadDate}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <Field label={t(`${k}.comments`)}>
+        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+      </Field>
+    </BaseDialog>
   );
 }

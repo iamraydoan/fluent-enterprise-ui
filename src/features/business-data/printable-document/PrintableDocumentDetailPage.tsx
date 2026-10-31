@@ -117,7 +117,7 @@ export function PrintableDocumentDetailPage({ name }: { name: string }) {
         onEdit={() => setEditOpen(true)}
         onAskAi={() => undefined}
         showState={false}
-        moreMenuItems={moreMenuItems}
+        moreActions={moreMenuItems}
       >
         <div className={styles.cards}>
           <div className={shared.contentCard} style={{ padding: "14px 16px" }}>

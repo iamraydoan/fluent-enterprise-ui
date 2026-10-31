@@ -1,6 +1,7 @@
 import { useTeams } from "@/api";
 import type { TeamRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -45,6 +46,7 @@ export function TeamListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<ShieldCheckmark20Regular />}
       titleKey="businessData.team.pageLabel"
       listTitleKey="businessData.team.listTitle"

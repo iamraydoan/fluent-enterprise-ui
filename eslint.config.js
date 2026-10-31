@@ -245,6 +245,7 @@ export default tseslint.config(
               "width",
               "height",
               "appearance",
+              "confirmAppearance",
               "shape",
               "size",
               "color",

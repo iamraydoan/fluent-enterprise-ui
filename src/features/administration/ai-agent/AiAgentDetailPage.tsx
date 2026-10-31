@@ -1,7 +1,16 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useAiAgent } from "@/api";
-import { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "@/components/common";
+import {
+  Card,
+  CardGrid,
+  DetailShell,
+  Empty,
+  KV,
+  MiniBar,
+  Panel,
+  DetailTile,
+} from "@/components/common";
 import type { DetailTab, MiniBarButton, MiniBarGroup } from "@/components/common";
 import {
   ArrowSync20Regular,
@@ -75,16 +84,6 @@ const useDetailStyles = makeStyles({
   },
   groupRow: { backgroundColor: "#EFEFEF", cursor: "pointer" },
   td: { height: "34.5px", fontSize: "13px" },
-  tile: {
-    width: "72px",
-    height: "72px",
-    flexShrink: 0,
-    backgroundColor: "#C9E0EC",
-    color: "#0F5C93",
-    display: "grid",
-    placeItems: "center",
-    fontSize: "44px",
-  },
   instr: {
     padding: "14px 4px",
     fontSize: "13px",
@@ -347,9 +346,7 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
       <CardGrid>
         <Card title={t("aiAgent.cards.agent")}>
           <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
-            <div className={detailStyles.tile}>
-              <BotSparkle24Regular />
-            </div>
+            <DetailTile icon={<BotSparkle24Regular />} />
             <div style={{ flexGrow: 1, minWidth: 0 }}>
               <KV
                 rows={[

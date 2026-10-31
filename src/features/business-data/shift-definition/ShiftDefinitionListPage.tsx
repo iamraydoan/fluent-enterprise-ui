@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useShiftDefinitions } from "@/api";
 import type { ShiftDefinitionRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -59,6 +60,7 @@ export function ShiftDefinitionListPage() {
   return (
     <>
       <DataListPage
+        filters={defaultListFilters}
         icon={<Timer24Regular />}
         titleKey="businessData.shiftDefinition.pageLabel"
         listTitleKey="businessData.shiftDefinition.listTitle"

@@ -1,16 +1,6 @@
 import { useState } from "react";
-import {
-  Body1Strong,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
-  Field,
-  Input,
-} from "@/components/ui";
+import { BaseDialog, DialogFooter } from "@/components/common";
+import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
@@ -113,98 +103,85 @@ export function ManageSamplingPlanInstanceDialog({
   };
 
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 1100, width: "92vw" }}>
-        <DialogBody>
-          <DialogTitle>{t(`${k}.title`)}</DialogTitle>
-          <DialogContent>
-            <div style={{ marginBottom: 12, color: "#0078d4" }}>📊 {planName}</div>
-            <div style={{ display: "flex", columnGap: 16 }}>
-              <div style={{ width: 320, flexShrink: 0 }}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    marginBottom: 8,
-                  }}
-                >
-                  <Body1Strong>{t(`${k}.instances`, { count: instances.length })}</Body1Strong>
-                  <div style={{ display: "flex", columnGap: 4 }}>
-                    <Button size="small" appearance="subtle" onClick={addInstance}>
-                      +
-                    </Button>
-                    <Button
-                      size="small"
-                      appearance="subtle"
-                      onClick={() => removeInstance(selected)}
-                    >
-                      🗑
-                    </Button>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    border: "1px solid #ddd",
-                    borderRadius: 4,
-                    minHeight: 300,
-                    overflow: "auto",
-                  }}
-                >
-                  {instances.map((inst, i) => (
-                    <div
-                      key={`${inst.materialType}-${i}`}
-                      onClick={() => selectInstance(i)}
-                      style={{
-                        padding: "8px 12px",
-                        cursor: "pointer",
-                        backgroundColor: i === selected ? "#e3f2fd" : "transparent",
-                        borderBottom: "1px solid #eee",
-                      }}
-                    >
-                      <div style={{ fontWeight: 600 }}>
-                        {inst.materialType || t(`${k}.newInstance`)}
-                      </div>
-                      <div style={{ fontSize: 12, color: "#666" }}>{inst.samplingType}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
-                <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
-                <Field label={t(`${k}.samplingType`)}>
-                  <select value={samplingType} onChange={(e) => setSamplingType(e.target.value)}>
-                    {SAMPLING_TYPES.map((o) => (
-                      <option key={o} value={o}>
-                        {o}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-                {FIELDS.map((f) => (
-                  <Field key={f.key} label={t(f.labelKey)}>
-                    <Input
-                      value={values[f.key] ?? instances[selected]?.[f.key] ?? ""}
-                      onChange={(_, d) => setValues({ ...values, [f.key]: d.value })}
-                    />
-                  </Field>
-                ))}
-              </div>
+    <BaseDialog
+      open={open}
+      title={t(`${k}.title`)}
+      onClose={onClose}
+      width="min(1100px, 92vw)"
+      footer={
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.update`)} />
+      }
+    >
+      <div style={{ marginBottom: 12, color: "#0078d4" }}>📊 {planName}</div>
+      <div style={{ display: "flex", columnGap: 16 }}>
+        <div style={{ width: 320, flexShrink: 0 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 8,
+            }}
+          >
+            <Body1Strong>{t(`${k}.instances`, { count: instances.length })}</Body1Strong>
+            <div style={{ display: "flex", columnGap: 4 }}>
+              <Button size="small" appearance="subtle" onClick={addInstance}>
+                +
+              </Button>
+              <Button size="small" appearance="subtle" onClick={() => removeInstance(selected)}>
+                🗑
+              </Button>
             </div>
-            <Field label={t(`${k}.comments`)}>
-              <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+          </div>
+          <div
+            style={{
+              border: "1px solid #ddd",
+              borderRadius: 4,
+              minHeight: 300,
+              overflow: "auto",
+            }}
+          >
+            {instances.map((inst, i) => (
+              <div
+                key={`${inst.materialType}-${i}`}
+                onClick={() => selectInstance(i)}
+                style={{
+                  padding: "8px 12px",
+                  cursor: "pointer",
+                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  borderBottom: "1px solid #eee",
+                }}
+              >
+                <div style={{ fontWeight: 600 }}>{inst.materialType || t(`${k}.newInstance`)}</div>
+                <div style={{ fontSize: 12, color: "#666" }}>{inst.samplingType}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
+          <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
+          <Field label={t(`${k}.samplingType`)}>
+            <select value={samplingType} onChange={(e) => setSamplingType(e.target.value)}>
+              {SAMPLING_TYPES.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </select>
+          </Field>
+          {FIELDS.map((f) => (
+            <Field key={f.key} label={t(f.labelKey)}>
+              <Input
+                value={values[f.key] ?? instances[selected]?.[f.key] ?? ""}
+                onChange={(_, d) => setValues({ ...values, [f.key]: d.value })}
+              />
             </Field>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
-            </Button>
-            <Button appearance="primary" onClick={onClose}>
-              {t(`${k}.update`)}
-            </Button>
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+          ))}
+        </div>
+      </div>
+      <Field label={t(`${k}.comments`)}>
+        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+      </Field>
+    </BaseDialog>
   );
 }

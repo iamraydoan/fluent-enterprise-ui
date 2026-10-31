@@ -214,7 +214,7 @@ export function MaterialDetailPage({ name }: { name: string }) {
         onEdit={() => setEditOpen(true)}
         onAskAi={() => undefined}
         showState={false}
-        moreMenuItems={moreMenuItems}
+        moreActions={moreMenuItems}
       >
         {top === "details" && (
           <div className={styles.cards}>

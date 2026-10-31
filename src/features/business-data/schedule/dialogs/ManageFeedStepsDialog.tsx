@@ -1,16 +1,6 @@
 import { useState } from "react";
-import {
-  Body1Strong,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
-  Field,
-  Input,
-} from "@/components/ui";
+import { BaseDialog, DialogFooter } from "@/components/common";
+import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
@@ -59,80 +49,73 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
   };
 
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 1000, width: "90vw" }}>
-        <DialogBody>
-          <DialogTitle>{t(`${k}.title`)}</DialogTitle>
-          <DialogContent>
-            <div style={{ marginBottom: 12, color: "#0078d4" }}>📊 {scheduleName}</div>
-            <div style={{ display: "flex", columnGap: 16 }}>
-              <div style={{ width: 300, flexShrink: 0 }}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    marginBottom: 8,
-                  }}
-                >
-                  <Body1Strong>{t(`${k}.steps`, { count: steps.length })}</Body1Strong>
-                  <div style={{ display: "flex", columnGap: 4 }}>
-                    <Button size="small" appearance="subtle" onClick={addStep}>
-                      +
-                    </Button>
-                    <Button size="small" appearance="subtle" onClick={() => removeStep(selected)}>
-                      🗑
-                    </Button>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    border: "1px solid #ddd",
-                    borderRadius: 4,
-                    minHeight: 280,
-                    overflow: "auto",
-                  }}
-                >
-                  {steps.map((fs, i) => (
-                    <div
-                      key={`${fs.step}-${i}`}
-                      onClick={() => selectStep(i)}
-                      style={{
-                        padding: "8px 12px",
-                        cursor: "pointer",
-                        backgroundColor: i === selected ? "#e3f2fd" : "transparent",
-                        borderBottom: "1px solid #eee",
-                      }}
-                    >
-                      <div style={{ fontWeight: 600 }}>{fs.step || t(`${k}.newStep`)}</div>
-                      <div style={{ fontSize: 12, color: "#666" }}>{fs.facility}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
-                <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
-                {FIELDS.map((f) => (
-                  <Field key={f.key} label={t(f.labelKey)}>
-                    <Input
-                      value={values[f.key] ?? steps[selected]?.[f.key] ?? ""}
-                      onChange={(_, d) => setValues({ ...values, [f.key]: d.value })}
-                    />
-                  </Field>
-                ))}
-              </div>
+    <BaseDialog
+      open={open}
+      title={t(`${k}.title`)}
+      onClose={onClose}
+      width="min(1000px, 90vw)"
+      footer={
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.manage`)} />
+      }
+    >
+      <div style={{ marginBottom: 12, color: "#0078d4" }}>📊 {scheduleName}</div>
+      <div style={{ display: "flex", columnGap: 16 }}>
+        <div style={{ width: 300, flexShrink: 0 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 8,
+            }}
+          >
+            <Body1Strong>{t(`${k}.steps`, { count: steps.length })}</Body1Strong>
+            <div style={{ display: "flex", columnGap: 4 }}>
+              <Button size="small" appearance="subtle" onClick={addStep}>
+                +
+              </Button>
+              <Button size="small" appearance="subtle" onClick={() => removeStep(selected)}>
+                🗑
+              </Button>
             </div>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
-            </Button>
-            <Button appearance="primary" onClick={onClose}>
-              {t(`${k}.manage`)}
-            </Button>
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+          </div>
+          <div
+            style={{
+              border: "1px solid #ddd",
+              borderRadius: 4,
+              minHeight: 280,
+              overflow: "auto",
+            }}
+          >
+            {steps.map((fs, i) => (
+              <div
+                key={`${fs.step}-${i}`}
+                onClick={() => selectStep(i)}
+                style={{
+                  padding: "8px 12px",
+                  cursor: "pointer",
+                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  borderBottom: "1px solid #eee",
+                }}
+              >
+                <div style={{ fontWeight: 600 }}>{fs.step || t(`${k}.newStep`)}</div>
+                <div style={{ fontSize: 12, color: "#666" }}>{fs.facility}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
+          <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
+          {FIELDS.map((f) => (
+            <Field key={f.key} label={t(f.labelKey)}>
+              <Input
+                value={values[f.key] ?? steps[selected]?.[f.key] ?? ""}
+                onChange={(_, d) => setValues({ ...values, [f.key]: d.value })}
+              />
+            </Field>
+          ))}
+        </div>
+      </div>
+    </BaseDialog>
   );
 }

@@ -1,6 +1,7 @@
 import { useShiftPlans } from "@/api";
 import type { ShiftPlanRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -42,6 +43,7 @@ export function ShiftPlanListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<Timer24Regular />}
       titleKey="businessData.shiftPlan.pageLabel"
       listTitleKey="businessData.shiftPlan.listTitle"

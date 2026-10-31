@@ -1,17 +1,7 @@
 import { useState } from "react";
 import type { SamplingPatternDetail, SamplingPatternMode, SamplingPatternRecord } from "@/api";
-import {
-  Button,
-  Checkbox,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
-  Field,
-  Input,
-} from "@/components/ui";
+import { BaseDialog, DialogFooter } from "@/components/common";
+import { Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
 interface SamplingPatternFormDialogProps {
@@ -57,101 +47,83 @@ export function SamplingPatternFormDialog({
   const [comments, setComments] = useState("");
 
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 900, width: "90vw" }}>
-        <DialogBody>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogContent>
-            <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
-              <Field label={t(`${k}.name`)} required>
-                <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
-              </Field>
-              <Field label={t(`${k}.description`)}>
-                <Input value={description} onChange={(_, d) => setDescription(d.value)} />
-              </Field>
-              <Field label={t(`${k}.type`)}>
-                <Input value={type} onChange={(_, d) => setType(d.value)} />
-              </Field>
-              <Field label={t(`${k}.mode`)} required>
-                <select
-                  value={mode}
-                  onChange={(e) => setMode(e.target.value as SamplingPatternMode)}
-                >
-                  {MODES.map((o) => (
-                    <option key={o} value={o}>
-                      {o}
-                    </option>
-                  ))}
-                </select>
-              </Field>
-              {mode === "Manual" && (
-                <Field label={t(`${k}.samplingSelection`)}>
-                  <Input
-                    value={samplingSelection}
-                    onChange={(_, d) => setSamplingSelection(d.value)}
-                  />
-                </Field>
-              )}
-              {mode === "Rule" && (
-                <Field label={t(`${k}.rule`)}>
-                  <Input value={rule} onChange={(_, d) => setRule(d.value)} />
-                </Field>
-              )}
-              {mode === "System" && (
-                <>
-                  <Field label={t(`${k}.sourceForm`)}>
-                    <Input value={sourceForm} onChange={(_, d) => setSourceForm(d.value)} />
-                  </Field>
-                  <Field label={t(`${k}.materialCount`)}>
-                    <Input value={materialCount} onChange={(_, d) => setMaterialCount(d.value)} />
-                  </Field>
-                  <Field label={t(`${k}.countIsPercentage`)}>
-                    <Checkbox
-                      checked={countIsPercentage}
-                      onChange={(_, d) => setCountIsPercentage(d.checked === true)}
-                    />
-                  </Field>
-                  <Field label={t(`${k}.selectionMethod`)}>
-                    <select
-                      value={selectionMethod}
-                      onChange={(e) => setSelectionMethod(e.target.value)}
-                    >
-                      {SELECTION_METHODS.map((o) => (
-                        <option key={o} value={o}>
-                          {o}
-                        </option>
-                      ))}
-                    </select>
-                  </Field>
-                  <Field label={t(`${k}.sequencingMethod`)}>
-                    <select
-                      value={sequencingMethod}
-                      onChange={(e) => setSequencingMethod(e.target.value)}
-                    >
-                      {SEQUENCING_METHODS.map((o) => (
-                        <option key={o} value={o}>
-                          {o}
-                        </option>
-                      ))}
-                    </select>
-                  </Field>
-                </>
-              )}
-            </div>
-            <Field label={t(`${k}.comments`)}>
-              <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+    <BaseDialog
+      open={open}
+      title={title}
+      onClose={onClose}
+      width="min(900px, 90vw)"
+      footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
+    >
+      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <Field label={t(`${k}.name`)} required>
+          <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+        </Field>
+        <Field label={t(`${k}.description`)}>
+          <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        </Field>
+        <Field label={t(`${k}.type`)}>
+          <Input value={type} onChange={(_, d) => setType(d.value)} />
+        </Field>
+        <Field label={t(`${k}.mode`)} required>
+          <select value={mode} onChange={(e) => setMode(e.target.value as SamplingPatternMode)}>
+            {MODES.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </select>
+        </Field>
+        {mode === "Manual" && (
+          <Field label={t(`${k}.samplingSelection`)}>
+            <Input value={samplingSelection} onChange={(_, d) => setSamplingSelection(d.value)} />
+          </Field>
+        )}
+        {mode === "Rule" && (
+          <Field label={t(`${k}.rule`)}>
+            <Input value={rule} onChange={(_, d) => setRule(d.value)} />
+          </Field>
+        )}
+        {mode === "System" && (
+          <>
+            <Field label={t(`${k}.sourceForm`)}>
+              <Input value={sourceForm} onChange={(_, d) => setSourceForm(d.value)} />
             </Field>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
-            </Button>
-            <Button appearance="primary" onClick={onClose}>
-              {submitLabel}
-            </Button>
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+            <Field label={t(`${k}.materialCount`)}>
+              <Input value={materialCount} onChange={(_, d) => setMaterialCount(d.value)} />
+            </Field>
+            <Field label={t(`${k}.countIsPercentage`)}>
+              <Checkbox
+                checked={countIsPercentage}
+                onChange={(_, d) => setCountIsPercentage(d.checked === true)}
+              />
+            </Field>
+            <Field label={t(`${k}.selectionMethod`)}>
+              <select value={selectionMethod} onChange={(e) => setSelectionMethod(e.target.value)}>
+                {SELECTION_METHODS.map((o) => (
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
+                ))}
+              </select>
+            </Field>
+            <Field label={t(`${k}.sequencingMethod`)}>
+              <select
+                value={sequencingMethod}
+                onChange={(e) => setSequencingMethod(e.target.value)}
+              >
+                {SEQUENCING_METHODS.map((o) => (
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          </>
+        )}
+      </div>
+      <Field label={t(`${k}.comments`)}>
+        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+      </Field>
+    </BaseDialog>
   );
 }

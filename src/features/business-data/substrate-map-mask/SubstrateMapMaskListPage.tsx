@@ -1,6 +1,7 @@
 import { useSubstrateMapMasks } from "@/api";
 import type { SubstrateMapMaskRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -45,6 +46,7 @@ export function SubstrateMapMaskListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<Grid24Regular />}
       titleKey="businessData.substrateMapMask.pageLabel"
       listTitleKey="businessData.substrateMapMask.listTitle"

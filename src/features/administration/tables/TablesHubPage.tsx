@@ -9,10 +9,11 @@ import {
   RECORD_STATE_COLUMN_OPTIONS,
   refreshAction,
   SidePanel,
+  SidebarNavItem,
 } from "@/components/common";
 import type { DataColumn } from "@/components/common";
 import { Table24Regular } from "@/components/icons";
-import { makeStyles, mergeClasses, Text, tokens } from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
@@ -23,25 +24,6 @@ const useHubStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
   side: { display: "flex", flexDirection: "column", minHeight: 0 },
   main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
-  typeItem: {
-    display: "flex",
-    alignItems: "center",
-    width: "100%",
-    padding: "10px 12px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    textAlign: "left",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  typeActive: {
-    backgroundColor: tokens.colorNeutralBackground1Selected,
-    fontWeight: tokens.fontWeightSemibold,
-  },
-  typeDesc: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
 });
 
 const TABLE_KINDS: Array<{
@@ -125,19 +107,13 @@ export function TablesHubPage() {
             onToggle={() => setCollapsed((value) => !value)}
           >
             {TABLE_KINDS.map((entry) => (
-              <button
+              <SidebarNavItem
                 key={entry.kind}
-                className={mergeClasses(styles.typeItem, kind === entry.kind && styles.typeActive)}
+                label={t(entry.labelKey)}
+                description={t(entry.descKey)}
+                active={kind === entry.kind}
                 onClick={() => setKind(entry.kind)}
-                aria-current={kind === entry.kind ? "page" : undefined}
-              >
-                <span>
-                  <Text weight={kind === entry.kind ? "semibold" : "regular"} size={300}>
-                    {t(entry.labelKey)}
-                  </Text>
-                  <div className={styles.typeDesc}>{t(entry.descKey)}</div>
-                </span>
-              </button>
+              />
             ))}
           </SidePanel>
         </div>

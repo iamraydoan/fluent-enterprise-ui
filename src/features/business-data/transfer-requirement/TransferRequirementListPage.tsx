@@ -1,6 +1,7 @@
 import { useTransferRequirements } from "@/api";
 import type { TransferRequirementRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -55,6 +56,7 @@ export function TransferRequirementListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<ArrowExportUp24Regular />}
       titleKey="businessData.transferRequirement.pageLabel"
       listTitleKey="businessData.transferRequirement.listTitle"

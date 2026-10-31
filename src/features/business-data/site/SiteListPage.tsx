@@ -1,6 +1,7 @@
 import { useSites } from "@/api";
 import type { SiteRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -51,6 +52,7 @@ export function SiteListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<Globe24Regular />}
       titleKey="businessData.site.pageLabel"
       listTitleKey="businessData.site.listTitle"

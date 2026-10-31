@@ -1,6 +1,7 @@
 import { useShiftLogbooks } from "@/api";
 import type { ShiftLogbookRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -47,6 +48,7 @@ export function ShiftLogbookListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<DocumentBulletList24Regular />}
       titleKey="businessData.shiftLogbook.pageLabel"
       listTitleKey="businessData.shiftLogbook.listTitle"

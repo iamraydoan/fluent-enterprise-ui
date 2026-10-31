@@ -1,6 +1,7 @@
 import { useTasks } from "@/api";
 import type { TaskRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -50,6 +51,7 @@ export function TaskListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<Checkmark20Filled />}
       titleKey="businessData.task.pageLabel"
       listTitleKey="businessData.task.listTitle"

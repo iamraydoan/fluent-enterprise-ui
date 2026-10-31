@@ -256,7 +256,6 @@ interface DetailShellProps {
   onTerminate?: () => void;
   onUnterminate?: () => void;
   showState?: boolean;
-  moreMenuItems?: DetailMoreMenuItem[];
   moreActions?: DetailShellMoreAction[];
   children: ReactNode;
 }
@@ -276,7 +275,6 @@ export function DetailShell({
   onTerminate,
   onUnterminate,
   showState = true,
-  moreMenuItems,
   moreActions,
   children,
 }: DetailShellProps) {
@@ -368,12 +366,6 @@ export function DetailShell({
                   label={t("actionBar.more")}
                   menu={(() => {
                     const items = [
-                      ...(moreMenuItems ?? []).map((item) => ({
-                        label: t(item.labelKey),
-                        icon: item.icon,
-                        disabled: item.disabled,
-                        onClick: item.onClick,
-                      })),
                       ...(moreActions ?? []).map((action) => ({
                         label: action.label ?? (action.labelKey ? t(action.labelKey) : ""),
                         icon: undefined,

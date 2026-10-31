@@ -1,6 +1,7 @@
 import { useWorkgroups } from "@/api";
 import type { WorkgroupRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -45,6 +46,7 @@ export function WorkgroupListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<ShieldCheckmark20Regular />}
       titleKey="businessData.workgroup.pageLabel"
       listTitleKey="businessData.workgroup.listTitle"

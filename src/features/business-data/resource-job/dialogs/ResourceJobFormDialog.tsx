@@ -1,17 +1,7 @@
 import { useState } from "react";
 import type { ResourceJobDetail, ResourceJobRecord } from "@/api";
-import {
-  Body1Strong,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
-  Field,
-  Input,
-} from "@/components/ui";
+import { BaseDialog } from "@/components/common";
+import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
 interface ResourceJobFormDialogProps {
@@ -51,130 +41,124 @@ export function ResourceJobFormDialog({
   const [comments, setComments] = useState("");
 
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 1000, width: "92vw" }}>
-        <DialogBody>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogContent>
-            {!nameReadOnly && (
-              <div
-                style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}
-              >
-                {[t(`${k}.step1`), t(`${k}.step2`), t(`${k}.step3`)].map((label, i) => (
-                  <span key={i} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
-                    {i > 0 && <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />}
-                    <span
-                      style={{
-                        width: 24,
-                        height: 24,
-                        borderRadius: "50%",
-                        backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
-                        color: "#fff",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: 12,
-                      }}
-                    >
-                      {i + 1}
-                    </span>
-                    <Body1Strong>{label}</Body1Strong>
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {(step === 1 || nameReadOnly) && (
-              <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
-                <Field label={t(`${k}.name`)} required>
-                  <Input
-                    value={name}
-                    readOnly={nameReadOnly}
-                    onChange={(_, d) => setName(d.value)}
-                  />
-                </Field>
-                <Field label={t(`${k}.description`)}>
-                  <Input value={description} onChange={(_, d) => setDescription(d.value)} />
-                </Field>
-                <Field label={t(`${k}.resource`)} required>
-                  <Input value={resource} onChange={(_, d) => setResource(d.value)} />
-                </Field>
-                <Field label={t(`${k}.type`)}>
-                  <Input value={type} onChange={(_, d) => setType(d.value)} />
-                </Field>
-                <Field label={t(`${k}.subType`)}>
-                  <Input value={subType} onChange={(_, d) => setSubType(d.value)} />
-                </Field>
-                {!nameReadOnly && (
-                  <Field label={t(`${k}.initialSystemState`)}>
-                    <select value={systemState} onChange={(e) => setSystemState(e.target.value)}>
-                      {SYSTEM_STATES.map((o) => (
-                        <option key={o} value={o}>
-                          {o}
-                        </option>
-                      ))}
-                    </select>
-                  </Field>
-                )}
-                <Field label={t(`${k}.selectionMode`)}>
-                  <select value={selectionMode} onChange={(e) => setSelectionMode(e.target.value)}>
-                    {SELECTION_MODES.map((o) => (
-                      <option key={o} value={o}>
-                        {o}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-                <div style={{ display: "flex", columnGap: 12 }}>
-                  <Field label={t(`${k}.priority`)}>
-                    <Input value={priority} onChange={(_, d) => setPriority(d.value)} />
-                  </Field>
-                  <Field label={t(`${k}.progress`)}>
-                    <Input value={progress} onChange={(_, d) => setProgress(d.value)} />
-                  </Field>
-                </div>
-                <Field label={t(`${k}.equipmentJobId`)}>
-                  <Input value={equipmentJobId} onChange={(_, d) => setEquipmentJobId(d.value)} />
-                </Field>
-                <Field label={t(`${k}.jobInformation`)}>
-                  <Input value={jobInformation} onChange={(_, d) => setJobInformation(d.value)} />
-                </Field>
-              </div>
-            )}
-
-            {step === 2 && !nameReadOnly && (
-              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.materialsBody`)}</div>
-            )}
-
-            {step === 3 && !nameReadOnly && (
-              <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.containersBody`)}</div>
-            )}
-
-            <Field label={t(`${k}.comments`)}>
-              <Input value={comments} onChange={(_, d) => setComments(d.value)} />
-            </Field>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
+    <BaseDialog
+      open={open}
+      title={title}
+      onClose={onClose}
+      width="min(1000px, 92vw)"
+      footer={
+        <>
+          <Button appearance="secondary" onClick={onClose}>
+            {t("common.cancel")}
+          </Button>
+          {!nameReadOnly && step > 1 && (
+            <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+              {t("common.back")}
             </Button>
-            {!nameReadOnly && step > 1 && (
-              <Button appearance="secondary" onClick={() => setStep(step - 1)}>
-                {t("common.back")}
-              </Button>
-            )}
-            {!nameReadOnly && step < 3 ? (
-              <Button appearance="primary" onClick={() => setStep(step + 1)}>
-                {t("common.next")}
-              </Button>
-            ) : (
-              <Button appearance="primary" onClick={onClose}>
-                {submitLabel}
-              </Button>
-            )}
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+          )}
+          {!nameReadOnly && step < 3 ? (
+            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+              {t("common.next")}
+            </Button>
+          ) : (
+            <Button appearance="primary" onClick={onClose}>
+              {submitLabel}
+            </Button>
+          )}
+        </>
+      }
+    >
+      {!nameReadOnly && (
+        <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
+          {[t(`${k}.step1`), t(`${k}.step2`), t(`${k}.step3`)].map((label, i) => (
+            <span key={i} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
+              {i > 0 && <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />}
+              <span
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderRadius: "50%",
+                  backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
+                  color: "#fff",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 12,
+                }}
+              >
+                {i + 1}
+              </span>
+              <Body1Strong>{label}</Body1Strong>
+            </span>
+          ))}
+        </div>
+      )}
+
+      {(step === 1 || nameReadOnly) && (
+        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+          <Field label={t(`${k}.name`)} required>
+            <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+          </Field>
+          <Field label={t(`${k}.description`)}>
+            <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+          </Field>
+          <Field label={t(`${k}.resource`)} required>
+            <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+          </Field>
+          <Field label={t(`${k}.type`)}>
+            <Input value={type} onChange={(_, d) => setType(d.value)} />
+          </Field>
+          <Field label={t(`${k}.subType`)}>
+            <Input value={subType} onChange={(_, d) => setSubType(d.value)} />
+          </Field>
+          {!nameReadOnly && (
+            <Field label={t(`${k}.initialSystemState`)}>
+              <select value={systemState} onChange={(e) => setSystemState(e.target.value)}>
+                {SYSTEM_STATES.map((o) => (
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          )}
+          <Field label={t(`${k}.selectionMode`)}>
+            <select value={selectionMode} onChange={(e) => setSelectionMode(e.target.value)}>
+              {SELECTION_MODES.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </select>
+          </Field>
+          <div style={{ display: "flex", columnGap: 12 }}>
+            <Field label={t(`${k}.priority`)}>
+              <Input value={priority} onChange={(_, d) => setPriority(d.value)} />
+            </Field>
+            <Field label={t(`${k}.progress`)}>
+              <Input value={progress} onChange={(_, d) => setProgress(d.value)} />
+            </Field>
+          </div>
+          <Field label={t(`${k}.equipmentJobId`)}>
+            <Input value={equipmentJobId} onChange={(_, d) => setEquipmentJobId(d.value)} />
+          </Field>
+          <Field label={t(`${k}.jobInformation`)}>
+            <Input value={jobInformation} onChange={(_, d) => setJobInformation(d.value)} />
+          </Field>
+        </div>
+      )}
+
+      {step === 2 && !nameReadOnly && (
+        <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.materialsBody`)}</div>
+      )}
+
+      {step === 3 && !nameReadOnly && (
+        <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.containersBody`)}</div>
+      )}
+
+      <Field label={t(`${k}.comments`)}>
+        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+      </Field>
+    </BaseDialog>
   );
 }

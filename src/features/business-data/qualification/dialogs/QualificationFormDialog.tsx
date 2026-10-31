@@ -1,18 +1,7 @@
 import { useState } from "react";
 import type { QualificationDetail } from "@/api";
-import {
-  Body1Strong,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
-  Field,
-  Input,
-  Switch,
-} from "@/components/ui";
+import { BaseDialog, DialogFooter } from "@/components/common";
+import { Body1Strong, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
 interface QualificationFormDialogProps {
@@ -58,114 +47,101 @@ export function QualificationFormDialog({
   const k = "businessData.qualification.dialogs.form";
 
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 900, width: "90vw" }}>
-        <DialogBody>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogContent>
-            <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
-              <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
-              <Field label={t(`${k}.name`)} required>
-                <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
-              </Field>
-              <Field label={t(`${k}.description`)}>
-                <Input value={description} onChange={(_, d) => setDescription(d.value)} />
-              </Field>
-              <Field label={t(`${k}.type`)} required>
-                <select value={type} onChange={(e) => setType(e.target.value)}>
-                  {TYPE_OPTIONS.map((o) => (
-                    <option key={o} value={o}>
-                      {o}
-                    </option>
-                  ))}
-                </select>
-              </Field>
-              <Field label={t(`${k}.dataGroup`)}>
-                <Input value="" onChange={() => {}} />
-              </Field>
+    <BaseDialog
+      open={open}
+      title={title}
+      onClose={onClose}
+      width="min(900px, 90vw)"
+      footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
+    >
+      <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
+        <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
+        <Field label={t(`${k}.name`)} required>
+          <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+        </Field>
+        <Field label={t(`${k}.description`)}>
+          <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        </Field>
+        <Field label={t(`${k}.type`)} required>
+          <select value={type} onChange={(e) => setType(e.target.value)}>
+            {TYPE_OPTIONS.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <Field label={t(`${k}.dataGroup`)}>
+          <Input value="" onChange={() => {}} />
+        </Field>
 
-              <Body1Strong>{t(`${k}.information`)}</Body1Strong>
-              <Field label={t(`${k}.ownerRole`)} required>
-                <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />
-              </Field>
-              <Field label={t(`${k}.defaultReason`)}>
-                <Input value={defaultReason} onChange={(_, d) => setDefaultReason(d.value)} />
-              </Field>
-              <Field label={t(`${k}.informationUrl`)}>
-                <Input
-                  value={informationUrl}
+        <Body1Strong>{t(`${k}.information`)}</Body1Strong>
+        <Field label={t(`${k}.ownerRole`)} required>
+          <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />
+        </Field>
+        <Field label={t(`${k}.defaultReason`)}>
+          <Input value={defaultReason} onChange={(_, d) => setDefaultReason(d.value)} />
+        </Field>
+        <Field label={t(`${k}.informationUrl`)}>
+          <Input value={informationUrl} onChange={(_, d) => setInformationUrl(d.value)} />
+        </Field>
 
-                  onChange={(_, d) => setInformationUrl(d.value)}
-                />
-              </Field>
+        <Body1Strong>{t(`${k}.permissions`)}</Body1Strong>
+        <Field label={t(`${k}.allowSelfAssignment`)}>
+          <Switch
+            checked={allowSelfAssignment}
+            onChange={(_, d) => setAllowSelfAssignment(d.checked === true)}
+          />
+        </Field>
+        <Field label={t(`${k}.allowAssignmentByManager`)}>
+          <Switch
+            checked={allowAssignmentByManager}
+            onChange={(_, d) => setAllowAssignmentByManager(d.checked === true)}
+          />
+        </Field>
 
-              <Body1Strong>{t(`${k}.permissions`)}</Body1Strong>
-              <Field label={t(`${k}.allowSelfAssignment`)}>
-                <Switch
-                  checked={allowSelfAssignment}
-                  onChange={(_, d) => setAllowSelfAssignment(d.checked === true)}
-                />
-              </Field>
-              <Field label={t(`${k}.allowAssignmentByManager`)}>
-                <Switch
-                  checked={allowAssignmentByManager}
-                  onChange={(_, d) => setAllowAssignmentByManager(d.checked === true)}
-                />
-              </Field>
+        <Body1Strong>{t(`${k}.validityPeriod`)}</Body1Strong>
+        <div style={{ display: "flex", columnGap: 8 }}>
+          <Field label={t(`${k}.validFor`)}>
+            <Input value={validForValue} onChange={(_, d) => setValidForValue(d.value)} />
+          </Field>
+          <Field label={t(`${k}.scale`)}>
+            <select value={validForScale} onChange={(e) => setValidForScale(e.target.value)}>
+              {SCALE_OPTIONS.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </select>
+          </Field>
+        </div>
+        <Field label={t(`${k}.allowOverride`)}>
+          <Switch
+            checked={allowOverride}
+            onChange={(_, d) => setAllowOverride(d.checked === true)}
+          />
+        </Field>
 
-              <Body1Strong>{t(`${k}.validityPeriod`)}</Body1Strong>
-              <div style={{ display: "flex", columnGap: 8 }}>
-                <Field label={t(`${k}.validFor`)}>
-                  <Input value={validForValue} onChange={(_, d) => setValidForValue(d.value)} />
-                </Field>
-                <Field label={t(`${k}.scale`)}>
-                  <select value={validForScale} onChange={(e) => setValidForScale(e.target.value)}>
-                    {SCALE_OPTIONS.map((o) => (
-                      <option key={o} value={o}>
-                        {o}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-              </div>
-              <Field label={t(`${k}.allowOverride`)}>
-                <Switch
-                  checked={allowOverride}
-                  onChange={(_, d) => setAllowOverride(d.checked === true)}
-                />
-              </Field>
+        <Body1Strong>{t(`${k}.gracePeriod`)}</Body1Strong>
+        <div style={{ display: "flex", columnGap: 8 }}>
+          <Field label={t(`${k}.duration`)}>
+            <Input value={graceValue} onChange={(_, d) => setGraceValue(d.value)} />
+          </Field>
+          <Field label={t(`${k}.scale`)}>
+            <select value={graceScale} onChange={(e) => setGraceScale(e.target.value)}>
+              {SCALE_OPTIONS.map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </select>
+          </Field>
+        </div>
 
-              <Body1Strong>{t(`${k}.gracePeriod`)}</Body1Strong>
-              <div style={{ display: "flex", columnGap: 8 }}>
-                <Field label={t(`${k}.duration`)}>
-                  <Input value={graceValue} onChange={(_, d) => setGraceValue(d.value)} />
-                </Field>
-                <Field label={t(`${k}.scale`)}>
-                  <select value={graceScale} onChange={(e) => setGraceScale(e.target.value)}>
-                    {SCALE_OPTIONS.map((o) => (
-                      <option key={o} value={o}>
-                        {o}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-              </div>
-
-              <Field label={t(`${k}.comments`)}>
-                <Input value={comments} onChange={(_, d) => setComments(d.value)} />
-              </Field>
-            </div>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
-            </Button>
-            <Button appearance="primary" onClick={onClose}>
-              {submitLabel}
-            </Button>
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+        <Field label={t(`${k}.comments`)}>
+          <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        </Field>
+      </div>
+    </BaseDialog>
   );
 }

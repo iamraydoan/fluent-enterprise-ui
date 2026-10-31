@@ -1,6 +1,7 @@
 import { useSteps } from "@/api";
 import type { StepRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -40,6 +41,7 @@ export function StepListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<Flow24Regular />}
       titleKey="businessData.step.pageLabel"
       listTitleKey="businessData.step.listTitle"

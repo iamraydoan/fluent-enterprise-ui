@@ -1,6 +1,7 @@
 import { useTransferOrders } from "@/api";
 import type { TransferOrderRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -55,6 +56,7 @@ export function TransferOrderListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<ArrowExportUp24Regular />}
       titleKey="businessData.transferOrder.pageLabel"
       listTitleKey="businessData.transferOrder.listTitle"

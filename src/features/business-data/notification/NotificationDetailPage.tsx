@@ -81,7 +81,7 @@ export function NotificationDetailPage({ name }: { name: string }) {
         onEdit={() => setEditOpen(true)}
         onAskAi={() => undefined}
         showState={false}
-        moreMenuItems={moreMenuItems}
+        moreActions={moreMenuItems}
       >
         {top === "details" && left === LEFT_ITEMS[0] && (
           <div className={styles.cards}>

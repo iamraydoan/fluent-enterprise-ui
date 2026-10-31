@@ -91,7 +91,7 @@ export function PackageDetailPage({ name }: { name: string }) {
         onEdit={() => undefined}
         onAskAi={() => undefined}
         showState={false}
-        moreMenuItems={moreMenuItems}
+        moreActions={moreMenuItems}
       >
         {top === "details" && left === LEFT_ITEMS[0] && (
           <div className={styles.cards}>

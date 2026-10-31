@@ -1,6 +1,7 @@
 import { useSortRuleSets } from "@/api";
 import type { SortRuleSetRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -45,6 +46,7 @@ export function SortRuleSetListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<ArrowUp20Regular />}
       titleKey="businessData.sortRuleSet.pageLabel"
       listTitleKey="businessData.sortRuleSet.listTitle"

@@ -3,45 +3,28 @@ import { useQueries, useQueryFolders } from "@/api";
 import type { QueryRecord } from "@/api";
 import {
   createAction,
-  DataTableCard,
   endpointAction,
   exportAction,
   importAction,
-  ListPage,
+  DataListPage,
   refreshAction,
   searchFilter,
   SidePanel,
+  SidebarNavItem,
 } from "@/components/common";
 import type { DataColumn, DataFilter } from "@/components/common";
 import { DocumentSearch24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
-import { makeStyles, mergeClasses, Text, tokens } from "@/components/ui";
+import { makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { ListQueryParams, ListQueryResult } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
+const ALL_FOLDERS = "all";
+
 const usePageStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
   main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
-  folderItem: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
-    width: "100%",
-    padding: "8px 12px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    textAlign: "left",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  folderActive: {
-    backgroundColor: tokens.colorNeutralBackground1Selected,
-    fontWeight: tokens.fontWeightSemibold,
-  },
   sectionLabel: {
     fontSize: "11px",
     color: tokens.colorNeutralForeground3,
@@ -75,14 +58,19 @@ const FILTERS: DataFilter[] = [
   searchFilter(),
 ];
 
-function QueriesGrid({ folder }: { folder: string }) {
+export function QueriesPage() {
   const { t } = useAppTranslation();
+  const styles = usePageStyles();
+  const [collapsed, setCollapsed] = useState(false);
+  const [folder, setFolder] = useState(ALL_FOLDERS);
+  const { data: folders = [] } = useQueryFolders();
+
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/administration/queries/$name", openRoute);
 
   function useQueryList(params: ListQueryParams): ListQueryResult<QueryRecord> {
     const query = useQueries({
-      folder: folder === "all" ? undefined : folder,
+      folder: folder === ALL_FOLDERS ? undefined : folder,
       q: params.filters?.q,
       showSystemItems: params.filters?.showSystemItems === "true",
     });
@@ -93,69 +81,40 @@ function QueriesGrid({ folder }: { folder: string }) {
   }
 
   return (
-    <DataTableCard
-      title={(count) => t("queries.listTitle", { count })}
-      ariaLabel={t("queries.pageLabel")}
+    <DataListPage
+      icon={<DocumentSearch24Regular />}
+      titleKey="queries.pageLabel"
+      listTitleKey="queries.listTitle"
+      actions={[createAction, refreshAction, importAction, exportAction, endpointAction]}
       columns={COLUMNS}
       filters={FILTERS}
       useListQuery={useQueryList}
       getRowId={(row) => row.name}
       onRowClick={(row) => openDetail(row.name)}
-    />
-  );
-}
-
-export function QueriesPage() {
-  const { t } = useAppTranslation();
-  const styles = usePageStyles();
-  const [collapsed, setCollapsed] = useState(false);
-  const [folder, setFolder] = useState("all");
-  const { data: folders = [] } = useQueryFolders();
-
-  return (
-    <ListPage
-      header={{
-        icon: <DocumentSearch24Regular />,
-        title: t("queries.pageLabel"),
-        actions: [createAction, refreshAction, importAction, exportAction, endpointAction],
-      }}
-    >
-      <div className={styles.body}>
+      sidebar={
         <SidePanel
           title={t("queries.foldersTitle")}
           collapsed={collapsed}
           onToggle={() => setCollapsed((value) => !value)}
         >
-          <button
-            className={mergeClasses(styles.folderItem, folder === "all" && styles.folderActive)}
-            onClick={() => setFolder("all")}
-          >
-            <Grid24Regular />
-            <Text weight={folder === "all" ? "semibold" : "regular"} size={300}>
-              {t("queries.allQueries")}
-            </Text>
-          </button>
+          <SidebarNavItem
+            icon={<Grid24Regular />}
+            label={t("queries.allQueries")}
+            active={folder === ALL_FOLDERS}
+            onClick={() => setFolder(ALL_FOLDERS)}
+          />
           <div className={styles.sectionLabel}>{t("queries.foldersSection")}</div>
           {folders.map((entry) => (
-            <button
+            <SidebarNavItem
               key={entry.path}
-              className={mergeClasses(
-                styles.folderItem,
-                folder === entry.path && styles.folderActive,
-              )}
+              icon={<Folder24Regular />}
+              label={entry.name}
+              active={folder === entry.path}
               onClick={() => setFolder(entry.path)}
-            >
-              <Folder24Regular />
-              <Text weight={folder === entry.path ? "semibold" : "regular"} size={300}>
-                {entry.name}
-              </Text>
-            </button>
+            />
           ))}
         </SidePanel>
-        <div className={styles.main}>
-          <QueriesGrid key={folder} folder={folder} />
-        </div>
-      </div>
-    </ListPage>
+      }
+    />
   );
 }

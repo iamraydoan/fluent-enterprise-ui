@@ -6,6 +6,9 @@ export { defaultListFilters, searchFilter } from "./data-table/filters";
 export type { DataFilter } from "./data-table/filters";
 export { HubPage } from "./HubPage";
 export { BaseDialog, DialogFooter } from "./BaseDialog";
+export { SidebarNavItem } from "./SidebarNavItem";
+export { DetailTile } from "./DetailTile";
+export { DetailTabs } from "./DetailTabs";
 export { ListPage } from "./ListPage";
 export {
   aiEditorAction,

@@ -1,21 +1,18 @@
 import { useState } from "react";
 import { useResourceJobDetail } from "@/api";
-import { Card, CardGrid, DetailShell, Empty, KV, Panel } from "@/components/common";
+import {
+  BaseDialog,
+  Card,
+  CardGrid,
+  DetailShell,
+  DialogFooter,
+  Empty,
+  KV,
+  Panel,
+} from "@/components/common";
 import type { DetailShellMoreAction, DetailTab } from "@/components/common";
 import { Wrench20Regular } from "@/components/icons";
-import {
-  Body1Strong,
-  Button,
-  Caption1,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
-  Field,
-  Input,
-} from "@/components/ui";
+import { Body1Strong, Caption1, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { RecordState } from "@/lib/recordState";
@@ -85,27 +82,18 @@ function LifecycleDialog({
   const [comment, setComment] = useState("");
 
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 700, width: "85vw" }}>
-        <DialogBody>
-          <DialogTitle>{t(titleKey)}</DialogTitle>
-          <DialogContent>
-            <div style={{ marginBottom: 12, color: "#0078d4" }}>📋 {jobName}</div>
-            <Field label={t("businessData.resourceJob.dialogs.lifecycle.comment")}>
-              <Input value={comment} onChange={(_, d) => setComment(d.value)} />
-            </Field>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
-            </Button>
-            <Button appearance="primary" onClick={onClose}>
-              {t(actionKey)}
-            </Button>
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+    <BaseDialog
+      open={open}
+      title={t(titleKey)}
+      onClose={onClose}
+      width="min(700px, 85vw)"
+      footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(actionKey)} />}
+    >
+      <div style={{ marginBottom: 12, color: "#0078d4" }}>📋 {jobName}</div>
+      <Field label={t("businessData.resourceJob.dialogs.lifecycle.comment")}>
+        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+      </Field>
+    </BaseDialog>
   );
 }
 

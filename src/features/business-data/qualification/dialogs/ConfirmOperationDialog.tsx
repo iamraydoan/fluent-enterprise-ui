@@ -1,14 +1,5 @@
-import {
-  Text,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
-} from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
+import { BaseDialog, DialogFooter } from "@/components/common";
+import { Text } from "@/components/ui";
 
 interface ConfirmOperationDialogProps {
   open: boolean;
@@ -25,25 +16,15 @@ export function ConfirmOperationDialog({
   message,
   confirmLabel,
 }: ConfirmOperationDialogProps) {
-  const { t } = useAppTranslation();
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 560 }}>
-        <DialogBody>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogContent>
-            <Text>{message}</Text>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
-            </Button>
-            <Button appearance="primary" onClick={onClose}>
-              {confirmLabel}
-            </Button>
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+    <BaseDialog
+      open={open}
+      title={title}
+      onClose={onClose}
+      size="md"
+      footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={confirmLabel} />}
+    >
+      <Text>{message}</Text>
+    </BaseDialog>
   );
 }

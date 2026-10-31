@@ -1,7 +1,16 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useMcpServer } from "@/api";
-import { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "@/components/common";
+import {
+  Card,
+  CardGrid,
+  DetailShell,
+  Empty,
+  KV,
+  MiniBar,
+  Panel,
+  DetailTile,
+} from "@/components/common";
 import type { DetailTab, MiniBarGroup } from "@/components/common";
 import {
   ArrowSync20Regular,
@@ -38,16 +47,6 @@ import { useTabsStore } from "@/stores/tabs-store";
 import { MCP_SERVER_SECTIONS } from "./data";
 
 const useMcpDetailStyles = makeStyles({
-  tile: {
-    width: "72px",
-    height: "72px",
-    flexShrink: 0,
-    backgroundColor: "#C9E0EC",
-    color: "#0F5C93",
-    display: "grid",
-    placeItems: "center",
-    fontSize: "44px",
-  },
   link: { color: "#1a6fc4", wordBreak: "break-all" },
   titleRow: {
     display: "flex",
@@ -154,9 +153,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
       <CardGrid>
         <Card title={t("mcpServer.cards.server")}>
           <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
-            <div className={mcpDetailStyles.tile}>
-              <Attach24Regular />
-            </div>
+            <DetailTile icon={<Attach24Regular />} />
             <div style={{ flexGrow: 1, minWidth: 0 }}>
               <KV
                 rows={[

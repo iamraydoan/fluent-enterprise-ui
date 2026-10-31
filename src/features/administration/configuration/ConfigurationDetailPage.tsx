@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useConfiguration } from "@/api";
-import { Card, CardGrid, DetailShell, KV } from "@/components/common";
+import { Card, CardGrid, DetailShell, KV, DetailTile } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import {
   Checkmark20Filled,
@@ -8,24 +8,10 @@ import {
   Wrench20Regular,
   Wrench24Regular,
 } from "@/components/icons";
-import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
 import { entryName, maskedValue } from "./data";
-
-const useDetailStyles = makeStyles({
-  tile: {
-    width: "72px",
-    height: "72px",
-    flexShrink: 0,
-    backgroundColor: "#C9DCEA",
-    color: "#0F6C93",
-    display: "grid",
-    placeItems: "center",
-    fontSize: "44px",
-  },
-});
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },
@@ -44,7 +30,6 @@ interface ConfigurationDetailPageProps {
 
 export function ConfigurationDetailPage({ path }: ConfigurationDetailPageProps) {
   const { t } = useAppTranslation();
-  const detailStyles = useDetailStyles();
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState<string>("configuration.sections.generalData");
   const { data, isLoading } = useConfiguration(path);
@@ -56,9 +41,7 @@ export function ConfigurationDetailPage({ path }: ConfigurationDetailPageProps) 
   const generalData = (
     <Card title={t("configuration.sections.generalData")}>
       <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
-        <div className={detailStyles.tile}>
-          <Wrench24Regular />
-        </div>
+        <DetailTile icon={<Wrench24Regular />} />
         <div style={{ flexGrow: 1, minWidth: 0 }}>
           <KV
             rows={[

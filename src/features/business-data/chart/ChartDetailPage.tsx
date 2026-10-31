@@ -10,6 +10,7 @@ import {
   refreshAction,
   terminateAction,
   unterminateAction,
+  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
@@ -50,22 +51,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: "12px", fontSize: "13px" },
   label: { color: tokens.colorNeutralForeground3, minWidth: "200px" },
-  tabs: { display: "flex", columnGap: "4px", padding: "0 16px" },
-  tab: {
-    padding: "10px 16px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    borderBottom: "2px solid transparent",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  tabActive: {
-    fontWeight: tokens.fontWeightSemibold,
-    borderBottom: `2px solid ${tokens.colorBrandStroke1}`,
-  },
-  tabContent: { padding: "16px", flexGrow: 1, minHeight: 0, overflowY: "auto" },
   empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
   toolbar: { display: "flex", columnGap: "8px", marginBottom: "12px" },
   actionsCell: { display: "flex", columnGap: "4px", flexWrap: "wrap" },
@@ -168,20 +153,14 @@ export function ChartDetailPage() {
           actions: detailActions,
         }}
       >
-        <div className={styles.tabs} role="tablist">
-          {TABS.map((value) => (
-            <button
-              key={value}
-              role="tab"
-              aria-selected={tab === value}
-              className={`${styles.tab} ${tab === value ? styles.tabActive : ""}`}
-              onClick={() => setTab(value)}
-            >
-              {t(`businessData.chart.detail.tabs.${value}`)}
-            </button>
-          ))}
-        </div>
-        <div className={styles.tabContent}>
+        <DetailTabs
+          tabs={TABS.map((value) => ({
+            value,
+            label: t(`businessData.chart.detail.tabs.${value}`),
+          }))}
+          active={tab}
+          onChange={(value) => setTab(value as typeof tab)}
+        >
           {tab === "details" && (
             <DetailShell
               title={chart.name}
@@ -408,7 +387,7 @@ export function ChartDetailPage() {
           {tab !== "details" && (
             <div className={styles.empty}>{t("businessData.chart.detail.historyEmpty")}</div>
           )}
-        </div>
+        </DetailTabs>
       </ListPage>
       {dialogs}
     </>

@@ -1,14 +1,8 @@
 import { useState } from "react";
+import { BaseDialog, DialogFooter } from "@/components/common";
 import {
   Text,
-  Button,
   Checkbox,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
   Table,
   TableBody,
   TableCell,
@@ -45,48 +39,41 @@ export function UnassignEmployeesDialog({
   };
 
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 700 }}>
-        <DialogBody>
-          <DialogTitle>{t(`${k}.title`)}</DialogTitle>
-          <DialogContent>
-            <Text style={{ marginBottom: 12 }}>
-              {t(`${k}.message`, { name: qualificationName })}
-            </Text>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderCell />
-                  <TableHeaderCell>{t(`${k}.employee`)}</TableHeaderCell>
-                  <TableHeaderCell>{t(`${k}.employeeNumber`)}</TableHeaderCell>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {EMPLOYEES.map((e) => (
-                  <TableRow key={e.number}>
-                    <TableCell>
-                      <Checkbox
-                        checked={selected.includes(e.number)}
-                        onChange={() => toggle(e.number)}
-                      />
-                    </TableCell>
-                    <TableCell>{e.name}</TableCell>
-                    <TableCell>{e.number}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
-            </Button>
-            <Button appearance="primary" onClick={onClose} disabled={selected.length === 0}>
-              {t(`${k}.unassign`)}
-            </Button>
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+    <BaseDialog
+      open={open}
+      title={t(`${k}.title`)}
+      onClose={onClose}
+      size="lg"
+      footer={
+        <DialogFooter
+          onCancel={onClose}
+          onConfirm={onClose}
+          confirmLabel={t(`${k}.unassign`)}
+          disabled={selected.length === 0}
+        />
+      }
+    >
+      <Text style={{ marginBottom: 12 }}>{t(`${k}.message`, { name: qualificationName })}</Text>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell />
+            <TableHeaderCell>{t(`${k}.employee`)}</TableHeaderCell>
+            <TableHeaderCell>{t(`${k}.employeeNumber`)}</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {EMPLOYEES.map((e) => (
+            <TableRow key={e.number}>
+              <TableCell>
+                <Checkbox checked={selected.includes(e.number)} onChange={() => toggle(e.number)} />
+              </TableCell>
+              <TableCell>{e.name}</TableCell>
+              <TableCell>{e.number}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </BaseDialog>
   );
 }

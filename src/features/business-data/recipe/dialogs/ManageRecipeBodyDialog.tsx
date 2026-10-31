@@ -1,15 +1,6 @@
 import { useState } from "react";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogContent,
-  DialogSurface,
-  DialogTitle,
-  Field,
-  Input,
-} from "@/components/ui";
+import { BaseDialog, DialogFooter } from "@/components/common";
+import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
 interface ManageRecipeBodyDialogProps {
@@ -34,65 +25,58 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
   const isNone = source === "None";
 
   return (
-    <Dialog open={open} onOpenChange={(_, data) => !data.open && onClose()}>
-      <DialogSurface style={{ maxWidth: 1100, width: "92vw" }}>
-        <DialogBody>
-          <DialogTitle>{t(`${k}.title`)}</DialogTitle>
-          <DialogContent>
-            <div style={{ marginBottom: 12, color: "#0078d4" }}>🎛 {recipeName}</div>
-            <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
-              <Field label={t(`${k}.source`)}>
-                <select value={source} onChange={(e) => setSource(e.target.value)}>
-                  {SOURCES.map((o) => (
-                    <option key={o} value={o}>
-                      {o}
-                    </option>
-                  ))}
-                </select>
-              </Field>
-              <Field label={t(`${k}.format`)} required={!isNone}>
-                <select value={format} onChange={(e) => setFormat(e.target.value)}>
-                  {FORMATS.map((o) => (
-                    <option key={o} value={o}>
-                      {o}
-                    </option>
-                  ))}
-                </select>
-              </Field>
-              <Field label={t(`${k}.fileName`)} required={!isNone}>
-                <div style={{ display: "flex", columnGap: 8 }}>
-                  <Input value={fileName} onChange={(_, d) => setFileName(d.value)} />
-                  <Button appearance="secondary" onClick={() => {}}>
-                    {t(`${k}.uploadBody`)}
-                  </Button>
-                </div>
-              </Field>
-              <Field label={t(`${k}.body`)} required={!isNone}>
-                <textarea
-                  value={body}
-                  onChange={(e) => setBody(e.target.value)}
-                  rows={6}
-                  style={{ width: "100%", fontFamily: "monospace", fontSize: 13 }}
-                />
-              </Field>
-              <div style={{ fontSize: 12, color: "#666" }}>
-                {t(`${k}.size`)}: {size} B
-              </div>
-            </div>
-            <Field label={t(`${k}.comments`)}>
-              <Input value={comments} onChange={(_, d) => setComments(d.value)} />
-            </Field>
-          </DialogContent>
-          <DialogActions>
-            <Button appearance="secondary" onClick={onClose}>
-              {t("common.cancel")}
+    <BaseDialog
+      open={open}
+      title={t(`${k}.title`)}
+      onClose={onClose}
+      width="min(1100px, 92vw)"
+      footer={
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.update`)} />
+      }
+    >
+      <div style={{ marginBottom: 12, color: "#0078d4" }}>🎛 {recipeName}</div>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <Field label={t(`${k}.source`)}>
+          <select value={source} onChange={(e) => setSource(e.target.value)}>
+            {SOURCES.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <Field label={t(`${k}.format`)} required={!isNone}>
+          <select value={format} onChange={(e) => setFormat(e.target.value)}>
+            {FORMATS.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <Field label={t(`${k}.fileName`)} required={!isNone}>
+          <div style={{ display: "flex", columnGap: 8 }}>
+            <Input value={fileName} onChange={(_, d) => setFileName(d.value)} />
+            <Button appearance="secondary" onClick={() => {}}>
+              {t(`${k}.uploadBody`)}
             </Button>
-            <Button appearance="primary" onClick={onClose}>
-              {t(`${k}.update`)}
-            </Button>
-          </DialogActions>
-        </DialogBody>
-      </DialogSurface>
-    </Dialog>
+          </div>
+        </Field>
+        <Field label={t(`${k}.body`)} required={!isNone}>
+          <textarea
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            rows={6}
+            style={{ width: "100%", fontFamily: "monospace", fontSize: 13 }}
+          />
+        </Field>
+        <div style={{ fontSize: 12, color: "#666" }}>
+          {t(`${k}.size`)}: {size} B
+        </div>
+      </div>
+      <Field label={t(`${k}.comments`)}>
+        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+      </Field>
+    </BaseDialog>
   );
 }

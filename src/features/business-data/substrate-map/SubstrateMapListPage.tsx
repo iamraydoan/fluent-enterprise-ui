@@ -1,6 +1,7 @@
 import { useSubstrateMaps } from "@/api";
 import type { SubstrateMapRecord } from "@/api";
 import {
+  defaultListFilters,
   DataListPage,
   exportAction,
   importAction,
@@ -45,6 +46,7 @@ export function SubstrateMapListPage() {
 
   return (
     <DataListPage
+      filters={defaultListFilters}
       icon={<Grid24Regular />}
       titleKey="businessData.substrateMap.pageLabel"
       listTitleKey="businessData.substrateMap.listTitle"

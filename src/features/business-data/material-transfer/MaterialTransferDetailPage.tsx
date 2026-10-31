@@ -169,7 +169,7 @@ export function MaterialTransferDetailPage({ name }: { name: string }) {
         onEdit={() => undefined}
         onAskAi={() => undefined}
         showState={false}
-        moreMenuItems={moreMenuItems}
+        moreActions={moreMenuItems}
       >
         <div className={styles.cards}>
           <Card

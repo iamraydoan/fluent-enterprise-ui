@@ -125,6 +125,9 @@ interface DialogFooterProps {
   confirmLabel: string;
   confirmAppearance?: "primary" | "secondary";
   danger?: boolean;
+  disabled?: boolean;
+  hideCancel?: boolean;
+  cancelLabel?: string;
 }
 
 export function DialogFooter({
@@ -133,16 +136,22 @@ export function DialogFooter({
   confirmLabel,
   confirmAppearance = "primary",
   danger = false,
+  disabled = false,
+  hideCancel = false,
+  cancelLabel,
 }: DialogFooterProps) {
   const { t } = useAppTranslation();
   return (
     <>
-      <Button appearance="secondary" onClick={onCancel}>
-        {t("common.cancel")}
-      </Button>
+      {!hideCancel && (
+        <Button appearance="secondary" onClick={onCancel}>
+          {cancelLabel ?? t("common.cancel")}
+        </Button>
+      )}
       <Button
         appearance={confirmAppearance}
         onClick={onConfirm}
+        disabled={disabled}
         style={danger ? { backgroundColor: tokens.colorPaletteRedBackground3 } : undefined}
       >
         {confirmLabel}

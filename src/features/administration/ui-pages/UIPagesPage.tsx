@@ -8,6 +8,7 @@ import {
   ListPage,
   refreshAction,
   SidePanel,
+  SidebarNavItem,
 } from "@/components/common";
 import { DocumentBulletList24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
 import {
@@ -25,6 +26,8 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+
+const ALL_FOLDERS = "all";
 
 const usePageStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
@@ -73,25 +76,6 @@ const usePageStyles = makeStyles({
   },
   tileName: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
   tileMeta: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
-  folderItem: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
-    width: "100%",
-    padding: "8px 12px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    textAlign: "left",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  folderActive: {
-    backgroundColor: tokens.colorNeutralBackground1Selected,
-    fontWeight: tokens.fontWeightSemibold,
-  },
   sectionLabel: {
     fontSize: "11px",
     color: tokens.colorNeutralForeground3,
@@ -116,9 +100,9 @@ export function UIPagesPage() {
   const styles = usePageStyles();
   const sharedStyles = useSharedStyles();
   const [collapsed, setCollapsed] = useState(false);
-  const [folder, setFolder] = useState("all");
+  const [folder, setFolder] = useState(ALL_FOLDERS);
   const [scope, setScope] = useState<"all" | UIPageScope>("all");
-  const [section, setSection] = useState("all");
+  const [section, setSection] = useState(ALL_FOLDERS);
   const [entityType, setEntityType] = useState("");
   const [q, setQ] = useState("");
   const [showTerminated, setShowTerminated] = useState(false);
@@ -126,7 +110,7 @@ export function UIPagesPage() {
 
   const { data: folders = [] } = useUIPageFolders();
   const { data: pages = [] } = useUIPages({
-    folder: folder === "all" ? undefined : folder,
+    folder: folder === ALL_FOLDERS ? undefined : folder,
     scope: scope === "all" ? undefined : scope,
     section: section === "all" ? undefined : section,
     entityType: entityType === "" ? undefined : entityType,
@@ -151,30 +135,21 @@ export function UIPagesPage() {
           collapsed={collapsed}
           onToggle={() => setCollapsed((value) => !value)}
         >
-          <button
-            className={mergeClasses(styles.folderItem, folder === "all" && styles.folderActive)}
-            onClick={() => setFolder("all")}
-          >
-            <Grid24Regular />
-            <Text weight={folder === "all" ? "semibold" : "regular"} size={300}>
-              {t("uiPages.allUIPages")}
-            </Text>
-          </button>
+          <SidebarNavItem
+            icon={<Grid24Regular />}
+            label={t("uiPages.allUIPages")}
+            active={folder === ALL_FOLDERS}
+            onClick={() => setFolder(ALL_FOLDERS)}
+          />
           <div className={styles.sectionLabel}>{t("uiPages.foldersSection")}</div>
           {folders.map((entry) => (
-            <button
+            <SidebarNavItem
               key={entry.path}
-              className={mergeClasses(
-                styles.folderItem,
-                folder === entry.path && styles.folderActive,
-              )}
+              icon={<Folder24Regular />}
+              label={entry.name}
+              active={folder === entry.path}
               onClick={() => setFolder(entry.path)}
-            >
-              <Folder24Regular />
-              <Text weight={folder === entry.path ? "semibold" : "regular"} size={300}>
-                {entry.name}
-              </Text>
-            </button>
+            />
           ))}
         </SidePanel>
         <div className={styles.main}>
