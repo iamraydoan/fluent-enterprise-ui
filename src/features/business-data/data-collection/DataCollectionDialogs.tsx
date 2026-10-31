@@ -1,68 +1,15 @@
 import { useState } from "react";
 import type { DataCollectionInstance, DataCollectionParameter } from "@/api";
-import { ArrowDown16Regular, ArrowUp16Regular, Dismiss16Regular } from "@/components/icons";
-import { Button, Checkbox, Input, Text, Textarea, makeStyles, tokens } from "@/components/ui";
+import { ArrowDown16Regular, ArrowUp16Regular } from "@/components/icons";
+import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog } from "@/components/common";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 import { MiniSelect } from "../components/MiniSelect";
 import type { OperationValues } from "../components/operationTypes";
 import { LIMIT_CHECKING_MODES, PARAMETER_DATA_TYPES } from "./dataCollectionLookups";
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(920px, calc(100vw - 48px))",
-    maxHeight: "min(700px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  narrow: {
-    width: "min(560px, calc(100vw - 48px))",
-    maxHeight: "min(700px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minHeight: "52px",
-    padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
-    display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  body: { flexGrow: 1, minHeight: 0, overflowY: "auto", padding: "16px 24px" },
-  foot: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
   hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
   fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
@@ -120,37 +67,6 @@ const useDialogStyles = makeStyles({
   kvRow: { display: "flex", columnGap: "12px", fontSize: "13px", marginBottom: "8px" },
   kvLabel: { color: tokens.colorNeutralForeground3, minWidth: "160px" },
 });
-
-function DialogShell({
-  title,
-  onClose,
-  wide,
-  children,
-  footer,
-}: {
-  title: string;
-  onClose: () => void;
-  wide?: boolean;
-  children: React.ReactNode;
-  footer: React.ReactNode;
-}) {
-  const styles = useDialogStyles();
-  const { t } = useAppTranslation();
-  return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={wide ? styles.surface : styles.narrow} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{title}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>{children}</div>
-        <div className={styles.foot}>{footer}</div>
-      </div>
-    </div>
-  );
-}
 
 export interface DataCollectionParameterRow extends DataCollectionParameter {
   id: number;
@@ -386,7 +302,6 @@ export function CloneDataCollectionDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [rows, setRows] = useState<CloneDataCollectionRow[]>([]);
-  if (!open) return null;
   const addRow = () =>
     setRows([
       ...rows,
@@ -402,8 +317,9 @@ export function CloneDataCollectionDialog({
     setRows(rows.map((r) => (r.id === id ? { ...r, ...patch } : r)));
 
   return (
-    <DialogShell
-      wide
+    <BaseDialog
+      open={open}
+      size="xl"
       title={t("businessData.dataCollection.operations.cloneTitle")}
       onClose={onClose}
       footer={
@@ -460,7 +376,7 @@ export function CloneDataCollectionDialog({
       <Button appearance="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -490,9 +406,10 @@ export function OpenDataCollectionInstanceDialog({
   const [limitSet, setLimitSet] = useState("");
   const [material, setMaterial] = useState("");
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
-    <DialogShell
+    <BaseDialog
+      open={open}
+      size="md"
       title={t("businessData.dataCollection.operations.openInstanceTitle")}
       onClose={onClose}
       footer={
@@ -558,7 +475,7 @@ export function OpenDataCollectionInstanceDialog({
         </span>
         <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
       </div>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -574,10 +491,11 @@ export function ViewDataCollectionInstanceDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [tab, setTab] = useState<"data" | "context">("data");
-  if (!open || !instance) return null;
+  if (!instance) return null;
   return (
-    <DialogShell
-      wide
+    <BaseDialog
+      open={open}
+      size="xl"
       title={t("businessData.dataCollection.operations.viewInstanceTitle")}
       onClose={onClose}
       footer={
@@ -655,7 +573,7 @@ export function ViewDataCollectionInstanceDialog({
           </div>
         </>
       )}
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -676,7 +594,7 @@ export function PostDataDialog({
   const styles = useDialogStyles();
   const [rows, setRows] = useState<DataValueRow[]>([]);
   const [comment, setComment] = useState("");
-  if (!open || !instance) return null;
+  if (!instance) return null;
   const valueOf = (parameter: string) => rows.find((r) => r.parameter === parameter)?.value ?? "";
   const setValue = (parameter: string, value: string) => {
     setRows((prev) =>
@@ -686,7 +604,9 @@ export function PostDataDialog({
     );
   };
   return (
-    <DialogShell
+    <BaseDialog
+      open={open}
+      size="md"
       title={t("businessData.dataCollection.operations.postDataTitle")}
       onClose={onClose}
       footer={
@@ -718,7 +638,7 @@ export function PostDataDialog({
         </span>
         <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
       </div>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -739,7 +659,7 @@ export function CorrectDataDialog({
   const styles = useDialogStyles();
   const [rows, setRows] = useState<DataValueRow[]>(instance?.postedData ?? []);
   const [recalculate, setRecalculate] = useState(false);
-  if (!open || !instance) return null;
+  if (!instance) return null;
   const valueOf = (parameter: string) => rows.find((r) => r.parameter === parameter)?.value ?? "";
   const setValue = (parameter: string, value: string) => {
     setRows((prev) =>
@@ -749,7 +669,9 @@ export function CorrectDataDialog({
     );
   };
   return (
-    <DialogShell
+    <BaseDialog
+      open={open}
+      size="md"
       title={t("businessData.dataCollection.operations.correctTitle")}
       onClose={onClose}
       footer={
@@ -777,7 +699,7 @@ export function CorrectDataDialog({
         checked={recalculate}
         onChange={() => setRecalculate(!recalculate)}
       />
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -801,9 +723,10 @@ export function CommentConfirmDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
-    <DialogShell
+    <BaseDialog
+      open={open}
+      size="md"
       title={t(titleKey)}
       onClose={onClose}
       footer={
@@ -824,7 +747,7 @@ export function CommentConfirmDialog({
         </span>
         <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
       </div>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -841,7 +764,6 @@ export function ManageDataCollectionParametersDialog({
 }) {
   const { t } = useAppTranslation();
   const [values, setValues] = useState<OperationValues>({});
-  if (!open) return null;
   const onChange = (key: string, value: string | number | boolean) =>
     setValues((prev) => ({ ...prev, [key]: value }));
   const rows = (values.parameters as unknown as DataCollectionParameterRow[] | undefined) ?? [];
@@ -857,8 +779,9 @@ export function ManageDataCollectionParametersDialog({
       limitChecking: r.limitChecking,
     }));
   return (
-    <DialogShell
-      wide
+    <BaseDialog
+      open={open}
+      size="xl"
       title={t("businessData.dataCollection.operations.manageParametersTitle")}
       onClose={onClose}
       footer={
@@ -879,7 +802,7 @@ export function ManageDataCollectionParametersDialog({
         }}
         onChange={onChange}
       />
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
