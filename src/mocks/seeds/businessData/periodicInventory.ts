@@ -1,4 +1,5 @@
 import type { PeriodicInventoryDetail, PeriodicInventoryRecord, Page } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../mockUtils";
 
 const RECORDS: PeriodicInventoryRecord[] = [
   {
@@ -23,19 +24,8 @@ export function queryPeriodicInventorys(
   q?: string,
   state?: string,
 ): Page<PeriodicInventoryRecord> {
-  let rows = RECORDS;
-  if (q !== undefined && q !== "") {
-    const needle = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(needle));
-  }
-  if (state !== undefined && state !== "" && state !== "all") {
-    rows = rows.filter(
-      (r) => (r as unknown as Record<string, string>).state?.toLowerCase() === state.toLowerCase(),
-    );
-  }
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(RECORDS, q, ["name"]), state);
+  return paginate(rows, page, limit);
 }
 
 export function buildPeriodicInventoryDetail(name: string): PeriodicInventoryDetail {

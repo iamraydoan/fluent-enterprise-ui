@@ -1,4 +1,5 @@
 import type { AreaDetail, AreaRecord, Page } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../mockUtils";
 
 const AREAS: AreaRecord[] = [
   {
@@ -44,23 +45,8 @@ export function queryAreas(
   q?: string,
   state?: string,
 ): Page<AreaRecord> {
-  let rows = AREAS;
-  if (q !== undefined && q !== "") {
-    const needle = q.toLowerCase();
-    rows = rows.filter(
-      (area) =>
-        area.name.toLowerCase().includes(needle) || area.description.toLowerCase().includes(needle),
-    );
-  }
-  if (state !== undefined && state !== "" && state !== "all") {
-    rows = rows.filter((area) => area.state.toLowerCase() === state.toLowerCase());
-  }
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return {
-    data: rows.slice(start, start + limit),
-    meta: { total, page, limit },
-  };
+  const rows = filterByState(filterByQuery(AREAS, q, ["name", "description"]), state);
+  return paginate(rows, page, limit);
 }
 
 export function buildAreaDetail(name: string): AreaDetail {

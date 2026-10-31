@@ -1,4 +1,5 @@
 import type { BusinessPartnerDetail, BusinessPartnerRecord, Page } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../mockUtils";
 
 const RECORDS: BusinessPartnerRecord[] = [
   { name: "Cooking Mining Company", description: "", role: "Supplier", state: "Active" },
@@ -36,16 +37,8 @@ export function queryBusinessPartners(
   q?: string,
   state?: string,
 ): Page<BusinessPartnerRecord> {
-  let rows = RECORDS;
-  if (q) {
-    const n = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(n));
-  }
-  if (state && state !== "" && state !== "all")
-    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(RECORDS, q, ["name"]), state);
+  return paginate(rows, page, limit);
 }
 
 const BUSINESS_PARTNER_OVERLAYS: Record<string, Partial<BusinessPartnerDetail>> = {};
