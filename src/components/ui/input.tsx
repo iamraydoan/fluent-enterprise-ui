@@ -4,13 +4,7 @@ import {
   Field as FluentField,
 } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type {
-  ComponentProps,
-  ComponentRef,
-  CSSProperties,
-  KeyboardEvent,
-  ReactElement,
-} from "react";
+import type { ComponentRef, CSSProperties, KeyboardEvent, ReactElement, ReactNode } from "react";
 
 export type InputType =
   "text" | "password" | "number" | "date" | "datetime-local" | "email" | "search" | "tel" | "url";
@@ -96,10 +90,27 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
   );
 });
 
-export type FieldProps = ComponentProps<typeof FluentField>;
+export type FieldSize = "sm" | "md" | "lg";
 
-export const Field = forwardRef<ComponentRef<typeof FluentField>, FieldProps>(
-  function Field(props, ref) {
-    return <FluentField ref={ref} {...props} />;
-  },
-);
+export interface FieldProps {
+  label?: string;
+  hint?: string;
+  required?: boolean;
+  size?: FieldSize;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
+
+const FIELD_SIZE_MAP: Record<FieldSize, "small" | "medium" | "large"> = {
+  sm: "small",
+  md: "medium",
+  lg: "large",
+};
+
+export const Field = forwardRef<ComponentRef<typeof FluentField>, FieldProps>(function Field(
+  { size, ...rest },
+  ref,
+) {
+  return <FluentField ref={ref} size={size ? FIELD_SIZE_MAP[size] : undefined} {...rest} />;
+});

@@ -1,16 +1,20 @@
 import {
   Table as FluentTable,
-  TableHeader as FluentTableHeader,
-  TableRow as FluentTableRow,
-  TableHeaderCell as FluentTableHeaderCell,
   TableBody as FluentTableBody,
   TableCell as FluentTableCell,
   TableCellLayout as FluentTableCellLayout,
+  TableHeader as FluentTableHeader,
+  TableHeaderCell as FluentTableHeaderCell,
+  TableRow as FluentTableRow,
 } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type { ComponentProps, ComponentRef } from "react";
+import type { ComponentRef, CSSProperties, MouseEvent, ReactNode } from "react";
 
-export type TableProps = ComponentProps<typeof FluentTable>;
+export interface TableProps {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const Table = forwardRef<ComponentRef<typeof FluentTable>, TableProps>(
   function Table(props, ref) {
@@ -18,7 +22,11 @@ export const Table = forwardRef<ComponentRef<typeof FluentTable>, TableProps>(
   },
 );
 
-export type TableHeaderProps = ComponentProps<typeof FluentTableHeader>;
+export interface TableHeaderProps {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const TableHeader = forwardRef<ComponentRef<typeof FluentTableHeader>, TableHeaderProps>(
   function TableHeader(props, ref) {
@@ -26,7 +34,13 @@ export const TableHeader = forwardRef<ComponentRef<typeof FluentTableHeader>, Ta
   },
 );
 
-export type TableRowProps = ComponentProps<typeof FluentTableRow>;
+export interface TableRowProps {
+  onClick?: (e: MouseEvent<HTMLElement>) => void;
+  className?: string;
+  style?: CSSProperties;
+  title?: string;
+  children?: ReactNode;
+}
 
 export const TableRow = forwardRef<ComponentRef<typeof FluentTableRow>, TableRowProps>(
   function TableRow(props, ref) {
@@ -34,7 +48,12 @@ export const TableRow = forwardRef<ComponentRef<typeof FluentTableRow>, TableRow
   },
 );
 
-export type TableHeaderCellProps = ComponentProps<typeof FluentTableHeaderCell>;
+export interface TableHeaderCellProps {
+  sortDirection?: "ascending" | "descending";
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const TableHeaderCell = forwardRef<
   ComponentRef<typeof FluentTableHeaderCell>,
@@ -43,7 +62,11 @@ export const TableHeaderCell = forwardRef<
   return <FluentTableHeaderCell ref={ref} {...props} />;
 });
 
-export type TableBodyProps = ComponentProps<typeof FluentTableBody>;
+export interface TableBodyProps {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const TableBody = forwardRef<ComponentRef<typeof FluentTableBody>, TableBodyProps>(
   function TableBody(props, ref) {
@@ -51,7 +74,12 @@ export const TableBody = forwardRef<ComponentRef<typeof FluentTableBody>, TableB
   },
 );
 
-export type TableCellProps = ComponentProps<typeof FluentTableCell>;
+export interface TableCellProps {
+  colSpan?: number;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const TableCell = forwardRef<ComponentRef<typeof FluentTableCell>, TableCellProps>(
   function TableCell(props, ref) {
@@ -59,7 +87,13 @@ export const TableCell = forwardRef<ComponentRef<typeof FluentTableCell>, TableC
   },
 );
 
-export type TableCellLayoutProps = ComponentProps<typeof FluentTableCellLayout>;
+export interface TableCellLayoutProps {
+  truncate?: boolean;
+  title?: string;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const TableCellLayout = forwardRef<
   ComponentRef<typeof FluentTableCellLayout>,

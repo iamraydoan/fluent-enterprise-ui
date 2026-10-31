@@ -402,8 +402,8 @@ export function AiChatPage() {
       <div className={chatStyles.bar}>
         <Menu
           checkedValues={{ agent: [agent.name] }}
-          onCheckedValueChange={(_, d) => {
-            const next = d.checkedItems[0];
+          onCheckedValueChange={(checkedItems) => {
+            const next = checkedItems[0];
             if (next) setAgentName(next);
           }}
         >

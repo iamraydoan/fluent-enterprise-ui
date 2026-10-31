@@ -263,7 +263,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
             {t("common.rowsPerPage")}
             <Menu
               checkedValues={{ size: [String(pageSize)] }}
-              onCheckedValueChange={(_, d) => setPageSize(Number(d.checkedItems[0]))}
+              onCheckedValueChange={(checkedItems) => setPageSize(Number(checkedItems[0]))}
             >
               <MenuTrigger disableButtonEnhancement>
                 <button className={mcpDetailStyles.menuBtn}>

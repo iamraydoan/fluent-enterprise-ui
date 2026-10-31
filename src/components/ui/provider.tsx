@@ -1,8 +1,13 @@
-import { FluentProvider as FluentFluentProvider } from "@fluentui/react-components";
+import { FluentProvider as FluentFluentProvider, type Theme } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type { ComponentProps, ComponentRef } from "react";
+import type { ComponentRef, CSSProperties, ReactNode } from "react";
 
-export type FluentProviderProps = ComponentProps<typeof FluentFluentProvider>;
+export interface FluentProviderProps {
+  theme?: Theme;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const FluentProvider = forwardRef<
   ComponentRef<typeof FluentFluentProvider>,

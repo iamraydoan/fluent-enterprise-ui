@@ -8,21 +8,40 @@ import {
   DialogTrigger as FluentDialogTrigger,
 } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type { ComponentProps, ComponentRef } from "react";
+import type { ComponentRef, CSSProperties, ReactElement, ReactNode } from "react";
 
-export type DialogProps = ComponentProps<typeof FluentDialog>;
-
-export function Dialog(props: DialogProps) {
-  return <FluentDialog {...props} />;
+export interface DialogProps {
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  children?: ReactNode;
 }
 
-export type DialogTriggerProps = ComponentProps<typeof FluentDialogTrigger>;
-
-export function DialogTrigger(props: DialogTriggerProps) {
-  return <FluentDialogTrigger {...props} />;
+export function Dialog({ onOpenChange, children, ...rest }: DialogProps) {
+  return (
+    <FluentDialog
+      onOpenChange={onOpenChange ? (_, data) => onOpenChange(data.open) : undefined}
+      {...rest}
+    >
+      {children as ReactElement}
+    </FluentDialog>
+  );
 }
 
-export type DialogSurfaceProps = ComponentProps<typeof FluentDialogSurface>;
+export interface DialogTriggerProps {
+  disableButtonEnhancement?: boolean;
+  children?: ReactNode;
+}
+
+export function DialogTrigger({ children, ...rest }: DialogTriggerProps) {
+  return <FluentDialogTrigger {...rest}>{children as ReactElement}</FluentDialogTrigger>;
+}
+
+export interface DialogSurfaceProps {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const DialogSurface = forwardRef<
   ComponentRef<typeof FluentDialogSurface>,
@@ -31,7 +50,11 @@ export const DialogSurface = forwardRef<
   return <FluentDialogSurface ref={ref} {...props} />;
 });
 
-export type DialogBodyProps = ComponentProps<typeof FluentDialogBody>;
+export interface DialogBodyProps {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const DialogBody = forwardRef<ComponentRef<typeof FluentDialogBody>, DialogBodyProps>(
   function DialogBody(props, ref) {
@@ -39,19 +62,32 @@ export const DialogBody = forwardRef<ComponentRef<typeof FluentDialogBody>, Dial
   },
 );
 
-export type DialogTitleProps = ComponentProps<typeof FluentDialogTitle>;
+export interface DialogTitleProps {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export function DialogTitle(props: DialogTitleProps) {
   return <FluentDialogTitle {...props} />;
 }
 
-export type DialogContentProps = ComponentProps<typeof FluentDialogContent>;
+export interface DialogContentProps {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export function DialogContent(props: DialogContentProps) {
   return <FluentDialogContent {...props} />;
 }
 
-export type DialogActionsProps = ComponentProps<typeof FluentDialogActions>;
+export interface DialogActionsProps {
+  position?: "start" | "end";
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export function DialogActions(props: DialogActionsProps) {
   return <FluentDialogActions {...props} />;
