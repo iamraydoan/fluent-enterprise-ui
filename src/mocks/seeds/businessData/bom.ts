@@ -1,4 +1,5 @@
 import type { BomDetail, BomRecord, Page } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../mockUtils";
 
 const BOMS: BomRecord[] = [
   {
@@ -30,19 +31,8 @@ export function queryBoms(
   q?: string,
   state?: string,
 ): Page<BomRecord> {
-  let rows = BOMS;
-  if (q) {
-    const needle = q.toLowerCase();
-    rows = rows.filter(
-      (b) => b.name.toLowerCase().includes(needle) || b.description.toLowerCase().includes(needle),
-    );
-  }
-  if (state && state !== "" && state !== "all") {
-    rows = rows.filter((b) => b.state.toLowerCase() === state.toLowerCase());
-  }
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(BOMS, q, ["name", "description"]), state);
+  return paginate(rows, page, limit);
 }
 
 export function buildBomDetail(name: string): BomDetail {

@@ -10,6 +10,7 @@ import type {
   Page,
   StepSummary,
 } from "@/api";
+import { paginate } from "../../mockUtils";
 
 type SeedResource = Partial<FabResource> & Pick<FabResource, "name">;
 type SeedMaterial = Partial<FabMaterial> & Pick<FabMaterial, "name">;
@@ -890,14 +891,6 @@ const STORED_MATERIALS: SeedMaterial[] = [
     subMaterialCount: 0,
   },
 ];
-
-function paginate<T>(rows: T[], page: number, limit: number): Page<T> {
-  const start = (page - 1) * limit;
-  return {
-    data: rows.slice(start, start + limit),
-    meta: { total: rows.length, page, limit },
-  };
-}
 
 function filterMaterials(
   rows: FabMaterial[],

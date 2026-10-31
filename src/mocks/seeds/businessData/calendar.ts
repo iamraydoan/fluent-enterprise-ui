@@ -1,4 +1,5 @@
 import type { CalendarDetail, CalendarRecord, WeekDay, Page } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../mockUtils";
 
 const RECORDS: CalendarRecord[] = [
   { name: "Standard", description: "Standard Calendar", state: "Active" },
@@ -21,18 +22,8 @@ export function queryCalendars(
   q?: string,
   state?: string,
 ): Page<CalendarRecord> {
-  let rows = RECORDS;
-  if (q) {
-    const n = q.toLowerCase();
-    rows = rows.filter(
-      (r) => r.name.toLowerCase().includes(n) || r.description.toLowerCase().includes(n),
-    );
-  }
-  if (state && state !== "" && state !== "all")
-    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(RECORDS, q, ["name", "description"]), state);
+  return paginate(rows, page, limit);
 }
 
 const CALENDAR_OVERLAYS: Record<string, Partial<CalendarDetail>> = {};

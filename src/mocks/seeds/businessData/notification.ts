@@ -1,4 +1,5 @@
 import type { NotificationDetail, NotificationRecord, Page } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../mockUtils";
 
 const RECORDS: NotificationRecord[] = [
   {
@@ -27,19 +28,8 @@ export function queryNotifications(
   q?: string,
   state?: string,
 ): Page<NotificationRecord> {
-  let rows = RECORDS;
-  if (q !== undefined && q !== "") {
-    const needle = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(needle));
-  }
-  if (state !== undefined && state !== "" && state !== "all") {
-    rows = rows.filter(
-      (r) => (r as unknown as Record<string, string>).state?.toLowerCase() === state.toLowerCase(),
-    );
-  }
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(RECORDS, q, ["name"]), state);
+  return paginate(rows, page, limit);
 }
 
 export function buildNotificationDetail(name: string): NotificationDetail {

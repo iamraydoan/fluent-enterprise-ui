@@ -1,4 +1,5 @@
 import type { BatchDetail, BatchRecord, Page } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../mockUtils";
 
 const BATCHES: BatchRecord[] = [
   {
@@ -33,21 +34,8 @@ export function queryBatches(
   q?: string,
   state?: string,
 ): Page<BatchRecord> {
-  let rows = BATCHES;
-  if (q !== undefined && q !== "") {
-    const needle = q.toLowerCase();
-    rows = rows.filter(
-      (batch) =>
-        batch.name.toLowerCase().includes(needle) ||
-        batch.description.toLowerCase().includes(needle),
-    );
-  }
-  if (state !== undefined && state !== "" && state !== "all") {
-    rows = rows.filter((batch) => batch.state.toLowerCase() === state.toLowerCase());
-  }
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(BATCHES, q, ["name", "description"]), state);
+  return paginate(rows, page, limit);
 }
 
 export function buildBatchDetail(name: string): BatchDetail {
