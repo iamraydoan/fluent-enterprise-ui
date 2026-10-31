@@ -1,5 +1,5 @@
 import type { PeriodicInventoryDetail, PeriodicInventoryRecord, Page } from "@/api";
-import { filterByQuery, filterByState, paginate } from "../mockUtils";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: PeriodicInventoryRecord[] = [
   {

@@ -1,6 +1,6 @@
 import type { DataSiloDetail, DataSiloRecord, Page } from "@/api";
 import { RecordState } from "@/api";
-import { filterByQuery, filterByState, paginate } from "../mockUtils";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const SILOS: DataSiloRecord[] = [
   {

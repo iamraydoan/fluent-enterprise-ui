@@ -1,5 +1,5 @@
 import type { BatchDetail, BatchRecord, Page } from "@/api";
-import { filterByQuery, filterByState, paginate } from "../mockUtils";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const BATCHES: BatchRecord[] = [
   {

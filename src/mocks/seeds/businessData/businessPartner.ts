@@ -1,5 +1,5 @@
 import type { BusinessPartnerDetail, BusinessPartnerRecord, Page } from "@/api";
-import { filterByQuery, filterByState, paginate } from "../mockUtils";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: BusinessPartnerRecord[] = [
   { name: "Cooking Mining Company", description: "", role: "Supplier", state: "Active" },

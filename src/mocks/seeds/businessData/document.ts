@@ -1,6 +1,6 @@
 import type { DocumentDetail, DocumentRecord, Page } from "@/api";
 import { RecordState } from "@/api";
-import { filterByQuery, filterByState, paginate } from "../mockUtils";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const DOCUMENTS: DocumentRecord[] = [
   {

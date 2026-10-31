@@ -19,7 +19,6 @@ import { Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
-import { useSharedStyles } from "@/styles/shared";
 import {
   AbortDialog,
   ChangeMaterialTypeDialog,

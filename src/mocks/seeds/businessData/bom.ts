@@ -1,5 +1,5 @@
 import type { BomDetail, BomRecord, Page } from "@/api";
-import { filterByQuery, filterByState, paginate } from "../mockUtils";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const BOMS: BomRecord[] = [
   {

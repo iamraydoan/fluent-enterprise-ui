@@ -19,14 +19,15 @@ function shouldSkipValue(value: unknown): boolean {
   );
 }
 
-export function toListSearchParams(query: ListQueryParams): URLSearchParams;
-export function toListSearchParams(
-  query: ListQueryParams & Record<string, unknown>,
-): URLSearchParams;
-export function toListSearchParams(query: ListQueryParams): URLSearchParams {
+export function toListSearchParams<T extends object>(query: T): URLSearchParams;
+export function toListSearchParams(query: Partial<ListQueryParams>): URLSearchParams {
   const search = new URLSearchParams();
-  search.set("page", String(query.page));
-  search.set("limit", String(query.limit));
+  if (query.page !== undefined) {
+    search.set("page", String(query.page));
+  }
+  if (query.limit !== undefined) {
+    search.set("limit", String(query.limit));
+  }
   if (query.sort) {
     search.set("sort", query.sort);
   }

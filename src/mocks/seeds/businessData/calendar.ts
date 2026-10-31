@@ -1,5 +1,5 @@
 import type { CalendarDetail, CalendarRecord, WeekDay, Page } from "@/api";
-import { filterByQuery, filterByState, paginate } from "../mockUtils";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: CalendarRecord[] = [
   { name: "Standard", description: "Standard Calendar", state: "Active" },

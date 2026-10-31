@@ -1,6 +1,6 @@
 import type { EnterpriseDetail, EnterpriseRecord, Page } from "@/api";
 import { RecordState } from "@/api";
-import { filterByQuery, filterByState, paginate } from "../mockUtils";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const ENTERPRISES: EnterpriseRecord[] = [
   { name: "Giant Enterprise", description: "", dataGroup: "", state: RecordState.Active },

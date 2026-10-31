@@ -1,5 +1,6 @@
 import { Bot20Regular, ChevronDown20Regular } from "@/components/icons";
 import { makeStyles, tokens } from "@/components/ui";
+import { cardSurface } from "@/styles/shared";
 
 const useDialogAgentSubStyles = makeStyles({
   sub: {
@@ -8,7 +9,7 @@ const useDialogAgentSubStyles = makeStyles({
     justifyContent: "space-between",
     padding: "8px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
     flexShrink: 0,
     fontSize: "13px",
   },

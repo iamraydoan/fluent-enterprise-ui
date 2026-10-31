@@ -39,7 +39,7 @@ const useBaseDialogStyles = makeStyles({
     justifyContent: "space-between",
     padding: "8px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
     flexShrink: 0,
     fontSize: "13px",
   },

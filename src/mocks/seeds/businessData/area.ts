@@ -1,5 +1,5 @@
 import type { AreaDetail, AreaRecord, Page } from "@/api";
-import { filterByQuery, filterByState, paginate } from "../mockUtils";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const AREAS: AreaRecord[] = [
   {
