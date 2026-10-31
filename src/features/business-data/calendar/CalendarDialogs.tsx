@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Checkbox, Input, makeStyles, tokens } from "@/components/ui";
+import { Checkbox, Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import type { OperationValues } from "../components/operationTypes";
 
 const useDialogStyles = makeStyles({
-  fieldLabel: { fontSize: "13px", color: tokens.colorNeutralForeground2, textAlign: "right" },
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "16px" },
+  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "16px" },
 });
 
 function DialogShell({

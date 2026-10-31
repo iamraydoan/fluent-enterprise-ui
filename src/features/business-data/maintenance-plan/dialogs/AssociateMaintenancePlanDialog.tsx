@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Input, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const L: Record<string, TranslationKey> = {
   title: "businessData.maintenancePlan.associate.title",
@@ -19,10 +20,10 @@ const L: Record<string, TranslationKey> = {
 const useDialogStyles = makeStyles({
   select: {
     padding: "6px 8px",
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
-    borderRadius: tokens.borderRadiusMedium,
-    fontSize: tokens.fontSizeBase300,
-    backgroundColor: tokens.colorNeutralBackground1,
+    border: `1px solid ${theme.color.border}`,
+    borderRadius: theme.radius.md,
+    fontSize: theme.font.sizeMd,
+    backgroundColor: theme.color.surface,
   },
 });
 
@@ -72,7 +73,7 @@ export function AssociateMaintenancePlanDialog({
       <FormField
         label={
           <>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            <span style={{ color: theme.color.textDanger }}>* </span>
             {t(L.entity)}
           </>
         }

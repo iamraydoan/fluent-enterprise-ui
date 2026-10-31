@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog } from "@/components/common";
-import { Button, Input, Checkbox, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, Checkbox, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const L: Record<string, TranslationKey> = {
   title: "businessData.kpi.dimensionsDialog.title",
@@ -37,22 +38,22 @@ const useStyles = makeStyles({
     display: "flex",
     gap: "16px",
     padding: "4px 4px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: "4px",
   },
-  step: { fontSize: tokens.fontSizeBase300, color: tokens.colorNeutralForeground3 },
+  step: { fontSize: theme.font.sizeMd, color: theme.color.textTertiary },
   stepActive: {
-    fontSize: tokens.fontSizeBase300,
-    fontWeight: tokens.fontWeightSemibold,
-    color: tokens.colorBrandForeground1,
+    fontSize: theme.font.sizeMd,
+    fontWeight: theme.font.weightSemibold,
+    color: theme.color.textBrand,
   },
   row: { display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" },
   select: {
     padding: "6px 8px",
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
-    borderRadius: tokens.borderRadiusMedium,
-    fontSize: tokens.fontSizeBase300,
-    backgroundColor: tokens.colorNeutralBackground1,
+    border: `1px solid ${theme.color.border}`,
+    borderRadius: theme.radius.md,
+    fontSize: theme.font.sizeMd,
+    backgroundColor: theme.color.surface,
   },
 });
 

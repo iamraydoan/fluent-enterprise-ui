@@ -1,5 +1,6 @@
 import { BaseDialog } from "@/components/common";
-import { Input, tokens } from "@/components/ui";
+import { Input} from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 export function DialogShell({
   open,
@@ -40,7 +41,7 @@ export function NumField({
 }) {
   return (
     <div className="num-field" style={{ display: "flex", flexDirection: "column", rowGap: "4px" }}>
-      <span style={{ fontSize: "12px", color: tokens.colorNeutralForeground3 }}>{label}</span>
+      <span style={{ fontSize: "12px", color: theme.color.textTertiary }}>{label}</span>
       <Input
         type="number"
         value={value === undefined ? "" : String(value)}

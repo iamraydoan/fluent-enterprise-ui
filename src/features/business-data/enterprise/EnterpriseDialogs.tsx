@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Input, Textarea, tokens } from "@/components/ui";
+import { Button, Input, Textarea} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { MODE_CREATE, MODE_EDIT } from "../components/wizardMode";
 import type { WizardMode } from "../components/wizardMode";
 
@@ -52,7 +53,7 @@ export function EnterpriseDialog({ mode, initialName, initialDescription, onClos
       <FormField
         label={
           <>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            <span style={{ color: theme.color.textDanger }}>* </span>
             {t(L.name)}
           </>
         }

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { MODE_CREATE, MODE_EDIT } from "../../components/wizardMode";
 import type { WizardMode } from "../../components/wizardMode";
 
@@ -44,14 +45,14 @@ const useDialogStyles = makeStyles({
     display: "flex",
     gap: "16px",
     padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
-  step: { fontSize: tokens.fontSizeBase200, color: tokens.colorNeutralForeground3 },
+  step: { fontSize: theme.font.sizeSm, color: theme.color.textTertiary },
   stepActive: {
-    fontSize: tokens.fontSizeBase200,
-    fontWeight: tokens.fontWeightSemibold,
-    color: tokens.colorBrandForeground1,
+    fontSize: theme.font.sizeSm,
+    fontWeight: theme.font.weightSemibold,
+    color: theme.color.textBrand,
   },
 });
 
@@ -122,7 +123,7 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
           <FormField
             label={
               <>
-                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                <span style={{ color: theme.color.textDanger }}>* </span>
                 {t(L.user)}
               </>
             }
@@ -165,7 +166,7 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
           <FormField
             label={
               <>
-                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                <span style={{ color: theme.color.textDanger }}>* </span>
                 {t(L.name)}
               </>
             }
@@ -186,7 +187,7 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
           <FormField
             label={
               <>
-                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                <span style={{ color: theme.color.textDanger }}>* </span>
                 {t(L.employeeNumber)}
               </>
             }

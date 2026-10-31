@@ -9,8 +9,9 @@ import {
   TileGrid,
 } from "@/components/common";
 import { Box24Regular, Grid24Regular } from "@/components/icons";
-import { Button, makeStyles, tokens } from "@/components/ui";
+import { Button, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import type { FabNavigation } from "../FabExplorerPage";
 import { ChangeResourcesDialog } from "../dialogs/ChangeResourcesDialog";
 import { ManageResourceEmployeesDialog } from "../dialogs/ManageResourceEmployeesDialog";
@@ -25,7 +26,7 @@ const useViewStyles = makeStyles({
     display: "flex",
     columnGap: "12px",
     fontSize: "12px",
-    color: tokens.colorNeutralForeground2,
+    color: theme.color.textSecondary,
     marginTop: "auto",
   },
   stateCount: { display: "flex", alignItems: "center", columnGap: "4px" },
@@ -35,7 +36,7 @@ const useViewStyles = makeStyles({
     justifyContent: "space-between",
     fontSize: "13px",
     padding: "8px 0",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });
 
@@ -73,7 +74,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
         <div
           style={{
             fontSize: "11px",
-            color: tokens.colorNeutralForeground3,
+            color: theme.color.textTertiary,
             padding: "12px 12px 4px",
           }}
         >
@@ -119,7 +120,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
                             width: "10px",
                             height: "10px",
                             borderRadius: "50%",
-                            backgroundColor: tokens.colorPaletteGreenBackground3,
+                            backgroundColor: theme.color.successSubtle,
                             display: "inline-block",
                           }}
                         />
@@ -131,7 +132,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
                             width: "10px",
                             height: "10px",
                             borderRadius: "50%",
-                            backgroundColor: tokens.colorPaletteRedBackground3,
+                            backgroundColor: theme.color.dangerSubtle,
                             display: "inline-block",
                           }}
                         />
@@ -143,7 +144,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
                             width: "10px",
                             height: "10px",
                             borderRadius: "50%",
-                            backgroundColor: tokens.colorPaletteYellowBackground3,
+                            backgroundColor: theme.color.warningSubtle,
                             display: "inline-block",
                           }}
                         />

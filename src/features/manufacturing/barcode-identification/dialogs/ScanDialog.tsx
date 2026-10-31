@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
-import { makeStyles, Text, tokens } from "@/components/ui";
+import { makeStyles, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useScanStyles = makeStyles({
   viewport: {
@@ -10,7 +11,7 @@ const useScanStyles = makeStyles({
     width: "100%",
     aspectRatio: "4 / 3",
     backgroundColor: "#1b1b1b",
-    borderRadius: tokens.borderRadiusMedium,
+    borderRadius: theme.radius.md,
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
@@ -23,20 +24,20 @@ const useScanStyles = makeStyles({
     height: "96px",
   },
   bar: {
-    backgroundColor: "#e8e8e8",
+    backgroundColor: theme.color.borderSubtle,
   },
   scanLine: {
     position: "absolute",
     left: "8%",
     right: "8%",
     height: "2px",
-    backgroundColor: tokens.colorPaletteRedForeground1,
+    backgroundColor: theme.color.textDanger,
     boxShadow: "0 0 8px rgba(255,0,0,0.8)",
     animation: "barcode-scan-line 1.6s ease-in-out infinite",
   },
   status: {
     textAlign: "center",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     minHeight: "20px",
   },
   typeRow: {

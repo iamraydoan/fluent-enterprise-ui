@@ -23,9 +23,9 @@ import {
   MenuTrigger,
   Textarea,
   makeStyles,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { MiniSelect } from "../components/MiniSelect";
 import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 import {
@@ -37,18 +37,18 @@ import {
 } from "./dataCollectionLimitSetLookups";
 
 const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
-  fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
+  fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
   staticValue: { fontSize: "13px", padding: "6px 0" },
-  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   split: { display: "flex", columnGap: "16px", minHeight: "320px" },
   listPane: {
     flex: "0 0 240px",
     display: "flex",
     flexDirection: "column",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
     overflow: "hidden",
   },
   listToolbar: {
@@ -57,16 +57,16 @@ const useDialogStyles = makeStyles({
     rowGap: "4px",
     flexWrap: "wrap",
     padding: "8px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     alignItems: "center",
   },
-  listTitle: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold, marginRight: "auto" },
+  listTitle: { fontSize: "13px", fontWeight: theme.font.weightSemibold, marginRight: "auto" },
   listBody: { flexGrow: 1, overflowY: "auto" },
   listItem: {
     width: "100%",
     textAlign: "left",
     border: "none",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: "transparent",
     cursor: "pointer",
     padding: "8px 12px",
@@ -76,8 +76,8 @@ const useDialogStyles = makeStyles({
     flexDirection: "column",
     rowGap: "2px",
   },
-  listItemActive: { backgroundColor: tokens.colorNeutralBackground1Selected },
-  listItemSub: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
+  listItemActive: { backgroundColor: theme.color.surfaceSelected },
+  listItemSub: { fontSize: "12px", color: theme.color.textTertiary },
   formPane: { flexGrow: 1, minWidth: 0 },
   formRow: {
     display: "flex",
@@ -87,7 +87,7 @@ const useDialogStyles = makeStyles({
     flexWrap: "wrap",
     marginBottom: "12px",
   },
-  miniLabel: { fontSize: "12px", color: tokens.colorNeutralForeground3, marginBottom: "4px" },
+  miniLabel: { fontSize: "12px", color: theme.color.textTertiary, marginBottom: "4px" },
   grow: { flex: "1 1 160px", minWidth: "140px" },
   numWrap: { flex: "0 1 120px", minWidth: "100px" },
   optionsBar: { display: "flex", justifyContent: "flex-end", marginBottom: "12px" },
@@ -96,7 +96,7 @@ const useDialogStyles = makeStyles({
     alignItems: "center",
     columnGap: "8px",
     padding: "8px 0",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });
 

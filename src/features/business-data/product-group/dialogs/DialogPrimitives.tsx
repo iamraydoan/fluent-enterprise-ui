@@ -1,4 +1,4 @@
-import { tokens } from "@/components/ui";
+import { theme } from "@/styles/theme";
 import { useDialogStyles } from "./dialogShared";
 
 export function WizardSteps({ steps, current }: { steps: string[]; current: number }) {
@@ -12,7 +12,7 @@ export function WizardSteps({ steps, current }: { steps: string[]; current: numb
               style={{
                 width: "24px",
                 height: "1px",
-                backgroundColor: tokens.colorNeutralStroke2,
+                backgroundColor: theme.color.borderSubtle,
               }}
             />
           )}
@@ -27,7 +27,7 @@ export function WizardSteps({ steps, current }: { steps: string[]; current: numb
             <span
               style={{
                 color:
-                  i === current ? tokens.colorNeutralForeground1 : tokens.colorNeutralForeground3,
+                  i === current ? theme.color.textPrimary : theme.color.textTertiary,
               }}
             >
               {step}

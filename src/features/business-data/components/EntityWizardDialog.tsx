@@ -13,11 +13,11 @@ import {
   Text,
   Textarea,
   makeStyles,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import type { OperationOnChange, OperationValues, WizardField, WizardStep } from "./operationTypes";
 
 const useWizardStyles = makeStyles({
@@ -45,7 +45,7 @@ const useWizardStyles = makeStyles({
     justifyContent: "space-between",
     minHeight: "52px",
     padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
   headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
@@ -54,9 +54,9 @@ const useWizardStyles = makeStyles({
     backgroundColor: "transparent",
     cursor: "pointer",
     padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
+    borderRadius: theme.radius.md,
     display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   steps: {
     display: "flex",
@@ -68,13 +68,13 @@ const useWizardStyles = makeStyles({
     flexGrow: 1,
     height: "4px",
     borderRadius: "2px",
-    backgroundColor: tokens.colorNeutralStroke2,
+    backgroundColor: theme.color.borderSubtle,
   },
-  stepPillActive: { backgroundColor: tokens.colorBrandStroke1 },
+  stepPillActive: { backgroundColor: theme.color.borderBrand },
   stepTitle: {
     padding: "12px 24px 0",
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     flexShrink: 0,
   },
   body: {
@@ -86,14 +86,14 @@ const useWizardStyles = makeStyles({
     flexDirection: "column",
     rowGap: "12px",
   },
-  fieldLabel: { fontSize: "13px", color: tokens.colorNeutralForeground2, textAlign: "right" },
-  fieldRequired: { color: tokens.colorPaletteRedForeground1 },
+  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
+  fieldRequired: { color: theme.color.textDanger },
   foot: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
   footGroup: { display: "flex", columnGap: "8px", alignItems: "center" },
@@ -101,7 +101,7 @@ const useWizardStyles = makeStyles({
     width: "100%",
     justifyContent: "space-between",
   },
-  error: { fontSize: "12px", color: tokens.colorPaletteRedForeground1, padding: "0 24px" },
+  error: { fontSize: "12px", color: theme.color.textDanger, padding: "0 24px" },
 });
 
 interface EntityWizardDialogProps {

@@ -7,9 +7,10 @@ import {
 } from "@/api";
 import type { BarcodeEntityKind } from "@/api";
 import { BaseDialog, DialogFooter, SidebarNavItem } from "@/components/common";
-import { makeStyles, Text, tokens } from "@/components/ui";
+import { makeStyles, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useSettingsStyles = makeStyles({
   body: {
@@ -20,7 +21,7 @@ const useSettingsStyles = makeStyles({
   },
   listLabel: {
     fontSize: "13px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     marginBottom: "8px",
   },
   form: {
@@ -36,15 +37,15 @@ const useSettingsStyles = makeStyles({
     fontSize: "13px",
   },
   required: {
-    color: tokens.colorPaletteRedForeground1,
+    color: theme.color.textDanger,
   },
   select: {
     fontFamily: "inherit",
     fontSize: "13px",
     padding: "6px 8px",
-    borderRadius: tokens.borderRadiusMedium,
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
-    backgroundColor: tokens.colorNeutralBackground1,
+    borderRadius: theme.radius.md,
+    border: `1px solid ${theme.color.border}`,
+    backgroundColor: theme.color.surface,
     maxWidth: "360px",
   },
 });

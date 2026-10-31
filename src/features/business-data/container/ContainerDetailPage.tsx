@@ -22,11 +22,11 @@ import {
   TableRow,
   Text,
   makeStyles,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { useContainerDialogs } from "./useContainerDialogs";
 
 const useDetailStyles = makeStyles({
@@ -38,31 +38,31 @@ const useDetailStyles = makeStyles({
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     paddingBottom: "8px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   row: { display: "flex", columnGap: "12px", fontSize: "13px" },
-  label: { color: tokens.colorNeutralForeground3, minWidth: "180px" },
-  empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  label: { color: theme.color.textTertiary, minWidth: "180px" },
+  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
   positionsGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
     gap: "8px",
   },
   positionCell: {
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "6px",
     padding: "10px",
     cursor: "pointer",
     fontSize: "12px",
     textAlign: "center",
-    backgroundColor: tokens.colorNeutralBackground1,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    backgroundColor: theme.color.surface,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
-  positionActive: { border: `2px solid ${tokens.colorBrandStroke1}` },
-  positionFilled: { backgroundColor: tokens.colorPaletteBlueBackground2 },
-  positionNum: { fontWeight: tokens.fontWeightSemibold, fontSize: "14px" },
+  positionActive: { border: `2px solid ${theme.color.borderBrand}` },
+  positionFilled: { backgroundColor: theme.color.infoSubtle },
+  positionNum: { fontWeight: theme.font.weightSemibold, fontSize: "14px" },
   split: {
     display: "grid",
     gridTemplateColumns: "3fr minmax(280px, 1fr)",

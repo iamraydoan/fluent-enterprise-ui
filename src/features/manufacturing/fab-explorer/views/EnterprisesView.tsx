@@ -9,9 +9,10 @@ import {
   TileGrid,
 } from "@/components/common";
 import { Globe24Regular, Grid24Regular, Organization24Regular } from "@/components/icons";
-import { Input, makeStyles, tokens } from "@/components/ui";
+import { Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
+import { theme } from "@/styles/theme";
 import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
 
@@ -20,7 +21,7 @@ const useViewStyles = makeStyles({
   main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
   sectionLabel: {
     fontSize: "11px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     textTransform: "uppercase",
     padding: "12px 12px 4px",
     letterSpacing: "0.5px",
@@ -36,7 +37,7 @@ const useViewStyles = makeStyles({
     alignItems: "center",
     columnGap: "4px",
     fontSize: "12px",
-    color: tokens.colorNeutralForeground2,
+    color: theme.color.textSecondary,
   },
 });
 

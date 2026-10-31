@@ -1,7 +1,8 @@
 import { useState } from "react";
 import type { ChartDetail } from "@/api";
-import { Button, Input, tokens } from "@/components/ui";
+import { Button, Input} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { DialogShell, NumField } from "./dialogShared";
 import { useDialogStyles } from "./dialogStyles";
 
@@ -87,7 +88,7 @@ export function CloneChartDialog({
           style={{
             marginBottom: "12px",
             paddingBottom: "12px",
-            borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+            borderBottom: `1px solid ${theme.color.borderSubtle}`,
           }}
         >
           <div

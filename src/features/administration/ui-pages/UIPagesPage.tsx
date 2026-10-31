@@ -24,10 +24,10 @@ import {
   Text,
   makeStyles,
   mergeClasses,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const ALL_FOLDERS = "all";
 
@@ -54,21 +54,21 @@ const usePageStyles = makeStyles({
     flexDirection: "column",
     rowGap: "10px",
     minHeight: "110px",
-    backgroundColor: tokens.colorNeutralBackground1,
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    backgroundColor: theme.color.surface,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   tileName: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
-  tileMeta: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
+  tileMeta: { fontSize: "12px", color: theme.color.textTertiary },
   sectionLabel: {
     fontSize: "11px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     textTransform: "uppercase",
     padding: "12px 12px 4px",
     letterSpacing: "0.5px",
   },
-  empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const SCOPES: Array<"all" | UIPageScope> = [

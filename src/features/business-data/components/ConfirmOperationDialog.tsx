@@ -1,8 +1,9 @@
 import { Dismiss16Regular, Warning20Filled } from "@/components/icons";
-import { Button, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Text, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const useConfirmStyles = makeStyles({
   overlay: {
@@ -28,7 +29,7 @@ const useConfirmStyles = makeStyles({
     justifyContent: "space-between",
     minHeight: "52px",
     padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
   closeButton: {
@@ -36,9 +37,9 @@ const useConfirmStyles = makeStyles({
     backgroundColor: "transparent",
     cursor: "pointer",
     padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
+    borderRadius: theme.radius.md,
     display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   body: {
     display: "flex",
@@ -46,14 +47,14 @@ const useConfirmStyles = makeStyles({
     padding: "20px 24px",
     alignItems: "flex-start",
   },
-  warningIcon: { color: tokens.colorPaletteYellowForeground2, flexShrink: 0, marginTop: "2px" },
-  dangerIcon: { color: tokens.colorPaletteRedForeground1, flexShrink: 0, marginTop: "2px" },
+  warningIcon: { color: theme.color.textWarning, flexShrink: 0, marginTop: "2px" },
+  dangerIcon: { color: theme.color.textDanger, flexShrink: 0, marginTop: "2px" },
   foot: {
     display: "flex",
     justifyContent: "flex-end",
     columnGap: "8px",
     padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
   },
 });
 

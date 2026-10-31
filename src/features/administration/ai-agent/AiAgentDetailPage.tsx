@@ -222,7 +222,7 @@ function ToolsGrid({
                               <Checkmark20Filled aria-label={t("aiAgent.deferred")} />
                             ) : (
                               <Dismiss20Filled
-                                style={{ color: "#8A8A8A" }}
+                                style={{ color: theme.color.textTertiary }}
                                 aria-label={t("aiAgent.notDeferred")}
                               />
                             )}

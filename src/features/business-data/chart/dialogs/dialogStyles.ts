@@ -1,10 +1,11 @@
-import { makeStyles, tokens } from "@/components/ui";
+import { makeStyles} from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 export const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
-  fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
-  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   ruleRow: {
     display: "grid",
     gridTemplateColumns: "110px 150px minmax(0,1fr) 130px 130px auto",
@@ -24,11 +25,11 @@ export const useDialogStyles = makeStyles({
   preview: {
     marginTop: "12px",
     padding: "12px",
-    backgroundColor: tokens.colorNeutralBackground2,
-    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: theme.color.surfaceSecondary,
+    borderRadius: theme.radius.md,
     fontSize: "13px",
   },
-  selectedRow: { backgroundColor: tokens.colorNeutralBackground1Selected },
+  selectedRow: { backgroundColor: theme.color.surfaceSelected },
 });
 
 export function numOrUndef(v: unknown): number | undefined {

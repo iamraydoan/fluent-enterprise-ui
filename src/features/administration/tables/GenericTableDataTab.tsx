@@ -12,7 +12,6 @@ import {
   TableHeaderCell,
   TableRow,
   Text,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -45,7 +44,7 @@ const useGridStyles = makeStyles({
     fontSize: "13px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  boolTrue: { color: tokens.colorPaletteGreenForeground1 },
+  boolTrue: { color: theme.color.textSuccess },
   boolFalse: { color: theme.color.textTertiary },
   footer: {
     display: "flex",

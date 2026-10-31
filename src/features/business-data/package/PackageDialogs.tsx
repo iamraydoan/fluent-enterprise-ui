@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { BaseDialog } from "@/components/common";
-import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, Text, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   field: { marginBottom: "16px" },
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
-  hint: { fontSize: "12px", color: tokens.colorNeutralForeground3, marginTop: "4px" },
+  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
 });
 
 interface DialogProps {

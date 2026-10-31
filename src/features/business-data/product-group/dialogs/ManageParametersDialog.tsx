@@ -10,9 +10,9 @@ import {
   MenuPopover,
   MenuTrigger,
   Text,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { REPORTING_TYPES } from "../productGroupOptions";
 import { Field } from "./DialogPrimitives";
 import { useDialogStyles, PARAM_TYPES } from "./dialogShared";
@@ -132,7 +132,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
           </div>
           <div
             style={{
-              border: `1px solid ${tokens.colorNeutralStroke2}`,
+              border: `1px solid ${theme.color.borderSubtle}`,
               borderRadius: "4px",
               overflow: "hidden",
             }}
@@ -145,8 +145,8 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                   padding: "10px 12px",
                   cursor: "pointer",
                   backgroundColor:
-                    p.id === selectedId ? tokens.colorBrandBackground2 : "transparent",
-                  borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+                    p.id === selectedId ? theme.color.brandSubtle : "transparent",
+                  borderBottom: `1px solid ${theme.color.borderSubtle}`,
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
@@ -172,7 +172,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                 style={{
                   padding: "16px",
                   textAlign: "center",
-                  color: tokens.colorNeutralForeground3,
+                  color: theme.color.textTertiary,
                 }}
               >
                 {t("businessData.productGroup.operations.manageParameters.empty")}
@@ -320,7 +320,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
               </Field>
             </>
           ) : (
-            <div style={{ color: tokens.colorNeutralForeground3, fontSize: "13px" }}>
+            <div style={{ color: theme.color.textTertiary, fontSize: "13px" }}>
               {t("businessData.productGroup.operations.manageParameters.selectPrompt")}
             </div>
           )}

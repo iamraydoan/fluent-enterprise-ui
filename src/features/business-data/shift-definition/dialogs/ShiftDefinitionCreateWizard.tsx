@@ -2,9 +2,10 @@ import { useState } from "react";
 import type { ShiftDefinitionShift } from "@/api";
 import { BaseDialog, FormField } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
-import { Button, Caption1, Input, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Button, Caption1, Input, Text, makeStyles, mergeClasses} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const L: Record<string, TranslationKey> = {
   title: "businessData.shiftDefinition.create.title",
@@ -19,18 +20,18 @@ const useDialogStyles = makeStyles({
     display: "flex",
     columnGap: "8px",
     padding: "12px 20px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   step: {
     padding: "6px 12px",
-    borderRadius: tokens.borderRadiusMedium,
+    borderRadius: theme.radius.md,
     cursor: "pointer",
-    backgroundColor: tokens.colorNeutralBackground2,
+    backgroundColor: theme.color.surfaceSecondary,
   },
   stepActive: {
-    backgroundColor: tokens.colorBrandBackground2,
-    color: tokens.colorBrandForeground2,
-    fontWeight: tokens.fontWeightSemibold,
+    backgroundColor: theme.color.brandSubtle,
+    color: theme.color.textBrandSecondary,
+    fontWeight: theme.font.weightSemibold,
   },
   body: { padding: "16px 20px", overflow: "auto", minHeight: 0 },
   gridHeader: {
@@ -38,7 +39,7 @@ const useDialogStyles = makeStyles({
     gridTemplateColumns: "1fr 110px 110px 90px 130px 120px 32px",
     columnGap: "8px",
     padding: "8px 0",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
   },
   gridRow: {
     display: "grid",

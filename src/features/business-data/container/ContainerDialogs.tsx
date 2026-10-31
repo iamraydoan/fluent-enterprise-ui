@@ -2,15 +2,16 @@ import { useState } from "react";
 import type { ContainerPosition } from "@/api";
 import { BaseDialog } from "@/components/common";
 import { ArrowDown16Regular, ArrowUp16Regular } from "@/components/icons";
-import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, Textarea, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
-  fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
-  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   flexRow: {
     display: "flex",
     flexWrap: "wrap",
@@ -25,9 +26,9 @@ const useDialogStyles = makeStyles({
     alignItems: "center",
     columnGap: "8px",
     padding: "6px 0",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  posNum: { minWidth: "48px", fontWeight: tokens.fontWeightSemibold, textAlign: "center" },
+  posNum: { minWidth: "48px", fontWeight: theme.font.weightSemibold, textAlign: "center" },
 });
 
 function DialogShell({
@@ -558,7 +559,7 @@ export function TransferMaterialDialog({
         <span className={styles.fieldLabel}>
           {t("businessData.container.operations.materials")}
         </span>
-        <span style={{ fontSize: "13px", color: tokens.colorNeutralForeground2 }}>
+        <span style={{ fontSize: "13px", color: theme.color.textSecondary }}>
           {materials.length === 0
             ? t("businessData.container.operations.noMaterials")
             : materials.map((m) => m.material).join(", ")}

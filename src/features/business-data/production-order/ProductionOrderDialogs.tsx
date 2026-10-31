@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
-import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, Text, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   field: { marginBottom: "16px" },
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
-  required: { color: tokens.colorPaletteRedForeground1, marginRight: "4px" },
-  hint: { fontSize: "12px", color: tokens.colorNeutralForeground3, marginTop: "4px" },
+  required: { color: theme.color.textDanger, marginRight: "4px" },
+  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
 });
 
 interface DialogProps {

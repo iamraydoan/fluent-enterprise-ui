@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, makeStyles, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const L: Record<string, TranslationKey> = {
   title: "businessData.dataSilo.create.title",
@@ -32,7 +33,7 @@ const useDialogStyles = makeStyles({
     columnGap: "12px",
   },
   label: { fontSize: "13px", textAlign: "right" },
-  required: { color: tokens.colorPaletteRedForeground1 },
+  required: { color: theme.color.textDanger },
   sectionTitle: { fontSize: "14px", fontWeight: 600, paddingTop: "8px" },
 });
 

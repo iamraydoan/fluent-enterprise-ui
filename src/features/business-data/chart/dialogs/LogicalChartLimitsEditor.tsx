@@ -1,5 +1,6 @@
-import { Button, Checkbox, Text, tokens } from "@/components/ui";
+import { Button, Checkbox, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { NumField } from "./dialogShared";
 import { numOrUndef, useDialogStyles } from "./dialogStyles";
@@ -64,7 +65,7 @@ export function LogicalChartLimitsEditor({
           style={{
             marginBottom: "16px",
             paddingBottom: "12px",
-            borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+            borderBottom: `1px solid ${theme.color.borderSubtle}`,
           }}
         >
           <div

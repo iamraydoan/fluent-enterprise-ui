@@ -1,9 +1,10 @@
 import type { BarcodeEntityInfo } from "@/api";
 import { BaseDialog, DialogFooter } from "@/components/common";
-import { makeStyles, Text, tokens } from "@/components/ui";
+import { makeStyles, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const useInfoStyles = makeStyles({
   rows: {
@@ -21,7 +22,7 @@ const useInfoStyles = makeStyles({
   },
   label: {
     textAlign: "right",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
   },
 });
 

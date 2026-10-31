@@ -21,11 +21,11 @@ import {
   TableRow,
   Text,
   makeStyles,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { useCertificationDialogs } from "./useCertificationDialogs";
 
 const useDetailStyles = makeStyles({
@@ -37,13 +37,13 @@ const useDetailStyles = makeStyles({
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     paddingBottom: "8px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   row: { display: "flex", columnGap: "12px", fontSize: "13px" },
-  label: { color: tokens.colorNeutralForeground3, minWidth: "170px" },
-  empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  label: { color: theme.color.textTertiary, minWidth: "170px" },
+  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;

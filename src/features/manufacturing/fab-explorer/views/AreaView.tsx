@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useFabArea, useFabResources, useFabSteps, useFabUndispatchableMaterials } from "@/api";
 import type { FabResourceState } from "@/api";
 import { Card, FilterBar, FilterGroup, SidePanel } from "@/components/common";
-import { makeStyles, Text, tokens } from "@/components/ui";
+import { makeStyles, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { useSharedStyles, tileSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import type { FabNavigation } from "../FabExplorerPage";
 
 const useViewStyles = makeStyles({
@@ -14,7 +15,7 @@ const useViewStyles = makeStyles({
   stepRow: {
     display: "flex",
     columnGap: "0",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     minHeight: "120px",
   },
   stepInfo: {
@@ -24,7 +25,7 @@ const useViewStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     rowGap: "4px",
-    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRight: `1px solid ${theme.color.borderSubtle}`,
   },
   resourceGrid: {
     display: "flex",
@@ -50,11 +51,11 @@ const useViewStyles = makeStyles({
   undispatchHeader: {
     textAlign: "left",
     padding: "8px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    color: tokens.colorNeutralForeground3,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
+    color: theme.color.textTertiary,
     fontSize: "12px",
   },
-  undispatchCell: { padding: "8px", borderBottom: `1px solid ${tokens.colorNeutralStroke1}` },
+  undispatchCell: { padding: "8px", borderBottom: `1px solid ${theme.color.border}` },
   infoCards: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
@@ -71,15 +72,15 @@ interface AreaViewProps {
 }
 
 const STATE_COLORS: Record<FabResourceState, string> = {
-  Up: tokens.colorPaletteGreenBackground3,
-  Down: tokens.colorPaletteRedBackground3,
-  Maintenance: tokens.colorPaletteYellowBackground3,
-  NonScheduled: tokens.colorNeutralBackground4,
-  Productive: tokens.colorPaletteGreenBackground3,
-  Standby: tokens.colorPaletteYellowBackground3,
-  "Unscheduled Down": tokens.colorPaletteRedBackground3,
-  "Scheduled Down": tokens.colorPaletteRedBackground3,
-  Engineering: tokens.colorPaletteBlueBackground2,
+  Up: theme.color.successSubtle,
+  Down: theme.color.dangerSubtle,
+  Maintenance: theme.color.warningSubtle,
+  NonScheduled: theme.color.surfaceQuaternary,
+  Productive: theme.color.successSubtle,
+  Standby: theme.color.warningSubtle,
+  "Unscheduled Down": theme.color.dangerSubtle,
+  "Scheduled Down": theme.color.dangerSubtle,
+  Engineering: theme.color.infoSubtle,
 };
 
 export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps) {
@@ -112,7 +113,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
       <div className={styles.main}>
         <div className={styles.infoCards}>
           <div className={`${sharedStyles.contentCard} ${styles.infoCard}`}>
-            <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
+            <Text size={200} style={{ color: theme.color.textTertiary }}>
               {t("fabExplorer.processedMaterials")}
             </Text>
             <Text size={500} weight="semibold">
@@ -120,7 +121,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
             </Text>
           </div>
           <div className={`${sharedStyles.contentCard} ${styles.infoCard}`}>
-            <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
+            <Text size={200} style={{ color: theme.color.textTertiary }}>
               {t("fabExplorer.inQueueMaterials")}
             </Text>
             <Text size={500} weight="semibold">
@@ -128,7 +129,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
             </Text>
           </div>
           <div className={`${sharedStyles.contentCard} ${styles.infoCard}`}>
-            <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
+            <Text size={200} style={{ color: theme.color.textTertiary }}>
               {t("fabExplorer.inProcessMaterials")}
             </Text>
             <Text size={500} weight="semibold">
@@ -154,7 +155,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
             style={{
               padding: "6px 8px",
               borderRadius: "4px",
-              border: `1px solid ${tokens.colorNeutralStroke1}`,
+              border: `1px solid ${theme.color.border}`,
             }}
           />
         </FilterBar>
@@ -168,12 +169,12 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                   <Text
                     weight="semibold"
                     size={300}
-                    style={{ cursor: "pointer", color: tokens.colorBrandForeground1 }}
+                    style={{ cursor: "pointer", color: theme.color.textBrand }}
                     onClick={() => onSelectStep(step.name)}
                   >
                     {step.name}
                   </Text>
-                  <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
+                  <Text size={200} style={{ color: theme.color.textTertiary }}>
                     {step.description}
                   </Text>
                   <div
@@ -189,7 +190,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                         width: "24px",
                         height: "24px",
                         borderRadius: "50%",
-                        backgroundColor: tokens.colorBrandBackground2,
+                        backgroundColor: theme.color.brandSubtle,
                         display: "inline-grid",
                         placeItems: "center",
                       }}
@@ -201,7 +202,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                 </div>
                 <div className={styles.resourceGrid}>
                   {stepResources.length === 0 && (
-                    <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
+                    <Text size={200} style={{ color: theme.color.textTertiary }}>
                       {t("fabExplorer.noResources")}
                     </Text>
                   )}
@@ -223,7 +224,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                       <Text size={200} weight="semibold">
                         {r.name}
                       </Text>
-                      <Text size={100} style={{ color: tokens.colorNeutralForeground3 }}>
+                      <Text size={100} style={{ color: theme.color.textTertiary }}>
                         {r.type}
                       </Text>
                       <div className={styles.resourceStats}>
@@ -264,14 +265,14 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                 <tr key={`${m.name}-${i}`}>
                   <td
                     className={styles.undispatchCell}
-                    style={{ color: tokens.colorBrandForeground1 }}
+                    style={{ color: theme.color.textBrand }}
                   >
                     {m.name}
                   </td>
                   <td className={styles.undispatchCell}>{m.quantity}</td>
                   <td
                     className={styles.undispatchCell}
-                    style={{ color: tokens.colorBrandForeground1 }}
+                    style={{ color: theme.color.textBrand }}
                   >
                     {m.step}
                   </td>
@@ -280,7 +281,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
               ))}
             </tbody>
           </table>
-          <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
+          <Text size={200} style={{ color: theme.color.textTertiary }}>
             {t("fabExplorer.records", { count: undispatchable.length })}
           </Text>
         </Card>

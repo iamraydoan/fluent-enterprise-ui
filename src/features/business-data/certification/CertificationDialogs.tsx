@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Button, Checkbox, Input, makeStyles, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 interface EmployeeRow {
@@ -18,8 +19,8 @@ const useDialogStyles = makeStyles({
     columnGap: "12px",
     marginBottom: "12px",
   },
-  fieldLabel: { fontSize: "13px", color: tokens.colorNeutralForeground2, textAlign: "right" },
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "16px" },
+  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "16px" },
   empRow: {
     display: "grid",
     gridTemplateColumns: "minmax(0, 1fr) auto auto",
@@ -27,7 +28,7 @@ const useDialogStyles = makeStyles({
     alignItems: "center",
     marginBottom: "8px",
   },
-  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 function EmployeeListEditor({

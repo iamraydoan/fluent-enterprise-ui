@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { MODE_CLONE, MODE_CREATE, MODE_EDIT } from "../components/wizardMode";
 import type { WizardMode } from "../components/wizardMode";
 
@@ -53,29 +54,29 @@ const useWizardStyles = makeStyles({
     display: "flex",
     gap: "24px",
     padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
   step: {
     display: "flex",
     alignItems: "center",
     gap: "8px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
   },
-  stepActive: { color: tokens.colorNeutralForeground1, fontWeight: tokens.fontWeightSemibold },
+  stepActive: { color: theme.color.textPrimary, fontWeight: theme.font.weightSemibold },
   stepNum: {
     width: "24px",
     height: "24px",
     borderRadius: "50%",
-    backgroundColor: tokens.colorNeutralBackground3,
+    backgroundColor: theme.color.surfaceTertiary,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: tokens.fontSizeBase200,
+    fontSize: theme.font.sizeSm,
   },
   stepNumActive: {
-    backgroundColor: tokens.colorBrandBackground,
-    color: tokens.colorNeutralForegroundOnBrand,
+    backgroundColor: theme.color.brand,
+    color: theme.color.textOnBrand,
   },
   field: {
     display: "grid",
@@ -85,11 +86,11 @@ const useWizardStyles = makeStyles({
     marginBottom: "12px",
   },
   sectionTitle: {
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     marginTop: "16px",
     marginBottom: "12px",
     paddingBottom: "4px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });
 
@@ -142,7 +143,7 @@ export function DocumentWizardDialog({
     <FormField
       label={
         <>
-          {required && <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>}
+          {required && <span style={{ color: theme.color.textDanger }}>* </span>}
           {t(label)}
         </>
       }

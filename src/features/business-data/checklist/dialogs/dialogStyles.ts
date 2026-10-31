@@ -1,10 +1,11 @@
-import { makeStyles, tokens } from "@/components/ui";
+import { makeStyles} from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 export const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
-  fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
-  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   itemRow: {
     display: "flex",
     flexWrap: "wrap",
@@ -21,8 +22,8 @@ export const useDialogStyles = makeStyles({
     rowGap: "8px",
     margin: "8px 0 16px 0",
     padding: "12px",
-    backgroundColor: tokens.colorNeutralBackground2,
-    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: theme.color.surfaceSecondary,
+    borderRadius: theme.radius.md,
   },
   toolbar: {
     display: "flex",
@@ -46,12 +47,12 @@ export const useDialogStyles = makeStyles({
     columnGap: "12px",
     alignItems: "center",
     padding: "10px 0",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   stateBadge: {
     fontSize: "12px",
     padding: "2px 8px",
     borderRadius: "10px",
-    backgroundColor: tokens.colorNeutralBackground3,
+    backgroundColor: theme.color.surfaceTertiary,
   },
 });

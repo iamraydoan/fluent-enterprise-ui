@@ -63,7 +63,7 @@ const useEditStyles = makeStyles({
     gap: "2px",
     padding: "4px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    backgroundColor: "#F7F7F7",
+    backgroundColor: theme.color.surfaceSecondary,
   },
   sep: {
     width: "1px",

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useFabResources } from "@/api";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Button, Input, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   list: { display: "flex", flexDirection: "column", rowGap: "8px" },
@@ -11,7 +12,7 @@ const useDialogStyles = makeStyles({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "8px 0",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
+    borderBottom: `1px solid ${theme.color.border}`,
     fontSize: "13px",
   },
 });
@@ -80,7 +81,7 @@ export function ManageResourceTraineesDialog({
           </div>
         ))}
       </div>
-      <div style={{ fontSize: "12px", color: tokens.colorNeutralForeground3 }}>
+      <div style={{ fontSize: "12px", color: theme.color.textTertiary }}>
         {t("fabExplorer.resources")}: {resources.length}
       </div>
     </BaseDialog>

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, Textarea, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { MODE_CREATE, MODE_EDIT } from "../../components/wizardMode";
 import type { WizardMode } from "../../components/wizardMode";
 
@@ -32,16 +33,16 @@ const useDialogStyles = makeStyles({
     display: "flex",
     gap: "16px",
     padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
-  step: { fontSize: tokens.fontSizeBase300, color: tokens.colorNeutralForeground3 },
+  step: { fontSize: theme.font.sizeMd, color: theme.color.textTertiary },
   stepActive: {
-    fontSize: tokens.fontSizeBase300,
-    fontWeight: tokens.fontWeightSemibold,
-    color: tokens.colorBrandForeground1,
+    fontSize: theme.font.sizeMd,
+    fontWeight: theme.font.weightSemibold,
+    color: theme.color.textBrand,
   },
-  hint: { fontSize: tokens.fontSizeBase200, color: tokens.colorNeutralForeground3 },
+  hint: { fontSize: theme.font.sizeSm, color: theme.color.textTertiary },
 });
 
 interface DialogProps {
@@ -96,7 +97,7 @@ export function MapDialog({ open, mode, initialName, onClose }: DialogProps) {
           <FormField
             label={
               <>
-                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                <span style={{ color: theme.color.textDanger }}>* </span>
                 {t(L.name)}
               </>
             }
@@ -114,7 +115,7 @@ export function MapDialog({ open, mode, initialName, onClose }: DialogProps) {
           <FormField
             label={
               <>
-                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                <span style={{ color: theme.color.textDanger }}>* </span>
                 {t(L.mapDefinition)}
               </>
             }

@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useFabResources } from "@/api";
 import type { FabResourceState } from "@/api";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Text, Textarea, makeStyles, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, Text, Textarea, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   stepsBar: {
@@ -13,10 +14,10 @@ const useDialogStyles = makeStyles({
     columnGap: "8px",
     margin: "-16px -20px 0",
     padding: "12px 20px",
-    backgroundColor: tokens.colorBrandBackground2,
-    color: tokens.colorNeutralForegroundOnBrand,
+    backgroundColor: theme.color.brandSubtle,
+    color: theme.color.textOnBrand,
     fontSize: "13px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
   },
   stepActive: { display: "flex", alignItems: "center", columnGap: "6px" },
   stepInactive: {
@@ -29,13 +30,13 @@ const useDialogStyles = makeStyles({
   th: {
     textAlign: "left",
     padding: "8px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    color: tokens.colorNeutralForeground3,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
+    color: theme.color.textTertiary,
     fontSize: "12px",
     textTransform: "uppercase",
   },
-  td: { padding: "8px", borderBottom: `1px solid ${tokens.colorNeutralStroke1}` },
-  rowSelected: { backgroundColor: tokens.colorNeutralBackground1Selected },
+  td: { padding: "8px", borderBottom: `1px solid ${theme.color.border}` },
+  rowSelected: { backgroundColor: theme.color.surfaceSelected },
   commentsBox: { marginTop: "16px" },
 });
 
@@ -147,7 +148,7 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
                   <td className={styles.td}>
                     <Checkbox checked={selected.includes(r.name)} onChange={() => toggle(r.name)} />
                   </td>
-                  <td className={styles.td} style={{ color: tokens.colorBrandForeground1 }}>
+                  <td className={styles.td} style={{ color: theme.color.textBrand }}>
                     {r.name}
                   </td>
                   <td className={styles.td}>{r.state}</td>

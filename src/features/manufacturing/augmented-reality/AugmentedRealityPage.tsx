@@ -6,8 +6,9 @@ import {
   ZoomIn24Regular,
   ZoomOut24Regular,
 } from "@/components/icons";
-import { Button, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Button, Text, makeStyles, mergeClasses} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface DetectedTag {
   id: string;
@@ -54,9 +55,9 @@ const useArStyles = makeStyles({
     position: "relative",
     flexGrow: 1,
     minHeight: "420px",
-    borderRadius: tokens.borderRadiusMedium,
-    backgroundColor: tokens.colorNeutralBackground3,
-    backgroundImage: `repeating-linear-gradient(45deg, ${tokens.colorNeutralBackground4} 0 12px, transparent 12px 24px)`,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.color.surfaceTertiary,
+    backgroundImage: `repeating-linear-gradient(45deg, ${theme.color.surfaceQuaternary} 0 12px, transparent 12px 24px)`,
     overflow: "hidden",
     transition: "transform 0.2s ease",
   },
@@ -64,24 +65,24 @@ const useArStyles = makeStyles({
     position: "absolute",
     top: "12px",
     left: "12px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     fontSize: "12px",
   },
   tag: {
     position: "absolute",
     transform: "translate(-50%, -50%)",
     padding: "6px 10px",
-    borderRadius: tokens.borderRadiusMedium,
-    backgroundColor: tokens.colorBrandBackground,
-    color: tokens.colorNeutralForegroundOnBrand,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.color.brand,
+    color: theme.color.textOnBrand,
     fontSize: "12px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     border: "none",
     cursor: "pointer",
     whiteSpace: "nowrap",
   },
   tagSelected: {
-    outline: `2px solid ${tokens.colorBrandStroke1}`,
+    outline: `2px solid ${theme.color.borderBrand}`,
     outlineOffset: "2px",
   },
   controls: { display: "flex", columnGap: "8px", marginTop: "12px" },

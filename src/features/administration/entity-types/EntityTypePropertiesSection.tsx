@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty } from "@/api";
-import { Card } from "@/components/common";
+import { Card, FilterBar, FilterGroup } from "@/components/common";
 import {
   ArrowSync20Regular,
   ChevronDown20Regular,
@@ -20,7 +20,6 @@ import {
   MenuPopover,
   MenuTrigger,
   Text,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
@@ -74,9 +73,9 @@ const useSectionStyles = makeStyles({
   searchableBadge: {
     fontSize: "11px",
     fontWeight: theme.font.weightSemibold,
-    color: tokens.colorPaletteGreenForeground1,
-    backgroundColor: tokens.colorPaletteGreenBackground1,
-    borderRadius: tokens.borderRadiusSmall,
+    color: theme.color.textSuccess,
+    backgroundColor: theme.color.successEmphasis,
+    borderRadius: theme.radius.sm,
     padding: "2px 8px",
   },
 });
@@ -138,42 +137,48 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
           {t("entityTypes.properties.manage")}
         </Button>
       </div>
-      <div className={styles.filterBar}>
-        <Checkbox
-          label={t("entityTypes.properties.searchableFilter")}
-          checked={searchableOnly}
-          onChange={setSearchableOnly}
-        />
-        <Menu>
-          <MenuTrigger disableButtonEnhancement>
-            <Button variant="subtle" size="sm">
-              {t("entityTypes.properties.referenceTypeFilter", {
-                value: referenceType === ALL ? t("common.all") : referenceType,
-              })}
-            </Button>
-          </MenuTrigger>
-          <MenuPopover>
-            <MenuList
-              checkedValues={{ referenceType: [referenceType] }}
-              onCheckedValueChange={(_, data) => setReferenceType(data.checkedItems[0] ?? ALL)}
-            >
-              {referenceTypes.map((value) => (
-                <MenuItemRadio key={value} name="referenceType" value={value}>
-                  {value === ALL ? t("common.all") : value}
-                </MenuItemRadio>
-              ))}
-            </MenuList>
-          </MenuPopover>
-        </Menu>
-        <Input
-          size="sm"
-          contentBefore={<Search20Regular />}
-          placeholder={t("common.search")}
-          value={search}
-          onChange={setSearch}
-          aria-label={t("common.search")}
-        />
-      </div>
+      <FilterBar>
+        <FilterGroup>
+          <Checkbox
+            label={t("entityTypes.properties.searchableFilter")}
+            checked={searchableOnly}
+            onChange={setSearchableOnly}
+          />
+        </FilterGroup>
+        <FilterGroup>
+          <Menu>
+            <MenuTrigger disableButtonEnhancement>
+              <Button variant="subtle" size="sm">
+                {t("entityTypes.properties.referenceTypeFilter", {
+                  value: referenceType === ALL ? t("common.all") : referenceType,
+                })}
+              </Button>
+            </MenuTrigger>
+            <MenuPopover>
+              <MenuList
+                checkedValues={{ referenceType: [referenceType] }}
+                onCheckedValueChange={(_, data) => setReferenceType(data.checkedItems[0] ?? ALL)}
+              >
+                {referenceTypes.map((value) => (
+                  <MenuItemRadio key={value} name="referenceType" value={value}>
+                    {value === ALL ? t("common.all") : value}
+                  </MenuItemRadio>
+                ))}
+              </MenuList>
+            </MenuPopover>
+          </Menu>
+        </FilterGroup>
+        <FilterGroup>
+          <Input
+            size="sm"
+            contentBefore={<Search20Regular />}
+            placeholder={t("common.search")}
+            value={search}
+            onChange={setSearch}
+            aria-label={t("common.search")}
+          />
+        </FilterGroup>
+      </FilterBar>
       <div className={styles.list} role="list">
         {visible.map((property) => (
           <PropertyRow
