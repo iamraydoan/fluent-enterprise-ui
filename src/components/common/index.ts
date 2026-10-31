@@ -4,6 +4,10 @@ export { DataListPage } from "./data-table/DataListPage";
 export type { DataColumn } from "./data-table/columns";
 export { defaultListFilters, searchFilter } from "./data-table/filters";
 export type { DataFilter } from "./data-table/filters";
+export { HubPage } from "./HubPage";
+export type { HubTile } from "./HubPage";
+export { BaseDialog, DialogFooter } from "./BaseDialog";
+export type { DialogSize } from "./BaseDialog";
 export { ListPage } from "./ListPage";
 export {
   aiEditorAction,
