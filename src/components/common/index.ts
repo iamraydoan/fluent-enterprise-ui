@@ -36,6 +36,8 @@ export {
 export type { HeaderAction } from "./ListPageHeader";
 export { RECORD_STATE_COLUMN_OPTIONS } from "./listState";
 export { SidePanel } from "./SidePanel";
+export { FilterBar, FilterGroup } from "./FilterBar";
+export { EntityTile, TileGrid } from "./EntityTile";
 export { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "./DetailShell";
 export { ActionBar } from "./ActionBar";
 export { RibbonButton } from "./RibbonButton";

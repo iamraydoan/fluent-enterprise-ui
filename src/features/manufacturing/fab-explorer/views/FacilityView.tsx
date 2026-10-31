@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { useFabAreas, useFabMaterialsToReceive } from "@/api";
-import { Card, DetailTabs, SidePanel, SidebarNavItem } from "@/components/common";
+import {
+  Card,
+  DetailTabs,
+  EntityTile,
+  SidePanel,
+  SidebarNavItem,
+  TileGrid,
+} from "@/components/common";
 import { Box24Regular, Grid24Regular } from "@/components/icons";
-import { Button, makeStyles, Text, tokens } from "@/components/ui";
+import { Button, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { tileSurface } from "@/styles/shared";
 import type { FabNavigation } from "../FabExplorerPage";
 import { ChangeResourcesDialog } from "../dialogs/ChangeResourcesDialog";
 import { ManageResourceEmployeesDialog } from "../dialogs/ManageResourceEmployeesDialog";
@@ -15,22 +21,6 @@ const useViewStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
   main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
   toolbar: { display: "flex", columnGap: "8px", alignItems: "center" },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
-    gap: "12px",
-  },
-  tile: {
-    backgroundColor: tileSurface.backgroundColor,
-    borderRadius: "4px",
-    padding: "12px",
-    cursor: "pointer",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "8px",
-    minHeight: "110px",
-    ":hover": { backgroundColor: tileSurface.hoverBackgroundColor },
-  },
   stateCounts: {
     display: "flex",
     columnGap: "12px",
@@ -113,65 +103,57 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
         </div>
         <DetailTabs tabs={tabs} active={tab} onChange={setTab}>
           {tab === "areas" && (
-            <div className={styles.grid}>
+            <TileGrid>
               {areas.map((a) => (
-                <div
+                <EntityTile
                   key={a.name}
-                  className={styles.tile}
+                  title={a.name}
+                  description={a.description}
                   onClick={() => go({ level: FAB_LEVELS.area, area: a.name })}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") go({ level: FAB_LEVELS.area, area: a.name });
-                  }}
-                >
-                  <Text weight="semibold" size={300}>
-                    {a.name}
-                  </Text>
-                  <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
-                    {a.description}
-                  </Text>
-                  <div className={styles.stateCounts}>
-                    <span className={styles.stateCount} title={t("fabExplorer.up")}>
-                      <span
-                        style={{
-                          width: "10px",
-                          height: "10px",
-                          borderRadius: "50%",
-                          backgroundColor: tokens.colorPaletteGreenBackground3,
-                          display: "inline-block",
-                        }}
-                      />
-                      {a.resources.up}
-                    </span>
-                    <span className={styles.stateCount} title={t("fabExplorer.down")}>
-                      <span
-                        style={{
-                          width: "10px",
-                          height: "10px",
-                          borderRadius: "50%",
-                          backgroundColor: tokens.colorPaletteRedBackground3,
-                          display: "inline-block",
-                        }}
-                      />
-                      {a.resources.down}
-                    </span>
-                    <span className={styles.stateCount} title={t("fabExplorer.maintenance")}>
-                      <span
-                        style={{
-                          width: "10px",
-                          height: "10px",
-                          borderRadius: "50%",
-                          backgroundColor: tokens.colorPaletteYellowBackground3,
-                          display: "inline-block",
-                        }}
-                      />
-                      {a.resources.maintenance}
-                    </span>
-                  </div>
-                </div>
+                  ariaLabel={a.name}
+                  footer={
+                    <div className={styles.stateCounts}>
+                      <span className={styles.stateCount} title={t("fabExplorer.up")}>
+                        <span
+                          style={{
+                            width: "10px",
+                            height: "10px",
+                            borderRadius: "50%",
+                            backgroundColor: tokens.colorPaletteGreenBackground3,
+                            display: "inline-block",
+                          }}
+                        />
+                        {a.resources.up}
+                      </span>
+                      <span className={styles.stateCount} title={t("fabExplorer.down")}>
+                        <span
+                          style={{
+                            width: "10px",
+                            height: "10px",
+                            borderRadius: "50%",
+                            backgroundColor: tokens.colorPaletteRedBackground3,
+                            display: "inline-block",
+                          }}
+                        />
+                        {a.resources.down}
+                      </span>
+                      <span className={styles.stateCount} title={t("fabExplorer.maintenance")}>
+                        <span
+                          style={{
+                            width: "10px",
+                            height: "10px",
+                            borderRadius: "50%",
+                            backgroundColor: tokens.colorPaletteYellowBackground3,
+                            display: "inline-block",
+                          }}
+                        />
+                        {a.resources.maintenance}
+                      </span>
+                    </div>
+                  }
+                />
               ))}
-            </div>
+            </TileGrid>
           )}
           {tab === "materials" && (
             <div style={{ display: "flex", flexDirection: "column", rowGap: "16px" }}>

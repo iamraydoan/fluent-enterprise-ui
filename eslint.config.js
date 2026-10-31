@@ -284,6 +284,9 @@ export default tseslint.config(
               "namePlaceholderKey",
               "extraPlaceholderKey",
               "fieldKey",
+              "accentColor",
+              "backgroundColor",
+              "minWidth",
             ],
           },
           "object-properties": {

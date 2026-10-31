@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFabArea, useFabResources, useFabSteps, useFabUndispatchableMaterials } from "@/api";
 import type { FabResourceState } from "@/api";
-import { Card, SidePanel } from "@/components/common";
+import { Card, FilterBar, FilterGroup, SidePanel } from "@/components/common";
 import { makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles, tileSurface } from "@/styles/shared";
@@ -10,13 +10,6 @@ import type { FabNavigation } from "../FabExplorerPage";
 const useViewStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
   main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
-  filterBar: {
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    columnGap: "12px",
-    fontSize: "13px",
-  },
   stepRow: {
     display: "flex",
     columnGap: "0",
@@ -143,9 +136,8 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
           </div>
         </div>
 
-        <div className={styles.filterBar}>
-          <span>
-            {t("fabExplorer.resourceState")}:{" "}
+        <FilterBar justifyEnd>
+          <FilterGroup label={t("fabExplorer.resourceState")}>
             <select value={stateFilter} onChange={(e) => setStateFilter(e.target.value)}>
               <option value="ALL">{t("fabExplorer.all")}</option>
               <option value="Up">{t("fabExplorer.up")}</option>
@@ -153,7 +145,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
               <option value="Maintenance">{t("fabExplorer.maintenance")}</option>
               <option value="NonScheduled">{t("fabExplorer.nonScheduled")}</option>
             </select>
-          </span>
+          </FilterGroup>
           <input
             placeholder={t("fabExplorer.resourceName")}
             value={search}
@@ -164,7 +156,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
               border: `1px solid ${tokens.colorNeutralStroke1}`,
             }}
           />
-        </div>
+        </FilterBar>
 
         <Card title={area?.name ?? nav.area}>
           {steps.map((step) => {

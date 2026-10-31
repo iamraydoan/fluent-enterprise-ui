@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useUIPageFolders, useUIPages } from "@/api";
 import type { UIPageRecord, UIPageScope } from "@/api";
 import {
+  DataListPage,
+  FilterBar,
+  FilterGroup,
   createAction,
   exportAction,
   importAction,
-  ListPage,
   refreshAction,
   SidePanel,
   SidebarNavItem,
@@ -22,16 +24,14 @@ import {
   Text,
   makeStyles,
   mergeClasses,
+  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 
 const ALL_FOLDERS = "all";
 
 const usePageStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
   contentCard: {
     display: "flex",
     flexDirection: "column",
@@ -39,21 +39,6 @@ const usePageStyles = makeStyles({
     padding: "16px",
     flexGrow: 1,
     minHeight: 0,
-  },
-  filterBar: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "16px",
-    flexWrap: "wrap",
-    rowGap: "8px",
-    paddingBottom: "12px",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  filterGroup: { display: "flex", alignItems: "center", columnGap: "8px" },
-  filterLabel: {
-    fontSize: "12px",
-    color: theme.color.textTertiary,
-    textTransform: "uppercase",
   },
   grid: {
     display: "grid",
@@ -69,21 +54,21 @@ const usePageStyles = makeStyles({
     flexDirection: "column",
     rowGap: "10px",
     minHeight: "110px",
-    backgroundColor: theme.color.surface,
-    border: `1px solid ${theme.color.borderSubtle}`,
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
+    backgroundColor: tokens.colorNeutralBackground1,
+    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRadius: tokens.borderRadiusMedium,
+    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
   },
   tileName: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
-  tileMeta: { fontSize: "12px", color: theme.color.textTertiary },
+  tileMeta: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
   sectionLabel: {
     fontSize: "11px",
-    color: theme.color.textTertiary,
+    color: tokens.colorNeutralForeground3,
     textTransform: "uppercase",
     padding: "12px 12px 4px",
     letterSpacing: "0.5px",
   },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
+  empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
 });
 
 const SCOPES: Array<"all" | UIPageScope> = [
@@ -122,14 +107,11 @@ export function UIPagesPage() {
   const sections = Array.from(new Set(pages.map((page) => page.section))).filter(Boolean);
 
   return (
-    <ListPage
-      header={{
-        icon: <DocumentBulletList24Regular />,
-        title: t("uiPages.pageLabel"),
-        actions: [createAction, refreshAction, importAction, exportAction],
-      }}
-    >
-      <div className={styles.body}>
+    <DataListPage
+      icon={<DocumentBulletList24Regular />}
+      titleKey="uiPages.pageLabel"
+      actions={[createAction, refreshAction, importAction, exportAction]}
+      sidebar={
         <SidePanel
           title={t("uiPages.foldersTitle")}
           collapsed={collapsed}
@@ -152,95 +134,91 @@ export function UIPagesPage() {
             />
           ))}
         </SidePanel>
-        <div className={styles.main}>
-          <div className={mergeClasses(sharedStyles.contentCard, styles.contentCard)}>
-            <div className={styles.filterBar} role="search">
-              <div className={styles.filterGroup}>
-                <Checkbox
-                  checked={showTerminated}
-                  onChange={setShowTerminated}
-                  label={t("uiPages.filters.terminated")}
-                />
-              </div>
-              <div className={styles.filterGroup}>
-                <Checkbox
-                  checked={showSystemItems}
-                  onChange={setShowSystemItems}
-                  label={t("uiPages.filters.systemItems")}
-                />
-              </div>
-              <div className={styles.filterGroup}>
-                <span className={styles.filterLabel}>{t("uiPages.filters.scope")}</span>
-                <Menu>
-                  <MenuTrigger disableButtonEnhancement>
-                    <button className={styles.folderItem} style={{ width: "auto" }}>
-                      {scope === "all" ? t("uiPages.filters.all") : scope}
-                    </button>
-                  </MenuTrigger>
-                  <MenuPopover>
-                    <MenuList>
-                      {SCOPES.map((value) => (
-                        <MenuItem key={value} onClick={() => setScope(value)}>
-                          {value === "all" ? t("uiPages.filters.all") : value}
-                        </MenuItem>
-                      ))}
-                    </MenuList>
-                  </MenuPopover>
-                </Menu>
-              </div>
-              <div className={styles.filterGroup}>
-                <span className={styles.filterLabel}>{t("uiPages.filters.section")}</span>
-                <Menu>
-                  <MenuTrigger disableButtonEnhancement>
-                    <button className={styles.folderItem} style={{ width: "auto" }}>
-                      {section === "all" ? t("uiPages.filters.all") : section}
-                    </button>
-                  </MenuTrigger>
-                  <MenuPopover>
-                    <MenuList>
-                      <MenuItem onClick={() => setSection(ALL_VALUE)}>
-                        {t("uiPages.filters.all")}
-                      </MenuItem>
-                      {sections.map((value) => (
-                        <MenuItem key={value} onClick={() => setSection(value)}>
-                          {value}
-                        </MenuItem>
-                      ))}
-                    </MenuList>
-                  </MenuPopover>
-                </Menu>
-              </div>
-              <div className={styles.filterGroup}>
-                <span className={styles.filterLabel}>{t("uiPages.filters.entityType")}</span>
-                <Input
-                  value={entityType}
-                  onChange={setEntityType}
-                  placeholder={t("uiPages.filters.entityTypePlaceholder")}
-                  style={{ width: "160px" }}
-                />
-              </div>
-              <div className={styles.filterGroup} style={{ marginLeft: "auto" }}>
-                <Input
-                  value={q}
-                  onChange={setQ}
-                  placeholder={t("common.search")}
-                  style={{ width: "200px" }}
-                />
-              </div>
-            </div>
-            {pages.length === 0 ? (
-              <div className={styles.empty}>{t("uiPages.noPages")}</div>
-            ) : (
-              <div className={styles.grid}>
-                {pages.map((page) => (
-                  <UIPageTile key={page.name} page={page} />
-                ))}
-              </div>
-            )}
+      }
+    >
+      <div className={mergeClasses(sharedStyles.contentCard, styles.contentCard)}>
+        <FilterBar>
+          <FilterGroup>
+            <Checkbox
+              checked={showTerminated}
+              onChange={(_, data) => setShowTerminated(data.checked === true)}
+              label={t("uiPages.filters.terminated")}
+            />
+          </FilterGroup>
+          <FilterGroup>
+            <Checkbox
+              checked={showSystemItems}
+              onChange={(_, data) => setShowSystemItems(data.checked === true)}
+              label={t("uiPages.filters.systemItems")}
+            />
+          </FilterGroup>
+          <FilterGroup label={t("uiPages.filters.scope")}>
+            <Menu>
+              <MenuTrigger disableButtonEnhancement>
+                <button style={{ width: "auto" }}>
+                  {scope === "all" ? t("uiPages.filters.all") : scope}
+                </button>
+              </MenuTrigger>
+              <MenuPopover>
+                <MenuList>
+                  {SCOPES.map((value) => (
+                    <MenuItem key={value} onClick={() => setScope(value)}>
+                      {value === "all" ? t("uiPages.filters.all") : value}
+                    </MenuItem>
+                  ))}
+                </MenuList>
+              </MenuPopover>
+            </Menu>
+          </FilterGroup>
+          <FilterGroup label={t("uiPages.filters.section")}>
+            <Menu>
+              <MenuTrigger disableButtonEnhancement>
+                <button style={{ width: "auto" }}>
+                  {section === "all" ? t("uiPages.filters.all") : section}
+                </button>
+              </MenuTrigger>
+              <MenuPopover>
+                <MenuList>
+                  <MenuItem onClick={() => setSection(ALL_VALUE)}>
+                    {t("uiPages.filters.all")}
+                  </MenuItem>
+                  {sections.map((value) => (
+                    <MenuItem key={value} onClick={() => setSection(value)}>
+                      {value}
+                    </MenuItem>
+                  ))}
+                </MenuList>
+              </MenuPopover>
+            </Menu>
+          </FilterGroup>
+          <FilterGroup label={t("uiPages.filters.entityType")}>
+            <Input
+              value={entityType}
+              onChange={(_, data) => setEntityType(data.value)}
+              placeholder={t("uiPages.filters.entityTypePlaceholder")}
+              style={{ width: "160px" }}
+            />
+          </FilterGroup>
+          <FilterGroup alignEnd>
+            <Input
+              value={q}
+              onChange={(_, data) => setQ(data.value)}
+              placeholder={t("common.search")}
+              style={{ width: "200px" }}
+            />
+          </FilterGroup>
+        </FilterBar>
+        {pages.length === 0 ? (
+          <div className={styles.empty}>{t("uiPages.noPages")}</div>
+        ) : (
+          <div className={styles.grid}>
+            {pages.map((page) => (
+              <UIPageTile key={page.name} page={page} />
+            ))}
           </div>
-        </div>
+        )}
       </div>
-    </ListPage>
+    </DataListPage>
   );
 }
 

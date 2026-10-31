@@ -22,15 +22,16 @@ const useListLayoutStyles = makeStyles({
 export interface DataListPageProps<TRow extends RowData> {
   icon: ReactElement;
   titleKey: TranslationKey;
-  listTitleKey: TranslationKey;
+  listTitleKey?: TranslationKey;
   actions: readonly HeaderAction[];
-  columns: DataColumn<TRow>[];
+  columns?: DataColumn<TRow>[];
   filters?: DataFilter[];
-  useListQuery: (params: ListQueryParams) => ListQueryResult<TRow>;
+  useListQuery?: (params: ListQueryParams) => ListQueryResult<TRow>;
   getRowId?: (row: TRow) => string;
   onRowClick?: (row: TRow) => void;
   apiRef?: { current: DataTableCardApi | null };
   sidebar?: ReactNode;
+  children?: ReactNode;
 }
 
 export function DataListPage<TRow extends RowData>({
@@ -45,36 +46,36 @@ export function DataListPage<TRow extends RowData>({
   onRowClick,
   apiRef,
   sidebar,
+  children,
 }: DataListPageProps<TRow>) {
   const { t } = useAppTranslation();
   const styles = useListLayoutStyles();
   const onRowClickRef = useRef(onRowClick);
   onRowClickRef.current = onRowClick;
-  const stableOnRowClick = useCallback(
-    (row: TRow) => onRowClickRef.current?.(row),
-    [],
-  );
-  const table = (
-    <DataTableCard
-      title={(count) => t(listTitleKey, { count })}
-      ariaLabel={t(titleKey)}
-      columns={columns}
-      filters={filters}
-      useListQuery={useListQuery}
-      getRowId={getRowId}
-      onRowClick={stableOnRowClick}
-      apiRef={apiRef}
-    />
-  );
+  const stableOnRowClick = useCallback((row: TRow) => onRowClickRef.current?.(row), []);
+  const content =
+    children ??
+    (columns && useListQuery && listTitleKey ? (
+      <DataTableCard
+        title={(count) => t(listTitleKey, { count })}
+        ariaLabel={t(titleKey)}
+        columns={columns}
+        filters={filters}
+        useListQuery={useListQuery}
+        getRowId={getRowId}
+        onRowClick={stableOnRowClick}
+        apiRef={apiRef}
+      />
+    ) : null);
   return (
     <ListPage header={{ icon, title: t(titleKey), actions }}>
       {sidebar ? (
         <div className={styles.body}>
           <div className={styles.sidebar}>{sidebar}</div>
-          <div className={styles.main}>{table}</div>
+          <div className={styles.main}>{content}</div>
         </div>
       ) : (
-        table
+        content
       )}
     </ListPage>
   );
