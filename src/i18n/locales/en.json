@@ -7682,6 +7682,72 @@
       },
       "notFound": "FabLive not found.",
       "emptySection": "No data available for this section."
+    },
+    "barcodeIdentification": {
+      "pageTitle": "Barcode Identification",
+      "emptyTitle": "Scan barcodes",
+      "emptySubtitle": "(Material; Resource; Container)",
+      "scannedTitle": "Scanned Barcodes ({{count}})",
+      "scanHint": "Scan barcodes (Material; Resource; Container)",
+      "notFound": "Barcode \"{{code}}\" was not found.",
+      "actions": {
+        "scan": "Scan",
+        "insertBarcode": "Insert Barcode",
+        "reset": "Reset",
+        "settings": "Barcode Identification Settings"
+      },
+      "tiles": {
+        "split": "Split",
+        "splitByProduct": "Split by Product",
+        "merge": "Merge",
+        "hold": "Hold",
+        "temporaryOffFlow": "Temporary Off-Flow",
+        "recordLossBonus": "Record Loss/Bonus",
+        "combine": "Combine",
+        "compose": "Compose"
+      },
+      "scan": {
+        "title": "Scan data",
+        "barcode": "Barcode",
+        "qrCode": "QR code",
+        "scanning": "Scanning...",
+        "cancel": "Cancel"
+      },
+      "insert": {
+        "title": "Insert Barcode",
+        "placeholder": "Barcode",
+        "ok": "OK"
+      },
+      "info": {
+        "resourceTitle": "Resource Details",
+        "materialTitle": "Material Details",
+        "containerTitle": "Container Details",
+        "resource": "Resource",
+        "material": "Material",
+        "container": "Container",
+        "systemState": "System State",
+        "currentState": "Current State",
+        "description": "Description",
+        "type": "Type",
+        "materialsDispatched": "Material(s) dispatched",
+        "materialsInProcess": "Material(s) in process",
+        "state": "State",
+        "product": "Product",
+        "quantity": "Quantity",
+        "location": "Location",
+        "capacity": "Capacity"
+      },
+      "settings": {
+        "title": "Barcode Identification Settings",
+        "entities": "Entities",
+        "entity": "Entity",
+        "barcodeProperty": "Barcode Property",
+        "entityNames": {
+          "material": "Material",
+          "resource": "Resource",
+          "container": "Container"
+        }
+      }
     }
   }
 }

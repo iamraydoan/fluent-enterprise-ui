@@ -658,3 +658,22 @@ export type {
   WorkgroupListParams,
   WorkgroupRecord,
 } from "./businessData/workgroup";
+export {
+  BARCODE_ENTITIES,
+  BARCODE_PROPERTY_OPTIONS,
+  getBarcodeEntityInfo,
+  getBarcodeIdentificationSettings,
+  lookupBarcode,
+  updateBarcodeIdentificationSettings,
+  useBarcodeEntityInfo,
+  useBarcodeIdentificationSettings,
+  useBarcodeLookup,
+  useUpdateBarcodeIdentificationSettings,
+} from "./manufacturing/barcodeIdentification";
+export type {
+  BarcodeEntityInfo,
+  BarcodeEntityInfoRow,
+  BarcodeEntityKind,
+  BarcodeIdentificationSettings,
+  ScannedBarcode,
+} from "./manufacturing/barcodeIdentification";

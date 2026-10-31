@@ -7682,6 +7682,72 @@
       },
       "notFound": "FabLive를 찾을 수 없습니다.",
       "emptySection": "이 섹션에 데이터가 없습니다."
+    },
+    "barcodeIdentification": {
+      "pageTitle": "바코드 식별",
+      "emptyTitle": "바코드 스캔",
+      "emptySubtitle": "(자재; 리소스; 컨테이너)",
+      "scannedTitle": "스캔한 바코드 ({{count}})",
+      "scanHint": "바코드 스캔 (자재; 리소스; 컨테이너)",
+      "notFound": "바코드 \"{{code}}\"를 찾을 수 없습니다.",
+      "actions": {
+        "scan": "스캔",
+        "insertBarcode": "바코드 입력",
+        "reset": "재설정",
+        "settings": "바코드 식별 설정"
+      },
+      "tiles": {
+        "split": "분할",
+        "splitByProduct": "제품별 분할",
+        "merge": "병합",
+        "hold": "보류",
+        "temporaryOffFlow": "임시 오프플로우",
+        "recordLossBonus": "로스/보너스 기록",
+        "combine": "결합",
+        "compose": "배합"
+      },
+      "scan": {
+        "title": "데이터 스캔",
+        "barcode": "바코드",
+        "qrCode": "QR 코드",
+        "scanning": "스캔 중...",
+        "cancel": "취소"
+      },
+      "insert": {
+        "title": "바코드 입력",
+        "placeholder": "바코드",
+        "ok": "확인"
+      },
+      "info": {
+        "resourceTitle": "리소스 상세",
+        "materialTitle": "자재 상세",
+        "containerTitle": "컨테이너 상세",
+        "resource": "리소스",
+        "material": "자재",
+        "container": "컨테이너",
+        "systemState": "시스템 상태",
+        "currentState": "현재 상태",
+        "description": "설명",
+        "type": "유형",
+        "materialsDispatched": "출고된 자재",
+        "materialsInProcess": "처리 중인 자재",
+        "state": "상태",
+        "product": "제품",
+        "quantity": "수량",
+        "location": "위치",
+        "capacity": "용량"
+      },
+      "settings": {
+        "title": "바코드 식별 설정",
+        "entities": "엔터티",
+        "entity": "엔터티",
+        "barcodeProperty": "바코드 속성",
+        "entityNames": {
+          "material": "자재",
+          "resource": "리소스",
+          "container": "컨테이너"
+        }
+      }
     }
   }
 }
