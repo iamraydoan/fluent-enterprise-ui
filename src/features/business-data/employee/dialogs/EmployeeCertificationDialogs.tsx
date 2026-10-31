@@ -190,5 +190,3 @@ export function AssignCertificationDialog({ name, onClose }: DialogProps) {
     </Shell>
   );
 }
-
-

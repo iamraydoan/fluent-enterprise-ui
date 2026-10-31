@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 import type { TranslationKey } from "@/i18n";
 
-type WizardFieldType =
-  "text" | "textarea" | "number" | "checkbox" | "select" | "date" | "custom";
+type WizardFieldType = "text" | "textarea" | "number" | "checkbox" | "select" | "date" | "custom";
 
 interface WizardFieldOption {
   value: string;

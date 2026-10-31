@@ -154,7 +154,6 @@ function ConfirmDialog({
   );
 }
 
-
 export function EditPeriodicInventoryDialog({
   open,
   onClose,

@@ -34,9 +34,13 @@ export function EntityTerminateDialog({
     <ConfirmOperationDialog
       open={open}
       titleKey={isTerminate ? terminateTitleKey : (unterminateTitleKey ?? terminateTitleKey)}
-      messageKey={isTerminate ? terminateMessageKey : (unterminateMessageKey ?? terminateMessageKey)}
+      messageKey={
+        isTerminate ? terminateMessageKey : (unterminateMessageKey ?? terminateMessageKey)
+      }
       messageParams={{ name }}
-      confirmLabelKey={isTerminate ? terminateConfirmKey : (unterminateConfirmKey ?? terminateConfirmKey)}
+      confirmLabelKey={
+        isTerminate ? terminateConfirmKey : (unterminateConfirmKey ?? terminateConfirmKey)
+      }
       danger={isTerminate}
       onClose={onClose}
       onConfirm={onConfirm}

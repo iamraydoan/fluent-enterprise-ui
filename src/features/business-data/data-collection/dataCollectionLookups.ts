@@ -17,7 +17,6 @@ export const PARAMETER_DATA_TYPES = [
 
 export const LIMIT_CHECKING_MODES = ["None", "IndividualValue", "CalculatedValue"];
 
-
 export const INSTANCE_STATE_OPEN = "Open";
 export const INSTANCE_STATE_CLOSED = "Closed";
 export const INSTANCE_STATE_TERMINATED = "Terminated";
