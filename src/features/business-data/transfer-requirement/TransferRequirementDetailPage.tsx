@@ -8,7 +8,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { formatItemMeta } from "./transferRequirementHelpers";
-import { transferRequirementMoreActions } from "./transferRequirementMoreActions";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.transferRequirement.tabs.details" },
@@ -118,10 +117,6 @@ export function TransferRequirementDetailPage({ name }: { name: string }) {
       onLeft={handleLeft}
       onEdit={() => {}}
       onAskAi={() => {}}
-      moreActions={transferRequirementMoreActions.map((action) => ({
-        ...action,
-        onClick: () => {},
-      }))}
     >
       {content}
     </DetailShell>

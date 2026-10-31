@@ -1,6 +1,6 @@
 import type { DataCollectionParameter } from "@/api";
 import { useAppTranslation } from "@/i18n";
-import type { OperationValues } from "../../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { DataValuesEditor } from "./DataValuesEditor";
 import {
   DataCollectionParametersEditor,
@@ -14,7 +14,7 @@ export function PerformImmediateParametersStep({
   dcParameters,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   dcParameters: DataCollectionParameter[];
 }) {
   const { t } = useAppTranslation();
@@ -55,7 +55,7 @@ export function PerformImmediateDataStep({
   dcParameters,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   dcParameters: DataCollectionParameter[];
 }) {
   const adHoc = values.adHoc === true;

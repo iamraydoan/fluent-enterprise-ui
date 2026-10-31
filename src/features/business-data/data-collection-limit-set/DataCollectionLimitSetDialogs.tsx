@@ -27,7 +27,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../components/MiniSelect";
-import type { OperationValues } from "../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 import {
   COPY_FILTER_DC_KEY,
   COPY_NAMES_KEY,
@@ -194,7 +194,7 @@ export function ParameterLimitsEditor({
   dataCollectionName,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   fieldKey?: string;
   dataCollectionName?: string;
 }) {
@@ -206,7 +206,7 @@ export function ParameterLimitsEditor({
   const dcParameters = useDataCollectionParameters(dataCollectionName).map((p) => p.parameter);
   const selected = rows.find((r) => r.id === selectedId) ?? rows[0] ?? null;
 
-  const setRows = (next: ParameterLimitRow[]) => onChange(fieldKey, next as unknown as boolean);
+  const setRows = (next: ParameterLimitRow[]) => onChange(fieldKey, next);
   const addRow = () => {
     const row = EMPTY_PARAMETER_LIMIT(Date.now() + rows.length);
     setRows([...rows, row]);
@@ -498,7 +498,7 @@ export function SampleLimitsEditor({
   fieldKey = "parameterLimits",
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   fieldKey?: string;
 }) {
   const { t } = useAppTranslation();
@@ -518,7 +518,7 @@ export function SampleLimitsEditor({
       (s) => s.id === (selectedSampleId ?? selectedParam?.sampleLimits[0]?.id),
     ) ?? null;
 
-  const setRows = (next: ParameterLimitRow[]) => onChange(fieldKey, next as unknown as boolean);
+  const setRows = (next: ParameterLimitRow[]) => onChange(fieldKey, next);
   const updateParam = (id: number, patch: Partial<ParameterLimitRow>) =>
     setRows(rows.map((r) => (r.id === id ? { ...r, ...patch } : r)));
 
@@ -840,7 +840,7 @@ export function CopyLimitSetsSelectStep({
   onChange,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
@@ -860,7 +860,7 @@ export function CopyLimitSetsSelectStep({
 
   const toggle = (name: string) => {
     const next = selected.includes(name) ? selected.filter((s) => s !== name) : [...selected, name];
-    onChange(COPY_SOURCES_KEY, next as unknown as boolean);
+    onChange(COPY_SOURCES_KEY, next);
   };
 
   return (
@@ -906,7 +906,7 @@ export function CopyLimitSetsNamesStep({
   targetDataCollection,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   targetDataCollection: string;
 }) {
   const { t } = useAppTranslation();
@@ -915,7 +915,7 @@ export function CopyLimitSetsNamesStep({
   const names = (values[COPY_NAMES_KEY] as unknown as Record<string, string> | undefined) ?? {};
   const getName = (s: string) => names[s] ?? `${targetDataCollection}_${s}`;
   const setName = (s: string, v: string) =>
-    onChange(COPY_NAMES_KEY, { ...names, [s]: v } as unknown as boolean);
+    onChange(COPY_NAMES_KEY, { ...names, [s]: v });
 
   return (
     <div>

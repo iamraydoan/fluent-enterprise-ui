@@ -8,7 +8,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { formatOverlayMeta } from "./substrateMapHelpers";
-import { substrateMapMoreActions } from "./substrateMapMoreActions";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.substrateMap.tabs.details" },
@@ -134,7 +133,6 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
       onLeft={handleLeft}
       onEdit={() => {}}
       onAskAi={() => {}}
-      moreActions={substrateMapMoreActions.map((action) => ({ ...action, onClick: () => {} }))}
     >
       {content}
     </DetailShell>

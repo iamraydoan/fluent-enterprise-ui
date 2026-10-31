@@ -49,12 +49,12 @@ const SCOPE_OPTIONS = DC_SCOPES.map((v) => ({ value: v, label: v }));
 const SPC_MODE_OPTIONS = SPC_MODES.map((v) => ({ value: v, label: v }));
 const UI_OPTIONS = USER_INTERFACES.map((v) => ({ value: v, label: v }));
 
-function str(v: string | number | boolean | undefined): string | undefined {
+function str(v: unknown): string | undefined {
   if (v === undefined) return undefined;
   return String(v);
 }
 
-function bool(v: string | number | boolean | undefined): boolean {
+function bool(v: unknown): boolean {
   return v === true;
 }
 
@@ -256,7 +256,7 @@ function dataCollectionToValues(dc: DataCollectionDetail): OperationValues {
     parameters: dc.parameters.map((p, idx) => ({
       ...p,
       id: Date.now() + idx,
-    })) as unknown as boolean,
+    })),
   };
 }
 

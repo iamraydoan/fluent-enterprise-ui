@@ -3,7 +3,7 @@ import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import type { OperationValues } from "../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 interface SimpleRow {
   id: number;
@@ -39,7 +39,7 @@ function NameListEditor({
   extraPlaceholderKey,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   valueKey: string;
   namePlaceholderKey: TranslationKey;
   extraPlaceholderKey: TranslationKey;
@@ -47,7 +47,7 @@ function NameListEditor({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const rows = (values[valueKey] as unknown as SimpleRow[] | undefined) ?? [];
-  const setRows = (next: SimpleRow[]) => onChange(valueKey, next as unknown as boolean);
+  const setRows = (next: SimpleRow[]) => onChange(valueKey, next);
   const addRow = () => setRows([...rows, { id: Date.now() + rows.length, name: "", extra: "" }]);
   const removeRow = (id: number) => setRows(rows.filter((r) => r.id !== id));
   const updateRow = (id: number, patch: Partial<SimpleRow>) =>

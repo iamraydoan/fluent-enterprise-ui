@@ -3,7 +3,7 @@ import type { ChecklistItem, ChecklistItemParameter } from "@/api";
 import { Button, Checkbox, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../../components/MiniSelect";
-import type { OperationValues } from "../../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import {
   ACTIVITY_TYPES,
   CONDITION_TYPES,
@@ -47,13 +47,13 @@ export function ChecklistItemsEditor({
   onChange,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const rows = (values.items as unknown as ChecklistItemRow[] | undefined) ?? [];
   const [expanded, setExpanded] = useState<number | null>(null);
-  const setRows = (next: ChecklistItemRow[]) => onChange("items", next as unknown as boolean);
+  const setRows = (next: ChecklistItemRow[]) => onChange("items", next);
   const addRow = () => setRows([...rows, EMPTY_ITEM(Date.now() + rows.length)]);
   const removeRow = (id: number) => setRows(rows.filter((r) => r.id !== id));
   const update = (id: number, patch: Partial<ChecklistItemRow>) =>

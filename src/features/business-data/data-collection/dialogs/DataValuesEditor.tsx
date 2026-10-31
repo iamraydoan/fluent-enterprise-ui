@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { OperationValues } from "../../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { useDialogStyles } from "./dialogStyles";
 
 export interface DataValueRow {
@@ -15,7 +15,7 @@ export function DataValuesEditor({
 }: {
   parameters: { parameter: string; isOptional: boolean }[];
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
@@ -25,7 +25,7 @@ export function DataValuesEditor({
     const next = rows.some((r) => r.parameter === parameter)
       ? rows.map((r) => (r.parameter === parameter ? { ...r, value } : r))
       : [...rows, { parameter, value }];
-    onChange("dataValues", next as unknown as boolean);
+    onChange("dataValues", next);
   };
 
   return (

@@ -3,8 +3,8 @@ import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { MODE_CREATE, MODE_EDIT } from "../components/wizardMode";
-import type { WizardMode } from "../components/wizardMode";
+import { MODE_CREATE, MODE_EDIT } from "../../components/wizardMode";
+import type { WizardMode } from "../../components/wizardMode";
 
 const L: Record<string, TranslationKey> = {
   createTitle: "businessData.experimentDefinition.dialog.createTitle",

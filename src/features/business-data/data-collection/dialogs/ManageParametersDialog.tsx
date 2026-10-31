@@ -3,7 +3,7 @@ import type { DataCollectionParameter } from "@/api";
 import { BaseDialog } from "@/components/common";
 import { Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { OperationValues } from "../../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import {
   DataCollectionParametersEditor,
   type DataCollectionParameterRow,
@@ -22,7 +22,7 @@ export function ManageDataCollectionParametersDialog({
 }) {
   const { t } = useAppTranslation();
   const [values, setValues] = useState<OperationValues>({});
-  const onChange = (key: string, value: string | number | boolean) =>
+  const onChange: OperationOnChange = (key, value) =>
     setValues((prev) => ({ ...prev, [key]: value }));
   const rows = (values.parameters as unknown as DataCollectionParameterRow[] | undefined) ?? [];
   const toParameters = (): DataCollectionParameter[] =>
@@ -56,7 +56,7 @@ export function ManageDataCollectionParametersDialog({
       <DataCollectionParametersEditor
         values={{
           parameters: (values.parameters ??
-            parameters.map((p, idx) => ({ ...p, id: Date.now() + idx }))) as unknown as boolean,
+            parameters.map((p, idx) => ({ ...p, id: Date.now() + idx }))),
         }}
         onChange={onChange}
       />

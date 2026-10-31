@@ -1,6 +1,6 @@
 import { Button, Checkbox, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { OperationValues } from "../../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { NumField } from "./dialogShared";
 import { numOrUndef, useDialogStyles } from "./dialogStyles";
 
@@ -26,13 +26,13 @@ export function LogicalChartLimitsEditor({
   onChange,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const rows = (values.logicalChartLimits as unknown as LogicalChartLimitRow[] | undefined) ?? [];
   const setRows = (next: LogicalChartLimitRow[]) =>
-    onChange("logicalChartLimits", next as unknown as boolean);
+    onChange("logicalChartLimits", next);
   const update = (name: string, patch: Partial<LogicalChartLimitRow>) =>
     setRows(rows.map((r) => (r.name === name ? { ...r, ...patch } : r)));
   const copyChartLimits = (name: string) =>

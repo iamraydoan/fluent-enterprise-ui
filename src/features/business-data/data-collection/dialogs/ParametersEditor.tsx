@@ -3,7 +3,7 @@ import { ArrowDown16Regular, ArrowUp16Regular } from "@/components/icons";
 import { Button, Checkbox, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../../components/MiniSelect";
-import type { OperationValues } from "../../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { LIMIT_CHECKING_MODES, PARAMETER_DATA_TYPES } from "../dataCollectionLookups";
 import { useDialogStyles } from "./dialogStyles";
 
@@ -29,14 +29,14 @@ export function DataCollectionParametersEditor({
   fieldKey = "parameters",
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   fieldKey?: string;
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const rows = (values[fieldKey] as unknown as DataCollectionParameterRow[] | undefined) ?? [];
   const setRows = (next: DataCollectionParameterRow[]) =>
-    onChange(fieldKey, next as unknown as boolean);
+    onChange(fieldKey, next);
   const addRow = () => setRows([...rows, EMPTY_PARAMETER(Date.now() + rows.length)]);
   const removeRow = (id: number) => setRows(rows.filter((r) => r.id !== id));
   const update = (id: number, patch: Partial<DataCollectionParameterRow>) =>

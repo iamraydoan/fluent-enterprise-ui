@@ -8,7 +8,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { formatRuleMeta } from "./sortRuleSetHelpers";
-import { sortRuleSetMoreActions } from "./sortRuleSetMoreActions";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.sortRuleSet.tabs.details" },
@@ -114,7 +113,6 @@ export function SortRuleSetDetailPage({ name }: { name: string }) {
       onLeft={handleLeft}
       onEdit={() => {}}
       onAskAi={() => {}}
-      moreActions={sortRuleSetMoreActions.map((action) => ({ ...action, onClick: () => {} }))}
     >
       {content}
     </DetailShell>

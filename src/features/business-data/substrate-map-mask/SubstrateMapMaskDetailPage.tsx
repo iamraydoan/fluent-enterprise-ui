@@ -7,7 +7,6 @@ import { Body1Strong, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { substrateMapMaskMoreActions } from "./substrateMapMaskMoreActions";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.substrateMapMask.tabs.details" },
@@ -97,7 +96,6 @@ export function SubstrateMapMaskDetailPage({ name }: { name: string }) {
       onLeft={handleLeft}
       onEdit={() => {}}
       onAskAi={() => {}}
-      moreActions={substrateMapMaskMoreActions.map((action) => ({ ...action, onClick: () => {} }))}
     >
       {content}
     </DetailShell>

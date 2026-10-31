@@ -1,11 +1,6 @@
-import type { TranslationKey } from "@/i18n";
+import type { MoreActionDef } from "../components/moreActions";
 
-export interface DetailMoreAction {
-  id: string;
-  labelKey: TranslationKey;
-}
-
-export const shiftLogbookMoreActions: DetailMoreAction[] = [
+export const shiftLogbookMoreActions: MoreActionDef[] = [
   { id: "signOff", labelKey: "businessData.shiftLogbook.signOff.menuLabel" },
   { id: "summarize", labelKey: "businessData.shiftLogbook.summary.menuLabel" },
 ];

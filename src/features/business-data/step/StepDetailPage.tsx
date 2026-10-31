@@ -8,7 +8,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatList } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
-import { stepMoreActions } from "./stepMoreActions";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.step.tabs.details" },
@@ -160,7 +159,6 @@ export function StepDetailPage({ name }: { name: string }) {
       onLeft={handleLeft}
       onEdit={() => {}}
       onAskAi={() => {}}
-      moreActions={stepMoreActions.map((action) => ({ ...action, onClick: () => {} }))}
     >
       {content}
     </DetailShell>

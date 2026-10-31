@@ -36,12 +36,12 @@ import {
 const SCOPE_OPTIONS = CHECKLIST_SCOPES.map((v) => ({ value: v, label: v }));
 const EXECUTION_MODE_OPTIONS = EXECUTION_MODES.map((v) => ({ value: v, label: v }));
 
-function str(v: string | number | boolean | undefined): string | undefined {
+function str(v: unknown): string | undefined {
   if (v === undefined) return undefined;
   return String(v);
 }
 
-function bool(v: string | number | boolean | undefined): boolean {
+function bool(v: unknown): boolean {
   return v === true;
 }
 
@@ -219,7 +219,7 @@ function checklistToValues(cl: ChecklistDetail): OperationValues {
     trackExecutionTimes: cl.trackExecutionTimes,
     documentationUrl: cl.documentationUrl,
     standardDuration: cl.standardDuration,
-    items: cl.items.map((i, idx) => ({ ...i, id: Date.now() + idx })) as unknown as boolean,
+    items: cl.items.map((i, idx) => ({ ...i, id: Date.now() + idx })),
   };
 }
 
