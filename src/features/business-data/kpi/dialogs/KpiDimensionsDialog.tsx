@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { BaseDialog } from "@/components/common";
 import { Button, Input, Checkbox, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 
 const L: Record<string, TranslationKey> = {
   title: "businessData.kpi.dimensionsDialog.title",
@@ -32,34 +32,13 @@ const L: Record<string, TranslationKey> = {
   update: "businessData.kpi.dimensionsDialog.update",
 };
 
-const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    backgroundColor: "rgba(0,0,0,0.4)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-  },
-  surface: {
-    width: "720px",
-    maxWidth: "95vw",
-    display: "flex",
-    flexDirection: "column",
-    maxHeight: "90vh",
-  },
-  head: {
-    padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    fontWeight: tokens.fontWeightSemibold,
-    fontSize: tokens.fontSizeBase400,
-  },
+const useStyles = makeStyles({
   steps: {
     display: "flex",
     gap: "16px",
-    padding: "12px 16px",
+    padding: "4px 4px 12px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    marginBottom: "4px",
   },
   step: { fontSize: tokens.fontSizeBase300, color: tokens.colorNeutralForeground3 },
   stepActive: {
@@ -67,21 +46,7 @@ const useDialogStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorBrandForeground1,
   },
-  body: {
-    padding: "16px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    overflowY: "auto",
-  },
   row: { display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "12px 16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   select: {
     padding: "6px 8px",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -108,8 +73,7 @@ interface TimeFrame {
 
 export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
   const { t } = useAppTranslation();
-  const shared = useSharedStyles();
-  const styles = useDialogStyles();
+  const styles = useStyles();
   const [step, setStep] = useState(1);
   const [dimensions, setDimensions] = useState<Dimension[]>([]);
   const [timeFrames, setTimeFrames] = useState<TimeFrame[]>([]);
@@ -130,136 +94,13 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
   const removeTimeFrame = (id: number) => setTimeFrames(timeFrames.filter((f) => f.id !== id));
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>{t(L.title)}</div>
-        <div className={styles.steps}>
-          <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
-          <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
-        </div>
-        <div className={styles.body}>
-          {step === 1 && (
-            <>
-              <div className={styles.row}>
-                <strong>{t(L.dimensions)}</strong>
-                <Button size="small" onClick={addDimension}>
-                  + {t(L.addDimension)}
-                </Button>
-              </div>
-              {dimensions.map((d) => (
-                <div key={d.id} className={styles.row}>
-                  <select
-                    className={styles.select}
-                    value={d.valueType}
-                    onChange={(e) =>
-                      setDimensions(
-                        dimensions.map((x) =>
-                          x.id === d.id ? { ...x, valueType: e.target.value } : x,
-                        ),
-                      )
-                    }
-                    aria-label={t(L.valueType)}
-                  >
-                    <option value="Single">{t(L.valueTypeSingle)}</option>
-                    <option value="Series">{t(L.valueTypeSeries)}</option>
-                  </select>
-                  <select
-                    className={styles.select}
-                    value={d.source}
-                    onChange={(e) =>
-                      setDimensions(
-                        dimensions.map((x) =>
-                          x.id === d.id ? { ...x, source: e.target.value } : x,
-                        ),
-                      )
-                    }
-                    aria-label={t(L.source)}
-                  >
-                    <option value="BusinessRule">{t(L.sourceBusinessRule)}</option>
-                    <option value="ODS">{t(L.sourceOds)}</option>
-                    <option value="DWH">{t(L.sourceDwh)}</option>
-                    <option value="Cubes">{t(L.sourceCubes)}</option>
-                  </select>
-                  <Input
-                    placeholder={t(L.sourceCommand)}
-                    value={d.sourceCommand}
-                    onChange={(_, data) =>
-                      setDimensions(
-                        dimensions.map((x) =>
-                          x.id === d.id ? { ...x, sourceCommand: data.value } : x,
-                        ),
-                      )
-                    }
-                  />
-                  <Button size="small" onClick={() => removeDimension(d.id)}>
-                    {t(L.remove)}
-                  </Button>
-                </div>
-              ))}
-            </>
-          )}
-          {step === 2 && (
-            <>
-              <div className={styles.row}>
-                <strong>{t(L.timeFrames)}</strong>
-                <Button size="small" onClick={addTimeFrame}>
-                  + {t(L.addTimeFrame)}
-                </Button>
-              </div>
-              {timeFrames.map((f) => (
-                <div key={f.id} className={styles.row}>
-                  <Input
-                    placeholder={t(L.timeFrameName)}
-                    value={f.name}
-                    onChange={(_, data) =>
-                      setTimeFrames(
-                        timeFrames.map((x) => (x.id === f.id ? { ...x, name: data.value } : x)),
-                      )
-                    }
-                  />
-                  <Checkbox
-                    label={t(L.isDefault)}
-                    checked={f.isDefault === true}
-                    onChange={(_, data) =>
-                      setTimeFrames(
-                        timeFrames.map((x) =>
-                          x.id === f.id ? { ...x, isDefault: data.checked === true } : x,
-                        ),
-                      )
-                    }
-                  />
-                  <Input
-                    placeholder={t(L.from)}
-                    value={f.from}
-                    onChange={(_, data) =>
-                      setTimeFrames(
-                        timeFrames.map((x) => (x.id === f.id ? { ...x, from: data.value } : x)),
-                      )
-                    }
-                  />
-                  <Input
-                    placeholder={t(L.to)}
-                    value={f.to}
-                    onChange={(_, data) =>
-                      setTimeFrames(
-                        timeFrames.map((x) => (x.id === f.id ? { ...x, to: data.value } : x)),
-                      )
-                    }
-                  />
-                  <Button size="small" onClick={() => removeTimeFrame(f.id)}>
-                    {t(L.remove)}
-                  </Button>
-                </div>
-              ))}
-            </>
-          )}
-        </div>
-        <div className={styles.footer}>
+    <BaseDialog
+      open
+      title={t(L.title)}
+      size="lg"
+      onClose={onClose}
+      footer={
+        <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step === 2 && <Button onClick={() => setStep(1)}>{t(L.back)}</Button>}
           {step === 1 ? (
@@ -271,8 +112,126 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
               {t(L.update)}
             </Button>
           )}
-        </div>
+        </>
+      }
+    >
+      <div className={styles.steps}>
+        <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
+        <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
       </div>
-    </div>
+      {step === 1 && (
+        <>
+          <div className={styles.row}>
+            <strong>{t(L.dimensions)}</strong>
+            <Button size="small" onClick={addDimension}>
+              + {t(L.addDimension)}
+            </Button>
+          </div>
+          {dimensions.map((d) => (
+            <div key={d.id} className={styles.row}>
+              <select
+                className={styles.select}
+                value={d.valueType}
+                onChange={(e) =>
+                  setDimensions(
+                    dimensions.map((x) =>
+                      x.id === d.id ? { ...x, valueType: e.target.value } : x,
+                    ),
+                  )
+                }
+                aria-label={t(L.valueType)}
+              >
+                <option value="Single">{t(L.valueTypeSingle)}</option>
+                <option value="Series">{t(L.valueTypeSeries)}</option>
+              </select>
+              <select
+                className={styles.select}
+                value={d.source}
+                onChange={(e) =>
+                  setDimensions(
+                    dimensions.map((x) => (x.id === d.id ? { ...x, source: e.target.value } : x)),
+                  )
+                }
+                aria-label={t(L.source)}
+              >
+                <option value="BusinessRule">{t(L.sourceBusinessRule)}</option>
+                <option value="ODS">{t(L.sourceOds)}</option>
+                <option value="DWH">{t(L.sourceDwh)}</option>
+                <option value="Cubes">{t(L.sourceCubes)}</option>
+              </select>
+              <Input
+                placeholder={t(L.sourceCommand)}
+                value={d.sourceCommand}
+                onChange={(_, data) =>
+                  setDimensions(
+                    dimensions.map((x) =>
+                      x.id === d.id ? { ...x, sourceCommand: data.value } : x,
+                    ),
+                  )
+                }
+              />
+              <Button size="small" onClick={() => removeDimension(d.id)}>
+                {t(L.remove)}
+              </Button>
+            </div>
+          ))}
+        </>
+      )}
+      {step === 2 && (
+        <>
+          <div className={styles.row}>
+            <strong>{t(L.timeFrames)}</strong>
+            <Button size="small" onClick={addTimeFrame}>
+              + {t(L.addTimeFrame)}
+            </Button>
+          </div>
+          {timeFrames.map((f) => (
+            <div key={f.id} className={styles.row}>
+              <Input
+                placeholder={t(L.timeFrameName)}
+                value={f.name}
+                onChange={(_, data) =>
+                  setTimeFrames(
+                    timeFrames.map((x) => (x.id === f.id ? { ...x, name: data.value } : x)),
+                  )
+                }
+              />
+              <Checkbox
+                label={t(L.isDefault)}
+                checked={f.isDefault === true}
+                onChange={(_, data) =>
+                  setTimeFrames(
+                    timeFrames.map((x) =>
+                      x.id === f.id ? { ...x, isDefault: data.checked === true } : x,
+                    ),
+                  )
+                }
+              />
+              <Input
+                placeholder={t(L.from)}
+                value={f.from}
+                onChange={(_, data) =>
+                  setTimeFrames(
+                    timeFrames.map((x) => (x.id === f.id ? { ...x, from: data.value } : x)),
+                  )
+                }
+              />
+              <Input
+                placeholder={t(L.to)}
+                value={f.to}
+                onChange={(_, data) =>
+                  setTimeFrames(
+                    timeFrames.map((x) => (x.id === f.id ? { ...x, to: data.value } : x)),
+                  )
+                }
+              />
+              <Button size="small" onClick={() => removeTimeFrame(f.id)}>
+                {t(L.remove)}
+              </Button>
+            </div>
+          ))}
+        </>
+      )}
+    </BaseDialog>
   );
 }
