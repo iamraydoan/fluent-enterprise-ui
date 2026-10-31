@@ -80,7 +80,8 @@ export function CreateProtocolDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -133,7 +134,8 @@ export function EditProtocolDialog({
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -169,7 +171,8 @@ export function CloneProtocolDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -245,7 +248,8 @@ export function ViewInstanceReportsDialog({ open, onClose }: Omit<DialogProps, "
   const { t } = useAppTranslation();
   const P = "businessData.protocol.operations.viewInstanceReports";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

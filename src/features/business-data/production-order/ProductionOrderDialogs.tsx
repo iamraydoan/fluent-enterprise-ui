@@ -80,7 +80,8 @@ export function CreateProductionOrderDialog({ open, onClose, onSubmit }: DialogP
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -129,7 +130,8 @@ export function EditProductionOrderDialog({
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -165,7 +167,8 @@ export function CloneProductionOrderDialog({ open, onClose, onSubmit }: DialogPr
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -241,7 +244,8 @@ export function AssignMaterialsDialog({ open, onClose, onSubmit }: DialogProps) 
   const { t } = useAppTranslation();
   const P = "businessData.productionOrder.operations.assignMaterials";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -265,7 +269,8 @@ export function ReassignMaterialsDialog({ open, onClose, onSubmit }: DialogProps
   const { t } = useAppTranslation();
   const P = "businessData.productionOrder.operations.reassignMaterials";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -289,7 +294,8 @@ export function CreateMaterialForOrderDialog({ open, onClose, onSubmit }: Dialog
   const { t } = useAppTranslation();
   const P = "businessData.productionOrder.operations.createMaterial";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -322,7 +328,8 @@ export function ChangeProductQuantityDialog({ open, onClose, onSubmit }: DialogP
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -351,7 +358,8 @@ export function ManageStepsDialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
   const P = "businessData.productionOrder.operations.manageSteps";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -375,7 +383,8 @@ export function SynchronizeStepsDialog({ open, onClose, onSubmit }: DialogProps)
   const { t } = useAppTranslation();
   const P = "businessData.productionOrder.operations.synchronizeSteps";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

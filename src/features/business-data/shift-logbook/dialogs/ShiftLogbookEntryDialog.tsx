@@ -58,39 +58,39 @@ export function ShiftLogbookEntryDialog({ initial, onClose }: EntryDialogProps) 
         />
       }
     >
-          <div className={styles.fieldRow}>
-            <Text>
-              <span className={styles.required}>* </span>
-              {t("businessData.shiftLogbook.addEntry.titleLabel")}
-            </Text>
-            <Input value={title} onChange={(_, d) => setTitle(d.value)} />
-          </div>
-          <div className={styles.fieldRow}>
-            <Text>
-              <span className={styles.required}>* </span>
-              {t("businessData.shiftLogbook.addEntry.category")}
-            </Text>
-            <Input value={category} onChange={(_, d) => setCategory(d.value)} />
-          </div>
-          <div className={styles.fieldRow}>
-            <Text>
-              <span className={styles.required}>* </span>
-              {t("businessData.shiftLogbook.addEntry.severity")}
-            </Text>
-            <Input value={severity} onChange={(_, d) => setSeverity(d.value)} />
-          </div>
-          <div className={styles.fieldRow}>
-            <Text>{t("businessData.shiftLogbook.addEntry.resource")}</Text>
-            <Input value={resource} onChange={(_, d) => setResource(d.value)} />
-          </div>
-          <div className={styles.fieldRow} style={{ alignItems: "start" }}>
-            <Text>{t("businessData.shiftLogbook.addEntry.description")}</Text>
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} rows={5} />
-          </div>
-          <div className={styles.fieldRow} style={{ alignItems: "start" }}>
-            <Text>{t("businessData.shiftLogbook.addEntry.comments")}</Text>
-            <Textarea value={comments} onChange={(_, d) => setComments(d.value)} rows={2} />
-          </div>
+      <div className={styles.fieldRow}>
+        <Text>
+          <span className={styles.required}>* </span>
+          {t("businessData.shiftLogbook.addEntry.titleLabel")}
+        </Text>
+        <Input value={title} onChange={(_, d) => setTitle(d.value)} />
+      </div>
+      <div className={styles.fieldRow}>
+        <Text>
+          <span className={styles.required}>* </span>
+          {t("businessData.shiftLogbook.addEntry.category")}
+        </Text>
+        <Input value={category} onChange={(_, d) => setCategory(d.value)} />
+      </div>
+      <div className={styles.fieldRow}>
+        <Text>
+          <span className={styles.required}>* </span>
+          {t("businessData.shiftLogbook.addEntry.severity")}
+        </Text>
+        <Input value={severity} onChange={(_, d) => setSeverity(d.value)} />
+      </div>
+      <div className={styles.fieldRow}>
+        <Text>{t("businessData.shiftLogbook.addEntry.resource")}</Text>
+        <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+      </div>
+      <div className={styles.fieldRow} style={{ alignItems: "start" }}>
+        <Text>{t("businessData.shiftLogbook.addEntry.description")}</Text>
+        <Textarea value={description} onChange={(_, d) => setDescription(d.value)} rows={5} />
+      </div>
+      <div className={styles.fieldRow} style={{ alignItems: "start" }}>
+        <Text>{t("businessData.shiftLogbook.addEntry.comments")}</Text>
+        <Textarea value={comments} onChange={(_, d) => setComments(d.value)} rows={2} />
+      </div>
     </BaseDialog>
   );
 }

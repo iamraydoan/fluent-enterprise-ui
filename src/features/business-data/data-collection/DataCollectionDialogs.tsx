@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { DataCollectionInstance, DataCollectionParameter } from "@/api";
+import { BaseDialog } from "@/components/common";
 import { ArrowDown16Regular, ArrowUp16Regular } from "@/components/icons";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
-import { BaseDialog } from "@/components/common";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { MiniSelect } from "../components/MiniSelect";

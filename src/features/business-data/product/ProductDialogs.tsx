@@ -80,7 +80,8 @@ export function CreateProductDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -133,7 +134,8 @@ export function EditProductDialog({
   };
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -169,7 +171,8 @@ export function CloneProductDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -195,7 +198,8 @@ export function TerminateProductDialog({ open, onClose, onSubmit }: DialogProps)
   const { t } = useAppTranslation();
   const P = "businessData.product.operations.terminate";
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -219,7 +223,8 @@ export function UnterminateProductDialog({ open, onClose, onSubmit }: DialogProp
   const { t } = useAppTranslation();
   const P = "businessData.product.operations.unterminate";
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -333,7 +338,8 @@ export function ViewProductReportsDialog({ open, onClose }: Omit<DialogProps, "o
   const { t } = useAppTranslation();
   const P = "businessData.product.operations.viewReports";
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

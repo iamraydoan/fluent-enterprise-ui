@@ -55,7 +55,8 @@ export function CreatePrintableDocumentDialog({ open, onClose, onSubmit }: Dialo
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -108,7 +109,8 @@ export function EditPrintableDocumentDialog({
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -144,7 +146,8 @@ export function ClonePrintableDocumentDialog({ open, onClose, onSubmit }: Dialog
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -170,7 +173,8 @@ export function TerminatePrintableDocumentDialog({ open, onClose, onSubmit }: Di
   const { t } = useAppTranslation();
   const P = "businessData.printableDocument.operations.terminate";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -194,7 +198,8 @@ export function UnterminatePrintableDocumentDialog({ open, onClose, onSubmit }: 
   const { t } = useAppTranslation();
   const P = "businessData.printableDocument.operations.unterminate";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -227,7 +232,8 @@ export function PrintPrintableDocumentDialog({ open, onClose, onSubmit }: Dialog
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -256,7 +262,8 @@ export function LayoutCreationDialog({ open, onClose }: Omit<DialogProps, "onSub
   const { t } = useAppTranslation();
   const P = "businessData.printableDocument.operations.layoutCreation";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -271,7 +278,8 @@ export function LotTravelerDialog({ open, onClose }: Omit<DialogProps, "onSubmit
   const { t } = useAppTranslation();
   const P = "businessData.printableDocument.operations.lotTraveler";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -286,7 +294,8 @@ export function PrintersDialog({ open, onClose }: Omit<DialogProps, "onSubmit">)
   const { t } = useAppTranslation();
   const P = "businessData.printableDocument.operations.printers";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

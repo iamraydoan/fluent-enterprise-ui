@@ -16,7 +16,6 @@ interface DialogProps {
   onSubmit?: () => void;
 }
 
-
 function Field({
   label,
   required,
@@ -51,7 +50,8 @@ function ConfirmDialog({
 }: DialogProps & { title: string; confirmText: string; submitLabel: string }) {
   const { t } = useAppTranslation();
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={title}
@@ -93,7 +93,8 @@ export function EditPeriodicInventoryDialog({
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -133,7 +134,8 @@ export function ClonePeriodicInventoryDialog({ open, onClose, onSubmit }: Dialog
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -254,7 +256,8 @@ export function PeriodicInventoryReportDialog({ open, onClose }: Omit<DialogProp
   const { t } = useAppTranslation();
   const P = "businessData.periodicInventory.operations.viewReport";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

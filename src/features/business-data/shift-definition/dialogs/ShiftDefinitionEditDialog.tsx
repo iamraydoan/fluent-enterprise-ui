@@ -39,18 +39,18 @@ export function ShiftDefinitionEditDialog({ data, onClose }: ShiftDefinitionEdit
         />
       }
     >
-          <div className={styles.fieldRow}>
-            <Text>{t("businessData.shiftDefinition.edit.name")}</Text>
-            <Input value={data.name} disabled />
-          </div>
-          <div className={styles.fieldRow}>
-            <Text>{t("businessData.shiftDefinition.edit.description")}</Text>
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />
-          </div>
-          <div className={styles.fieldRow}>
-            <Text>{t("businessData.shiftDefinition.edit.calendar")}</Text>
-            <Input value={calendar} onChange={(_, d) => setCalendar(d.value)} />
-          </div>
+      <div className={styles.fieldRow}>
+        <Text>{t("businessData.shiftDefinition.edit.name")}</Text>
+        <Input value={data.name} disabled />
+      </div>
+      <div className={styles.fieldRow}>
+        <Text>{t("businessData.shiftDefinition.edit.description")}</Text>
+        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+      </div>
+      <div className={styles.fieldRow}>
+        <Text>{t("businessData.shiftDefinition.edit.calendar")}</Text>
+        <Input value={calendar} onChange={(_, d) => setCalendar(d.value)} />
+      </div>
     </BaseDialog>
   );
 }

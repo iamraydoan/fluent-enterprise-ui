@@ -51,7 +51,8 @@ function LifecycleDialog({ open, onClose, onSubmit, opKey }: DialogProps & { opK
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -151,7 +152,8 @@ export function ChangeMaterialTransferInfoDialog({ open, onClose, onSubmit }: Di
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -190,7 +192,8 @@ export function RequestMaterialTransferDialog({ open, onClose, onSubmit }: Dialo
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -224,7 +227,8 @@ export function RequestForMAODialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.requestForMAO";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -252,7 +256,8 @@ export function RequestForCostCenterDialog({ open, onClose, onSubmit }: DialogPr
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.requestForCostCenter";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -280,7 +285,8 @@ export function ReturnInventoryDialog({ open, onClose, onSubmit }: DialogProps) 
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.returnInventory";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -308,7 +314,8 @@ export function ReturnMaterialDialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.returnMaterial";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -336,7 +343,8 @@ export function SpecialRequestForMaterialDialog({ open, onClose, onSubmit }: Dia
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.specialRequest";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

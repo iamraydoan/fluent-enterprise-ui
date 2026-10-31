@@ -113,11 +113,7 @@ export function ManageBomItemsDialog({
       onClose={onClose}
       size="xl"
       footer={
-        <DialogFooter
-          onCancel={onClose}
-          onConfirm={onClose}
-          confirmLabel={t("common.update")}
-        />
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t("common.update")} />
       }
     >
       <Text>{t("businessData.bom.operations.manageItemsHint", { name: bomName })}</Text>

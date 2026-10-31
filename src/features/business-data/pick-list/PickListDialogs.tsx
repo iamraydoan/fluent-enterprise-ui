@@ -70,7 +70,8 @@ export function EditPickListDialog({
   };
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -101,7 +102,8 @@ export function ManagePickListItemsDialog({ open, onClose, onSubmit }: DialogPro
   const P = "businessData.pickList.operations.manageItems";
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -148,7 +150,8 @@ export function PickPickListDialog({ open, onClose, onSubmit }: DialogProps) {
   const P = "businessData.pickList.operations.pick";
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -189,7 +192,8 @@ export function TakePickListOwnershipDialog({ open, onClose, onSubmit }: DialogP
   const { t } = useAppTranslation();
   const P = "businessData.pickList.operations.takeOwnership";
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -213,7 +217,8 @@ export function UnpickPickListItemsDialog({ open, onClose, onSubmit }: DialogPro
   const { t } = useAppTranslation();
   const P = "businessData.pickList.operations.unpick";
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -237,7 +242,8 @@ export function PickListReportDialog({ open, onClose }: Omit<DialogProps, "onSub
   const { t } = useAppTranslation();
   const P = "businessData.pickList.operations.viewReport";
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { BaseDialog } from "@/components/common";
+import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { MODE_CREATE, MODE_EDIT } from "../components/wizardMode";
@@ -54,21 +54,17 @@ export function EnterpriseDialog({ mode, initialName, initialDescription, onClos
         </>
       }
     >
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.name)}
-            </label>
-            <Input
-              value={name}
-              onChange={(_, d) => setName(d.value)}
-              disabled={mode === MODE_EDIT}
-            />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.description)}</label>
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-          </div>
+      <div className={styles.field}>
+        <label>
+          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+          {t(L.name)}
+        </label>
+        <Input value={name} onChange={(_, d) => setName(d.value)} disabled={mode === MODE_EDIT} />
+      </div>
+      <div className={styles.field}>
+        <label>{t(L.description)}</label>
+        <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+      </div>
     </BaseDialog>
   );
 }

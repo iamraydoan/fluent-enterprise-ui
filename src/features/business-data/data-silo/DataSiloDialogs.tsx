@@ -71,34 +71,31 @@ export function CreateDataSiloDialog({ onClose }: { onClose: () => void }) {
         </>
       }
     >
-          {field(L.name, false, <Input value={name} onChange={(_, d) => setName(d.value)} />)}
-          {field(
-            L.description,
-            false,
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />,
-          )}
-          {field(L.type, true, <Input value={t(L.typeDefault)} disabled />)}
-          <div className={styles.sectionTitle}>{t(L.properties)}</div>
-          {field(L.dataVersion, false, <Input />)}
-          {field(L.enterpriseName, false, <Input />)}
-          {field(L.facilityName, false, <Input />)}
-          {field(
-            L.isExternal,
-            false,
-            <Checkbox
-              checked={isExternal}
-              onChange={(_, d) => setIsExternal(d.checked === true)}
-            />,
-          )}
-          {field(
-            L.isSystem,
-            false,
-            <Checkbox checked={isSystem} onChange={(_, d) => setIsSystem(d.checked === true)} />,
-          )}
-          {field(L.keywords, false, <Input />)}
-          {field(L.siteName, false, <Input />)}
-          {field(L.user, true, <Input />)}
-          {field(L.comments, false, <Input />)}
+      {field(L.name, false, <Input value={name} onChange={(_, d) => setName(d.value)} />)}
+      {field(
+        L.description,
+        false,
+        <Input value={description} onChange={(_, d) => setDescription(d.value)} />,
+      )}
+      {field(L.type, true, <Input value={t(L.typeDefault)} disabled />)}
+      <div className={styles.sectionTitle}>{t(L.properties)}</div>
+      {field(L.dataVersion, false, <Input />)}
+      {field(L.enterpriseName, false, <Input />)}
+      {field(L.facilityName, false, <Input />)}
+      {field(
+        L.isExternal,
+        false,
+        <Checkbox checked={isExternal} onChange={(_, d) => setIsExternal(d.checked === true)} />,
+      )}
+      {field(
+        L.isSystem,
+        false,
+        <Checkbox checked={isSystem} onChange={(_, d) => setIsSystem(d.checked === true)} />,
+      )}
+      {field(L.keywords, false, <Input />)}
+      {field(L.siteName, false, <Input />)}
+      {field(L.user, true, <Input />)}
+      {field(L.comments, false, <Input />)}
     </BaseDialog>
   );
 }

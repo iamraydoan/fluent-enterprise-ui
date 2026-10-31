@@ -113,9 +113,7 @@ function ListDialogShell({
       title={title}
       onClose={onClose}
       size="lg"
-      footer={
-        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />
-      }
+      footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
     >
       <div className={styles.hint}>{hint}</div>
       <NameListEditor
@@ -335,19 +333,17 @@ export function TakeOwnershipDialog({
         />
       }
     >
-          <div className={styles.hint}>
-            {t("businessData.changeSet.operations.takeOwnershipHint", { name: changeSetName })}
-          </div>
-          <div className={styles.fieldRow}>
-            <span className={styles.fieldLabel}>{t("businessData.changeSet.detail.owner")}</span>
-            <Input value={owner} onChange={(_, d) => setOwner(d.value)} />
-          </div>
-          <div className={styles.fieldRow}>
-            <span className={styles.fieldLabel}>
-              {t("businessData.changeSet.operations.comment")}
-            </span>
-            <Input value={comment} onChange={(_, d) => setComment(d.value)} />
-          </div>
+      <div className={styles.hint}>
+        {t("businessData.changeSet.operations.takeOwnershipHint", { name: changeSetName })}
+      </div>
+      <div className={styles.fieldRow}>
+        <span className={styles.fieldLabel}>{t("businessData.changeSet.detail.owner")}</span>
+        <Input value={owner} onChange={(_, d) => setOwner(d.value)} />
+      </div>
+      <div className={styles.fieldRow}>
+        <span className={styles.fieldLabel}>{t("businessData.changeSet.operations.comment")}</span>
+        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+      </div>
     </BaseDialog>
   );
 }
@@ -386,19 +382,17 @@ export function ChangeChangeSetDialog({
         />
       }
     >
-          <div className={styles.hint}>
-            {t("businessData.changeSet.operations.changeHint", { name: changeSetName })}
-          </div>
-          <div className={styles.fieldRow}>
-            <span className={styles.fieldLabel}>{t("businessData.changeSet.detail.owner")}</span>
-            <Input value={owner} onChange={(_, d) => setOwner(d.value)} />
-          </div>
-          <div className={styles.fieldRow}>
-            <span className={styles.fieldLabel}>
-              {t("businessData.changeSet.operations.comment")}
-            </span>
-            <Input value={comment} onChange={(_, d) => setComment(d.value)} />
-          </div>
+      <div className={styles.hint}>
+        {t("businessData.changeSet.operations.changeHint", { name: changeSetName })}
+      </div>
+      <div className={styles.fieldRow}>
+        <span className={styles.fieldLabel}>{t("businessData.changeSet.detail.owner")}</span>
+        <Input value={owner} onChange={(_, d) => setOwner(d.value)} />
+      </div>
+      <div className={styles.fieldRow}>
+        <span className={styles.fieldLabel}>{t("businessData.changeSet.operations.comment")}</span>
+        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+      </div>
     </BaseDialog>
   );
 }

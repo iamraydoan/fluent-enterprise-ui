@@ -73,7 +73,8 @@ export function CreatePlanDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -119,7 +120,8 @@ export function EditPlanDialog({
   };
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -155,7 +157,8 @@ export function ClonePlanDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -181,7 +184,8 @@ export function TerminatePlanDialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
   const P = "businessData.plan.operations.terminate";
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -207,7 +211,8 @@ export function AdjustPlanTargetsDialog({ open, onClose, onSubmit }: DialogProps
   const P = "businessData.plan.operations.adjustTargets";
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -251,7 +256,8 @@ export function ManagePlanItemsDialog({ open, onClose, onSubmit }: DialogProps) 
   const P = "businessData.plan.operations.manageItems";
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -294,7 +300,8 @@ export function ManagePlanStepsDialog({ open, onClose, onSubmit }: DialogProps) 
   const P = "businessData.plan.operations.manageSteps";
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -335,7 +342,8 @@ export function ManageExcludedMaterialTypesDialog({ open, onClose, onSubmit }: D
   const P = "businessData.plan.operations.manageExcludedTypes";
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -366,7 +374,8 @@ export function CreatePlanScenarioDialog({ open, onClose, onSubmit }: DialogProp
   };
 
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -397,7 +406,8 @@ export function ReleasePlanScenarioDialog({ open, onClose, onSubmit }: DialogPro
   const { t } = useAppTranslation();
   const P = "businessData.plan.operations.releaseScenario";
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -421,7 +431,8 @@ export function SynchronizeScenarioDialog({ open, onClose, onSubmit }: DialogPro
   const { t } = useAppTranslation();
   const P = "businessData.plan.operations.synchronizeScenario";
   return (
-    <BaseDialog size="xl"
+    <BaseDialog
+      size="xl"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

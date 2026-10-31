@@ -156,24 +156,20 @@ export function ManageBatchMaterialsDialog({
       onClose={onClose}
       size="lg"
       footer={
-        <DialogFooter
-          onCancel={onClose}
-          onConfirm={onClose}
-          confirmLabel={t("common.update")}
-        />
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t("common.update")} />
       }
     >
       <Text>{t("businessData.batch.operations.manageMaterialsHint", { name: batchName })}</Text>
-          <div style={{ marginTop: "12px" }}>
-            <MaterialListEditor
-              values={values}
-              onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
-            />
-          </div>
-          <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
-            <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
-            <Input value={comment} onChange={(_, data) => setComment(data.value)} />
-          </div>
+      <div style={{ marginTop: "12px" }}>
+        <MaterialListEditor
+          values={values}
+          onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
+        />
+      </div>
+      <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
+        <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
+        <Input value={comment} onChange={(_, data) => setComment(data.value)} />
+      </div>
     </BaseDialog>
   );
 }
@@ -197,22 +193,16 @@ export function ManageBatchContainersDialog({
       onClose={onClose}
       size="lg"
       footer={
-        <DialogFooter
-          onCancel={onClose}
-          onConfirm={onClose}
-          confirmLabel={t("common.update")}
-        />
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t("common.update")} />
       }
     >
-      <Text>
-        {t("businessData.batch.operations.manageContainersHint", { name: batchName })}
-      </Text>
-          <div style={{ marginTop: "12px" }}>
-            <ContainerListEditor
-              values={values}
-              onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
-            />
-          </div>
+      <Text>{t("businessData.batch.operations.manageContainersHint", { name: batchName })}</Text>
+      <div style={{ marginTop: "12px" }}>
+        <ContainerListEditor
+          values={values}
+          onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
+        />
+      </div>
     </BaseDialog>
   );
 }
@@ -252,15 +242,15 @@ export function ChangeBatchResourceDialog({
         />
       }
     >
-          <div className={styles.fieldRow}>
-            <span className={styles.fieldLabel}>{t("businessData.batch.detail.resource")}</span>
-            <Input value={resource} onChange={(_, data) => setResource(data.value)} />
-          </div>
-          <div className={styles.fieldRow}>
-            <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
-            <Input value={comment} onChange={(_, data) => setComment(data.value)} />
-          </div>
-          <Text>{t("businessData.batch.operations.changeResourceHint", { name: batchName })}</Text>
+      <div className={styles.fieldRow}>
+        <span className={styles.fieldLabel}>{t("businessData.batch.detail.resource")}</span>
+        <Input value={resource} onChange={(_, data) => setResource(data.value)} />
+      </div>
+      <div className={styles.fieldRow}>
+        <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
+        <Input value={comment} onChange={(_, data) => setComment(data.value)} />
+      </div>
+      <Text>{t("businessData.batch.operations.changeResourceHint", { name: batchName })}</Text>
     </BaseDialog>
   );
 }

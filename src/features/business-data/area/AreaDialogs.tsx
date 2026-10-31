@@ -50,7 +50,6 @@ export function ManageSupplyAreasDialog({
   const [rows, setRows] = useState<SupplyAreaRow[]>([]);
   const [nextId, setNextId] = useState(1);
 
-
   const addRow = () => {
     setRows([...rows, { id: nextId, name: "", area: "" }]);
     setNextId(nextId + 1);
@@ -68,39 +67,35 @@ export function ManageSupplyAreasDialog({
       onClose={onClose}
       size="lg"
       footer={
-        <DialogFooter
-          onCancel={onClose}
-          onConfirm={onClose}
-          confirmLabel={t("common.update")}
-        />
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t("common.update")} />
       }
     >
       <Text>{t("businessData.area.operations.manageSupplyAreasHint", { name: areaName })}</Text>
-          <div style={{ marginTop: "12px" }}>
-            {rows.length === 0 && (
-              <div className={styles.empty}>{t("businessData.area.operations.noSupplyAreas")}</div>
-            )}
-            {rows.map((row) => (
-              <div key={row.id} className={styles.row}>
-                <Input
-                  placeholder={t("businessData.area.operations.supplyAreaName")}
-                  value={row.name}
-                  onChange={(_, data) => updateRow(row.id, { name: data.value })}
-                />
-                <Input
-                  placeholder={t("businessData.area.operations.supplyArea")}
-                  value={row.area}
-                  onChange={(_, data) => updateRow(row.id, { area: data.value })}
-                />
-                <Button appearance="secondary" onClick={() => removeRow(row.id)}>
-                  {t("common.remove")}
-                </Button>
-              </div>
-            ))}
-            <Button appearance="secondary" onClick={addRow}>
-              {t("common.add")}
+      <div style={{ marginTop: "12px" }}>
+        {rows.length === 0 && (
+          <div className={styles.empty}>{t("businessData.area.operations.noSupplyAreas")}</div>
+        )}
+        {rows.map((row) => (
+          <div key={row.id} className={styles.row}>
+            <Input
+              placeholder={t("businessData.area.operations.supplyAreaName")}
+              value={row.name}
+              onChange={(_, data) => updateRow(row.id, { name: data.value })}
+            />
+            <Input
+              placeholder={t("businessData.area.operations.supplyArea")}
+              value={row.area}
+              onChange={(_, data) => updateRow(row.id, { area: data.value })}
+            />
+            <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+              {t("common.remove")}
             </Button>
           </div>
+        ))}
+        <Button appearance="secondary" onClick={addRow}>
+          {t("common.add")}
+        </Button>
+      </div>
     </BaseDialog>
   );
 }
@@ -131,7 +126,6 @@ export function ManageTransferRequirementTypesDialog({
   const [rows, setRows] = useState<TransferTypeRow[]>([]);
   const [nextId, setNextId] = useState(1);
 
-
   const addRow = () => {
     setRows([...rows, { id: nextId, type: "", sourceLocation: "", autoApprove: false }]);
     setNextId(nextId + 1);
@@ -149,43 +143,35 @@ export function ManageTransferRequirementTypesDialog({
       onClose={onClose}
       size="lg"
       footer={
-        <DialogFooter
-          onCancel={onClose}
-          onConfirm={onClose}
-          confirmLabel={t("common.update")}
-        />
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t("common.update")} />
       }
     >
-      <Text>
-        {t("businessData.area.operations.manageTransferTypesHint", { name: areaName })}
-      </Text>
-          <div style={{ marginTop: "12px" }}>
-            {rows.length === 0 && (
-              <div className={styles.empty}>
-                {t("businessData.area.operations.noTransferTypes")}
-              </div>
-            )}
-            {rows.map((row) => (
-              <div key={row.id} className={styles.row}>
-                <Input
-                  placeholder={TRANSFER_TYPE_OPTIONS[0].label}
-                  value={row.type}
-                  onChange={(_, data) => updateRow(row.id, { type: data.value })}
-                />
-                <Input
-                  placeholder={t("businessData.area.operations.sourceLocation")}
-                  value={row.sourceLocation}
-                  onChange={(_, data) => updateRow(row.id, { sourceLocation: data.value })}
-                />
-                <Button appearance="secondary" onClick={() => removeRow(row.id)}>
-                  {t("common.remove")}
-                </Button>
-              </div>
-            ))}
-            <Button appearance="secondary" onClick={addRow}>
-              {t("common.add")}
+      <Text>{t("businessData.area.operations.manageTransferTypesHint", { name: areaName })}</Text>
+      <div style={{ marginTop: "12px" }}>
+        {rows.length === 0 && (
+          <div className={styles.empty}>{t("businessData.area.operations.noTransferTypes")}</div>
+        )}
+        {rows.map((row) => (
+          <div key={row.id} className={styles.row}>
+            <Input
+              placeholder={TRANSFER_TYPE_OPTIONS[0].label}
+              value={row.type}
+              onChange={(_, data) => updateRow(row.id, { type: data.value })}
+            />
+            <Input
+              placeholder={t("businessData.area.operations.sourceLocation")}
+              value={row.sourceLocation}
+              onChange={(_, data) => updateRow(row.id, { sourceLocation: data.value })}
+            />
+            <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+              {t("common.remove")}
             </Button>
           </div>
+        ))}
+        <Button appearance="secondary" onClick={addRow}>
+          {t("common.add")}
+        </Button>
+      </div>
     </BaseDialog>
   );
 }

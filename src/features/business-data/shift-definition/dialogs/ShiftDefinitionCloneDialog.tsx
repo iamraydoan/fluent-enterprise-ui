@@ -48,33 +48,33 @@ export function ShiftDefinitionCloneDialog({
         />
       }
     >
-          {names.map((name, i) => (
-            <div key={i} className={styles.gridRow}>
-              <Input
-                value={name}
-                onChange={(_, d) => setNames((prev) => prev.map((n, j) => (j === i ? d.value : n)))}
-                placeholder={t("businessData.shiftDefinition.clone.namePlaceholder")}
-              />
-              <Button
-                appearance="subtle"
-                icon={<Delete20Regular />}
-                onClick={() => setNames((prev) => prev.filter((_, j) => j !== i))}
-                aria-label={t("actionBar.delete")}
-                disabled={names.length === 1}
-              />
-            </div>
-          ))}
+      {names.map((name, i) => (
+        <div key={i} className={styles.gridRow}>
+          <Input
+            value={name}
+            onChange={(_, d) => setNames((prev) => prev.map((n, j) => (j === i ? d.value : n)))}
+            placeholder={t("businessData.shiftDefinition.clone.namePlaceholder")}
+          />
           <Button
             appearance="subtle"
-            icon={<Add24Regular />}
-            onClick={() => setNames((prev) => [...prev, ""])}
-          >
-            {t("actionBar.create")}
-          </Button>
-          <div className={styles.fieldRow}>
-            <Text>{t("businessData.shiftDefinition.clone.comment")}</Text>
-            <Input value={comment} onChange={(_, d) => setComment(d.value)} />
-          </div>
+            icon={<Delete20Regular />}
+            onClick={() => setNames((prev) => prev.filter((_, j) => j !== i))}
+            aria-label={t("actionBar.delete")}
+            disabled={names.length === 1}
+          />
+        </div>
+      ))}
+      <Button
+        appearance="subtle"
+        icon={<Add24Regular />}
+        onClick={() => setNames((prev) => [...prev, ""])}
+      >
+        {t("actionBar.create")}
+      </Button>
+      <div className={styles.fieldRow}>
+        <Text>{t("businessData.shiftDefinition.clone.comment")}</Text>
+        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+      </div>
     </BaseDialog>
   );
 }

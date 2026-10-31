@@ -26,11 +26,7 @@ export function SetMaintenancePlanEffectiveDialog({
       onClose={onClose}
       size="sm"
       footer={
-        <DialogFooter
-          onCancel={onClose}
-          onConfirm={onClose}
-          confirmLabel={t(L.setEffective)}
-        />
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.setEffective)} />
       }
     >
       <div>{t(L.setEffectiveMessage, { name })}</div>

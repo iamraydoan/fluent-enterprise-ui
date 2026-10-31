@@ -44,7 +44,8 @@ function OpDialog({ open, onClose, onSubmit, opKey }: DialogProps & { opKey: str
   const { t } = useAppTranslation();
   const P = `businessData.material.operations.${opKey}`;
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -83,7 +84,8 @@ export function CreateMaterialDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -132,7 +134,8 @@ export function EditMaterialDialog({
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -172,7 +175,8 @@ export function CloneMaterialDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -312,7 +316,8 @@ export function ViewMaterialReportsDialog({ open, onClose }: Omit<DialogProps, "
   const { t } = useAppTranslation();
   const P = "businessData.material.operations.viewReports";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -327,7 +332,8 @@ export function ViewMaterialDocumentsDialog({ open, onClose }: Omit<DialogProps,
   const { t } = useAppTranslation();
   const P = "businessData.material.operations.viewDocuments";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

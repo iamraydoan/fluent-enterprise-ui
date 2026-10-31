@@ -2,11 +2,7 @@ import { useMemo, useState } from "react";
 import { useUpdateEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty, PropertySearchType } from "@/api";
 import { BaseDialog } from "@/components/common";
-import {
-  Add24Regular,
-  Delete20Regular,
-  Warning12Filled,
-} from "@/components/icons";
+import { Add24Regular, Delete20Regular, Warning12Filled } from "@/components/icons";
 import {
   Button,
   Checkbox,
@@ -166,67 +162,67 @@ export function ManagePropertiesDialog({
       }
     >
       <div className={styles.bodyGrid}>
-          <div className={styles.listPane}>
-            <div className={styles.listHead}>
-              <Text weight="semibold" size={300}>
-                {t("entityTypes.manage.properties")}
-              </Text>
-              <div className={styles.listActions}>
-                <Button
-                  appearance="subtle"
-                  size="small"
-                  icon={<Add24Regular />}
-                  aria-label={t("entityTypes.manage.add")}
-                  onClick={() => {}}
-                />
-                <Button
-                  appearance="subtle"
-                  size="small"
-                  icon={<Delete20Regular />}
-                  aria-label={t("entityTypes.manage.remove")}
-                  onClick={() => {}}
-                />
-              </div>
-            </div>
-            <div
-              className={styles.list}
-              role="listbox"
-              aria-label={t("entityTypes.manage.properties")}
-            >
-              {properties.map((property) => (
-                <button
-                  key={property.name}
-                  className={`${styles.listItem} ${property.name === selected ? styles.listItemSelected : ""}`}
-                  onClick={() => setSelected(property.name)}
-                  role="option"
-                  aria-selected={property.name === selected}
-                >
-                  {property.name}
-                  {property.isSystem ? ` (${t("entityTypes.manage.system")})` : ""}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className={styles.formPane}>
-            {error && (
-              <div className={`${styles.alert} ${styles.alertError}`} role="alert">
-                <Warning12Filled />
-                <span>{error}</span>
-              </div>
-            )}
-            {hasContains && (
-              <div className={`${styles.alert} ${styles.alertWarning}`} role="status">
-                <Warning12Filled />
-                <span>{t("entityTypes.manage.containsWarning")}</span>
-              </div>
-            )}
-            {selectedProperty && (
-              <PropertyForm
-                property={selectedProperty}
-                onPatch={(partial) => applyPatch(selectedProperty.name, partial)}
+        <div className={styles.listPane}>
+          <div className={styles.listHead}>
+            <Text weight="semibold" size={300}>
+              {t("entityTypes.manage.properties")}
+            </Text>
+            <div className={styles.listActions}>
+              <Button
+                appearance="subtle"
+                size="small"
+                icon={<Add24Regular />}
+                aria-label={t("entityTypes.manage.add")}
+                onClick={() => {}}
               />
-            )}
+              <Button
+                appearance="subtle"
+                size="small"
+                icon={<Delete20Regular />}
+                aria-label={t("entityTypes.manage.remove")}
+                onClick={() => {}}
+              />
+            </div>
           </div>
+          <div
+            className={styles.list}
+            role="listbox"
+            aria-label={t("entityTypes.manage.properties")}
+          >
+            {properties.map((property) => (
+              <button
+                key={property.name}
+                className={`${styles.listItem} ${property.name === selected ? styles.listItemSelected : ""}`}
+                onClick={() => setSelected(property.name)}
+                role="option"
+                aria-selected={property.name === selected}
+              >
+                {property.name}
+                {property.isSystem ? ` (${t("entityTypes.manage.system")})` : ""}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className={styles.formPane}>
+          {error && (
+            <div className={`${styles.alert} ${styles.alertError}`} role="alert">
+              <Warning12Filled />
+              <span>{error}</span>
+            </div>
+          )}
+          {hasContains && (
+            <div className={`${styles.alert} ${styles.alertWarning}`} role="status">
+              <Warning12Filled />
+              <span>{t("entityTypes.manage.containsWarning")}</span>
+            </div>
+          )}
+          {selectedProperty && (
+            <PropertyForm
+              property={selectedProperty}
+              onPatch={(partial) => applyPatch(selectedProperty.name, partial)}
+            />
+          )}
+        </div>
       </div>
     </BaseDialog>
   );

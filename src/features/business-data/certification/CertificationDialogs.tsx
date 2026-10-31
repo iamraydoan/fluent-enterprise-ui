@@ -114,9 +114,7 @@ function EmployeeDialogShell({
       title={title}
       onClose={onClose}
       size="lg"
-      footer={
-        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />
-      }
+      footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
     >
       <div className={styles.hint}>{hint}</div>
       <EmployeeListEditor
@@ -128,11 +126,7 @@ function EmployeeDialogShell({
         <span className={styles.fieldLabel}>
           {t("businessData.certification.operations.plannedDate")}
         </span>
-        <Input
-          type="date"
-          value={plannedDate}
-          onChange={(_, data) => setPlannedDate(data.value)}
-        />
+        <Input type="date" value={plannedDate} onChange={(_, data) => setPlannedDate(data.value)} />
       </div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>

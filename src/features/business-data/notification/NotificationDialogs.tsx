@@ -37,7 +37,6 @@ interface DialogProps {
   onSubmit?: () => void;
 }
 
-
 function Field({
   label,
   required,
@@ -126,7 +125,8 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -232,7 +232,8 @@ export function EditNotificationDialog({
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -278,7 +279,8 @@ export function CloneNotificationDialog({ open, onClose, onSubmit }: DialogProps
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -309,7 +311,8 @@ export function TerminateNotificationDialog({ open, onClose, onSubmit }: DialogP
   const P = "businessData.notification.operations.terminate";
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -338,7 +341,8 @@ export function ClearNotificationDialog({ open, onClose, onSubmit }: DialogProps
   const P = "businessData.notification.operations.clear";
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

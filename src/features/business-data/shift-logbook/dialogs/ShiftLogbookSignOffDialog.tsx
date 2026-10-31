@@ -1,14 +1,7 @@
 import { useState } from "react";
 import type { ShiftLogbookEntry } from "@/api";
 import { BaseDialog, DialogFooter } from "@/components/common";
-import {
-  Body1Strong,
-  Caption1,
-  Text,
-  Textarea,
-  makeStyles,
-  mergeClasses,
-} from "@/components/ui";
+import { Body1Strong, Caption1, Text, Textarea, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { formatEntryMeta } from "../shiftLogbookHelpers";
@@ -43,22 +36,22 @@ export function ShiftLogbookSignOffDialog({
         />
       }
     >
-          <Text weight="semibold">{t("businessData.shiftLogbook.signOff.reviewEntries")}</Text>
-          <div style={{ marginTop: "8px" }}>
-            {entries.map((entry, i) => (
-              <div key={i} className={mergeClasses(sharedStyles.contentCard, styles.entryCard)}>
-                <Body1Strong>{entry.title}</Body1Strong>
-                <Caption1>{formatEntryMeta(entry)}</Caption1>
-                <Text>{entry.description}</Text>
-              </div>
-            ))}
+      <Text weight="semibold">{t("businessData.shiftLogbook.signOff.reviewEntries")}</Text>
+      <div style={{ marginTop: "8px" }}>
+        {entries.map((entry, i) => (
+          <div key={i} className={mergeClasses(sharedStyles.contentCard, styles.entryCard)}>
+            <Body1Strong>{entry.title}</Body1Strong>
+            <Caption1>{formatEntryMeta(entry)}</Caption1>
+            <Text>{entry.description}</Text>
           </div>
-          <div style={{ marginTop: "12px" }}>
-            <Text>{t("businessData.shiftLogbook.signOff.comment")}</Text>
-            <div style={{ marginTop: "4px" }}>
-              <Textarea value={comment} onChange={(_, d) => setComment(d.value)} rows={3} />
-            </div>
-          </div>
+        ))}
+      </div>
+      <div style={{ marginTop: "12px" }}>
+        <Text>{t("businessData.shiftLogbook.signOff.comment")}</Text>
+        <div style={{ marginTop: "4px" }}>
+          <Textarea value={comment} onChange={(_, d) => setComment(d.value)} rows={3} />
+        </div>
+      </div>
     </BaseDialog>
   );
 }

@@ -238,11 +238,7 @@ export function MapDefinitionWizardDialog({
             false,
             <Input value={description} onChange={(_, d) => setDescription(d.value)} />,
           )}
-          {field(
-            L.type,
-            true,
-            <Input value={mapType} onChange={(_, d) => setMapType(d.value)} />,
-          )}
+          {field(L.type, true, <Input value={mapType} onChange={(_, d) => setMapType(d.value)} />)}
           <div className={styles.sectionTitle}>{t(L.information)}</div>
           {field(
             L.layoutType,
@@ -272,16 +268,8 @@ export function MapDefinitionWizardDialog({
             true,
             <Input value={columns} onChange={(_, d) => setColumns(d.value)} />,
           )}
-          {field(
-            L.height,
-            false,
-            <Input value={height} onChange={(_, d) => setHeight(d.value)} />,
-          )}
-          {field(
-            L.width,
-            false,
-            <Input value={width} onChange={(_, d) => setWidth(d.value)} />,
-          )}
+          {field(L.height, false, <Input value={height} onChange={(_, d) => setHeight(d.value)} />)}
+          {field(L.width, false, <Input value={width} onChange={(_, d) => setWidth(d.value)} />)}
           {field(
             L.dimensionUnits,
             false,
@@ -326,11 +314,7 @@ export function MapDefinitionWizardDialog({
             />,
           )}
           <div className={styles.sectionTitle}>{t(L.options)}</div>
-          {field(
-            L.notch,
-            false,
-            <Input value={notch} onChange={(_, d) => setNotch(d.value)} />,
-          )}
+          {field(L.notch, false, <Input value={notch} onChange={(_, d) => setNotch(d.value)} />)}
           {field(
             L.defaultRotation,
             false,
@@ -349,10 +333,7 @@ export function MapDefinitionWizardDialog({
           {field(
             L.showRulerByDefault,
             false,
-            <Checkbox
-              checked={showRuler}
-              onChange={(_, d) => setShowRuler(d.checked === true)}
-            />,
+            <Checkbox checked={showRuler} onChange={(_, d) => setShowRuler(d.checked === true)} />,
           )}
           {field(L.comments, false, <Input />)}
         </>

@@ -68,75 +68,75 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
       }
     >
       <div style={{ display: "flex", columnGap: "16px", minHeight: 0 }}>
-          <div className={styles.listPane}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <Text weight="semibold">{t("businessData.shiftDefinition.sections.shifts")}</Text>
-              <div style={{ display: "flex", columnGap: "4px" }}>
-                <Button
-                  appearance="subtle"
-                  icon={<Add24Regular />}
-                  aria-label={t("actionBar.create")}
-                />
-                <Button
-                  appearance="subtle"
-                  icon={<Delete20Regular />}
-                  aria-label={t("actionBar.delete")}
-                />
+        <div className={styles.listPane}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <Text weight="semibold">{t("businessData.shiftDefinition.sections.shifts")}</Text>
+            <div style={{ display: "flex", columnGap: "4px" }}>
+              <Button
+                appearance="subtle"
+                icon={<Add24Regular />}
+                aria-label={t("actionBar.create")}
+              />
+              <Button
+                appearance="subtle"
+                icon={<Delete20Regular />}
+                aria-label={t("actionBar.delete")}
+              />
+            </div>
+          </div>
+          {shifts.map((shift) => (
+            <button
+              key={shift.name}
+              className={mergeClasses(
+                styles.shiftItem,
+                shift.name === selected && styles.shiftActive,
+              )}
+              onClick={() => setSelected(shift.name)}
+            >
+              <Text weight="semibold" size={300}>
+                {shift.name}
+              </Text>
+              <Caption1>
+                {t("businessData.shiftDefinition.shiftTimeRange", {
+                  start: shift.startTime,
+                  end: shift.endTime,
+                })}
+              </Caption1>
+            </button>
+          ))}
+        </div>
+        <div className={styles.formPane}>
+          <Body1Strong>{definitionName}</Body1Strong>
+          {active !== undefined && (
+            <div style={{ marginTop: "12px" }}>
+              <div className={styles.fieldRow}>
+                <Text>{t("businessData.shiftDefinition.shiftForm.name")}</Text>
+                <Input defaultValue={active.name} />
+              </div>
+              <div className={styles.fieldRow}>
+                <Text>{t("businessData.shiftDefinition.shiftForm.startTime")}</Text>
+                <Input defaultValue={active.startTime} />
+              </div>
+              <div className={styles.fieldRow}>
+                <Text>{t("businessData.shiftDefinition.shiftForm.endTime")}</Text>
+                <Input defaultValue={active.endTime} />
+              </div>
+              <div className={styles.fieldRow}>
+                <Text>{t("businessData.shiftDefinition.shiftForm.code")}</Text>
+                <Input defaultValue={active.code} />
+              </div>
+              <div className={styles.fieldRow}>
+                <Text>{t("businessData.shiftDefinition.shiftForm.costOvertimeFactor")}</Text>
+                <Input defaultValue={String(active.costOvertimeFactor)} />
+              </div>
+              <div className={styles.fieldRow}>
+                <Text>{t("businessData.shiftDefinition.shiftForm.teamPattern")}</Text>
+                <Input defaultValue={active.teamPattern} />
               </div>
             </div>
-            {shifts.map((shift) => (
-              <button
-                key={shift.name}
-                className={mergeClasses(
-                  styles.shiftItem,
-                  shift.name === selected && styles.shiftActive,
-                )}
-                onClick={() => setSelected(shift.name)}
-              >
-                <Text weight="semibold" size={300}>
-                  {shift.name}
-                </Text>
-                <Caption1>
-                  {t("businessData.shiftDefinition.shiftTimeRange", {
-                    start: shift.startTime,
-                    end: shift.endTime,
-                  })}
-                </Caption1>
-              </button>
-            ))}
-          </div>
-          <div className={styles.formPane}>
-            <Body1Strong>{definitionName}</Body1Strong>
-            {active !== undefined && (
-              <div style={{ marginTop: "12px" }}>
-                <div className={styles.fieldRow}>
-                  <Text>{t("businessData.shiftDefinition.shiftForm.name")}</Text>
-                  <Input defaultValue={active.name} />
-                </div>
-                <div className={styles.fieldRow}>
-                  <Text>{t("businessData.shiftDefinition.shiftForm.startTime")}</Text>
-                  <Input defaultValue={active.startTime} />
-                </div>
-                <div className={styles.fieldRow}>
-                  <Text>{t("businessData.shiftDefinition.shiftForm.endTime")}</Text>
-                  <Input defaultValue={active.endTime} />
-                </div>
-                <div className={styles.fieldRow}>
-                  <Text>{t("businessData.shiftDefinition.shiftForm.code")}</Text>
-                  <Input defaultValue={active.code} />
-                </div>
-                <div className={styles.fieldRow}>
-                  <Text>{t("businessData.shiftDefinition.shiftForm.costOvertimeFactor")}</Text>
-                  <Input defaultValue={String(active.costOvertimeFactor)} />
-                </div>
-                <div className={styles.fieldRow}>
-                  <Text>{t("businessData.shiftDefinition.shiftForm.teamPattern")}</Text>
-                  <Input defaultValue={active.teamPattern} />
-                </div>
-              </div>
-            )}
-          </div>
+          )}
         </div>
+      </div>
     </BaseDialog>
   );
 }

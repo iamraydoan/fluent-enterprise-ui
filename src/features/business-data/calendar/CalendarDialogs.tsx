@@ -37,9 +37,7 @@ function DialogShell({
       title={title}
       onClose={onClose}
       size="lg"
-      footer={
-        <DialogFooter onCancel={onClose} onConfirm={onSubmit} confirmLabel={submitLabel} />
-      }
+      footer={<DialogFooter onCancel={onClose} onConfirm={onSubmit} confirmLabel={submitLabel} />}
     >
       {children}
     </BaseDialog>
@@ -61,7 +59,6 @@ export function GenerateCalendarDaysDialog({
   const [endDate, setEndDate] = useState("");
   const [override, setOverride] = useState(false);
   const [comment, setComment] = useState("");
-
 
   return (
     <DialogShell
@@ -111,7 +108,6 @@ export function EditCalendarDaysDialog({
   const styles = useDialogStyles();
   const [shiftDefinition, setShiftDefinition] = useState("");
   const [values, setValues] = useState<OperationValues>({});
-
 
   return (
     <DialogShell
@@ -169,7 +165,6 @@ export function RemoveCalendarDaysDialog({
   const styles = useDialogStyles();
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-
 
   return (
     <DialogShell

@@ -15,7 +15,6 @@ interface DialogProps {
   onSubmit?: () => void;
 }
 
-
 function Field({
   label,
   hint,
@@ -39,7 +38,8 @@ export function TerminatePackageDialog({ open, onClose, onSubmit }: DialogProps)
   const { t } = useAppTranslation();
   const P = "businessData.package.operations.terminate";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -67,7 +67,8 @@ export function UnterminatePackageDialog({ open, onClose, onSubmit }: DialogProp
   const { t } = useAppTranslation();
   const P = "businessData.package.operations.unterminate";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -108,7 +109,8 @@ export function ShipPackagesDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -158,7 +160,8 @@ export function PackageReportDialog({ open, onClose }: Omit<DialogProps, "onSubm
   const P = "businessData.package.operations.report";
   const styles = useDialogStyles();
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}

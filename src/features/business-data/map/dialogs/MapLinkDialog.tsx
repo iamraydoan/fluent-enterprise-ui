@@ -63,11 +63,7 @@ export function MapLinkDialog({
           <Button appearance="secondary" onClick={onClose}>
             {t(L.cancel)}
           </Button>
-          <Button
-            appearance="primary"
-            onClick={onClose}
-            disabled={material.trim().length === 0}
-          >
+          <Button appearance="primary" onClick={onClose} disabled={material.trim().length === 0}>
             {t(L.link)}
           </Button>
         </>
@@ -148,9 +144,7 @@ export function MapUnlinkDialog({
       title={t(L.unlinkTitle)}
       onClose={onClose}
       width="600px"
-      footer={
-        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.unlink)} />
-      }
+      footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.unlink)} />}
     >
       <div>{t(L.unlinkMessage, { name: mapName })}</div>
       <div className={styles.field}>

@@ -62,7 +62,6 @@ interface DialogProps {
   onSubmit?: () => void;
 }
 
-
 function Field({
   label,
   required,
@@ -148,7 +147,8 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -264,7 +264,8 @@ export function EditParameterDialog({
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -304,7 +305,8 @@ export function CloneParameterDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -334,7 +336,8 @@ export function TerminateParameterDialog({ open, onClose, onSubmit }: DialogProp
   const { t } = useAppTranslation();
   const P = "businessData.parameter.operations.terminate";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -362,7 +365,8 @@ export function UnterminateParameterDialog({ open, onClose, onSubmit }: DialogPr
   const { t } = useAppTranslation();
   const P = "businessData.parameter.operations.unterminate";
   return (
-    <BaseDialog size="lg"
+    <BaseDialog
+      size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
