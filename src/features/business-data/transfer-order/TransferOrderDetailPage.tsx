@@ -8,7 +8,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { formatItemMeta } from "./transferOrderHelpers";
-import { transferOrderMoreActions } from "./transferOrderMoreActions";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.transferOrder.tabs.details" },
@@ -113,7 +112,6 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
       onLeft={handleLeft}
       onEdit={() => {}}
       onAskAi={() => {}}
-      moreActions={transferOrderMoreActions.map((action) => ({ ...action, onClick: () => {} }))}
     >
       {content}
     </DetailShell>

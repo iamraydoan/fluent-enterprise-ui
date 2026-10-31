@@ -12,7 +12,6 @@ import {
   formatWorkgroupMeta,
   formatWorkgroupResources,
 } from "./shiftPlanHelpers";
-import { shiftPlanMoreActions } from "./shiftPlanMoreActions";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.shiftPlan.tabs.details" },
@@ -155,7 +154,6 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
       onLeft={handleLeft}
       onEdit={() => {}}
       onAskAi={() => {}}
-      moreActions={shiftPlanMoreActions.map((action) => ({ ...action, onClick: () => {} }))}
     >
       {content}
     </DetailShell>
