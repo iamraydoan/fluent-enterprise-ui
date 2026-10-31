@@ -76,6 +76,8 @@ export type {
   UIPageScope,
   UIPageType,
 } from "./uiPages";
+export { getFabLive, listFabLives, useFabLiveDetail, useFabLives } from "./manufacturing";
+export type { FabLiveDetail, FabLiveListParams, FabLiveRecord } from "./manufacturing";
 export {
   createAreaRecord,
   getArea,

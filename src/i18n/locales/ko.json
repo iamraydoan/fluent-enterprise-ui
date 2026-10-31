@@ -7622,5 +7622,66 @@
         "menuLabel": "종료 취소"
       }
     }
+  },
+  "manufacturing": {
+    "pages": {
+      "augmentedReality": "증강 현실",
+      "barcodeIdentification": "바코드 식별",
+      "fabExplorer": "FabExplorer",
+      "fabLives": "FabLives",
+      "myWorkgroup": "내 작업 그룹"
+    },
+    "augmentedReality": {
+      "pageLabel": "증강 현실",
+      "viewportTitle": "카메라 보기",
+      "viewportEmpty": "이 데모에서는 카메라 영상을 사용할 수 없습니다. 감지된 엔터티 태그를 예시로 표시합니다.",
+      "detectedTags": "감지된 태그",
+      "noTags": "감지된 엔터티가 없습니다.",
+      "entityDetails": "엔터티 세부 정보",
+      "selectTag": "태그를 선택하여 엔터티 세부 정보를 봅니다.",
+      "fields": {
+        "entity": "엔터티:",
+        "type": "유형:",
+        "state": "상태:",
+        "product": "제품:",
+        "quantity": "수량:",
+        "storagePosition": "보관 위치:",
+        "resource": "리소스:",
+        "step": "단계:"
+      },
+      "rotate": "회전",
+      "zoomIn": "확대",
+      "zoomOut": "축소"
+    },
+    "fabLives": {
+      "pageLabel": "FabLives",
+      "listTitle": "FabLives ({{count}})",
+      "readOnlyNotice": "FabLive는 여기에서 읽기 전용입니다. 만들거나 편집하려면 Administration 메뉴를 사용하세요.",
+      "columns": {
+        "name": "이름",
+        "description": "설명",
+        "state": "상태",
+        "folder": "폴더"
+      },
+      "tabs": {
+        "details": "세부 정보",
+        "references": "참조",
+        "history": "기록"
+      },
+      "sections": {
+        "details": "세부 정보",
+        "attributes": "특성",
+        "attachments": "첨부 파일"
+      },
+      "detail": {
+        "name": "이름:",
+        "description": "설명:",
+        "state": "상태:",
+        "folder": "폴더:",
+        "dataGroup": "데이터 그룹:"
+      },
+      "notFound": "FabLive를 찾을 수 없습니다.",
+      "emptySection": "이 섹션에 데이터가 없습니다."
+    }
   }
 }

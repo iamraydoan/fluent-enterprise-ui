@@ -7622,5 +7622,66 @@
         "menuLabel": "Unterminate"
       }
     }
+  },
+  "manufacturing": {
+    "pages": {
+      "augmentedReality": "Augmented Reality",
+      "barcodeIdentification": "Barcode Identification",
+      "fabExplorer": "FabExplorer",
+      "fabLives": "FabLives",
+      "myWorkgroup": "My Workgroup"
+    },
+    "augmentedReality": {
+      "pageLabel": "Augmented Reality",
+      "viewportTitle": "Camera View",
+      "viewportEmpty": "Camera feed is not available in this demo. Detected entity tags are shown for illustration.",
+      "detectedTags": "Detected Tags",
+      "noTags": "No entities detected.",
+      "entityDetails": "Entity Details",
+      "selectTag": "Select a tag to view entity details.",
+      "fields": {
+        "entity": "Entity:",
+        "type": "Type:",
+        "state": "State:",
+        "product": "Product:",
+        "quantity": "Quantity:",
+        "storagePosition": "Storage Position:",
+        "resource": "Resource:",
+        "step": "Step:"
+      },
+      "rotate": "Rotate",
+      "zoomIn": "Zoom In",
+      "zoomOut": "Zoom Out"
+    },
+    "fabLives": {
+      "pageLabel": "FabLives",
+      "listTitle": "FabLives ({{count}})",
+      "readOnlyNotice": "FabLives are read-only here. To create or edit a FabLive, use the Administration menu.",
+      "columns": {
+        "name": "Name",
+        "description": "Description",
+        "state": "State",
+        "folder": "Folder"
+      },
+      "tabs": {
+        "details": "Details",
+        "references": "References",
+        "history": "History"
+      },
+      "sections": {
+        "details": "Details",
+        "attributes": "Attributes",
+        "attachments": "Attachments"
+      },
+      "detail": {
+        "name": "Name:",
+        "description": "Description:",
+        "state": "State:",
+        "folder": "Folder:",
+        "dataGroup": "Data Group:"
+      },
+      "notFound": "FabLive not found.",
+      "emptySection": "No data available for this section."
+    }
   }
 }

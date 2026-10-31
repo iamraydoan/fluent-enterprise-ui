@@ -7622,5 +7622,66 @@
         "menuLabel": "Hủy kết thúc"
       }
     }
+  },
+  "manufacturing": {
+    "pages": {
+      "augmentedReality": "Thực tế tăng cường",
+      "barcodeIdentification": "Nhận dạng mã vạch",
+      "fabExplorer": "FabExplorer",
+      "fabLives": "FabLives",
+      "myWorkgroup": "Nhóm làm việc của tôi"
+    },
+    "augmentedReality": {
+      "pageLabel": "Thực tế tăng cường",
+      "viewportTitle": "Chế độ xem camera",
+      "viewportEmpty": "Không có nguồn camera trong bản demo này. Các thẻ thực thể được phát hiện hiển thị minh họa.",
+      "detectedTags": "Thẻ đã phát hiện",
+      "noTags": "Không phát hiện thực thể nào.",
+      "entityDetails": "Chi tiết thực thể",
+      "selectTag": "Chọn một thẻ để xem chi tiết thực thể.",
+      "fields": {
+        "entity": "Thực thể:",
+        "type": "Loại:",
+        "state": "Trạng thái:",
+        "product": "Sản phẩm:",
+        "quantity": "Số lượng:",
+        "storagePosition": "Vị trí lưu trữ:",
+        "resource": "Tài nguyên:",
+        "step": "Công đoạn:"
+      },
+      "rotate": "Xoay",
+      "zoomIn": "Phóng to",
+      "zoomOut": "Thu nhỏ"
+    },
+    "fabLives": {
+      "pageLabel": "FabLives",
+      "listTitle": "FabLives ({{count}})",
+      "readOnlyNotice": "FabLives chỉ đọc ở đây. Để tạo hoặc sửa FabLive, hãy dùng menu Administration.",
+      "columns": {
+        "name": "Tên",
+        "description": "Mô tả",
+        "state": "Trạng thái",
+        "folder": "Thư mục"
+      },
+      "tabs": {
+        "details": "Chi tiết",
+        "references": "Tham chiếu",
+        "history": "Lịch sử"
+      },
+      "sections": {
+        "details": "Chi tiết",
+        "attributes": "Thuộc tính",
+        "attachments": "Tệp đính kèm"
+      },
+      "detail": {
+        "name": "Tên:",
+        "description": "Mô tả:",
+        "state": "Trạng thái:",
+        "folder": "Thư mục:",
+        "dataGroup": "Nhóm dữ liệu:"
+      },
+      "notFound": "Không tìm thấy FabLive.",
+      "emptySection": "Không có dữ liệu cho mục này."
+    }
   }
 }

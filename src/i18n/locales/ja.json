@@ -7622,5 +7622,66 @@
         "menuLabel": "終了取消"
       }
     }
+  },
+  "manufacturing": {
+    "pages": {
+      "augmentedReality": "拡張現実",
+      "barcodeIdentification": "バーコード識別",
+      "fabExplorer": "FabExplorer",
+      "fabLives": "FabLives",
+      "myWorkgroup": "マイワークグループ"
+    },
+    "augmentedReality": {
+      "pageLabel": "拡張現実",
+      "viewportTitle": "カメラビュー",
+      "viewportEmpty": "このデモではカメラ映像を利用できません。検出されたエンティティタグをイラストとして表示しています。",
+      "detectedTags": "検出されたタグ",
+      "noTags": "エンティティが検出されませんでした。",
+      "entityDetails": "エンティティの詳細",
+      "selectTag": "タグを選択してエンティティの詳細を表示します。",
+      "fields": {
+        "entity": "エンティティ:",
+        "type": "種類:",
+        "state": "状態:",
+        "product": "製品:",
+        "quantity": "数量:",
+        "storagePosition": "保管場所:",
+        "resource": "リソース:",
+        "step": "ステップ:"
+      },
+      "rotate": "回転",
+      "zoomIn": "ズームイン",
+      "zoomOut": "ズームアウト"
+    },
+    "fabLives": {
+      "pageLabel": "FabLives",
+      "listTitle": "FabLives ({{count}})",
+      "readOnlyNotice": "FabLiveはここでは読み取り専用です。作成または編集するには、Administrationメニューを使用してください。",
+      "columns": {
+        "name": "名前",
+        "description": "説明",
+        "state": "状態",
+        "folder": "フォルダー"
+      },
+      "tabs": {
+        "details": "詳細",
+        "references": "参照",
+        "history": "履歴"
+      },
+      "sections": {
+        "details": "詳細",
+        "attributes": "属性",
+        "attachments": "添付ファイル"
+      },
+      "detail": {
+        "name": "名前:",
+        "description": "説明:",
+        "state": "状態:",
+        "folder": "フォルダー:",
+        "dataGroup": "データグループ:"
+      },
+      "notFound": "FabLiveが見つかりません。",
+      "emptySection": "このセクションにはデータがありません。"
+    }
   }
 }

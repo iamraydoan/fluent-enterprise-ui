@@ -8,6 +8,7 @@ export {
   ArrowMaximize16Regular,
   ArrowSync20Regular,
   ArrowSync24Regular,
+  ArrowRotateClockwise24Regular,
   ArrowUp16Regular,
   ArrowUp20Regular,
   ArrowUndo24Regular,
@@ -119,4 +120,6 @@ export {
   Wrench16Regular,
   Wrench20Regular,
   Wrench24Regular,
+  ZoomIn24Regular,
+  ZoomOut24Regular,
 } from "@fluentui/react-icons";
