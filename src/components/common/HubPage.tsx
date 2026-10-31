@@ -45,7 +45,7 @@ const useHubStyles = makeStyles({
   tileIcon: { fontSize: "32px", display: "grid", placeItems: "center", height: "32px" },
 });
 
-export interface HubTile {
+interface HubTile {
   id: string;
   labelKey: TranslationKey;
   icon: React.ReactNode;

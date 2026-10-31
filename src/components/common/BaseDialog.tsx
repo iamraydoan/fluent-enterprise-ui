@@ -56,7 +56,7 @@ const useBaseDialogStyles = makeStyles({
   },
 });
 
-export type DialogSize = "sm" | "md" | "lg" | "xl";
+type DialogSize = "sm" | "md" | "lg" | "xl";
 
 const SIZE_WIDTHS: Record<DialogSize, string> = {
   sm: "480px",
