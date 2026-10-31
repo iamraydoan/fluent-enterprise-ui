@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
@@ -34,12 +35,7 @@ export interface GenericTableDetail extends GenericTableRecord {
 export function listGenericTables(
   params: ListQueryParams & { kind?: GenericTableKind },
 ): Promise<Page<GenericTableRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  if (params.kind) search.set("kind", params.kind);
+  const search = toListSearchParams(params);
   return apiFetch<Page<GenericTableRecord>>(`/generic-tables?${search.toString()}`);
 }
 

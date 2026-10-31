@@ -2,6 +2,7 @@ import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tansta
 import { apiFetch, postJson } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 
 export interface CalendarRecord {
   name: string;
@@ -29,11 +30,7 @@ export interface CalendarDetail extends CalendarRecord {
 }
 
 export function useCalendars(params: ListQueryParams) {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
+  const search = toListSearchParams(params);
   return useQuery<Page<CalendarRecord>>({
     queryKey: ["business-data", "calendars", params],
     queryFn: () => apiFetch<Page<CalendarRecord>>(`/business-data/calendars?${search.toString()}`),

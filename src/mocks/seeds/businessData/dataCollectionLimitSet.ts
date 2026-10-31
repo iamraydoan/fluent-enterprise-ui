@@ -7,6 +7,7 @@ import type {
   ParameterLimit,
   Page,
 } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: DataCollectionLimitSetRecord[] = [
   {
@@ -71,16 +72,8 @@ export function queryDataCollectionLimitSets(
   q?: string,
   state?: string,
 ): Page<DataCollectionLimitSetRecord> {
-  let rows = RECORDS;
-  if (q) {
-    const n = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(n));
-  }
-  if (state && state !== "" && state !== "all")
-    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(RECORDS, q, ["name"]), state);
+  return paginate(rows, page, limit);
 }
 
 export function buildDataCollectionLimitSetDetail(name: string): DataCollectionLimitSetDetail {

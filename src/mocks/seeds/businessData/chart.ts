@@ -11,6 +11,7 @@ import type {
   Page,
   PostDataPointInput,
 } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: ChartRecord[] = [
   { name: "Width Evolution", description: "", chartType: "Average And Range", state: "Active" },
@@ -113,16 +114,8 @@ export function queryCharts(
   q?: string,
   state?: string,
 ): Page<ChartRecord> {
-  let rows = RECORDS;
-  if (q) {
-    const n = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(n));
-  }
-  if (state && state !== "" && state !== "all")
-    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(RECORDS, q, ["name"]), state);
+  return paginate(rows, page, limit);
 }
 
 export function buildChartDetail(name: string): ChartDetail {

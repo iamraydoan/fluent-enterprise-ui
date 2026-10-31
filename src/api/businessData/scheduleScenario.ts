@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 
@@ -22,9 +23,7 @@ export interface ScheduleScenarioListParams {
 export function listScheduleScenarios(
   params: ScheduleScenarioListParams,
 ): Promise<ScheduleScenarioRecord[]> {
-  const search = new URLSearchParams();
-  if (params.q) search.set("q", params.q);
-  if (params.state) search.set("state", params.state);
+  const search = toListSearchParams(params);
   return apiFetch<ScheduleScenarioRecord[]>(
     `/business-data/schedule-scenarios?${search.toString()}`,
   );

@@ -1,5 +1,6 @@
 import { RecordState } from "@/api";
 import type { Page, ShiftPlanDetail, ShiftPlanRecord } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: ShiftPlanRecord[] = [
   {
@@ -67,19 +68,8 @@ export function getShiftPlanPage(params: {
   q?: string;
   state?: string;
 }): Page<ShiftPlanRecord> {
-  let filtered = RECORDS;
-  if (params.q) {
-    const q = params.q.toLowerCase();
-    filtered = filtered.filter((r) => r.name.toLowerCase().includes(q));
-  }
-  if (params.state && params.state !== "All") {
-    filtered = filtered.filter((r) => r.state === params.state);
-  }
-  const start = (params.page - 1) * params.limit;
-  return {
-    data: filtered.slice(start, start + params.limit),
-    meta: { page: params.page, limit: params.limit, total: filtered.length },
-  };
+  const rows = filterByState(filterByQuery(RECORDS, params.q, ["name"]), params.state);
+  return paginate(rows, params.page, params.limit);
 }
 
 export function getShiftPlanDetail(name: string): ShiftPlanDetail | undefined {

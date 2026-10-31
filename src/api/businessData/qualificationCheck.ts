@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 
@@ -23,9 +24,7 @@ export interface QualificationCheckListParams {
 export function listQualificationChecks(
   params: QualificationCheckListParams,
 ): Promise<QualificationCheckRecord[]> {
-  const search = new URLSearchParams();
-  if (params.q) search.set("q", params.q);
-  if (params.state) search.set("state", params.state);
+  const search = toListSearchParams(params);
   return apiFetch<QualificationCheckRecord[]>(
     `/business-data/qualification-checks?${search.toString()}`,
   );

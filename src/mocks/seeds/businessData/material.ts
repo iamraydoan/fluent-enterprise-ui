@@ -1,4 +1,5 @@
 import type { MaterialDetail, MaterialRecord, Page } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: MaterialRecord[] = [
   {
@@ -36,19 +37,8 @@ export function queryMaterials(
   q?: string,
   state?: string,
 ): Page<MaterialRecord> {
-  let rows = RECORDS;
-  if (q !== undefined && q !== "") {
-    const needle = q.toLowerCase();
-    rows = rows.filter(
-      (r) => r.name.toLowerCase().includes(needle) || r.description.toLowerCase().includes(needle),
-    );
-  }
-  if (state !== undefined && state !== "" && state !== "all") {
-    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
-  }
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(RECORDS, q, ["name", "description"]), state);
+  return paginate(rows, page, limit);
 }
 
 export function buildMaterialDetail(name: string): MaterialDetail {

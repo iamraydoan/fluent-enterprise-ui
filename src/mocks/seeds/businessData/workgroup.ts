@@ -1,5 +1,6 @@
 import { RecordState } from "@/api";
 import type { Page, WorkgroupDetail, WorkgroupRecord } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: WorkgroupRecord[] = [
   {
@@ -45,19 +46,8 @@ export function getWorkgroupPage(params: {
   q?: string;
   state?: string;
 }): Page<WorkgroupRecord> {
-  let filtered = RECORDS;
-  if (params.q) {
-    const q = params.q.toLowerCase();
-    filtered = filtered.filter((r) => r.name.toLowerCase().includes(q));
-  }
-  if (params.state && params.state !== "All") {
-    filtered = filtered.filter((r) => r.state === params.state);
-  }
-  const start = (params.page - 1) * params.limit;
-  return {
-    data: filtered.slice(start, start + params.limit),
-    meta: { page: params.page, limit: params.limit, total: filtered.length },
-  };
+  const rows = filterByState(filterByQuery(RECORDS, params.q, ["name"]), params.state);
+  return paginate(rows, params.page, params.limit);
 }
 
 export function getWorkgroupDetail(name: string): WorkgroupDetail | undefined {

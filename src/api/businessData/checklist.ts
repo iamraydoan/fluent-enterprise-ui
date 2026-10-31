@@ -2,6 +2,7 @@ import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tansta
 import { apiFetch } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 
 export interface ChecklistRecord {
   name: string;
@@ -107,11 +108,7 @@ export interface ChecklistInstanceInput {
 }
 
 export function useChecklists(params: ListQueryParams) {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
+  const search = toListSearchParams(params);
   return useQuery<Page<ChecklistRecord>>({
     queryKey: ["business-data", "checklists", params],
     queryFn: () =>

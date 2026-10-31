@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "./client";
 
@@ -33,14 +34,7 @@ export interface UIPageListParams {
 }
 
 export function listUIPages(params: UIPageListParams): Promise<UIPageRecord[]> {
-  const search = new URLSearchParams();
-  if (params.folder) search.set("folder", params.folder);
-  if (params.scope) search.set("scope", params.scope);
-  if (params.section) search.set("section", params.section);
-  if (params.entityType) search.set("entityType", params.entityType);
-  if (params.q) search.set("q", params.q);
-  if (params.showTerminated) search.set("showTerminated", "true");
-  if (params.showSystemItems) search.set("showSystemItems", "true");
+  const search = toListSearchParams(params);
   return apiFetch<UIPageRecord[]>(`/ui-pages?${search.toString()}`);
 }
 

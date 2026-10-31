@@ -2,6 +2,7 @@ import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tansta
 import { apiFetch, postJson } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 
 export interface ChangeSetRecord {
   name: string;
@@ -41,11 +42,7 @@ export interface ChangeSetDetail extends ChangeSetRecord {
 }
 
 export function useChangeSets(params: ListQueryParams) {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
+  const search = toListSearchParams(params);
   return useQuery<Page<ChangeSetRecord>>({
     queryKey: ["business-data", "change-sets", params],
     queryFn: () =>

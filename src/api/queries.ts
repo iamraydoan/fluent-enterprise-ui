@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { toListSearchParams } from "@/lib/listQuery";
 import { apiFetch } from "./client";
 
 export interface QueryRecord {
@@ -38,10 +39,7 @@ export interface QueryListParams {
 }
 
 export function listQueries(params: QueryListParams): Promise<QueryRecord[]> {
-  const search = new URLSearchParams();
-  if (params.folder) search.set("folder", params.folder);
-  if (params.q) search.set("q", params.q);
-  if (params.showSystemItems) search.set("showSystemItems", "true");
+  const search = toListSearchParams(params);
   return apiFetch<QueryRecord[]>(`/queries?${search.toString()}`);
 }
 
