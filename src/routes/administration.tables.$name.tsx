@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { GenericTableDetailPage } from "@/features/generic-tables/GenericTableDetailPage";
+import { GenericTableDetailPage } from "@/features/administration/tables/GenericTableDetailPage";
 
 function GenericTableDetailRoute() {
   const { name } = Route.useParams();

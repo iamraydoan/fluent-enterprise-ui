@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ConfigurationDetailPage } from "@/features/configuration/ConfigurationDetailPage";
+import { ConfigurationDetailPage } from "@/features/administration/configuration/ConfigurationDetailPage";
 
 function ConfigurationDetailRoute() {
   const { path } = Route.useParams();

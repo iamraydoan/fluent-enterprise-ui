@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ConfigurationListPage } from "@/features/configuration/ConfigurationListPage";
+import { ConfigurationListPage } from "@/features/administration/configuration/ConfigurationListPage";
 
 function ConfigurationRoute() {
   const location = useLocation();

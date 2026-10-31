@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { McpServerDetailPage } from "@/features/ai-mcp-server/McpServerDetailPage";
+import { McpServerDetailPage } from "@/features/administration/ai-mcp-server/McpServerDetailPage";
 
 function McpServerDetailRoute() {
   const { name } = Route.useParams();

@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { AiAgentListPage } from "@/features/ai-agent/AiAgentListPage";
+import { AiAgentListPage } from "@/features/administration/ai-agent/AiAgentListPage";
 
 function AiAgentRoute() {
   const location = useLocation();

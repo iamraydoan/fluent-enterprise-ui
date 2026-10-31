@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { McpServerListPage } from "@/features/ai-mcp-server/McpServerListPage";
+import { McpServerListPage } from "@/features/administration/ai-mcp-server/McpServerListPage";
 
 function McpServerRoute() {
   const location = useLocation();

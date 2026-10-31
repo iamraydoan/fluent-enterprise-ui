@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { QueriesPage } from "@/features/queries/QueriesPage";
+import { QueriesPage } from "@/features/administration/queries/QueriesPage";
 
 function QueriesRoute() {
   const location = useLocation();

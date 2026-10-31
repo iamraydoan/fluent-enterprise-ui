@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { TablesHubPage } from "@/features/generic-tables/TablesHubPage";
+import { TablesHubPage } from "@/features/administration/tables/TablesHubPage";
 
 function GenericTablesRoute() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { EntityTypesListPage } from "@/features/entity-types/EntityTypesListPage";
+import { EntityTypesListPage } from "@/features/administration/entity-types/EntityTypesListPage";
 
 function EntityTypesRoute() {
   const location = useLocation();
