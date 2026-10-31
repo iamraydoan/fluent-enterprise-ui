@@ -9,6 +9,8 @@ import { EnterprisesView } from "./views/EnterprisesView";
 import { FacilitiesView } from "./views/FacilitiesView";
 import { FacilityView } from "./views/FacilityView";
 import { SitesView } from "./views/SitesView";
+import { StepView } from "./views/StepView";
+import { ResourceView } from "./views/ResourceView";
 
 export interface FabNavigation {
   level: FabLevel;
@@ -16,6 +18,8 @@ export interface FabNavigation {
   site: string;
   facility: string;
   area: string;
+  step: string;
+  resource: string;
 }
 
 export function FabExplorerPage() {
@@ -29,6 +33,8 @@ export function FabExplorerPage() {
     site: (search.site as string) ?? "",
     facility: (search.facility as string) ?? "",
     area: (search.area as string) ?? "",
+    step: (search.step as string) ?? "",
+    resource: (search.resource as string) ?? "",
   };
 
   const go = (patch: Partial<FabNavigation>) => {
@@ -39,6 +45,8 @@ export function FabExplorerPage() {
         site: patch.site ?? nav.site,
         facility: patch.facility ?? nav.facility,
         area: patch.area ?? nav.area,
+        step: patch.step ?? nav.step,
+        resource: patch.resource ?? nav.resource,
       },
     });
   };
@@ -53,6 +61,10 @@ export function FabExplorerPage() {
         return nav.facility || t("fabExplorer.pageTitle");
       case FAB_LEVELS.area:
         return nav.area || t("fabExplorer.pageTitle");
+      case FAB_LEVELS.step:
+        return nav.step || t("fabExplorer.pageTitle");
+      case FAB_LEVELS.resource:
+        return nav.resource || t("fabExplorer.pageTitle");
       default:
         return t("fabExplorer.pageTitle");
     }
@@ -71,8 +83,22 @@ export function FabExplorerPage() {
         return (
           <AreaView
             {...common}
-            onSelectStep={() => go({ level: FAB_LEVELS.area, area: nav.area })}
-            onSelectResource={() => go({ level: FAB_LEVELS.area, area: nav.area })}
+            onSelectStep={(stepName) => go({ level: FAB_LEVELS.step, step: stepName })}
+            onSelectResource={(resourceName) => go({ level: FAB_LEVELS.resource, resource: resourceName })}
+          />
+        );
+      case FAB_LEVELS.step:
+        return (
+          <StepView
+            name={nav.step}
+            onBack={() => go({ level: FAB_LEVELS.area })}
+          />
+        );
+      case FAB_LEVELS.resource:
+        return (
+          <ResourceView
+            name={nav.resource}
+            onBack={() => go({ level: FAB_LEVELS.area })}
           />
         );
       default:

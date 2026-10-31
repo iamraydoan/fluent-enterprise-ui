@@ -9,5 +9,7 @@ export const Route = createFileRoute("/manufacturing/fab-explorer")({
     site: (search.site as string) ?? "",
     facility: (search.facility as string) ?? "",
     area: (search.area as string) ?? "",
+    step: (search.step as string) ?? "",
+    resource: (search.resource as string) ?? "",
   }),
 });
