@@ -6,7 +6,7 @@ import type { TranslationKey } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 import type { OperationValues } from "../../components/operationTypes";
 
-export interface SimpleRow {
+interface SimpleRow {
   id: number;
   name: string;
   extra: string;
@@ -76,7 +76,7 @@ const useDialogStyles = makeStyles({
   empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
 });
 
-export function NameListEditor({
+function NameListEditor({
   values,
   onChange,
   valueKey,

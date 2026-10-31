@@ -105,12 +105,3 @@ export function updateBusinessPartnerDetail(
   return buildBusinessPartnerDetail(name);
 }
 
-export function setBusinessPartnerState(
-  name: string,
-  state: string,
-): BusinessPartnerDetail | undefined {
-  const record = RECORDS.find((x) => x.name === name);
-  if (!record) return undefined;
-  record.state = state;
-  return buildBusinessPartnerDetail(name);
-}

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { TranslationKey } from "@/i18n";
 
-export interface EnumColumnOption {
+interface EnumColumnOption {
   labelKey: TranslationKey;
   color?: "brand" | "success" | "warning" | "danger" | "neutral";
 }

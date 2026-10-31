@@ -5,7 +5,7 @@ import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 import type { OperationValues } from "../../components/operationTypes";
 
-export interface EmployeeRow {
+interface EmployeeRow {
   id: number;
   employee: string;
   granted: boolean;
@@ -75,7 +75,7 @@ const useDialogStyles = makeStyles({
   empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
 });
 
-export function EmployeeListEditor({
+function EmployeeListEditor({
   values,
   onChange,
   showGranted,

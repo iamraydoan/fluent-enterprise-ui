@@ -4,7 +4,7 @@ import { buildGenericTableDetail, buildGenericTableSeeds } from "../seeds/generi
 
 const RECORDS = buildGenericTableSeeds();
 
-export function queryGenericTables(
+function queryGenericTables(
   page: number,
   limit: number,
   q?: string,

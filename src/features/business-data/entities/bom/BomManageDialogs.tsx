@@ -5,7 +5,7 @@ import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 import type { OperationValues } from "../../components/operationTypes";
 
-export interface BomItemRow {
+interface BomItemRow {
   id: number;
   product: string;
   quantity: string;
@@ -25,7 +25,7 @@ const useListStyles = makeStyles({
   hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
 });
 
-export function BomItemListEditor({
+function BomItemListEditor({
   values,
   onChange,
 }: {

@@ -154,48 +154,6 @@ function ConfirmDialog({
   );
 }
 
-export function CreatePeriodicInventoryDialog({ open, onClose, onSubmit }: DialogProps) {
-  const { t } = useAppTranslation();
-  const P = "businessData.periodicInventory.operations.create";
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-
-  const handleClose = () => {
-    setName("");
-    setDescription("");
-    onClose();
-  };
-
-  return (
-    <DialogShell
-      open={open}
-      onClose={handleClose}
-      title={t(`${P}.title` as never)}
-      footer={
-        <>
-          <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button
-            appearance="primary"
-            onClick={() => {
-              onSubmit?.();
-              handleClose();
-            }}
-            disabled={!name}
-          >
-            {t(`${P}.submit` as never)}
-          </Button>
-        </>
-      }
-    >
-      <Field label={t(`${P}.fields.name` as never)} required>
-        <Input value={name} onChange={(_, d) => setName(d.value)} />
-      </Field>
-      <Field label={t(`${P}.fields.description` as never)}>
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
-      </Field>
-    </DialogShell>
-  );
-}
 
 export function EditPeriodicInventoryDialog({
   open,

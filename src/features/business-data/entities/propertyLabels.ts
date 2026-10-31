@@ -5,6 +5,3 @@ export function useBooleanLabel() {
   return (value: boolean) => (value ? t("common.yes") : t("common.no"));
 }
 
-export function booleanLabel(value: boolean): string {
-  return value ? "Yes" : "No";
-}

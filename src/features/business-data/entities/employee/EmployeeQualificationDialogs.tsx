@@ -177,38 +177,3 @@ export function AssignQualificationDialog({ name, onClose }: DialogProps) {
   );
 }
 
-export function UnassignQualificationDialog({
-  name,
-  qualification,
-  onClose,
-}: {
-  name: string;
-  qualification: string;
-  onClose: () => void;
-}) {
-  const { t } = useAppTranslation();
-  const shared = useSharedStyles();
-  const styles = useDialogStyles();
-
-  return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>{t(L.unassignTitle)}</div>
-        <div className={styles.body}>
-          <div>{t(L.unassignMessage, { name, qualification })}</div>
-        </div>
-        <div className={styles.footer}>
-          <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose}>
-            {t(L.unassign)}
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
-}

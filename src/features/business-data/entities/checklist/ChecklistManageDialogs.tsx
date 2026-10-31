@@ -133,7 +133,7 @@ const useDialogStyles = makeStyles({
   },
 });
 
-export function DialogShell({
+function DialogShell({
   title,
   onClose,
   wide,
@@ -351,7 +351,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-export function ItemParametersEditor({
+function ItemParametersEditor({
   parameters,
   onChange,
 }: {
@@ -714,7 +714,7 @@ export function PauseChecklistInstanceDialog({
   );
 }
 
-export function SignItemDialog({
+function SignItemDialog({
   open,
   itemName,
   onClose,

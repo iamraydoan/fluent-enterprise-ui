@@ -76,9 +76,6 @@ const PAGES: UIPageRecord[] = [
   },
 ];
 
-export function buildUIPageSeeds(): UIPageRecord[] {
-  return PAGES;
-}
 
 export interface UIPageQuery {
   folder?: string;

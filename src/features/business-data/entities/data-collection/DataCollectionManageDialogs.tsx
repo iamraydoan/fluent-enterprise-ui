@@ -121,7 +121,7 @@ const useDialogStyles = makeStyles({
   kvLabel: { color: tokens.colorNeutralForeground3, minWidth: "160px" },
 });
 
-export function DialogShell({
+function DialogShell({
   title,
   onClose,
   wide,
@@ -322,7 +322,7 @@ export interface DataValueRow {
   value: string;
 }
 
-export function DataValuesEditor({
+function DataValuesEditor({
   parameters,
   values,
   onChange,

@@ -45,9 +45,7 @@ export const DEVIATION_TYPES = [
   "Remove BOM Items",
 ];
 
-export const INSTANCE_ITEM_STATES = ["Not Started", "Started", "Completed", "Skipped"] as const;
-
-export type InstanceItemState = (typeof INSTANCE_ITEM_STATES)[number];
+export type InstanceItemState = "Not Started" | "Started" | "Completed" | "Skipped";
 
 export const ITEM_STATE_NOT_STARTED: InstanceItemState = "Not Started";
 export const ITEM_STATE_STARTED: InstanceItemState = "Started";

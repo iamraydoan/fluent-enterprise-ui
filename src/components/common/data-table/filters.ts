@@ -30,7 +30,7 @@ export type DataFilter =
       defaultChecked?: boolean;
     };
 
-export function stateFilter(): DataFilter {
+function stateFilter(): DataFilter {
   return {
     type: "select",
     param: "state",

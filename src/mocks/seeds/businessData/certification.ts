@@ -93,12 +93,3 @@ export function updateCertificationDetail(
   return buildCertificationDetail(name);
 }
 
-export function setCertificationState(
-  name: string,
-  state: string,
-): CertificationDetail | undefined {
-  const record = RECORDS.find((x) => x.name === name);
-  if (!record) return undefined;
-  record.state = state;
-  return buildCertificationDetail(name);
-}

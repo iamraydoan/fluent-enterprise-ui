@@ -115,9 +115,3 @@ export function updateBinConverterDetail(
   return buildBinConverterDetail(name);
 }
 
-export function setBinConverterState(name: string, state: string): BinConverterDetail | undefined {
-  const record = RECORDS.find((x) => x.name === name);
-  if (!record) return undefined;
-  record.state = state;
-  return buildBinConverterDetail(name);
-}

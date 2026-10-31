@@ -1,7 +1,3 @@
-export type WizardMode = "edit";
-
-export const MODE_EDIT: WizardMode = "edit";
-
 export type TerminateMode = "terminate" | "unterminate";
 
 export const TERMINATE: TerminateMode = "terminate";

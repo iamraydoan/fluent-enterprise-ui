@@ -155,7 +155,7 @@ const useDialogStyles = makeStyles({
   },
 });
 
-export function DialogShell({
+function DialogShell({
   title,
   onClose,
   wide,
@@ -765,7 +765,7 @@ export function SampleLimitsEditor({
   );
 }
 
-export function CopyParametersDialog({
+function CopyParametersDialog({
   onClose,
   onCopy,
 }: {

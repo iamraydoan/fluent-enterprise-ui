@@ -83,7 +83,7 @@ const useDialogStyles = makeStyles({
   posNum: { minWidth: "48px", fontWeight: tokens.fontWeightSemibold, textAlign: "center" },
 });
 
-export function DialogShell({
+function DialogShell({
   title,
   onClose,
   wide,

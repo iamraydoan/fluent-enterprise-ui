@@ -106,9 +106,3 @@ export function updateBomDetail(name: string, input: Partial<BomDetail>): BomDet
   return buildBomDetail(name);
 }
 
-export function setBomState(name: string, state: string): BomDetail | undefined {
-  const record = BOMS.find((b) => b.name === name);
-  if (!record) return undefined;
-  record.state = state;
-  return buildBomDetail(name);
-}

@@ -118,9 +118,3 @@ export function updateChangeSetDetail(
   return buildChangeSetDetail(name);
 }
 
-export function setChangeSetState(name: string, state: string): ChangeSetDetail | undefined {
-  const record = RECORDS.find((x) => x.name === name);
-  if (!record) return undefined;
-  record.state = state;
-  return buildChangeSetDetail(name);
-}

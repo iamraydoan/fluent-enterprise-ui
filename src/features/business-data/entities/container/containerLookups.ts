@@ -12,24 +12,19 @@ export const ORIENTATIONS = [
 
 export const POSITION_SORTINGS = ["Ascending", "Descending"];
 
-export const SYSTEM_STATES = ["Available", "Unavailable", "In Transit"];
-
-export const CONTAINER_OPERATIONS = [
-  "add-container",
-  "dock",
-  "empty",
-  "make-available",
-  "make-unavailable",
-  "manage-positions",
-  "remove-container",
-  "retrieve",
-  "store",
-  "transfer-container",
-  "transfer-material",
-  "undock",
-] as const;
-
-export type ContainerOperationKey = (typeof CONTAINER_OPERATIONS)[number];
+export type ContainerOperationKey =
+  | "add-container"
+  | "dock"
+  | "empty"
+  | "make-available"
+  | "make-unavailable"
+  | "manage-positions"
+  | "remove-container"
+  | "retrieve"
+  | "store"
+  | "transfer-container"
+  | "transfer-material"
+  | "undock";
 
 export const OP_ADD_CONTAINER: ContainerOperationKey = "add-container";
 export const OP_DOCK: ContainerOperationKey = "dock";

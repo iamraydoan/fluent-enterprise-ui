@@ -127,9 +127,3 @@ export function updateBatchDetail(
   return buildBatchDetail(name);
 }
 
-export function setBatchState(name: string, state: string): BatchDetail | undefined {
-  const record = BATCHES.find((b) => b.name === name);
-  if (!record) return undefined;
-  record.state = state;
-  return buildBatchDetail(name);
-}

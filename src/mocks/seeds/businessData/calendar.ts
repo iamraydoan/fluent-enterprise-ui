@@ -82,9 +82,3 @@ export function updateCalendarDetail(
   return buildCalendarDetail(name);
 }
 
-export function setCalendarState(name: string, state: string): CalendarDetail | undefined {
-  const record = RECORDS.find((x) => x.name === name);
-  if (!record) return undefined;
-  record.state = state;
-  return buildCalendarDetail(name);
-}

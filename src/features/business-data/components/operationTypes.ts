@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import type { TranslationKey } from "@/i18n";
 
-export type WizardFieldType =
+type WizardFieldType =
   "text" | "textarea" | "number" | "checkbox" | "select" | "date" | "custom";
 
-export interface WizardFieldOption {
+interface WizardFieldOption {
   value: string;
   label: string;
 }
