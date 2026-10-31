@@ -68,6 +68,7 @@ import { transferRequirementHandlers } from "./handlers/businessData/transferReq
 import { workgroupHandlers } from "./handlers/businessData/workgroup";
 import { configurationHandlers } from "./handlers/configuration";
 import { entityTypeHandlers } from "./handlers/entityTypes";
+import { fabExplorerHandlers } from "./handlers/fabExplorer";
 import { genericTableHandlers } from "./handlers/genericTables";
 import { mcpServerHandlers } from "./handlers/mcpServer";
 import { queryHandlers } from "./handlers/queries";
@@ -75,6 +76,7 @@ import { uiPageHandlers } from "./handlers/uiPages";
 
 export const handlers = [
   ...entityTypeHandlers,
+  ...fabExplorerHandlers,
   ...aiAgentHandlers,
   ...areaHandlers,
   ...batchHandlers,

@@ -656,3 +656,4 @@ export type {
   WorkgroupListParams,
   WorkgroupRecord,
 } from "./businessData/workgroup";
+export * from "./manufacturing/fabExplorer";
