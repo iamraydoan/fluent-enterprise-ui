@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
@@ -34,7 +34,7 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.update`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🎛 {recipeName}</div>
+      <DialogEntityBanner icon="🎛" name={recipeName} />
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
         <Field label={t(`${k}.source`)}>
           <select value={source} onChange={(e) => setSource(e.target.value)}>

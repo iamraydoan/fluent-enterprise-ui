@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { RecipeDetail, RecipeRecord } from "@/api";
-import { BaseDialog } from "@/components/common";
-import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
+import { BaseDialog, WizardSteps } from "@/components/common";
+import { Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
 interface RecipeFormDialogProps {
@@ -71,41 +71,7 @@ export function RecipeFormDialog({
       }
     >
       {!nameReadOnly && (
-        <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-          <span
-            style={{
-              width: 24,
-              height: 24,
-              borderRadius: "50%",
-              backgroundColor: step === 1 ? "#0078d4" : "#ccc",
-              color: "#fff",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 12,
-            }}
-          >
-            1
-          </span>
-          <Body1Strong>{t(`${k}.changeSet`)}</Body1Strong>
-          <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />
-          <span
-            style={{
-              width: 24,
-              height: 24,
-              borderRadius: "50%",
-              backgroundColor: step === 2 ? "#0078d4" : "#ccc",
-              color: "#fff",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 12,
-            }}
-          >
-            2
-          </span>
-          <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
-        </div>
+        <WizardSteps steps={[t(`${k}.changeSet`), t(`${k}.generalData`)]} current={step} />
       )}
 
       {step === 1 && !nameReadOnly && (

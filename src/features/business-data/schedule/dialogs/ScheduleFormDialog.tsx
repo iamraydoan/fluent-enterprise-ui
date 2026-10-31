@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ScheduleDetail, ScheduleRecord } from "@/api";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, WizardSteps } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -76,32 +76,7 @@ export function ScheduleFormDialog({
       }
     >
       {!nameReadOnly && (
-        <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-          {STEPS.map((_, i) => (
-            <span
-              key={STEP_KEYS[i]}
-              style={{ display: "flex", alignItems: "center", columnGap: 8 }}
-            >
-              <span
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: "50%",
-                  backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
-                  color: "#fff",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 12,
-                }}
-              >
-                {i + 1}
-              </span>
-              <Body1Strong>{t(STEP_KEYS[i])}</Body1Strong>
-              {i < 3 && <span style={{ width: 30, height: 1, backgroundColor: "#ccc" }} />}
-            </span>
-          ))}
-        </div>
+        <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />
       )}
 
       {(step === 1 || nameReadOnly) && (

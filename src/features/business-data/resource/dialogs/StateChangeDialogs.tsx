@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
-import { Body1Strong, Button, Field, Input } from "@/components/ui";
+import { BaseDialog, DialogEntityBanner, DialogFooter, WizardSteps } from "@/components/common";
+import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
 const RESOURCE_STATES = [
@@ -62,32 +62,11 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
         </>
       }
     >
-      <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-        {[t(`${k}.step1`), t(`${k}.step2`), t(`${k}.step3`), t(`${k}.step4`), t(`${k}.step5`)].map(
-          (label, i) => (
-            <span key={i} style={{ display: "flex", alignItems: "center", columnGap: 8 }}>
-              {i > 0 && <span style={{ width: 24, height: 1, backgroundColor: "#ccc" }} />}
-              <span
-                style={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: "50%",
-                  backgroundColor: step === i + 1 ? "#0078d4" : "#ccc",
-                  color: "#fff",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 12,
-                }}
-              >
-                {i + 1}
-              </span>
-              <Body1Strong>{label}</Body1Strong>
-            </span>
-          ),
-        )}
-      </div>
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <WizardSteps
+        steps={[t(`${k}.step1`), t(`${k}.step2`), t(`${k}.step3`), t(`${k}.step4`), t(`${k}.step5`)]}
+        current={step}
+      />
+      <DialogEntityBanner icon="🔧" name={resourceName} />
 
       {step === 1 && (
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
@@ -132,7 +111,7 @@ export function ChangeSystemStateDialog({ open, onClose, resourceName }: StateCh
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.change`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.newState`)} required>
         <select value={newState} onChange={(e) => setNewState(e.target.value)}>
           {SYSTEM_STATES.map((o) => (
@@ -169,7 +148,7 @@ export function ChangeAutomationModeDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.change`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.newMode`)} required>
         <select value={newMode} onChange={(e) => setNewMode(e.target.value)}>
           {AUTOMATION_MODES.map((o) => (
@@ -206,7 +185,7 @@ export function ChangeInstrumentModeDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.change`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.newMode`)} required>
         <Input value={newMode} onChange={(_, d) => setNewMode(d.value)} />
       </Field>
@@ -233,7 +212,7 @@ export function ChangeRunningModeDialog({ open, onClose, resourceName }: StateCh
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.change`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.newMode`)} required>
         <select value={newMode} onChange={(e) => setNewMode(e.target.value)}>
           {RUNNING_MODES.map((o) => (
@@ -285,42 +264,8 @@ export function ChangeProductDialog({ open, onClose, resourceName }: StateChange
         </>
       }
     >
-      <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-        <span
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: "50%",
-            backgroundColor: step === 1 ? "#0078d4" : "#ccc",
-            color: "#fff",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 12,
-          }}
-        >
-          1
-        </span>
-        <Body1Strong>{t(`${k}.materials`)}</Body1Strong>
-        <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />
-        <span
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: "50%",
-            backgroundColor: step === 2 ? "#0078d4" : "#ccc",
-            color: "#fff",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 12,
-          }}
-        >
-          2
-        </span>
-        <Body1Strong>{t(`${k}.subMaterials`)}</Body1Strong>
-      </div>
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <WizardSteps steps={[t(`${k}.materials`), t(`${k}.subMaterials`)]} current={step} />
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.newProduct`)} required>
         <Input value={newProduct} onChange={(_, d) => setNewProduct(d.value)} />
       </Field>
@@ -352,7 +297,7 @@ export function EvaluateDispatchableRuleDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.evaluate`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <div style={{ padding: "12px 0" }}>{t(`${k}.verifyInfo`)}</div>
       <Field label={t(`${k}.comment`)}>
         <Input value={comment} onChange={(_, d) => setComment(d.value)} />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import {
   Body1Strong,
   Checkbox,
@@ -70,7 +70,7 @@ function SetupDialogBase({
         />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Body1Strong>{t(isLine ? `${k}.subResources` : `${k}.materials`)}</Body1Strong>
       <Table>
         <TableHeader>
@@ -247,7 +247,7 @@ export function ViewSetupDialog({
         />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Table>
         <TableHeader>
           <TableRow>
@@ -298,7 +298,7 @@ export function ViewLineSetupDialog({
         />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <Table>
         <TableHeader>
           <TableRow>

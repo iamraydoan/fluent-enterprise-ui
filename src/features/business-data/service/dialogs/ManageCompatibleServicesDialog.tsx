@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
@@ -77,7 +77,7 @@ export function ManageCompatibleServicesDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.update`)} />
       }
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>📊 {serviceName}</div>
+      <DialogEntityBanner icon="📊" name={serviceName} />
       <div style={{ display: "flex", columnGap: 12, marginBottom: 12 }}>
         <Button appearance={tab === "fulfilled" ? "primary" : "secondary"} onClick={showFulfilled}>
           {t(`${k}.canBeFulfilledBy`)}

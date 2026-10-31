@@ -10,6 +10,8 @@ export { SidebarNavItem } from "./SidebarNavItem";
 export { DetailTile } from "./DetailTile";
 export { DetailTabs } from "./DetailTabs";
 export { FormField } from "./FormField";
+export { WizardSteps } from "./WizardSteps";
+export { DialogEntityBanner } from "./DialogEntityBanner";
 export { ListPage } from "./ListPage";
 export {
   aiEditorAction,

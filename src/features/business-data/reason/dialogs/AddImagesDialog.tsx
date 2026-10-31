@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, WizardSteps } from "@/components/common";
 import {
   Body1Strong,
   Button,
@@ -78,42 +78,8 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
         </>
       }
     >
-      <div style={{ display: "flex", alignItems: "center", columnGap: 8, marginBottom: 12 }}>
-        <span
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: "50%",
-            backgroundColor: step === 1 ? "#0078d4" : "#ccc",
-            color: "#fff",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 12,
-          }}
-        >
-          1
-        </span>
-        <Body1Strong>{t(`${k}.stepImages`)}</Body1Strong>
-        <span style={{ width: 40, height: 1, backgroundColor: "#ccc" }} />
-        <span
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: "50%",
-            backgroundColor: step === 2 ? "#0078d4" : "#ccc",
-            color: "#fff",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 12,
-          }}
-        >
-          2
-        </span>
-        <Body1Strong>{t(`${k}.stepAssessment`)}</Body1Strong>
-      </div>
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🚩 {reasonName}</div>
+            <WizardSteps steps={[t(`${k}.stepImages`), t(`${k}.stepAssessment`)]} current={step} />
+      <DialogEntityBanner icon="🚩" name={reasonName} />
 
       {step === 1 && (
         <Table>

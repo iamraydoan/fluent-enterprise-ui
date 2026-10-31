@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -73,7 +73,7 @@ function ManageDialogBase({
       width="min(1100px, 92vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(updateKey)} />}
     >
-      <div style={{ marginBottom: 12, color: "#0078d4" }}>🔧 {resourceName}</div>
+      <DialogEntityBanner icon="🔧" name={resourceName} />
       <div style={{ display: "flex", columnGap: 16 }}>
         <div style={{ width: 320, flexShrink: 0 }}>
           <div
