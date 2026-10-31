@@ -90,7 +90,10 @@ import { Route as BusinessDataTransferOrderRouteImport } from './routes/business
 import { Route as BusinessDataTransferRequirementRouteImport } from './routes/business-data.transfer-requirement'
 import { Route as BusinessDataWorkgroupRouteImport } from './routes/business-data.workgroup'
 import { Route as ManufacturingAugmentedRealityRouteImport } from './routes/manufacturing.augmented-reality'
+import { Route as ManufacturingBarcodeIdentificationRouteImport } from './routes/manufacturing.barcode-identification'
+import { Route as ManufacturingFabExplorerRouteImport } from './routes/manufacturing.fab-explorer'
 import { Route as ManufacturingFabLivesRouteImport } from './routes/manufacturing.fab-lives'
+import { Route as ManufacturingMyWorkgroupRouteImport } from './routes/manufacturing.my-workgroup'
 import { Route as AdministrationAiAgentNameRouteImport } from './routes/administration.ai-agent.$name'
 import { Route as AdministrationAiMcpServerNameRouteImport } from './routes/administration.ai-mcp-server.$name'
 import { Route as AdministrationConfigurationPathRouteImport } from './routes/administration.configuration.$path'
@@ -601,11 +604,29 @@ const ManufacturingAugmentedRealityRoute =
     path: '/augmented-reality',
     getParentRoute: () => ManufacturingRoute,
   } as any)
+const ManufacturingBarcodeIdentificationRoute =
+  ManufacturingBarcodeIdentificationRouteImport.update({
+    id: '/barcode-identification',
+    path: '/barcode-identification',
+    getParentRoute: () => ManufacturingRoute,
+  } as any)
+const ManufacturingFabExplorerRoute =
+  ManufacturingFabExplorerRouteImport.update({
+    id: '/fab-explorer',
+    path: '/fab-explorer',
+    getParentRoute: () => ManufacturingRoute,
+  } as any)
 const ManufacturingFabLivesRoute = ManufacturingFabLivesRouteImport.update({
   id: '/fab-lives',
   path: '/fab-lives',
   getParentRoute: () => ManufacturingRoute,
 } as any)
+const ManufacturingMyWorkgroupRoute =
+  ManufacturingMyWorkgroupRouteImport.update({
+    id: '/my-workgroup',
+    path: '/my-workgroup',
+    getParentRoute: () => ManufacturingRoute,
+  } as any)
 const AdministrationAiAgentNameRoute =
   AdministrationAiAgentNameRouteImport.update({
     id: '/$name',
@@ -1104,7 +1125,10 @@ export interface FileRoutesByFullPath {
   '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
   '/business-data/workgroup': typeof BusinessDataWorkgroupRouteWithChildren
   '/manufacturing/augmented-reality': typeof ManufacturingAugmentedRealityRoute
+  '/manufacturing/barcode-identification': typeof ManufacturingBarcodeIdentificationRoute
+  '/manufacturing/fab-explorer': typeof ManufacturingFabExplorerRoute
   '/manufacturing/fab-lives': typeof ManufacturingFabLivesRouteWithChildren
+  '/manufacturing/my-workgroup': typeof ManufacturingMyWorkgroupRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -1260,7 +1284,10 @@ export interface FileRoutesByTo {
   '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
   '/business-data/workgroup': typeof BusinessDataWorkgroupRouteWithChildren
   '/manufacturing/augmented-reality': typeof ManufacturingAugmentedRealityRoute
+  '/manufacturing/barcode-identification': typeof ManufacturingBarcodeIdentificationRoute
+  '/manufacturing/fab-explorer': typeof ManufacturingFabExplorerRoute
   '/manufacturing/fab-lives': typeof ManufacturingFabLivesRouteWithChildren
+  '/manufacturing/my-workgroup': typeof ManufacturingMyWorkgroupRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -1417,7 +1444,10 @@ export interface FileRoutesById {
   '/business-data/transfer-requirement': typeof BusinessDataTransferRequirementRouteWithChildren
   '/business-data/workgroup': typeof BusinessDataWorkgroupRouteWithChildren
   '/manufacturing/augmented-reality': typeof ManufacturingAugmentedRealityRoute
+  '/manufacturing/barcode-identification': typeof ManufacturingBarcodeIdentificationRoute
+  '/manufacturing/fab-explorer': typeof ManufacturingFabExplorerRoute
   '/manufacturing/fab-lives': typeof ManufacturingFabLivesRouteWithChildren
+  '/manufacturing/my-workgroup': typeof ManufacturingMyWorkgroupRoute
   '/administration/ai-agent/$name': typeof AdministrationAiAgentNameRoute
   '/administration/ai-mcp-server/$name': typeof AdministrationAiMcpServerNameRoute
   '/administration/configuration/$path': typeof AdministrationConfigurationPathRoute
@@ -1575,7 +1605,10 @@ export interface FileRouteTypes {
     | '/business-data/transfer-requirement'
     | '/business-data/workgroup'
     | '/manufacturing/augmented-reality'
+    | '/manufacturing/barcode-identification'
+    | '/manufacturing/fab-explorer'
     | '/manufacturing/fab-lives'
+    | '/manufacturing/my-workgroup'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -1731,7 +1764,10 @@ export interface FileRouteTypes {
     | '/business-data/transfer-requirement'
     | '/business-data/workgroup'
     | '/manufacturing/augmented-reality'
+    | '/manufacturing/barcode-identification'
+    | '/manufacturing/fab-explorer'
     | '/manufacturing/fab-lives'
+    | '/manufacturing/my-workgroup'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -1887,7 +1923,10 @@ export interface FileRouteTypes {
     | '/business-data/transfer-requirement'
     | '/business-data/workgroup'
     | '/manufacturing/augmented-reality'
+    | '/manufacturing/barcode-identification'
+    | '/manufacturing/fab-explorer'
     | '/manufacturing/fab-lives'
+    | '/manufacturing/my-workgroup'
     | '/administration/ai-agent/$name'
     | '/administration/ai-mcp-server/$name'
     | '/administration/configuration/$path'
@@ -2540,11 +2579,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ManufacturingAugmentedRealityRouteImport
       parentRoute: typeof ManufacturingRoute
     }
+    '/manufacturing/barcode-identification': {
+      id: '/manufacturing/barcode-identification'
+      path: '/barcode-identification'
+      fullPath: '/manufacturing/barcode-identification'
+      preLoaderRoute: typeof ManufacturingBarcodeIdentificationRouteImport
+      parentRoute: typeof ManufacturingRoute
+    }
+    '/manufacturing/fab-explorer': {
+      id: '/manufacturing/fab-explorer'
+      path: '/fab-explorer'
+      fullPath: '/manufacturing/fab-explorer'
+      preLoaderRoute: typeof ManufacturingFabExplorerRouteImport
+      parentRoute: typeof ManufacturingRoute
+    }
     '/manufacturing/fab-lives': {
       id: '/manufacturing/fab-lives'
       path: '/fab-lives'
       fullPath: '/manufacturing/fab-lives'
       preLoaderRoute: typeof ManufacturingFabLivesRouteImport
+      parentRoute: typeof ManufacturingRoute
+    }
+    '/manufacturing/my-workgroup': {
+      id: '/manufacturing/my-workgroup'
+      path: '/my-workgroup'
+      fullPath: '/manufacturing/my-workgroup'
+      preLoaderRoute: typeof ManufacturingMyWorkgroupRouteImport
       parentRoute: typeof ManufacturingRoute
     }
     '/administration/ai-agent/$name': {
@@ -4168,12 +4228,19 @@ const ManufacturingFabLivesRouteWithChildren =
 
 interface ManufacturingRouteChildren {
   ManufacturingAugmentedRealityRoute: typeof ManufacturingAugmentedRealityRoute
+  ManufacturingBarcodeIdentificationRoute: typeof ManufacturingBarcodeIdentificationRoute
+  ManufacturingFabExplorerRoute: typeof ManufacturingFabExplorerRoute
   ManufacturingFabLivesRoute: typeof ManufacturingFabLivesRouteWithChildren
+  ManufacturingMyWorkgroupRoute: typeof ManufacturingMyWorkgroupRoute
 }
 
 const ManufacturingRouteChildren: ManufacturingRouteChildren = {
   ManufacturingAugmentedRealityRoute: ManufacturingAugmentedRealityRoute,
+  ManufacturingBarcodeIdentificationRoute:
+    ManufacturingBarcodeIdentificationRoute,
+  ManufacturingFabExplorerRoute: ManufacturingFabExplorerRoute,
   ManufacturingFabLivesRoute: ManufacturingFabLivesRouteWithChildren,
+  ManufacturingMyWorkgroupRoute: ManufacturingMyWorkgroupRoute,
 }
 
 const ManufacturingRouteWithChildren = ManufacturingRoute._addFileChildren(

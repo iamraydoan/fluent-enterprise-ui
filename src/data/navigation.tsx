@@ -832,7 +832,6 @@ export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
   if (path === "/manufacturing") {
     return [{ labelKey: "nav.sections.manufacturing", label: null, route: "/manufacturing" }];
   }
-<<<<<<< HEAD
   if (path.startsWith("/manufacturing/")) {
     const rest = path.slice("/manufacturing/".length);
     const segments = rest.split("/");
@@ -846,17 +845,6 @@ export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
       crumbs.push({ labelKey: null, label: decodeURIComponent(segments[1]), route: path });
     }
     return crumbs;
-=======
-  if (path === "/manufacturing/barcode-identification") {
-    return [
-      { labelKey: "nav.sections.manufacturing", label: null, route: "/manufacturing" },
-      {
-        labelKey: "manufacturing.barcodeIdentification.pageTitle",
-        label: null,
-        route: "/manufacturing/barcode-identification",
-      },
-    ];
->>>>>>> mfg/agent2
   }
   return [];
 }

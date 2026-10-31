@@ -11,6 +11,9 @@ import type {
   StepSummary,
 } from "@/api";
 
+type SeedResource = Partial<FabResource> & Pick<FabResource, "name">;
+type SeedMaterial = Partial<FabMaterial> & Pick<FabMaterial, "name">;
+
 export const fabEnterprises: FabEnterprise[] = [
   { name: "Main Enterprise", description: "Main Enterprise" },
   { name: "Giant Enterprise", description: "Giant Enterprise" },
@@ -195,7 +198,7 @@ export const fabAreas: FabArea[] = [
   },
 ];
 
-const implantResources: FabResource[] = Array.from({ length: 11 }, (_, i) => ({
+const implantResources: SeedResource[] = Array.from({ length: 11 }, (_, i) => ({
   name: `Implant-0${i + 1}`,
   description: `Implant-0${i + 1} Resource`,
   type: "FrontEnd",
@@ -209,7 +212,7 @@ const implantResources: FabResource[] = Array.from({ length: 11 }, (_, i) => ({
   inProcessMaterials: 0,
 }));
 
-const mixerResources: FabResource[] = [
+const mixerResources: SeedResource[] = [
   "Mixer-01",
   "Mixer-02",
   "Mixer-03",
@@ -229,7 +232,7 @@ const mixerResources: FabResource[] = [
   inProcessMaterials: i === 0 ? 1 : 0,
 }));
 
-const moulderResources: FabResource[] = [
+const moulderResources: SeedResource[] = [
   "Moulder-01",
   "Moulder-02",
   "Moulder-03",
@@ -249,7 +252,7 @@ const moulderResources: FabResource[] = [
   inProcessMaterials: i === 0 ? 1 : 0,
 }));
 
-const bakerResources: FabResource[] = [
+const bakerResources: SeedResource[] = [
   "Baker-01",
   "Baker-03",
   "Baker-04",
@@ -283,15 +286,18 @@ const zfqResource: FabResource = {
   processedMaterials: 0,
   inQueueMaterials: 0,
   inProcessMaterials: 0,
+  processingType: "Process",
+  group: "",
+  systemState: "Down",
 };
 
-export const fabResources: FabResource[] = [
+export const fabResources = [
   ...implantResources,
   ...mixerResources,
   ...moulderResources,
   ...bakerResources,
   zfqResource,
-];
+] as FabResource[];
 
 export const fabSteps: FabStep[] = [
   {
@@ -349,7 +355,7 @@ export const fabSteps: FabStep[] = [
   },
 ];
 
-export const fabMaterialsToReceive: FabMaterial[] = [
+export const fabMaterialsToReceive = [
   {
     name: "MAT-2024-001",
     quantity: 100,
@@ -374,9 +380,9 @@ export const fabMaterialsToReceive: FabMaterial[] = [
     facility: "FrontEnd",
     isRemote: true,
   },
-];
+] as FabMaterial[];
 
-export const fabUndispatchableMaterials: FabMaterial[] = [
+export const fabUndispatchableMaterials = [
   {
     name: "Material20200",
     quantity: 0,
@@ -393,7 +399,7 @@ export const fabUndispatchableMaterials: FabMaterial[] = [
     facility: "Cookie Factory",
     isRemote: false,
   },
-];
+] as FabMaterial[];
 
 const MATERIAL_NAMES = [
   "AttrMaterial",
@@ -413,7 +419,7 @@ const MATERIAL_NAMES = [
 const MATERIAL_STATES = ["Queued", "In Process", "Queued", "Queued", "Queued"];
 
 function buildStepMaterials(step: string, count: number): FabMaterial[] {
-  const rows: FabMaterial[] = [];
+  const rows = [] as FabMaterial[];
   for (let i = 0; i < count; i++) {
     const base = MATERIAL_NAMES[i % MATERIAL_NAMES.length];
     const name = i < MATERIAL_NAMES.length ? base : `${base}_${i}`;
@@ -428,6 +434,10 @@ function buildStepMaterials(step: string, count: number): FabMaterial[] {
       state: MATERIAL_STATES[i % MATERIAL_STATES.length],
       inOffFlow: i % 11 === 3,
       subMaterialCount: i % 9 === 1 ? 2 : i % 13 === 5 ? 1 : 0,
+      quantity: 0,
+      dueDate: "",
+      facility: "",
+      isRemote: false,
     });
   }
   return rows;
@@ -448,6 +458,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Productive",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-02",
@@ -456,6 +474,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Productive",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-03",
@@ -464,6 +490,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Down",
       state: "Unscheduled Down",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-04",
@@ -472,6 +506,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Productive",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-05",
@@ -480,6 +522,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Productive",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-99",
@@ -488,6 +538,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Productive",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "MixerWD",
@@ -496,6 +554,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Standby",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-03_Clone",
@@ -504,6 +570,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Standby",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-01_Clone",
@@ -512,6 +586,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Standby",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-100",
@@ -520,6 +602,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Productive",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-101",
@@ -528,6 +618,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Standby",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Mixer-101.CF3",
@@ -536,6 +634,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Productive",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "MixerWD#2",
@@ -544,6 +650,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Standby",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
   ],
   Moulding: [
@@ -554,6 +668,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Productive",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
     {
       name: "Moulder-02",
@@ -562,6 +684,14 @@ const STEP_RESOURCES: Record<string, FabResource[]> = {
       group: "",
       systemState: "Up",
       state: "Standby",
+      type: "Standard",
+      area: "",
+      facility: "",
+      stateModelState: "Standby",
+      services: [],
+      processedMaterials: 0,
+      inQueueMaterials: 0,
+      inProcessMaterials: 0,
     },
   ],
 };
@@ -574,6 +704,14 @@ const RESOURCE_DETAILS: Record<string, FabResourceDetail> = {
     group: "",
     systemState: "Up",
     state: "Productive",
+    type: "Standard",
+    area: "",
+    facility: "",
+    stateModelState: "Standby",
+    services: [],
+    processedMaterials: 0,
+    inQueueMaterials: 0,
+    inProcessMaterials: 0,
     dispatchCount: 43,
     materialsCount: 20,
     loadPortCount: 2,
@@ -591,6 +729,14 @@ const RESOURCE_DETAILS: Record<string, FabResourceDetail> = {
     group: "",
     systemState: "Up",
     state: "Productive",
+    type: "Standard",
+    area: "",
+    facility: "",
+    stateModelState: "Standby",
+    services: [],
+    processedMaterials: 0,
+    inQueueMaterials: 0,
+    inProcessMaterials: 0,
     dispatchCount: 0,
     materialsCount: 7,
     loadPortCount: 0,
@@ -604,7 +750,7 @@ const RESOURCE_DETAILS: Record<string, FabResourceDetail> = {
 };
 
 function buildResourceMaterials(count: number, baseStep: string): FabMaterial[] {
-  const rows: FabMaterial[] = [];
+  const rows = [] as FabMaterial[];
   for (let i = 0; i < count; i++) {
     rows.push({
       name: `IB_MAT${String(i + 3).padStart(2, "0")}`,
@@ -617,6 +763,10 @@ function buildResourceMaterials(count: number, baseStep: string): FabMaterial[] 
       state: "In Process",
       inOffFlow: false,
       subMaterialCount: i % 4 === 1 ? 3 : i % 6 === 4 ? 2 : 0,
+      quantity: 0,
+      dueDate: "",
+      facility: "",
+      isRemote: false,
     });
   }
   return rows;
@@ -627,7 +777,7 @@ const RESOURCE_MATERIALS: Record<string, FabMaterial[]> = {
 };
 
 function buildDispatchList(count: number): FabMaterial[] {
-  const rows: FabMaterial[] = [];
+  const rows = [] as FabMaterial[];
   for (let i = 0; i < count; i++) {
     const base = MATERIAL_NAMES[i % MATERIAL_NAMES.length];
     rows.push({
@@ -641,6 +791,10 @@ function buildDispatchList(count: number): FabMaterial[] {
       state: "Queued",
       inOffFlow: false,
       subMaterialCount: 0,
+      quantity: 0,
+      dueDate: "",
+      facility: "",
+      isRemote: false,
     });
   }
   return rows;
@@ -650,7 +804,7 @@ const DISPATCH_LISTS: Record<string, FabMaterial[]> = {
   "Mixer-01": buildDispatchList(43),
 };
 
-const STORED_MATERIALS: FabMaterial[] = [
+const STORED_MATERIALS: SeedMaterial[] = [
   {
     name: "Material20200900001",
     qty: 125,
@@ -807,7 +961,7 @@ export function queryResourceMaterials(
     RESOURCE_DETAILS[resource]?.processingType === "Storage"
       ? STORED_MATERIALS
       : (RESOURCE_MATERIALS[resource] ?? []);
-  return paginate(filterMaterials(source, q, state), page, limit);
+  return paginate(filterMaterials(source as FabMaterial[], q, state), page, limit);
 }
 
 export function queryDispatchList(
@@ -829,6 +983,14 @@ export function buildResourceDetail(name: string): FabResourceDetail {
     name,
     description: fromStep?.description ?? `${name} Resource`,
     processingType: fromStep?.processingType ?? "Process",
+    type: "Standard",
+    area: "",
+    facility: "",
+    stateModelState: "Standby",
+    services: [],
+    processedMaterials: 0,
+    inQueueMaterials: 0,
+    inProcessMaterials: 0,
     group: fromStep?.group ?? "",
     systemState: fromStep?.systemState ?? "Up",
     state: fromStep?.state ?? "Productive",
