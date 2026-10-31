@@ -84,23 +84,15 @@ export function FabExplorerPage() {
           <AreaView
             {...common}
             onSelectStep={(stepName) => go({ level: FAB_LEVELS.step, step: stepName })}
-            onSelectResource={(resourceName) => go({ level: FAB_LEVELS.resource, resource: resourceName })}
+            onSelectResource={(resourceName) =>
+              go({ level: FAB_LEVELS.resource, resource: resourceName })
+            }
           />
         );
       case FAB_LEVELS.step:
-        return (
-          <StepView
-            name={nav.step}
-            onBack={() => go({ level: FAB_LEVELS.area })}
-          />
-        );
+        return <StepView name={nav.step} onBack={() => go({ level: FAB_LEVELS.area })} />;
       case FAB_LEVELS.resource:
-        return (
-          <ResourceView
-            name={nav.resource}
-            onBack={() => go({ level: FAB_LEVELS.area })}
-          />
-        );
+        return <ResourceView name={nav.resource} onBack={() => go({ level: FAB_LEVELS.area })} />;
       default:
         return <EnterprisesView {...common} />;
     }

@@ -228,7 +228,6 @@ export function useFabDashboard(
   });
 }
 
-
 export interface FabResourceDetail extends FabResource {
   dispatchCount: number;
   materialsCount: number;

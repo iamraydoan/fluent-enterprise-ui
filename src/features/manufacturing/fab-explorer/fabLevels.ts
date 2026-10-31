@@ -1,4 +1,5 @@
-export type FabLevel = "enterprises" | "sites" | "facilities" | "facility" | "area" | "step" | "resource";
+export type FabLevel =
+  "enterprises" | "sites" | "facilities" | "facility" | "area" | "step" | "resource";
 
 export const FAB_LEVELS = {
   enterprises: "enterprises",
