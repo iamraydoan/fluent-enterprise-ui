@@ -4,6 +4,7 @@ import type { FabResourceState } from "@/api";
 import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Text, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { containsIgnoreCase } from "@/lib/utils";
 
 const useDialogStyles = makeStyles({
   stepsBar: {
@@ -58,7 +59,7 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
   const { data: resources = [] } = useFabResources(undefined, facilityName);
 
   const filtered = resources.filter(
-    (r) => !search || r.name.toLowerCase().includes(search.toLowerCase()),
+    (r) => !search || containsIgnoreCase(r.name, search),
   );
 
   const toggle = (name: string) => {

@@ -23,7 +23,11 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+<<<<<<< HEAD
 import { theme } from "@/styles/theme";
+=======
+import { containsIgnoreCase } from "@/lib/utils";
+>>>>>>> fix/iter3-agent10
 import { ManagePropertiesDialog } from "./dialogs/ManagePropertiesDialog";
 import { searchTypeLabelKey, NOT_APPLICABLE } from "./propertyUtils";
 
@@ -107,8 +111,8 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
     if (search !== "") {
       const needle = search.toLowerCase();
       if (
-        !property.name.toLowerCase().includes(needle) &&
-        !property.description.toLowerCase().includes(needle)
+        !containsIgnoreCase(property.name, needle) &&
+        !containsIgnoreCase(property.description, needle)
       )
         return false;
     }

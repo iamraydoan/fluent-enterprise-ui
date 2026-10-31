@@ -11,6 +11,11 @@ import {
 import { Globe24Regular, Grid24Regular, Organization24Regular } from "@/components/icons";
 import { Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+<<<<<<< HEAD
+=======
+import { containsIgnoreCase } from "@/lib/utils";
+import { tileSurface } from "@/styles/shared";
+>>>>>>> fix/iter3-agent10
 import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
 
@@ -59,7 +64,7 @@ export function EnterprisesView({ nav, go }: EnterprisesViewProps) {
 
   const filteredFacilities = facilities.filter((f) => {
     if (typeFilter !== "ALL" && f.type !== typeFilter) return false;
-    if (search && !f.name.toLowerCase().includes(search.toLowerCase())) return false;
+    if (search && !containsIgnoreCase(f.name, search)) return false;
     return true;
   });
 

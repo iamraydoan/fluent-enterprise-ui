@@ -4,6 +4,7 @@ import type { FabResourceState } from "@/api";
 import { Card, FilterBar, FilterGroup, SidePanel } from "@/components/common";
 import { makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { containsIgnoreCase } from "@/lib/utils";
 import { useSharedStyles, tileSurface } from "@/styles/shared";
 import type { FabNavigation } from "../FabExplorerPage";
 
@@ -95,7 +96,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
 
   const filteredResources = resources.filter((r) => {
     if (stateFilter !== "ALL" && r.state !== stateFilter) return false;
-    if (search && !r.name.toLowerCase().includes(search.toLowerCase())) return false;
+    if (search && !containsIgnoreCase(r.name, search)) return false;
     return true;
   });
 
