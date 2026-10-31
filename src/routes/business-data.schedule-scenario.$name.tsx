@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ScheduleScenarioDetailPage } from "@/features/business-data/entities/schedule-scenario/ScheduleScenarioDetailPage";
+import { ScheduleScenarioDetailPage } from "@/features/business-data/schedule-scenario/ScheduleScenarioDetailPage";
 
 function ScheduleScenarioDetailRoute() {
   const { name } = Route.useParams();

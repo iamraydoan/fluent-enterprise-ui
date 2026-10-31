@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ProductGroupListPage } from "@/features/business-data/entities/product-group/ProductGroupListPage";
+import { ProductGroupListPage } from "@/features/business-data/product-group/ProductGroupListPage";
 
 function ProductGroupRoute() {
   const location = useLocation();

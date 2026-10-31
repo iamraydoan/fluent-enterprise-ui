@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SetupMatrixDetailPage } from "@/features/business-data/entities/setup-matrix/SetupMatrixDetailPage";
+import { SetupMatrixDetailPage } from "@/features/business-data/setup-matrix/SetupMatrixDetailPage";
 
 function SetupMatrixDetailRoute() {
   const { name } = Route.useParams();

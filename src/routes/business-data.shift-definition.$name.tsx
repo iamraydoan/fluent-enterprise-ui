@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ShiftDefinitionDetailPage } from "@/features/business-data/entities/shift-definition/ShiftDefinitionDetailPage";
+import { ShiftDefinitionDetailPage } from "@/features/business-data/shift-definition/ShiftDefinitionDetailPage";
 
 function ShiftDefinitionDetailRoute() {
   const { name } = Route.useParams();

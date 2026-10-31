@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { MaterialListPage } from "@/features/business-data/entities/material/MaterialListPage";
+import { MaterialListPage } from "@/features/business-data/material/MaterialListPage";
 
 function MaterialRoute() {
   const location = useLocation();

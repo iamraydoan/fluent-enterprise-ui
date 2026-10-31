@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { SendAheadRunListPage } from "@/features/business-data/entities/send-ahead-run/SendAheadRunListPage";
+import { SendAheadRunListPage } from "@/features/business-data/send-ahead-run/SendAheadRunListPage";
 
 function SendAheadRunRoute() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ChartListPage } from "@/features/business-data/entities/chart/ChartListPage";
+import { ChartListPage } from "@/features/business-data/chart/ChartListPage";
 
 function ChartRoute() {
   const location = useLocation();

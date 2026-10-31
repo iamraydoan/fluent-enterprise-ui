@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ProductionOrderDetailPage } from "@/features/business-data/entities/production-order/ProductionOrderDetailPage";
+import { ProductionOrderDetailPage } from "@/features/business-data/production-order/ProductionOrderDetailPage";
 
 function ProductionOrderDetailRoute() {
   const { name } = Route.useParams();

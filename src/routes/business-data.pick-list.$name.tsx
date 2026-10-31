@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PickListDetailPage } from "@/features/business-data/entities/pick-list/PickListDetailPage";
+import { PickListDetailPage } from "@/features/business-data/pick-list/PickListDetailPage";
 
 function PickListDetailRoute() {
   const { name } = Route.useParams();

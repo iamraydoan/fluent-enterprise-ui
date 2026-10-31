@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { WorkgroupListPage } from "@/features/business-data/entities/workgroup/WorkgroupListPage";
+import { WorkgroupListPage } from "@/features/business-data/workgroup/WorkgroupListPage";
 
 function WorkgroupRoute() {
   const location = useLocation();

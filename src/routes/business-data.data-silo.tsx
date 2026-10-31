@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { DataSiloListPage } from "@/features/business-data/entities/data-silo/DataSiloListPage";
+import { DataSiloListPage } from "@/features/business-data/data-silo/DataSiloListPage";
 
 function DataSiloRoute() {
   const location = useLocation();

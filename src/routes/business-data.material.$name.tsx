@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MaterialDetailPage } from "@/features/business-data/entities/material/MaterialDetailPage";
+import { MaterialDetailPage } from "@/features/business-data/material/MaterialDetailPage";
 
 function MaterialDetailRoute() {
   const { name } = Route.useParams();

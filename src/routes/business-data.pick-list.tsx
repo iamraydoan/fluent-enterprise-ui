@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { PickListListPage } from "@/features/business-data/entities/pick-list/PickListListPage";
+import { PickListListPage } from "@/features/business-data/pick-list/PickListListPage";
 
 function PickListRoute() {
   const location = useLocation();

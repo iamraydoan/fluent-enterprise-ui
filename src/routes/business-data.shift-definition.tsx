@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ShiftDefinitionListPage } from "@/features/business-data/entities/shift-definition/ShiftDefinitionListPage";
+import { ShiftDefinitionListPage } from "@/features/business-data/shift-definition/ShiftDefinitionListPage";
 
 function ShiftDefinitionRoute() {
   const location = useLocation();

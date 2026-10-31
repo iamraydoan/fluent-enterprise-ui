@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ScheduleListPage } from "@/features/business-data/entities/schedule/ScheduleListPage";
+import { ScheduleListPage } from "@/features/business-data/schedule/ScheduleListPage";
 
 function ScheduleRoute() {
   const location = useLocation();

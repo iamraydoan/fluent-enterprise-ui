@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ShiftLogbookListPage } from "@/features/business-data/entities/shift-logbook/ShiftLogbookListPage";
+import { ShiftLogbookListPage } from "@/features/business-data/shift-logbook/ShiftLogbookListPage";
 
 function ShiftLogbookRoute() {
   const location = useLocation();

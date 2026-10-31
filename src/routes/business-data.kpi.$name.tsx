@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { KpiDetailPage } from "@/features/business-data/entities/kpi/KpiDetailPage";
+import { KpiDetailPage } from "@/features/business-data/kpi/KpiDetailPage";
 
 function KpiDetailRoute() {
   const { name } = Route.useParams();

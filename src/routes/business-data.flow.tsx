@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { FlowListPage } from "@/features/business-data/entities/flow/FlowListPage";
+import { FlowListPage } from "@/features/business-data/flow/FlowListPage";
 
 function FlowRoute() {
   const location = useLocation();

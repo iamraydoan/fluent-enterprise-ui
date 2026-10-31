@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ResourceJobDetailPage } from "@/features/business-data/entities/resource-job/ResourceJobDetailPage";
+import { ResourceJobDetailPage } from "@/features/business-data/resource-job/ResourceJobDetailPage";
 
 function ResourceJobDetailRoute() {
   const { name } = Route.useParams();

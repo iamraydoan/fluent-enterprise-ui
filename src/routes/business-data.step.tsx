@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { StepListPage } from "@/features/business-data/entities/step/StepListPage";
+import { StepListPage } from "@/features/business-data/step/StepListPage";
 
 function StepRoute() {
   const location = useLocation();

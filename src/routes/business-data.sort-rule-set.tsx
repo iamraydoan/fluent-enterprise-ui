@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { SortRuleSetListPage } from "@/features/business-data/entities/sort-rule-set/SortRuleSetListPage";
+import { SortRuleSetListPage } from "@/features/business-data/sort-rule-set/SortRuleSetListPage";
 
 function SortRuleSetRoute() {
   const location = useLocation();

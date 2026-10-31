@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MaintenancePlanDetailPage } from "@/features/business-data/entities/maintenance-plan/MaintenancePlanDetailPage";
+import { MaintenancePlanDetailPage } from "@/features/business-data/maintenance-plan/MaintenancePlanDetailPage";
 
 function MaintenancePlanDetailRoute() {
   const { name } = Route.useParams();

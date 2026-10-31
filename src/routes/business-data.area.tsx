@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { AreaListPage } from "@/features/business-data/entities/area/AreaListPage";
+import { AreaListPage } from "@/features/business-data/area/AreaListPage";
 
 function AreaRoute() {
   const location = useLocation();

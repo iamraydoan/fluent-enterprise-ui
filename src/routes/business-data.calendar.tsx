@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { CalendarListPage } from "@/features/business-data/entities/calendar/CalendarListPage";
+import { CalendarListPage } from "@/features/business-data/calendar/CalendarListPage";
 
 function CalendarRoute() {
   const location = useLocation();

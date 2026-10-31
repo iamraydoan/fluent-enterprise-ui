@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SubstrateMapMaskDetailPage } from "@/features/business-data/entities/substrate-map-mask/SubstrateMapMaskDetailPage";
+import { SubstrateMapMaskDetailPage } from "@/features/business-data/substrate-map-mask/SubstrateMapMaskDetailPage";
 
 function SubstrateMapMaskDetailRoute() {
   const { name } = Route.useParams();

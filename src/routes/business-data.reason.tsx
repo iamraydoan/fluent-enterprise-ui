@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ReasonListPage } from "@/features/business-data/entities/reason/ReasonListPage";
+import { ReasonListPage } from "@/features/business-data/reason/ReasonListPage";
 
 function ReasonRoute() {
   const location = useLocation();

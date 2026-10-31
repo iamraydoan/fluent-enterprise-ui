@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { QualificationCheckDetailPage } from "@/features/business-data/entities/qualification-check/QualificationCheckDetailPage";
+import { QualificationCheckDetailPage } from "@/features/business-data/qualification-check/QualificationCheckDetailPage";
 
 function QualificationCheckDetailRoute() {
   const { name } = Route.useParams();

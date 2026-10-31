@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { MaintenancePlanListPage } from "@/features/business-data/entities/maintenance-plan/MaintenancePlanListPage";
+import { MaintenancePlanListPage } from "@/features/business-data/maintenance-plan/MaintenancePlanListPage";
 
 function MaintenancePlanRoute() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { PeriodicInventoryListPage } from "@/features/business-data/entities/periodic-inventory/PeriodicInventoryListPage";
+import { PeriodicInventoryListPage } from "@/features/business-data/periodic-inventory/PeriodicInventoryListPage";
 
 function PeriodicInventoryRoute() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ProtocolDetailPage } from "@/features/business-data/entities/protocol/ProtocolDetailPage";
+import { ProtocolDetailPage } from "@/features/business-data/protocol/ProtocolDetailPage";
 
 function ProtocolDetailRoute() {
   const { name } = Route.useParams();

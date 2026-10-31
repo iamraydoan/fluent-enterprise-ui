@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { NotificationDetailPage } from "@/features/business-data/entities/notification/NotificationDetailPage";
+import { NotificationDetailPage } from "@/features/business-data/notification/NotificationDetailPage";
 
 function NotificationDetailRoute() {
   const { name } = Route.useParams();

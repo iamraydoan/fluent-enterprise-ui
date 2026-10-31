@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ResourceJobListPage } from "@/features/business-data/entities/resource-job/ResourceJobListPage";
+import { ResourceJobListPage } from "@/features/business-data/resource-job/ResourceJobListPage";
 
 function ResourceJobRoute() {
   const location = useLocation();

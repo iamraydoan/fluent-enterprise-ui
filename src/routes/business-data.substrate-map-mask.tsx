@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { SubstrateMapMaskListPage } from "@/features/business-data/entities/substrate-map-mask/SubstrateMapMaskListPage";
+import { SubstrateMapMaskListPage } from "@/features/business-data/substrate-map-mask/SubstrateMapMaskListPage";
 
 function SubstrateMapMaskRoute() {
   const location = useLocation();

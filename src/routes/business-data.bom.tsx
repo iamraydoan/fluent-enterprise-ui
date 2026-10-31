@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { BomListPage } from "@/features/business-data/entities/bom/BomListPage";
+import { BomListPage } from "@/features/business-data/bom/BomListPage";
 
 function BomRoute() {
   const location = useLocation();

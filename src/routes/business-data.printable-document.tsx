@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { PrintableDocumentListPage } from "@/features/business-data/entities/printable-document/PrintableDocumentListPage";
+import { PrintableDocumentListPage } from "@/features/business-data/printable-document/PrintableDocumentListPage";
 
 function PrintableDocumentRoute() {
   const location = useLocation();

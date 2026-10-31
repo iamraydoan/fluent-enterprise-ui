@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { TransferOrderListPage } from "@/features/business-data/entities/transfer-order/TransferOrderListPage";
+import { TransferOrderListPage } from "@/features/business-data/transfer-order/TransferOrderListPage";
 
 function TransferOrderRoute() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { TeamListPage } from "@/features/business-data/entities/team/TeamListPage";
+import { TeamListPage } from "@/features/business-data/team/TeamListPage";
 
 function TeamRoute() {
   const location = useLocation();

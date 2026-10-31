@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { SamplingPatternListPage } from "@/features/business-data/entities/sampling-pattern/SamplingPatternListPage";
+import { SamplingPatternListPage } from "@/features/business-data/sampling-pattern/SamplingPatternListPage";
 
 function SamplingPatternRoute() {
   const location = useLocation();

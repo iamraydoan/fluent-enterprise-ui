@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { EnterpriseListPage } from "@/features/business-data/entities/enterprise/EnterpriseListPage";
+import { EnterpriseListPage } from "@/features/business-data/enterprise/EnterpriseListPage";
 
 function EnterpriseRoute() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PrintableDocumentDetailPage } from "@/features/business-data/entities/printable-document/PrintableDocumentDetailPage";
+import { PrintableDocumentDetailPage } from "@/features/business-data/printable-document/PrintableDocumentDetailPage";
 
 function PrintableDocumentDetailRoute() {
   const { name } = Route.useParams();

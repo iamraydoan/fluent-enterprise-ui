@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { MapListPage } from "@/features/business-data/entities/map/MapListPage";
+import { MapListPage } from "@/features/business-data/map/MapListPage";
 
 function MapRoute() {
   const location = useLocation();

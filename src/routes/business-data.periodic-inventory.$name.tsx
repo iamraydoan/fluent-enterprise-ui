@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PeriodicInventoryDetailPage } from "@/features/business-data/entities/periodic-inventory/PeriodicInventoryDetailPage";
+import { PeriodicInventoryDetailPage } from "@/features/business-data/periodic-inventory/PeriodicInventoryDetailPage";
 
 function PeriodicInventoryDetailRoute() {
   const { name } = Route.useParams();

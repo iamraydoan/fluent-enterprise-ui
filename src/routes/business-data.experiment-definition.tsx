@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ExperimentDefinitionListPage } from "@/features/business-data/entities/experiment-definition/ExperimentDefinitionListPage";
+import { ExperimentDefinitionListPage } from "@/features/business-data/experiment-definition/ExperimentDefinitionListPage";
 
 function ExperimentDefinitionRoute() {
   const location = useLocation();

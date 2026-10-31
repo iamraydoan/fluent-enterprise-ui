@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ExperimentDefinitionDetailPage } from "@/features/business-data/entities/experiment-definition/ExperimentDefinitionDetailPage";
+import { ExperimentDefinitionDetailPage } from "@/features/business-data/experiment-definition/ExperimentDefinitionDetailPage";
 
 function ExperimentDefinitionDetailRoute() {
   const { name } = Route.useParams();

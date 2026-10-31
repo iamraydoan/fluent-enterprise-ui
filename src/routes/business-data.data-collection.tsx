@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { DataCollectionListPage } from "@/features/business-data/entities/data-collection/DataCollectionListPage";
+import { DataCollectionListPage } from "@/features/business-data/data-collection/DataCollectionListPage";
 
 function DataCollectionRoute() {
   const location = useLocation();

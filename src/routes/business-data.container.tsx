@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ContainerListPage } from "@/features/business-data/entities/container/ContainerListPage";
+import { ContainerListPage } from "@/features/business-data/container/ContainerListPage";
 
 function ContainerRoute() {
   const location = useLocation();

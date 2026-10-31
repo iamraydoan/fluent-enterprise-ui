@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { DataCollectionLimitSetListPage } from "@/features/business-data/entities/data-collection-limit-set/DataCollectionLimitSetListPage";
+import { DataCollectionLimitSetListPage } from "@/features/business-data/data-collection-limit-set/DataCollectionLimitSetListPage";
 
 function DataCollectionLimitSetRoute() {
   const location = useLocation();

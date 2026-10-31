@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { ChangeSetListPage } from "@/features/business-data/entities/change-set/ChangeSetListPage";
+import { ChangeSetListPage } from "@/features/business-data/change-set/ChangeSetListPage";
 
 function ChangeSetRoute() {
   const location = useLocation();

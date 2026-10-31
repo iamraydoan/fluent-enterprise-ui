@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { QualificationCheckListPage } from "@/features/business-data/entities/qualification-check/QualificationCheckListPage";
+import { QualificationCheckListPage } from "@/features/business-data/qualification-check/QualificationCheckListPage";
 
 function QualificationCheckRoute() {
   const location = useLocation();

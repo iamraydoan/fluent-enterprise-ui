@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { KpiListPage } from "@/features/business-data/entities/kpi/KpiListPage";
+import { KpiListPage } from "@/features/business-data/kpi/KpiListPage";
 
 function KpiRoute() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { NotificationListPage } from "@/features/business-data/entities/notification/NotificationListPage";
+import { NotificationListPage } from "@/features/business-data/notification/NotificationListPage";
 
 function NotificationRoute() {
   const location = useLocation();

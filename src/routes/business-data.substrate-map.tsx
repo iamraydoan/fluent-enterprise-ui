@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { SubstrateMapListPage } from "@/features/business-data/entities/substrate-map/SubstrateMapListPage";
+import { SubstrateMapListPage } from "@/features/business-data/substrate-map/SubstrateMapListPage";
 
 function SubstrateMapRoute() {
   const location = useLocation();

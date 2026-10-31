@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FlowDetailPage } from "@/features/business-data/entities/flow/FlowDetailPage";
+import { FlowDetailPage } from "@/features/business-data/flow/FlowDetailPage";
 
 function FlowDetailRoute() {
   const { name } = Route.useParams();

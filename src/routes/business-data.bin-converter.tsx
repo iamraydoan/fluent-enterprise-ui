@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { BinConverterListPage } from "@/features/business-data/entities/bin-converter/BinConverterListPage";
+import { BinConverterListPage } from "@/features/business-data/bin-converter/BinConverterListPage";
 
 function BinConverterRoute() {
   const location = useLocation();

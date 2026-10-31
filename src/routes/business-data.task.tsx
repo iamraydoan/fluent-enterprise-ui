@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { TaskListPage } from "@/features/business-data/entities/task/TaskListPage";
+import { TaskListPage } from "@/features/business-data/task/TaskListPage";
 
 function TaskRoute() {
   const location = useLocation();

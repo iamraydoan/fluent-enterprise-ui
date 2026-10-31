@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { WorkgroupDetailPage } from "@/features/business-data/entities/workgroup/WorkgroupDetailPage";
+import { WorkgroupDetailPage } from "@/features/business-data/workgroup/WorkgroupDetailPage";
 
 function WorkgroupDetailRoute() {
   const { name } = Route.useParams();

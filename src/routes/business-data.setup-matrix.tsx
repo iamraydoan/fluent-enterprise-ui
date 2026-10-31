@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { SetupMatrixListPage } from "@/features/business-data/entities/setup-matrix/SetupMatrixListPage";
+import { SetupMatrixListPage } from "@/features/business-data/setup-matrix/SetupMatrixListPage";
 
 function SetupMatrixRoute() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DocumentDetailPage } from "@/features/business-data/entities/document/DocumentDetailPage";
+import { DocumentDetailPage } from "@/features/business-data/document/DocumentDetailPage";
 
 function DocumentDetailRoute() {
   const { name } = Route.useParams();

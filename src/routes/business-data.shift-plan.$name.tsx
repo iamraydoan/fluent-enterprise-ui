@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ShiftPlanDetailPage } from "@/features/business-data/entities/shift-plan/ShiftPlanDetailPage";
+import { ShiftPlanDetailPage } from "@/features/business-data/shift-plan/ShiftPlanDetailPage";
 
 function ShiftPlanDetailRoute() {
   const { name } = Route.useParams();

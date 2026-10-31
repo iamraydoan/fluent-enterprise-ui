@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { BatchListPage } from "@/features/business-data/entities/batch/BatchListPage";
+import { BatchListPage } from "@/features/business-data/batch/BatchListPage";
 
 function BatchRoute() {
   const location = useLocation();

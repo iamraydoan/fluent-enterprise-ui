@@ -1,5 +1,5 @@
 import { Outlet, createFileRoute, useLocation } from "@tanstack/react-router";
-import { BusinessPartnerListPage } from "@/features/business-data/entities/business-partner/BusinessPartnerListPage";
+import { BusinessPartnerListPage } from "@/features/business-data/business-partner/BusinessPartnerListPage";
 
 function BusinessPartnerRoute() {
   const location = useLocation();
