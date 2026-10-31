@@ -1,5 +1,6 @@
 import { RecordState } from "@/api";
 import type { Page, ShiftDefinitionDetail, ShiftDefinitionRecord } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: ShiftDefinitionRecord[] = [
   {
@@ -63,22 +64,8 @@ export function queryShiftDefinitions(
   q?: string,
   state?: string,
 ): Page<ShiftDefinitionRecord> {
-  let rows = RECORDS;
-  if (q !== undefined && q !== "") {
-    const needle = q.toLowerCase();
-    rows = rows.filter(
-      (record) =>
-        record.name.toLowerCase().includes(needle) ||
-        record.description.toLowerCase().includes(needle),
-    );
-  }
-  if (state !== undefined && state !== "") {
-    const needle = state.toLowerCase();
-    rows = rows.filter((record) => record.state.toLowerCase() === needle);
-  }
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(RECORDS, q, ["name", "description"]), state);
+  return paginate(rows, page, limit);
 }
 
 export function buildShiftDefinitionDetail(name: string): ShiftDefinitionDetail | undefined {

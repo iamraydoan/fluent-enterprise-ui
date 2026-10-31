@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
 
@@ -22,15 +23,7 @@ export type ConfigurationListParams = ListQueryParams;
 export function listConfigurations(
   params: ConfigurationListParams,
 ): Promise<Page<ConfigurationEntry>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.sort) search.set("sort", params.sort);
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.searchFields) search.set("searchFields", params.filters.searchFields);
-  if (params.filters?.type) search.set("type", params.filters.type);
-  if (params.filters?.userConfigs) search.set("userConfigs", params.filters.userConfigs);
-  if (params.filters?.displayBy) search.set("displayBy", params.filters.displayBy);
+  const search = toListSearchParams(params);
   return apiFetch<Page<ConfigurationEntry>>(`/configurations?${search.toString()}`);
 }
 

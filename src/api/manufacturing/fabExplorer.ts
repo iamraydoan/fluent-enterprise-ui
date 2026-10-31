@@ -2,6 +2,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { apiFetch } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 
 export interface FabEnterprise {
   name: string;
@@ -112,9 +113,7 @@ export function useFabSites(enterprise?: string) {
   return useQuery({
     queryKey: ["fabExplorer", "sites", enterprise],
     queryFn: () => {
-      const search = new URLSearchParams();
-      if (enterprise) search.set("enterprise", enterprise);
-      const qs = search.toString();
+      const qs = toListSearchParams({ enterprise }).toString();
       return apiFetch<FabSite[]>(`/manufacturing/fab-explorer/sites${qs ? `?${qs}` : ""}`);
     },
   });
@@ -124,10 +123,7 @@ export function useFabFacilities(site?: string, enterprise?: string) {
   return useQuery({
     queryKey: ["fabExplorer", "facilities", site, enterprise],
     queryFn: () => {
-      const search = new URLSearchParams();
-      if (site) search.set("site", site);
-      if (enterprise) search.set("enterprise", enterprise);
-      const qs = search.toString();
+      const qs = toListSearchParams({ site, enterprise }).toString();
       return apiFetch<FabFacility[]>(`/manufacturing/fab-explorer/facilities${qs ? `?${qs}` : ""}`);
     },
     placeholderData: keepPreviousData,
@@ -147,9 +143,7 @@ export function useFabAreas(facility?: string) {
   return useQuery({
     queryKey: ["fabExplorer", "areas", facility],
     queryFn: () => {
-      const search = new URLSearchParams();
-      if (facility) search.set("facility", facility);
-      const qs = search.toString();
+      const qs = toListSearchParams({ facility }).toString();
       return apiFetch<FabArea[]>(`/manufacturing/fab-explorer/areas${qs ? `?${qs}` : ""}`);
     },
     placeholderData: keepPreviousData,
@@ -169,10 +163,7 @@ export function useFabResources(area?: string, facility?: string) {
   return useQuery({
     queryKey: ["fabExplorer", "resources", area, facility],
     queryFn: () => {
-      const search = new URLSearchParams();
-      if (area) search.set("area", area);
-      if (facility) search.set("facility", facility);
-      const qs = search.toString();
+      const qs = toListSearchParams({ area, facility }).toString();
       return apiFetch<FabResource[]>(`/manufacturing/fab-explorer/resources${qs ? `?${qs}` : ""}`);
     },
     placeholderData: keepPreviousData,
@@ -183,9 +174,7 @@ export function useFabSteps(area?: string) {
   return useQuery({
     queryKey: ["fabExplorer", "steps", area],
     queryFn: () => {
-      const search = new URLSearchParams();
-      if (area) search.set("area", area);
-      const qs = search.toString();
+      const qs = toListSearchParams({ area }).toString();
       return apiFetch<FabStep[]>(`/manufacturing/fab-explorer/steps${qs ? `?${qs}` : ""}`);
     },
     placeholderData: keepPreviousData,
@@ -212,9 +201,7 @@ export function useFabUndispatchableMaterials(area?: string) {
   return useQuery({
     queryKey: ["fabExplorer", "undispatchableMaterials", area],
     queryFn: () => {
-      const search = new URLSearchParams();
-      if (area) search.set("area", area);
-      const qs = search.toString();
+      const qs = toListSearchParams({ area }).toString();
       return apiFetch<FabMaterial[]>(
         `/manufacturing/fab-explorer/undispatchable-materials${qs ? `?${qs}` : ""}`,
       );
@@ -257,16 +244,7 @@ export interface StepSummary {
 }
 
 function toSearch(params: ListQueryParams): string {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  if (params.filters?.product) search.set("product", params.filters.product);
-  if (params.filters?.flow) search.set("flow", params.filters.flow);
-  if (params.filters?.processingType) search.set("processingType", params.filters.processingType);
-  if (params.filters?.systemState) search.set("systemState", params.filters.systemState);
-  return search.toString();
+  return toListSearchParams(params).toString();
 }
 
 export interface FabOperationInput {

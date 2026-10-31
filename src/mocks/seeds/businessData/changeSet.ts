@@ -1,4 +1,5 @@
 import type { ChangeSetDetail, ChangeSetRecord, Page } from "@/api";
+import { filterByQuery, filterByState, paginate } from "../../mockUtils";
 
 const RECORDS: ChangeSetRecord[] = [
   {
@@ -23,16 +24,8 @@ export function queryChangeSets(
   q?: string,
   state?: string,
 ): Page<ChangeSetRecord> {
-  let rows = RECORDS;
-  if (q) {
-    const n = q.toLowerCase();
-    rows = rows.filter((r) => r.name.toLowerCase().includes(n));
-  }
-  if (state && state !== "" && state !== "all")
-    rows = rows.filter((r) => r.state.toLowerCase() === state.toLowerCase());
-  const total = rows.length;
-  const start = (page - 1) * limit;
-  return { data: rows.slice(start, start + limit), meta: { total, page, limit } };
+  const rows = filterByState(filterByQuery(RECORDS, q, ["name"]), state);
+  return paginate(rows, page, limit);
 }
 
 const CHANGE_SET_OVERLAYS: Record<string, Partial<ChangeSetDetail>> = {};

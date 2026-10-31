@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { toListSearchParams } from "@/lib/listQuery";
 import { apiFetch } from "./client";
 
 export type WorkgroupSystemState = "Up" | "Down";
@@ -45,11 +46,7 @@ export interface MyWorkgroupStepParams {
 }
 
 function toSearchParams(params: Record<string, string | undefined>): string {
-  const search = new URLSearchParams();
-  for (const [key, value] of Object.entries(params)) {
-    if (value !== undefined && value !== "") search.set(key, value);
-  }
-  return search.toString();
+  return toListSearchParams(params).toString();
 }
 
 export function listMyWorkgroupResources(
