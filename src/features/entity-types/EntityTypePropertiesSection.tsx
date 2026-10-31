@@ -23,7 +23,7 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { ManagePropertiesDialog } from "./ManagePropertiesDialog";
+import { ManagePropertiesDialog } from "./dialogs/ManagePropertiesDialog";
 import { searchTypeLabelKey, NOT_APPLICABLE } from "./propertyUtils";
 
 const useSectionStyles = makeStyles({

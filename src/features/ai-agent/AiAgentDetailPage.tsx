@@ -37,9 +37,6 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useTabsStore } from "@/stores/tabs-store";
-import { EditInstructionsDialog } from "./EditInstructionsDialog";
-import { ManageMcpDialog } from "./ManageMcpDialog";
-import { ToolDescriptionDialog } from "./ToolDescriptionDialog";
 import type { ToolSelection } from "./data";
 import {
   AI_AGENT_SECTIONS,
@@ -47,6 +44,9 @@ import {
   INITIAL_TOOL_SELECTION,
   toolDescription,
 } from "./data";
+import { EditInstructionsDialog } from "./dialogs/EditInstructionsDialog";
+import { ManageMcpDialog } from "./dialogs/ManageMcpDialog";
+import { ToolDescriptionDialog } from "./dialogs/ToolDescriptionDialog";
 
 const useDetailStyles = makeStyles({
   titleRow: {

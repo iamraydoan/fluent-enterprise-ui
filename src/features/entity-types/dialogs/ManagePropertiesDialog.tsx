@@ -22,7 +22,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
-import { DEFAULT_SEARCH_TYPE, isContainsSearchType, searchTypeLabelKey } from "./propertyUtils";
+import { DEFAULT_SEARCH_TYPE, isContainsSearchType, searchTypeLabelKey } from "../propertyUtils";
 
 const MAX_SEARCHABLE = 2;
 

@@ -8,9 +8,9 @@ import {
 } from "@/components/icons";
 import { Button, Checkbox, Input, makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { AGENT_MCP_SERVERS, agentServerTools } from "../data";
+import type { ToolSelection } from "../data";
 import { DialogAgentSub, DialogShell } from "./DialogShell";
-import { AGENT_MCP_SERVERS, agentServerTools } from "./data";
-import type { ToolSelection } from "./data";
 
 const useManageStyles = makeStyles({
   cols: {

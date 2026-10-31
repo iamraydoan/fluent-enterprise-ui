@@ -1,8 +1,8 @@
 import { Eye20Regular } from "@/components/icons";
 import { Button, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { toolDescription } from "../data";
 import { DialogShell } from "./DialogShell";
-import { toolDescription } from "./data";
 
 const useDescriptionStyles = makeStyles({
   desc: { padding: "28px 32px", fontSize: "13px", lineHeight: "20px", whiteSpace: "pre-wrap" },
