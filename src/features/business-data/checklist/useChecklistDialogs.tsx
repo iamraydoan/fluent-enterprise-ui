@@ -14,6 +14,13 @@ import { ConfirmOperationDialog } from "../components/ConfirmOperationDialog";
 import { EntityWizardDialog } from "../components/EntityWizardDialog";
 import type { OperationValues, WizardField, WizardStep } from "../components/operationTypes";
 import {
+  CHECKLIST_SCOPES,
+  EXECUTING_STATE_EXECUTING,
+  EXECUTING_STATE_PAUSED,
+  EXECUTION_MODES,
+  type InstanceItemState,
+} from "./checklistLookups";
+import {
   ChecklistItemsEditor,
   type ChecklistItemRow,
   CloneChecklistDialog,
@@ -24,14 +31,7 @@ import {
   PauseChecklistInstanceDialog,
   PerformChecklistDialog,
   PreviewChecklistDialog,
-} from "./ChecklistDialogs";
-import {
-  CHECKLIST_SCOPES,
-  EXECUTING_STATE_EXECUTING,
-  EXECUTING_STATE_PAUSED,
-  EXECUTION_MODES,
-  type InstanceItemState,
-} from "./checklistLookups";
+} from "./dialogs";
 
 const SCOPE_OPTIONS = CHECKLIST_SCOPES.map((v) => ({ value: v, label: v }));
 const EXECUTION_MODE_OPTIONS = EXECUTION_MODES.map((v) => ({ value: v, label: v }));

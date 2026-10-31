@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
-import { Button, Input, Text, makeStyles } from "@/components/ui";
+import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
 const useDialogStyles = makeStyles({
@@ -11,14 +11,6 @@ const useDialogStyles = makeStyles({
     columnGap: "8px",
     alignItems: "center",
     marginBottom: "8px",
-  },
-  fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "180px 1fr",
-    alignItems: "center",
-    columnGap: "12px",
-    marginBottom: "12px",
-    marginTop: "16px",
   },
 });
 
@@ -71,10 +63,9 @@ export function ShiftDefinitionCloneDialog({
       >
         {t("actionBar.create")}
       </Button>
-      <div className={styles.fieldRow}>
-        <Text>{t("businessData.shiftDefinition.clone.comment")}</Text>
+      <FormField label={<>{t("businessData.shiftDefinition.clone.comment")}</>}>
         <Input value={comment} onChange={(_, d) => setComment(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

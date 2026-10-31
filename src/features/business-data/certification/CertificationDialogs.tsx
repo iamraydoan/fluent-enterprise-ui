@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Checkbox, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { OperationValues } from "../components/operationTypes";
@@ -128,12 +128,18 @@ function EmployeeDialogShell({
         </span>
         <Input type="date" value={plannedDate} onChange={(_, data) => setPlannedDate(data.value)} />
       </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>
-          {t("businessData.certification.operations.remark")}
-        </span>
+      <FormField
+        label={
+          <>
+            <span className={styles.fieldLabel}>
+              {t("businessData.certification.operations.remark")}
+            </span>
+          </>
+        }
+        labelWidth="170px"
+      >
         <Input value={remark} onChange={(_, data) => setRemark(data.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

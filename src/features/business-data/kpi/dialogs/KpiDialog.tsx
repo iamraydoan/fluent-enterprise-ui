@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -35,7 +35,6 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useStyles = makeStyles({
-  field: { display: "grid", gridTemplateColumns: "150px 1fr", gap: "12px", alignItems: "center" },
   select: {
     padding: "6px 8px",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -85,23 +84,24 @@ export function KpiDialog({ mode, initialName, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.name)}
-        </label>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.name)}
+          </>
+        }
+        labelWidth="150px"
+      >
         <Input value={name} onChange={(_, d) => setName(d.value)} disabled={mode === MODE_EDIT} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.description)}</label>
+      </FormField>
+      <FormField label={<>{t(L.description)}</>} labelWidth="150px">
         <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.type)}</label>
+      </FormField>
+      <FormField label={<>{t(L.type)}</>} labelWidth="150px">
         <Input value={type} onChange={(_, d) => setType(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.sourceType)}</label>
+      </FormField>
+      <FormField label={<>{t(L.sourceType)}</>} labelWidth="150px">
         <select
           className={styles.select}
           value={sourceType}
@@ -110,17 +110,14 @@ export function KpiDialog({ mode, initialName, onClose }: DialogProps) {
           <option value="Static">{t(L.sourceTypeStatic)}</option>
           <option value="Dynamic">{t(L.sourceTypeDynamic)}</option>
         </select>
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.entityType)}</label>
+      </FormField>
+      <FormField label={<>{t(L.entityType)}</>} labelWidth="150px">
         <Input value={entityType} onChange={(_, d) => setEntityType(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.parameter)}</label>
+      </FormField>
+      <FormField label={<>{t(L.parameter)}</>} labelWidth="150px">
         <Input value={parameter} onChange={(_, d) => setParameter(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.kpiType)}</label>
+      </FormField>
+      <FormField label={<>{t(L.kpiType)}</>} labelWidth="150px">
         <select
           className={styles.select}
           value={kpiType}
@@ -130,9 +127,8 @@ export function KpiDialog({ mode, initialName, onClose }: DialogProps) {
           <option value="Minimum">{t(L.kpiTypeMinimum)}</option>
           <option value="Deviation">{t(L.kpiTypeDeviation)}</option>
         </select>
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.frequency)}</label>
+      </FormField>
+      <FormField label={<>{t(L.frequency)}</>} labelWidth="150px">
         <select
           className={styles.select}
           value={frequency}
@@ -143,11 +139,10 @@ export function KpiDialog({ mode, initialName, onClose }: DialogProps) {
           <option value="Monthly">{t(L.frequencyMonthly)}</option>
           <option value="Yearly">{t(L.frequencyYearly)}</option>
         </select>
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.ownerRole)}</label>
+      </FormField>
+      <FormField label={<>{t(L.ownerRole)}</>} labelWidth="150px">
         <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

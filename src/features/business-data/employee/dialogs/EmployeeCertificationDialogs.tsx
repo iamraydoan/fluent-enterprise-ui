@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog, FormField } from "@/components/common";
+import { Button, Checkbox, Input, Textarea, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
@@ -27,10 +27,6 @@ const L: Record<string, TranslationKey> = {
   unassign: "businessData.employee.certifications.unassign",
 };
 
-const useDialogStyles = makeStyles({
-  field: { display: "grid", gridTemplateColumns: "180px 1fr", gap: "12px", alignItems: "center" },
-});
-
 interface DialogProps {
   name: string;
   onClose: () => void;
@@ -38,7 +34,6 @@ interface DialogProps {
 
 function useCertificationForm() {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [certification, setCertification] = useState("");
   const [plannedDate, setPlannedDate] = useState("");
   const [certificationDate, setCertificationDate] = useState("");
@@ -50,39 +45,37 @@ function useCertificationForm() {
     canSubmit: !!certification.trim(),
     fields: (
       <>
-        <div className={styles.field}>
-          <label>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-            {t(L.certification)}
-          </label>
+        <FormField
+          label={
+            <>
+              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+              {t(L.certification)}
+            </>
+          }
+        >
           <Input value={certification} onChange={(_, d) => setCertification(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.plannedDate)}</label>
+        </FormField>
+        <FormField label={<>{t(L.plannedDate)}</>}>
           <Input value={plannedDate} onChange={(_, d) => setPlannedDate(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.certificationDate)}</label>
+        </FormField>
+        <FormField label={<>{t(L.certificationDate)}</>}>
           <Input value={certificationDate} onChange={(_, d) => setCertificationDate(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.isTrainer)}</label>
+        </FormField>
+        <FormField label={<>{t(L.isTrainer)}</>}>
           <Checkbox
             checked={isTrainer === true}
             onChange={(_, d) => setIsTrainer(d.checked === true)}
           />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.isTrainee)}</label>
+        </FormField>
+        <FormField label={<>{t(L.isTrainee)}</>}>
           <Checkbox
             checked={isTrainee === true}
             onChange={(_, d) => setIsTrainee(d.checked === true)}
           />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.comment)}</label>
+        </FormField>
+        <FormField label={<>{t(L.comment)}</>}>
           <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-        </div>
+        </FormField>
       </>
     ),
   };

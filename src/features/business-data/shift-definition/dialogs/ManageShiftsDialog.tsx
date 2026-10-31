@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ShiftDefinitionShift } from "@/api";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import {
   Body1Strong,
@@ -31,13 +31,6 @@ const useDialogStyles = makeStyles({
     backgroundColor: tokens.colorNeutralBackground1,
   },
   shiftActive: { backgroundColor: tokens.colorNeutralBackground1Selected },
-  fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "180px 1fr",
-    alignItems: "center",
-    columnGap: "12px",
-    marginBottom: "12px",
-  },
 });
 
 interface ManageShiftsDialogProps {
@@ -109,30 +102,26 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
           <Body1Strong>{definitionName}</Body1Strong>
           {active !== undefined && (
             <div style={{ marginTop: "12px" }}>
-              <div className={styles.fieldRow}>
-                <Text>{t("businessData.shiftDefinition.shiftForm.name")}</Text>
+              <FormField label={<>{t("businessData.shiftDefinition.shiftForm.name")}</>}>
                 <Input defaultValue={active.name} />
-              </div>
-              <div className={styles.fieldRow}>
-                <Text>{t("businessData.shiftDefinition.shiftForm.startTime")}</Text>
+              </FormField>
+              <FormField label={<>{t("businessData.shiftDefinition.shiftForm.startTime")}</>}>
                 <Input defaultValue={active.startTime} />
-              </div>
-              <div className={styles.fieldRow}>
-                <Text>{t("businessData.shiftDefinition.shiftForm.endTime")}</Text>
+              </FormField>
+              <FormField label={<>{t("businessData.shiftDefinition.shiftForm.endTime")}</>}>
                 <Input defaultValue={active.endTime} />
-              </div>
-              <div className={styles.fieldRow}>
-                <Text>{t("businessData.shiftDefinition.shiftForm.code")}</Text>
+              </FormField>
+              <FormField label={<>{t("businessData.shiftDefinition.shiftForm.code")}</>}>
                 <Input defaultValue={active.code} />
-              </div>
-              <div className={styles.fieldRow}>
-                <Text>{t("businessData.shiftDefinition.shiftForm.costOvertimeFactor")}</Text>
+              </FormField>
+              <FormField
+                label={<>{t("businessData.shiftDefinition.shiftForm.costOvertimeFactor")}</>}
+              >
                 <Input defaultValue={String(active.costOvertimeFactor)} />
-              </div>
-              <div className={styles.fieldRow}>
-                <Text>{t("businessData.shiftDefinition.shiftForm.teamPattern")}</Text>
+              </FormField>
+              <FormField label={<>{t("businessData.shiftDefinition.shiftForm.teamPattern")}</>}>
                 <Input defaultValue={active.teamPattern} />
-              </div>
+              </FormField>
             </div>
           )}
         </div>

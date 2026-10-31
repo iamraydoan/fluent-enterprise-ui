@@ -26,6 +26,8 @@ import { useAppTranslation } from "@/i18n";
 import { ConfirmOperationDialog } from "../components/ConfirmOperationDialog";
 import { EntityWizardDialog } from "../components/EntityWizardDialog";
 import type { OperationValues, WizardField, WizardStep } from "../components/operationTypes";
+import { CHART_TYPES } from "./chartLookups";
+import type { DataPointAction } from "./chartLookups";
 import {
   AnnotateDataPointDialog,
   CloneChartDialog,
@@ -43,9 +45,7 @@ import {
   ReadingsEditor,
   RecalculateCenterlinesDialog,
   RemoveLogicalChartDialog,
-} from "./ChartDialogs";
-import { CHART_TYPES } from "./chartLookups";
-import type { DataPointAction } from "./chartLookups";
+} from "./dialogs";
 
 const CHART_TYPE_OPTIONS = CHART_TYPES.map((v) => ({ value: v, label: v }));
 const SPEC_LIMIT_OPTIONS = [

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -45,13 +45,19 @@ export function CreateDataSiloDialog({ onClose }: { onClose: () => void }) {
   const [isSystem, setIsSystem] = useState(false);
 
   const field = (labelKey: TranslationKey, required: boolean, control: React.ReactNode) => (
-    <div className={styles.field}>
-      <span className={styles.label}>
-        {required && <span className={styles.required}>* </span>}
-        {t(labelKey)}
-      </span>
+    <FormField
+      label={
+        <>
+          <span className={styles.label}>
+            {required && <span className={styles.required}>* </span>}
+            {t(labelKey)}
+          </span>
+        </>
+      }
+      labelWidth="160px"
+    >
       {control}
-    </div>
+    </FormField>
   );
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
-import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog, FormField } from "@/components/common";
+import { Button, Input, Textarea, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
@@ -22,10 +22,6 @@ const L: Record<string, TranslationKey> = {
   unassign: "businessData.employee.qualifications.unassign",
 };
 
-const useDialogStyles = makeStyles({
-  field: { display: "grid", gridTemplateColumns: "180px 1fr", gap: "12px", alignItems: "center" },
-});
-
 interface DialogProps {
   name: string;
   onClose: () => void;
@@ -33,7 +29,6 @@ interface DialogProps {
 
 function useQualificationForm() {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [qualification, setQualification] = useState("");
   const [qualificationDate, setQualificationDate] = useState("");
   const [validTo, setValidTo] = useState("");
@@ -46,37 +41,34 @@ function useQualificationForm() {
     canSubmit: !!qualification.trim(),
     fields: (
       <>
-        <div className={styles.field}>
-          <label>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-            {t(L.qualification)}
-          </label>
+        <FormField
+          label={
+            <>
+              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+              {t(L.qualification)}
+            </>
+          }
+        >
           <Input value={qualification} onChange={(_, d) => setQualification(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.qualificationDate)}</label>
+        </FormField>
+        <FormField label={<>{t(L.qualificationDate)}</>}>
           <Input value={qualificationDate} onChange={(_, d) => setQualificationDate(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.validTo)}</label>
+        </FormField>
+        <FormField label={<>{t(L.validTo)}</>}>
           <Input value={validTo} onChange={(_, d) => setValidTo(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.reason)}</label>
+        </FormField>
+        <FormField label={<>{t(L.reason)}</>}>
           <Input value={reason} onChange={(_, d) => setReason(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.proficiency)}</label>
+        </FormField>
+        <FormField label={<>{t(L.proficiency)}</>}>
           <Input value={proficiency} onChange={(_, d) => setProficiency(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.remarks)}</label>
+        </FormField>
+        <FormField label={<>{t(L.remarks)}</>}>
           <Textarea value={remarks} onChange={(_, d) => setRemarks(d.value)} />
-        </div>
-        <div className={styles.field}>
-          <label>{t(L.comment)}</label>
+        </FormField>
+        <FormField label={<>{t(L.comment)}</>}>
           <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-        </div>
+        </FormField>
       </>
     ),
   };

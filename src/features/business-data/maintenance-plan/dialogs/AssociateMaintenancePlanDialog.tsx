@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -17,7 +17,6 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useDialogStyles = makeStyles({
-  field: { display: "grid", gridTemplateColumns: "160px 1fr", gap: "12px", alignItems: "center" },
   select: {
     padding: "6px 8px",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -58,8 +57,7 @@ export function AssociateMaintenancePlanDialog({
         </>
       }
     >
-      <div className={styles.field}>
-        <label>{t(L.entityType)}</label>
+      <FormField label={<>{t(L.entityType)}</>} labelWidth="160px">
         <select
           className={styles.select}
           value={entityType}
@@ -70,14 +68,18 @@ export function AssociateMaintenancePlanDialog({
           <option value="Material">{t(L.material)}</option>
           <option value="Resource">{t(L.resource)}</option>
         </select>
-      </div>
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.entity)}
-        </label>
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.entity)}
+          </>
+        }
+        labelWidth="160px"
+      >
         <Input value={entity} onChange={(_, d) => setEntity(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

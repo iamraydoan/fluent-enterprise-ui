@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -18,7 +18,6 @@ const L: Record<string, TranslationKey> = {
 
 const useStyles = makeStyles({
   row: { display: "flex", gap: "8px", alignItems: "center" },
-  field: { display: "grid", gridTemplateColumns: "150px 1fr", gap: "12px", alignItems: "center" },
 });
 
 export function FlowLogicalNamesDialog({ onClose }: { onClose: () => void }) {
@@ -57,7 +56,6 @@ export function FlowLogicalNamesDialog({ onClose }: { onClose: () => void }) {
 
 export function FlowReworkPathsDialog({ onClose }: { onClose: () => void }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
   const [filter, setFilter] = useState("");
 
   return (
@@ -72,10 +70,9 @@ export function FlowReworkPathsDialog({ onClose }: { onClose: () => void }) {
         </Button>
       }
     >
-      <div className={styles.field}>
-        <label>{t(L.filterByStep)}</label>
+      <FormField label={<>{t(L.filterByStep)}</>} labelWidth="150px">
         <Input value={filter} onChange={(_, d) => setFilter(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

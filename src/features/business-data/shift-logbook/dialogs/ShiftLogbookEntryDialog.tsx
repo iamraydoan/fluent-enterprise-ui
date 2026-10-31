@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Input, Text, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
@@ -58,31 +58,42 @@ export function ShiftLogbookEntryDialog({ initial, onClose }: EntryDialogProps) 
         />
       }
     >
-      <div className={styles.fieldRow}>
-        <Text>
-          <span className={styles.required}>* </span>
-          {t("businessData.shiftLogbook.addEntry.titleLabel")}
-        </Text>
+      <FormField
+        label={
+          <>
+            <span className={styles.required}>* </span>
+            {t("businessData.shiftLogbook.addEntry.titleLabel")}
+          </>
+        }
+        labelWidth="140px"
+      >
         <Input value={title} onChange={(_, d) => setTitle(d.value)} />
-      </div>
-      <div className={styles.fieldRow}>
-        <Text>
-          <span className={styles.required}>* </span>
-          {t("businessData.shiftLogbook.addEntry.category")}
-        </Text>
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span className={styles.required}>* </span>
+            {t("businessData.shiftLogbook.addEntry.category")}
+          </>
+        }
+        labelWidth="140px"
+      >
         <Input value={category} onChange={(_, d) => setCategory(d.value)} />
-      </div>
-      <div className={styles.fieldRow}>
-        <Text>
-          <span className={styles.required}>* </span>
-          {t("businessData.shiftLogbook.addEntry.severity")}
-        </Text>
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span className={styles.required}>* </span>
+            {t("businessData.shiftLogbook.addEntry.severity")}
+          </>
+        }
+        labelWidth="140px"
+      >
         <Input value={severity} onChange={(_, d) => setSeverity(d.value)} />
-      </div>
-      <div className={styles.fieldRow}>
-        <Text>{t("businessData.shiftLogbook.addEntry.resource")}</Text>
+      </FormField>
+      <FormField label={<>{t("businessData.shiftLogbook.addEntry.resource")}</>} labelWidth="140px">
         <Input value={resource} onChange={(_, d) => setResource(d.value)} />
-      </div>
+      </FormField>
       <div className={styles.fieldRow} style={{ alignItems: "start" }}>
         <Text>{t("businessData.shiftLogbook.addEntry.description")}</Text>
         <Textarea value={description} onChange={(_, d) => setDescription(d.value)} rows={5} />

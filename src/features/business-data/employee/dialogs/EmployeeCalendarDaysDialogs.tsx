@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
-import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { Button, Input, Textarea, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
@@ -21,10 +21,6 @@ const L: Record<string, TranslationKey> = {
   remove: "businessData.employee.calendarDays.remove",
 };
 
-const useDialogStyles = makeStyles({
-  field: { display: "grid", gridTemplateColumns: "180px 1fr", gap: "12px", alignItems: "center" },
-});
-
 interface DialogProps {
   name: string;
   onClose: () => void;
@@ -32,7 +28,6 @@ interface DialogProps {
 
 export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [description, setDescription] = useState("");
   const [nonWorkingTimeType, setNonWorkingTimeType] = useState("");
   const [startTime, setStartTime] = useState("");
@@ -57,42 +52,48 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.field}>
-        <label>{t(L.description)}</label>
+      <FormField label={<>{t(L.description)}</>}>
         <Input value={description} onChange={(_, d) => setDescription(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.nonWorkingTimeType)}
-        </label>
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.nonWorkingTimeType)}
+          </>
+        }
+      >
         <Input value={nonWorkingTimeType} onChange={(_, d) => setNonWorkingTimeType(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.startTime)}
-        </label>
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.startTime)}
+          </>
+        }
+      >
         <Input value={startTime} onChange={(_, d) => setStartTime(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.endTime)}
-        </label>
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.endTime)}
+          </>
+        }
+      >
         <Input value={endTime} onChange={(_, d) => setEndTime(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.comment)}</label>
+      </FormField>
+      <FormField label={<>{t(L.comment)}</>}>
         <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }
 
 export function SetWorkAvailabilityDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [comment, setComment] = useState("");
 
   return (
@@ -102,10 +103,9 @@ export function SetWorkAvailabilityDialog({ name, onClose }: DialogProps) {
       onClose={onClose}
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.set)} />}
     >
-      <div className={styles.field}>
-        <label>{t(L.comment)}</label>
+      <FormField label={<>{t(L.comment)}</>}>
         <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

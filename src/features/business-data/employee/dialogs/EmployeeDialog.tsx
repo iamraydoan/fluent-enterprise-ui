@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -53,7 +53,6 @@ const useDialogStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorBrandForeground1,
   },
-  field: { display: "grid", gridTemplateColumns: "220px 1fr", gap: "12px", alignItems: "center" },
 });
 
 interface DialogProps {
@@ -120,117 +119,112 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
       </div>
       {step === 1 && (
         <>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.user)}
-            </label>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.user)}
+              </>
+            }
+            labelWidth="220px"
+          >
             <Input value={user} onChange={(_, d) => setUser(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.userAccount)}</label>
+          </FormField>
+          <FormField label={<>{t(L.userAccount)}</>} labelWidth="220px">
             <Input value={userAccount} onChange={(_, d) => setUserAccount(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.userName)}</label>
+          </FormField>
+          <FormField label={<>{t(L.userName)}</>} labelWidth="220px">
             <Input value={userName} onChange={(_, d) => setUserName(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.userEmail)}</label>
+          </FormField>
+          <FormField label={<>{t(L.userEmail)}</>} labelWidth="220px">
             <Input value={userEmail} onChange={(_, d) => setUserEmail(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.primaryRole)}</label>
+          </FormField>
+          <FormField label={<>{t(L.primaryRole)}</>} labelWidth="220px">
             <Input value={primaryRole} onChange={(_, d) => setPrimaryRole(d.value)} />
-          </div>
+          </FormField>
         </>
       )}
       {step === 2 && (
         <>
-          <div className={styles.field}>
-            <label>{t(L.user)}</label>
+          <FormField label={<>{t(L.user)}</>} labelWidth="220px">
             <span>{user || EMPTY_VALUE}</span>
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.userAccount)}</label>
+          </FormField>
+          <FormField label={<>{t(L.userAccount)}</>} labelWidth="220px">
             <span>{userAccount || EMPTY_VALUE}</span>
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.userName)}</label>
+          </FormField>
+          <FormField label={<>{t(L.userName)}</>} labelWidth="220px">
             <span>{userName || EMPTY_VALUE}</span>
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.userEmail)}</label>
+          </FormField>
+          <FormField label={<>{t(L.userEmail)}</>} labelWidth="220px">
             <span>{userEmail || EMPTY_VALUE}</span>
-          </div>
+          </FormField>
         </>
       )}
       {step === 3 && (
         <>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.name)}
-            </label>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.name)}
+              </>
+            }
+            labelWidth="220px"
+          >
             <Input
               value={name}
               onChange={(_, d) => setName(d.value)}
               disabled={mode === MODE_EDIT}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.description)}</label>
+          </FormField>
+          <FormField label={<>{t(L.description)}</>} labelWidth="220px">
             <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.type)}</label>
+          </FormField>
+          <FormField label={<>{t(L.type)}</>} labelWidth="220px">
             <Input value={type} onChange={(_, d) => setType(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.employeeNumber)}
-            </label>
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.employeeNumber)}
+              </>
+            }
+            labelWidth="220px"
+          >
             <Input value={employeeNumber} onChange={(_, d) => setEmployeeNumber(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.area)}</label>
+          </FormField>
+          <FormField label={<>{t(L.area)}</>} labelWidth="220px">
             <Input value={area} onChange={(_, d) => setArea(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.calendar)}</label>
+          </FormField>
+          <FormField label={<>{t(L.calendar)}</>} labelWidth="220px">
             <Input value={calendar} onChange={(_, d) => setCalendar(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.costPerHour)}</label>
+          </FormField>
+          <FormField label={<>{t(L.costPerHour)}</>} labelWidth="220px">
             <Input value={costPerHour} onChange={(_, d) => setCostPerHour(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.costCenter)}</label>
+          </FormField>
+          <FormField label={<>{t(L.costCenter)}</>} labelWidth="220px">
             <Input value={costCenter} onChange={(_, d) => setCostCenter(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.requireClockIn)}</label>
+          </FormField>
+          <FormField label={<>{t(L.requireClockIn)}</>} labelWidth="220px">
             <Checkbox
               checked={requireClockIn === true}
               onChange={(_, d) => setRequireClockIn(d.checked === true)}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.automaticClockIn)}</label>
+          </FormField>
+          <FormField label={<>{t(L.automaticClockIn)}</>} labelWidth="220px">
             <Checkbox
               checked={automaticClockIn === true}
               onChange={(_, d) => setAutomaticClockIn(d.checked === true)}
               disabled={!requireClockIn}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.automaticClockOutAtEndOfShift)}</label>
+          </FormField>
+          <FormField label={<>{t(L.automaticClockOutAtEndOfShift)}</>} labelWidth="220px">
             <Checkbox
               checked={automaticClockOut === true}
               onChange={(_, d) => setAutomaticClockOut(d.checked === true)}
             />
-          </div>
+          </FormField>
         </>
       )}
     </BaseDialog>

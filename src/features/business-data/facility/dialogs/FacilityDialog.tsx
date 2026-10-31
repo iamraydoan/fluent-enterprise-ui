@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -43,7 +43,6 @@ const useStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorBrandForeground1,
   },
-  field: { display: "grid", gridTemplateColumns: "200px 1fr", gap: "12px", alignItems: "center" },
   select: {
     padding: "6px 8px",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -106,26 +105,33 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
       </div>
       {step === 1 && (
         <>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.name)}
-            </label>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.name)}
+              </>
+            }
+            labelWidth="200px"
+          >
             <Input
               value={name}
               onChange={(_, d) => setName(d.value)}
               disabled={mode === MODE_EDIT}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.description)}</label>
+          </FormField>
+          <FormField label={<>{t(L.description)}</>} labelWidth="200px">
             <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.type)}
-            </label>
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.type)}
+              </>
+            }
+            labelWidth="200px"
+          >
             <select
               className={styles.select}
               value={type}
@@ -140,46 +146,45 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
               </option>
               <option value="Warehouse">{t("businessData.facility.dialog.typeWarehouse")}</option>
             </select>
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.dataGroup)}</label>
+          </FormField>
+          <FormField label={<>{t(L.dataGroup)}</>} labelWidth="200px">
             <Input value={dataGroup} onChange={(_, d) => setDataGroup(d.value)} />
-          </div>
+          </FormField>
         </>
       )}
       {step === 2 && (
         <>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.displayOrder)}
-            </label>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.displayOrder)}
+              </>
+            }
+            labelWidth="200px"
+          >
             <Input value={displayOrder} onChange={(_, d) => setDisplayOrder(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.defaultCalendar)}</label>
+          </FormField>
+          <FormField label={<>{t(L.defaultCalendar)}</>} labelWidth="200px">
             <Input value={defaultCalendar} onChange={(_, d) => setDefaultCalendar(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.site)}</label>
+          </FormField>
+          <FormField label={<>{t(L.site)}</>} labelWidth="200px">
             <Input value={site} onChange={(_, d) => setSite(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.remote)}</label>
+          </FormField>
+          <FormField label={<>{t(L.remote)}</>} labelWidth="200px">
             <Checkbox
               checked={remote === true}
               onChange={(_, d) => setRemote(d.checked === true)}
               disabled
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.terminateOnShip)}</label>
+          </FormField>
+          <FormField label={<>{t(L.terminateOnShip)}</>} labelWidth="200px">
             <Checkbox
               checked={terminateOnShip === true}
               onChange={(_, d) => setTerminateOnShip(d.checked === true)}
               disabled={remote}
             />
-          </div>
+          </FormField>
         </>
       )}
     </BaseDialog>

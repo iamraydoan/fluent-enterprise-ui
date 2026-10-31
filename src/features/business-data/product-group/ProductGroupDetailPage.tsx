@@ -13,7 +13,7 @@ import {
   ManageProductGroupParametersDialog,
   TerminateProductGroupDialog,
   UnterminateProductGroupDialog,
-} from "./ProductGroupDialogs";
+} from "./dialogs";
 
 const useStyles = makeStyles({
   cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" },

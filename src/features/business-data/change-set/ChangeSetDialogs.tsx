@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -336,14 +336,28 @@ export function TakeOwnershipDialog({
       <div className={styles.hint}>
         {t("businessData.changeSet.operations.takeOwnershipHint", { name: changeSetName })}
       </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("businessData.changeSet.detail.owner")}</span>
+      <FormField
+        label={
+          <>
+            <span className={styles.fieldLabel}>{t("businessData.changeSet.detail.owner")}</span>
+          </>
+        }
+        labelWidth="170px"
+      >
         <Input value={owner} onChange={(_, d) => setOwner(d.value)} />
-      </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("businessData.changeSet.operations.comment")}</span>
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span className={styles.fieldLabel}>
+              {t("businessData.changeSet.operations.comment")}
+            </span>
+          </>
+        }
+        labelWidth="170px"
+      >
         <Input value={comment} onChange={(_, d) => setComment(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }
@@ -385,14 +399,28 @@ export function ChangeChangeSetDialog({
       <div className={styles.hint}>
         {t("businessData.changeSet.operations.changeHint", { name: changeSetName })}
       </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("businessData.changeSet.detail.owner")}</span>
+      <FormField
+        label={
+          <>
+            <span className={styles.fieldLabel}>{t("businessData.changeSet.detail.owner")}</span>
+          </>
+        }
+        labelWidth="170px"
+      >
         <Input value={owner} onChange={(_, d) => setOwner(d.value)} />
-      </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("businessData.changeSet.operations.comment")}</span>
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span className={styles.fieldLabel}>
+              {t("businessData.changeSet.operations.comment")}
+            </span>
+          </>
+        }
+        labelWidth="170px"
+      >
         <Input value={comment} onChange={(_, d) => setComment(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

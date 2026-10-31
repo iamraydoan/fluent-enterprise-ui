@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ShiftDefinitionShift } from "@/api";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import { Button, Caption1, Input, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -33,13 +33,6 @@ const useDialogStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
   },
   body: { padding: "16px 20px", overflow: "auto", minHeight: 0 },
-  fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "180px 1fr",
-    alignItems: "center",
-    columnGap: "12px",
-    marginBottom: "12px",
-  },
   gridHeader: {
     display: "grid",
     gridTemplateColumns: "1fr 110px 110px 90px 130px 120px 32px",
@@ -119,18 +112,15 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
   if (step === 0) {
     body = (
       <>
-        <div className={styles.fieldRow}>
-          <Text>{t("businessData.shiftDefinition.create.name")}</Text>
+        <FormField label={<>{t("businessData.shiftDefinition.create.name")}</>}>
           <Input value={name} onChange={(_, d) => setName(d.value)} />
-        </div>
-        <div className={styles.fieldRow}>
-          <Text>{t("businessData.shiftDefinition.create.description")}</Text>
+        </FormField>
+        <FormField label={<>{t("businessData.shiftDefinition.create.description")}</>}>
           <Input value={description} onChange={(_, d) => setDescription(d.value)} />
-        </div>
-        <div className={styles.fieldRow}>
-          <Text>{t("businessData.shiftDefinition.create.calendar")}</Text>
+        </FormField>
+        <FormField label={<>{t("businessData.shiftDefinition.create.calendar")}</>}>
           <Input value={calendar} onChange={(_, d) => setCalendar(d.value)} />
-        </div>
+        </FormField>
         <Caption1>{t("businessData.shiftDefinition.create.calendarHint")}</Caption1>
       </>
     );

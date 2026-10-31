@@ -1,0 +1,60 @@
+import { makeStyles, tokens } from "@/components/ui";
+
+export const useDialogStyles = makeStyles({
+  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
+  fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
+  sectionTitle: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold, margin: "16px 0 8px 0" },
+  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  paramRow: {
+    display: "flex",
+    flexWrap: "wrap",
+    columnGap: "8px",
+    rowGap: "8px",
+    alignItems: "flex-end",
+  },
+  paramCard: {
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "8px",
+    padding: "12px",
+    marginBottom: "8px",
+    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: tokens.colorNeutralBackground1,
+  },
+  miniLabel: {
+    fontSize: "12px",
+    color: tokens.colorNeutralForeground3,
+    marginBottom: "4px",
+  },
+  rowActions: {
+    marginLeft: "auto",
+    display: "flex",
+    columnGap: "4px",
+    alignItems: "center",
+  },
+  grow: { flex: "1 1 130px", minWidth: "110px" },
+  numWrap: { flex: "0 1 90px", minWidth: "80px" },
+  tabs: {
+    display: "flex",
+    columnGap: "4px",
+    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    marginBottom: "12px",
+  },
+  tab: {
+    padding: "8px 16px",
+    border: "none",
+    backgroundColor: "transparent",
+    cursor: "pointer",
+    fontFamily: "inherit",
+    fontSize: "13px",
+    borderBottom: "2px solid transparent",
+  },
+  tabActive: {
+    fontWeight: tokens.fontWeightSemibold,
+    borderBottom: `2px solid ${tokens.colorBrandStroke1}`,
+  },
+  kvRow: { display: "flex", columnGap: "12px", fontSize: "13px", marginBottom: "8px" },
+  kvLabel: { color: tokens.colorNeutralForeground3, minWidth: "160px" },
+});

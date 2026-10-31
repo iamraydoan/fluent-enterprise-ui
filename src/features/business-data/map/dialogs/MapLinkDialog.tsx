@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -23,7 +23,6 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useDialogStyles = makeStyles({
-  field: { display: "grid", gridTemplateColumns: "150px 1fr", gap: "12px", alignItems: "center" },
   select: {
     padding: "6px 8px",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -69,28 +68,36 @@ export function MapLinkDialog({
         </>
       }
     >
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.material)}
-        </label>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.material)}
+          </>
+        }
+        labelWidth="150px"
+      >
         <Input value={material} onChange={(_, d) => setMaterial(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.mapOrder)}</label>
+      </FormField>
+      <FormField label={<>{t(L.mapOrder)}</>} labelWidth="150px">
         <Input value={mapOrder} onChange={(_, d) => setMapOrder(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <span />
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span />
+          </>
+        }
+        labelWidth="150px"
+      >
         <Checkbox
           label={t(L.isMasterMap)}
           checked={isMasterMap === true}
           onChange={(_, d) => setIsMasterMap(d.checked === true)}
         />
-      </div>
+      </FormField>
       {isMasterMap && (
-        <div className={styles.field}>
-          <label>{t(L.linkageMode)}</label>
+        <FormField label={<>{t(L.linkageMode)}</>} labelWidth="150px">
           <select
             className={styles.select}
             value={linkageMode}
@@ -99,28 +106,39 @@ export function MapLinkDialog({
             <option value="Verify">{t(L.linkageVerify)}</option>
             <option value="Synchronize">{t(L.linkageSynchronize)}</option>
           </select>
-        </div>
+        </FormField>
       )}
-      <div className={styles.field}>
-        <span />
+      <FormField
+        label={
+          <>
+            <span />
+          </>
+        }
+        labelWidth="150px"
+      >
         <Checkbox
           label={t(L.isDefault)}
           checked={isDefault === true}
           onChange={(_, d) => setIsDefault(d.checked === true)}
         />
-      </div>
-      <div className={styles.field}>
-        <span />
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span />
+          </>
+        }
+        labelWidth="150px"
+      >
         <Checkbox
           label={t(L.isMerged)}
           checked={isMerged === true}
           onChange={(_, d) => setIsMerged(d.checked === true)}
         />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.comment)}</label>
+      </FormField>
+      <FormField label={<>{t(L.comment)}</>} labelWidth="150px">
         <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }
@@ -135,7 +153,6 @@ export function MapUnlinkDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [comment, setComment] = useState("");
 
   return (
@@ -147,10 +164,9 @@ export function MapUnlinkDialog({
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.unlink)} />}
     >
       <div>{t(L.unlinkMessage, { name: mapName })}</div>
-      <div className={styles.field}>
-        <label>{t(L.comment)}</label>
+      <FormField label={<>{t(L.comment)}</>} labelWidth="150px">
         <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

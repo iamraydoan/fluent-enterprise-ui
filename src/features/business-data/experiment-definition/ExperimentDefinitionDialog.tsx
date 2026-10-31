@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -67,7 +67,6 @@ const useDialogStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorBrandForeground1,
   },
-  field: { display: "grid", gridTemplateColumns: "180px 1fr", gap: "12px", alignItems: "center" },
   select: {
     padding: "6px 8px",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -148,71 +147,76 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
       </div>
       {step === 1 && (
         <>
-          <div className={styles.field}>
-            <label>{t(L.changeSet)}</label>
+          <FormField label={<>{t(L.changeSet)}</>}>
             <Input
               value={changeSet}
               onChange={(_, d) => setChangeSet(d.value)}
               disabled={useAutoCs}
             />
-          </div>
-          <div className={styles.field}>
-            <span />
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span />
+              </>
+            }
+          >
             <Checkbox
               label={t(L.useAutomaticChangeSet)}
               checked={useAutoCs === true}
               onChange={(_, d) => setUseAutoCs(d.checked === true)}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.approvalRole)}</label>
+          </FormField>
+          <FormField label={<>{t(L.approvalRole)}</>}>
             <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <span />
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span />
+              </>
+            }
+          >
             <Checkbox
               label={t(L.makeEffectiveOnApproval)}
               checked={effectiveOnApproval === true}
               onChange={(_, d) => setEffectiveOnApproval(d.checked === true)}
             />
-          </div>
+          </FormField>
         </>
       )}
       {step === 2 && (
         <>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.name)}
-            </label>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.name)}
+              </>
+            }
+          >
             <Input
               value={name}
               onChange={(_, d) => setName(d.value)}
               disabled={mode === MODE_EDIT}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.description)}</label>
+          </FormField>
+          <FormField label={<>{t(L.description)}</>}>
             <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.type)}</label>
+          </FormField>
+          <FormField label={<>{t(L.type)}</>}>
             <Input value={type} onChange={(_, d) => setType(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.ownerRole)}</label>
+          </FormField>
+          <FormField label={<>{t(L.ownerRole)}</>}>
             <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.purpose)}</label>
+          </FormField>
+          <FormField label={<>{t(L.purpose)}</>}>
             <Textarea value={purpose} onChange={(_, d) => setPurpose(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.note)}</label>
+          </FormField>
+          <FormField label={<>{t(L.note)}</>}>
             <Textarea value={note} onChange={(_, d) => setNote(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.applicableTo)}</label>
+          </FormField>
+          <FormField label={<>{t(L.applicableTo)}</>}>
             <select
               className={styles.select}
               value={applicableTo}
@@ -221,36 +225,29 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
               <option value="Product">{t(L.applicableProduct)}</option>
               <option value="ProductGroup">{t(L.applicableProductGroup)}</option>
             </select>
-          </div>
+          </FormField>
           {applicableTo === "Product" ? (
-            <div className={styles.field}>
-              <label>{t(L.product)}</label>
+            <FormField label={<>{t(L.product)}</>}>
               <Input value={product} onChange={(_, d) => setProduct(d.value)} />
-            </div>
+            </FormField>
           ) : (
-            <div className={styles.field}>
-              <label>{t(L.productGroup)}</label>
+            <FormField label={<>{t(L.productGroup)}</>}>
               <Input value={productGroup} onChange={(_, d) => setProductGroup(d.value)} />
-            </div>
+            </FormField>
           )}
-          <div className={styles.field}>
-            <label>{t(L.flow)}</label>
+          <FormField label={<>{t(L.flow)}</>}>
             <Input value={flow} onChange={(_, d) => setFlow(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.maxMaterials)}</label>
+          </FormField>
+          <FormField label={<>{t(L.maxMaterials)}</>}>
             <Input value={maxMaterials} onChange={(_, d) => setMaxMaterials(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.requiredMaterialType)}</label>
+          </FormField>
+          <FormField label={<>{t(L.requiredMaterialType)}</>}>
             <Input value={materialType} onChange={(_, d) => setMaterialType(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.requiredMaterialForm)}</label>
+          </FormField>
+          <FormField label={<>{t(L.requiredMaterialForm)}</>}>
             <Input value={materialForm} onChange={(_, d) => setMaterialForm(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.mode)}</label>
+          </FormField>
+          <FormField label={<>{t(L.mode)}</>}>
             <select
               className={styles.select}
               value={expMode}
@@ -259,15 +256,13 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
               <option value="SubMaterials">{t(L.modeSubMaterials)}</option>
               <option value="FullMaterial">{t(L.modeFullMaterial)}</option>
             </select>
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.plannedStartDate)}</label>
+          </FormField>
+          <FormField label={<>{t(L.plannedStartDate)}</>}>
             <Input value="" onChange={() => undefined} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.plannedEndDate)}</label>
+          </FormField>
+          <FormField label={<>{t(L.plannedEndDate)}</>}>
             <Input value="" onChange={() => undefined} />
-          </div>
+          </FormField>
         </>
       )}
       {step === 3 && (

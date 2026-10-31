@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
-import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog, FormField } from "@/components/common";
+import { Button, Input, Textarea, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
@@ -29,10 +29,6 @@ const L: Record<string, TranslationKey> = {
   save: "businessData.employee.attendance.save",
 };
 
-const useDialogStyles = makeStyles({
-  field: { display: "grid", gridTemplateColumns: "180px 1fr", gap: "12px", alignItems: "center" },
-});
-
 interface DialogProps {
   name: string;
   onClose: () => void;
@@ -40,7 +36,6 @@ interface DialogProps {
 
 export function CheckInDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [resource, setResource] = useState("");
   const [certification, setCertification] = useState("");
 
@@ -58,24 +53,25 @@ export function CheckInDialog({ name, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.resource)}
-        </label>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.resource)}
+          </>
+        }
+      >
         <Input value={resource} onChange={(_, d) => setResource(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.certification)}</label>
+      </FormField>
+      <FormField label={<>{t(L.certification)}</>}>
         <Input value={certification} onChange={(_, d) => setCertification(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }
 
 export function CheckOutDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [resource, setResource] = useState("");
   const [reason, setReason] = useState("");
 
@@ -93,17 +89,19 @@ export function CheckOutDialog({ name, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.resource)}
-        </label>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.resource)}
+          </>
+        }
+      >
         <Input value={resource} onChange={(_, d) => setResource(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.reason)}</label>
+      </FormField>
+      <FormField label={<>{t(L.reason)}</>}>
         <Input value={reason} onChange={(_, d) => setReason(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }
@@ -132,7 +130,6 @@ export function ClockInDialog({ name, onClose }: DialogProps) {
 
 export function ClockOutDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [comment, setComment] = useState("");
 
   return (
@@ -149,17 +146,15 @@ export function ClockOutDialog({ name, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.field}>
-        <label>{t(L.comment)}</label>
+      <FormField label={<>{t(L.comment)}</>}>
         <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }
 
 export function AssignSubordinatesDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [subordinates, setSubordinates] = useState("");
 
   return (
@@ -176,20 +171,22 @@ export function AssignSubordinatesDialog({ name, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.subordinates)}
-        </label>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.subordinates)}
+          </>
+        }
+      >
         <Input value={subordinates} onChange={(_, d) => setSubordinates(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }
 
 export function AssignTeamWorkgroupDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [team, setTeam] = useState("");
   const [workgroup, setWorkgroup] = useState("");
   const [area, setArea] = useState("");
@@ -208,18 +205,15 @@ export function AssignTeamWorkgroupDialog({ name, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.field}>
-        <label>{t(L.team)}</label>
+      <FormField label={<>{t(L.team)}</>}>
         <Input value={team} onChange={(_, d) => setTeam(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.workgroup)}</label>
+      </FormField>
+      <FormField label={<>{t(L.workgroup)}</>}>
         <Input value={workgroup} onChange={(_, d) => setWorkgroup(d.value)} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.area)}</label>
+      </FormField>
+      <FormField label={<>{t(L.area)}</>}>
         <Input value={area} onChange={(_, d) => setArea(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

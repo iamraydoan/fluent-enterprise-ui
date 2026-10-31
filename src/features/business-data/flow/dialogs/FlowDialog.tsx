@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -54,7 +54,6 @@ const useStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorBrandForeground1,
   },
-  field: { display: "grid", gridTemplateColumns: "170px 1fr", gap: "12px", alignItems: "center" },
   select: {
     padding: "6px 8px",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -125,63 +124,73 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
       </div>
       {step === 1 && (
         <>
-          <div className={styles.field}>
-            <label>{t(L.changeSet)}</label>
+          <FormField label={<>{t(L.changeSet)}</>} labelWidth="170px">
             <Input
               value={changeSet}
               onChange={(_, d) => setChangeSet(d.value)}
               disabled={useAutoCs}
             />
-          </div>
-          <div className={styles.field}>
-            <span />
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span />
+              </>
+            }
+            labelWidth="170px"
+          >
             <Checkbox
               label={t(L.useAutomaticChangeSet)}
               checked={useAutoCs === true}
               onChange={(_, d) => setUseAutoCs(d.checked === true)}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.approvalRole)}</label>
+          </FormField>
+          <FormField label={<>{t(L.approvalRole)}</>} labelWidth="170px">
             <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <span />
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span />
+              </>
+            }
+            labelWidth="170px"
+          >
             <Checkbox
               label={t(L.makeEffectiveOnApproval)}
               checked={effectiveOnApproval === true}
               onChange={(_, d) => setEffectiveOnApproval(d.checked === true)}
             />
-          </div>
+          </FormField>
         </>
       )}
       {step === 2 && (
         <>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.name)}
-            </label>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.name)}
+              </>
+            }
+            labelWidth="170px"
+          >
             <Input
               value={name}
               onChange={(_, d) => setName(d.value)}
               disabled={mode === MODE_EDIT}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.revision)}</label>
+          </FormField>
+          <FormField label={<>{t(L.revision)}</>} labelWidth="170px">
             <Input value={revision} onChange={(_, d) => setRevision(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.description)}</label>
+          </FormField>
+          <FormField label={<>{t(L.description)}</>} labelWidth="170px">
             <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.flowType)}</label>
+          </FormField>
+          <FormField label={<>{t(L.flowType)}</>} labelWidth="170px">
             <Input value={flowType} onChange={(_, d) => setFlowType(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.flowKind)}</label>
+          </FormField>
+          <FormField label={<>{t(L.flowKind)}</>} labelWidth="170px">
             <select
               className={styles.select}
               value={flowKind}
@@ -192,15 +201,21 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
               <option value="NonSequential">{t(L.kindNonSequential)}</option>
               <option value="Line">{t(L.kindLine)}</option>
             </select>
-          </div>
-          <div className={styles.field}>
-            <span />
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span />
+              </>
+            }
+            labelWidth="170px"
+          >
             <Checkbox
               label={t(L.isEnabled)}
               checked={isEnabled === true}
               onChange={(_, d) => setIsEnabled(d.checked === true)}
             />
-          </div>
+          </FormField>
         </>
       )}
       {step === 3 && (

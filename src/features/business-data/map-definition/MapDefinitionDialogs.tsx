@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -162,13 +162,18 @@ export function MapDefinitionWizardDialog({
   const finishLabel = mode === MODE_EDIT ? t(L.update) : t(L.create);
 
   const field = (labelKey: TranslationKey, required: boolean, control: React.ReactNode) => (
-    <div className={styles.field}>
-      <span className={styles.label}>
-        {required && <span className={styles.required}>* </span>}
-        {t(labelKey)}
-      </span>
+    <FormField
+      label={
+        <>
+          <span className={styles.label}>
+            {required && <span className={styles.required}>* </span>}
+            {t(labelKey)}
+          </span>
+        </>
+      }
+    >
       {control}
-    </div>
+    </FormField>
   );
 
   const addLayer = () =>

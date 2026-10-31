@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -32,7 +32,6 @@ const useStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorBrandForeground1,
   },
-  field: { display: "grid", gridTemplateColumns: "160px 1fr", gap: "12px", alignItems: "center" },
   select: {
     padding: "6px 8px",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -85,8 +84,7 @@ export function RequestMaintenanceActivityOrderDialog({ onClose }: { onClose: ()
       </div>
       {step === 1 && (
         <>
-          <div className={styles.field}>
-            <label>{t(L.entityType)}</label>
+          <FormField label={<>{t(L.entityType)}</>} labelWidth="160px">
             <select
               className={styles.select}
               value={entityType}
@@ -98,26 +96,28 @@ export function RequestMaintenanceActivityOrderDialog({ onClose }: { onClose: ()
                 </option>
               ))}
             </select>
-          </div>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.entity)}
-            </label>
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.entity)}
+              </>
+            }
+            labelWidth="160px"
+          >
             <Input value={entity} onChange={(_, d) => setEntity(d.value)} />
-          </div>
+          </FormField>
         </>
       )}
       {step === 2 && (
         <>
-          <div className={styles.field}>
-            <label>{t(L.scheduleDate)}</label>
+          <FormField label={<>{t(L.scheduleDate)}</>} labelWidth="160px">
             <Input value={scheduleDate} onChange={(_, d) => setScheduleDate(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.comment)}</label>
+          </FormField>
+          <FormField label={<>{t(L.comment)}</>} labelWidth="160px">
             <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-          </div>
+          </FormField>
         </>
       )}
     </BaseDialog>

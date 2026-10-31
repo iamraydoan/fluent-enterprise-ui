@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
-import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog, FormField } from "@/components/common";
+import { Button, Input, Textarea, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { MODE_CREATE, MODE_EDIT } from "../components/wizardMode";
@@ -18,10 +18,6 @@ const L: Record<string, TranslationKey> = {
   clone: "businessData.enterprise.dialog.clone",
 };
 
-const useDialogStyles = makeStyles({
-  field: { display: "grid", gridTemplateColumns: "150px 1fr", gap: "12px", alignItems: "center" },
-});
-
 interface DialogProps {
   mode: WizardMode;
   initialName?: string;
@@ -31,7 +27,6 @@ interface DialogProps {
 
 export function EnterpriseDialog({ mode, initialName, initialDescription, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [name, setName] = useState(initialName ?? "");
   const [description, setDescription] = useState(initialDescription ?? "");
 
@@ -54,17 +49,20 @@ export function EnterpriseDialog({ mode, initialName, initialDescription, onClos
         </>
       }
     >
-      <div className={styles.field}>
-        <label>
-          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-          {t(L.name)}
-        </label>
+      <FormField
+        label={
+          <>
+            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            {t(L.name)}
+          </>
+        }
+        labelWidth="150px"
+      >
         <Input value={name} onChange={(_, d) => setName(d.value)} disabled={mode === MODE_EDIT} />
-      </div>
-      <div className={styles.field}>
-        <label>{t(L.description)}</label>
+      </FormField>
+      <FormField label={<>{t(L.description)}</>} labelWidth="150px">
         <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }

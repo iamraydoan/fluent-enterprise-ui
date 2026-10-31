@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -139,13 +139,17 @@ export function DocumentWizardDialog({
   const steps = mode === MODE_CREATE ? [L.stepChangeSet, L.stepGeneral] : [L.stepGeneral];
 
   const field = (label: TranslationKey, required: boolean, control: React.ReactNode) => (
-    <div className={styles.field}>
-      <label>
-        {required && <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>}
-        {t(label)}
-      </label>
+    <FormField
+      label={
+        <>
+          {required && <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>}
+          {t(label)}
+        </>
+      }
+      labelWidth="200px"
+    >
       {control}
-    </div>
+    </FormField>
   );
 
   const canNext = step === 0 && mode === MODE_CREATE ? true : name.trim().length > 0;

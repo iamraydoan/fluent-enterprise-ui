@@ -12,7 +12,7 @@ import type { DataColumn, HeaderAction } from "@/components/common";
 import { Add24Regular, Box24Regular } from "@/components/icons";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
-import { CreateProductGroupDialog } from "./ProductGroupDialogs";
+import { CreateProductGroupDialog } from "./dialogs";
 
 const COLUMNS: DataColumn<ProductGroupRecord>[] = [
   {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -41,7 +41,6 @@ const useDialogStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorBrandForeground1,
   },
-  field: { display: "grid", gridTemplateColumns: "150px 1fr", gap: "12px", alignItems: "center" },
   hint: { fontSize: tokens.fontSizeBase200, color: tokens.colorNeutralForeground3 },
 });
 
@@ -94,45 +93,49 @@ export function MapDialog({ open, mode, initialName, onClose }: DialogProps) {
       </div>
       {step === 1 && (
         <>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.name)}
-            </label>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.name)}
+              </>
+            }
+            labelWidth="150px"
+          >
             <Input
               value={name}
               onChange={(_, d) => setName(d.value)}
               disabled={mode === MODE_EDIT}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.description)}</label>
+          </FormField>
+          <FormField label={<>{t(L.description)}</>} labelWidth="150px">
             <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.mapDefinition)}
-            </label>
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.mapDefinition)}
+              </>
+            }
+            labelWidth="150px"
+          >
             <Input value={mapDefinition} onChange={(_, d) => setMapDefinition(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.step)}</label>
+          </FormField>
+          <FormField label={<>{t(L.step)}</>} labelWidth="150px">
             <Input value={stepCtx} onChange={(_, d) => setStepCtx(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.resource)}</label>
+          </FormField>
+          <FormField label={<>{t(L.resource)}</>} labelWidth="150px">
             <Input value={resource} onChange={(_, d) => setResource(d.value)} />
-          </div>
+          </FormField>
         </>
       )}
       {step === 2 && (
         <>
           <div className={styles.hint}>{t(L.layersHint)}</div>
-          <div className={styles.field}>
-            <label>{t(L.layers)}</label>
+          <FormField label={<>{t(L.layers)}</>} labelWidth="150px">
             <input type="file" accept=".g85" multiple />
-          </div>
+          </FormField>
         </>
       )}
     </BaseDialog>

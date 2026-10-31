@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { OperationValues } from "../components/operationTypes";
@@ -242,14 +242,26 @@ export function ChangeBatchResourceDialog({
         />
       }
     >
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("businessData.batch.detail.resource")}</span>
+      <FormField
+        label={
+          <>
+            <span className={styles.fieldLabel}>{t("businessData.batch.detail.resource")}</span>
+          </>
+        }
+        labelWidth="170px"
+      >
         <Input value={resource} onChange={(_, data) => setResource(data.value)} />
-      </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
+      </FormField>
+      <FormField
+        label={
+          <>
+            <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
+          </>
+        }
+        labelWidth="170px"
+      >
         <Input value={comment} onChange={(_, data) => setComment(data.value)} />
-      </div>
+      </FormField>
       <Text>{t("businessData.batch.operations.changeResourceHint", { name: batchName })}</Text>
     </BaseDialog>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -47,7 +47,6 @@ const useStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
   },
   details: { display: "flex", flexDirection: "column", gap: "12px" },
-  field: { display: "grid", gridTemplateColumns: "140px 1fr", gap: "12px", alignItems: "center" },
 });
 
 export function ManageShippingFacilitiesDialog({
@@ -118,11 +117,15 @@ export function ManageShippingFacilitiesDialog({
         </div>
         <div className={styles.details}>
           <div className={styles.panelHead}>{t(L.facilityDetails)}</div>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.facility)}
-            </label>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.facility)}
+              </>
+            }
+            labelWidth="140px"
+          >
             <Input
               value={facilityName}
               onChange={(_, d) => {
@@ -130,19 +133,16 @@ export function ManageShippingFacilitiesDialog({
                 setFacilities(facilities.map((f, i) => (i === selected ? d.value : f)));
               }}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.description)}</label>
+          </FormField>
+          <FormField label={<>{t(L.description)}</>} labelWidth="140px">
             <span>{t(L.none)}</span>
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.type)}</label>
+          </FormField>
+          <FormField label={<>{t(L.type)}</>} labelWidth="140px">
             <span>{t(L.none)}</span>
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.isRemote)}</label>
+          </FormField>
+          <FormField label={<>{t(L.isRemote)}</>} labelWidth="140px">
             <span>{t(L.no)}</span>
-          </div>
+          </FormField>
         </div>
       </div>
     </BaseDialog>

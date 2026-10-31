@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -57,7 +57,6 @@ const useStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorBrandForeground1,
   },
-  field: { display: "grid", gridTemplateColumns: "220px 1fr", gap: "12px", alignItems: "center" },
   select: {
     padding: "6px 8px",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -131,86 +130,86 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
       </div>
       {step === 1 && (
         <>
-          <div className={styles.field}>
-            <label>{t(L.changeSet)}</label>
+          <FormField label={<>{t(L.changeSet)}</>} labelWidth="220px">
             <Input
               value={changeSet}
               onChange={(_, d) => setChangeSet(d.value)}
               disabled={useAutoCs}
             />
-          </div>
-          <div className={styles.field}>
-            <span />
+          </FormField>
+          <FormField
+            label={
+              <>
+                <span />
+              </>
+            }
+            labelWidth="220px"
+          >
             <Checkbox
               label={t(L.useAutomaticChangeSet)}
               checked={useAutoCs === true}
               onChange={(_, d) => setUseAutoCs(d.checked === true)}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.approvalRole)}</label>
+          </FormField>
+          <FormField label={<>{t(L.approvalRole)}</>} labelWidth="220px">
             <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />
-          </div>
+          </FormField>
         </>
       )}
       {step === 2 && (
         <>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.name)}
-            </label>
+          <FormField
+            label={
+              <>
+                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                {t(L.name)}
+              </>
+            }
+            labelWidth="220px"
+          >
             <Input
               value={name}
               onChange={(_, d) => setName(d.value)}
               disabled={mode === MODE_EDIT}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.description)}</label>
+          </FormField>
+          <FormField label={<>{t(L.description)}</>} labelWidth="220px">
             <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.type)}</label>
+          </FormField>
+          <FormField label={<>{t(L.type)}</>} labelWidth="220px">
             <Input value={type} onChange={(_, d) => setType(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.resultsRequiredBeforeTrackOut)}</label>
+          </FormField>
+          <FormField label={<>{t(L.resultsRequiredBeforeTrackOut)}</>} labelWidth="220px">
             <Checkbox
               checked={resultsRequired === true}
               onChange={(_, d) => setResultsRequired(d.checked === true)}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.enableMultipleSamples)}</label>
+          </FormField>
+          <FormField label={<>{t(L.enableMultipleSamples)}</>} labelWidth="220px">
             <Checkbox
               checked={multipleSamples === true}
               onChange={(_, d) => setMultipleSamples(d.checked === true)}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.containsSeparateInspectionSteps)}</label>
+          </FormField>
+          <FormField label={<>{t(L.containsSeparateInspectionSteps)}</>} labelWidth="220px">
             <Checkbox
               checked={separateSteps === true}
               onChange={(_, d) => setSeparateSteps(d.checked === true)}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.closeAutomaticallyOnPass)}</label>
+          </FormField>
+          <FormField label={<>{t(L.closeAutomaticallyOnPass)}</>} labelWidth="220px">
             <Checkbox
               checked={closeOnPass === true}
               onChange={(_, d) => setCloseOnPass(d.checked === true)}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.closeAutomaticallyOnFail)}</label>
+          </FormField>
+          <FormField label={<>{t(L.closeAutomaticallyOnFail)}</>} labelWidth="220px">
             <Checkbox
               checked={closeOnFail === true}
               onChange={(_, d) => setCloseOnFail(d.checked === true)}
             />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.futureHoldCreationMode)}</label>
+          </FormField>
+          <FormField label={<>{t(L.futureHoldCreationMode)}</>} labelWidth="220px">
             <select
               className={styles.select}
               value={futureHoldMode}
@@ -220,7 +219,7 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
               <option value="Always">{t(L.futureHoldAlways)}</option>
               <option value="OnFail">{t(L.futureHoldOnFail)}</option>
             </select>
-          </div>
+          </FormField>
         </>
       )}
       {step === 3 && (

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FormField } from "@/components/common";
 import { ChevronLeft20Regular, ChevronRight20Regular, Dismiss16Regular } from "@/components/icons";
 import {
   Button,
@@ -84,12 +85,6 @@ const useWizardStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     rowGap: "12px",
-  },
-  fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "170px minmax(0, 1fr)",
-    alignItems: "center",
-    columnGap: "12px",
   },
   fieldLabel: { fontSize: "13px", color: tokens.colorNeutralForeground2, textAlign: "right" },
   fieldRequired: { color: tokens.colorPaletteRedForeground1 },
@@ -263,32 +258,32 @@ function WizardFieldInput({
 
   if (field.type === "checkbox") {
     return (
-      <div className={styles.fieldRow}>
+      <FormField label={label} labelWidth="170px">
         {label}
         <Checkbox
           checked={value === true}
           onChange={(_, data) => onChange(field.key, data.checked === true)}
         />
-      </div>
+      </FormField>
     );
   }
 
   if (field.type === "textarea") {
     return (
-      <div className={styles.fieldRow}>
+      <FormField label={label} labelWidth="170px">
         {label}
         <Textarea
           value={typeof value === "string" ? value : ""}
           onChange={(_, data) => onChange(field.key, data.value)}
         />
-      </div>
+      </FormField>
     );
   }
 
   if (field.type === "select") {
     const selected = field.options?.find((o) => o.value === value);
     return (
-      <div className={styles.fieldRow}>
+      <FormField label={label} labelWidth="170px">
         {label}
         <Menu
           positioning="below-start"
@@ -310,12 +305,12 @@ function WizardFieldInput({
             </MenuList>
           </MenuPopover>
         </Menu>
-      </div>
+      </FormField>
     );
   }
 
   return (
-    <div className={styles.fieldRow}>
+    <FormField label={label} labelWidth="170px">
       {label}
       <Input
         type={field.type === "number" ? "number" : field.type === "date" ? "date" : "text"}
@@ -324,6 +319,6 @@ function WizardFieldInput({
           onChange(field.key, field.type === "number" ? Number(data.value) : data.value)
         }
       />
-    </div>
+    </FormField>
   );
 }

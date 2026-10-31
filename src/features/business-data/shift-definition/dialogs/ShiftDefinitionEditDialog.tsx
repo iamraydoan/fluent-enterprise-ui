@@ -1,18 +1,8 @@
 import { useState } from "react";
 import type { ShiftDefinitionDetail } from "@/api";
-import { BaseDialog, DialogFooter } from "@/components/common";
-import { Input, Text, makeStyles } from "@/components/ui";
+import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-
-const useDialogStyles = makeStyles({
-  fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "180px 1fr",
-    alignItems: "center",
-    columnGap: "12px",
-    marginBottom: "12px",
-  },
-});
 
 interface ShiftDefinitionEditDialogProps {
   data: ShiftDefinitionDetail;
@@ -21,7 +11,6 @@ interface ShiftDefinitionEditDialogProps {
 
 export function ShiftDefinitionEditDialog({ data, onClose }: ShiftDefinitionEditDialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [description, setDescription] = useState(data.description);
   const [calendar, setCalendar] = useState(data.calendar);
 
@@ -39,18 +28,15 @@ export function ShiftDefinitionEditDialog({ data, onClose }: ShiftDefinitionEdit
         />
       }
     >
-      <div className={styles.fieldRow}>
-        <Text>{t("businessData.shiftDefinition.edit.name")}</Text>
+      <FormField label={<>{t("businessData.shiftDefinition.edit.name")}</>}>
         <Input value={data.name} disabled />
-      </div>
-      <div className={styles.fieldRow}>
-        <Text>{t("businessData.shiftDefinition.edit.description")}</Text>
+      </FormField>
+      <FormField label={<>{t("businessData.shiftDefinition.edit.description")}</>}>
         <Input value={description} onChange={(_, d) => setDescription(d.value)} />
-      </div>
-      <div className={styles.fieldRow}>
-        <Text>{t("businessData.shiftDefinition.edit.calendar")}</Text>
+      </FormField>
+      <FormField label={<>{t("businessData.shiftDefinition.edit.calendar")}</>}>
         <Input value={calendar} onChange={(_, d) => setCalendar(d.value)} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }
