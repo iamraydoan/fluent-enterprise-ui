@@ -2,14 +2,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, createMemoryHistory, createRouter } from "@tanstack/react-router";
 import { beforeEach, expect, test } from "vitest";
 import { render } from "vitest-browser-react";
-import { i18n, initI18n, storedLanguage } from "@/i18n";
+import { ensureLocaleLoaded, i18n, initI18n, storedLanguage } from "@/i18n";
 import { routeTree } from "@/routeTree.gen";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const LANGUAGE_KEY = "fluent-enterprise-ui:language";
 
-function renderAt(path: string) {
-  initI18n();
+async function renderAt(path: string) {
+  await initI18n();
   const queryClient = new QueryClient();
   const router = createRouter({
     routeTree,
@@ -60,10 +60,11 @@ async function switchLanguage(menuLabel: string) {
 }
 
 async function expectLanguage(code: "vi" | "ja" | "ko", menuLabel: string) {
-  initI18n();
+  await initI18n();
+  await ensureLocaleLoaded(code);
   const tabTitle = i18n.t("nav.tiles.entityTypes", { lng: code });
   const listTitle = i18n.t("entityTypes.title", { lng: code, count: 393 });
-  renderAt("/administration/entity-types");
+  await renderAt("/administration/entity-types");
   await waitForText("Entity Types (393)");
   await switchLanguage(menuLabel);
   await waitForText(tabTitle);
@@ -88,7 +89,7 @@ test("switches to Korean and persists the choice", async () => {
 });
 
 test("lists all four languages with native labels", async () => {
-  renderAt("/administration/entity-types");
+  await renderAt("/administration/entity-types");
   await waitForText("Entity Types (393)");
   languageButton().click();
   const started = Date.now();

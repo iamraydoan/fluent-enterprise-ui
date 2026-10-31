@@ -53,4 +53,15 @@ describe("locale key consistency", () => {
       }
     }
   });
+
+  it("uses double-brace placeholders everywhere", () => {
+    const singleBrace = /(?<!\{)\{\w+\}(?!\})/;
+    for (const [code, locale] of [["en", en], ...OTHER_LOCALES] as Array<[string, Locale]>) {
+      for (const path of flattenKeys(locale)) {
+        const value = valueAt(locale, path);
+        if (typeof value !== "string") continue;
+        expect(singleBrace.test(value), `${code}:${path}`).toBe(false);
+      }
+    }
+  });
 });

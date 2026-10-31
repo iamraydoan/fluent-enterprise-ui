@@ -1,9 +1,15 @@
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import { LANGUAGE_STORAGE_KEY, SUPPORTED_LANGUAGES, initI18n, storedLanguage } from "./i18n";
+import {
+  LANGUAGE_STORAGE_KEY,
+  SUPPORTED_LANGUAGES,
+  ensureLocaleLoaded,
+  initI18n,
+  storedLanguage,
+} from "./i18n";
 import type { LanguageCode, TranslationKey } from "./i18n";
 
-export { i18n, initI18n, storedLanguage, SUPPORTED_LANGUAGES };
+export { i18n, ensureLocaleLoaded, initI18n, storedLanguage, SUPPORTED_LANGUAGES };
 export type { LanguageCode, TranslationKey };
 
 export function useAppTranslation() {
@@ -11,7 +17,7 @@ export function useAppTranslation() {
   const t = (key: TranslationKey, options?: Record<string, unknown>) => rawT(key, options);
   const setLanguage = (code: LanguageCode) => {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, code);
-    void instance.changeLanguage(code);
+    void ensureLocaleLoaded(code).then(() => instance.changeLanguage(code));
   };
   const language: LanguageCode = SUPPORTED_LANGUAGES.some(
     (option) => option.code === instance.language,

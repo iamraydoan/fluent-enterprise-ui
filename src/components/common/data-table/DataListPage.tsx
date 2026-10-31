@@ -1,5 +1,6 @@
 import type { RowData } from "@tanstack/react-table";
 import type { ReactElement, ReactNode } from "react";
+import { useCallback, useRef } from "react";
 import { ListPage } from "@/components/common/ListPage";
 import type { HeaderAction } from "@/components/common/ListPageHeader";
 import { DataTableCard } from "@/components/common/data-table/DataTableCard";
@@ -47,6 +48,12 @@ export function DataListPage<TRow extends RowData>({
 }: DataListPageProps<TRow>) {
   const { t } = useAppTranslation();
   const styles = useListLayoutStyles();
+  const onRowClickRef = useRef(onRowClick);
+  onRowClickRef.current = onRowClick;
+  const stableOnRowClick = useCallback(
+    (row: TRow) => onRowClickRef.current?.(row),
+    [],
+  );
   const table = (
     <DataTableCard
       title={(count) => t(listTitleKey, { count })}
@@ -55,7 +62,7 @@ export function DataListPage<TRow extends RowData>({
       filters={filters}
       useListQuery={useListQuery}
       getRowId={getRowId}
-      onRowClick={onRowClick}
+      onRowClick={stableOnRowClick}
       apiRef={apiRef}
     />
   );

@@ -4,8 +4,6 @@ import { createRoot } from "react-dom/client";
 import { initI18n } from "@/i18n";
 import { routeTree } from "@/routeTree.gen";
 
-initI18n();
-
 async function startMocks(): Promise<void> {
   if (import.meta.env.VITE_USE_MOCK === "true") {
     const { worker } = await import("@/mocks/browser");
@@ -37,7 +35,7 @@ declare module "@tanstack/react-router" {
 
 const rootElement = document.getElementById("root") as HTMLElement;
 
-void startMocks().then(() => {
+void Promise.all([initI18n(), startMocks()]).then(() => {
   createRoot(rootElement).render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />

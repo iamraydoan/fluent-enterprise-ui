@@ -8,7 +8,7 @@ import { useTabsStore } from "@/stores/tabs-store";
 
 async function renderAt(path: string) {
   localStorage.setItem("fluent-enterprise-ui:language", "en");
-  initI18n();
+  await initI18n();
   const queryClient = new QueryClient();
   const router = createRouter({
     routeTree,
