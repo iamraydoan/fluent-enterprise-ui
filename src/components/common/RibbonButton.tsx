@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from "react";
 import { Menu, MenuItem, MenuList, MenuPopover, MenuTrigger } from "@/components/ui";
+import { useSharedStyles } from "@/styles/shared";
 import type { SharedStyles } from "@/styles/shared";
 
 export interface RibbonMenuItem {
@@ -10,14 +11,22 @@ export interface RibbonMenuItem {
 }
 
 interface RibbonButtonProps {
-  sharedStyles: SharedStyles;
+  sharedStyles?: SharedStyles;
   icon: ReactNode;
   label: string;
   onClick?: () => void;
   menu?: RibbonMenuItem[];
 }
 
-export function RibbonButton({ sharedStyles, icon, label, onClick, menu }: RibbonButtonProps) {
+export function RibbonButton({
+  sharedStyles: sharedStylesProp,
+  icon,
+  label,
+  onClick,
+  menu,
+}: RibbonButtonProps) {
+  const fallbackStyles = useSharedStyles();
+  const sharedStyles = sharedStylesProp ?? fallbackStyles;
   const button = (
     <button className={sharedStyles.actionBarButton} onClick={onClick} aria-label={label}>
       {icon}

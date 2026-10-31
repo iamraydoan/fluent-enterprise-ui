@@ -154,7 +154,8 @@
     "create": "만들기",
     "add": "추가",
     "remove": "제거",
-    "none": "없음"
+    "none": "없음",
+    "wizardSteps": "마법사 단계"
   },
   "configuration": {
     "pageLabel": "구성",

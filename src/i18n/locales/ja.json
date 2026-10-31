@@ -154,7 +154,8 @@
     "create": "作成",
     "add": "追加",
     "remove": "削除",
-    "none": "なし"
+    "none": "なし",
+    "wizardSteps": "ウィザードのステップ"
   },
   "configuration": {
     "pageLabel": "構成",

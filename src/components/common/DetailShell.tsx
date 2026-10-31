@@ -21,7 +21,7 @@ import {
 } from "@/components/ui";
 import type { TranslationKey } from "@/i18n";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles, cardSurface } from "@/styles/shared";
+import { aiAccentColor, useSharedStyles, cardSurface } from "@/styles/shared";
 import { ActionBar } from "./ActionBar";
 import { PageHeader } from "./PageHeader";
 import { RibbonButton } from "./RibbonButton";
@@ -61,11 +61,11 @@ const useDetailShellStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
-    color: "#222",
+    color: tokens.colorNeutralForeground1,
     textAlign: "left",
-    ":hover": { backgroundColor: "#EEF1F5" },
+    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
   },
-  leftActive: { backgroundColor: "#E3EAF3", fontWeight: 600 },
+  leftActive: { backgroundColor: tokens.colorNeutralBackground1Selected, fontWeight: 600 },
   area: {
     flexGrow: 1,
     minWidth: 0,
@@ -97,7 +97,7 @@ const useDetailShellStyles = makeStyles({
   },
   cardTitle: {
     fontSize: "14px",
-    color: "#333",
+    color: tokens.colorNeutralForeground1,
     paddingBottom: "6px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     marginBottom: "14px",
@@ -110,7 +110,7 @@ const useDetailShellStyles = makeStyles({
     fontSize: "13px",
     lineHeight: "24px",
   },
-  kvLabel: { textAlign: "right", color: "#444", minWidth: "110px" },
+  kvLabel: { textAlign: "right", color: tokens.colorNeutralForeground2, minWidth: "110px" },
   kvVal: { wordBreak: "break-word", minWidth: 0, minHeight: "24px" },
   miniBar: {
     display: "flex",
@@ -300,22 +300,13 @@ export function DetailShell({
           <ActionBar style={{ paddingTop: 8 }}>
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
-                <RibbonButton
-                  sharedStyles={sharedStyles}
-                  icon={<ArrowSync24Regular />}
-                  label={t("actionBar.refresh")}
-                />
+                <RibbonButton icon={<ArrowSync24Regular />} label={t("actionBar.refresh")} />
                 <span onClick={onEdit}>
-                  <RibbonButton
-                    sharedStyles={sharedStyles}
-                    icon={<Edit24Regular />}
-                    label={t("actionBar.edit")}
-                  />
+                  <RibbonButton icon={<Edit24Regular />} label={t("actionBar.edit")} />
                 </span>
                 {onClone && (
                   <span onClick={onClone}>
                     <RibbonButton
-                      sharedStyles={sharedStyles}
                       icon={<DocumentBulletList24Regular />}
                       label={t("actionBar.clone")}
                     />
@@ -323,17 +314,12 @@ export function DetailShell({
                 )}
                 {onTerminate && (
                   <span onClick={onTerminate}>
-                    <RibbonButton
-                      sharedStyles={sharedStyles}
-                      icon={<Delete20Regular />}
-                      label={t("actionBar.terminate")}
-                    />
+                    <RibbonButton icon={<Delete20Regular />} label={t("actionBar.terminate")} />
                   </span>
                 )}
                 {onUnterminate && (
                   <span onClick={onUnterminate}>
                     <RibbonButton
-                      sharedStyles={sharedStyles}
                       icon={<ArrowSync24Regular />}
                       label={t("actionBar.unterminate")}
                     />
@@ -348,8 +334,7 @@ export function DetailShell({
               <div className={sharedStyles.actionBarGroupButtons}>
                 <span onClick={onAskAi}>
                   <RibbonButton
-                    sharedStyles={sharedStyles}
-                    icon={<Sparkle24Filled style={{ color: "#B24BF3" }} />}
+                    icon={<Sparkle24Filled style={{ color: aiAccentColor }} />}
                     label={t("actionBar.askAi")}
                   />
                 </span>
@@ -361,7 +346,6 @@ export function DetailShell({
             <div className={sharedStyles.actionBarGroup}>
               <div className={sharedStyles.actionBarGroupButtons}>
                 <RibbonButton
-                  sharedStyles={sharedStyles}
                   icon={<MoreVertical24Regular />}
                   label={t("actionBar.more")}
                   menu={(() => {

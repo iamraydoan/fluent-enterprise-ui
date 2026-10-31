@@ -14,8 +14,6 @@ interface ScheduleFormDialogProps {
   submitLabel: string;
 }
 
-const STEPS = ["General Data", "Optimization Criteria", "Untie Sort Rules", "Automatic Scheduling"];
-
 const VIEW_OPTIONS = ["Gantt", "Table"];
 const TYPE_OPTIONS = ["Forwards", "Backwards"];
 

@@ -1,12 +1,13 @@
 import { makeStyles } from "@/components/ui";
+import { detailTileColors } from "@/styles/shared";
 
 const useTileStyles = makeStyles({
   tile: {
     width: "72px",
     height: "72px",
     flexShrink: 0,
-    backgroundColor: "#C9E0EC",
-    color: "#0F5C93",
+    backgroundColor: detailTileColors.background,
+    color: detailTileColors.foreground,
     display: "grid",
     placeItems: "center",
     fontSize: "44px",

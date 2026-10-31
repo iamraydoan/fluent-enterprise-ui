@@ -18,7 +18,6 @@ import {
 import { Input, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 import { FabGrid } from "../components/FabGrid";
 import type { FabGridColumn } from "../components/FabGrid";
 import {
@@ -245,7 +244,6 @@ const DLG = {
 export function ResourceView({ name, onBack }: { name: string; onBack: () => void }) {
   const { t } = useAppTranslation();
   const styles = useViewStyles();
-  const sharedStyles = useSharedStyles();
   const [category, setCategory] = useState<Category>("materialsAtResource");
   const [visibleCategories, setVisibleCategories] = useState<Category[]>(ALL_CATEGORIES);
   const [page, setPage] = useState(1);
@@ -527,43 +525,36 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
       {isStorage ? (
         <ActionBar>
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<ArrowSync24Regular />}
             label={t("manufacturing.fabExplorer.operations.refresh")}
             onClick={() => materialsQuery.refetch()}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.store")}
             onClick={() => setDlg(DLG.store)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.retrieve")}
             onClick={() => setDlg(DLG.retrieve)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.performChecklist")}
             onClick={() => setDlg(DLG.checklist)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.more")}
             menu={moreMenu}
           />
           <div className={styles.toolbarRight}>
             <RibbonButton
-              sharedStyles={sharedStyles}
               icon={<Box24Regular />}
               label={t("manufacturing.fabExplorer.layout.views")}
             />
             <RibbonButton
-              sharedStyles={sharedStyles}
               icon={<Box24Regular />}
               label={t("manufacturing.fabExplorer.layout.layout")}
               menu={layoutMenu}
@@ -573,85 +564,71 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
       ) : (
         <ActionBar>
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<ArrowSync24Regular />}
             label={t("manufacturing.fabExplorer.operations.refresh")}
             onClick={() => activeQuery.refetch()}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.changeResourceState")}
             onClick={() => setDlg(DLG.changeResourceState)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Send24Regular />}
             label={t("manufacturing.fabExplorer.operations.dispatch")}
             onClick={() => setDlg(DLG.dispatch)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Send24Regular />}
             label={t("manufacturing.fabExplorer.operations.dispatchAndTrackIn")}
             onClick={() => setDlg(DLG.dispatchTrackIn)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.moveNext")}
             onClick={() => setDlg(DLG.moveNext)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.split")}
             onClick={() => setDlg(DLG.split)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.merge")}
             onClick={() => setDlg(DLG.merge)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.holdMaterial")}
             onClick={() => setDlg(DLG.hold)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.rework")}
             onClick={() => setDlg(DLG.rework)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.recordLossBonus")}
             onClick={() => setDlg(DLG.lossBonus)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.postData")}
             onClick={() => setDlg(DLG.postData)}
           />
           <RibbonButton
-            sharedStyles={sharedStyles}
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.operations.more")}
             menu={moreMenu}
           />
           <div className={styles.toolbarRight}>
             <RibbonButton
-              sharedStyles={sharedStyles}
               icon={<Box24Regular />}
               label={t("manufacturing.fabExplorer.layout.views")}
             />
             <RibbonButton
-              sharedStyles={sharedStyles}
               icon={<Box24Regular />}
               label={t("manufacturing.fabExplorer.layout.layout")}
               menu={layoutMenu}

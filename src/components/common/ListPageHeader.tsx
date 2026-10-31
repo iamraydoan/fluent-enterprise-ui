@@ -52,7 +52,6 @@ export function ListPageHeader({ icon, title, actions }: ListPageHeaderProps) {
                     return (
                       <RibbonButton
                         key={action.id}
-                        sharedStyles={sharedStyles}
                         icon={action.icon}
                         label={label}
                         onClick={action.onClick}

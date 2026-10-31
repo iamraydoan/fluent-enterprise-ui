@@ -5,6 +5,7 @@ import {
   Card,
   CardGrid,
   DetailShell,
+  DialogEntityBanner,
   DialogFooter,
   Empty,
   KV,

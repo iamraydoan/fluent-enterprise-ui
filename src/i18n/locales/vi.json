@@ -154,7 +154,8 @@
     "create": "Tạo",
     "add": "Thêm",
     "remove": "Xóa",
-    "none": "Không có"
+    "none": "Không có",
+    "wizardSteps": "Các bước wizard"
   },
   "configuration": {
     "pageLabel": "Cấu hình",

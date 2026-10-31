@@ -1,4 +1,5 @@
 import { Body1Strong, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 
 const useWizardStepsStyles = makeStyles({
   root: { display: "flex", alignItems: "center", columnGap: "8px", marginBottom: "12px" },
@@ -26,8 +27,9 @@ interface WizardStepsProps {
 
 export function WizardSteps({ steps, current }: WizardStepsProps) {
   const styles = useWizardStepsStyles();
+  const { t } = useAppTranslation();
   return (
-    <div className={styles.root} role="list" aria-label="Wizard steps">
+    <div className={styles.root} role="list" aria-label={t("common.wizardSteps")}>
       {steps.map((label, i) => {
         const stepNumber = i + 1;
         const isActive = stepNumber === current;
@@ -35,7 +37,10 @@ export function WizardSteps({ steps, current }: WizardStepsProps) {
           <span key={label} className={styles.step} role="listitem">
             {i > 0 && <span className={styles.connector} aria-hidden="true" />}
             <span
-              className={mergeClasses(styles.circle, isActive ? styles.circleActive : styles.circleTodo)}
+              className={mergeClasses(
+                styles.circle,
+                isActive ? styles.circleActive : styles.circleTodo,
+              )}
               aria-current={isActive ? "step" : undefined}
             >
               {stepNumber}

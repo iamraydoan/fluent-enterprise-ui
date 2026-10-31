@@ -154,7 +154,8 @@
     "create": "Create",
     "add": "Add",
     "remove": "Remove",
-    "none": "None"
+    "none": "None",
+    "wizardSteps": "Wizard steps"
   },
   "configuration": {
     "pageLabel": "Configuration",
