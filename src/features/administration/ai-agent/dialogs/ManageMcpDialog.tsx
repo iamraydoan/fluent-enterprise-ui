@@ -9,11 +9,8 @@ import {
 } from "@/components/icons";
 import { Button, Checkbox, Input, makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-<<<<<<< HEAD
-import { theme } from "@/styles/theme";
-=======
 import { containsIgnoreCase } from "@/lib/utils";
->>>>>>> fix/iter3-agent10
+import { theme } from "@/styles/theme";
 import { AGENT_MCP_SERVERS, agentServerTools } from "../data";
 import type { ToolSelection } from "../data";
 import { DialogAgentSub } from "./DialogAgentSub";

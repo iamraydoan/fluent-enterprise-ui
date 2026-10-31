@@ -141,14 +141,14 @@ export function UIPagesPage() {
           <FilterGroup>
             <Checkbox
               checked={showTerminated}
-              onChange={(_, data) => setShowTerminated(data.checked === true)}
+              onChange={setShowTerminated}
               label={t("uiPages.filters.terminated")}
             />
           </FilterGroup>
           <FilterGroup>
             <Checkbox
               checked={showSystemItems}
-              onChange={(_, data) => setShowSystemItems(data.checked === true)}
+              onChange={setShowSystemItems}
               label={t("uiPages.filters.systemItems")}
             />
           </FilterGroup>
@@ -194,7 +194,7 @@ export function UIPagesPage() {
           <FilterGroup label={t("uiPages.filters.entityType")}>
             <Input
               value={entityType}
-              onChange={(_, data) => setEntityType(data.value)}
+              onChange={setEntityType}
               placeholder={t("uiPages.filters.entityTypePlaceholder")}
               style={{ width: "160px" }}
             />
@@ -202,7 +202,7 @@ export function UIPagesPage() {
           <FilterGroup alignEnd>
             <Input
               value={q}
-              onChange={(_, data) => setQ(data.value)}
+              onChange={setQ}
               placeholder={t("common.search")}
               style={{ width: "200px" }}
             />
