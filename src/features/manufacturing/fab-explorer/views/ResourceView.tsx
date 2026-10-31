@@ -92,11 +92,6 @@ const useViewStyles = makeStyles({
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
   },
-  filterLabel: {
-    fontSize: "12px",
-    color: theme.color.textTertiary,
-    fontWeight: theme.font.weightSemibold,
-  },
   catRow: {
     display: "flex",
     alignItems: "center",

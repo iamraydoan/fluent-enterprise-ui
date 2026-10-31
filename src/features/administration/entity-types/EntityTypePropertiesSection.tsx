@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty } from "@/api";
-import { Card } from "@/components/common";
+import { Card, FilterBar, FilterGroup } from "@/components/common";
 import {
   ArrowSync20Regular,
   ChevronDown20Regular,
@@ -137,13 +137,16 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
           {t("entityTypes.properties.manage")}
         </Button>
       </div>
-      <div className={styles.filterBar}>
-        <Checkbox
-          label={t("entityTypes.properties.searchableFilter")}
-          checked={searchableOnly}
-          onChange={setSearchableOnly}
-        />
-        <Menu>
+      <FilterBar>
+        <FilterGroup>
+          <Checkbox
+            label={t("entityTypes.properties.searchableFilter")}
+            checked={searchableOnly}
+            onChange={setSearchableOnly}
+          />
+        </FilterGroup>
+        <FilterGroup>
+          <Menu>
           <MenuTrigger disableButtonEnhancement>
             <Button variant="subtle" size="sm">
               {t("entityTypes.properties.referenceTypeFilter", {
@@ -163,16 +166,19 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
               ))}
             </MenuList>
           </MenuPopover>
-        </Menu>
-        <Input
+          </Menu>
+        </FilterGroup>
+        <FilterGroup>
+          <Input
           size="sm"
           contentBefore={<Search20Regular />}
           placeholder={t("common.search")}
           value={search}
           onChange={setSearch}
           aria-label={t("common.search")}
-        />
-      </div>
+          />
+        </FilterGroup>
+      </FilterBar>
       <div className={styles.list} role="list">
         {visible.map((property) => (
           <PropertyRow
