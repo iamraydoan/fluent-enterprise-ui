@@ -7622,5 +7622,73 @@
         "menuLabel": "終了取消"
       }
     }
+  },
+  "manufacturing": {
+    "barcodeIdentification": {
+      "pageTitle": "バーコード識別",
+      "emptyTitle": "バーコードをスキャン",
+      "emptySubtitle": "(材料; リソース; コンテナ)",
+      "scannedTitle": "スキャン済みバーコード ({{count}})",
+      "scanHint": "バーコードをスキャン (材料; リソース; コンテナ)",
+      "notFound": "バーコード \"{{code}}\" が見つかりませんでした。",
+      "actions": {
+        "scan": "スキャン",
+        "insertBarcode": "バーコード入力",
+        "reset": "リセット",
+        "settings": "バーコード識別設定"
+      },
+      "tiles": {
+        "split": "分割",
+        "splitByProduct": "製品別に分割",
+        "merge": "結合",
+        "hold": "保留",
+        "temporaryOffFlow": "一時的フロー外",
+        "recordLossBonus": "ロス/ボーナス記録",
+        "combine": "コンバイン",
+        "compose": "配合"
+      },
+      "scan": {
+        "title": "データのスキャン",
+        "barcode": "バーコード",
+        "qrCode": "QRコード",
+        "scanning": "スキャン中...",
+        "cancel": "キャンセル"
+      },
+      "insert": {
+        "title": "バーコード入力",
+        "placeholder": "バーコード",
+        "ok": "OK"
+      },
+      "info": {
+        "resourceTitle": "リソース詳細",
+        "materialTitle": "材料詳細",
+        "containerTitle": "コンテナ詳細",
+        "resource": "リソース",
+        "material": "材料",
+        "container": "コンテナ",
+        "systemState": "システム状態",
+        "currentState": "現在の状態",
+        "description": "説明",
+        "type": "タイプ",
+        "materialsDispatched": "出庫済み材料",
+        "materialsInProcess": "処理中の材料",
+        "state": "状態",
+        "product": "製品",
+        "quantity": "数量",
+        "location": "場所",
+        "capacity": "容量"
+      },
+      "settings": {
+        "title": "バーコード識別設定",
+        "entities": "エンティティ",
+        "entity": "エンティティ",
+        "barcodeProperty": "バーコードプロパティ",
+        "entityNames": {
+          "material": "材料",
+          "resource": "リソース",
+          "container": "コンテナ"
+        }
+      }
+    }
   }
 }

@@ -794,6 +794,19 @@ export function breadcrumbsForRoute(route: string): BreadcrumbItem[] {
     }
     return crumbs;
   }
+  if (path === "/manufacturing") {
+    return [{ labelKey: "nav.sections.manufacturing", label: null, route: "/manufacturing" }];
+  }
+  if (path === "/manufacturing/barcode-identification") {
+    return [
+      { labelKey: "nav.sections.manufacturing", label: null, route: "/manufacturing" },
+      {
+        labelKey: "manufacturing.barcodeIdentification.pageTitle",
+        label: null,
+        route: "/manufacturing/barcode-identification",
+      },
+    ];
+  }
   return [];
 }
 

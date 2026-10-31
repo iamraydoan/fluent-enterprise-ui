@@ -7622,5 +7622,73 @@
         "menuLabel": "Hủy kết thúc"
       }
     }
+  },
+  "manufacturing": {
+    "barcodeIdentification": {
+      "pageTitle": "Nhận dạng mã vạch",
+      "emptyTitle": "Quét mã vạch",
+      "emptySubtitle": "(Vật liệu; Tài nguyên; Thùng chứa)",
+      "scannedTitle": "Mã vạch đã quét ({{count}})",
+      "scanHint": "Quét mã vạch (Vật liệu; Tài nguyên; Thùng chứa)",
+      "notFound": "Không tìm thấy mã vạch \"{{code}}\".",
+      "actions": {
+        "scan": "Quét",
+        "insertBarcode": "Nhập mã vạch",
+        "reset": "Đặt lại",
+        "settings": "Cài đặt nhận dạng mã vạch"
+      },
+      "tiles": {
+        "split": "Tách",
+        "splitByProduct": "Tách theo sản phẩm",
+        "merge": "Hợp nhất",
+        "hold": "Giữ",
+        "temporaryOffFlow": "Tạm ngưng luồng",
+        "recordLossBonus": "Ghi nhận hao hụt/tăng thêm",
+        "combine": "Kết hợp",
+        "compose": "Phối trộn"
+      },
+      "scan": {
+        "title": "Quét dữ liệu",
+        "barcode": "Mã vạch",
+        "qrCode": "Mã QR",
+        "scanning": "Đang quét...",
+        "cancel": "Hủy"
+      },
+      "insert": {
+        "title": "Nhập mã vạch",
+        "placeholder": "Mã vạch",
+        "ok": "OK"
+      },
+      "info": {
+        "resourceTitle": "Chi tiết tài nguyên",
+        "materialTitle": "Chi tiết vật liệu",
+        "containerTitle": "Chi tiết thùng chứa",
+        "resource": "Tài nguyên",
+        "material": "Vật liệu",
+        "container": "Thùng chứa",
+        "systemState": "Trạng thái hệ thống",
+        "currentState": "Trạng thái hiện tại",
+        "description": "Mô tả",
+        "type": "Loại",
+        "materialsDispatched": "Vật liệu đã xuất",
+        "materialsInProcess": "Vật liệu đang xử lý",
+        "state": "Trạng thái",
+        "product": "Sản phẩm",
+        "quantity": "Số lượng",
+        "location": "Vị trí",
+        "capacity": "Dung lượng"
+      },
+      "settings": {
+        "title": "Cài đặt nhận dạng mã vạch",
+        "entities": "Thực thể",
+        "entity": "Thực thể",
+        "barcodeProperty": "Thuộc tính mã vạch",
+        "entityNames": {
+          "material": "Vật liệu",
+          "resource": "Tài nguyên",
+          "container": "Thùng chứa"
+        }
+      }
+    }
   }
 }
