@@ -5,9 +5,9 @@ import { Table24Regular } from "@/components/icons";
 import { Body1Strong, Caption1, makeStyles, Tab, TabList, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { GenericTableDataTab } from "./GenericTableDataTab";
 import { GenericTableDefinitionTab } from "./GenericTableDefinitionTab";
-import { theme } from "@/styles/theme";
 
 const useDetailStyles = makeStyles({
   page: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0 },

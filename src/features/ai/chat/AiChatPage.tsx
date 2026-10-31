@@ -28,9 +28,9 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { CHAT_EXAMPLES, SEED_CHATS } from "./data";
 import type { ChatSession } from "./data";
-import { theme } from "@/styles/theme";
 
 const useChatStyles = makeStyles({
   bar: {
@@ -411,7 +411,7 @@ export function AiChatPage() {
             <button className={chatStyles.agentBtn}>
               <Bot20Regular />
               {agent.name}
-              <ChevronDown16Regular style={{ color: "#1a6fc4" }} />
+              <ChevronDown16Regular style={{ color: theme.color.textBrand }} />
             </button>
           </MenuTrigger>
           <MenuPopover>

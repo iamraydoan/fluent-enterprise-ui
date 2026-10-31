@@ -26,8 +26,8 @@ import {
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { useBomDialogs } from "./useBomDialogs";
 import { theme } from "@/styles/theme";
+import { useBomDialogs } from "./useBomDialogs";
 
 const useDetailStyles = makeStyles({
   cards: {

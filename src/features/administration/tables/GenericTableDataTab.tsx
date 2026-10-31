@@ -32,7 +32,7 @@ const useGridStyles = makeStyles({
     border: `1px solid ${theme.color.borderSubtle}`,
   },
   th: {
-    backgroundColor: "#EFEFEF",
+    backgroundColor: theme.color.surfaceTertiary,
     fontSize: "12px",
     fontWeight: 400,
     textTransform: "uppercase",

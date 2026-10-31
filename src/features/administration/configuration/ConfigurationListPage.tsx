@@ -8,9 +8,9 @@ import { makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { theme } from "@/styles/theme";
 import { ConfigurationTree } from "./ConfigurationTree";
 import { CONFIG_ENTRY_TYPE_LABELS, CONFIG_ENTRY_TYPES, entryName, maskedValue } from "./data";
-import { theme } from "@/styles/theme";
 
 const usePageStyles = makeStyles({
   allEntries: {

@@ -14,8 +14,8 @@ import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { useBatchDialogs } from "./useBatchDialogs";
 import { theme } from "@/styles/theme";
+import { useBatchDialogs } from "./useBatchDialogs";
 
 const useDetailStyles = makeStyles({
   cards: {

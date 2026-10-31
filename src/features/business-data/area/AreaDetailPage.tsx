@@ -17,8 +17,8 @@ import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { useAreaDialogs } from "./useAreaDialogs";
 import { theme } from "@/styles/theme";
+import { useAreaDialogs } from "./useAreaDialogs";
 
 const useDetailStyles = makeStyles({
   cards: {

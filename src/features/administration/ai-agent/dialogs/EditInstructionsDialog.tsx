@@ -36,8 +36,8 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { DialogAgentSub } from "./DialogAgentSub";
 import { theme } from "@/styles/theme";
+import { DialogAgentSub } from "./DialogAgentSub";
 
 const useEditStyles = makeStyles({
   field: { display: "flex", columnGap: "12px", padding: "0 32px", alignItems: "flex-start" },

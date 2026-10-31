@@ -17,8 +17,8 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { DEFAULT_SEARCH_TYPE, isContainsSearchType, searchTypeLabelKey } from "../propertyUtils";
 import { theme } from "@/styles/theme";
+import { DEFAULT_SEARCH_TYPE, isContainsSearchType, searchTypeLabelKey } from "../propertyUtils";
 
 const MAX_SEARCHABLE = 2;
 

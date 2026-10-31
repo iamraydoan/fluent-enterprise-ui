@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Body1Strong, Button, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ManageServiceResourcesDialogProps {
   open: boolean;
@@ -94,7 +95,7 @@ export function ManageServiceResourcesDialog({
                 style={{
                   padding: "8px 12px",
                   cursor: "pointer",
-                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >

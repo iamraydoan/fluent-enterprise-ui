@@ -26,8 +26,8 @@ import {
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { useBinConverterDialogs } from "./useBinConverterDialogs";
 import { theme } from "@/styles/theme";
+import { useBinConverterDialogs } from "./useBinConverterDialogs";
 
 const useDetailStyles = makeStyles({
   cards: {

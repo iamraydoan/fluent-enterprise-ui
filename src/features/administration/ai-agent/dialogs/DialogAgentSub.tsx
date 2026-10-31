@@ -15,7 +15,7 @@ const useDialogAgentSubStyles = makeStyles({
     fontSize: "13px",
   },
   link: {
-    color: "#1a6fc4",
+    color: theme.color.textBrand,
     display: "inline-flex",
     alignItems: "center",
     columnGap: "6px",
@@ -45,7 +45,7 @@ export function DialogAgentSub({
         </span>
         {agentDescription && <span style={{ color: "#333" }}>{` / ${agentDescription}`}</span>}
       </span>
-      <ChevronDown20Regular style={{ color: "#1a6fc4" }} />
+      <ChevronDown20Regular style={{ color: theme.color.textBrand }} />
     </div>
   );
 }

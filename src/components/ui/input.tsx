@@ -13,15 +13,7 @@ import type {
 } from "react";
 
 export type InputType =
-  | "text"
-  | "password"
-  | "number"
-  | "date"
-  | "datetime-local"
-  | "email"
-  | "search"
-  | "tel"
-  | "url";
+  "text" | "password" | "number" | "date" | "datetime-local" | "email" | "search" | "tel" | "url";
 
 export type InputVariant = "outline" | "underline" | "filled";
 export type InputSize = "sm" | "md" | "lg";
@@ -91,17 +83,18 @@ export interface TextareaProps {
   id?: string;
 }
 
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  function Textarea({ onChange, ...rest }, ref) {
-    return (
-      <FluentTextarea
-        ref={ref}
-        onChange={onChange ? (_, data) => onChange(data.value) : undefined}
-        {...rest}
-      />
-    );
-  },
-);
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function Textarea(
+  { onChange, ...rest },
+  ref,
+) {
+  return (
+    <FluentTextarea
+      ref={ref}
+      onChange={onChange ? (_, data) => onChange(data.value) : undefined}
+      {...rest}
+    />
+  );
+});
 
 export type FieldProps = ComponentProps<typeof FluentField>;
 

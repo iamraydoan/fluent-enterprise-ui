@@ -29,22 +29,10 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, ref)
   return <FluentText ref={ref} {...props} />;
 });
 
-export function Body1Strong({
-  children,
-  style,
-}: {
-  children?: ReactNode;
-  style?: CSSProperties;
-}) {
+export function Body1Strong({ children, style }: { children?: ReactNode; style?: CSSProperties }) {
   return <FluentBody1Strong style={style}>{children}</FluentBody1Strong>;
 }
 
-export function Caption1({
-  children,
-  style,
-}: {
-  children?: ReactNode;
-  style?: CSSProperties;
-}) {
+export function Caption1({ children, style }: { children?: ReactNode; style?: CSSProperties }) {
   return <FluentCaption1 style={style}>{children}</FluentCaption1>;
 }

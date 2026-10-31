@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface CloneRecipeDialogProps {
   open: boolean;
@@ -90,7 +91,7 @@ export function CloneRecipeDialog({ open, onClose, sourceName }: CloneRecipeDial
                 style={{
                   padding: "8px 12px",
                   cursor: "pointer",
-                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >

@@ -9,10 +9,10 @@ import {
 } from "@/components/icons";
 import { Button, Checkbox, Input, makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { AGENT_MCP_SERVERS, agentServerTools } from "../data";
 import type { ToolSelection } from "../data";
 import { DialogAgentSub } from "./DialogAgentSub";
-import { theme } from "@/styles/theme";
 
 const useManageStyles = makeStyles({
   cols: {
@@ -65,13 +65,13 @@ const useManageStyles = makeStyles({
     fontSize: "13px",
     cursor: "pointer",
     border: "none",
-    background: "#EFEFEF",
+    background: theme.color.surfaceTertiary,
     fontFamily: "inherit",
     textAlign: "left",
     width: "100%",
     ":hover": { backgroundColor: "#E3EAF3" },
   },
-  rowOn: { backgroundColor: "#CFE3F1" },
+  rowOn: { backgroundColor: theme.color.brandSubtle },
   trow: {
     minHeight: "45px",
     flexShrink: 0,
@@ -81,7 +81,7 @@ const useManageStyles = makeStyles({
     padding: "0 10px 0 4px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
-    backgroundColor: "#EFEFEF",
+    backgroundColor: theme.color.surfaceTertiary,
   },
   sRow: {
     display: "flex",
@@ -97,7 +97,7 @@ const useManageStyles = makeStyles({
   def: {
     border: "none",
     background: "transparent",
-    color: "#0F6CBD",
+    color: theme.color.textBrand,
     fontFamily: "inherit",
     fontSize: "10px",
     cursor: "pointer",
@@ -231,7 +231,7 @@ export function ManageMcpDialog({
                 <div
                   key={tool}
                   className={manageStyles.trow}
-                  style={isOn(activeServer, tool) ? { backgroundColor: "#CFE3F1" } : undefined}
+                  style={isOn(activeServer, tool) ? { backgroundColor: theme.color.brandSubtle } : undefined}
                 >
                   <Checkbox
                     label={tool}

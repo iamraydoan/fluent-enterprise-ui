@@ -1,7 +1,7 @@
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 import { theme } from "@/styles/theme";
+import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 export interface BinConversionRow {
   id: number;

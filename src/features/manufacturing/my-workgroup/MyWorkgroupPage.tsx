@@ -28,6 +28,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles, tileSurface} from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { PanelSettingsDialog } from "./dialogs";
 
 const usePageStyles = makeStyles({
@@ -235,7 +236,7 @@ function ResourceTile({ tile, onOpen }: { tile: WorkgroupResourceTile; onOpen: (
     <div
       className={mergeClasses(sharedStyles.contentCard, styles.tile)}
       style={{
-        backgroundColor: isUp ? tileSurface.backgroundColor : "#FDECEC",
+        backgroundColor: isUp ? tileSurface.backgroundColor : theme.color.dangerSubtle,
       }}
       onClick={onOpen}
       role="button"

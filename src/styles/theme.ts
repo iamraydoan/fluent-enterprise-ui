@@ -29,5 +29,3 @@ export const theme = {
     md: tokens.borderRadiusMedium,
   },
 } as const;
-
-export type Theme = typeof theme;

@@ -45,6 +45,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useTabsStore } from "@/stores/tabs-store";
+import { theme } from "@/styles/theme";
 import type { ToolSelection } from "./data";
 import {
   AI_AGENT_SECTIONS,
@@ -55,7 +56,6 @@ import {
 import { EditInstructionsDialog } from "./dialogs/EditInstructionsDialog";
 import { ManageMcpDialog } from "./dialogs/ManageMcpDialog";
 import { ToolDescriptionDialog } from "./dialogs/ToolDescriptionDialog";
-import { theme } from "@/styles/theme";
 
 const useDetailStyles = makeStyles({
   titleRow: {
@@ -75,14 +75,14 @@ const useDetailStyles = makeStyles({
     position: "sticky",
     top: 0,
     zIndex: 1,
-    backgroundColor: "#EFEFEF",
+    backgroundColor: theme.color.surfaceTertiary,
     height: "36px",
     fontSize: "12px",
     fontWeight: 400,
     borderRight: `1px solid ${theme.color.borderSubtle}`,
     textTransform: "uppercase",
   },
-  groupRow: { backgroundColor: "#EFEFEF", cursor: "pointer" },
+  groupRow: { backgroundColor: theme.color.surfaceTertiary, cursor: "pointer" },
   td: { height: "34.5px", fontSize: "13px" },
   instr: {
     padding: "14px 4px",
@@ -174,7 +174,7 @@ function ToolsGrid({
                         display: "inline-flex",
                         alignItems: "center",
                         columnGap: 10,
-                        color: "#1a6fc4",
+                        color: theme.color.textBrand,
                         fontSize: 13,
                       }}
                     >
@@ -360,7 +360,7 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
             <Tooltip content={t("aiAgent.createdBy")} relationship="description">
               <Button
                 variant="transparent"
-                icon={<Info20Regular style={{ color: "#0F6CBD" }} />}
+                icon={<Info20Regular style={{ color: theme.color.textBrand }} />}
                 aria-label={t("common.information")}
               />
             </Tooltip>

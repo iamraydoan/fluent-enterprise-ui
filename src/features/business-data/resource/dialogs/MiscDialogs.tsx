@@ -15,6 +15,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface MiscDialogProps {
   open: boolean;
@@ -94,7 +95,7 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
                 style={{
                   padding: "8px 12px",
                   cursor: "pointer",
-                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >

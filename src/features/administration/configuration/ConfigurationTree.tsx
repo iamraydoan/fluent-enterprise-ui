@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import { Wrench20Regular } from "@/components/icons";
 import { Tree, TreeItem, TreeItemLayout, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { buildTree, entryName } from "./data";
 import type { TreeNode } from "./data";
-import { theme } from "@/styles/theme";
 
 const useTreeStyles = makeStyles({
   item: {

@@ -23,9 +23,9 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { ManagePropertiesDialog } from "./dialogs/ManagePropertiesDialog";
 import { searchTypeLabelKey, NOT_APPLICABLE } from "./propertyUtils";
-import { theme } from "@/styles/theme";
 
 const useSectionStyles = makeStyles({
   toolbar: {
