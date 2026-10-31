@@ -22,6 +22,14 @@ import { ConfirmOperationDialog } from "../components/ConfirmOperationDialog";
 import { EntityWizardDialog } from "../components/EntityWizardDialog";
 import type { OperationValues, WizardField, WizardStep } from "../components/operationTypes";
 import {
+  DC_SCOPES,
+  INSTANCE_STATE_CLOSED,
+  INSTANCE_STATE_OPEN,
+  INSTANCE_STATE_TERMINATED,
+  SPC_MODES,
+  USER_INTERFACES,
+} from "./dataCollectionLookups";
+import {
   CloneDataCollectionDialog,
   type CloneDataCollectionRow,
   CommentConfirmDialog,
@@ -35,15 +43,7 @@ import {
   PerformImmediateParametersStep,
   PostDataDialog,
   ViewDataCollectionInstanceDialog,
-} from "./DataCollectionDialogs";
-import {
-  DC_SCOPES,
-  INSTANCE_STATE_CLOSED,
-  INSTANCE_STATE_OPEN,
-  INSTANCE_STATE_TERMINATED,
-  SPC_MODES,
-  USER_INTERFACES,
-} from "./dataCollectionLookups";
+} from "./dialogs";
 
 const SCOPE_OPTIONS = DC_SCOPES.map((v) => ({ value: v, label: v }));
 const SPC_MODE_OPTIONS = SPC_MODES.map((v) => ({ value: v, label: v }));
