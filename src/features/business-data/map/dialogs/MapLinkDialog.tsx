@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { BaseDialog, DialogFooter } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 
 const L: Record<string, TranslationKey> = {
   linkTitle: "businessData.map.linkDialog.linkTitle",
@@ -23,42 +23,6 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    backgroundColor: "rgba(0,0,0,0.4)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-  },
-  surface: {
-    width: "600px",
-    maxWidth: "95vw",
-    display: "flex",
-    flexDirection: "column",
-    maxHeight: "90vh",
-  },
-  head: {
-    padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    fontWeight: tokens.fontWeightSemibold,
-    fontSize: tokens.fontSizeBase400,
-  },
-  body: {
-    padding: "16px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    overflowY: "auto",
-  },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "12px 16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   field: { display: "grid", gridTemplateColumns: "150px 1fr", gap: "12px", alignItems: "center" },
   select: {
     padding: "6px 8px",
@@ -69,9 +33,16 @@ const useDialogStyles = makeStyles({
   },
 });
 
-export function MapLinkDialog({ mapName, onClose }: { mapName: string; onClose: () => void }) {
+export function MapLinkDialog({
+  open,
+  mapName,
+  onClose,
+}: {
+  open: boolean;
+  mapName: string;
+  onClose: () => void;
+}) {
   const { t } = useAppTranslation();
-  const shared = useSharedStyles();
   const styles = useDialogStyles();
   const [material, setMaterial] = useState("");
   const [mapOrder, setMapOrder] = useState("1");
@@ -82,108 +53,110 @@ export function MapLinkDialog({ mapName, onClose }: { mapName: string; onClose: 
   const [comment, setComment] = useState("");
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>{t(L.linkTitle, { name: mapName })}</div>
-        <div className={styles.body}>
-          <div className={styles.field}>
-            <label>
-              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-              {t(L.material)}
-            </label>
-            <Input value={material} onChange={(_, d) => setMaterial(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.mapOrder)}</label>
-            <Input value={mapOrder} onChange={(_, d) => setMapOrder(d.value)} />
-          </div>
-          <div className={styles.field}>
-            <span />
-            <Checkbox
-              label={t(L.isMasterMap)}
-              checked={isMasterMap === true}
-              onChange={(_, d) => setIsMasterMap(d.checked === true)}
-            />
-          </div>
-          {isMasterMap && (
-            <div className={styles.field}>
-              <label>{t(L.linkageMode)}</label>
-              <select
-                className={styles.select}
-                value={linkageMode}
-                onChange={(e) => setLinkageMode(e.target.value)}
-              >
-                <option value="Verify">{t(L.linkageVerify)}</option>
-                <option value="Synchronize">{t(L.linkageSynchronize)}</option>
-              </select>
-            </div>
-          )}
-          <div className={styles.field}>
-            <span />
-            <Checkbox
-              label={t(L.isDefault)}
-              checked={isDefault === true}
-              onChange={(_, d) => setIsDefault(d.checked === true)}
-            />
-          </div>
-          <div className={styles.field}>
-            <span />
-            <Checkbox
-              label={t(L.isMerged)}
-              checked={isMerged === true}
-              onChange={(_, d) => setIsMerged(d.checked === true)}
-            />
-          </div>
-          <div className={styles.field}>
-            <label>{t(L.comment)}</label>
-            <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-          </div>
-        </div>
-        <div className={styles.footer}>
-          <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} disabled={material.trim().length === 0}>
+    <BaseDialog
+      open={open}
+      title={t(L.linkTitle, { name: mapName })}
+      onClose={onClose}
+      width="600px"
+      footer={
+        <>
+          <Button appearance="secondary" onClick={onClose}>
+            {t(L.cancel)}
+          </Button>
+          <Button
+            appearance="primary"
+            onClick={onClose}
+            disabled={material.trim().length === 0}
+          >
             {t(L.link)}
           </Button>
-        </div>
+        </>
+      }
+    >
+      <div className={styles.field}>
+        <label>
+          <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+          {t(L.material)}
+        </label>
+        <Input value={material} onChange={(_, d) => setMaterial(d.value)} />
       </div>
-    </div>
+      <div className={styles.field}>
+        <label>{t(L.mapOrder)}</label>
+        <Input value={mapOrder} onChange={(_, d) => setMapOrder(d.value)} />
+      </div>
+      <div className={styles.field}>
+        <span />
+        <Checkbox
+          label={t(L.isMasterMap)}
+          checked={isMasterMap === true}
+          onChange={(_, d) => setIsMasterMap(d.checked === true)}
+        />
+      </div>
+      {isMasterMap && (
+        <div className={styles.field}>
+          <label>{t(L.linkageMode)}</label>
+          <select
+            className={styles.select}
+            value={linkageMode}
+            onChange={(e) => setLinkageMode(e.target.value)}
+          >
+            <option value="Verify">{t(L.linkageVerify)}</option>
+            <option value="Synchronize">{t(L.linkageSynchronize)}</option>
+          </select>
+        </div>
+      )}
+      <div className={styles.field}>
+        <span />
+        <Checkbox
+          label={t(L.isDefault)}
+          checked={isDefault === true}
+          onChange={(_, d) => setIsDefault(d.checked === true)}
+        />
+      </div>
+      <div className={styles.field}>
+        <span />
+        <Checkbox
+          label={t(L.isMerged)}
+          checked={isMerged === true}
+          onChange={(_, d) => setIsMerged(d.checked === true)}
+        />
+      </div>
+      <div className={styles.field}>
+        <label>{t(L.comment)}</label>
+        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+      </div>
+    </BaseDialog>
   );
 }
 
-export function MapUnlinkDialog({ mapName, onClose }: { mapName: string; onClose: () => void }) {
+export function MapUnlinkDialog({
+  open,
+  mapName,
+  onClose,
+}: {
+  open: boolean;
+  mapName: string;
+  onClose: () => void;
+}) {
   const { t } = useAppTranslation();
-  const shared = useSharedStyles();
   const styles = useDialogStyles();
   const [comment, setComment] = useState("");
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>{t(L.unlinkTitle)}</div>
-        <div className={styles.body}>
-          <div>{t(L.unlinkMessage, { name: mapName })}</div>
-          <div className={styles.field}>
-            <label>{t(L.comment)}</label>
-            <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
-          </div>
-        </div>
-        <div className={styles.footer}>
-          <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose}>
-            {t(L.unlink)}
-          </Button>
-        </div>
+    <BaseDialog
+      open={open}
+      title={t(L.unlinkTitle)}
+      onClose={onClose}
+      width="600px"
+      footer={
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.unlink)} />
+      }
+    >
+      <div>{t(L.unlinkMessage, { name: mapName })}</div>
+      <div className={styles.field}>
+        <label>{t(L.comment)}</label>
+        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
       </div>
-    </div>
+    </BaseDialog>
   );
 }

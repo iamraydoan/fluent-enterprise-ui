@@ -60,20 +60,18 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
       >
         {content}
       </DetailShell>
-      {editOpen && (
-        <MaintenancePlanDialog
-          mode={MODE_EDIT}
-          initialName={name}
-          onClose={() => setEditOpen(false)}
-        />
-      )}
-      {cloneOpen && (
-        <MaintenancePlanDialog
-          mode={MODE_CLONE}
-          initialName={`${name} (Copy)`}
-          onClose={() => setCloneOpen(false)}
-        />
-      )}
+      <MaintenancePlanDialog
+        open={editOpen}
+        mode={MODE_EDIT}
+        initialName={name}
+        onClose={() => setEditOpen(false)}
+      />
+      <MaintenancePlanDialog
+        open={cloneOpen}
+        mode={MODE_CLONE}
+        initialName={`${name} (Copy)`}
+        onClose={() => setCloneOpen(false)}
+      />
       {terminateOpen && (
         <MaintenancePlanTerminateDialog
           name={name}
@@ -88,12 +86,16 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
           onClose={() => setUnterminateOpen(false)}
         />
       )}
-      {setEffectiveOpen && (
-        <SetMaintenancePlanEffectiveDialog name={name} onClose={() => setSetEffectiveOpen(false)} />
-      )}
-      {associateOpen && (
-        <AssociateMaintenancePlanDialog name={name} onClose={() => setAssociateOpen(false)} />
-      )}
+      <SetMaintenancePlanEffectiveDialog
+        open={setEffectiveOpen}
+        name={name}
+        onClose={() => setSetEffectiveOpen(false)}
+      />
+      <AssociateMaintenancePlanDialog
+        open={associateOpen}
+        name={name}
+        onClose={() => setAssociateOpen(false)}
+      />
     </>
   );
 

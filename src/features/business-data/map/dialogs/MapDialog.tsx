@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { BaseDialog } from "@/components/common";
 import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 import { MODE_CREATE, MODE_EDIT } from "../../components/wizardMode";
 import type { WizardMode } from "../../components/wizardMode";
 
@@ -28,33 +28,12 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    backgroundColor: "rgba(0,0,0,0.4)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-  },
-  surface: {
-    width: "640px",
-    maxWidth: "95vw",
-    display: "flex",
-    flexDirection: "column",
-    maxHeight: "90vh",
-  },
-  head: {
-    padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    fontWeight: tokens.fontWeightSemibold,
-    fontSize: tokens.fontSizeBase400,
-  },
   steps: {
     display: "flex",
     gap: "16px",
     padding: "12px 16px",
     borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    margin: "-16px -20px 0",
   },
   step: { fontSize: tokens.fontSizeBase300, color: tokens.colorNeutralForeground3 },
   stepActive: {
@@ -62,33 +41,19 @@ const useDialogStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorBrandForeground1,
   },
-  body: {
-    padding: "16px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    overflowY: "auto",
-  },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "12px 16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   field: { display: "grid", gridTemplateColumns: "150px 1fr", gap: "12px", alignItems: "center" },
   hint: { fontSize: tokens.fontSizeBase200, color: tokens.colorNeutralForeground3 },
 });
 
 interface DialogProps {
+  open: boolean;
   mode: WizardMode;
   initialName?: string;
   onClose: () => void;
 }
 
-export function MapDialog({ mode, initialName, onClose }: DialogProps) {
+export function MapDialog({ open, mode, initialName, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const shared = useSharedStyles();
   const styles = useDialogStyles();
   const [step, setStep] = useState(1);
   const [name, setName] = useState(initialName ?? "");
@@ -102,64 +67,13 @@ export function MapDialog({ mode, initialName, onClose }: DialogProps) {
   const canSubmit = name.trim().length > 0 && mapDefinition.trim().length > 0;
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={`${shared.contentCard} ${styles.surface}`}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-      >
-        <div className={styles.head}>{t(title)}</div>
-        <div className={styles.steps}>
-          <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
-          <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
-        </div>
-        <div className={styles.body}>
-          {step === 1 && (
-            <>
-              <div className={styles.field}>
-                <label>
-                  <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-                  {t(L.name)}
-                </label>
-                <Input
-                  value={name}
-                  onChange={(_, d) => setName(d.value)}
-                  disabled={mode === MODE_EDIT}
-                />
-              </div>
-              <div className={styles.field}>
-                <label>{t(L.description)}</label>
-                <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
-              </div>
-              <div className={styles.field}>
-                <label>
-                  <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
-                  {t(L.mapDefinition)}
-                </label>
-                <Input value={mapDefinition} onChange={(_, d) => setMapDefinition(d.value)} />
-              </div>
-              <div className={styles.field}>
-                <label>{t(L.step)}</label>
-                <Input value={stepCtx} onChange={(_, d) => setStepCtx(d.value)} />
-              </div>
-              <div className={styles.field}>
-                <label>{t(L.resource)}</label>
-                <Input value={resource} onChange={(_, d) => setResource(d.value)} />
-              </div>
-            </>
-          )}
-          {step === 2 && (
-            <>
-              <div className={styles.hint}>{t(L.layersHint)}</div>
-              <div className={styles.field}>
-                <label>{t(L.layers)}</label>
-                <input type="file" accept=".g85" multiple />
-              </div>
-            </>
-          )}
-        </div>
-        <div className={styles.footer}>
+    <BaseDialog
+      open={open}
+      title={t(title)}
+      onClose={onClose}
+      width="640px"
+      footer={
+        <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step === 2 && <Button onClick={() => setStep(1)}>{t(L.back)}</Button>}
           {step === 1 ? (
@@ -171,8 +85,56 @@ export function MapDialog({ mode, initialName, onClose }: DialogProps) {
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
             </Button>
           )}
-        </div>
+        </>
+      }
+    >
+      <div className={styles.steps}>
+        <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
+        <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
       </div>
-    </div>
+      {step === 1 && (
+        <>
+          <div className={styles.field}>
+            <label>
+              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+              {t(L.name)}
+            </label>
+            <Input
+              value={name}
+              onChange={(_, d) => setName(d.value)}
+              disabled={mode === MODE_EDIT}
+            />
+          </div>
+          <div className={styles.field}>
+            <label>{t(L.description)}</label>
+            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+          </div>
+          <div className={styles.field}>
+            <label>
+              <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+              {t(L.mapDefinition)}
+            </label>
+            <Input value={mapDefinition} onChange={(_, d) => setMapDefinition(d.value)} />
+          </div>
+          <div className={styles.field}>
+            <label>{t(L.step)}</label>
+            <Input value={stepCtx} onChange={(_, d) => setStepCtx(d.value)} />
+          </div>
+          <div className={styles.field}>
+            <label>{t(L.resource)}</label>
+            <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+          </div>
+        </>
+      )}
+      {step === 2 && (
+        <>
+          <div className={styles.hint}>{t(L.layersHint)}</div>
+          <div className={styles.field}>
+            <label>{t(L.layers)}</label>
+            <input type="file" accept=".g85" multiple />
+          </div>
+        </>
+      )}
+    </BaseDialog>
   );
 }

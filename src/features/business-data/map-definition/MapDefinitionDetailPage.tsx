@@ -96,16 +96,15 @@ export function MapDefinitionDetailPage({ name }: { name: string }) {
             </TableBody>
           </Table>
         </Card>
-        {editOpen && (
-          <MapDefinitionWizardDialog
-            mode={MODE_EDIT}
-            initialName={data.name}
-            initialDescription={data.description}
-            initialType={data.type}
-            initialLayers={data.layers}
-            onClose={() => setEditOpen(false)}
-          />
-        )}
+        <MapDefinitionWizardDialog
+          open={editOpen}
+          mode={MODE_EDIT}
+          initialName={data.name}
+          initialDescription={data.description}
+          initialType={data.type}
+          initialLayers={data.layers}
+          onClose={() => setEditOpen(false)}
+        />
       </>,
     );
   }
@@ -172,26 +171,24 @@ export function MapDefinitionDetailPage({ name }: { name: string }) {
           />
         </Card>
       </CardGrid>
-      {editOpen && (
-        <MapDefinitionWizardDialog
-          mode={MODE_EDIT}
-          initialName={data.name}
-          initialDescription={data.description}
-          initialType={data.type}
-          initialLayers={data.layers}
-          onClose={() => setEditOpen(false)}
-        />
-      )}
-      {cloneOpen && (
-        <MapDefinitionWizardDialog
-          mode={MODE_CLONE}
-          initialName={`${data.name} (Copy)`}
-          initialDescription={data.description}
-          initialType={data.type}
-          initialLayers={data.layers}
-          onClose={() => setCloneOpen(false)}
-        />
-      )}
+      <MapDefinitionWizardDialog
+        open={editOpen}
+        mode={MODE_EDIT}
+        initialName={data.name}
+        initialDescription={data.description}
+        initialType={data.type}
+        initialLayers={data.layers}
+        onClose={() => setEditOpen(false)}
+      />
+      <MapDefinitionWizardDialog
+        open={cloneOpen}
+        mode={MODE_CLONE}
+        initialName={`${data.name} (Copy)`}
+        initialDescription={data.description}
+        initialType={data.type}
+        initialLayers={data.layers}
+        onClose={() => setCloneOpen(false)}
+      />
     </>,
   );
 }

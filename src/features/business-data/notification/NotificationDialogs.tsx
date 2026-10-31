@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Dismiss16Regular } from "@/components/icons";
+import { BaseDialog } from "@/components/common";
 import {
   Button,
   Checkbox,
@@ -14,7 +14,6 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 import {
   NOTIFICATION_ASSIGNMENTS,
   NOTIFICATION_CLEARANCES,
@@ -24,39 +23,6 @@ import {
 } from "./notificationOptions";
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    ...cardSurface,
-    width: "min(720px, 100%)",
-    maxHeight: "calc(100vh - 48px)",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-  },
-  header: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "16px 20px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
-  body: { padding: "20px", overflowY: "auto", flex: 1 },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "16px 20px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   field: { marginBottom: "16px" },
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
   required: { color: tokens.colorPaletteRedForeground1, marginRight: "4px" },
@@ -71,46 +37,6 @@ interface DialogProps {
   onSubmit?: () => void;
 }
 
-function DialogShell({
-  open,
-  onClose,
-  title,
-  children,
-  footer,
-}: DialogProps & {
-  title: string;
-  children: React.ReactNode;
-  footer?: React.ReactNode;
-}) {
-  const { t } = useAppTranslation();
-  const styles = useDialogStyles();
-  if (!open) return null;
-  return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div
-        className={styles.surface}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={title}
-      >
-        <div className={styles.header}>
-          <Text size={400} weight="semibold">
-            {title}
-          </Text>
-          <Button
-            appearance="subtle"
-            icon={<Dismiss16Regular />}
-            onClick={onClose}
-            aria-label={t("businessData.notification.operations._shared.close")}
-          />
-        </div>
-        <div className={styles.body}>{children}</div>
-        {footer && <div className={styles.footer}>{footer}</div>}
-      </div>
-    </div>
-  );
-}
 
 function Field({
   label,
@@ -200,7 +126,7 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
   };
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -284,7 +210,7 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
           )}
         />
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -306,7 +232,7 @@ export function EditNotificationDialog({
   };
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -337,7 +263,7 @@ export function EditNotificationDialog({
         options={NOTIFICATION_SEVERITIES}
         onSelect={setSeverity}
       />
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -352,7 +278,7 @@ export function CloneNotificationDialog({ open, onClose, onSubmit }: DialogProps
   };
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -374,7 +300,7 @@ export function CloneNotificationDialog({ open, onClose, onSubmit }: DialogProps
       <Field label={t(`${P}.fields.name` as never)} hint={t(`${P}.hints.nameGenerator` as never)}>
         <Input value={name} onChange={(_, d) => setName(d.value)} />
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -383,7 +309,7 @@ export function TerminateNotificationDialog({ open, onClose, onSubmit }: DialogP
   const P = "businessData.notification.operations.terminate";
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -403,7 +329,7 @@ export function TerminateNotificationDialog({ open, onClose, onSubmit }: DialogP
       }
     >
       <Text size={300}>{t(`${P}.confirmText` as never)}</Text>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -412,7 +338,7 @@ export function ClearNotificationDialog({ open, onClose, onSubmit }: DialogProps
   const P = "businessData.notification.operations.clear";
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -432,6 +358,6 @@ export function ClearNotificationDialog({ open, onClose, onSubmit }: DialogProps
       }
     >
       <Text size={300}>{t(`${P}.confirmText` as never)}</Text>
-    </DialogShell>
+    </BaseDialog>
   );
 }
