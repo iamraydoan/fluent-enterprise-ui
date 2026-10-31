@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Add24Regular, Delete20Regular, Dismiss16Regular } from "@/components/icons";
+import { BaseDialog, DialogFooter } from "@/components/common";
+import { Add24Regular, Delete20Regular } from "@/components/icons";
 import {
   Button,
   Checkbox,
@@ -14,7 +15,6 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 import {
   PRODUCT_GROUP_MATURITIES,
   PRODUCT_GROUP_TYPES,
@@ -24,40 +24,6 @@ import {
 } from "./productGroupOptions";
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    ...cardSurface,
-    width: "min(880px, 100%)",
-    maxHeight: "calc(100vh - 48px)",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-  },
-  header: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "16px 20px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
-  title: { fontSize: "16px", fontWeight: 600 },
-  body: { padding: "20px", overflowY: "auto", flex: 1 },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "16px 20px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   steps: {
     display: "flex",
     alignItems: "center",
@@ -114,48 +80,6 @@ interface DialogProps {
 }
 
 const PARAM_TYPES = ["Characteristic", "Specification"] as const;
-
-function DialogShell({
-  open,
-  onClose,
-  title,
-  children,
-  footer,
-  wide,
-}: DialogProps & {
-  title: string;
-  children: React.ReactNode;
-  footer?: React.ReactNode;
-  wide?: boolean;
-}) {
-  const { t } = useAppTranslation();
-  const styles = useDialogStyles();
-  if (!open) return null;
-  return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div
-        className={styles.surface}
-        style={wide ? { width: "min(1100px, 100%)" } : undefined}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={title}
-      >
-        <div className={styles.header}>
-          <Text className={styles.title}>{title}</Text>
-          <Button
-            appearance="subtle"
-            icon={<Dismiss16Regular />}
-            onClick={onClose}
-            aria-label={t("businessData.productGroup.operations._shared.close")}
-          />
-        </div>
-        <div className={styles.body}>{children}</div>
-        {footer && <div className={styles.footer}>{footer}</div>}
-      </div>
-    </div>
-  );
-}
 
 function WizardSteps({ steps, current }: { steps: string[]; current: number }) {
   const styles = useDialogStyles();
@@ -257,10 +181,11 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
   };
 
   return (
-    <DialogShell
+    <BaseDialog
       open={open}
       onClose={handleClose}
       title={t("businessData.productGroup.operations.create.title")}
+      size="xl"
       footer={
         <>
           <Button onClick={handleClose}>
@@ -449,7 +374,7 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
           </>
         )}
       </div>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -479,19 +404,17 @@ export function EditProductGroupDialog({
   };
 
   return (
-    <DialogShell
+    <BaseDialog
       open={open}
       onClose={handleClose}
       title={t("businessData.productGroup.operations.edit.title")}
+      size="xl"
       footer={
-        <>
-          <Button onClick={handleClose}>
-            {t("businessData.productGroup.operations.edit.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={handleSubmit}>
-            {t("businessData.productGroup.operations.edit.submit")}
-          </Button>
-        </>
+        <DialogFooter
+          onCancel={handleClose}
+          onConfirm={handleSubmit}
+          confirmLabel={t("businessData.productGroup.operations.edit.submit")}
+        />
       }
     >
       <Field
@@ -562,7 +485,7 @@ export function EditProductGroupDialog({
           </MenuPopover>
         </Menu>
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -597,19 +520,17 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
   };
 
   return (
-    <DialogShell
+    <BaseDialog
       open={open}
       onClose={handleClose}
       title={t("businessData.productGroup.operations.clone.title")}
+      size="xl"
       footer={
-        <>
-          <Button onClick={handleClose}>
-            {t("businessData.productGroup.operations.clone.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={handleSubmit}>
-            {t("businessData.productGroup.operations.clone.submit")}
-          </Button>
-        </>
+        <DialogFooter
+          onCancel={handleClose}
+          onConfirm={handleSubmit}
+          confirmLabel={t("businessData.productGroup.operations.clone.submit")}
+        />
       }
     >
       <div
@@ -665,7 +586,7 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
           placeholder={t("businessData.productGroup.operations.create.placeholders.enterComment")}
         />
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -684,19 +605,17 @@ export function TerminateProductGroupDialog({ open, onClose, onSubmit }: DialogP
   };
 
   return (
-    <DialogShell
+    <BaseDialog
       open={open}
       onClose={handleClose}
       title={t("businessData.productGroup.operations.terminate.title")}
+      size="xl"
       footer={
-        <>
-          <Button onClick={handleClose}>
-            {t("businessData.productGroup.operations.terminate.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={handleSubmit}>
-            {t("businessData.productGroup.operations.terminate.submit")}
-          </Button>
-        </>
+        <DialogFooter
+          onCancel={handleClose}
+          onConfirm={handleSubmit}
+          confirmLabel={t("businessData.productGroup.operations.terminate.submit")}
+        />
       }
     >
       <Field label={t("businessData.productGroup.operations.terminate.fields.level")}>
@@ -726,7 +645,7 @@ export function TerminateProductGroupDialog({ open, onClose, onSubmit }: DialogP
       >
         {t("businessData.productGroup.operations.terminate.warning")}
       </div>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -747,10 +666,11 @@ export function UnterminateProductGroupDialog({ open, onClose, onSubmit }: Dialo
   };
 
   return (
-    <DialogShell
+    <BaseDialog
       open={open}
       onClose={handleClose}
       title={t("businessData.productGroup.operations.unterminate.title")}
+      size="xl"
       footer={
         <>
           <Button onClick={handleClose}>
@@ -815,7 +735,7 @@ export function UnterminateProductGroupDialog({ open, onClose, onSubmit }: Dialo
           </div>
         )}
       </div>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -894,20 +814,17 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
   };
 
   return (
-    <DialogShell
+    <BaseDialog
       open={open}
       onClose={handleClose}
       title={t("businessData.productGroup.operations.manageParameters.title")}
-      wide
+      width="min(1100px, 100%)"
       footer={
-        <>
-          <Button onClick={handleClose}>
-            {t("businessData.productGroup.operations.manageParameters.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={handleSubmit}>
-            {t("businessData.productGroup.operations.manageParameters.submit")}
-          </Button>
-        </>
+        <DialogFooter
+          onCancel={handleClose}
+          onConfirm={handleSubmit}
+          confirmLabel={t("businessData.productGroup.operations.manageParameters.submit")}
+        />
       }
     >
       <div style={{ display: "flex", gap: "20px", minHeight: "420px" }}>
@@ -1137,6 +1054,6 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
           placeholder={t("businessData.productGroup.operations.create.placeholders.enterComments")}
         />
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
