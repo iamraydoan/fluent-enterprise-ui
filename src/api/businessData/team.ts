@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 import type { Page } from "../types";
@@ -20,12 +21,7 @@ export interface TeamDetail extends TeamRecord {
 export type TeamListParams = ListQueryParams;
 
 export function listTeams(params: TeamListParams): Promise<Page<TeamRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<TeamRecord>>(`/business-data/teams?${search.toString()}`);
+  return apiFetch<Page<TeamRecord>>(`/business-data/teams?${toListSearchParams(params)}`);
 }
 
 export function useTeams(params: TeamListParams) {

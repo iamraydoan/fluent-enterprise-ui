@@ -1,5 +1,5 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { apiFetch } from "@/api/client";
+import { apiFetch, postJson } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
 
@@ -61,14 +61,6 @@ export function useBusinessPartnerDetail(name: string) {
 
 export interface BusinessPartnerUpsertInput extends Partial<BusinessPartnerDetail> {
   name: string;
-}
-
-function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
-  return apiFetch<T>(path, {
-    method,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
 }
 
 export function createBusinessPartnerRecord(

@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 import type { Page } from "../types";
@@ -25,12 +26,9 @@ export interface SortRuleSetDetail extends SortRuleSetRecord {
 export type SortRuleSetListParams = ListQueryParams;
 
 export function listSortRuleSets(params: SortRuleSetListParams): Promise<Page<SortRuleSetRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<SortRuleSetRecord>>(`/business-data/sort-rule-sets?${search.toString()}`);
+  return apiFetch<Page<SortRuleSetRecord>>(
+    `/business-data/sort-rule-sets?${toListSearchParams(params)}`,
+  );
 }
 
 export function useSortRuleSets(params: SortRuleSetListParams) {

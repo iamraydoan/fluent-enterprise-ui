@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 
@@ -19,10 +20,9 @@ export interface SendAheadRunListParams {
 }
 
 export function listSendAheadRuns(params: SendAheadRunListParams): Promise<SendAheadRunRecord[]> {
-  const search = new URLSearchParams();
-  if (params.q) search.set("q", params.q);
-  if (params.state) search.set("state", params.state);
-  return apiFetch<SendAheadRunRecord[]>(`/business-data/send-ahead-runs?${search.toString()}`);
+  return apiFetch<SendAheadRunRecord[]>(
+    `/business-data/send-ahead-runs?${toListSearchParams(params)}`,
+  );
 }
 
 export function useSendAheadRuns(params: SendAheadRunListParams) {

@@ -1,7 +1,8 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { apiFetch } from "@/api/client";
+import { apiFetch, postJson } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 
 export interface BinConverterRecord {
   name: string;
@@ -26,12 +27,9 @@ export interface BinConverterDetail extends BinConverterRecord {
 }
 
 export function listBinConverters(params: ListQueryParams): Promise<Page<BinConverterRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<BinConverterRecord>>(`/business-data/bin-converters?${search.toString()}`);
+  return apiFetch<Page<BinConverterRecord>>(
+    `/business-data/bin-converters?${toListSearchParams(params)}`,
+  );
 }
 
 export function useBinConverters(params: ListQueryParams) {
@@ -52,14 +50,6 @@ export function useBinConverterDetail(name: string) {
 
 export interface BinConverterUpsertInput extends Partial<BinConverterDetail> {
   name: string;
-}
-
-function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
-  return apiFetch<T>(path, {
-    method,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
 }
 
 export function createBinConverterRecord(

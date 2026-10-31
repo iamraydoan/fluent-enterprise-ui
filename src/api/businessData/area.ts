@@ -1,7 +1,8 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { apiFetch } from "@/api/client";
+import { apiFetch, postJson } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 
 export interface AreaRecord {
   name: string;
@@ -26,12 +27,7 @@ export interface AreaDetail extends AreaRecord {
 }
 
 export function listAreas(params: ListQueryParams): Promise<Page<AreaRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<AreaRecord>>(`/business-data/areas?${search.toString()}`);
+  return apiFetch<Page<AreaRecord>>(`/business-data/areas?${toListSearchParams(params)}`);
 }
 
 export function useAreas(params: ListQueryParams) {
@@ -55,14 +51,6 @@ export function useAreaDetail(name: string) {
 
 export interface AreaUpsertInput extends Partial<AreaDetail> {
   name: string;
-}
-
-function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
-  return apiFetch<T>(path, {
-    method,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
 }
 
 export function createAreaRecord(input: AreaUpsertInput): Promise<AreaDetail> {

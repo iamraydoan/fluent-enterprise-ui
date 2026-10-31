@@ -1,7 +1,8 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { apiFetch } from "@/api/client";
+import { apiFetch, postJson } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 
 export interface BomRecord {
   name: string;
@@ -34,12 +35,7 @@ export interface BomDetail extends BomRecord {
 }
 
 export function listBoms(params: ListQueryParams): Promise<Page<BomRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<BomRecord>>(`/business-data/boms?${search.toString()}`);
+  return apiFetch<Page<BomRecord>>(`/business-data/boms?${toListSearchParams(params)}`);
 }
 
 export function useBoms(params: ListQueryParams) {
@@ -60,14 +56,6 @@ export function useBomDetail(name: string) {
 
 export interface BomUpsertInput extends Partial<BomDetail> {
   name: string;
-}
-
-function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
-  return apiFetch<T>(path, {
-    method,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
 }
 
 export function createBomRecord(input: BomUpsertInput): Promise<BomDetail> {

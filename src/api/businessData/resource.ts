@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 
@@ -46,10 +47,7 @@ export interface ResourceListParams {
 }
 
 export function listResources(params: ResourceListParams): Promise<ResourceRecord[]> {
-  const search = new URLSearchParams();
-  if (params.q) search.set("q", params.q);
-  if (params.state) search.set("state", params.state);
-  return apiFetch<ResourceRecord[]>(`/business-data/resources?${search.toString()}`);
+  return apiFetch<ResourceRecord[]>(`/business-data/resources?${toListSearchParams(params)}`);
 }
 
 export function useResources(params: ResourceListParams) {

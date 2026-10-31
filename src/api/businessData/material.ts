@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import { apiFetch } from "../client";
 import type { Page } from "../types";
 
@@ -27,12 +28,7 @@ export interface MaterialDetail extends MaterialRecord {
 }
 
 export function listMaterials(params: ListQueryParams): Promise<Page<MaterialRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<MaterialRecord>>(`/business-data/materials?${search.toString()}`);
+  return apiFetch<Page<MaterialRecord>>(`/business-data/materials?${toListSearchParams(params)}`);
 }
 
 export function useMaterials(params: ListQueryParams) {
