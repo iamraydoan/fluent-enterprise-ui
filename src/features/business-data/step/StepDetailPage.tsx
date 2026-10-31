@@ -6,8 +6,8 @@ import { Flow24Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { formatList } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
-import { formatList } from "./stepHelpers";
 import { stepMoreActions } from "./stepMoreActions";
 
 const TOP_TABS: DetailTab[] = [
