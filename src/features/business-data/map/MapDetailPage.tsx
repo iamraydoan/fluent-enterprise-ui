@@ -64,16 +64,18 @@ export function MapDetailPage({ name }: { name: string }) {
       >
         {content}
       </DetailShell>
-      {editOpen && (
-        <MapDialog mode={MODE_EDIT} initialName={name} onClose={() => setEditOpen(false)} />
-      )}
-      {cloneOpen && (
-        <MapDialog
-          mode={MODE_CLONE}
-          initialName={`${name} (Copy)`}
-          onClose={() => setCloneOpen(false)}
-        />
-      )}
+      <MapDialog
+        open={editOpen}
+        mode={MODE_EDIT}
+        initialName={name}
+        onClose={() => setEditOpen(false)}
+      />
+      <MapDialog
+        open={cloneOpen}
+        mode={MODE_CLONE}
+        initialName={`${name} (Copy)`}
+        onClose={() => setCloneOpen(false)}
+      />
       {terminateOpen && (
         <MapTerminateDialog name={name} mode={TERMINATE} onClose={() => setTerminateOpen(false)} />
       )}
@@ -84,8 +86,8 @@ export function MapDetailPage({ name }: { name: string }) {
           onClose={() => setUnterminateOpen(false)}
         />
       )}
-      {linkOpen && <MapLinkDialog mapName={name} onClose={() => setLinkOpen(false)} />}
-      {unlinkOpen && <MapUnlinkDialog mapName={name} onClose={() => setUnlinkOpen(false)} />}
+      <MapLinkDialog open={linkOpen} mapName={name} onClose={() => setLinkOpen(false)} />
+      <MapUnlinkDialog open={unlinkOpen} mapName={name} onClose={() => setUnlinkOpen(false)} />
     </>
   );
 

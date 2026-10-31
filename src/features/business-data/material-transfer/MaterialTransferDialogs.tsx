@@ -1,43 +1,9 @@
 import { useState } from "react";
-import { Dismiss16Regular } from "@/components/icons";
+import { BaseDialog } from "@/components/common";
 import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    ...cardSurface,
-    width: "min(720px, 100%)",
-    maxHeight: "calc(100vh - 48px)",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-  },
-  header: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "16px 20px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
-  body: { padding: "20px", overflowY: "auto", flex: 1 },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "16px 20px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   field: { marginBottom: "16px" },
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
   required: { color: tokens.colorPaletteRedForeground1, marginRight: "4px" },
@@ -48,47 +14,6 @@ interface DialogProps {
   open: boolean;
   onClose: () => void;
   onSubmit?: () => void;
-}
-
-function DialogShell({
-  open,
-  onClose,
-  title,
-  children,
-  footer,
-}: DialogProps & {
-  title: string;
-  children: React.ReactNode;
-  footer?: React.ReactNode;
-}) {
-  const { t } = useAppTranslation();
-  const styles = useDialogStyles();
-  if (!open) return null;
-  return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div
-        className={styles.surface}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={title}
-      >
-        <div className={styles.header}>
-          <Text size={400} weight="semibold">
-            {title}
-          </Text>
-          <Button
-            appearance="subtle"
-            icon={<Dismiss16Regular />}
-            onClick={onClose}
-            aria-label={t("businessData.materialTransfer.operations._shared.close" as never)}
-          />
-        </div>
-        <div className={styles.body}>{children}</div>
-        {footer && <div className={styles.footer}>{footer}</div>}
-      </div>
-    </div>
-  );
 }
 
 function Field({
@@ -126,7 +51,7 @@ function LifecycleDialog({ open, onClose, onSubmit, opKey }: DialogProps & { opK
   };
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -151,7 +76,7 @@ function LifecycleDialog({ open, onClose, onSubmit, opKey }: DialogProps & { opK
           <Input value={comment} onChange={(_, d) => setComment(d.value)} />
         </Field>
       </div>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -226,7 +151,7 @@ export function ChangeMaterialTransferInfoDialog({ open, onClose, onSubmit }: Di
   };
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -248,7 +173,7 @@ export function ChangeMaterialTransferInfoDialog({ open, onClose, onSubmit }: Di
       <Field label={t(`${P}.fields.comment` as never)}>
         <Input value={comment} onChange={(_, d) => setComment(d.value)} />
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -265,7 +190,7 @@ export function RequestMaterialTransferDialog({ open, onClose, onSubmit }: Dialo
   };
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -291,7 +216,7 @@ export function RequestMaterialTransferDialog({ open, onClose, onSubmit }: Dialo
       <Field label={t(`${P}.fields.quantity` as never)}>
         <Input value={quantity} onChange={(_, d) => setQuantity(d.value)} />
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -299,7 +224,7 @@ export function RequestForMAODialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.requestForMAO";
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -319,7 +244,7 @@ export function RequestForMAODialog({ open, onClose, onSubmit }: DialogProps) {
       }
     >
       <Text size={300}>{t(`${P}.description` as never)}</Text>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -327,7 +252,7 @@ export function RequestForCostCenterDialog({ open, onClose, onSubmit }: DialogPr
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.requestForCostCenter";
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -347,7 +272,7 @@ export function RequestForCostCenterDialog({ open, onClose, onSubmit }: DialogPr
       }
     >
       <Text size={300}>{t(`${P}.description` as never)}</Text>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -355,7 +280,7 @@ export function ReturnInventoryDialog({ open, onClose, onSubmit }: DialogProps) 
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.returnInventory";
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -375,7 +300,7 @@ export function ReturnInventoryDialog({ open, onClose, onSubmit }: DialogProps) 
       }
     >
       <Text size={300}>{t(`${P}.description` as never)}</Text>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -383,7 +308,7 @@ export function ReturnMaterialDialog({ open, onClose, onSubmit }: DialogProps) {
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.returnMaterial";
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -403,7 +328,7 @@ export function ReturnMaterialDialog({ open, onClose, onSubmit }: DialogProps) {
       }
     >
       <Text size={300}>{t(`${P}.description` as never)}</Text>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -411,7 +336,7 @@ export function SpecialRequestForMaterialDialog({ open, onClose, onSubmit }: Dia
   const { t } = useAppTranslation();
   const P = "businessData.materialTransfer.operations.specialRequest";
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
@@ -431,6 +356,6 @@ export function SpecialRequestForMaterialDialog({ open, onClose, onSubmit }: Dia
       }
     >
       <Text size={300}>{t(`${P}.description` as never)}</Text>
-    </DialogShell>
+    </BaseDialog>
   );
 }

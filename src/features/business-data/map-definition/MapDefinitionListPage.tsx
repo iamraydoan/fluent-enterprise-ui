@@ -66,9 +66,11 @@ export function MapDefinitionListPage() {
         getRowId={(row) => row.name}
         onRowClick={(row) => openDetail(row.name)}
       />
-      {wizardOpen && (
-        <MapDefinitionWizardDialog mode={MODE_CREATE} onClose={() => setWizardOpen(false)} />
-      )}
+      <MapDefinitionWizardDialog
+        open={wizardOpen}
+        mode={MODE_CREATE}
+        onClose={() => setWizardOpen(false)}
+      />
     </>
   );
 }

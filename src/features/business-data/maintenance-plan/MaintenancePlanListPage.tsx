@@ -68,9 +68,11 @@ export function MaintenancePlanListPage() {
         getRowId={(row) => row.name}
         onRowClick={(row) => openDetail(row.name)}
       />
-      {createOpen && (
-        <MaintenancePlanDialog mode={MODE_CREATE} onClose={() => setCreateOpen(false)} />
-      )}
+      <MaintenancePlanDialog
+        open={createOpen}
+        mode={MODE_CREATE}
+        onClose={() => setCreateOpen(false)}
+      />
     </>
   );
 }

@@ -67,7 +67,7 @@ export function MapListPage() {
         getRowId={(row) => row.name}
         onRowClick={(row) => openDetail(row.name)}
       />
-      {createOpen && <MapDialog mode={MODE_CREATE} onClose={() => setCreateOpen(false)} />}
+      <MapDialog open={createOpen} mode={MODE_CREATE} onClose={() => setCreateOpen(false)} />
     </>
   );
 }
