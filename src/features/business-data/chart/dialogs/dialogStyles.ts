@@ -31,7 +31,7 @@ export const useDialogStyles = makeStyles({
   selectedRow: { backgroundColor: tokens.colorNeutralBackground1Selected },
 });
 
-export function numOrUndef(v: string | number | boolean | undefined): number | undefined {
+export function numOrUndef(v: unknown): number | undefined {
   if (v === undefined || v === "" || typeof v === "boolean") return undefined;
   const n = Number(v);
   return Number.isNaN(n) ? undefined : n;

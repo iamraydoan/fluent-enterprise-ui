@@ -1,6 +1,6 @@
 import { Button, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { OperationValues } from "../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 export interface BinConversionRow {
   id: number;
@@ -28,13 +28,13 @@ export function BinConversionListEditor({
   onChange,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useListStyles();
   const rows = (values.conversions as unknown as BinConversionRow[] | undefined) ?? [];
 
-  const setRows = (next: BinConversionRow[]) => onChange("conversions", next as unknown as boolean);
+  const setRows = (next: BinConversionRow[]) => onChange("conversions", next);
 
   const addRow = () =>
     setRows([

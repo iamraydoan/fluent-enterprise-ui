@@ -2,7 +2,7 @@ import type { ChartContextElement } from "@/api";
 import { Button, Checkbox, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../../components/MiniSelect";
-import type { OperationValues } from "../../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { ELEMENT_TYPE_OPTIONS } from "../chartLookups";
 import { useDialogStyles } from "./dialogStyles";
 
@@ -15,12 +15,12 @@ export function ContextListEditor({
   onChange,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const rows = (values.contexts as unknown as ContextElementRow[] | undefined) ?? [];
-  const setRows = (next: ContextElementRow[]) => onChange("contexts", next as unknown as boolean);
+  const setRows = (next: ContextElementRow[]) => onChange("contexts", next);
   const addRow = () =>
     setRows([
       ...rows,
@@ -95,13 +95,13 @@ export function ReadingsEditor({
   count,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   count: number;
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const readings = (values.readings as unknown as (number | "")[] | undefined) ?? [];
-  const setReadings = (next: (number | "")[]) => onChange("readings", next as unknown as boolean);
+  const setReadings = (next: (number | "")[]) => onChange("readings", next);
   const setAt = (index: number, raw: string) => {
     const next = Array.from({ length: count }, (_, i) => readings[i] ?? "");
     next[index] = raw === "" ? "" : Number(raw);
@@ -132,14 +132,14 @@ export function PostContextEditor({
   contexts,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   contexts: ChartContextElement[];
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const map = (values.contextValues as unknown as Record<string, string> | undefined) ?? {};
   const setValue = (name: string, value: string) =>
-    onChange("contextValues", { ...map, [name]: value } as unknown as boolean);
+    onChange("contextValues", { ...map, [name]: value });
   return (
     <div>
       <div className={styles.hint}>{t("businessData.chart.operations.postContextHint")}</div>

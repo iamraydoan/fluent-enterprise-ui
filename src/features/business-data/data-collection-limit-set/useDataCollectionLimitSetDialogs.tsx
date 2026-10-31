@@ -24,12 +24,12 @@ import { COPY_NAMES_KEY, COPY_SOURCES_KEY, LIMIT_SET_TYPES } from "./dataCollect
 
 const TYPE_OPTIONS = LIMIT_SET_TYPES.map((v) => ({ value: v, label: v }));
 
-function str(v: string | number | boolean | undefined): string | undefined {
+function str(v: unknown): string | undefined {
   if (v === undefined) return undefined;
   return String(v);
 }
 
-function bool(v: string | number | boolean | undefined): boolean {
+function bool(v: unknown): boolean {
   return v === true;
 }
 
@@ -235,7 +235,7 @@ export function useDataCollectionLimitSetDialogs(limitSet?: DataCollectionLimitS
             ...s,
             id: (i + 1) * 1000 + j + 1,
           })),
-        })) as unknown as boolean,
+        })),
         comment: "",
       }
     : {};

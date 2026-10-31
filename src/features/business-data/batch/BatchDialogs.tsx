@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { OperationValues } from "../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 export interface MaterialRow {
   id: number;
@@ -32,13 +32,13 @@ export function MaterialListEditor({
   onChange,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useListStyles();
   const rows = (values.materials as unknown as MaterialRow[] | undefined) ?? [];
 
-  const setRows = (next: MaterialRow[]) => onChange("materials", next as unknown as boolean);
+  const setRows = (next: MaterialRow[]) => onChange("materials", next);
 
   const addRow = () =>
     setRows([...rows, { id: Date.now() + rows.length, material: "", isMain: rows.length === 0 }]);
@@ -84,13 +84,13 @@ export function ContainerListEditor({
   onChange,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useListStyles();
   const rows = (values.containers as unknown as ContainerRow[] | undefined) ?? [];
 
-  const setRows = (next: ContainerRow[]) => onChange("containers", next as unknown as boolean);
+  const setRows = (next: ContainerRow[]) => onChange("containers", next);
 
   const addRow = () => setRows([...rows, { id: Date.now() + rows.length, container: "" }]);
 

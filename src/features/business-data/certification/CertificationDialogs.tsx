@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Checkbox, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { OperationValues } from "../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 interface EmployeeRow {
   id: number;
@@ -36,14 +36,14 @@ function EmployeeListEditor({
   showGranted,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
   showGranted?: boolean;
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const rows = (values.employees as unknown as EmployeeRow[] | undefined) ?? [];
 
-  const setRows = (next: EmployeeRow[]) => onChange("employees", next as unknown as boolean);
+  const setRows = (next: EmployeeRow[]) => onChange("employees", next);
   const addRow = () =>
     setRows([...rows, { id: Date.now() + rows.length, employee: "", granted: false }]);
   const removeRow = (id: number) => setRows(rows.filter((r) => r.id !== id));

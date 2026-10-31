@@ -15,10 +15,7 @@ export interface WizardField {
   options?: WizardFieldOption[];
   required?: boolean;
   placeholderKey?: TranslationKey;
-  render?: (
-    values: OperationValues,
-    onChange: (key: string, value: string | number | boolean) => void,
-  ) => ReactNode;
+  render?: (values: OperationValues, onChange: OperationOnChange) => ReactNode;
 }
 
 export interface WizardStep {
@@ -26,4 +23,6 @@ export interface WizardStep {
   fields: WizardField[];
 }
 
-export type OperationValues = Record<string, string | number | boolean>;
+export type OperationOnChange = (key: string, value: unknown) => void;
+
+export type OperationValues = Record<string, unknown>;

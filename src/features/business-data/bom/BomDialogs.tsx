@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { OperationValues } from "../components/operationTypes";
+import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 interface BomItemRow {
   id: number;
@@ -29,13 +29,13 @@ function BomItemListEditor({
   onChange,
 }: {
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useListStyles();
   const rows = (values.items as unknown as BomItemRow[] | undefined) ?? [];
 
-  const setRows = (next: BomItemRow[]) => onChange("items", next as unknown as boolean);
+  const setRows = (next: BomItemRow[]) => onChange("items", next);
 
   const addRow = () =>
     setRows([

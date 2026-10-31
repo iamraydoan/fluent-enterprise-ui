@@ -74,17 +74,17 @@ const DEFAULT_PANEL_OPTIONS = [
   "None",
 ].map((v) => ({ value: v, label: v }));
 
-function num(v: string | number | boolean | undefined): number | undefined {
+function num(v: unknown): number | undefined {
   if (v === undefined || v === "" || typeof v === "boolean") return undefined;
   const n = Number(v);
   return Number.isNaN(n) ? undefined : n;
 }
 
-function bool(v: string | number | boolean | undefined): boolean {
+function bool(v: unknown): boolean {
   return v === true;
 }
 
-function str(v: string | number | boolean | undefined): string | undefined {
+function str(v: unknown): string | undefined {
   if (v === undefined) return undefined;
   return String(v);
 }
@@ -383,7 +383,7 @@ function chartToValues(chart: ChartDetail): OperationValues {
     yAxisMajorUnits: chart.yAxisMajorUnits ?? "",
     generalAnnotationSource: chart.generalAnnotationSource,
     violationAnnotationSource: chart.violationAnnotationSource,
-    contexts: chart.contexts.map((c, i) => ({ ...c, id: Date.now() + i })) as unknown as boolean,
+    contexts: chart.contexts.map((c, i) => ({ ...c, id: Date.now() + i })),
   };
 }
 
@@ -751,7 +751,7 @@ export function useChartDialogs(chart?: ChartDetail): ChartDialogs {
           stdDev: lc.stdDev,
           ucl: lc.ucl,
           lcl: lc.lcl,
-        })) as unknown as boolean,
+        })),
       }
     : {};
 

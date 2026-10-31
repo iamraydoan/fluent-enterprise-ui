@@ -18,7 +18,7 @@ import {
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
-import type { OperationValues, WizardField, WizardStep } from "./operationTypes";
+import type { OperationOnChange, OperationValues, WizardField, WizardStep } from "./operationTypes";
 
 const useWizardStyles = makeStyles({
   overlay: {
@@ -135,7 +135,7 @@ export function EntityWizardDialog({
   const isFirst = stepIndex === 0;
   const isLast = stepIndex === steps.length - 1;
 
-  const setValue = (key: string, value: string | number | boolean) => {
+  const setValue: OperationOnChange = (key, value) => {
     setValues((prev) => ({ ...prev, [key]: value }));
     setError(null);
   };
@@ -239,7 +239,7 @@ function WizardFieldInput({
 }: {
   field: WizardField;
   values: OperationValues;
-  onChange: (key: string, value: string | number | boolean) => void;
+  onChange: OperationOnChange;
 }) {
   const { t } = useAppTranslation();
   const styles = useWizardStyles();

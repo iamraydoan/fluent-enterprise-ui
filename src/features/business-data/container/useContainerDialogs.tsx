@@ -45,18 +45,18 @@ const CAPACITY_MODE_OPTIONS = CAPACITY_VALIDATION_MODES.map((v) => ({ value: v, 
 const ORIENTATION_OPTIONS = ORIENTATIONS.map((v) => ({ value: v, label: v }));
 const SORTING_OPTIONS = POSITION_SORTINGS.map((v) => ({ value: v, label: v }));
 
-function str(v: string | number | boolean | undefined): string | undefined {
+function str(v: unknown): string | undefined {
   if (v === undefined) return undefined;
   return String(v);
 }
 
-function num(v: string | number | boolean | undefined): number | undefined {
+function num(v: unknown): number | undefined {
   if (v === undefined || v === "") return undefined;
   const n = Number(v);
   return Number.isNaN(n) ? undefined : n;
 }
 
-function bool(v: string | number | boolean | undefined): boolean {
+function bool(v: unknown): boolean {
   return v === true;
 }
 
