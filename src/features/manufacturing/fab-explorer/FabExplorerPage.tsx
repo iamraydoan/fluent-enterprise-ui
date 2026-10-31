@@ -8,9 +8,9 @@ import { AreaView } from "./views/AreaView";
 import { EnterprisesView } from "./views/EnterprisesView";
 import { FacilitiesView } from "./views/FacilitiesView";
 import { FacilityView } from "./views/FacilityView";
+import { ResourceView } from "./views/ResourceView";
 import { SitesView } from "./views/SitesView";
 import { StepView } from "./views/StepView";
-import { ResourceView } from "./views/ResourceView";
 
 export interface FabNavigation {
   level: FabLevel;
