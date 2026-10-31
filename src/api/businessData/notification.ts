@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import { apiFetch } from "../client";
 import type { Page } from "../types";
 
@@ -18,12 +19,9 @@ export interface NotificationDetail extends NotificationRecord {
 }
 
 export function listNotifications(params: ListQueryParams): Promise<Page<NotificationRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<NotificationRecord>>(`/business-data/notifications?${search.toString()}`);
+  return apiFetch<Page<NotificationRecord>>(
+    `/business-data/notifications?${toListSearchParams(params)}`,
+  );
 }
 
 export function useNotifications(params: ListQueryParams) {

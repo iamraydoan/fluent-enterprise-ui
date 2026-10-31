@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 
@@ -28,10 +29,7 @@ export interface RecipeListParams {
 }
 
 export function listRecipes(params: RecipeListParams): Promise<RecipeRecord[]> {
-  const search = new URLSearchParams();
-  if (params.q) search.set("q", params.q);
-  if (params.state) search.set("state", params.state);
-  return apiFetch<RecipeRecord[]>(`/business-data/recipes?${search.toString()}`);
+  return apiFetch<RecipeRecord[]>(`/business-data/recipes?${toListSearchParams(params)}`);
 }
 
 export function useRecipes(params: RecipeListParams) {

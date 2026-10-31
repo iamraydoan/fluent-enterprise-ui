@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import { apiFetch } from "../client";
 import type { Page } from "../types";
 
@@ -16,12 +17,7 @@ export interface ProductDetail extends ProductRecord {
 }
 
 export function listProducts(params: ListQueryParams): Promise<Page<ProductRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<ProductRecord>>(`/business-data/products?${search.toString()}`);
+  return apiFetch<Page<ProductRecord>>(`/business-data/products?${toListSearchParams(params)}`);
 }
 
 export function useProducts(params: ListQueryParams) {

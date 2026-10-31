@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import { apiFetch } from "../client";
 import type { Page } from "../types";
 
@@ -16,12 +17,7 @@ export interface ProtocolDetail extends ProtocolRecord {
 }
 
 export function listProtocols(params: ListQueryParams): Promise<Page<ProtocolRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<ProtocolRecord>>(`/business-data/protocols?${search.toString()}`);
+  return apiFetch<Page<ProtocolRecord>>(`/business-data/protocols?${toListSearchParams(params)}`);
 }
 
 export function useProtocols(params: ListQueryParams) {

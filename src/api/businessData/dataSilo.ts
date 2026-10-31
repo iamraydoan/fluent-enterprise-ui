@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 import type { Page } from "../types";
@@ -26,12 +27,7 @@ export interface DataSiloDetail extends DataSiloRecord {
 }
 
 export function listDataSilos(params: ListQueryParams): Promise<Page<DataSiloRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<DataSiloRecord>>(`/data-silos?${search.toString()}`);
+  return apiFetch<Page<DataSiloRecord>>(`/data-silos?${toListSearchParams(params)}`);
 }
 
 export function useDataSilos(params: ListQueryParams) {

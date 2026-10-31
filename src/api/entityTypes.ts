@@ -1,5 +1,6 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "./client";
 import type { Page } from "./types";
@@ -71,14 +72,7 @@ export interface EntityTypeListParams extends ListQueryParams {
 }
 
 export function listEntityTypes(params: EntityTypeListParams): Promise<Page<EntityTypeRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.sort) search.set("sort", params.sort);
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  if (params.isRelation !== undefined) search.set("isRelation", String(params.isRelation));
-  return apiFetch<Page<EntityTypeRecord>>(`/entity-types?${search.toString()}`);
+  return apiFetch<Page<EntityTypeRecord>>(`/entity-types?${toListSearchParams(params)}`);
 }
 
 export function useEntityTypes(params: EntityTypeListParams) {

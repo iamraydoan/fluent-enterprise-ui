@@ -1,4 +1,17 @@
-export { API_BASE_URL, ApiError, apiFetch } from "./client";
+export {
+  API_BASE_URL,
+  ApiError,
+  DEFAULT_REQUEST_TIMEOUT_MS,
+  MUTATION_ERROR_EVENT,
+  apiFetch,
+  apiPatch,
+  apiPost,
+  apiPut,
+  handleMutationError,
+  postJson,
+  toMutationErrorInfo,
+} from "./client";
+export type { ApiRequestInit, MutationErrorInfo } from "./client";
 export { RecordState } from "@/lib/recordState";
 export type { Page, PageMeta } from "./types";
 export {

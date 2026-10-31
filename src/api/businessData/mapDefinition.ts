@@ -1,5 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 import type { Page } from "../types";
@@ -39,12 +40,7 @@ export interface MapDefinitionDetail extends MapDefinitionRecord {
 }
 
 export function listMapDefinitions(params: ListQueryParams): Promise<Page<MapDefinitionRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<MapDefinitionRecord>>(`/map-definitions?${search.toString()}`);
+  return apiFetch<Page<MapDefinitionRecord>>(`/map-definitions?${toListSearchParams(params)}`);
 }
 
 export function useMapDefinitions(params: ListQueryParams) {

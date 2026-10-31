@@ -1,4 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { toListSearchParams } from "@/lib/listQuery";
 import type { RecordState } from "@/lib/recordState";
 import { apiFetch } from "../client";
 
@@ -20,10 +21,7 @@ export interface ScheduleListParams {
 }
 
 export function listSchedules(params: ScheduleListParams): Promise<ScheduleRecord[]> {
-  const search = new URLSearchParams();
-  if (params.q) search.set("q", params.q);
-  if (params.state) search.set("state", params.state);
-  return apiFetch<ScheduleRecord[]>(`/business-data/schedules?${search.toString()}`);
+  return apiFetch<ScheduleRecord[]>(`/business-data/schedules?${toListSearchParams(params)}`);
 }
 
 export function useSchedules(params: ScheduleListParams) {

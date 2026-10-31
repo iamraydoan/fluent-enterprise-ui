@@ -1,7 +1,8 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { apiFetch } from "@/api/client";
+import { apiFetch, postJson } from "@/api/client";
 import type { Page } from "@/api/types";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { toListSearchParams } from "@/lib/listQuery";
 
 export interface BatchRecord {
   name: string;
@@ -37,12 +38,7 @@ export interface BatchDetail extends BatchRecord {
 }
 
 export function listBatches(params: ListQueryParams): Promise<Page<BatchRecord>> {
-  const search = new URLSearchParams();
-  search.set("page", String(params.page));
-  search.set("limit", String(params.limit));
-  if (params.filters?.q) search.set("q", params.filters.q);
-  if (params.filters?.state) search.set("state", params.filters.state);
-  return apiFetch<Page<BatchRecord>>(`/business-data/batches?${search.toString()}`);
+  return apiFetch<Page<BatchRecord>>(`/business-data/batches?${toListSearchParams(params)}`);
 }
 
 export function useBatches(params: ListQueryParams) {
@@ -66,14 +62,6 @@ export function useBatchDetail(name: string) {
 
 export interface BatchUpsertInput extends Partial<BatchDetail> {
   name: string;
-}
-
-function postJson<T>(path: string, method: string, body: unknown): Promise<T> {
-  return apiFetch<T>(path, {
-    method,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
 }
 
 export function createBatchRecord(input: BatchUpsertInput): Promise<BatchDetail> {
