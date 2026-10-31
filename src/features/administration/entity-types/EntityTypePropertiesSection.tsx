@@ -147,35 +147,35 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
         </FilterGroup>
         <FilterGroup>
           <Menu>
-          <MenuTrigger disableButtonEnhancement>
-            <Button variant="subtle" size="sm">
-              {t("entityTypes.properties.referenceTypeFilter", {
-                value: referenceType === ALL ? t("common.all") : referenceType,
-              })}
-            </Button>
-          </MenuTrigger>
-          <MenuPopover>
-            <MenuList
-              checkedValues={{ referenceType: [referenceType] }}
-              onCheckedValueChange={(_, data) => setReferenceType(data.checkedItems[0] ?? ALL)}
-            >
-              {referenceTypes.map((value) => (
-                <MenuItemRadio key={value} name="referenceType" value={value}>
-                  {value === ALL ? t("common.all") : value}
-                </MenuItemRadio>
-              ))}
-            </MenuList>
-          </MenuPopover>
+            <MenuTrigger disableButtonEnhancement>
+              <Button variant="subtle" size="sm">
+                {t("entityTypes.properties.referenceTypeFilter", {
+                  value: referenceType === ALL ? t("common.all") : referenceType,
+                })}
+              </Button>
+            </MenuTrigger>
+            <MenuPopover>
+              <MenuList
+                checkedValues={{ referenceType: [referenceType] }}
+                onCheckedValueChange={(_, data) => setReferenceType(data.checkedItems[0] ?? ALL)}
+              >
+                {referenceTypes.map((value) => (
+                  <MenuItemRadio key={value} name="referenceType" value={value}>
+                    {value === ALL ? t("common.all") : value}
+                  </MenuItemRadio>
+                ))}
+              </MenuList>
+            </MenuPopover>
           </Menu>
         </FilterGroup>
         <FilterGroup>
           <Input
-          size="sm"
-          contentBefore={<Search20Regular />}
-          placeholder={t("common.search")}
-          value={search}
-          onChange={setSearch}
-          aria-label={t("common.search")}
+            size="sm"
+            contentBefore={<Search20Regular />}
+            placeholder={t("common.search")}
+            value={search}
+            onChange={setSearch}
+            aria-label={t("common.search")}
           />
         </FilterGroup>
       </FilterBar>

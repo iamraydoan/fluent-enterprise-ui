@@ -15,7 +15,7 @@ import {
   ChevronLeft20Regular,
   Send24Regular,
 } from "@/components/icons";
-import { Text, makeStyles, mergeClasses} from "@/components/ui";
+import { Text, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
