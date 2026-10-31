@@ -1,8 +1,8 @@
 import { BaseDialog, DialogFooter } from "@/components/common";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { TERMINATE } from "../components/wizardMode";
-import type { TerminateMode } from "../components/wizardMode";
+import { TERMINATE } from "../../components/wizardMode";
+import type { TerminateMode } from "../../components/wizardMode";
 
 const L: Record<string, TranslationKey> = {
   terminateTitle: "businessData.experimentDefinition.terminateDialog.title",

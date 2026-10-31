@@ -9,11 +9,11 @@ import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
-import { ExperimentDefinitionDialog } from "./ExperimentDefinitionDialog";
+import { ExperimentDefinitionDialog } from "./dialogs/ExperimentDefinitionDialog";
 import {
   ExperimentDefinitionTerminateDialog,
   SetEffectiveDialog,
-} from "./ExperimentDefinitionTerminateDialog";
+} from "./dialogs/ExperimentDefinitionTerminateDialog";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "detailShell.tabs.details" },

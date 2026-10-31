@@ -16,7 +16,7 @@ import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 import { MODE_CREATE } from "../components/wizardMode";
-import { ExperimentDefinitionDialog } from "./ExperimentDefinitionDialog";
+import { ExperimentDefinitionDialog } from "./dialogs/ExperimentDefinitionDialog";
 
 const COLUMNS: DataColumn<ExperimentDefinitionRecord>[] = [
   {
