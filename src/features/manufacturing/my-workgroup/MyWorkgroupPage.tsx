@@ -147,8 +147,8 @@ function FilterDropdown({
     <FilterGroup label={label}>
       <Menu
         checkedValues={{ filter: [value] }}
-        onCheckedValueChange={(_, d) => {
-          const next = d.checkedItems[0];
+        onCheckedValueChange={(checkedItems) => {
+          const next = checkedItems[0];
           if (next !== undefined) onChange(next);
         }}
       >
@@ -299,8 +299,8 @@ export function MyWorkgroupPage() {
               <div className={styles.panelHeader}>
                 <Menu
                   checkedValues={{ workgroup: [workgroup] }}
-                  onCheckedValueChange={(_, d) => {
-                    const next = d.checkedItems[0];
+                  onCheckedValueChange={(checkedItems) => {
+                    const next = checkedItems[0];
                     if (next !== undefined) setWorkgroup(next);
                   }}
                 >

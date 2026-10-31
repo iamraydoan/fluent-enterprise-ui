@@ -4,21 +4,34 @@ import {
   PopoverTrigger as FluentPopoverTrigger,
 } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type { ComponentProps, ComponentRef } from "react";
+import type { ComponentRef, CSSProperties, ReactElement, ReactNode } from "react";
 
-export type PopoverProps = ComponentProps<typeof FluentPopover>;
+export type PopoverPositioning = "above" | "below" | "before" | "after" | "below-end" | "above-end";
 
-export function Popover(props: PopoverProps) {
-  return <FluentPopover {...props} />;
+export interface PopoverProps {
+  positioning?: PopoverPositioning;
+  withArrow?: boolean;
+  children?: ReactNode;
 }
 
-export type PopoverTriggerProps = ComponentProps<typeof FluentPopoverTrigger>;
-
-export function PopoverTrigger(props: PopoverTriggerProps) {
-  return <FluentPopoverTrigger {...props} />;
+export function Popover({ children, ...rest }: PopoverProps) {
+  return <FluentPopover {...rest}>{children as ReactElement}</FluentPopover>;
 }
 
-export type PopoverSurfaceProps = ComponentProps<typeof FluentPopoverSurface>;
+export interface PopoverTriggerProps {
+  disableButtonEnhancement?: boolean;
+  children?: ReactNode;
+}
+
+export function PopoverTrigger({ children, ...rest }: PopoverTriggerProps) {
+  return <FluentPopoverTrigger {...rest}>{children as ReactElement}</FluentPopoverTrigger>;
+}
+
+export interface PopoverSurfaceProps {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const PopoverSurface = forwardRef<
   ComponentRef<typeof FluentPopoverSurface>,

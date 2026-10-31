@@ -157,7 +157,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
             <MenuPopover>
               <MenuList
                 checkedValues={{ referenceType: [referenceType] }}
-                onCheckedValueChange={(_, data) => setReferenceType(data.checkedItems[0] ?? ALL)}
+                onCheckedValueChange={(checkedItems) => setReferenceType(checkedItems[0] ?? ALL)}
               >
                 {referenceTypes.map((value) => (
                   <MenuItemRadio key={value} name="referenceType" value={value}>

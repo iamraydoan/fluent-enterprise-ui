@@ -288,7 +288,7 @@ function WizardFieldInput({
         <Menu
           positioning="below-start"
           checkedValues={{ selected: value === undefined ? [] : [String(value)] }}
-          onCheckedValueChange={(_, data) => onChange(field.key, data.checkedItems[0] ?? "")}
+          onCheckedValueChange={(checkedItems) => onChange(field.key, checkedItems[0] ?? "")}
         >
           <MenuTrigger disableButtonEnhancement>
             <Button variant="secondary" className={styles.selectButton}>

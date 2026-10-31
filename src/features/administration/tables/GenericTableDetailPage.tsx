@@ -58,7 +58,7 @@ export function GenericTableDetailPage({ name }: GenericTableDetailPageProps) {
       <div className={styles.tabBar}>
         <TabList
           selectedValue={tab}
-          onTabSelect={(_, selected) => setTab(String(selected.value))}
+          onTabSelect={setTab}
           aria-label={t("genericTables.pageLabel")}
         >
           <Tab value="data">{t("genericTables.tabs.data")}</Tab>

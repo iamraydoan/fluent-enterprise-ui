@@ -1,17 +1,46 @@
 import { Tab as FluentTab, TabList as FluentTabList } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type { ComponentProps, ComponentRef } from "react";
+import type { ComponentRef, CSSProperties, ReactNode } from "react";
 
-export type TabProps = ComponentProps<typeof FluentTab>;
+export type TabSize = "sm" | "md" | "lg";
+
+export interface TabProps {
+  value: string;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const Tab = forwardRef<ComponentRef<typeof FluentTab>, TabProps>(function Tab(props, ref) {
   return <FluentTab ref={ref} {...props} />;
 });
 
-export type TabListProps = ComponentProps<typeof FluentTabList>;
+export interface TabListProps {
+  selectedValue?: string;
+  onTabSelect?: (value: string) => void;
+  size?: TabSize;
+  vertical?: boolean;
+  className?: string;
+  style?: CSSProperties;
+  "aria-label"?: string;
+  children?: ReactNode;
+}
+
+const SIZE_MAP: Record<TabSize, "small" | "medium" | "large"> = {
+  sm: "small",
+  md: "medium",
+  lg: "large",
+};
 
 export const TabList = forwardRef<ComponentRef<typeof FluentTabList>, TabListProps>(
-  function TabList(props, ref) {
-    return <FluentTabList ref={ref} {...props} />;
+  function TabList({ onTabSelect, size, ...rest }, ref) {
+    return (
+      <FluentTabList
+        ref={ref}
+        size={size ? SIZE_MAP[size] : undefined}
+        onTabSelect={onTabSelect ? (_, data) => onTabSelect(String(data.value)) : undefined}
+        {...rest}
+      />
+    );
   },
 );

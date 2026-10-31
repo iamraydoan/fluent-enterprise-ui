@@ -4,15 +4,29 @@ import {
   TreeItemLayout as FluentTreeItemLayout,
 } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type { ComponentProps, ComponentRef } from "react";
+import type { ComponentRef, CSSProperties, MouseEvent, ReactElement, ReactNode } from "react";
 
-export type TreeProps = ComponentProps<typeof FluentTree>;
+export type TreeItemType = "branch" | "leaf";
+
+export interface TreeProps {
+  defaultOpenItems?: string[];
+  className?: string;
+  style?: CSSProperties;
+  "aria-label"?: string;
+  children?: ReactNode;
+}
 
 export function Tree(props: TreeProps) {
   return <FluentTree {...props} />;
 }
 
-export type TreeItemProps = ComponentProps<typeof FluentTreeItem>;
+export interface TreeItemProps {
+  itemType: TreeItemType;
+  value?: string;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const TreeItem = forwardRef<ComponentRef<typeof FluentTreeItem>, TreeItemProps>(
   function TreeItem(props, ref) {
@@ -20,7 +34,13 @@ export const TreeItem = forwardRef<ComponentRef<typeof FluentTreeItem>, TreeItem
   },
 );
 
-export type TreeItemLayoutProps = ComponentProps<typeof FluentTreeItemLayout>;
+export interface TreeItemLayoutProps {
+  iconBefore?: ReactElement;
+  onClick?: (e: MouseEvent<HTMLElement>) => void;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const TreeItemLayout = forwardRef<
   ComponentRef<typeof FluentTreeItemLayout>,

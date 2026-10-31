@@ -8,21 +8,52 @@ import {
   MenuTrigger as FluentMenuTrigger,
 } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type { ComponentProps, ComponentRef } from "react";
+import type { ComponentRef, CSSProperties, MouseEvent, ReactElement, ReactNode } from "react";
 
-export type MenuProps = ComponentProps<typeof FluentMenu>;
+export type MenuPositioning =
+  | "above"
+  | "below"
+  | "before"
+  | "after"
+  | "below-start"
+  | "below-end"
+  | "above-start"
+  | "above-end";
 
-export function Menu(props: MenuProps) {
-  return <FluentMenu {...props} />;
+export interface MenuProps {
+  positioning?: MenuPositioning;
+  checkedValues?: Record<string, string[]>;
+  onCheckedValueChange?: (checkedItems: string[]) => void;
+  children?: ReactNode;
 }
 
-export type MenuTriggerProps = ComponentProps<typeof FluentMenuTrigger>;
-
-export function MenuTrigger(props: MenuTriggerProps) {
-  return <FluentMenuTrigger {...props} />;
+export function Menu({ onCheckedValueChange, children, ...rest }: MenuProps) {
+  return (
+    <FluentMenu
+      onCheckedValueChange={
+        onCheckedValueChange ? (_, data) => onCheckedValueChange(data.checkedItems) : undefined
+      }
+      {...rest}
+    >
+      {children as ReactElement}
+    </FluentMenu>
+  );
 }
 
-export type MenuPopoverProps = ComponentProps<typeof FluentMenuPopover>;
+export interface MenuTriggerProps {
+  disableButtonEnhancement?: boolean;
+  children?: ReactNode;
+}
+
+export function MenuTrigger({ children, ...rest }: MenuTriggerProps) {
+  return <FluentMenuTrigger {...rest}>{children as ReactElement}</FluentMenuTrigger>;
+}
+
+export interface MenuPopoverProps {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const MenuPopover = forwardRef<ComponentRef<typeof FluentMenuPopover>, MenuPopoverProps>(
   function MenuPopover(props, ref) {
@@ -30,15 +61,36 @@ export const MenuPopover = forwardRef<ComponentRef<typeof FluentMenuPopover>, Me
   },
 );
 
-export type MenuListProps = ComponentProps<typeof FluentMenuList>;
+export interface MenuListProps {
+  checkedValues?: Record<string, string[]>;
+  onCheckedValueChange?: (checkedItems: string[]) => void;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const MenuList = forwardRef<ComponentRef<typeof FluentMenuList>, MenuListProps>(
-  function MenuList(props, ref) {
-    return <FluentMenuList ref={ref} {...props} />;
+  function MenuList({ onCheckedValueChange, ...rest }, ref) {
+    return (
+      <FluentMenuList
+        ref={ref}
+        onCheckedValueChange={
+          onCheckedValueChange ? (_, data) => onCheckedValueChange(data.checkedItems) : undefined
+        }
+        {...rest}
+      />
+    );
   },
 );
 
-export type MenuItemProps = ComponentProps<typeof FluentMenuItem>;
+export interface MenuItemProps {
+  disabled?: boolean;
+  icon?: ReactElement;
+  onClick?: (e: MouseEvent<HTMLElement>) => void;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const MenuItem = forwardRef<ComponentRef<typeof FluentMenuItem>, MenuItemProps>(
   function MenuItem(props, ref) {
@@ -46,7 +98,13 @@ export const MenuItem = forwardRef<ComponentRef<typeof FluentMenuItem>, MenuItem
   },
 );
 
-export type MenuItemRadioProps = ComponentProps<typeof FluentMenuItemRadio>;
+export interface MenuItemRadioProps {
+  name: string;
+  value: string;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export const MenuItemRadio = forwardRef<
   ComponentRef<typeof FluentMenuItemRadio>,
@@ -55,7 +113,10 @@ export const MenuItemRadio = forwardRef<
   return <FluentMenuItemRadio ref={ref} {...props} />;
 });
 
-export type MenuDividerProps = ComponentProps<typeof FluentMenuDivider>;
+export interface MenuDividerProps {
+  className?: string;
+  style?: CSSProperties;
+}
 
 export const MenuDivider = forwardRef<ComponentRef<typeof FluentMenuDivider>, MenuDividerProps>(
   function MenuDivider(props, ref) {

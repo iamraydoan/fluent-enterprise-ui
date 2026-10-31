@@ -32,8 +32,8 @@ export function TablePagination({
         {t("common.rowsPerPage")}
         <Menu
           checkedValues={{ size: [String(pageSize)] }}
-          onCheckedValueChange={(_, d) => {
-            onPageSizeChange(Number(d.checkedItems[0]));
+          onCheckedValueChange={(checkedItems) => {
+            onPageSizeChange(Number(checkedItems[0]));
           }}
         >
           <MenuTrigger disableButtonEnhancement>

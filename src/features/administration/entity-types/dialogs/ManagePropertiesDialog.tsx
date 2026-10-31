@@ -318,9 +318,9 @@ function PropertyForm({
             <MenuPopover>
               <MenuList
                 checkedValues={{ searchType: [property.searchType ?? DEFAULT_SEARCH_TYPE] }}
-                onCheckedValueChange={(_, data) =>
+                onCheckedValueChange={(checkedItems) =>
                   onPatch({
-                    searchType: data.checkedItems[0] as PropertySearchType,
+                    searchType: checkedItems[0] as PropertySearchType,
                   })
                 }
               >

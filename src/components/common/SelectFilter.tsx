@@ -23,8 +23,8 @@ export function SelectFilter({ labelKey, value, options, onChange }: SelectFilte
   return (
     <Menu
       checkedValues={{ filter: [value] }}
-      onCheckedValueChange={(_, d) => {
-        const next = d.checkedItems[0];
+      onCheckedValueChange={(checkedItems) => {
+        const next = checkedItems[0];
         if (next) onChange(next);
       }}
     >

@@ -134,8 +134,8 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
         <Button variant="subtle" icon={<Search20Regular />} aria-label={t("tabs.search")} />
         <Menu
           checkedValues={{ language: [language] }}
-          onCheckedValueChange={(_, d) => {
-            const next = d.checkedItems[0];
+          onCheckedValueChange={(checkedItems) => {
+            const next = checkedItems[0];
             if (next) setLanguage(next as LanguageCode);
           }}
         >

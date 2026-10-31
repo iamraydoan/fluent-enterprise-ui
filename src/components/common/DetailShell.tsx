@@ -288,7 +288,7 @@ export function DetailShell({
     <>
       <div className={sharedStyles.headerBlock}>
         <div className={detailShellStyles.tabsRow}>
-          <TabList size="small" selectedValue={top} onTabSelect={(_, d) => onTop(String(d.value))}>
+          <TabList size="sm" selectedValue={top} onTabSelect={onTop}>
             {topTabs.map((tab) => (
               <Tab key={tab.value} value={tab.value}>
                 {t(tab.labelKey)}
