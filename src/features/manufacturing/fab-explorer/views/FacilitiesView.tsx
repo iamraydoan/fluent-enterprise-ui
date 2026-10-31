@@ -1,32 +1,16 @@
 import { useState } from "react";
 import { useFabDashboard, useFabFacilities, useFabMaterialsToReceive } from "@/api";
-import { Card, SidePanel } from "@/components/common";
+import { Card, EntityTile, SidePanel, TileGrid } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
 import { Button, makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles, tileSurface } from "@/styles/shared";
+import { useSharedStyles } from "@/styles/shared";
 import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
 
 const useViewStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
   main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-    gap: "12px",
-  },
-  tile: {
-    backgroundColor: tileSurface.backgroundColor,
-    borderRadius: "4px",
-    padding: "12px",
-    cursor: "pointer",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "8px",
-    minHeight: "100px",
-    ":hover": { backgroundColor: tileSurface.hoverBackgroundColor },
-  },
   tileFooter: {
     display: "flex",
     justifyContent: "space-between",
@@ -150,33 +134,25 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
           </Card>
         )}
 
-        <div className={styles.grid}>
+        <TileGrid>
           {facilities.map((f) => (
-            <div
+            <EntityTile
               key={f.name}
-              className={styles.tile}
+              title={f.name}
+              description={f.description}
               onClick={() => go({ level: FAB_LEVELS.facility, facility: f.name })}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") go({ level: FAB_LEVELS.facility, facility: f.name });
-              }}
-            >
-              <Text weight="semibold" size={300}>
-                {f.name}
-              </Text>
-              <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
-                {f.description}
-              </Text>
-              <div className={styles.tileFooter}>
-                <Grid24Regular />
-                <span className={styles.areaCount}>
-                  {f.areaCount} <Grid24Regular />
-                </span>
-              </div>
-            </div>
+              ariaLabel={f.name}
+              footer={
+                <>
+                  <Grid24Regular />
+                  <span className={styles.areaCount}>
+                    {f.areaCount} <Grid24Regular />
+                  </span>
+                </>
+              }
+            />
           ))}
-        </div>
+        </TileGrid>
       </div>
       <SidePanel title={t("fabExplorer.materialsToReceive")} collapsed={false} onToggle={() => {}}>
         <div className={styles.materialsList}>

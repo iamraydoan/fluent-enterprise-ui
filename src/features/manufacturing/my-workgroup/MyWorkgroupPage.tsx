@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMyWorkgroupResources, useMyWorkgroupSteps, useMyWorkgroups } from "@/api";
 import type { WorkgroupResourceTile, WorkgroupStepTile } from "@/api";
-import { ListPage } from "@/components/common";
+import { EntityTile, FilterBar, FilterGroup, ListPage, TileGrid } from "@/components/common";
 import {
   ArrowExportUp24Regular,
   ArrowSync24Regular,
@@ -27,7 +27,7 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles, tileSurface} from "@/styles/shared";
+import { useSharedStyles } from "@/styles/shared";
 import { PanelSettingsDialog } from "./dialogs";
 
 const usePageStyles = makeStyles({
@@ -82,22 +82,6 @@ const usePageStyles = makeStyles({
     backgroundColor: tokens.colorBrandBackground,
     flexShrink: 0,
   },
-  filterBar: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "16px",
-    flexWrap: "wrap",
-    rowGap: "8px",
-    padding: "4px 2px",
-  },
-  filterGroup: { display: "flex", alignItems: "center", columnGap: "8px" },
-  filterLabel: {
-    fontSize: "12px",
-    color: tokens.colorNeutralForeground3,
-    textTransform: "uppercase",
-    letterSpacing: "0.5px",
-    whiteSpace: "nowrap",
-  },
   dropdownButton: {
     display: "flex",
     alignItems: "center",
@@ -113,40 +97,6 @@ const usePageStyles = makeStyles({
     ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
   },
   facilityWrap: { display: "flex", alignItems: "stretch" },
-  tileGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-    gap: "12px",
-    alignContent: "start",
-    overflowY: "auto",
-    paddingBottom: "12px",
-  },
-  tile: {
-    position: "relative",
-    padding: "12px 14px 12px 18px",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "8px",
-    minHeight: "110px",
-    cursor: "pointer",
-    overflow: "hidden",
-  },
-  tileAccent: {
-    position: "absolute",
-    left: 0,
-    top: 0,
-    bottom: 0,
-    width: "5px",
-  },
-  tileTitle: { fontSize: "14px", fontWeight: tokens.fontWeightSemibold },
-  tileSubtitle: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
-  tileBottom: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: "auto",
-    paddingTop: "8px",
-  },
   tileCounts: { display: "flex", alignItems: "center", columnGap: "14px" },
   tileCount: { display: "flex", alignItems: "center", columnGap: "4px", fontSize: "13px" },
   empty: {
@@ -194,8 +144,7 @@ function FilterDropdown({
   const { t } = useAppTranslation();
   const styles = usePageStyles();
   return (
-    <span className={styles.filterGroup}>
-      <span className={styles.filterLabel}>{label}:</span>
+    <FilterGroup label={label}>
       <Menu
         checkedValues={{ filter: [value] }}
         onCheckedValueChange={(_, d) => {
@@ -222,93 +171,67 @@ function FilterDropdown({
           </MenuList>
         </MenuPopover>
       </Menu>
-    </span>
+    </FilterGroup>
   );
 }
 
 function ResourceTile({ tile, onOpen }: { tile: WorkgroupResourceTile; onOpen: () => void }) {
   const { t } = useAppTranslation();
   const styles = usePageStyles();
-  const sharedStyles = useSharedStyles();
   const isUp = tile.systemState === "Up";
   return (
-    <div
-      className={mergeClasses(sharedStyles.contentCard, styles.tile)}
-      style={{
-        backgroundColor: isUp ? tileSurface.backgroundColor : "#FDECEC",
-      }}
+    <EntityTile
+      title={`${tile.name}(${tile.facility})`}
+      subtitle={tile.type}
+      accentColor={isUp ? "#4CAF6D" : "#D83B3B"}
+      backgroundColor={isUp ? undefined : "#FDECEC"}
       onClick={onOpen}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter") onOpen();
-      }}
-      aria-label={`${tile.name} (${tile.facility})`}
-    >
-      <div
-        className={styles.tileAccent}
-        style={{ backgroundColor: isUp ? "#4CAF6D" : "#D83B3B" }}
-      />
-      <div>
-        <div className={styles.tileTitle}>
-          {tile.name}({tile.facility})
-        </div>
-        <div className={styles.tileSubtitle}>{tile.type}</div>
-      </div>
-      <div className={styles.tileBottom}>
-        <span style={{ color: tokens.colorBrandForeground1 }}>
-          <Box24Regular />
-        </span>
-        <span className={styles.tileCounts}>
-          <span className={styles.tileCount} title={t("myWorkgroup.tiles.dispatched")}>
-            {tile.dispatched} <ArrowExportUp24Regular />
+      ariaLabel={`${tile.name} (${tile.facility})`}
+      footer={
+        <>
+          <span style={{ color: tokens.colorBrandForeground1 }}>
+            <Box24Regular />
           </span>
-          <span className={styles.tileCount} title={t("myWorkgroup.tiles.inProcess")}>
-            {tile.inProcess} <ArrowSync24Regular />
+          <span className={styles.tileCounts}>
+            <span className={styles.tileCount} title={t("myWorkgroup.tiles.dispatched")}>
+              {tile.dispatched} <ArrowExportUp24Regular />
+            </span>
+            <span className={styles.tileCount} title={t("myWorkgroup.tiles.inProcess")}>
+              {tile.inProcess} <ArrowSync24Regular />
+            </span>
+            <span className={styles.tileCount} title={t("myWorkgroup.tiles.processed")}>
+              {tile.processed} <Checkmark20Filled />
+            </span>
           </span>
-          <span className={styles.tileCount} title={t("myWorkgroup.tiles.processed")}>
-            {tile.processed} <Checkmark20Filled />
-          </span>
-        </span>
-      </div>
-    </div>
+        </>
+      }
+    />
   );
 }
 
 function StepTile({ tile, onOpen }: { tile: WorkgroupStepTile; onOpen: () => void }) {
   const { t } = useAppTranslation();
   const styles = usePageStyles();
-  const sharedStyles = useSharedStyles();
   return (
-    <div
-      className={mergeClasses(sharedStyles.contentCard, styles.tile)}
-      style={{ backgroundColor: tileSurface.backgroundColor }}
+    <EntityTile
+      title={`${tile.name}(${tile.facility})`}
+      subtitle={tile.processingType}
       onClick={onOpen}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter") onOpen();
-      }}
-      aria-label={`${tile.name} (${tile.facility})`}
-    >
-      <div>
-        <div className={styles.tileTitle}>
-          {tile.name}({tile.facility})
-        </div>
-        <div className={styles.tileSubtitle}>{tile.processingType}</div>
-      </div>
-      <div className={styles.tileBottom}>
-        <span className={styles.stepDot} />
-        <span className={styles.tileCounts}>
-          <span className={styles.tileCount} title={t("myWorkgroup.tiles.materials")}>
-            {tile.materials} <Box24Regular />
+      ariaLabel={`${tile.name} (${tile.facility})`}
+      footer={
+        <>
+          <span className={styles.stepDot} />
+          <span className={styles.tileCounts}>
+            <span className={styles.tileCount} title={t("myWorkgroup.tiles.materials")}>
+              {tile.materials} <Box24Regular />
+            </span>
+            <span className={styles.tileCount} title={t("myWorkgroup.tiles.resources")}>
+              {tile.resources} <Box24Regular />
+            </span>
           </span>
-          <span className={styles.tileCount} title={t("myWorkgroup.tiles.resources")}>
-            {tile.resources} <Box24Regular />
-          </span>
-        </span>
-      </div>
-    </div>
+        </>
+      }
+    />
   );
 }
 
@@ -455,7 +378,7 @@ export function MyWorkgroupPage() {
         <div className={styles.main}>
           {panel === "resources" && visiblePanels.includes("resources") && (
             <>
-              <div className={styles.filterBar}>
+              <FilterBar>
                 <FilterDropdown
                   label={t(L.type)}
                   value={resourceType}
@@ -468,8 +391,7 @@ export function MyWorkgroupPage() {
                   options={RESOURCE_SYSTEM_STATE_OPTIONS}
                   onChange={setResourceSystemState}
                 />
-                <span className={styles.filterGroup}>
-                  <span className={styles.filterLabel}>{t(L.facility)}:</span>
+                <FilterGroup label={t(L.facility)}>
                   <span className={styles.facilityWrap}>
                     <Input
                       value={resourceFacility}
@@ -483,7 +405,7 @@ export function MyWorkgroupPage() {
                       aria-label={t(L.facility)}
                     />
                   </span>
-                </span>
+                </FilterGroup>
                 <FilterDropdown
                   label={t(L.state)}
                   value={resourceState}
@@ -497,13 +419,13 @@ export function MyWorkgroupPage() {
                   contentBefore={<Search20Regular />}
                   style={{ width: "220px" }}
                 />
-              </div>
+              </FilterBar>
               {resourcesLoading ? (
                 <div className={styles.empty}>{t("myWorkgroup.loading")}</div>
               ) : resources.length === 0 ? (
                 <div className={styles.empty}>{t("myWorkgroup.noResources")}</div>
               ) : (
-                <div className={styles.tileGrid}>
+                <TileGrid minWidth="300px">
                   {resources.map((tile) => (
                     <ResourceTile
                       key={tile.name}
@@ -511,13 +433,13 @@ export function MyWorkgroupPage() {
                       onOpen={() => openResourceView(tile.name)}
                     />
                   ))}
-                </div>
+                </TileGrid>
               )}
             </>
           )}
           {panel === "steps" && visiblePanels.includes("steps") && (
             <>
-              <div className={styles.filterBar}>
+              <FilterBar>
                 <FilterDropdown
                   label={t(L.processingType)}
                   value={stepProcessingType}
@@ -530,8 +452,7 @@ export function MyWorkgroupPage() {
                   options={STEP_TYPE_OPTIONS}
                   onChange={setStepType}
                 />
-                <span className={styles.filterGroup}>
-                  <span className={styles.filterLabel}>{t(L.facility)}:</span>
+                <FilterGroup label={t(L.facility)}>
                   <span className={styles.facilityWrap}>
                     <Input
                       value={stepFacility}
@@ -545,7 +466,7 @@ export function MyWorkgroupPage() {
                       aria-label={t(L.facility)}
                     />
                   </span>
-                </span>
+                </FilterGroup>
                 <Input
                   value={stepName}
                   onChange={(_, data) => setStepName(data.value)}
@@ -553,17 +474,17 @@ export function MyWorkgroupPage() {
                   contentBefore={<Search20Regular />}
                   style={{ width: "220px" }}
                 />
-              </div>
+              </FilterBar>
               {stepsLoading ? (
                 <div className={styles.empty}>{t("myWorkgroup.loading")}</div>
               ) : steps.length === 0 ? (
                 <div className={styles.empty}>{t("myWorkgroup.noSteps")}</div>
               ) : (
-                <div className={styles.tileGrid}>
+                <TileGrid minWidth="300px">
                   {steps.map((tile) => (
                     <StepTile key={tile.name} tile={tile} onOpen={() => openStepView(tile.name)} />
                   ))}
-                </div>
+                </TileGrid>
               )}
             </>
           )}
