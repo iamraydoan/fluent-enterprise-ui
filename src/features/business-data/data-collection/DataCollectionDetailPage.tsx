@@ -14,10 +14,11 @@ import {
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Text, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { useCopyDataCollectionLimitSetsDialog } from "../data-collection-limit-set/useDataCollectionLimitSetDialogs";
 import { useDataCollectionDialogs } from "./useDataCollectionDialogs";
 
@@ -30,13 +31,13 @@ const useDetailStyles = makeStyles({
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     paddingBottom: "8px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   row: { display: "flex", columnGap: "12px", fontSize: "13px" },
-  label: { color: tokens.colorNeutralForeground3, minWidth: "200px" },
-  empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  label: { color: theme.color.textTertiary, minWidth: "200px" },
+  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
   paramHeader: {
     width: "100%",
     textAlign: "left",
@@ -46,8 +47,8 @@ const useDetailStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    fontWeight: theme.font.weightSemibold,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   paramBlock: { display: "flex", flexDirection: "column", rowGap: "12px" },
 });
@@ -180,7 +181,7 @@ export function DataCollectionDetailPage() {
                           display: "block",
                           fontWeight: "normal",
                           fontSize: 12,
-                          color: tokens.colorNeutralForeground3,
+                          color: theme.color.textTertiary,
                         }}
                       >
                         {p.dataType}
@@ -321,12 +322,12 @@ function InstanceRow({
       style={{
         alignItems: "center",
         padding: "8px 0",
-        borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+        borderBottom: `1px solid ${theme.color.borderSubtle}`,
       }}
     >
       <div style={{ flexGrow: 1 }}>
         <div style={{ fontWeight: 600 }}>{instance.name}</div>
-        <div style={{ fontSize: "12px", color: tokens.colorNeutralForeground3 }}>
+        <div style={{ fontSize: "12px", color: theme.color.textTertiary }}>
           {instance.state}
           {postedCountSuffix(instance.postedData.length)}
         </div>

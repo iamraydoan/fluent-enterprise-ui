@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useFabDashboard, useFabFacilities, useFabMaterialsToReceive } from "@/api";
 import { Card, EntityTile, SidePanel, TileGrid } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
-import { Button, makeStyles, Text, tokens } from "@/components/ui";
+import { Button, makeStyles, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
 
@@ -22,13 +23,13 @@ const useViewStyles = makeStyles({
     alignItems: "center",
     columnGap: "4px",
     fontSize: "12px",
-    color: tokens.colorNeutralForeground2,
+    color: theme.color.textSecondary,
   },
   dashboardBar: {
     display: "flex",
     columnGap: "8px",
     padding: "8px 0",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   kpiGrid: {
     display: "grid",
@@ -36,7 +37,7 @@ const useViewStyles = makeStyles({
     gap: "12px",
   },
   kpiCard: { padding: "16px", textAlign: "center" },
-  kpiValue: { fontSize: "32px", fontWeight: tokens.fontWeightSemibold },
+  kpiValue: { fontSize: "32px", fontWeight: theme.font.weightSemibold },
   kpiTrend: { fontSize: "12px" },
   materialsList: { display: "flex", flexDirection: "column", rowGap: "8px" },
   materialRow: {
@@ -44,7 +45,7 @@ const useViewStyles = makeStyles({
     justifyContent: "space-between",
     fontSize: "13px",
     padding: "8px 0",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });
 
@@ -109,7 +110,7 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
             <div className={styles.kpiGrid}>
               {kpis.map((kpi) => (
                 <div key={kpi.label} className={`${sharedStyles.contentCard} ${styles.kpiCard}`}>
-                  <Text size={300} style={{ color: tokens.colorNeutralForeground3 }}>
+                  <Text size={300} style={{ color: theme.color.textTertiary }}>
                     {kpi.label}
                   </Text>
                   <div className={styles.kpiValue}>
@@ -121,8 +122,8 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
                     style={{
                       color:
                         kpi.trend >= 0
-                          ? tokens.colorPaletteGreenForeground1
-                          : tokens.colorPaletteRedForeground1,
+                          ? theme.color.textSuccess
+                          : theme.color.textDanger,
                     }}
                   >
                     {kpi.trend >= 0 ? "+" : ""}
@@ -165,7 +166,7 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
             </div>
           ))}
           {materials.length === 0 && (
-            <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
+            <Text size={200} style={{ color: theme.color.textTertiary }}>
               {t("fabExplorer.noResources")}
             </Text>
           )}

@@ -14,10 +14,11 @@ import {
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, Eye20Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Text, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { useChecklistDialogs } from "./useChecklistDialogs";
 
 const useDetailStyles = makeStyles({
@@ -29,13 +30,13 @@ const useDetailStyles = makeStyles({
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     paddingBottom: "8px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   row: { display: "flex", columnGap: "12px", fontSize: "13px" },
-  label: { color: tokens.colorNeutralForeground3, minWidth: "200px" },
-  empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  label: { color: theme.color.textTertiary, minWidth: "200px" },
+  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
   split: {
     display: "grid",
     gridTemplateColumns: "minmax(320px, 2fr) 3fr",
@@ -52,17 +53,17 @@ const useDetailStyles = makeStyles({
     fontFamily: "inherit",
     fontSize: "13px",
     borderRadius: "4px",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   itemActive: {
-    backgroundColor: tokens.colorBrandBackgroundInvertedSelected,
-    fontWeight: tokens.fontWeightSemibold,
+    backgroundColor: theme.color.brandInvertedSelected,
+    fontWeight: theme.font.weightSemibold,
   },
-  itemDesc: { fontSize: "12px", color: tokens.colorNeutralForeground3, marginTop: "4px" },
+  itemDesc: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
   subTabs: {
     display: "flex",
     columnGap: "4px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: "12px",
   },
   subTab: {
@@ -76,9 +77,9 @@ const useDetailStyles = makeStyles({
     borderBottom: "2px solid transparent",
   },
   subTabActive: {
-    color: tokens.colorBrandForeground1,
-    borderBottom: `2px solid ${tokens.colorBrandStroke1}`,
-    fontWeight: tokens.fontWeightSemibold,
+    color: theme.color.textBrand,
+    borderBottom: `2px solid ${theme.color.borderBrand}`,
+    fontWeight: theme.font.weightSemibold,
   },
 });
 
@@ -364,12 +365,12 @@ function InstanceRow({
       style={{
         alignItems: "center",
         padding: "8px 0",
-        borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+        borderBottom: `1px solid ${theme.color.borderSubtle}`,
       }}
     >
       <div style={{ flexGrow: 1 }}>
         <div style={{ fontWeight: 600 }}>{instance.name}</div>
-        <div style={{ fontSize: "12px", color: tokens.colorNeutralForeground3 }}>
+        <div style={{ fontSize: "12px", color: theme.color.textTertiary }}>
           {instance.state}
           {instance.executingState ? ` · ${instance.executingState}` : ""}
           {instance.material ? ` · ${instance.material}` : ""}

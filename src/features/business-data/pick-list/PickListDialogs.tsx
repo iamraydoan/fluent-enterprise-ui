@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
-import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, Text, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   field: { marginBottom: "16px" },
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
-  hint: { fontSize: "12px", color: tokens.colorNeutralForeground3, marginTop: "4px" },
+  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
   table: {
     width: "100%",
     borderCollapse: "collapse",
@@ -16,16 +17,16 @@ const useDialogStyles = makeStyles({
   th: {
     textAlign: "left",
     padding: "8px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontWeight: 600,
     fontSize: "12px",
     textTransform: "uppercase",
     letterSpacing: "0.5px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
   },
   td: {
     padding: "8px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });
 
@@ -130,7 +131,7 @@ export function ManagePickListItemsDialog({ open, onClose, onSubmit }: DialogPro
         <tbody>
           <tr>
             <td className={styles.td} colSpan={3}>
-              <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
+              <Text size={200} style={{ color: theme.color.textTertiary }}>
                 {t(`${P}.empty` as never)}
               </Text>
             </td>
@@ -177,7 +178,7 @@ export function PickPickListDialog({ open, onClose, onSubmit }: DialogProps) {
         <tbody>
           <tr>
             <td className={styles.td} colSpan={2}>
-              <Text size={200} style={{ color: tokens.colorNeutralForeground3 }}>
+              <Text size={200} style={{ color: theme.color.textTertiary }}>
                 {t(`${P}.empty` as never)}
               </Text>
             </td>

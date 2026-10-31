@@ -9,9 +9,9 @@ import {
   MenuList,
   MenuPopover,
   MenuTrigger,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { TERMINATE_LEVELS } from "../productGroupOptions";
 import { WizardSteps, Field } from "./DialogPrimitives";
 import type { DialogProps } from "./dialogShared";
@@ -63,7 +63,7 @@ export function TerminateProductGroupDialog({ open, onClose, onSubmit }: DialogP
       <div
         style={{
           padding: "12px",
-          backgroundColor: tokens.colorPaletteYellowBackground1,
+          backgroundColor: theme.color.warningEmphasis,
           borderRadius: "4px",
           fontSize: "13px",
           marginTop: "8px",
@@ -156,7 +156,7 @@ export function UnterminateProductGroupDialog({ open, onClose, onSubmit }: Dialo
           </>
         )}
         {step === 1 && (
-          <div style={{ fontSize: "13px", color: tokens.colorNeutralForeground2 }}>
+          <div style={{ fontSize: "13px", color: theme.color.textSecondary }}>
             {t("businessData.productGroup.operations.unterminate.detailsText")}
           </div>
         )}

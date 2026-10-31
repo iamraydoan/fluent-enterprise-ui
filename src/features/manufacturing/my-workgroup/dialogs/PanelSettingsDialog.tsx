@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
 import { ArrowDown20Regular, ArrowUp20Regular, Delete20Regular } from "@/components/icons";
-import { Button, Checkbox, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Button, Checkbox, Text, makeStyles, mergeClasses} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   columns: { display: "grid", gridTemplateColumns: "1fr 220px", gap: "16px" },
@@ -13,8 +14,8 @@ const useDialogStyles = makeStyles({
     marginBottom: "8px",
   },
   list: {
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
     overflow: "hidden",
   },
   headerRow: {
@@ -22,10 +23,10 @@ const useDialogStyles = makeStyles({
     alignItems: "center",
     columnGap: "10px",
     padding: "10px 12px",
-    backgroundColor: tokens.colorNeutralBackground2,
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    backgroundColor: theme.color.surfaceSecondary,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "12px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     textTransform: "uppercase",
     letterSpacing: "0.5px",
   },
@@ -34,21 +35,21 @@ const useDialogStyles = makeStyles({
     alignItems: "center",
     columnGap: "10px",
     padding: "10px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
     cursor: "pointer",
   },
-  rowSelected: { backgroundColor: tokens.colorNeutralBackground1Selected },
+  rowSelected: { backgroundColor: theme.color.surfaceSelected },
   selectedRow: {
     display: "flex",
     alignItems: "center",
     columnGap: "8px",
     padding: "10px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
   },
   dragHandle: {
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     cursor: "grab",
     letterSpacing: "2px",
     userSelect: "none",
@@ -56,7 +57,7 @@ const useDialogStyles = makeStyles({
   toolbar: { display: "flex", alignItems: "center", columnGap: "2px" },
   comments: {
     marginTop: "16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
     paddingTop: "12px",
   },
   commentsHeader: {
@@ -146,7 +147,7 @@ export function PanelSettingsDialog({
           <div className={styles.columnTitle}>
             <Text weight="semibold">
               {t("myWorkgroup.panelSettings.availableSections")} ({ALL_PANELS.length}){" "}
-              <Text size={300} style={{ color: tokens.colorNeutralForeground3 }}>
+              <Text size={300} style={{ color: theme.color.textTertiary }}>
                 / {t("myWorkgroup.panelSettings.itemsSelected", { count: selected.length })}
               </Text>
             </Text>
@@ -224,7 +225,7 @@ export function PanelSettingsDialog({
             ))}
             {selected.length === 0 && (
               <div className={styles.selectedRow}>
-                <Text size={300} style={{ color: tokens.colorNeutralForeground3 }}>
+                <Text size={300} style={{ color: theme.color.textTertiary }}>
                   {EMPTY_DASH}
                 </Text>
               </div>
@@ -238,7 +239,7 @@ export function PanelSettingsDialog({
           <span>{commentsOpen ? COLLAPSE_ICON : EXPAND_ICON}</span>
         </button>
         {commentsOpen && (
-          <Text size={300} style={{ color: tokens.colorNeutralForeground3 }}>
+          <Text size={300} style={{ color: theme.color.textTertiary }}>
             {EMPTY_DASH}
           </Text>
         )}

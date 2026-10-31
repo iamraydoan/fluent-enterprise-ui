@@ -24,7 +24,6 @@ import {
   Text,
   makeStyles,
   mergeClasses,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -41,7 +40,7 @@ const usePageStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "8px 8px 8px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   workgroupButton: {
     display: "flex",
@@ -52,10 +51,10 @@ const usePageStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "15px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     padding: "4px 6px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    borderRadius: theme.radius.md,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   headerActions: { display: "flex", alignItems: "center", columnGap: "2px" },
   navList: { display: "flex", flexDirection: "column", padding: "6px", rowGap: "2px" },
@@ -71,16 +70,16 @@ const usePageStyles = makeStyles({
     textAlign: "left",
     fontFamily: "inherit",
     fontSize: "14px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    borderRadius: theme.radius.md,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
-  navItemActive: { backgroundColor: tokens.colorNeutralBackground1Selected },
-  navCount: { marginLeft: "auto", fontWeight: tokens.fontWeightSemibold },
+  navItemActive: { backgroundColor: theme.color.surfaceSelected },
+  navCount: { marginLeft: "auto", fontWeight: theme.font.weightSemibold },
   stepDot: {
     width: "16px",
     height: "16px",
     borderRadius: "50%",
-    backgroundColor: tokens.colorBrandBackground,
+    backgroundColor: theme.color.brand,
     flexShrink: 0,
   },
   dropdownButton: {
@@ -92,10 +91,10 @@ const usePageStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     padding: "4px 6px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    borderRadius: theme.radius.md,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   facilityWrap: { display: "flex", alignItems: "stretch" },
   tileCounts: { display: "flex", alignItems: "center", columnGap: "14px" },
@@ -103,7 +102,7 @@ const usePageStyles = makeStyles({
   empty: {
     padding: "48px",
     textAlign: "center",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     fontSize: "14px",
   },
 });
@@ -184,13 +183,13 @@ function ResourceTile({ tile, onOpen }: { tile: WorkgroupResourceTile; onOpen: (
     <EntityTile
       title={`${tile.name}(${tile.facility})`}
       subtitle={tile.type}
-      accentColor={isUp ? tokens.colorPaletteGreenForeground1 : tokens.colorPaletteRedForeground1}
+      accentColor={isUp ? theme.color.textSuccess : theme.color.textDanger}
       backgroundColor={isUp ? undefined : theme.color.dangerSubtle}
       onClick={onOpen}
       ariaLabel={`${tile.name} (${tile.facility})`}
       footer={
         <>
-          <span style={{ color: tokens.colorBrandForeground1 }}>
+          <span style={{ color: theme.color.textBrand }}>
             <Box24Regular />
           </span>
           <span className={styles.tileCounts}>
@@ -349,7 +348,7 @@ export function MyWorkgroupPage() {
                     onClick={() => setPanel("resources")}
                     aria-current={panel === "resources" ? "page" : undefined}
                   >
-                    <span style={{ color: tokens.colorBrandForeground1 }}>
+                    <span style={{ color: theme.color.textBrand }}>
                       <Box24Regular />
                     </span>
                     <Text weight={panel === "resources" ? "semibold" : "regular"}>

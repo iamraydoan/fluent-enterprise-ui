@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, Text, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CREATE, MODE_EDIT } from "../components/wizardMode";
 import type { WizardMode } from "../components/wizardMode";
@@ -58,7 +59,7 @@ const useWizardStyles = makeStyles({
     display: "flex",
     gap: "24px",
     padding: "12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
   step: { display: "flex", alignItems: "center", gap: "6px" },
@@ -66,13 +67,13 @@ const useWizardStyles = makeStyles({
     width: "22px",
     height: "22px",
     borderRadius: "50%",
-    backgroundColor: tokens.colorNeutralBackground3,
+    backgroundColor: theme.color.surfaceTertiary,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "12px",
   },
-  stepActive: { backgroundColor: tokens.colorBrandBackground, color: "#fff" },
+  stepActive: { backgroundColor: theme.color.brand, color: "#fff" },
   field: {
     display: "grid",
     gridTemplateColumns: "180px 1fr",
@@ -81,13 +82,13 @@ const useWizardStyles = makeStyles({
     marginBottom: "10px",
   },
   label: { textAlign: "right", fontSize: "13px" },
-  required: { color: tokens.colorPaletteRedForeground1 },
+  required: { color: theme.color.textDanger },
   sectionTitle: {
     fontWeight: 600,
     marginTop: "16px",
     marginBottom: "8px",
     paddingBottom: "4px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   layerRow: {
     display: "grid",

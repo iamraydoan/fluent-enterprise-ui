@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Button, Input, Textarea, tokens } from "@/components/ui";
+import { Button, Input, Textarea} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const L: Record<string, TranslationKey> = {
   setNonWorkingTimeTitle: "businessData.employee.calendarDays.setNonWorkingTimeTitle",
@@ -58,7 +59,7 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
       <FormField
         label={
           <>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            <span style={{ color: theme.color.textDanger }}>* </span>
             {t(L.nonWorkingTimeType)}
           </>
         }
@@ -68,7 +69,7 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
       <FormField
         label={
           <>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            <span style={{ color: theme.color.textDanger }}>* </span>
             {t(L.startTime)}
           </>
         }
@@ -78,7 +79,7 @@ export function SetNonWorkingTimeDialog({ name, onClose }: DialogProps) {
       <FormField
         label={
           <>
-            <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+            <span style={{ color: theme.color.textDanger }}>* </span>
             {t(L.endTime)}
           </>
         }

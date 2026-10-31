@@ -23,9 +23,10 @@ import {
   SplitVertical24Regular,
   Wrench24Regular,
 } from "@/components/icons";
-import { makeStyles, Text, tokens } from "@/components/ui";
+import { makeStyles, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import type { BarcodeActionTile } from "./barcodeIdentificationTypes";
 import { EntityInfoDialog, InsertDialog, ScanDialog, SettingsDialog } from "./dialogs";
 
@@ -45,10 +46,10 @@ const usePageStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
     rowGap: "8px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
   },
   emptyIcon: {
-    color: tokens.colorNeutralForeground4,
+    color: theme.color.textQuaternary,
     "& svg": { width: "64px", height: "64px" },
   },
   columns: {
@@ -59,7 +60,7 @@ const usePageStyles = makeStyles({
   },
   listTitle: {
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     padding: "4px 0 12px",
   },
   row: {
@@ -67,42 +68,42 @@ const usePageStyles = makeStyles({
     alignItems: "center",
     columnGap: "8px",
     padding: "10px 4px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   rowIcon: {
-    color: tokens.colorBrandForeground1,
+    color: theme.color.textBrand,
     display: "flex",
   },
   rowName: {
-    color: tokens.colorBrandForeground1,
-    fontWeight: tokens.fontWeightSemibold,
+    color: theme.color.textBrand,
+    fontWeight: theme.font.weightSemibold,
   },
   rowState: {
-    color: tokens.colorNeutralForeground2,
+    color: theme.color.textSecondary,
   },
   eyeButton: {
     marginLeft: "auto",
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
-    color: tokens.colorBrandForeground1,
+    color: theme.color.textBrand,
     display: "flex",
     padding: "4px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    borderRadius: theme.radius.md,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   hint: {
     display: "flex",
     alignItems: "center",
     columnGap: "8px",
     padding: "12px 4px",
-    color: tokens.colorNeutralForeground4,
+    color: theme.color.textQuaternary,
     fontSize: "13px",
     fontStyle: "italic",
   },
   notFound: {
     padding: "8px 4px",
-    color: tokens.colorPaletteRedForeground1,
+    color: theme.color.textDanger,
     fontSize: "13px",
   },
   tiles: {
@@ -118,14 +119,14 @@ const usePageStyles = makeStyles({
     rowGap: "8px",
     minHeight: "110px",
     padding: "16px",
-    backgroundColor: tokens.colorNeutralBackground1,
-    border: `1px solid ${tokens.colorBrandStroke1}`,
-    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: theme.color.surface,
+    border: `1px solid ${theme.color.borderBrand}`,
+    borderRadius: theme.radius.md,
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "14px",
-    color: tokens.colorBrandForeground1,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    color: theme.color.textBrand,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   tileIcon: {
     display: "flex",

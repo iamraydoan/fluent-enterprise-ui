@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Button, Input, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const L: Record<string, TranslationKey> = {
   title: "businessData.facility.manageShipping.title",
@@ -27,24 +28,24 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: "8px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
   },
   list: {
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
     overflow: "hidden",
   },
   item: {
     padding: "8px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     cursor: "pointer",
   },
   itemActive: {
     padding: "8px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     cursor: "pointer",
-    backgroundColor: tokens.colorNeutralBackground2,
-    fontWeight: tokens.fontWeightSemibold,
+    backgroundColor: theme.color.surfaceSecondary,
+    fontWeight: theme.font.weightSemibold,
   },
   details: { display: "flex", flexDirection: "column", gap: "12px" },
 });
@@ -120,7 +121,7 @@ export function ManageShippingFacilitiesDialog({
           <FormField
             label={
               <>
-                <span style={{ color: tokens.colorPaletteRedForeground1 }}>* </span>
+                <span style={{ color: theme.color.textDanger }}>* </span>
                 {t(L.facility)}
               </>
             }

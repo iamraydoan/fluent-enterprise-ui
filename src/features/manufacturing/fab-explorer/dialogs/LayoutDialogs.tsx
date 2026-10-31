@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
-import { Checkbox, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Checkbox, Text, makeStyles, mergeClasses} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useLayoutStyles = makeStyles({
   option: {
@@ -10,34 +11,34 @@ const useLayoutStyles = makeStyles({
     width: "100%",
     textAlign: "left",
     padding: "12px 16px",
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    border: `1px solid ${theme.color.border}`,
     borderBottom: "none",
-    backgroundColor: tokens.colorNeutralBackground1,
+    backgroundColor: theme.color.surface,
     cursor: "pointer",
     fontSize: "13px",
     ":first-of-type": { borderTopLeftRadius: "8px", borderTopRightRadius: "8px" },
     ":last-of-type": {
-      borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
+      borderBottom: `1px solid ${theme.color.border}`,
       borderBottomLeftRadius: "8px",
       borderBottomRightRadius: "8px",
     },
   },
   optionSelected: {
-    backgroundColor: tokens.colorNeutralBackground1Selected,
-    fontWeight: tokens.fontWeightSemibold,
+    backgroundColor: theme.color.surfaceSelected,
+    fontWeight: theme.font.weightSemibold,
   },
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   sectionRow: {
     display: "flex",
     alignItems: "center",
     columnGap: "8px",
     padding: "8px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   twoCol: { display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: "16px" },
-  colTitle: { fontWeight: tokens.fontWeightSemibold, fontSize: "13px", marginBottom: "8px" },
+  colTitle: { fontWeight: theme.font.weightSemibold, fontSize: "13px", marginBottom: "8px" },
   colBox: {
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    border: `1px solid ${theme.color.border}`,
     borderRadius: "8px",
     maxHeight: "320px",
     overflow: "auto",

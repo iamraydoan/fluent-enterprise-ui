@@ -21,10 +21,11 @@ import {
   Send24Regular,
   Settings20Regular,
 } from "@/components/icons";
-import { Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Text, makeStyles, mergeClasses} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
+import { theme } from "@/styles/theme";
 import {
   AbortDialog,
   ChangeMaterialTypeDialog,
@@ -65,17 +66,17 @@ const useViewStyles = makeStyles({
     alignItems: "center",
     columnGap: "12px",
     padding: "8px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    backgroundColor: tokens.colorNeutralBackground1,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
+    backgroundColor: theme.color.surface,
   },
   backBtn: {
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
     padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
+    borderRadius: theme.radius.md,
     display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   body: { display: "flex", flexGrow: 1, minHeight: 0, columnGap: "10px", padding: "10px" },
   left: { width: "230px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
@@ -87,14 +88,14 @@ const useViewStyles = makeStyles({
     columnGap: "12px",
     flexWrap: "wrap",
     padding: "8px 12px",
-    backgroundColor: tokens.colorNeutralBackground1,
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: theme.color.surface,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
   },
   filterLabel: {
     fontSize: "12px",
-    color: tokens.colorNeutralForeground3,
-    fontWeight: tokens.fontWeightSemibold,
+    color: theme.color.textTertiary,
+    fontWeight: theme.font.weightSemibold,
   },
   catRow: {
     display: "flex",
@@ -107,12 +108,12 @@ const useViewStyles = makeStyles({
     cursor: "pointer",
     textAlign: "left",
     fontSize: "13px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    borderRadius: theme.radius.md,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   catActive: {
-    backgroundColor: tokens.colorNeutralBackground1Selected,
-    fontWeight: tokens.fontWeightSemibold,
+    backgroundColor: theme.color.surfaceSelected,
+    fontWeight: theme.font.weightSemibold,
   },
   sectionHead: {
     display: "flex",
@@ -121,9 +122,9 @@ const useViewStyles = makeStyles({
     padding: "8px 4px",
   },
   detailCard: {
-    backgroundColor: tokens.colorNeutralBackground1,
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: theme.color.surface,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
     padding: "12px",
     display: "flex",
     flexDirection: "column",
@@ -139,11 +140,11 @@ const useViewStyles = makeStyles({
     fontSize: "13px",
     textTransform: "uppercase",
     borderBottom: "2px solid transparent",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   tabActive: {
-    fontWeight: tokens.fontWeightSemibold,
-    borderBottom: `2px solid ${tokens.colorBrandStroke1}`,
+    fontWeight: theme.font.weightSemibold,
+    borderBottom: `2px solid ${theme.color.borderBrand}`,
   },
 });
 

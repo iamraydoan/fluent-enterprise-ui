@@ -37,7 +37,6 @@ import {
   Text,
   makeStyles,
   mergeClasses,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -125,7 +124,7 @@ const useDetailStyles = makeStyles({
     alignSelf: "flex-end",
     maxWidth: "85%",
     backgroundColor: theme.color.brandSubtle,
-    borderRadius: tokens.borderRadiusLarge,
+    borderRadius: theme.radius.lg,
     padding: "10px 14px",
   },
   agentNameRow: { display: "flex", alignItems: "center", columnGap: "6px" },
@@ -133,7 +132,7 @@ const useDetailStyles = makeStyles({
     alignSelf: "flex-start",
     maxWidth: "90%",
     backgroundColor: theme.color.surfaceTertiary,
-    borderRadius: tokens.borderRadiusLarge,
+    borderRadius: theme.radius.lg,
     padding: "10px 14px",
   },
   aiInputRow: {

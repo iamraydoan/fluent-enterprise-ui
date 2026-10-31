@@ -10,9 +10,9 @@ import {
   Text,
   makeStyles,
   mergeClasses,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   listPane: {
@@ -25,12 +25,12 @@ const useDialogStyles = makeStyles({
   formPane: { flexGrow: 1, minWidth: 0 },
   shiftItem: {
     padding: "10px 12px",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
     cursor: "pointer",
-    backgroundColor: tokens.colorNeutralBackground1,
+    backgroundColor: theme.color.surface,
   },
-  shiftActive: { backgroundColor: tokens.colorNeutralBackground1Selected },
+  shiftActive: { backgroundColor: theme.color.surfaceSelected },
 });
 
 interface ManageShiftsDialogProps {

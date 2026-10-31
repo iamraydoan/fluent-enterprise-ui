@@ -14,7 +14,6 @@ import {
   MenuPopover,
   MenuTrigger,
   Text,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -84,12 +83,12 @@ const useDialogStyles = makeStyles({
     fontSize: "13px",
   },
   alertError: {
-    backgroundColor: tokens.colorPaletteRedBackground1,
-    borderLeft: `3px solid ${tokens.colorPaletteRedBorder1}`,
+    backgroundColor: theme.color.dangerEmphasis,
+    borderLeft: `3px solid ${theme.color.borderDanger}`,
   },
   alertWarning: {
-    backgroundColor: tokens.colorPaletteYellowBackground1,
-    borderLeft: `3px solid ${tokens.colorPaletteYellowBorder1}`,
+    backgroundColor: theme.color.warningEmphasis,
+    borderLeft: `3px solid ${theme.color.borderWarning}`,
   },
 });
 

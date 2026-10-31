@@ -10,9 +10,9 @@ import {
   MenuTrigger,
   Text,
   makeStyles,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { PARAMETER_DATA_TYPES, PARAMETER_SCOPES, PARAMETER_TYPES } from "./parameterOptions";
 
 const useDialogStyles = makeStyles({
@@ -21,8 +21,8 @@ const useDialogStyles = makeStyles({
     alignItems: "center",
     gap: "8px",
     padding: "12px 20px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    backgroundColor: tokens.colorNeutralBackground2,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
+    backgroundColor: theme.color.surfaceSecondary,
   },
   step: {
     display: "flex",
@@ -41,17 +41,17 @@ const useDialogStyles = makeStyles({
     placeItems: "center",
     fontSize: "11px",
     fontWeight: 700,
-    backgroundColor: tokens.colorNeutralBackground5,
-    color: tokens.colorNeutralForeground2,
+    backgroundColor: theme.color.surfaceOverlay,
+    color: theme.color.textSecondary,
   },
   stepActive: {
-    backgroundColor: tokens.colorBrandBackground,
-    color: tokens.colorNeutralForegroundOnBrand,
+    backgroundColor: theme.color.brand,
+    color: theme.color.textOnBrand,
   },
   field: { marginBottom: "16px" },
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
-  required: { color: tokens.colorPaletteRedForeground1, marginRight: "4px" },
-  hint: { fontSize: "12px", color: tokens.colorNeutralForeground3, marginTop: "4px" },
+  required: { color: theme.color.textDanger, marginRight: "4px" },
+  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
   row: { display: "flex", gap: "12px" },
   col: { flex: 1 },
 });
@@ -183,7 +183,7 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
                 style={{
                   width: "24px",
                   height: "1px",
-                  backgroundColor: tokens.colorNeutralStroke2,
+                  backgroundColor: theme.color.borderSubtle,
                 }}
               />
             )}

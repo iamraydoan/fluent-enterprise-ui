@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Input, Text, Textarea, makeStyles, tokens } from "@/components/ui";
+import { Input, Text, Textarea, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   fieldRow: {
@@ -11,7 +12,7 @@ const useDialogStyles = makeStyles({
     columnGap: "12px",
     marginBottom: "12px",
   },
-  required: { color: tokens.colorPaletteRedForeground1 },
+  required: { color: theme.color.textDanger },
 });
 
 interface EntryDialogProps {

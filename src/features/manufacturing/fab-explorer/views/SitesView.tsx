@@ -7,9 +7,10 @@ import {
   Grid24Regular,
   Organization24Regular,
 } from "@/components/icons";
-import { Input, makeStyles, tokens } from "@/components/ui";
+import { Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
+import { theme } from "@/styles/theme";
 import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
 
@@ -21,7 +22,7 @@ const useViewStyles = makeStyles({
     alignItems: "center",
     columnGap: "8px",
     fontSize: "13px",
-    color: tokens.colorBrandForeground1,
+    color: theme.color.textBrand,
   },
   breadcrumbLink: {
     cursor: "pointer",
@@ -38,7 +39,7 @@ const useViewStyles = makeStyles({
     alignItems: "center",
     columnGap: "4px",
     fontSize: "12px",
-    color: tokens.colorNeutralForeground2,
+    color: theme.color.textSecondary,
   },
 });
 

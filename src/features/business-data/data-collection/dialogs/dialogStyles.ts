@@ -1,11 +1,12 @@
-import { makeStyles, tokens } from "@/components/ui";
+import { makeStyles} from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 export const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
-  fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
-  sectionTitle: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold, margin: "16px 0 8px 0" },
-  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
+  sectionTitle: { fontSize: "13px", fontWeight: theme.font.weightSemibold, margin: "16px 0 8px 0" },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   paramRow: {
     display: "flex",
     flexWrap: "wrap",
@@ -19,13 +20,13 @@ export const useDialogStyles = makeStyles({
     rowGap: "8px",
     padding: "12px",
     marginBottom: "8px",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
-    backgroundColor: tokens.colorNeutralBackground1,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.color.surface,
   },
   miniLabel: {
     fontSize: "12px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     marginBottom: "4px",
   },
   rowActions: {
@@ -39,7 +40,7 @@ export const useDialogStyles = makeStyles({
   tabs: {
     display: "flex",
     columnGap: "4px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: "12px",
   },
   tab: {
@@ -52,9 +53,9 @@ export const useDialogStyles = makeStyles({
     borderBottom: "2px solid transparent",
   },
   tabActive: {
-    fontWeight: tokens.fontWeightSemibold,
-    borderBottom: `2px solid ${tokens.colorBrandStroke1}`,
+    fontWeight: theme.font.weightSemibold,
+    borderBottom: `2px solid ${theme.color.borderBrand}`,
   },
   kvRow: { display: "flex", columnGap: "12px", fontSize: "13px", marginBottom: "8px" },
-  kvLabel: { color: tokens.colorNeutralForeground3, minWidth: "160px" },
+  kvLabel: { color: theme.color.textTertiary, minWidth: "160px" },
 });

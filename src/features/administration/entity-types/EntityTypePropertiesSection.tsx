@@ -20,7 +20,6 @@ import {
   MenuPopover,
   MenuTrigger,
   Text,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
@@ -74,9 +73,9 @@ const useSectionStyles = makeStyles({
   searchableBadge: {
     fontSize: "11px",
     fontWeight: theme.font.weightSemibold,
-    color: tokens.colorPaletteGreenForeground1,
-    backgroundColor: tokens.colorPaletteGreenBackground1,
-    borderRadius: tokens.borderRadiusSmall,
+    color: theme.color.textSuccess,
+    backgroundColor: theme.color.successEmphasis,
+    borderRadius: theme.radius.sm,
     padding: "2px 8px",
   },
 });

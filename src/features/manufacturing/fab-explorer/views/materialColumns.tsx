@@ -1,6 +1,7 @@
 import type { FabMaterial } from "@/api";
 import type { DataColumn } from "@/components/common";
-import { Text, tokens } from "@/components/ui";
+import { Text} from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 export const MATERIAL_COLUMNS: DataColumn<FabMaterial>[] = [
   {
@@ -10,7 +11,7 @@ export const MATERIAL_COLUMNS: DataColumn<FabMaterial>[] = [
       <Text size={300}>
         {r.name}
         {r.subMaterialCount > 0 && (
-          <span style={{ color: tokens.colorBrandForeground1, fontWeight: 600, marginLeft: 8 }}>
+          <span style={{ color: theme.color.textBrand, fontWeight: 600, marginLeft: 8 }}>
             ({r.subMaterialCount})
           </span>
         )}
