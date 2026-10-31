@@ -4,6 +4,7 @@ import { SidePanel, SidebarNavItem } from "@/components/common";
 import { Globe24Regular, Grid24Regular, Organization24Regular } from "@/components/icons";
 import { Input, makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { containsIgnoreCase } from "@/lib/utils";
 import { tileSurface } from "@/styles/shared";
 import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
@@ -82,7 +83,7 @@ export function EnterprisesView({ nav, go }: EnterprisesViewProps) {
 
   const filteredFacilities = facilities.filter((f) => {
     if (typeFilter !== "ALL" && f.type !== typeFilter) return false;
-    if (search && !f.name.toLowerCase().includes(search.toLowerCase())) return false;
+    if (search && !containsIgnoreCase(f.name, search)) return false;
     return true;
   });
 

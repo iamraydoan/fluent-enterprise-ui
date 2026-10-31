@@ -14,6 +14,7 @@ import {
   TableRow,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { containsIgnoreCase } from "@/lib/utils";
 
 interface AssignEmployeesDialogProps {
   open: boolean;
@@ -71,7 +72,7 @@ export function AssignEmployeesDialog({
   };
 
   const filtered = EMPLOYEES.filter(
-    (e) => e.name.toLowerCase().includes(search.toLowerCase()) || e.number.includes(search),
+    (e) => containsIgnoreCase(e.name, search) || e.number.includes(search),
   );
   const selectedEmployees = EMPLOYEES.filter((e) => selected.includes(e.number));
 

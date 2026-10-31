@@ -9,6 +9,7 @@ import {
 } from "@/components/icons";
 import { Input, makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { containsIgnoreCase } from "@/lib/utils";
 import { tileSurface } from "@/styles/shared";
 import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
@@ -79,7 +80,7 @@ export function SitesView({ nav, go }: SitesViewProps) {
   const { data: facilities = [] } = useFabFacilities(nav.site || undefined, nav.enterprise);
 
   const filteredFacilities = facilities.filter(
-    (f) => !search || f.name.toLowerCase().includes(search.toLowerCase()),
+    (f) => !search || containsIgnoreCase(f.name, search),
   );
 
   return (

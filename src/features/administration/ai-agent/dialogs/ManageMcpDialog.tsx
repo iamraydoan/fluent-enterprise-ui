@@ -9,6 +9,7 @@ import {
 } from "@/components/icons";
 import { Button, Checkbox, Input, makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { containsIgnoreCase } from "@/lib/utils";
 import { AGENT_MCP_SERVERS, agentServerTools } from "../data";
 import type { ToolSelection } from "../data";
 import { DialogAgentSub } from "./DialogAgentSub";
@@ -129,7 +130,7 @@ export function ManageMcpDialog({
   const [activeServer, setActiveServer] = useState(AGENT_MCP_SERVERS[0].name);
   const [searchQuery, setSearchQuery] = useState("");
   const tools = agentServerTools(activeServer).filter((tool) =>
-    tool.toLowerCase().includes(searchQuery.toLowerCase()),
+    containsIgnoreCase(tool, searchQuery),
   );
   const isOn = (server: string, tool: string) => tool in (draft[server] ?? {});
   const patch = (
