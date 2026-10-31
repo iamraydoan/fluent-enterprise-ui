@@ -1,6 +1,4 @@
-import {
-  Box24Regular,
-} from "@/components/icons";
+import { Box24Regular } from "@/components/icons";
 import type { AdministrationTile } from "./types";
 
 export const BUSINESS_DATA_ENTITIES: AdministrationTile[] = [
@@ -395,4 +393,3 @@ export const BUSINESS_DATA_ENTITIES: AdministrationTile[] = [
     route: "/business-data/workgroup",
   },
 ];
-

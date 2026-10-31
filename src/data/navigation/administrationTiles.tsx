@@ -210,4 +210,3 @@ export const ADMINISTRATION_TILES: AdministrationTile[] = [
 export function getAdministrationTile(tileId: string) {
   return ADMINISTRATION_TILES.find((tile) => tile.id === tileId);
 }
-

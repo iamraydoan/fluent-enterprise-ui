@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useFabAreas, useFabMaterialsToReceive } from "@/api";
-import { Card, DetailTabs, EntityTile, SidePanel, SidebarNavItem, TileGrid } from "@/components/common";
+import {
+  Card,
+  DetailTabs,
+  EntityTile,
+  SidePanel,
+  SidebarNavItem,
+  TileGrid,
+} from "@/components/common";
 import { Box24Regular, Grid24Regular } from "@/components/icons";
 import { Button, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";

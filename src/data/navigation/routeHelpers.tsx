@@ -1,9 +1,5 @@
 import type { ReactElement } from "react";
-import {
-  Bot20Regular,
-  PlugConnected20Regular,
-  Window20Regular,
-} from "@/components/icons";
+import { Bot20Regular, PlugConnected20Regular, Window20Regular } from "@/components/icons";
 import { getAdministrationTile } from "./administrationTiles";
 import { BUSINESS_DATA_ENTITIES } from "./businessDataEntities";
 import { MANUFACTURING_PAGES } from "./manufacturingPages";

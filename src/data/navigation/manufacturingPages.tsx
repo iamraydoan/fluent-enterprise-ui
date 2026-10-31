@@ -39,4 +39,3 @@ export const MANUFACTURING_PAGES: AdministrationTile[] = [
     route: "/manufacturing/my-workgroup",
   },
 ];
-

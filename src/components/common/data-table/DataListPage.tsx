@@ -52,10 +52,7 @@ export function DataListPage<TRow extends RowData>({
   const styles = useListLayoutStyles();
   const onRowClickRef = useRef(onRowClick);
   onRowClickRef.current = onRowClick;
-  const stableOnRowClick = useCallback(
-    (row: TRow) => onRowClickRef.current?.(row),
-    [],
-  );
+  const stableOnRowClick = useCallback((row: TRow) => onRowClickRef.current?.(row), []);
   const content =
     children ??
     (columns && useListQuery && listTitleKey ? (

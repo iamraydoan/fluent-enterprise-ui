@@ -28,4 +28,3 @@ export interface RouteTabInfo {
   title: string | null;
   parentRoute: string | null;
 }
-

@@ -82,4 +82,3 @@ export const NAVIGATION_SECTIONS: NavigationSection[] = [
 export function getNavigationSection(sectionId: string) {
   return NAVIGATION_SECTIONS.find((section) => section.id === sectionId);
 }
-

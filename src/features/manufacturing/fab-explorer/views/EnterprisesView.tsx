@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useFabEnterprises, useFabFacilities, useFabSites } from "@/api";
-import { EntityTile, FilterBar, FilterGroup, SidePanel, SidebarNavItem, TileGrid } from "@/components/common";
+import {
+  EntityTile,
+  FilterBar,
+  FilterGroup,
+  SidePanel,
+  SidebarNavItem,
+  TileGrid,
+} from "@/components/common";
 import { Globe24Regular, Grid24Regular, Organization24Regular } from "@/components/icons";
 import { Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
