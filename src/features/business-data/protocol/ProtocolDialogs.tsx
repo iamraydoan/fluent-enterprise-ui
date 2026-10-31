@@ -1,43 +1,9 @@
 import { useState } from "react";
-import { Dismiss16Regular } from "@/components/icons";
+import { BaseDialog, DialogFooter } from "@/components/common";
 import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    ...cardSurface,
-    width: "min(720px, 100%)",
-    maxHeight: "calc(100vh - 48px)",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-  },
-  header: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "16px 20px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
-  body: { padding: "20px", overflowY: "auto", flex: 1 },
-  footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    gap: "8px",
-    padding: "16px 20px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   field: { marginBottom: "16px" },
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
   required: { color: tokens.colorPaletteRedForeground1, marginRight: "4px" },
@@ -48,47 +14,6 @@ interface DialogProps {
   open: boolean;
   onClose: () => void;
   onSubmit?: () => void;
-}
-
-function DialogShell({
-  open,
-  onClose,
-  title,
-  children,
-  footer,
-}: DialogProps & {
-  title: string;
-  children: React.ReactNode;
-  footer?: React.ReactNode;
-}) {
-  const { t } = useAppTranslation();
-  const styles = useDialogStyles();
-  if (!open) return null;
-  return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div
-        className={styles.surface}
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={title}
-      >
-        <div className={styles.header}>
-          <Text size={400} weight="semibold">
-            {title}
-          </Text>
-          <Button
-            appearance="subtle"
-            icon={<Dismiss16Regular />}
-            onClick={onClose}
-            aria-label={t("businessData.protocol.operations._shared.close" as never)}
-          />
-        </div>
-        <div className={styles.body}>{children}</div>
-        {footer && <div className={styles.footer}>{footer}</div>}
-      </div>
-    </div>
-  );
 }
 
 function Field({
@@ -119,27 +44,24 @@ function GenericDialog({ open, onClose, onSubmit, opKey }: DialogProps & { opKey
   const { t } = useAppTranslation();
   const P = `businessData.protocol.operations.${opKey}`;
   return (
-    <DialogShell
+    <BaseDialog
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
+      size="lg"
       footer={
-        <>
-          <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button
-            appearance="primary"
-            onClick={() => {
-              onSubmit?.();
-              onClose();
-            }}
-          >
-            {t(`${P}.submit` as never)}
-          </Button>
-        </>
+        <DialogFooter
+          onCancel={onClose}
+          onConfirm={() => {
+            onSubmit?.();
+            onClose();
+          }}
+          confirmLabel={t(`${P}.submit` as never)}
+        />
       }
     >
       <Text size={300}>{t(`${P}.description` as never)}</Text>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -158,7 +80,7 @@ export function CreateProtocolDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
@@ -191,7 +113,7 @@ export function CreateProtocolDialog({ open, onClose, onSubmit }: DialogProps) {
       >
         <Input value={changeSet} onChange={(_, d) => setChangeSet(d.value)} />
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -211,23 +133,19 @@ export function EditProtocolDialog({
   };
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
       footer={
-        <>
-          <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button
-            appearance="primary"
-            onClick={() => {
-              onSubmit?.();
-              handleClose();
-            }}
-          >
-            {t(`${P}.submit` as never)}
-          </Button>
-        </>
+        <DialogFooter
+          onCancel={handleClose}
+          onConfirm={() => {
+            onSubmit?.();
+            handleClose();
+          }}
+          confirmLabel={t(`${P}.submit` as never)}
+        />
       }
     >
       <Field label={t(`${P}.fields.name` as never)} hint={t(`${P}.hints.nameLocked` as never)}>
@@ -236,7 +154,7 @@ export function EditProtocolDialog({
       <Field label={t(`${P}.fields.description` as never)}>
         <Input value={description} onChange={(_, d) => setDescription(d.value)} />
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -251,29 +169,25 @@ export function CloneProtocolDialog({ open, onClose, onSubmit }: DialogProps) {
   };
 
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={handleClose}
       title={t(`${P}.title` as never)}
       footer={
-        <>
-          <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
-          <Button
-            appearance="primary"
-            onClick={() => {
-              onSubmit?.();
-              handleClose();
-            }}
-          >
-            {t(`${P}.submit` as never)}
-          </Button>
-        </>
+        <DialogFooter
+          onCancel={handleClose}
+          onConfirm={() => {
+            onSubmit?.();
+            handleClose();
+          }}
+          confirmLabel={t(`${P}.submit` as never)}
+        />
       }
     >
       <Field label={t(`${P}.fields.name` as never)} hint={t(`${P}.hints.nameGenerator` as never)}>
         <Input value={name} onChange={(_, d) => setName(d.value)} />
       </Field>
-    </DialogShell>
+    </BaseDialog>
   );
 }
 
@@ -331,13 +245,13 @@ export function ViewInstanceReportsDialog({ open, onClose }: Omit<DialogProps, "
   const { t } = useAppTranslation();
   const P = "businessData.protocol.operations.viewInstanceReports";
   return (
-    <DialogShell
+    <BaseDialog size="lg"
       open={open}
       onClose={onClose}
       title={t(`${P}.title` as never)}
       footer={<Button onClick={onClose}>{t(`${P}.close` as never)}</Button>}
     >
       <Text size={300}>{t(`${P}.description` as never)}</Text>
-    </DialogShell>
+    </BaseDialog>
   );
 }
