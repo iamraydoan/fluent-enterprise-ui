@@ -41,7 +41,6 @@ import {
   TableHeaderCell,
   TableRow,
   Text,
-  tokens,
   Tooltip,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -56,6 +55,7 @@ import {
 import { EditInstructionsDialog } from "./dialogs/EditInstructionsDialog";
 import { ManageMcpDialog } from "./dialogs/ManageMcpDialog";
 import { ToolDescriptionDialog } from "./dialogs/ToolDescriptionDialog";
+import { theme } from "@/styles/theme";
 
 const useDetailStyles = makeStyles({
   titleRow: {
@@ -68,7 +68,7 @@ const useDetailStyles = makeStyles({
     flexGrow: 1,
     minHeight: 0,
     overflow: "auto",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     borderBottom: "none",
   },
   th: {
@@ -79,7 +79,7 @@ const useDetailStyles = makeStyles({
     height: "36px",
     fontSize: "12px",
     fontWeight: 400,
-    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRight: `1px solid ${theme.color.borderSubtle}`,
     textTransform: "uppercase",
   },
   groupRow: { backgroundColor: "#EFEFEF", cursor: "pointer" },

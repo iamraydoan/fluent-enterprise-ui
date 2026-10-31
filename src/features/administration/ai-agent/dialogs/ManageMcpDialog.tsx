@@ -7,11 +7,12 @@ import {
   Search20Regular,
   Settings20Regular,
 } from "@/components/icons";
-import { Button, Checkbox, Input, makeStyles, Text, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { AGENT_MCP_SERVERS, agentServerTools } from "../data";
 import type { ToolSelection } from "../data";
 import { DialogAgentSub } from "./DialogAgentSub";
+import { theme } from "@/styles/theme";
 
 const useManageStyles = makeStyles({
   cols: {
@@ -33,7 +34,7 @@ const useManageStyles = makeStyles({
   box: {
     flexGrow: 1,
     minHeight: 0,
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    border: `1px solid ${theme.color.border}`,
     display: "flex",
     overflow: "hidden",
     backgroundColor: "#fff",
@@ -60,7 +61,7 @@ const useManageStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 10px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
     cursor: "pointer",
     border: "none",
@@ -78,7 +79,7 @@ const useManageStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 10px 0 4px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
     backgroundColor: "#EFEFEF",
   },
@@ -88,7 +89,7 @@ const useManageStyles = makeStyles({
     alignItems: "center",
     padding: "4px 12px",
     minHeight: "44px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
     lineHeight: "17px",
     flexShrink: 0,

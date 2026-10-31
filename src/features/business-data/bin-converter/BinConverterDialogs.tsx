@@ -1,6 +1,7 @@
-import { Button, Input, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { OperationOnChange, OperationValues } from "../components/operationTypes";
+import { theme } from "@/styles/theme";
 
 export interface BinConversionRow {
   id: number;
@@ -19,8 +20,8 @@ const useListStyles = makeStyles({
     alignItems: "center",
     marginBottom: "8px",
   },
-  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
 });
 
 export function BinConversionListEditor({

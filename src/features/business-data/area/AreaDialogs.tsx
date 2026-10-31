@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
-import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useManageDialogStyles = makeStyles({
   row: {
@@ -11,14 +12,14 @@ const useManageDialogStyles = makeStyles({
     alignItems: "center",
     marginBottom: "8px",
   },
-  empty: { padding: "24px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  empty: { padding: "24px", textAlign: "center", color: theme.color.textTertiary },
   dashboardItem: {
     display: "flex",
     alignItems: "center",
     columnGap: "12px",
     padding: "12px",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
     marginBottom: "8px",
     cursor: "pointer",
     width: "100%",
@@ -26,7 +27,7 @@ const useManageDialogStyles = makeStyles({
     fontFamily: "inherit",
     fontSize: "13px",
     textAlign: "left",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
 });
 

@@ -40,11 +40,11 @@ import {
   TableHeaderCell,
   TableRow,
   Text,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useTabsStore } from "@/stores/tabs-store";
 import { MCP_SERVER_SECTIONS } from "./data";
+import { theme } from "@/styles/theme";
 
 const useMcpDetailStyles = makeStyles({
   link: { color: "#1a6fc4", wordBreak: "break-all" },
@@ -56,7 +56,7 @@ const useMcpDetailStyles = makeStyles({
   },
   scroll: {
     overflow: "auto",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     borderBottom: "none",
   },
   th: {
@@ -64,7 +64,7 @@ const useMcpDetailStyles = makeStyles({
     height: "36px",
     fontSize: "12px",
     fontWeight: 400,
-    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRight: `1px solid ${theme.color.borderSubtle}`,
     textTransform: "uppercase",
   },
   td: { height: "34.5px", fontSize: "13px" },
@@ -75,7 +75,7 @@ const useMcpDetailStyles = makeStyles({
     columnGap: "28px",
     padding: "8px 4px 12px",
     fontSize: "13px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
   },
   menuBtn: {
     border: "none",

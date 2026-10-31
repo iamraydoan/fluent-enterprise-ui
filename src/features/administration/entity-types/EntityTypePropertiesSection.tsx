@@ -25,6 +25,7 @@ import {
 import { useAppTranslation } from "@/i18n";
 import { ManagePropertiesDialog } from "./dialogs/ManagePropertiesDialog";
 import { searchTypeLabelKey, NOT_APPLICABLE } from "./propertyUtils";
+import { theme } from "@/styles/theme";
 
 const useSectionStyles = makeStyles({
   toolbar: {
@@ -32,7 +33,7 @@ const useSectionStyles = makeStyles({
     alignItems: "center",
     columnGap: "4px",
     padding: "8px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   filterBar: {
     display: "flex",
@@ -40,11 +41,11 @@ const useSectionStyles = makeStyles({
     justifyContent: "flex-end",
     columnGap: "16px",
     padding: "10px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   list: { display: "flex", flexDirection: "column" },
   row: {
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   rowHead: {
     display: "flex",
@@ -57,10 +58,10 @@ const useSectionStyles = makeStyles({
     cursor: "pointer",
     textAlign: "left",
     fontFamily: "inherit",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
-  rowTitle: { fontSize: "14px", fontWeight: tokens.fontWeightSemibold },
-  rowSub: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
+  rowTitle: { fontSize: "14px", fontWeight: theme.font.weightSemibold },
+  rowSub: { fontSize: "12px", color: theme.color.textTertiary },
   rowBody: {
     padding: "4px 12px 12px 36px",
     display: "flex",
@@ -68,10 +69,10 @@ const useSectionStyles = makeStyles({
     rowGap: "4px",
   },
   detailRow: { display: "flex", columnGap: "8px", fontSize: "13px" },
-  detailLabel: { color: tokens.colorNeutralForeground3, minWidth: "110px" },
+  detailLabel: { color: theme.color.textTertiary, minWidth: "110px" },
   searchableBadge: {
     fontSize: "11px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     color: tokens.colorPaletteGreenForeground1,
     backgroundColor: tokens.colorPaletteGreenBackground1,
     borderRadius: tokens.borderRadiusSmall,

@@ -15,6 +15,7 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useGridStyles = makeStyles({
   toolbar: {
@@ -22,13 +23,13 @@ const useGridStyles = makeStyles({
     alignItems: "center",
     columnGap: "4px",
     padding: "8px 0",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: "12px",
   },
-  title: { fontSize: "15px", fontWeight: tokens.fontWeightSemibold, marginBottom: "8px" },
+  title: { fontSize: "15px", fontWeight: theme.font.weightSemibold, marginBottom: "8px" },
   scroll: {
     overflow: "auto",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
   },
   th: {
     backgroundColor: "#EFEFEF",
@@ -37,15 +38,15 @@ const useGridStyles = makeStyles({
     textTransform: "uppercase",
     padding: "8px 12px",
     textAlign: "left",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   td: {
     padding: "8px 12px",
     fontSize: "13px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   boolTrue: { color: tokens.colorPaletteGreenForeground1 },
-  boolFalse: { color: tokens.colorNeutralForeground3 },
+  boolFalse: { color: theme.color.textTertiary },
   footer: {
     display: "flex",
     justifyContent: "flex-end",
@@ -53,7 +54,7 @@ const useGridStyles = makeStyles({
     columnGap: "16px",
     padding: "8px 0",
     fontSize: "13px",
-    color: tokens.colorNeutralForeground2,
+    color: theme.color.textSecondary,
   },
 });
 

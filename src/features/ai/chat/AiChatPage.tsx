@@ -24,13 +24,13 @@ import {
   MenuTrigger,
   mergeClasses,
   Text,
-  tokens,
   Tooltip,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 import { CHAT_EXAMPLES, SEED_CHATS } from "./data";
 import type { ChatSession } from "./data";
+import { theme } from "@/styles/theme";
 
 const useChatStyles = makeStyles({
   bar: {
@@ -91,7 +91,7 @@ const useChatStyles = makeStyles({
   history: {
     width: "250px",
     flexShrink: 0,
-    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRight: `1px solid ${theme.color.borderSubtle}`,
     display: "flex",
     flexDirection: "column",
     overflowY: "auto",
@@ -163,7 +163,7 @@ const useChatStyles = makeStyles({
     width: "44px",
     height: "44px",
     borderRadius: "999px",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     display: "grid",
     placeItems: "center",
     backgroundColor: "#fff",
@@ -176,7 +176,7 @@ const useChatStyles = makeStyles({
     boxSizing: "border-box",
   },
   composer: {
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "24px",
     padding: "14px 16px 10px 20px",
     boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
@@ -184,7 +184,7 @@ const useChatStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     rowGap: "8px",
-    ":focus-within": { border: `1px solid ${tokens.colorBrandStroke1}` },
+    ":focus-within": { border: `1px solid ${theme.color.borderBrand}` },
   },
   textarea: {
     border: "none",
@@ -227,7 +227,7 @@ const useChatStyles = makeStyles({
     height: "28px",
     flexShrink: 0,
     borderRadius: "999px",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     display: "grid",
     placeItems: "center",
     backgroundColor: "#fff",
@@ -251,7 +251,7 @@ const useChatStyles = makeStyles({
     marginTop: "6px",
   },
   example: {
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "999px",
     padding: "6px 14px",
     background: "#fff",
@@ -449,7 +449,7 @@ export function AiChatPage() {
           <div
             style={{
               width: 28,
-              borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+              borderTop: `1px solid ${theme.color.borderSubtle}`,
               margin: "2px 0",
             }}
           />
@@ -483,7 +483,7 @@ export function AiChatPage() {
                 <Text size={300} truncate wrap={false} style={{ maxWidth: 210 }}>
                   {candidate.title}
                 </Text>
-                <Caption1 style={{ color: tokens.colorNeutralForeground3 }}>
+                <Caption1 style={{ color: theme.color.textTertiary }}>
                   {candidate.agent}
                 </Caption1>
               </button>

@@ -14,11 +14,12 @@ import {
 } from "@/components/common";
 import type { DataColumn, DataFilter } from "@/components/common";
 import { DocumentSearch24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
-import { makeStyles, tokens } from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { ListQueryParams, ListQueryResult } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { theme } from "@/styles/theme";
 
 const ALL_FOLDERS = "all";
 
@@ -27,7 +28,7 @@ const usePageStyles = makeStyles({
   main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
   sectionLabel: {
     fontSize: "11px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     textTransform: "uppercase",
     padding: "12px 12px 4px",
     letterSpacing: "0.5px",

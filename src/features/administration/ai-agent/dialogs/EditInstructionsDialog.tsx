@@ -33,11 +33,11 @@ import {
   MenuList,
   MenuPopover,
   MenuTrigger,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { DialogAgentSub } from "./DialogAgentSub";
+import { theme } from "@/styles/theme";
 
 const useEditStyles = makeStyles({
   field: { display: "flex", columnGap: "12px", padding: "0 32px", alignItems: "flex-start" },
@@ -52,7 +52,7 @@ const useEditStyles = makeStyles({
   editor: {
     flexGrow: 1,
     minWidth: 0,
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    border: `1px solid ${theme.color.border}`,
     borderRadius: "2px",
     backgroundColor: "#fff",
   },
@@ -62,18 +62,18 @@ const useEditStyles = makeStyles({
     flexWrap: "wrap",
     gap: "2px",
     padding: "4px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: "#F7F7F7",
   },
   sep: {
     width: "1px",
     alignSelf: "stretch",
-    backgroundColor: tokens.colorNeutralStroke2,
+    backgroundColor: theme.color.borderSubtle,
     margin: "2px 4px",
   },
   sel: {
     height: "32px",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "4px",
     background: "#fff",
     fontFamily: "inherit",

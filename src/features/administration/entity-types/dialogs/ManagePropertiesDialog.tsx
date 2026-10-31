@@ -18,6 +18,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { DEFAULT_SEARCH_TYPE, isContainsSearchType, searchTypeLabelKey } from "../propertyUtils";
+import { theme } from "@/styles/theme";
 
 const MAX_SEARCHABLE = 2;
 
@@ -42,7 +43,7 @@ const useDialogStyles = makeStyles({
     flexGrow: 1,
     minHeight: 0,
     overflowY: "auto",
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    border: `1px solid ${theme.color.border}`,
     backgroundColor: "#fff",
   },
   listItem: {
@@ -50,19 +51,19 @@ const useDialogStyles = makeStyles({
     display: "block",
     padding: "10px 12px",
     border: "none",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: "transparent",
     cursor: "pointer",
     textAlign: "left",
     fontFamily: "inherit",
     fontSize: "13px",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
-  listItemSelected: { backgroundColor: tokens.colorNeutralBackground1Selected },
+  listItemSelected: { backgroundColor: theme.color.surfaceSelected },
   formPane: { minHeight: 0, overflowY: "auto", paddingRight: "8px" },
   sectionTitle: {
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     margin: "16px 0 8px",
   },
   fieldRow: {
@@ -72,13 +73,13 @@ const useDialogStyles = makeStyles({
     columnGap: "12px",
     marginBottom: "8px",
   },
-  fieldLabel: { fontSize: "13px", color: tokens.colorNeutralForeground2, textAlign: "right" },
+  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
   alert: {
     display: "flex",
     alignItems: "flex-start",
     columnGap: "8px",
     padding: "10px 12px",
-    borderRadius: tokens.borderRadiusMedium,
+    borderRadius: theme.radius.md,
     marginBottom: "12px",
     fontSize: "13px",
   },
