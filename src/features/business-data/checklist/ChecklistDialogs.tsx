@@ -1,9 +1,8 @@
 import { useState } from "react";
 import type { ChecklistInstance, ChecklistItem, ChecklistItemParameter } from "@/api";
-import { Dismiss16Regular } from "@/components/icons";
-import { Button, Checkbox, Input, Text, Textarea, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog } from "@/components/common";
+import { Button, Checkbox, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 import { MiniSelect } from "../components/MiniSelect";
 import type { OperationValues } from "../components/operationTypes";
 import {
@@ -25,59 +24,6 @@ import {
 } from "./checklistLookups";
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(920px, calc(100vw - 48px))",
-    maxHeight: "min(700px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  narrow: {
-    width: "min(560px, calc(100vw - 48px))",
-    maxHeight: "min(700px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minHeight: "52px",
-    padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
-    display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  body: { flexGrow: 1, minHeight: 0, overflowY: "auto", padding: "16px 24px" },
-  foot: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
   hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
   fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
@@ -134,33 +80,30 @@ const useDialogStyles = makeStyles({
 });
 
 function DialogShell({
+  open,
   title,
   onClose,
   wide,
   children,
   footer,
 }: {
+  open: boolean;
   title: string;
   onClose: () => void;
   wide?: boolean;
   children: React.ReactNode;
   footer: React.ReactNode;
 }) {
-  const styles = useDialogStyles();
-  const { t } = useAppTranslation();
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={wide ? styles.surface : styles.narrow} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{title}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>{children}</div>
-        <div className={styles.foot}>{footer}</div>
-      </div>
-    </div>
+    <BaseDialog
+      open={open}
+      title={title}
+      onClose={onClose}
+      size={wide ? "xl" : "md"}
+      footer={footer}
+    >
+      {children}
+    </BaseDialog>
   );
 }
 
@@ -434,9 +377,9 @@ export function PreviewChecklistDialog({
   const [date, setDate] = useState("");
   const [material, setMaterial] = useState("");
   const [product, setProduct] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       wide
       title={t("businessData.checklist.operations.previewTitle")}
       onClose={onClose}
@@ -506,7 +449,6 @@ export function CloneChecklistDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [rows, setRows] = useState<CloneChecklistRow[]>([]);
-  if (!open) return null;
   const addRow = () =>
     setRows([
       ...rows,
@@ -518,6 +460,7 @@ export function CloneChecklistDialog({
 
   return (
     <DialogShell
+      open={open}
       wide
       title={t("businessData.checklist.operations.cloneTitle")}
       onClose={onClose}
@@ -590,9 +533,9 @@ export function OpenChecklistInstanceDialog({
 }) {
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.checklist.operations.openInstanceTitle")}
       onClose={onClose}
       footer={
@@ -627,9 +570,9 @@ export function OpenForMaterialDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [material, setMaterial] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.checklist.operations.openForMaterialTitle")}
       onClose={onClose}
       footer={
@@ -673,9 +616,9 @@ export function PauseChecklistInstanceDialog({
   const styles = useDialogStyles();
   const [reason, setReason] = useState("");
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.checklist.operations.pauseTitle")}
       onClose={onClose}
       footer={
@@ -729,9 +672,9 @@ function SignItemDialog({
   const styles = useDialogStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.checklist.operations.signTitle")}
       onClose={onClose}
       footer={
@@ -810,6 +753,7 @@ export function PerformChecklistDialog({
 
   return (
     <DialogShell
+      open={open}
       wide
       title={t(
         immediate
@@ -940,6 +884,7 @@ export function OpenMaterialDeviationDialog({
 
   return (
     <DialogShell
+      open={open}
       wide
       title={t("businessData.checklist.operations.openDeviationTitle")}
       onClose={onClose}

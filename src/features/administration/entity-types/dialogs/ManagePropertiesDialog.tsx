@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { useUpdateEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty, PropertySearchType } from "@/api";
+import { BaseDialog } from "@/components/common";
 import {
   Add24Regular,
   Delete20Regular,
-  Dismiss16Regular,
   Warning12Filled,
 } from "@/components/icons";
 import {
@@ -21,49 +21,19 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 import { DEFAULT_SEARCH_TYPE, isContainsSearchType, searchTypeLabelKey } from "../propertyUtils";
 
 const MAX_SEARCHABLE = 2;
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(1100px, calc(100vw - 48px))",
-    height: "min(760px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    height: "48px",
-    padding: "0 16px",
-    backgroundColor: "#DDE1E7",
-    flexShrink: 0,
-  },
-  headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
-  body: {
-    flexGrow: 1,
-    minHeight: 0,
+  bodyGrid: {
     display: "grid",
     gridTemplateColumns: "300px minmax(0, 1fr)",
     columnGap: "24px",
-    padding: "16px 24px",
-    overflow: "hidden",
+    flexGrow: 1,
+    minHeight: 0,
   },
+  headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
   listPane: { display: "flex", flexDirection: "column", minHeight: 0 },
   listHead: {
     display: "flex",
@@ -124,15 +94,6 @@ const useDialogStyles = makeStyles({
     backgroundColor: tokens.colorPaletteYellowBackground1,
     borderLeft: `3px solid ${tokens.colorPaletteYellowBorder1}`,
   },
-  foot: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
 });
 
 function canBeSearchable(property: EntityTypeProperty): boolean {
@@ -188,27 +149,23 @@ export function ManagePropertiesDialog({
   };
 
   return (
-    <div className={styles.overlay} onClick={onClose} role="presentation">
-      <div
-        className={styles.surface}
-        role="dialog"
-        aria-label={t("entityTypes.manage.title")}
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className={styles.head}>
-          <div className={styles.headTitle}>
-            <Text weight="semibold" size={400}>
-              {t("entityTypes.manage.title")}
-            </Text>
-          </div>
-          <Button
-            appearance="subtle"
-            icon={<Dismiss16Regular />}
-            onClick={onClose}
-            aria-label={t("common.close")}
-          />
-        </div>
-        <div className={styles.body}>
+    <BaseDialog
+      open
+      title={t("entityTypes.manage.title")}
+      onClose={onClose}
+      width="1100px"
+      footer={
+        <>
+          <Button appearance="secondary" onClick={onClose}>
+            {t("common.cancel")}
+          </Button>
+          <Button appearance="primary" onClick={handleUpdate} disabled={update.isPending}>
+            {t("common.update")}
+          </Button>
+        </>
+      }
+    >
+      <div className={styles.bodyGrid}>
           <div className={styles.listPane}>
             <div className={styles.listHead}>
               <Text weight="semibold" size={300}>
@@ -270,17 +227,8 @@ export function ManagePropertiesDialog({
               />
             )}
           </div>
-        </div>
-        <div className={styles.foot}>
-          <Button appearance="secondary" onClick={onClose}>
-            {t("common.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={handleUpdate} disabled={update.isPending}>
-            {t("common.update")}
-          </Button>
-        </div>
       </div>
-    </div>
+    </BaseDialog>
   );
 }
 

@@ -1,65 +1,12 @@
 import { useState } from "react";
 import type { ContainerPosition } from "@/api";
-import { ArrowDown16Regular, ArrowUp16Regular, Dismiss16Regular } from "@/components/icons";
-import { Button, Input, Text, Textarea, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog } from "@/components/common";
+import { ArrowDown16Regular, ArrowUp16Regular } from "@/components/icons";
+import { Button, Input, Textarea, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(920px, calc(100vw - 48px))",
-    maxHeight: "min(700px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  narrow: {
-    width: "min(560px, calc(100vw - 48px))",
-    maxHeight: "min(700px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minHeight: "52px",
-    padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
-    display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  body: { flexGrow: 1, minHeight: 0, overflowY: "auto", padding: "16px 24px" },
-  foot: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
   hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
   fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
@@ -84,33 +31,30 @@ const useDialogStyles = makeStyles({
 });
 
 function DialogShell({
+  open,
   title,
   onClose,
   wide,
   children,
   footer,
 }: {
+  open: boolean;
   title: string;
   onClose: () => void;
   wide?: boolean;
   children: React.ReactNode;
   footer: React.ReactNode;
 }) {
-  const styles = useDialogStyles();
-  const { t } = useAppTranslation();
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={wide ? styles.surface : styles.narrow} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{title}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>{children}</div>
-        <div className={styles.foot}>{footer}</div>
-      </div>
-    </div>
+    <BaseDialog
+      open={open}
+      title={title}
+      onClose={onClose}
+      size={wide ? "xl" : "md"}
+      footer={footer}
+    >
+      {children}
+    </BaseDialog>
   );
 }
 
@@ -145,7 +89,6 @@ export function CloneContainerDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [rows, setRows] = useState<CloneContainerRow[]>([]);
-  if (!open) return null;
   const addRow = () =>
     setRows([
       ...rows,
@@ -157,6 +100,7 @@ export function CloneContainerDialog({
 
   return (
     <DialogShell
+      open={open}
       wide
       title={t("businessData.container.operations.cloneTitle")}
       onClose={onClose}
@@ -236,9 +180,9 @@ export function CommentConfirmDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t(titleKey)}
       onClose={onClose}
       footer={
@@ -277,9 +221,9 @@ export function AddContainerToContainerDialog({
   const [mainContainer, setMainContainer] = useState("");
   const [position, setPosition] = useState("");
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.container.operations.addContainerTitle")}
       onClose={onClose}
       footer={
@@ -334,9 +278,9 @@ export function DockContainerDialog({
   const styles = useDialogStyles();
   const [resource, setResource] = useState("");
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.container.operations.dockTitle")}
       onClose={onClose}
       footer={
@@ -386,7 +330,6 @@ export function ManagePositionsDialog({
     positions.map((p) => ({ position: p.position, material: p.material })),
   );
   const [comment, setComment] = useState("");
-  if (!open) return null;
 
   const move = (idx: number, dir: -1 | 1) => {
     const next = [...rows];
@@ -400,6 +343,7 @@ export function ManagePositionsDialog({
 
   return (
     <DialogShell
+      open={open}
       wide
       title={t("businessData.container.operations.managePositionsTitle")}
       onClose={onClose}
@@ -469,9 +413,9 @@ export function StoreContainerDialog({
   const [resource, setResource] = useState("");
   const [position, setPosition] = useState("");
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.container.operations.storeTitle")}
       onClose={onClose}
       footer={
@@ -521,9 +465,9 @@ export function TransferContainerDialog({
   const [newContainer, setNewContainer] = useState("");
   const [position, setPosition] = useState("");
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.container.operations.transferContainerTitle")}
       onClose={onClose}
       footer={
@@ -581,9 +525,9 @@ export function TransferMaterialDialog({
   const [newContainer, setNewContainer] = useState("");
   const [position, setPosition] = useState("");
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.container.operations.transferMaterialTitle")}
       onClose={onClose}
       footer={

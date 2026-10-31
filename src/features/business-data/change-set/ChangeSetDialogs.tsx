@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Dismiss16Regular } from "@/components/icons";
-import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog, DialogFooter } from "@/components/common";
+import { Button, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 import type { OperationValues } from "../components/operationTypes";
 
 interface SimpleRow {
@@ -13,50 +12,6 @@ interface SimpleRow {
 }
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(680px, calc(100vw - 48px))",
-    maxHeight: "min(640px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minHeight: "52px",
-    padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
-    display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  body: { flexGrow: 1, minHeight: 0, overflowY: "auto", padding: "16px 24px" },
-  foot: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   fieldRow: {
     display: "grid",
     gridTemplateColumns: "170px minmax(0, 1fr)",
@@ -128,6 +83,7 @@ function NameListEditor({
 }
 
 function ListDialogShell({
+  open,
   title,
   hint,
   submitLabel,
@@ -137,6 +93,7 @@ function ListDialogShell({
   commentLabel,
   onClose,
 }: {
+  open: boolean;
   title: string;
   hint: string;
   submitLabel: string;
@@ -146,46 +103,35 @@ function ListDialogShell({
   commentLabel?: string;
   onClose: () => void;
 }) {
-  const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [values, setValues] = useState<OperationValues>({});
   const [comment, setComment] = useState("");
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{title}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
+    <BaseDialog
+      open={open}
+      title={title}
+      onClose={onClose}
+      size="lg"
+      footer={
+        <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />
+      }
+    >
+      <div className={styles.hint}>{hint}</div>
+      <NameListEditor
+        values={values}
+        onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
+        valueKey={valueKey}
+        namePlaceholderKey={namePlaceholderKey}
+        extraPlaceholderKey={extraPlaceholderKey}
+      />
+      {commentLabel && (
+        <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
+          <span className={styles.fieldLabel}>{commentLabel}</span>
+          <Input value={comment} onChange={(_, data) => setComment(data.value)} />
         </div>
-        <div className={styles.body}>
-          <div className={styles.hint}>{hint}</div>
-          <NameListEditor
-            values={values}
-            onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
-            valueKey={valueKey}
-            namePlaceholderKey={namePlaceholderKey}
-            extraPlaceholderKey={extraPlaceholderKey}
-          />
-          {commentLabel && (
-            <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
-              <span className={styles.fieldLabel}>{commentLabel}</span>
-              <Input value={comment} onChange={(_, data) => setComment(data.value)} />
-            </div>
-          )}
-        </div>
-        <div className={styles.foot}>
-          <Button appearance="secondary" onClick={onClose}>
-            {t("common.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={onClose}>
-            {submitLabel}
-          </Button>
-        </div>
-      </div>
-    </div>
+      )}
+    </BaseDialog>
   );
 }
 
@@ -199,9 +145,9 @@ export function ManageChangeSetItemsDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  if (!open) return null;
   return (
     <ListDialogShell
+      open={open}
       title={t("businessData.changeSet.operations.manageItems")}
       hint={t("businessData.changeSet.operations.manageItemsHint", { name: changeSetName })}
       submitLabel={t("common.update")}
@@ -224,9 +170,9 @@ export function CreateChangeSetItemsDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  if (!open) return null;
   return (
     <ListDialogShell
+      open={open}
       title={t("businessData.changeSet.operations.createItems")}
       hint={t("businessData.changeSet.operations.createItemsHint", { name: changeSetName })}
       submitLabel={t("common.create")}
@@ -248,9 +194,9 @@ export function ApproveChangeSetItemsDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  if (!open) return null;
   return (
     <ListDialogShell
+      open={open}
       title={t("businessData.changeSet.operations.approveItems")}
       hint={t("businessData.changeSet.operations.approveItemsHint", { name: changeSetName })}
       submitLabel={t("businessData.changeSet.operations.approve")}
@@ -273,9 +219,9 @@ export function TransferChangeSetItemsDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  if (!open) return null;
   return (
     <ListDialogShell
+      open={open}
       title={t("businessData.changeSet.operations.transferItems")}
       hint={t("businessData.changeSet.operations.transferItemsHint", { name: changeSetName })}
       submitLabel={t("businessData.changeSet.operations.transfer")}
@@ -298,9 +244,9 @@ export function ManageStateReviewersDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  if (!open) return null;
   return (
     <ListDialogShell
+      open={open}
       title={t("businessData.changeSet.operations.manageStateReviewers")}
       hint={t("businessData.changeSet.operations.manageStateReviewersHint", {
         name: changeSetName,
@@ -324,9 +270,9 @@ export function ManageSubscribersDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  if (!open) return null;
   return (
     <ListDialogShell
+      open={open}
       title={t("businessData.changeSet.operations.manageSubscribers")}
       hint={t("businessData.changeSet.operations.manageSubscribersHint", { name: changeSetName })}
       submitLabel={t("common.update")}
@@ -348,9 +294,9 @@ export function CompareChangeSetItemsDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  if (!open) return null;
   return (
     <ListDialogShell
+      open={open}
       title={t("businessData.changeSet.operations.compareItems")}
       hint={t("businessData.changeSet.operations.compareItemsHint", { name: changeSetName })}
       submitLabel={t("businessData.changeSet.operations.compare")}
@@ -375,17 +321,20 @@ export function TakeOwnershipDialog({
   const styles = useDialogStyles();
   const [owner, setOwner] = useState("");
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.surface} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{t("businessData.changeSet.operations.takeOwnership")}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>
+    <BaseDialog
+      open={open}
+      title={t("businessData.changeSet.operations.takeOwnership")}
+      onClose={onClose}
+      size="lg"
+      footer={
+        <DialogFooter
+          onCancel={onClose}
+          onConfirm={onClose}
+          confirmLabel={t("businessData.changeSet.operations.takeOwnership")}
+        />
+      }
+    >
           <div className={styles.hint}>
             {t("businessData.changeSet.operations.takeOwnershipHint", { name: changeSetName })}
           </div>
@@ -399,17 +348,7 @@ export function TakeOwnershipDialog({
             </span>
             <Input value={comment} onChange={(_, d) => setComment(d.value)} />
           </div>
-        </div>
-        <div className={styles.foot}>
-          <Button appearance="secondary" onClick={onClose}>
-            {t("common.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={onClose}>
-            {t("businessData.changeSet.operations.takeOwnership")}
-          </Button>
-        </div>
-      </div>
-    </div>
+    </BaseDialog>
   );
 }
 
@@ -430,17 +369,23 @@ export function ChangeChangeSetDialog({
   const styles = useDialogStyles();
   const [owner, setOwner] = useState(currentOwner);
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.surface} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{t("businessData.changeSet.operations.change")}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>
+    <BaseDialog
+      open={open}
+      title={t("businessData.changeSet.operations.change")}
+      onClose={onClose}
+      size="lg"
+      footer={
+        <DialogFooter
+          onCancel={onClose}
+          onConfirm={() => {
+            onChange(owner);
+            onClose();
+          }}
+          confirmLabel={t("businessData.changeSet.operations.change")}
+        />
+      }
+    >
           <div className={styles.hint}>
             {t("businessData.changeSet.operations.changeHint", { name: changeSetName })}
           </div>
@@ -454,22 +399,6 @@ export function ChangeChangeSetDialog({
             </span>
             <Input value={comment} onChange={(_, d) => setComment(d.value)} />
           </div>
-        </div>
-        <div className={styles.foot}>
-          <Button appearance="secondary" onClick={onClose}>
-            {t("common.cancel")}
-          </Button>
-          <Button
-            appearance="primary"
-            onClick={() => {
-              onChange(owner);
-              onClose();
-            }}
-          >
-            {t("businessData.changeSet.operations.change")}
-          </Button>
-        </div>
-      </div>
-    </div>
+    </BaseDialog>
   );
 }

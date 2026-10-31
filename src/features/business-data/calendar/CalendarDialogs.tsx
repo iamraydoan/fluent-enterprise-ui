@@ -1,55 +1,10 @@
 import { useState } from "react";
-import { Dismiss16Regular } from "@/components/icons";
-import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { BaseDialog, DialogFooter } from "@/components/common";
+import { Checkbox, Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 import type { OperationValues } from "../components/operationTypes";
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(640px, calc(100vw - 48px))",
-    maxHeight: "min(620px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minHeight: "52px",
-    padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
-    display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  body: { flexGrow: 1, minHeight: 0, overflowY: "auto", padding: "16px 24px" },
-  foot: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-  },
   fieldRow: {
     display: "grid",
     gridTemplateColumns: "190px minmax(0, 1fr)",
@@ -62,40 +17,32 @@ const useDialogStyles = makeStyles({
 });
 
 function DialogShell({
+  open,
   title,
   onClose,
   onSubmit,
   submitLabel,
   children,
 }: {
+  open: boolean;
   title: string;
   onClose: () => void;
   onSubmit: () => void;
   submitLabel: string;
   children: React.ReactNode;
 }) {
-  const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{title}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>{children}</div>
-        <div className={styles.foot}>
-          <Button appearance="secondary" onClick={onClose}>
-            {t("common.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={onSubmit}>
-            {submitLabel}
-          </Button>
-        </div>
-      </div>
-    </div>
+    <BaseDialog
+      open={open}
+      title={title}
+      onClose={onClose}
+      size="lg"
+      footer={
+        <DialogFooter onCancel={onClose} onConfirm={onSubmit} confirmLabel={submitLabel} />
+      }
+    >
+      {children}
+    </BaseDialog>
   );
 }
 
@@ -115,10 +62,10 @@ export function GenerateCalendarDaysDialog({
   const [override, setOverride] = useState(false);
   const [comment, setComment] = useState("");
 
-  if (!open) return null;
 
   return (
     <DialogShell
+      open={open}
       title={t("businessData.calendar.operations.generateDays")}
       onClose={onClose}
       onSubmit={onClose}
@@ -165,10 +112,10 @@ export function EditCalendarDaysDialog({
   const [shiftDefinition, setShiftDefinition] = useState("");
   const [values, setValues] = useState<OperationValues>({});
 
-  if (!open) return null;
 
   return (
     <DialogShell
+      open={open}
       title={t("businessData.calendar.operations.editDays")}
       onClose={onClose}
       onSubmit={onClose}
@@ -223,10 +170,10 @@ export function RemoveCalendarDaysDialog({
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-  if (!open) return null;
 
   return (
     <DialogShell
+      open={open}
       title={t("businessData.calendar.operations.removeDays")}
       onClose={onClose}
       onSubmit={onClose}

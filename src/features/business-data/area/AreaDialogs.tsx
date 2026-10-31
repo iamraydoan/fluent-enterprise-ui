@@ -1,60 +1,15 @@
 import { useState } from "react";
-import { Dismiss16Regular } from "@/components/icons";
+import { BaseDialog, DialogFooter } from "@/components/common";
 import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 
 const useManageDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(720px, calc(100vw - 48px))",
-    maxHeight: "min(640px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minHeight: "52px",
-    padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
-    display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  body: { flexGrow: 1, minHeight: 0, overflowY: "auto", padding: "16px 24px" },
   row: {
     display: "grid",
     gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr) auto",
     columnGap: "12px",
     alignItems: "center",
     marginBottom: "8px",
-  },
-  foot: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
   },
   empty: { padding: "24px", textAlign: "center", color: tokens.colorNeutralForeground3 },
   dashboardItem: {
@@ -95,7 +50,6 @@ export function ManageSupplyAreasDialog({
   const [rows, setRows] = useState<SupplyAreaRow[]>([]);
   const [nextId, setNextId] = useState(1);
 
-  if (!open) return null;
 
   const addRow = () => {
     setRows([...rows, { id: nextId, name: "", area: "" }]);
@@ -108,16 +62,20 @@ export function ManageSupplyAreasDialog({
     setRows(rows.map((row) => (row.id === id ? { ...row, ...patch } : row)));
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{t("businessData.area.operations.manageSupplyAreas")}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>
-          <Text>{t("businessData.area.operations.manageSupplyAreasHint", { name: areaName })}</Text>
+    <BaseDialog
+      open={open}
+      title={t("businessData.area.operations.manageSupplyAreas")}
+      onClose={onClose}
+      size="lg"
+      footer={
+        <DialogFooter
+          onCancel={onClose}
+          onConfirm={onClose}
+          confirmLabel={t("common.update")}
+        />
+      }
+    >
+      <Text>{t("businessData.area.operations.manageSupplyAreasHint", { name: areaName })}</Text>
           <div style={{ marginTop: "12px" }}>
             {rows.length === 0 && (
               <div className={styles.empty}>{t("businessData.area.operations.noSupplyAreas")}</div>
@@ -143,17 +101,7 @@ export function ManageSupplyAreasDialog({
               {t("common.add")}
             </Button>
           </div>
-        </div>
-        <div className={styles.foot}>
-          <Button appearance="secondary" onClick={onClose}>
-            {t("common.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={onClose}>
-            {t("common.update")}
-          </Button>
-        </div>
-      </div>
-    </div>
+    </BaseDialog>
   );
 }
 
@@ -183,7 +131,6 @@ export function ManageTransferRequirementTypesDialog({
   const [rows, setRows] = useState<TransferTypeRow[]>([]);
   const [nextId, setNextId] = useState(1);
 
-  if (!open) return null;
 
   const addRow = () => {
     setRows([...rows, { id: nextId, type: "", sourceLocation: "", autoApprove: false }]);
@@ -196,18 +143,22 @@ export function ManageTransferRequirementTypesDialog({
     setRows(rows.map((row) => (row.id === id ? { ...row, ...patch } : row)));
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{t("businessData.area.operations.manageTransferTypes")}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>
-          <Text>
-            {t("businessData.area.operations.manageTransferTypesHint", { name: areaName })}
-          </Text>
+    <BaseDialog
+      open={open}
+      title={t("businessData.area.operations.manageTransferTypes")}
+      onClose={onClose}
+      size="lg"
+      footer={
+        <DialogFooter
+          onCancel={onClose}
+          onConfirm={onClose}
+          confirmLabel={t("common.update")}
+        />
+      }
+    >
+      <Text>
+        {t("businessData.area.operations.manageTransferTypesHint", { name: areaName })}
+      </Text>
           <div style={{ marginTop: "12px" }}>
             {rows.length === 0 && (
               <div className={styles.empty}>
@@ -235,17 +186,7 @@ export function ManageTransferRequirementTypesDialog({
               {t("common.add")}
             </Button>
           </div>
-        </div>
-        <div className={styles.foot}>
-          <Button appearance="secondary" onClick={onClose}>
-            {t("common.cancel")}
-          </Button>
-          <Button appearance="primary" onClick={onClose}>
-            {t("common.update")}
-          </Button>
-        </div>
-      </div>
-    </div>
+    </BaseDialog>
   );
 }
 
@@ -261,30 +202,23 @@ export function ViewAreaDashboardsDialog({
   const { t } = useAppTranslation();
   const styles = useManageDialogStyles();
 
-  if (!open) return null;
-
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{t("businessData.area.operations.viewDashboards")}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>
-          {DASHBOARDS.map((dashboard) => (
-            <button key={dashboard} className={styles.dashboardItem} onClick={onClose}>
-              {t(`businessData.area.operations.dashboards.${dashboard}`)}
-            </button>
-          ))}
-        </div>
-        <div className={styles.foot}>
-          <Button appearance="secondary" onClick={onClose}>
-            {t("common.close")}
-          </Button>
-        </div>
-      </div>
-    </div>
+    <BaseDialog
+      open={open}
+      title={t("businessData.area.operations.viewDashboards")}
+      onClose={onClose}
+      size="lg"
+      footer={
+        <Button appearance="secondary" onClick={onClose}>
+          {t("common.close")}
+        </Button>
+      }
+    >
+      {DASHBOARDS.map((dashboard) => (
+        <button key={dashboard} className={styles.dashboardItem} onClick={onClose}>
+          {t(`businessData.area.operations.dashboards.${dashboard}`)}
+        </button>
+      ))}
+    </BaseDialog>
   );
 }

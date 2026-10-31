@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ChartContextElement, ChartDataPoint, ChartDetail, ChartRuleRow } from "@/api";
-import { Dismiss16Regular } from "@/components/icons";
+import { BaseDialog } from "@/components/common";
 import {
   Button,
   Checkbox,
@@ -17,7 +17,6 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
 import { MiniSelect } from "../components/MiniSelect";
 import type { OperationValues } from "../components/operationTypes";
 import {
@@ -29,59 +28,6 @@ import {
 import type { DataPointAction } from "./chartLookups";
 
 const useDialogStyles = makeStyles({
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    zIndex: 1000,
-    display: "grid",
-    placeItems: "center",
-    padding: "24px",
-    boxSizing: "border-box",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-  },
-  surface: {
-    width: "min(860px, calc(100vw - 48px))",
-    maxHeight: "min(680px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  narrow: {
-    width: "min(560px, calc(100vw - 48px))",
-    maxHeight: "min(680px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    ...cardSurface,
-  },
-  head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minHeight: "52px",
-    padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
-    display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
-  },
-  body: { flexGrow: 1, minHeight: 0, overflowY: "auto", padding: "16px 24px" },
-  foot: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
-    padding: "12px 24px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
-    flexShrink: 0,
-  },
   hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
   fieldLabel: { fontSize: "13px", fontWeight: tokens.fontWeightSemibold },
@@ -113,33 +59,30 @@ const useDialogStyles = makeStyles({
 });
 
 function DialogShell({
+  open,
   title,
   onClose,
   wide,
   children,
   footer,
 }: {
+  open: boolean;
   title: string;
   onClose: () => void;
   wide?: boolean;
   children: React.ReactNode;
   footer: React.ReactNode;
 }) {
-  const styles = useDialogStyles();
-  const { t } = useAppTranslation();
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={wide ? styles.surface : styles.narrow} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.head}>
-          <Text weight="semibold">{title}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
-        </div>
-        <div className={styles.body}>{children}</div>
-        <div className={styles.foot}>{footer}</div>
-      </div>
-    </div>
+    <BaseDialog
+      open={open}
+      title={title}
+      onClose={onClose}
+      size={wide ? "xl" : "md"}
+      footer={footer}
+    >
+      {children}
+    </BaseDialog>
   );
 }
 
@@ -309,9 +252,9 @@ export function EnableDisableChartDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t(
         enabling
           ? "businessData.chart.operations.enableTitle"
@@ -385,7 +328,6 @@ export function ManageChartRulesDialog({
       comment: r.comment,
     })),
   );
-  if (!open) return null;
   const descriptionOf = (rule: string) =>
     SPC_RULES.find((r) => r.value === rule)?.description ?? "";
   const addRow = () =>
@@ -406,6 +348,7 @@ export function ManageChartRulesDialog({
 
   return (
     <DialogShell
+      open={open}
       wide
       title={t("businessData.chart.operations.manageRules")}
       onClose={onClose}
@@ -651,7 +594,6 @@ export function RecalculateCenterlinesDialog({
   const [points, setPoints] = useState(defaultPoints);
   const [comment, setComment] = useState("");
   const [preview, setPreview] = useState<{ centerline1: number; stdDev: number } | null>(null);
-  if (!open) return null;
   const doPreview = () => {
     const considered = dataPoints
       .filter((d) => d.status === "Active" || d.status === "Edited")
@@ -667,6 +609,7 @@ export function RecalculateCenterlinesDialog({
   };
   return (
     <DialogShell
+      open={open}
       title={t("businessData.chart.operations.recalculateTitle")}
       onClose={onClose}
       footer={
@@ -726,9 +669,9 @@ export function RemoveLogicalChartDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.chart.operations.removeLogicalChartTitle")}
       onClose={onClose}
       footer={
@@ -772,6 +715,7 @@ export function AnnotateDataPointDialog({
   if (!open || !dataPoint) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.chart.operations.annotateTitle")}
       onClose={onClose}
       footer={
@@ -833,6 +777,7 @@ export function EditDataPointDialog({
   };
   return (
     <DialogShell
+      open={open}
       title={t("businessData.chart.operations.editDataPointTitle")}
       onClose={onClose}
       footer={
@@ -894,9 +839,9 @@ export function DataPointConfirmDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [comment, setComment] = useState("");
-  if (!open) return null;
   return (
     <DialogShell
+      open={open}
       title={t(titleKey)}
       onClose={onClose}
       footer={
@@ -939,6 +884,7 @@ export function OpenProtocolDialog({
   if (!open || !dataPoint) return null;
   return (
     <DialogShell
+      open={open}
       title={t("businessData.chart.operations.openProtocolTitle")}
       onClose={onClose}
       footer={
@@ -993,11 +939,11 @@ export function DataPointsDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [selected, setSelected] = useState<string | null>(null);
-  if (!open) return null;
   const dp = dataPoints.find((d) => d.id === selected) ?? null;
   const canAct = dp !== null;
   return (
     <DialogShell
+      open={open}
       wide
       title={t("businessData.chart.operations.dataPointsTitle", { name: logicalChartName })}
       onClose={onClose}
@@ -1123,7 +1069,6 @@ export function CloneChartDialog({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const [rows, setRows] = useState<CloneChartRow[]>([]);
-  if (!open) return null;
   const addRow = () =>
     setRows([
       ...rows,
@@ -1147,6 +1092,7 @@ export function CloneChartDialog({
 
   return (
     <DialogShell
+      open={open}
       wide
       title={t("businessData.chart.operations.cloneTitle")}
       onClose={onClose}
