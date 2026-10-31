@@ -45,7 +45,7 @@ export function ManageConfigurationsDialog({
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.update)} />}
     >
       <div className={styles.row}>
-        <Button size="small" onClick={() => setConfigurations([...configurations, ""])}>
+        <Button size="sm" onClick={() => setConfigurations([...configurations, ""])}>
           + {t(L.addConfiguration)}
         </Button>
       </div>
@@ -54,12 +54,12 @@ export function ManageConfigurationsDialog({
           <Input
             placeholder={t(L.configurationName)}
             value={c}
-            onChange={(_, d) =>
-              setConfigurations(configurations.map((x, j) => (j === i ? d.value : x)))
+            onChange={(value) =>
+              setConfigurations(configurations.map((x, j) => (j === i ? value : x)))
             }
           />
           <Button
-            size="small"
+            size="sm"
             onClick={() => setConfigurations(configurations.filter((_, j) => j !== i))}
           >
             {t(L.remove)}
@@ -84,7 +84,7 @@ export function ManageStepsDialog({ name, onClose }: { name: string; onClose: ()
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.update)} />}
     >
       <div className={styles.row}>
-        <Button size="small" onClick={() => setSteps([...steps, { name: "", inProcess: false }])}>
+        <Button size="sm" onClick={() => setSteps([...steps, { name: "", inProcess: false }])}>
           + {t(L.addStep)}
         </Button>
       </div>
@@ -93,11 +93,11 @@ export function ManageStepsDialog({ name, onClose }: { name: string; onClose: ()
           <Input
             placeholder={t(L.stepName)}
             value={s.name}
-            onChange={(_, d) =>
-              setSteps(steps.map((x, j) => (j === i ? { ...x, name: d.value } : x)))
+            onChange={(value) =>
+              setSteps(steps.map((x, j) => (j === i ? { ...x, name: value } : x)))
             }
           />
-          <Button size="small" onClick={() => setSteps(steps.filter((_, j) => j !== i))}>
+          <Button size="sm" onClick={() => setSteps(steps.filter((_, j) => j !== i))}>
             {t(L.remove)}
           </Button>
         </div>

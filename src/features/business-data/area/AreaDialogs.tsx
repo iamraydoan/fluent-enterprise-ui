@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
-import { Button, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useManageDialogStyles = makeStyles({
   row: {
@@ -11,14 +12,14 @@ const useManageDialogStyles = makeStyles({
     alignItems: "center",
     marginBottom: "8px",
   },
-  empty: { padding: "24px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  empty: { padding: "24px", textAlign: "center", color: theme.color.textTertiary },
   dashboardItem: {
     display: "flex",
     alignItems: "center",
     columnGap: "12px",
     padding: "12px",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
     marginBottom: "8px",
     cursor: "pointer",
     width: "100%",
@@ -26,7 +27,7 @@ const useManageDialogStyles = makeStyles({
     fontFamily: "inherit",
     fontSize: "13px",
     textAlign: "left",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
 });
 
@@ -80,19 +81,19 @@ export function ManageSupplyAreasDialog({
             <Input
               placeholder={t("businessData.area.operations.supplyAreaName")}
               value={row.name}
-              onChange={(_, data) => updateRow(row.id, { name: data.value })}
+              onChange={(value) => updateRow(row.id, { name: value })}
             />
             <Input
               placeholder={t("businessData.area.operations.supplyArea")}
               value={row.area}
-              onChange={(_, data) => updateRow(row.id, { area: data.value })}
+              onChange={(value) => updateRow(row.id, { area: value })}
             />
-            <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+            <Button variant="secondary" onClick={() => removeRow(row.id)}>
               {t("common.remove")}
             </Button>
           </div>
         ))}
-        <Button appearance="secondary" onClick={addRow}>
+        <Button variant="secondary" onClick={addRow}>
           {t("common.add")}
         </Button>
       </div>
@@ -156,19 +157,19 @@ export function ManageTransferRequirementTypesDialog({
             <Input
               placeholder={TRANSFER_TYPE_OPTIONS[0].label}
               value={row.type}
-              onChange={(_, data) => updateRow(row.id, { type: data.value })}
+              onChange={(value) => updateRow(row.id, { type: value })}
             />
             <Input
               placeholder={t("businessData.area.operations.sourceLocation")}
               value={row.sourceLocation}
-              onChange={(_, data) => updateRow(row.id, { sourceLocation: data.value })}
+              onChange={(value) => updateRow(row.id, { sourceLocation: value })}
             />
-            <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+            <Button variant="secondary" onClick={() => removeRow(row.id)}>
               {t("common.remove")}
             </Button>
           </div>
         ))}
-        <Button appearance="secondary" onClick={addRow}>
+        <Button variant="secondary" onClick={addRow}>
           {t("common.add")}
         </Button>
       </div>
@@ -195,7 +196,7 @@ export function ViewAreaDashboardsDialog({
       onClose={onClose}
       size="lg"
       footer={
-        <Button appearance="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose}>
           {t("common.close")}
         </Button>
       }

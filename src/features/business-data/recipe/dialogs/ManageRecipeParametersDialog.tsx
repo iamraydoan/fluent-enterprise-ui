@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ManageRecipeParametersDialogProps {
   open: boolean;
@@ -122,10 +123,10 @@ export function ManageRecipeParametersDialog({
           >
             <Body1Strong>{t(`${k}.parameters`)}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addParameter}>
+              <Button size="sm" variant="subtle" onClick={addParameter}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeParameter(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeParameter(selected)}>
                 🗑
               </Button>
             </div>
@@ -145,7 +146,7 @@ export function ManageRecipeParametersDialog({
                 style={{
                   padding: "8px 12px",
                   cursor: "pointer",
-                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >
@@ -158,13 +159,13 @@ export function ManageRecipeParametersDialog({
         <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.parameter`)} required>
-            <Input value={name} onChange={(_, d) => setName(d.value)} />
+            <Input value={name} onChange={setName} />
           </Field>
           <Field label={t(`${k}.units`)}>
-            <Input value={units} onChange={(_, d) => setUnits(d.value)} />
+            <Input value={units} onChange={setUnits} />
           </Field>
           <Field label={t(`${k}.parameterGroup`)}>
-            <Input value={group} onChange={(_, d) => setGroup(d.value)} />
+            <Input value={group} onChange={setGroup} />
           </Field>
           <Field label={t(`${k}.type`)} required>
             <select value={type} onChange={(e) => setType(e.target.value)}>
@@ -176,18 +177,18 @@ export function ManageRecipeParametersDialog({
             </select>
           </Field>
           <Field label={t(`${k}.value`)}>
-            <Input value={value} onChange={(_, d) => setValue(d.value)} />
+            <Input value={value} onChange={setValue} />
           </Field>
           <Field label={t(`${k}.overridable`)}>
             <Checkbox
               checked={overridable}
-              onChange={(_, d) => setOverridable(d.checked === true)}
+              onChange={setOverridable}
             />
           </Field>
         </div>
       </div>
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

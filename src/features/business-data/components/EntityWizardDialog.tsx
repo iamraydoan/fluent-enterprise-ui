@@ -205,7 +205,7 @@ export function EntityWizardDialog({
           <div className={styles.footGroup}>
             {!isFirst && (
               <Button
-                appearance="secondary"
+                variant="secondary"
                 icon={<ChevronLeft20Regular />}
                 onClick={() => setStepIndex(stepIndex - 1)}
               >
@@ -214,11 +214,11 @@ export function EntityWizardDialog({
             )}
           </div>
           <div className={styles.footGroup}>
-            <Button appearance="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleClose}>
               {t("common.cancel")}
             </Button>
             <Button
-              appearance="primary"
+              variant="primary"
               icon={isLast ? undefined : <ChevronRight20Regular />}
               iconPosition={isLast ? undefined : "after"}
               onClick={handleNext}
@@ -262,7 +262,7 @@ function WizardFieldInput({
         {label}
         <Checkbox
           checked={value === true}
-          onChange={(_, data) => onChange(field.key, data.checked === true)}
+          onChange={(checked) => onChange(field.key, checked === true)}
         />
       </FormField>
     );
@@ -274,7 +274,7 @@ function WizardFieldInput({
         {label}
         <Textarea
           value={typeof value === "string" ? value : ""}
-          onChange={(_, data) => onChange(field.key, data.value)}
+          onChange={(value) => onChange(field.key, value)}
         />
       </FormField>
     );
@@ -291,7 +291,7 @@ function WizardFieldInput({
           onCheckedValueChange={(_, data) => onChange(field.key, data.checkedItems[0] ?? "")}
         >
           <MenuTrigger disableButtonEnhancement>
-            <Button appearance="secondary" className={styles.selectButton}>
+            <Button variant="secondary" className={styles.selectButton}>
               {selected?.label ?? t("businessData.operations.selectOption")}
             </Button>
           </MenuTrigger>
@@ -315,8 +315,8 @@ function WizardFieldInput({
       <Input
         type={field.type === "number" ? "number" : field.type === "date" ? "date" : "text"}
         value={value === undefined || typeof value === "boolean" ? "" : String(value)}
-        onChange={(_, data) =>
-          onChange(field.key, field.type === "number" ? Number(data.value) : data.value)
+        onChange={(value) =>
+          onChange(field.key, field.type === "number" ? Number(value) : value)
         }
       />
     </FormField>

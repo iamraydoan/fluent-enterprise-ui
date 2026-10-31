@@ -15,6 +15,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface MiscDialogProps {
   open: boolean;
@@ -71,10 +72,10 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
           >
             <Body1Strong>{t(`${k}.clones`, { count: clones.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addClone}>
+              <Button size="sm" variant="subtle" onClick={addClone}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeClone(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeClone(selected)}>
                 🗑
               </Button>
             </div>
@@ -94,7 +95,7 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
                 style={{
                   padding: "8px 12px",
                   cursor: "pointer",
-                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >
@@ -105,7 +106,7 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
         </div>
         <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.name`)}>
-            <Input value={cloneName} onChange={(_, d) => setCloneName(d.value)} />
+            <Input value={cloneName} onChange={setCloneName} />
           </Field>
           <div style={{ fontSize: 12, color: "#666" }}>
             {t(`${k}.source`, { name: resourceName })}
@@ -113,7 +114,7 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
         </div>
       </div>
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );
@@ -135,10 +136,10 @@ export function SetResourceRecipeDialog({ open, onClose, resourceName }: MiscDia
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.recipe`)} required>
-        <Input value={recipe} onChange={(_, d) => setRecipe(d.value)} />
+        <Input value={recipe} onChange={setRecipe} />
       </Field>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -161,10 +162,10 @@ export function ResourceOEEConfigurationDialog({ open, onClose, resourceName }: 
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
         <Field label={t(`${k}.idealCycleTime`)}>
-          <Input value={idealCycleTime} onChange={(_, d) => setIdealCycleTime(d.value)} />
+          <Input value={idealCycleTime} onChange={setIdealCycleTime} />
         </Field>
         <Field label={t(`${k}.oeeEnabled`)}>
-          <Checkbox checked={oeeEnabled} onChange={(_, d) => setOeeEnabled(d.checked === true)} />
+          <Checkbox checked={oeeEnabled} onChange={setOeeEnabled} />
         </Field>
       </div>
     </BaseDialog>
@@ -192,7 +193,7 @@ function ViewDialogBase({
           onCancel={onClose}
           onConfirm={onClose}
           confirmLabel={t("common.close")}
-          confirmAppearance="secondary"
+          confirmVariant="secondary"
           hideCancel
         />
       }

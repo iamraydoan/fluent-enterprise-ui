@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ManageCompatibleServicesDialogProps {
   open: boolean;
@@ -79,10 +80,10 @@ export function ManageCompatibleServicesDialog({
     >
       <DialogEntityBanner icon="📊" name={serviceName} />
       <div style={{ display: "flex", columnGap: 12, marginBottom: 12 }}>
-        <Button appearance={tab === "fulfilled" ? "primary" : "secondary"} onClick={showFulfilled}>
+        <Button variant={tab === "fulfilled" ? "primary" : "secondary"} onClick={showFulfilled}>
           {t(`${k}.canBeFulfilledBy`)}
         </Button>
-        <Button appearance={tab === "fulfill" ? "primary" : "secondary"} onClick={showFulfill}>
+        <Button variant={tab === "fulfill" ? "primary" : "secondary"} onClick={showFulfill}>
           {t(`${k}.canFulfill`)}
         </Button>
       </div>
@@ -98,10 +99,10 @@ export function ManageCompatibleServicesDialog({
           >
             <Body1Strong>{t(`${k}.services`, { count: rows.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addRow}>
+              <Button size="sm" variant="subtle" onClick={addRow}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeRow(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeRow(selected)}>
                 🗑
               </Button>
             </div>
@@ -121,7 +122,7 @@ export function ManageCompatibleServicesDialog({
                 style={{
                   padding: "8px 12px",
                   cursor: "pointer",
-                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >
@@ -136,13 +137,13 @@ export function ManageCompatibleServicesDialog({
           <Field label={t(`${k}.service`)}>
             <Input
               value={values.service ?? rows[selected]?.service ?? ""}
-              onChange={(_, d) => setValues({ ...values, service: d.value })}
+              onChange={(value) => setValues({ ...values, service: value })}
             />
           </Field>
           <Field label={t(`${k}.description`)}>
             <Input
               value={values.description ?? rows[selected]?.description ?? ""}
-              onChange={(_, d) => setValues({ ...values, description: d.value })}
+              onChange={(value) => setValues({ ...values, description: value })}
             />
           </Field>
         </div>

@@ -134,7 +134,7 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -146,7 +146,7 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
       }
     >
       <Field label={t(`${P}.fields.name` as never)} hint={t(`${P}.hints.name` as never)}>
-        <Input value={name} onChange={(_, d) => setName(d.value)} />
+        <Input value={name} onChange={setName} />
       </Field>
       <SelectField
         label={t(`${P}.fields.type` as never)}
@@ -157,10 +157,10 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
         hint={t(`${P}.hints.type` as never)}
       />
       <Field label={t(`${P}.fields.title` as never)} required hint={t(`${P}.hints.title` as never)}>
-        <Input value={title} onChange={(_, d) => setTitle(d.value)} />
+        <Input value={title} onChange={setTitle} />
       </Field>
       <Field label={t(`${P}.fields.details` as never)}>
-        <Input value={details} onChange={(_, d) => setDetails(d.value)} />
+        <Input value={details} onChange={setDetails} />
       </Field>
       <SelectField
         label={t(`${P}.fields.severity` as never)}
@@ -179,7 +179,7 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
       <Field label={t(`${P}.fields.sendEmail` as never)}>
         <Checkbox
           checked={sendEmail}
-          onChange={(_, d) => setSendEmail(d.checked === true)}
+          onChange={setSendEmail}
           label={t(`${P}.fields.sendEmail` as never)}
         />
       </Field>
@@ -204,7 +204,7 @@ export function CreateNotificationDialog({ open, onClose, onSubmit }: DialogProp
       >
         <Input
           value={validTo}
-          onChange={(_, d) => setValidTo(d.value)}
+          onChange={setValidTo}
           placeholder={t(
             "businessData.notification.operations.create.placeholders.validTo" as never,
           )}
@@ -241,7 +241,7 @@ export function EditNotificationDialog({
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -256,7 +256,7 @@ export function EditNotificationDialog({
         <Input value={initialName ?? ""} disabled />
       </Field>
       <Field label={t(`${P}.fields.title` as never)}>
-        <Input value={title} onChange={(_, d) => setTitle(d.value)} />
+        <Input value={title} onChange={setTitle} />
       </Field>
       <SelectField
         label={t(`${P}.fields.severity` as never)}
@@ -288,7 +288,7 @@ export function CloneNotificationDialog({ open, onClose, onSubmit }: DialogProps
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -300,7 +300,7 @@ export function CloneNotificationDialog({ open, onClose, onSubmit }: DialogProps
       }
     >
       <Field label={t(`${P}.fields.name` as never)} hint={t(`${P}.hints.nameGenerator` as never)}>
-        <Input value={name} onChange={(_, d) => setName(d.value)} />
+        <Input value={name} onChange={setName} />
       </Field>
     </BaseDialog>
   );
@@ -320,7 +320,7 @@ export function TerminateNotificationDialog({ open, onClose, onSubmit }: DialogP
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();
@@ -350,7 +350,7 @@ export function ClearNotificationDialog({ open, onClose, onSubmit }: DialogProps
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();

@@ -106,11 +106,11 @@ export function CloneContainerDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={rows.length === 0 || rows.some((r) => r.name.trim() === "")}
             onClick={() => onClone(rows)}
           >
@@ -131,29 +131,29 @@ export function CloneContainerDialog({
             <Input
               placeholder={t("businessData.container.detail.name")}
               value={row.name}
-              onChange={(_, d) => update(row.id, { name: d.value })}
+              onChange={(value) => update(row.id, { name: value })}
             />
           </div>
           <div className={styles.grow}>
             <Input
               placeholder={t("businessData.container.operations.revision")}
               value={row.revision}
-              onChange={(_, d) => update(row.id, { revision: d.value })}
+              onChange={(value) => update(row.id, { revision: value })}
             />
           </div>
           <div className={styles.grow}>
             <Input
               placeholder={t("businessData.container.operations.comment")}
               value={row.comment}
-              onChange={(_, d) => update(row.id, { comment: d.value })}
+              onChange={(value) => update(row.id, { comment: value })}
             />
           </div>
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </DialogShell>
@@ -187,10 +187,10 @@ export function CommentConfirmDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={() => onConfirm(comment)}>
+          <Button variant="primary" onClick={() => onConfirm(comment)}>
             {t(confirmLabelKey)}
           </Button>
         </>
@@ -199,7 +199,7 @@ export function CommentConfirmDialog({
       <div className={styles.hint}>{t(messageKey, messageParams)}</div>
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.container.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );
@@ -228,11 +228,11 @@ export function AddContainerToContainerDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={mainContainer.trim() === ""}
             onClick={() =>
               onConfirm({
@@ -251,13 +251,13 @@ export function AddContainerToContainerDialog({
         {t("businessData.container.operations.addContainerHint", { name: containerName })}
       </div>
       <Field label={t("businessData.container.operations.mainContainer")}>
-        <Input value={mainContainer} onChange={(_, d) => setMainContainer(d.value)} />
+        <Input value={mainContainer} onChange={setMainContainer} />
       </Field>
       <Field label={t("businessData.container.operations.positionOptional")}>
-        <Input type="number" value={position} onChange={(_, d) => setPosition(d.value)} />
+        <Input type="number" value={position} onChange={setPosition} />
       </Field>
       <Field label={t("businessData.container.operations.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </Field>
     </DialogShell>
   );
@@ -285,11 +285,11 @@ export function DockContainerDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={resource.trim() === ""}
             onClick={() => onConfirm({ resource, comment })}
           >
@@ -302,10 +302,10 @@ export function DockContainerDialog({
         {t("businessData.container.operations.dockHint", { name: containerName })}
       </div>
       <Field label={t("businessData.container.operations.resource")}>
-        <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+        <Input value={resource} onChange={setResource} />
       </Field>
       <Field label={t("businessData.container.operations.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </Field>
     </DialogShell>
   );
@@ -349,10 +349,10 @@ export function ManagePositionsDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={() => onConfirm(rows, comment)}>
+          <Button variant="primary" onClick={() => onConfirm(rows, comment)}>
             {t("businessData.container.operations.update")}
           </Button>
         </>
@@ -368,20 +368,20 @@ export function ManagePositionsDialog({
             <Input
               placeholder={t("businessData.container.operations.material")}
               value={row.material}
-              onChange={(_, d) => updateMaterial(idx, d.value)}
+              onChange={(value) => updateMaterial(idx, value)}
             />
           </div>
           <Button
-            appearance="secondary"
-            size="small"
+            variant="secondary"
+            size="sm"
             disabled={idx === 0}
             onClick={() => move(idx, -1)}
           >
             <ArrowUp16Regular />
           </Button>
           <Button
-            appearance="secondary"
-            size="small"
+            variant="secondary"
+            size="sm"
             disabled={idx === rows.length - 1}
             onClick={() => move(idx, 1)}
           >
@@ -391,7 +391,7 @@ export function ManagePositionsDialog({
       ))}
       <div className={styles.fieldRow} style={{ marginTop: "12px" }}>
         <span className={styles.fieldLabel}>{t("businessData.container.operations.comment")}</span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </DialogShell>
   );
@@ -420,11 +420,11 @@ export function StoreContainerDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={resource.trim() === ""}
             onClick={() => onConfirm({ resource, position, comment })}
           >
@@ -437,13 +437,13 @@ export function StoreContainerDialog({
         {t("businessData.container.operations.storeHint", { name: containerName })}
       </div>
       <Field label={t("businessData.container.operations.resource")}>
-        <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+        <Input value={resource} onChange={setResource} />
       </Field>
       <Field label={t("businessData.container.operations.positionOptional")}>
-        <Input value={position} onChange={(_, d) => setPosition(d.value)} />
+        <Input value={position} onChange={setPosition} />
       </Field>
       <Field label={t("businessData.container.operations.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </Field>
     </DialogShell>
   );
@@ -472,11 +472,11 @@ export function TransferContainerDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={newContainer.trim() === ""}
             onClick={() =>
               onConfirm({
@@ -495,13 +495,13 @@ export function TransferContainerDialog({
         {t("businessData.container.operations.transferContainerHint", { name: containerName })}
       </div>
       <Field label={t("businessData.container.operations.newContainer")}>
-        <Input value={newContainer} onChange={(_, d) => setNewContainer(d.value)} />
+        <Input value={newContainer} onChange={setNewContainer} />
       </Field>
       <Field label={t("businessData.container.operations.positionOptional")}>
-        <Input type="number" value={position} onChange={(_, d) => setPosition(d.value)} />
+        <Input type="number" value={position} onChange={setPosition} />
       </Field>
       <Field label={t("businessData.container.operations.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </Field>
     </DialogShell>
   );
@@ -532,11 +532,11 @@ export function TransferMaterialDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={newContainer.trim() === ""}
             onClick={() =>
               onConfirm({
@@ -565,13 +565,13 @@ export function TransferMaterialDialog({
         </span>
       </div>
       <Field label={t("businessData.container.operations.newContainer")}>
-        <Input value={newContainer} onChange={(_, d) => setNewContainer(d.value)} />
+        <Input value={newContainer} onChange={setNewContainer} />
       </Field>
       <Field label={t("businessData.container.operations.positionOptional")}>
-        <Input type="number" value={position} onChange={(_, d) => setPosition(d.value)} />
+        <Input type="number" value={position} onChange={setPosition} />
       </Field>
       <Field label={t("businessData.container.operations.comment")}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </Field>
     </DialogShell>
   );

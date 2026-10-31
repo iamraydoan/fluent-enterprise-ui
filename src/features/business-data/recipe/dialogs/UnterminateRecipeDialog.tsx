@@ -29,20 +29,20 @@ export function UnterminateRecipeDialog({
       width="min(800px, 88vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {step === 2 && (
-            <Button appearance="secondary" onClick={() => setStep(1)}>
+            <Button variant="secondary" onClick={() => setStep(1)}>
               {t("common.back")}
             </Button>
           )}
           {step === 1 ? (
-            <Button appearance="primary" onClick={() => setStep(2)}>
+            <Button variant="primary" onClick={() => setStep(2)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(`${k}.confirm`)}
             </Button>
           )}
@@ -55,19 +55,19 @@ export function UnterminateRecipeDialog({
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.changeSet`)}>
             <div style={{ display: "flex", columnGap: 8 }}>
-              <Input value={changeSet} onChange={(_, d) => setChangeSet(d.value)} />
-              <Button appearance="secondary" onClick={() => {}}>
+              <Input value={changeSet} onChange={setChangeSet} />
+              <Button variant="secondary" onClick={() => {}}>
                 {t(`${k}.createNew`)}
               </Button>
             </div>
           </Field>
           <Field label={t(`${k}.approverRole`)}>
-            <Input value={approverRole} onChange={(_, d) => setApproverRole(d.value)} />
+            <Input value={approverRole} onChange={setApproverRole} />
           </Field>
           <Field label={t(`${k}.useAutomaticChangeSet`)}>
             <Checkbox
               checked={automaticChangeSet}
-              onChange={(_, d) => setAutomaticChangeSet(d.checked === true)}
+              onChange={setAutomaticChangeSet}
             />
           </Field>
         </div>

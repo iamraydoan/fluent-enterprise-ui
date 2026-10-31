@@ -7,8 +7,9 @@ import {
   Search20Regular,
   Settings20Regular,
 } from "@/components/icons";
-import { Button, Checkbox, Input, makeStyles, Text, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { AGENT_MCP_SERVERS, agentServerTools } from "../data";
 import type { ToolSelection } from "../data";
 import { DialogAgentSub } from "./DialogAgentSub";
@@ -33,7 +34,7 @@ const useManageStyles = makeStyles({
   box: {
     flexGrow: 1,
     minHeight: 0,
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    border: `1px solid ${theme.color.border}`,
     display: "flex",
     overflow: "hidden",
     backgroundColor: "#fff",
@@ -60,17 +61,17 @@ const useManageStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 10px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
     cursor: "pointer",
     border: "none",
-    background: "#EFEFEF",
+    background: theme.color.surfaceTertiary,
     fontFamily: "inherit",
     textAlign: "left",
     width: "100%",
     ":hover": { backgroundColor: "#E3EAF3" },
   },
-  rowOn: { backgroundColor: "#CFE3F1" },
+  rowOn: { backgroundColor: theme.color.brandSubtle },
   trow: {
     minHeight: "45px",
     flexShrink: 0,
@@ -78,9 +79,9 @@ const useManageStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 10px 0 4px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
-    backgroundColor: "#EFEFEF",
+    backgroundColor: theme.color.surfaceTertiary,
   },
   sRow: {
     display: "flex",
@@ -88,7 +89,7 @@ const useManageStyles = makeStyles({
     alignItems: "center",
     padding: "4px 12px",
     minHeight: "44px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
     lineHeight: "17px",
     flexShrink: 0,
@@ -96,7 +97,7 @@ const useManageStyles = makeStyles({
   def: {
     border: "none",
     background: "transparent",
-    color: "#0F6CBD",
+    color: theme.color.textBrand,
     fontFamily: "inherit",
     fontSize: "10px",
     cursor: "pointer",
@@ -171,7 +172,7 @@ export function ManageMcpDialog({
       footer={
         <>
           <Button onClick={onClose}>{t("common.cancel")}</Button>
-          <Button appearance="primary" onClick={() => onUpdate(draft)}>
+          <Button variant="primary" onClick={() => onUpdate(draft)}>
             {t("common.update")}
           </Button>
         </>
@@ -182,11 +183,11 @@ export function ManageMcpDialog({
           <div className={manageStyles.colHead}>
             <Text size={400}>{t("dialogs.manageMcp.selectTools")}</Text>
             <Input
-              appearance="outline"
+              variant="outline"
               contentBefore={<Search20Regular />}
               placeholder={t("common.search")}
               value={searchQuery}
-              onChange={(_, d) => setSearchQuery(d.value)}
+              onChange={setSearchQuery}
               aria-label={t("dialogs.manageMcp.searchTools")}
               style={{ width: 204 }}
             />
@@ -230,7 +231,7 @@ export function ManageMcpDialog({
                 <div
                   key={tool}
                   className={manageStyles.trow}
-                  style={isOn(activeServer, tool) ? { backgroundColor: "#CFE3F1" } : undefined}
+                  style={isOn(activeServer, tool) ? { backgroundColor: theme.color.brandSubtle } : undefined}
                 >
                   <Checkbox
                     label={tool}
@@ -238,8 +239,8 @@ export function ManageMcpDialog({
                     onChange={() => toggle(activeServer, tool)}
                   />
                   <Button
-                    size="small"
-                    appearance="transparent"
+                    size="sm"
+                    variant="transparent"
                     icon={<Eye20Filled />}
                     aria-label={t("dialogs.manageMcp.viewTool", { tool })}
                     onClick={() => onViewTool(activeServer, tool)}
@@ -255,7 +256,7 @@ export function ManageMcpDialog({
               {t("dialogs.manageMcp.selectedTools", { count: selectedList.length })}
             </Text>
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<Delete20Regular />}
               aria-label={t("dialogs.manageMcp.clearSelected")}
               disabled={selectedList.length === 0}

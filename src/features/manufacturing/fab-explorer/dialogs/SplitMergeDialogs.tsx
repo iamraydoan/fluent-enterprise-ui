@@ -33,7 +33,7 @@ export function SplitDialog({ open, materials, onClose, onConfirm }: OpDialogPro
         <Input value={material} disabled />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.split.newQty")}>
-        <Input value={newQty} onChange={(_, d) => setNewQty(d.value)} />
+        <Input value={newQty} onChange={setNewQty} />
       </FormField>
     </BaseDialog>
   );

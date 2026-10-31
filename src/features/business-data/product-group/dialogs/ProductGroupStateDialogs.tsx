@@ -108,11 +108,11 @@ export function UnterminateProductGroupDialog({ open, onClose, onSubmit }: Dialo
             </Button>
           )}
           {step < 1 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+            <Button variant="primary" onClick={() => setStep(step + 1)}>
               {t("businessData.productGroup.operations.unterminate.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={handleSubmit}>
+            <Button variant="primary" onClick={handleSubmit}>
               {t("businessData.productGroup.operations.unterminate.submit")}
             </Button>
           )}
@@ -148,7 +148,7 @@ export function UnterminateProductGroupDialog({ open, onClose, onSubmit }: Dialo
             </Field>
             <Checkbox
               checked={useAutoChangeSet}
-              onChange={(_, d) => setUseAutoChangeSet(d.checked === true)}
+              onChange={setUseAutoChangeSet}
               label={t(
                 "businessData.productGroup.operations.unterminate.fields.useAutomaticChangeSet",
               )}

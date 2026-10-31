@@ -89,7 +89,7 @@ export function CreateProductDialog({ open, onClose, onSubmit }: DialogProps) {
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -102,17 +102,17 @@ export function CreateProductDialog({ open, onClose, onSubmit }: DialogProps) {
       }
     >
       <Field label={t(`${P}.fields.name` as never)} required>
-        <Input value={name} onChange={(_, d) => setName(d.value)} />
+        <Input value={name} onChange={setName} />
       </Field>
       <Field label={t(`${P}.fields.description` as never)}>
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Input value={description} onChange={setDescription} />
       </Field>
       <Field
         label={t(`${P}.fields.changeSet` as never)}
         required
         hint={t(`${P}.hints.changeSet` as never)}
       >
-        <Input value={changeSet} onChange={(_, d) => setChangeSet(d.value)} />
+        <Input value={changeSet} onChange={setChangeSet} />
       </Field>
     </BaseDialog>
   );
@@ -154,7 +154,7 @@ export function EditProductDialog({
         <Input value={initialName ?? ""} disabled />
       </Field>
       <Field label={t(`${P}.fields.description` as never)}>
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Input value={description} onChange={setDescription} />
       </Field>
     </BaseDialog>
   );
@@ -188,7 +188,7 @@ export function CloneProductDialog({ open, onClose, onSubmit }: DialogProps) {
       }
     >
       <Field label={t(`${P}.fields.name` as never)} hint={t(`${P}.hints.nameGenerator` as never)}>
-        <Input value={name} onChange={(_, d) => setName(d.value)} />
+        <Input value={name} onChange={setName} />
       </Field>
     </BaseDialog>
   );

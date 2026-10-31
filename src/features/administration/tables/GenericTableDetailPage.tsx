@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useGenericTable } from "@/api";
 import { Empty, Panel } from "@/components/common";
 import { Table24Regular } from "@/components/icons";
-import { Body1Strong, Caption1, makeStyles, Tab, TabList, Text, tokens } from "@/components/ui";
+import { Body1Strong, Caption1, makeStyles, Tab, TabList, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { GenericTableDataTab } from "./GenericTableDataTab";
 import { GenericTableDefinitionTab } from "./GenericTableDefinitionTab";
 
@@ -15,7 +16,7 @@ const useDetailStyles = makeStyles({
     alignItems: "center",
     columnGap: "4px",
     padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: "#fff",
     flexShrink: 0,
   },
@@ -25,7 +26,7 @@ const useDetailStyles = makeStyles({
     columnGap: "8px",
     padding: "10px 16px",
     backgroundColor: "#fff",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
   content: {

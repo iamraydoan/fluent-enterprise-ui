@@ -62,11 +62,11 @@ export function CloneChartDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={rows.length === 0 || rows.some((r) => r.name.trim() === "")}
             onClick={() => onClone(rows)}
           >
@@ -97,19 +97,19 @@ export function CloneChartDialog({
             <Input
               placeholder={t("businessData.chart.detail.name")}
               value={row.name}
-              onChange={(_, d) => update(row.id, { name: d.value })}
+              onChange={(value) => update(row.id, { name: value })}
             />
             <Input
               placeholder={t("businessData.chart.detail.parameter")}
               value={row.parameter}
-              onChange={(_, d) => update(row.id, { parameter: d.value })}
+              onChange={(value) => update(row.id, { parameter: value })}
             />
             <Input
               placeholder={t("businessData.chart.detail.type")}
               value={row.type}
-              onChange={(_, d) => update(row.id, { type: d.value })}
+              onChange={(value) => update(row.id, { type: value })}
             />
-            <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+            <Button variant="secondary" onClick={() => removeRow(row.id)}>
               {t("common.remove")}
             </Button>
           </div>
@@ -151,12 +151,12 @@ export function CloneChartDialog({
           <Input
             placeholder={t("businessData.chart.detail.description")}
             value={row.description}
-            onChange={(_, d) => update(row.id, { description: d.value })}
+            onChange={(value) => update(row.id, { description: value })}
             style={{ marginTop: "8px" }}
           />
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </DialogShell>

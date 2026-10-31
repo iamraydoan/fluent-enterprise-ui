@@ -47,7 +47,7 @@ export function CheckInDialog({ name, onClose }: DialogProps) {
       footer={
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} disabled={!resource.trim()}>
+          <Button variant="primary" onClick={onClose} disabled={!resource.trim()}>
             {t(L.checkIn)}
           </Button>
         </>
@@ -61,10 +61,10 @@ export function CheckInDialog({ name, onClose }: DialogProps) {
           </>
         }
       >
-        <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+        <Input value={resource} onChange={setResource} />
       </FormField>
       <FormField label={<>{t(L.certification)}</>}>
-        <Input value={certification} onChange={(_, d) => setCertification(d.value)} />
+        <Input value={certification} onChange={setCertification} />
       </FormField>
     </BaseDialog>
   );
@@ -83,7 +83,7 @@ export function CheckOutDialog({ name, onClose }: DialogProps) {
       footer={
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} disabled={!resource.trim()}>
+          <Button variant="primary" onClick={onClose} disabled={!resource.trim()}>
             {t(L.checkOut)}
           </Button>
         </>
@@ -97,10 +97,10 @@ export function CheckOutDialog({ name, onClose }: DialogProps) {
           </>
         }
       >
-        <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+        <Input value={resource} onChange={setResource} />
       </FormField>
       <FormField label={<>{t(L.reason)}</>}>
-        <Input value={reason} onChange={(_, d) => setReason(d.value)} />
+        <Input value={reason} onChange={setReason} />
       </FormField>
     </BaseDialog>
   );
@@ -117,7 +117,7 @@ export function ClockInDialog({ name, onClose }: DialogProps) {
       footer={
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose}>
+          <Button variant="primary" onClick={onClose}>
             {t(L.clockIn)}
           </Button>
         </>
@@ -140,14 +140,14 @@ export function ClockOutDialog({ name, onClose }: DialogProps) {
       footer={
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose}>
+          <Button variant="primary" onClick={onClose}>
             {t(L.clockOut)}
           </Button>
         </>
       }
     >
       <FormField label={<>{t(L.comment)}</>}>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
   );
@@ -165,7 +165,7 @@ export function AssignSubordinatesDialog({ name, onClose }: DialogProps) {
       footer={
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose} disabled={!subordinates.trim()}>
+          <Button variant="primary" onClick={onClose} disabled={!subordinates.trim()}>
             {t(L.assign)}
           </Button>
         </>
@@ -179,7 +179,7 @@ export function AssignSubordinatesDialog({ name, onClose }: DialogProps) {
           </>
         }
       >
-        <Input value={subordinates} onChange={(_, d) => setSubordinates(d.value)} />
+        <Input value={subordinates} onChange={setSubordinates} />
       </FormField>
     </BaseDialog>
   );
@@ -199,20 +199,20 @@ export function AssignTeamWorkgroupDialog({ name, onClose }: DialogProps) {
       footer={
         <>
           <Button onClick={onClose}>{t(L.cancel)}</Button>
-          <Button appearance="primary" onClick={onClose}>
+          <Button variant="primary" onClick={onClose}>
             {t(L.save)}
           </Button>
         </>
       }
     >
       <FormField label={<>{t(L.team)}</>}>
-        <Input value={team} onChange={(_, d) => setTeam(d.value)} />
+        <Input value={team} onChange={setTeam} />
       </FormField>
       <FormField label={<>{t(L.workgroup)}</>}>
-        <Input value={workgroup} onChange={(_, d) => setWorkgroup(d.value)} />
+        <Input value={workgroup} onChange={setWorkgroup} />
       </FormField>
       <FormField label={<>{t(L.area)}</>}>
-        <Input value={area} onChange={(_, d) => setArea(d.value)} />
+        <Input value={area} onChange={setArea} />
       </FormField>
     </BaseDialog>
   );

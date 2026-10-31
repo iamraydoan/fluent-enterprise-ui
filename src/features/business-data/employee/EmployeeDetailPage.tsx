@@ -263,42 +263,42 @@ export function EmployeeDetailPage({ name }: { name: string }) {
           </Button>
         </div>
         <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          <Button size="small" onClick={() => setCheckInOpen(true)}>
+          <Button size="sm" onClick={() => setCheckInOpen(true)}>
             {t("businessData.employee.attendance.checkIn")}
           </Button>
-          <Button size="small" onClick={() => setCheckOutOpen(true)}>
+          <Button size="sm" onClick={() => setCheckOutOpen(true)}>
             {t("businessData.employee.attendance.checkOut")}
           </Button>
-          <Button size="small" onClick={() => setClockInOpen(true)}>
+          <Button size="sm" onClick={() => setClockInOpen(true)}>
             {t("businessData.employee.attendance.clockIn")}
           </Button>
-          <Button size="small" onClick={() => setClockOutOpen(true)}>
+          <Button size="sm" onClick={() => setClockOutOpen(true)}>
             {t("businessData.employee.attendance.clockOut")}
           </Button>
-          <Button size="small" onClick={() => setAssignSubOpen(true)}>
+          <Button size="sm" onClick={() => setAssignSubOpen(true)}>
             {t("businessData.employee.attendance.assign")}
           </Button>
-          <Button size="small" onClick={() => setAssignTeamOpen(true)}>
+          <Button size="sm" onClick={() => setAssignTeamOpen(true)}>
             {t("businessData.employee.attendance.save")}
           </Button>
-          <Button size="small" onClick={() => setManageDelegatesOpen(true)}>
+          <Button size="sm" onClick={() => setManageDelegatesOpen(true)}>
             {t("businessData.employee.delegates.manage")}
           </Button>
-          <Button size="small" onClick={() => setManageTraineesOpen(true)}>
+          <Button size="sm" onClick={() => setManageTraineesOpen(true)}>
             {t("businessData.employee.delegates.checkOut")}
           </Button>
         </div>
         <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          <Button size="small" onClick={() => setNonWorkingOpen(true)}>
+          <Button size="sm" onClick={() => setNonWorkingOpen(true)}>
             {t("businessData.employee.calendarDays.set")}
           </Button>
-          <Button size="small" onClick={() => setAvailabilityOpen(true)}>
+          <Button size="sm" onClick={() => setAvailabilityOpen(true)}>
             {t("businessData.employee.calendarDays.set")}
           </Button>
-          <Button size="small" onClick={() => setRemoveNonWorkingOpen(true)}>
+          <Button size="sm" onClick={() => setRemoveNonWorkingOpen(true)}>
             {t("businessData.employee.calendarDays.remove")}
           </Button>
-          <Button size="small" onClick={() => setRemoveAvailabilityOpen(true)}>
+          <Button size="sm" onClick={() => setRemoveAvailabilityOpen(true)}>
             {t("businessData.employee.calendarDays.remove")}
           </Button>
         </div>

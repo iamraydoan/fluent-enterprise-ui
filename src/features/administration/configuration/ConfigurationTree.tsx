@@ -1,17 +1,18 @@
 import { useMemo } from "react";
 import { Wrench20Regular } from "@/components/icons";
-import { Tree, TreeItem, TreeItemLayout, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Tree, TreeItem, TreeItemLayout, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { buildTree, entryName } from "./data";
 import type { TreeNode } from "./data";
 
 const useTreeStyles = makeStyles({
   item: {
-    borderRadius: tokens.borderRadiusMedium,
+    borderRadius: theme.radius.md,
   },
   selected: {
-    backgroundColor: tokens.colorNeutralBackground1Selected,
-    fontWeight: tokens.fontWeightSemibold,
+    backgroundColor: theme.color.surfaceSelected,
+    fontWeight: theme.font.weightSemibold,
   },
   layout: {
     minHeight: "36px",

@@ -81,7 +81,7 @@ export function MoveNextDialog({ open, materials, onClose, onConfirm }: OpDialog
       }
     >
       <FormField label={t("manufacturing.fabExplorer.dialogs.moveNext.nextStep")}>
-        <Input value={nextStep} onChange={(_, d) => setNextStep(d.value)} />
+        <Input value={nextStep} onChange={setNextStep} />
       </FormField>
       <div>
         {t("manufacturing.fabExplorer.dialogs.moveNext.message", {

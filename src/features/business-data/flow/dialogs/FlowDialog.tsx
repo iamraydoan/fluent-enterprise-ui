@@ -103,14 +103,14 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 3 ? (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => setStep(step + 1)}
               disabled={step === 2 && !canSubmit}
             >
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
             </Button>
           )}
@@ -127,7 +127,7 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
           <FormField label={<>{t(L.changeSet)}</>} labelWidth="170px">
             <Input
               value={changeSet}
-              onChange={(_, d) => setChangeSet(d.value)}
+              onChange={setChangeSet}
               disabled={useAutoCs}
             />
           </FormField>
@@ -142,11 +142,11 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
             <Checkbox
               label={t(L.useAutomaticChangeSet)}
               checked={useAutoCs === true}
-              onChange={(_, d) => setUseAutoCs(d.checked === true)}
+              onChange={setUseAutoCs}
             />
           </FormField>
           <FormField label={<>{t(L.approvalRole)}</>} labelWidth="170px">
-            <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />
+            <Input value={approvalRole} onChange={setApprovalRole} />
           </FormField>
           <FormField
             label={
@@ -159,7 +159,7 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
             <Checkbox
               label={t(L.makeEffectiveOnApproval)}
               checked={effectiveOnApproval === true}
-              onChange={(_, d) => setEffectiveOnApproval(d.checked === true)}
+              onChange={setEffectiveOnApproval}
             />
           </FormField>
         </>
@@ -177,18 +177,18 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
           >
             <Input
               value={name}
-              onChange={(_, d) => setName(d.value)}
+              onChange={setName}
               disabled={mode === MODE_EDIT}
             />
           </FormField>
           <FormField label={<>{t(L.revision)}</>} labelWidth="170px">
-            <Input value={revision} onChange={(_, d) => setRevision(d.value)} />
+            <Input value={revision} onChange={setRevision} />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="170px">
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Textarea value={description} onChange={setDescription} />
           </FormField>
           <FormField label={<>{t(L.flowType)}</>} labelWidth="170px">
-            <Input value={flowType} onChange={(_, d) => setFlowType(d.value)} />
+            <Input value={flowType} onChange={setFlowType} />
           </FormField>
           <FormField label={<>{t(L.flowKind)}</>} labelWidth="170px">
             <select
@@ -213,7 +213,7 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
             <Checkbox
               label={t(L.isEnabled)}
               checked={isEnabled === true}
-              onChange={(_, d) => setIsEnabled(d.checked === true)}
+              onChange={setIsEnabled}
             />
           </FormField>
         </>
@@ -222,17 +222,17 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
         <>
           <div className={styles.hint}>{t(L.flowItemsHint)}</div>
           <div className={styles.row}>
-            <Button size="small" onClick={() => setItems([...items, `Step ${items.length + 1}`])}>
+            <Button size="sm" onClick={() => setItems([...items, `Step ${items.length + 1}`])}>
               + {t(L.addStep)}
             </Button>
-            <Button size="small" onClick={() => setItems([...items, `Flow ${items.length + 1}`])}>
+            <Button size="sm" onClick={() => setItems([...items, `Flow ${items.length + 1}`])}>
               + {t(L.addFlow)}
             </Button>
           </div>
           {items.map((item, i) => (
             <div key={i} className={styles.row}>
               <span style={{ flex: 1 }}>{item}</span>
-              <Button size="small" onClick={() => setItems(items.filter((_, j) => j !== i))}>
+              <Button size="sm" onClick={() => setItems(items.filter((_, j) => j !== i))}>
                 {t(L.remove)}
               </Button>
             </div>

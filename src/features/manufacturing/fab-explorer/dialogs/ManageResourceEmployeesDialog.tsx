@@ -62,10 +62,10 @@ export function ManageResourceEmployeesDialog({
         <div style={{ display: "flex", columnGap: "8px" }}>
           <Input
             value={newEmployee}
-            onChange={(_, data) => setNewEmployee(data.value)}
+            onChange={setNewEmployee}
             style={{ flexGrow: 1 }}
           />
-          <Button appearance="primary" onClick={addEmployee}>
+          <Button variant="primary" onClick={addEmployee}>
             {t("fabExplorer.addEmployee")}
           </Button>
         </div>
@@ -74,7 +74,7 @@ export function ManageResourceEmployeesDialog({
         {employees.map((e) => (
           <div key={e} className={styles.row}>
             <span>{e}</span>
-            <Button appearance="secondary" size="small" onClick={() => removeEmployee(e)}>
+            <Button variant="secondary" size="sm" onClick={() => removeEmployee(e)}>
               {t("fabExplorer.removeEmployee")}
             </Button>
           </div>

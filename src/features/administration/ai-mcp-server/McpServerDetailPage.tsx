@@ -40,14 +40,14 @@ import {
   TableHeaderCell,
   TableRow,
   Text,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useTabsStore } from "@/stores/tabs-store";
+import { theme } from "@/styles/theme";
 import { MCP_SERVER_SECTIONS } from "./data";
 
 const useMcpDetailStyles = makeStyles({
-  link: { color: "#1a6fc4", wordBreak: "break-all" },
+  link: { color: theme.color.textBrand, wordBreak: "break-all" },
   titleRow: {
     display: "flex",
     alignItems: "center",
@@ -56,15 +56,15 @@ const useMcpDetailStyles = makeStyles({
   },
   scroll: {
     overflow: "auto",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     borderBottom: "none",
   },
   th: {
-    backgroundColor: "#EFEFEF",
+    backgroundColor: theme.color.surfaceTertiary,
     height: "36px",
     fontSize: "12px",
     fontWeight: 400,
-    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRight: `1px solid ${theme.color.borderSubtle}`,
     textTransform: "uppercase",
   },
   td: { height: "34.5px", fontSize: "13px" },
@@ -75,7 +75,7 @@ const useMcpDetailStyles = makeStyles({
     columnGap: "28px",
     padding: "8px 4px 12px",
     fontSize: "13px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
   },
   menuBtn: {
     border: "none",
@@ -165,7 +165,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
               />
             </div>
             <Info20Regular
-              style={{ color: "#0F6CBD", margin: "6px 4px" }}
+              style={{ color: theme.color.textBrand, margin: "6px 4px" }}
               aria-label={t("common.information")}
             />
           </div>
@@ -220,12 +220,12 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
           <Text size={400}>{t("mcpServer.toolsTitle", { count: detail.tools.length })}</Text>
           <div>
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<ColumnTriple20Regular />}
               aria-label={t("common.chooseColumns")}
             />
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<MoreVertical20Regular />}
               aria-label={t("common.moreOptions")}
             />
@@ -268,7 +268,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
               <MenuTrigger disableButtonEnhancement>
                 <button className={mcpDetailStyles.menuBtn}>
                   {pageSize}
-                  <span style={{ fontSize: 8, color: "#1a6fc4" }}>▼</span>
+                  <span style={{ fontSize: 8, color: theme.color.textBrand }}>▼</span>
                 </button>
               </MenuTrigger>
               <MenuPopover>
@@ -289,13 +289,13 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
           </div>
           <div>
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<ChevronLeft20Regular />}
               disabled
               aria-label={t("common.previousPage")}
             />
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<ChevronRight20Regular />}
               disabled
               aria-label={t("common.nextPage")}

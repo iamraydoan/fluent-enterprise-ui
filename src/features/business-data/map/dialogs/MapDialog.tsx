@@ -76,11 +76,11 @@ export function MapDialog({ open, mode, initialName, onClose }: DialogProps) {
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step === 2 && <Button onClick={() => setStep(1)}>{t(L.back)}</Button>}
           {step === 1 ? (
-            <Button appearance="primary" onClick={() => setStep(2)} disabled={!canSubmit}>
+            <Button variant="primary" onClick={() => setStep(2)} disabled={!canSubmit}>
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
             </Button>
           )}
@@ -104,12 +104,12 @@ export function MapDialog({ open, mode, initialName, onClose }: DialogProps) {
           >
             <Input
               value={name}
-              onChange={(_, d) => setName(d.value)}
+              onChange={setName}
               disabled={mode === MODE_EDIT}
             />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="150px">
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Textarea value={description} onChange={setDescription} />
           </FormField>
           <FormField
             label={
@@ -120,13 +120,13 @@ export function MapDialog({ open, mode, initialName, onClose }: DialogProps) {
             }
             labelWidth="150px"
           >
-            <Input value={mapDefinition} onChange={(_, d) => setMapDefinition(d.value)} />
+            <Input value={mapDefinition} onChange={setMapDefinition} />
           </FormField>
           <FormField label={<>{t(L.step)}</>} labelWidth="150px">
-            <Input value={stepCtx} onChange={(_, d) => setStepCtx(d.value)} />
+            <Input value={stepCtx} onChange={setStepCtx} />
           </FormField>
           <FormField label={<>{t(L.resource)}</>} labelWidth="150px">
-            <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+            <Input value={resource} onChange={setResource} />
           </FormField>
         </>
       )}

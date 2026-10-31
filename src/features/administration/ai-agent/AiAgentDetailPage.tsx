@@ -41,11 +41,11 @@ import {
   TableHeaderCell,
   TableRow,
   Text,
-  tokens,
   Tooltip,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useTabsStore } from "@/stores/tabs-store";
+import { theme } from "@/styles/theme";
 import type { ToolSelection } from "./data";
 import {
   AI_AGENT_SECTIONS,
@@ -68,21 +68,21 @@ const useDetailStyles = makeStyles({
     flexGrow: 1,
     minHeight: 0,
     overflow: "auto",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     borderBottom: "none",
   },
   th: {
     position: "sticky",
     top: 0,
     zIndex: 1,
-    backgroundColor: "#EFEFEF",
+    backgroundColor: theme.color.surfaceTertiary,
     height: "36px",
     fontSize: "12px",
     fontWeight: 400,
-    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRight: `1px solid ${theme.color.borderSubtle}`,
     textTransform: "uppercase",
   },
-  groupRow: { backgroundColor: "#EFEFEF", cursor: "pointer" },
+  groupRow: { backgroundColor: theme.color.surfaceTertiary, cursor: "pointer" },
   td: { height: "34.5px", fontSize: "13px" },
   instr: {
     padding: "14px 4px",
@@ -128,12 +128,12 @@ function ToolsGrid({
         <Text size={400}>{t("aiAgent.toolsTitle", { count: countSelectedTools(selection) })}</Text>
         <div>
           <Button
-            appearance="subtle"
+            variant="subtle"
             icon={<ColumnTriple20Regular />}
             aria-label={t("common.chooseColumns")}
           />
           <Button
-            appearance="subtle"
+            variant="subtle"
             icon={<MoreVertical20Regular />}
             aria-label={t("common.moreOptions")}
           />
@@ -174,7 +174,7 @@ function ToolsGrid({
                         display: "inline-flex",
                         alignItems: "center",
                         columnGap: 10,
-                        color: "#1a6fc4",
+                        color: theme.color.textBrand,
                         fontSize: 13,
                       }}
                     >
@@ -208,8 +208,8 @@ function ToolsGrid({
                         <TableCell className={detailStyles.td}>
                           <div style={{ display: "flex", justifyContent: "center" }}>
                             <Button
-                              size="small"
-                              appearance="transparent"
+                              size="sm"
+                              variant="transparent"
                               icon={<Eye20Filled />}
                               aria-label={t("aiAgent.viewDescription", { tool })}
                               onClick={() => onView(serverName, tool)}
@@ -359,8 +359,8 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
             </div>
             <Tooltip content={t("aiAgent.createdBy")} relationship="description">
               <Button
-                appearance="transparent"
-                icon={<Info20Regular style={{ color: "#0F6CBD" }} />}
+                variant="transparent"
+                icon={<Info20Regular style={{ color: theme.color.textBrand }} />}
                 aria-label={t("common.information")}
               />
             </Tooltip>

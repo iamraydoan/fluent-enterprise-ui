@@ -92,8 +92,8 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
               onClick={() => onSelect(tab.id)}
             >
               <Button
-                appearance="subtle"
-                size="small"
+                variant="subtle"
+                size="sm"
                 icon={<ChevronLeft20Regular />}
                 aria-label={t("tabs.back")}
                 onClick={(e) => {
@@ -106,8 +106,8 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
                 {title}
               </Text>
               <Button
-                appearance="subtle"
-                size="small"
+                variant="subtle"
+                size="sm"
                 icon={<Dismiss16Regular />}
                 aria-label={t("tabs.closeTab", { title })}
                 onClick={(e) => {
@@ -120,7 +120,7 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
         })}
         <Tooltip content={t("tabs.newTab")} relationship="label">
           <Button
-            appearance="subtle"
+            variant="subtle"
             icon={<Add24Regular />}
             aria-label={t("tabs.newTab")}
             className={pageTabsStyles.newTabButton}
@@ -129,9 +129,9 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
         </Tooltip>
       </div>
       <div className={sharedStyles.pageTabsActions}>
-        <Button appearance="subtle" icon={<ChevronDown20Regular />} aria-label={t("tabs.more")} />
-        <Button appearance="subtle" icon={<QrCode20Regular />} aria-label={t("tabs.scan")} />
-        <Button appearance="subtle" icon={<Search20Regular />} aria-label={t("tabs.search")} />
+        <Button variant="subtle" icon={<ChevronDown20Regular />} aria-label={t("tabs.more")} />
+        <Button variant="subtle" icon={<QrCode20Regular />} aria-label={t("tabs.scan")} />
+        <Button variant="subtle" icon={<Search20Regular />} aria-label={t("tabs.search")} />
         <Menu
           checkedValues={{ language: [language] }}
           onCheckedValueChange={(_, d) => {
@@ -141,7 +141,7 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
         >
           <MenuTrigger disableButtonEnhancement>
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<Globe20Regular />}
               aria-label={t("tabs.language")}
               className={pageTabsStyles.languageButton}
@@ -160,7 +160,7 @@ export function PageTabs({ tabs, active, onSelect, onBack, onClose, onNewTab }: 
           </MenuPopover>
         </Menu>
         <span style={{ position: "relative", display: "inline-flex" }}>
-          <Button appearance="subtle" icon={<Chat20Regular />} aria-label={t("tabs.messages")} />
+          <Button variant="subtle" icon={<Chat20Regular />} aria-label={t("tabs.messages")} />
           <span
             aria-label={t("tabs.unreadMessages", { count: 5 })}
             style={{

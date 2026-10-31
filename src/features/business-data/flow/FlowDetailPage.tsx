@@ -129,7 +129,7 @@ export function FlowDetailPage({ name }: { name: string }) {
   if (top === "details" && left === "businessData.flow.sections.logicalNames") {
     return shell(
       <Card title={t("businessData.flow.sections.logicalNames")}>
-        <Button appearance="primary" onClick={() => setLogicalNamesOpen(true)}>
+        <Button variant="primary" onClick={() => setLogicalNamesOpen(true)}>
           {t("businessData.flow.actions.manageLogicalNames")}
         </Button>
         <div style={{ marginTop: "12px" }}>

@@ -188,19 +188,19 @@ export function PanelSettingsDialog({
             </Text>
             <span className={styles.toolbar}>
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<Delete20Regular />}
                 aria-label={t("common.remove")}
                 onClick={() => setSelected([])}
               />
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<ArrowUp20Regular />}
                 aria-label={t("common.moveUp")}
                 onClick={() => move(selected.length - 1, -1)}
               />
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<ArrowDown20Regular />}
                 aria-label={t("common.moveDown")}
                 onClick={() => move(0, 1)}
@@ -215,7 +215,7 @@ export function PanelSettingsDialog({
                 </span>
                 <span style={{ flexGrow: 1 }}>{panelLabel(panel)}</span>
                 <Button
-                  appearance="subtle"
+                  variant="subtle"
                   icon={<Delete20Regular />}
                   aria-label={t("common.remove")}
                   onClick={() => remove(panel)}

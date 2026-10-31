@@ -57,10 +57,10 @@ export function QualificationFormDialog({
       <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
         <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
         <Field label={t(`${k}.name`)} required>
-          <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+          <Input value={name} readOnly={nameReadOnly} onChange={setName} />
         </Field>
         <Field label={t(`${k}.description`)}>
-          <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+          <Input value={description} onChange={setDescription} />
         </Field>
         <Field label={t(`${k}.type`)} required>
           <select value={type} onChange={(e) => setType(e.target.value)}>
@@ -77,33 +77,33 @@ export function QualificationFormDialog({
 
         <Body1Strong>{t(`${k}.information`)}</Body1Strong>
         <Field label={t(`${k}.ownerRole`)} required>
-          <Input value={ownerRole} onChange={(_, d) => setOwnerRole(d.value)} />
+          <Input value={ownerRole} onChange={setOwnerRole} />
         </Field>
         <Field label={t(`${k}.defaultReason`)}>
-          <Input value={defaultReason} onChange={(_, d) => setDefaultReason(d.value)} />
+          <Input value={defaultReason} onChange={setDefaultReason} />
         </Field>
         <Field label={t(`${k}.informationUrl`)}>
-          <Input value={informationUrl} onChange={(_, d) => setInformationUrl(d.value)} />
+          <Input value={informationUrl} onChange={setInformationUrl} />
         </Field>
 
         <Body1Strong>{t(`${k}.permissions`)}</Body1Strong>
         <Field label={t(`${k}.allowSelfAssignment`)}>
           <Switch
             checked={allowSelfAssignment}
-            onChange={(_, d) => setAllowSelfAssignment(d.checked === true)}
+            onChange={setAllowSelfAssignment}
           />
         </Field>
         <Field label={t(`${k}.allowAssignmentByManager`)}>
           <Switch
             checked={allowAssignmentByManager}
-            onChange={(_, d) => setAllowAssignmentByManager(d.checked === true)}
+            onChange={setAllowAssignmentByManager}
           />
         </Field>
 
         <Body1Strong>{t(`${k}.validityPeriod`)}</Body1Strong>
         <div style={{ display: "flex", columnGap: 8 }}>
           <Field label={t(`${k}.validFor`)}>
-            <Input value={validForValue} onChange={(_, d) => setValidForValue(d.value)} />
+            <Input value={validForValue} onChange={setValidForValue} />
           </Field>
           <Field label={t(`${k}.scale`)}>
             <select value={validForScale} onChange={(e) => setValidForScale(e.target.value)}>
@@ -118,14 +118,14 @@ export function QualificationFormDialog({
         <Field label={t(`${k}.allowOverride`)}>
           <Switch
             checked={allowOverride}
-            onChange={(_, d) => setAllowOverride(d.checked === true)}
+            onChange={setAllowOverride}
           />
         </Field>
 
         <Body1Strong>{t(`${k}.gracePeriod`)}</Body1Strong>
         <div style={{ display: "flex", columnGap: 8 }}>
           <Field label={t(`${k}.duration`)}>
-            <Input value={graceValue} onChange={(_, d) => setGraceValue(d.value)} />
+            <Input value={graceValue} onChange={setGraceValue} />
           </Field>
           <Field label={t(`${k}.scale`)}>
             <select value={graceScale} onChange={(e) => setGraceScale(e.target.value)}>
@@ -139,7 +139,7 @@ export function QualificationFormDialog({
         </div>
 
         <Field label={t(`${k}.comments`)}>
-          <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+          <Input value={comments} onChange={setComments} />
         </Field>
       </div>
     </BaseDialog>

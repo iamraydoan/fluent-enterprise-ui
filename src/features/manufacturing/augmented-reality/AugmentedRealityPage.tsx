@@ -146,21 +146,21 @@ export function AugmentedRealityPage() {
             </div>
             <div className={styles.controls}>
               <Button
-                appearance="secondary"
+                variant="secondary"
                 icon={<ZoomIn24Regular />}
                 onClick={() => setZoom((z) => Math.min(2, z + 0.25))}
               >
                 {t("manufacturing.augmentedReality.zoomIn")}
               </Button>
               <Button
-                appearance="secondary"
+                variant="secondary"
                 icon={<ZoomOut24Regular />}
                 onClick={() => setZoom((z) => Math.max(0.5, z - 0.25))}
               >
                 {t("manufacturing.augmentedReality.zoomOut")}
               </Button>
               <Button
-                appearance="secondary"
+                variant="secondary"
                 icon={<ArrowRotateClockwise24Regular />}
                 onClick={() => setRotation((r) => (r + 90) % 360)}
               >
@@ -180,7 +180,7 @@ export function AugmentedRealityPage() {
                 {TAGS.map((tag) => (
                   <Button
                     key={tag.id}
-                    appearance={tag.id === selectedId ? "primary" : "secondary"}
+                    variant={tag.id === selectedId ? "primary" : "secondary"}
                     onClick={() => setSelectedId(tag.id)}
                   >
                     {tag.entity} ({tag.type})

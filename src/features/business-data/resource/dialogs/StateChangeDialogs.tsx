@@ -42,20 +42,20 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
       width="min(900px, 90vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {step > 1 && (
-            <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+            <Button variant="secondary" onClick={() => setStep(step - 1)}>
               {t("common.back")}
             </Button>
           )}
           {step < 5 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+            <Button variant="primary" onClick={() => setStep(step + 1)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(`${k}.change`)}
             </Button>
           )}
@@ -80,10 +80,10 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
             </select>
           </Field>
           <Field label={t(`${k}.reason`)}>
-            <Input value={reason} onChange={(_, d) => setReason(d.value)} />
+            <Input value={reason} onChange={setReason} />
           </Field>
           <Field label={t(`${k}.comment`)}>
-            <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+            <Input value={comment} onChange={setComment} />
           </Field>
         </div>
       )}
@@ -122,7 +122,7 @@ export function ChangeSystemStateDialog({ open, onClose, resourceName }: StateCh
         </select>
       </Field>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -159,7 +159,7 @@ export function ChangeAutomationModeDialog({
         </select>
       </Field>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -187,10 +187,10 @@ export function ChangeInstrumentModeDialog({
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.newMode`)} required>
-        <Input value={newMode} onChange={(_, d) => setNewMode(d.value)} />
+        <Input value={newMode} onChange={setNewMode} />
       </Field>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -223,7 +223,7 @@ export function ChangeRunningModeDialog({ open, onClose, resourceName }: StateCh
         </select>
       </Field>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -244,20 +244,20 @@ export function ChangeProductDialog({ open, onClose, resourceName }: StateChange
       width="min(800px, 88vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {step === 2 && (
-            <Button appearance="secondary" onClick={() => setStep(1)}>
+            <Button variant="secondary" onClick={() => setStep(1)}>
               {t("common.back")}
             </Button>
           )}
           {step === 1 ? (
-            <Button appearance="primary" onClick={() => setStep(2)}>
+            <Button variant="primary" onClick={() => setStep(2)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(`${k}.change`)}
             </Button>
           )}
@@ -267,11 +267,11 @@ export function ChangeProductDialog({ open, onClose, resourceName }: StateChange
       <WizardSteps steps={[t(`${k}.materials`), t(`${k}.subMaterials`)]} current={step} />
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <Field label={t(`${k}.newProduct`)} required>
-        <Input value={newProduct} onChange={(_, d) => setNewProduct(d.value)} />
+        <Input value={newProduct} onChange={setNewProduct} />
       </Field>
       {step === 2 && (
         <Field label={t(`${k}.comment`)}>
-          <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+          <Input value={comment} onChange={setComment} />
         </Field>
       )}
     </BaseDialog>
@@ -300,7 +300,7 @@ export function EvaluateDispatchableRuleDialog({
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <div style={{ padding: "12px 0" }}>{t(`${k}.verifyInfo`)}</div>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );

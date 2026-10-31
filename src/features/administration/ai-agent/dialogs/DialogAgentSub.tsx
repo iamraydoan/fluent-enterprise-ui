@@ -1,6 +1,7 @@
 import { Bot20Regular, ChevronDown20Regular } from "@/components/icons";
-import { makeStyles, tokens } from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const useDialogAgentSubStyles = makeStyles({
   sub: {
@@ -8,13 +9,13 @@ const useDialogAgentSubStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "8px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     ...cardSurface,
     flexShrink: 0,
     fontSize: "13px",
   },
   link: {
-    color: "#1a6fc4",
+    color: theme.color.textBrand,
     display: "inline-flex",
     alignItems: "center",
     columnGap: "6px",
@@ -44,7 +45,7 @@ export function DialogAgentSub({
         </span>
         {agentDescription && <span style={{ color: "#333" }}>{` / ${agentDescription}`}</span>}
       </span>
-      <ChevronDown20Regular style={{ color: "#1a6fc4" }} />
+      <ChevronDown20Regular style={{ color: theme.color.textBrand }} />
     </div>
   );
 }

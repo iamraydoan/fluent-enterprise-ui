@@ -212,7 +212,7 @@ export function ChartDetailPage() {
                     {t("businessData.chart.detail.rulesTitle", { count: chart.rules.length })}
                   </Text>
                   <div className={styles.toolbar}>
-                    <Button appearance="secondary" onClick={openManageRules}>
+                    <Button variant="secondary" onClick={openManageRules}>
                       {t("businessData.chart.operations.manageRules")}
                     </Button>
                   </div>
@@ -418,7 +418,7 @@ function LogicalChartsCard({
         {t("businessData.chart.detail.logicalChartsTitle", { count: chart.logicalCharts.length })}
       </Text>
       <div className={styles.toolbar}>
-        <Button appearance="secondary" onClick={onAdd}>
+        <Button variant="secondary" onClick={onAdd}>
           {t("businessData.chart.operations.addLogicalChart")}
         </Button>
       </div>
@@ -445,16 +445,16 @@ function LogicalChartsCard({
               <TableCell>{String(l.dataPoints.length)}</TableCell>
               <TableCell>
                 <div className={styles.actionsCell}>
-                  <Button appearance="secondary" size="small" onClick={() => onDataPoints(l)}>
+                  <Button variant="secondary" size="sm" onClick={() => onDataPoints(l)}>
                     {t("businessData.chart.operations.dataPoints")}
                   </Button>
-                  <Button appearance="secondary" size="small" onClick={() => onEdit(l)}>
+                  <Button variant="secondary" size="sm" onClick={() => onEdit(l)}>
                     {t("actionBar.edit")}
                   </Button>
-                  <Button appearance="secondary" size="small" onClick={() => onRecalculate(l)}>
+                  <Button variant="secondary" size="sm" onClick={() => onRecalculate(l)}>
                     {t("businessData.chart.operations.recalculate")}
                   </Button>
-                  <Button appearance="secondary" size="small" onClick={() => onRemove(l)}>
+                  <Button variant="secondary" size="sm" onClick={() => onRemove(l)}>
                     {t("common.remove")}
                   </Button>
                 </div>

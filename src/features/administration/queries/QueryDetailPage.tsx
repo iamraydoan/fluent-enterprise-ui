@@ -41,6 +41,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const useDetailStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
@@ -69,27 +70,27 @@ const useDetailStyles = makeStyles({
   kvLabel: {
     width: "120px",
     flexShrink: 0,
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     fontSize: "13px",
   },
   kvValue: { fontSize: "13px" },
-  cardTitle: { fontSize: "14px", fontWeight: tokens.fontWeightSemibold, marginBottom: "8px" },
+  cardTitle: { fontSize: "14px", fontWeight: theme.font.weightSemibold, marginBottom: "8px" },
   filterRow: {
     display: "flex",
     flexDirection: "column",
     rowGap: "8px",
     padding: "12px",
     marginTop: "8px",
-    backgroundColor: tokens.colorNeutralBackground2,
-    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: theme.color.surfaceSecondary,
+    borderRadius: theme.radius.md,
   },
   filterFields: { display: "flex", alignItems: "center", columnGap: "12px" },
   filterField: {
     flexGrow: 1,
     padding: "8px 12px",
-    backgroundColor: tokens.colorNeutralBackground1,
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    backgroundColor: theme.color.surface,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
     fontSize: "13px",
   },
   filterToggles: { display: "flex", alignItems: "center", columnGap: "16px" },
@@ -108,7 +109,7 @@ const useDetailStyles = makeStyles({
     alignItems: "center",
     columnGap: "8px",
     padding: "12px 12px 12px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   aiHeaderTitle: { flexGrow: 1 },
   chatBody: {
@@ -123,7 +124,7 @@ const useDetailStyles = makeStyles({
   userBubble: {
     alignSelf: "flex-end",
     maxWidth: "85%",
-    backgroundColor: tokens.colorBrandBackground2,
+    backgroundColor: theme.color.brandSubtle,
     borderRadius: tokens.borderRadiusLarge,
     padding: "10px 14px",
   },
@@ -131,7 +132,7 @@ const useDetailStyles = makeStyles({
   agentBubble: {
     alignSelf: "flex-start",
     maxWidth: "90%",
-    backgroundColor: tokens.colorNeutralBackground3,
+    backgroundColor: theme.color.surfaceTertiary,
     borderRadius: tokens.borderRadiusLarge,
     padding: "10px 14px",
   },
@@ -140,10 +141,10 @@ const useDetailStyles = makeStyles({
     alignItems: "center",
     columnGap: "8px",
     padding: "12px 16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
   },
   aiInput: { flexGrow: 1 },
-  loading: { padding: "32px", color: tokens.colorNeutralForeground3 },
+  loading: { padding: "32px", color: theme.color.textTertiary },
 });
 
 interface QueryDetailPageProps {
@@ -194,7 +195,7 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
                 {data.name}
               </Text>
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<Info20Regular />}
                 aria-label={t("queries.detail.generalData")}
               />
@@ -224,7 +225,7 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
                   <FilterRow key={filter.property} filter={filter} />
                 ))}
                 <div className={styles.addFilterRow}>
-                  <Button appearance="subtle" icon={<Add24Regular />}>
+                  <Button variant="subtle" icon={<Add24Regular />}>
                     {t("queries.detail.addFilter")}
                   </Button>
                 </div>
@@ -276,7 +277,7 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
                 {t("queries.aiEditor.title")}
               </Text>
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<Dismiss20Regular />}
                 aria-label={t("common.close")}
                 onClick={() => setAiOpen(false)}
@@ -299,7 +300,7 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
             <div className={styles.aiInputRow}>
               <Input className={styles.aiInput} placeholder={t("queries.aiEditor.placeholder")} />
               <Button
-                appearance="subtle"
+                variant="subtle"
                 icon={<Send24Regular />}
                 aria-label={t("queries.aiEditor.send")}
               />

@@ -17,6 +17,7 @@ import {
   tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { DEFAULT_SEARCH_TYPE, isContainsSearchType, searchTypeLabelKey } from "../propertyUtils";
 
 const MAX_SEARCHABLE = 2;
@@ -42,7 +43,7 @@ const useDialogStyles = makeStyles({
     flexGrow: 1,
     minHeight: 0,
     overflowY: "auto",
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    border: `1px solid ${theme.color.border}`,
     backgroundColor: "#fff",
   },
   listItem: {
@@ -50,19 +51,19 @@ const useDialogStyles = makeStyles({
     display: "block",
     padding: "10px 12px",
     border: "none",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: "transparent",
     cursor: "pointer",
     textAlign: "left",
     fontFamily: "inherit",
     fontSize: "13px",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
-  listItemSelected: { backgroundColor: tokens.colorNeutralBackground1Selected },
+  listItemSelected: { backgroundColor: theme.color.surfaceSelected },
   formPane: { minHeight: 0, overflowY: "auto", paddingRight: "8px" },
   sectionTitle: {
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     margin: "16px 0 8px",
   },
   fieldRow: {
@@ -72,13 +73,13 @@ const useDialogStyles = makeStyles({
     columnGap: "12px",
     marginBottom: "8px",
   },
-  fieldLabel: { fontSize: "13px", color: tokens.colorNeutralForeground2, textAlign: "right" },
+  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
   alert: {
     display: "flex",
     alignItems: "flex-start",
     columnGap: "8px",
     padding: "10px 12px",
-    borderRadius: tokens.borderRadiusMedium,
+    borderRadius: theme.radius.md,
     marginBottom: "12px",
     fontSize: "13px",
   },
@@ -152,10 +153,10 @@ export function ManagePropertiesDialog({
       width="1100px"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={handleUpdate} disabled={update.isPending}>
+          <Button variant="primary" onClick={handleUpdate} disabled={update.isPending}>
             {t("common.update")}
           </Button>
         </>
@@ -169,15 +170,15 @@ export function ManagePropertiesDialog({
             </Text>
             <div className={styles.listActions}>
               <Button
-                appearance="subtle"
-                size="small"
+                variant="subtle"
+                size="sm"
                 icon={<Add24Regular />}
                 aria-label={t("entityTypes.manage.add")}
                 onClick={() => {}}
               />
               <Button
-                appearance="subtle"
-                size="small"
+                variant="subtle"
+                size="sm"
                 icon={<Delete20Regular />}
                 aria-label={t("entityTypes.manage.remove")}
                 onClick={() => {}}
@@ -250,9 +251,9 @@ function PropertyForm({
       <div className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("entityTypes.property.description")}</span>
         <Input
-          size="small"
+          size="sm"
           value={property.description}
-          onChange={(_, data) => onPatch({ description: data.value })}
+          onChange={(value) => onPatch({ description: value })}
           disabled={property.isSystem}
         />
       </div>
@@ -264,7 +265,7 @@ function PropertyForm({
         <span className={styles.fieldLabel}>{t("entityTypes.property.enabled")}</span>
         <Checkbox
           checked={property.enabled}
-          onChange={(_, data) => onPatch({ enabled: data.checked === true })}
+          onChange={(checked) => onPatch({ enabled: checked === true })}
           disabled={property.isSystem}
         />
       </div>
@@ -291,8 +292,8 @@ function PropertyForm({
         <Checkbox
           checked={property.searchable}
           disabled={!searchableAllowed || isName || property.isSystem}
-          onChange={(_, data) => {
-            const searchable = data.checked === true;
+          onChange={(checked) => {
+            const searchable = checked === true;
             onPatch({
               searchable,
               searchType: searchable ? (property.searchType ?? DEFAULT_SEARCH_TYPE) : undefined,
@@ -311,7 +312,7 @@ function PropertyForm({
           <span className={styles.fieldLabel}>{t("entityTypes.property.searchType")}</span>
           <Menu>
             <MenuTrigger disableButtonEnhancement>
-              <Button appearance="subtle" size="small" disabled={isName || property.isSystem}>
+              <Button variant="subtle" size="sm" disabled={isName || property.isSystem}>
                 {t(searchTypeLabelKey(property.searchType ?? DEFAULT_SEARCH_TYPE))}
               </Button>
             </MenuTrigger>

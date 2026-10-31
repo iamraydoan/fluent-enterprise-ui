@@ -17,8 +17,8 @@ export function PageHeader({ children, collapsed, onToggle }: PageHeaderProps) {
     <div className={sharedStyles.pageHeader} style={collapsed ? { borderTop: "none" } : undefined}>
       {children}
       <Button
-        appearance="subtle"
-        size="small"
+        variant="subtle"
+        size="sm"
         icon={collapsed ? <ChevronDown20Regular /> : <ChevronUp20Regular />}
         aria-label={collapsed ? t("pageHeader.expandActionBar") : t("pageHeader.collapseActionBar")}
         title={collapsed ? t("pageHeader.expandActionBar") : t("pageHeader.collapseActionBar")}

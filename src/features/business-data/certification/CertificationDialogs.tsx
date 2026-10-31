@@ -58,29 +58,29 @@ function EmployeeListEditor({
           <Input
             placeholder={t("businessData.certification.operations.employeeName")}
             value={row.employee}
-            onChange={(_, data) =>
-              setRows(rows.map((r) => (r.id === row.id ? { ...r, employee: data.value } : r)))
+            onChange={(value) =>
+              setRows(rows.map((r) => (r.id === row.id ? { ...r, employee: value } : r)))
             }
           />
           {showGranted ? (
             <Checkbox
               label={t("businessData.certification.operations.granted")}
               checked={row.granted}
-              onChange={(_, data) =>
+              onChange={(checked) =>
                 setRows(
-                  rows.map((r) => (r.id === row.id ? { ...r, granted: data.checked === true } : r)),
+                  rows.map((r) => (r.id === row.id ? { ...r, granted: checked === true } : r)),
                 )
               }
             />
           ) : (
             <span />
           )}
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>
@@ -126,7 +126,7 @@ function EmployeeDialogShell({
         <span className={styles.fieldLabel}>
           {t("businessData.certification.operations.plannedDate")}
         </span>
-        <Input type="date" value={plannedDate} onChange={(_, data) => setPlannedDate(data.value)} />
+        <Input type="date" value={plannedDate} onChange={setPlannedDate} />
       </div>
       <FormField
         label={
@@ -138,7 +138,7 @@ function EmployeeDialogShell({
         }
         labelWidth="170px"
       >
-        <Input value={remark} onChange={(_, data) => setRemark(data.value)} />
+        <Input value={remark} onChange={setRemark} />
       </FormField>
     </BaseDialog>
   );

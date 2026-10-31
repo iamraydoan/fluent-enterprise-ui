@@ -48,20 +48,20 @@ export function ReasonFormDialog({
       width="min(900px, 90vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {step === 2 && (
-            <Button appearance="secondary" onClick={() => setStep(1)}>
+            <Button variant="secondary" onClick={() => setStep(1)}>
               {t("common.back")}
             </Button>
           )}
           {step === 1 ? (
-            <Button appearance="primary" onClick={() => setStep(2)}>
+            <Button variant="primary" onClick={() => setStep(2)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {submitLabel}
             </Button>
           )}
@@ -73,10 +73,10 @@ export function ReasonFormDialog({
       {step === 1 && (
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.name`)} required>
-            <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+            <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
           <Field label={t(`${k}.description`)}>
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Input value={description} onChange={setDescription} />
           </Field>
         </div>
       )}
@@ -97,25 +97,25 @@ export function ReasonFormDialog({
               <Field label={t(`${k}.excludeFromStepYield`)}>
                 <Checkbox
                   checked={excludeFromStepYield}
-                  onChange={(_, d) => setExcludeFromStepYield(d.checked === true)}
+                  onChange={setExcludeFromStepYield}
                 />
               </Field>
               <Field label={t(`${k}.excludeFromResourceYield`)}>
                 <Checkbox
                   checked={excludeFromResourceYield}
-                  onChange={(_, d) => setExcludeFromResourceYield(d.checked === true)}
+                  onChange={setExcludeFromResourceYield}
                 />
               </Field>
             </>
           )}
           <Field label={t(`${k}.category`)}>
-            <Input value={category} onChange={(_, d) => setCategory(d.value)} />
+            <Input value={category} onChange={setCategory} />
           </Field>
         </div>
       )}
 
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

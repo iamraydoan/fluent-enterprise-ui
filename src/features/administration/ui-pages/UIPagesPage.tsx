@@ -22,10 +22,10 @@ import {
   Text,
   makeStyles,
   mergeClasses,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const ALL_FOLDERS = "all";
 
@@ -47,12 +47,12 @@ const usePageStyles = makeStyles({
     flexWrap: "wrap",
     rowGap: "8px",
     paddingBottom: "12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   filterGroup: { display: "flex", alignItems: "center", columnGap: "8px" },
   filterLabel: {
     fontSize: "12px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     textTransform: "uppercase",
   },
   grid: {
@@ -69,21 +69,21 @@ const usePageStyles = makeStyles({
     flexDirection: "column",
     rowGap: "10px",
     minHeight: "110px",
-    backgroundColor: tokens.colorNeutralBackground1,
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    backgroundColor: theme.color.surface,
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   tileName: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
-  tileMeta: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
+  tileMeta: { fontSize: "12px", color: theme.color.textTertiary },
   sectionLabel: {
     fontSize: "11px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     textTransform: "uppercase",
     padding: "12px 12px 4px",
     letterSpacing: "0.5px",
   },
-  empty: { padding: "32px", textAlign: "center", color: tokens.colorNeutralForeground3 },
+  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const SCOPES: Array<"all" | UIPageScope> = [
@@ -158,14 +158,14 @@ export function UIPagesPage() {
               <div className={styles.filterGroup}>
                 <Checkbox
                   checked={showTerminated}
-                  onChange={(_, data) => setShowTerminated(data.checked === true)}
+                  onChange={setShowTerminated}
                   label={t("uiPages.filters.terminated")}
                 />
               </div>
               <div className={styles.filterGroup}>
                 <Checkbox
                   checked={showSystemItems}
-                  onChange={(_, data) => setShowSystemItems(data.checked === true)}
+                  onChange={setShowSystemItems}
                   label={t("uiPages.filters.systemItems")}
                 />
               </div>
@@ -214,7 +214,7 @@ export function UIPagesPage() {
                 <span className={styles.filterLabel}>{t("uiPages.filters.entityType")}</span>
                 <Input
                   value={entityType}
-                  onChange={(_, data) => setEntityType(data.value)}
+                  onChange={setEntityType}
                   placeholder={t("uiPages.filters.entityTypePlaceholder")}
                   style={{ width: "160px" }}
                 />
@@ -222,7 +222,7 @@ export function UIPagesPage() {
               <div className={styles.filterGroup} style={{ marginLeft: "auto" }}>
                 <Input
                   value={q}
-                  onChange={(_, data) => setQ(data.value)}
+                  onChange={setQ}
                   placeholder={t("common.search")}
                   style={{ width: "200px" }}
                 />

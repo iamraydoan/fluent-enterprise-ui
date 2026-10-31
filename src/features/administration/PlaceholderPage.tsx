@@ -1,9 +1,10 @@
 import { cloneElement } from "react";
 import type { ReactElement } from "react";
 import { Wrench24Regular } from "@/components/icons";
-import { Caption1, makeStyles, Text, tokens } from "@/components/ui";
+import { Caption1, makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const usePlaceholderStyles = makeStyles({
   stub: {
@@ -16,7 +17,7 @@ const usePlaceholderStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
     rowGap: "8px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     textAlign: "center",
     padding: "24px",
   },

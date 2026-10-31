@@ -104,11 +104,11 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step === 2 && <Button onClick={() => setStep(1)}>{t(L.back)}</Button>}
           {step === 1 ? (
-            <Button appearance="primary" onClick={() => setStep(2)}>
+            <Button variant="primary" onClick={() => setStep(2)}>
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(L.update)}
             </Button>
           )}
@@ -123,7 +123,7 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
         <>
           <div className={styles.row}>
             <strong>{t(L.dimensions)}</strong>
-            <Button size="small" onClick={addDimension}>
+            <Button size="sm" onClick={addDimension}>
               + {t(L.addDimension)}
             </Button>
           </div>
@@ -162,15 +162,15 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
               <Input
                 placeholder={t(L.sourceCommand)}
                 value={d.sourceCommand}
-                onChange={(_, data) =>
+                onChange={(value) =>
                   setDimensions(
                     dimensions.map((x) =>
-                      x.id === d.id ? { ...x, sourceCommand: data.value } : x,
+                      x.id === d.id ? { ...x, sourceCommand: value } : x,
                     ),
                   )
                 }
               />
-              <Button size="small" onClick={() => removeDimension(d.id)}>
+              <Button size="sm" onClick={() => removeDimension(d.id)}>
                 {t(L.remove)}
               </Button>
             </div>
@@ -181,7 +181,7 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
         <>
           <div className={styles.row}>
             <strong>{t(L.timeFrames)}</strong>
-            <Button size="small" onClick={addTimeFrame}>
+            <Button size="sm" onClick={addTimeFrame}>
               + {t(L.addTimeFrame)}
             </Button>
           </div>
@@ -190,19 +190,19 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
               <Input
                 placeholder={t(L.timeFrameName)}
                 value={f.name}
-                onChange={(_, data) =>
+                onChange={(value) =>
                   setTimeFrames(
-                    timeFrames.map((x) => (x.id === f.id ? { ...x, name: data.value } : x)),
+                    timeFrames.map((x) => (x.id === f.id ? { ...x, name: value } : x)),
                   )
                 }
               />
               <Checkbox
                 label={t(L.isDefault)}
                 checked={f.isDefault === true}
-                onChange={(_, data) =>
+                onChange={(checked) =>
                   setTimeFrames(
                     timeFrames.map((x) =>
-                      x.id === f.id ? { ...x, isDefault: data.checked === true } : x,
+                      x.id === f.id ? { ...x, isDefault: checked === true } : x,
                     ),
                   )
                 }
@@ -210,22 +210,22 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
               <Input
                 placeholder={t(L.from)}
                 value={f.from}
-                onChange={(_, data) =>
+                onChange={(value) =>
                   setTimeFrames(
-                    timeFrames.map((x) => (x.id === f.id ? { ...x, from: data.value } : x)),
+                    timeFrames.map((x) => (x.id === f.id ? { ...x, from: value } : x)),
                   )
                 }
               />
               <Input
                 placeholder={t(L.to)}
                 value={f.to}
-                onChange={(_, data) =>
+                onChange={(value) =>
                   setTimeFrames(
-                    timeFrames.map((x) => (x.id === f.id ? { ...x, to: data.value } : x)),
+                    timeFrames.map((x) => (x.id === f.id ? { ...x, to: value } : x)),
                   )
                 }
               />
-              <Button size="small" onClick={() => removeTimeFrame(f.id)}>
+              <Button size="sm" onClick={() => removeTimeFrame(f.id)}>
                 {t(L.remove)}
               </Button>
             </div>

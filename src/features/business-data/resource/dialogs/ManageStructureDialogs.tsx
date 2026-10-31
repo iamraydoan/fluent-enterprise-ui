@@ -3,6 +3,7 @@ import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/commo
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ManageDialogProps {
   open: boolean;
@@ -86,10 +87,10 @@ function ManageDialogBase({
           >
             <Body1Strong>{t(listLabelKey, { count: list.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addItem}>
+              <Button size="sm" variant="subtle" onClick={addItem}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeItem(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeItem(selected)}>
                 🗑
               </Button>
             </div>
@@ -109,7 +110,7 @@ function ManageDialogBase({
                 style={{
                   padding: "8px 12px",
                   cursor: "pointer",
-                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >
@@ -126,8 +127,8 @@ function ManageDialogBase({
               {f.type === "checkbox" ? (
                 <Checkbox
                   checked={(fieldValues[f.key] as boolean) ?? false}
-                  onChange={(_, d) =>
-                    setFieldValues({ ...fieldValues, [f.key]: d.checked === true })
+                  onChange={(checked) =>
+                    setFieldValues({ ...fieldValues, [f.key]: checked === true })
                   }
                 />
               ) : f.type === "select" ? (
@@ -144,7 +145,7 @@ function ManageDialogBase({
               ) : (
                 <Input
                   value={(fieldValues[f.key] as string) ?? ""}
-                  onChange={(_, d) => setFieldValues({ ...fieldValues, [f.key]: d.value })}
+                  onChange={(value) => setFieldValues({ ...fieldValues, [f.key]: value })}
                 />
               )}
             </Field>
@@ -152,7 +153,7 @@ function ManageDialogBase({
         </div>
       </div>
       <Field label={t(commentsKey)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

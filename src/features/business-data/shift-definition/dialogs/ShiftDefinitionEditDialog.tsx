@@ -32,10 +32,10 @@ export function ShiftDefinitionEditDialog({ data, onClose }: ShiftDefinitionEdit
         <Input value={data.name} disabled />
       </FormField>
       <FormField label={<>{t("businessData.shiftDefinition.edit.description")}</>}>
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Input value={description} onChange={setDescription} />
       </FormField>
       <FormField label={<>{t("businessData.shiftDefinition.edit.calendar")}</>}>
-        <Input value={calendar} onChange={(_, d) => setCalendar(d.value)} />
+        <Input value={calendar} onChange={setCalendar} />
       </FormField>
     </BaseDialog>
   );

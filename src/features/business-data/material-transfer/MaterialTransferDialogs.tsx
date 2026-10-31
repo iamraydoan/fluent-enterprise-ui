@@ -60,7 +60,7 @@ function LifecycleDialog({ open, onClose, onSubmit, opKey }: DialogProps & { opK
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -74,7 +74,7 @@ function LifecycleDialog({ open, onClose, onSubmit, opKey }: DialogProps & { opK
       <Text size={300}>{t(`${P}.confirmText` as never)}</Text>
       <div style={{ marginTop: "16px" }}>
         <Field label={t(`${P}.fields.comment` as never)}>
-          <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+          <Input value={comment} onChange={setComment} />
         </Field>
       </div>
     </BaseDialog>
@@ -161,7 +161,7 @@ export function ChangeMaterialTransferInfoDialog({ open, onClose, onSubmit }: Di
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -173,7 +173,7 @@ export function ChangeMaterialTransferInfoDialog({ open, onClose, onSubmit }: Di
       }
     >
       <Field label={t(`${P}.fields.comment` as never)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -201,7 +201,7 @@ export function RequestMaterialTransferDialog({ open, onClose, onSubmit }: Dialo
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -214,10 +214,10 @@ export function RequestMaterialTransferDialog({ open, onClose, onSubmit }: Dialo
       }
     >
       <Field label={t(`${P}.fields.product` as never)} required>
-        <Input value={product} onChange={(_, d) => setProduct(d.value)} />
+        <Input value={product} onChange={setProduct} />
       </Field>
       <Field label={t(`${P}.fields.quantity` as never)}>
-        <Input value={quantity} onChange={(_, d) => setQuantity(d.value)} />
+        <Input value={quantity} onChange={setQuantity} />
       </Field>
     </BaseDialog>
   );
@@ -236,7 +236,7 @@ export function RequestForMAODialog({ open, onClose, onSubmit }: DialogProps) {
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();
@@ -265,7 +265,7 @@ export function RequestForCostCenterDialog({ open, onClose, onSubmit }: DialogPr
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();
@@ -294,7 +294,7 @@ export function ReturnInventoryDialog({ open, onClose, onSubmit }: DialogProps) 
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();
@@ -323,7 +323,7 @@ export function ReturnMaterialDialog({ open, onClose, onSubmit }: DialogProps) {
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();
@@ -352,7 +352,7 @@ export function SpecialRequestForMaterialDialog({ open, onClose, onSubmit }: Dia
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();

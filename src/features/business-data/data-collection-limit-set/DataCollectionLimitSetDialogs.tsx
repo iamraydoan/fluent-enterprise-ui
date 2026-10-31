@@ -258,7 +258,7 @@ export function ParameterLimitsEditor({
       <div className={styles.optionsBar}>
         <Menu positioning="below-end">
           <MenuTrigger disableButtonEnhancement>
-            <Button appearance="secondary" size="small">
+            <Button variant="secondary" size="sm">
               {t("businessData.dataCollectionLimitSet.operations.options")}
             </Button>
           </MenuTrigger>
@@ -281,16 +281,16 @@ export function ParameterLimitsEditor({
               {t("businessData.dataCollectionLimitSet.operations.parametersTitle")}
             </span>
             <Button
-              appearance="secondary"
-              size="small"
+              variant="secondary"
+              size="sm"
               onClick={addRow}
               aria-label={t("businessData.dataCollectionLimitSet.operations.addParameter")}
             >
               <Add24Regular />
             </Button>
             <Button
-              appearance="secondary"
-              size="small"
+              variant="secondary"
+              size="sm"
               disabled={!selected}
               onClick={() => selected && removeRow(selected.id)}
               aria-label={t("businessData.dataCollectionLimitSet.operations.removeParameter")}
@@ -298,8 +298,8 @@ export function ParameterLimitsEditor({
               <Delete20Regular />
             </Button>
             <Button
-              appearance="secondary"
-              size="small"
+              variant="secondary"
+              size="sm"
               disabled={selectedIdx <= 0}
               onClick={() => move(selectedIdx, -1)}
               aria-label={t("businessData.dataCollectionLimitSet.operations.moveUp")}
@@ -307,8 +307,8 @@ export function ParameterLimitsEditor({
               <ArrowUp16Regular />
             </Button>
             <Button
-              appearance="secondary"
-              size="small"
+              variant="secondary"
+              size="sm"
               disabled={selectedIdx < 0 || selectedIdx >= rows.length - 1}
               onClick={() => move(selectedIdx, 1)}
               aria-label={t("businessData.dataCollectionLimitSet.operations.moveDown")}
@@ -365,7 +365,7 @@ export function ParameterLimitsEditor({
                   ) : (
                     <Input
                       value={selected.parameter}
-                      onChange={(_, d) => update(selected.id, { parameter: d.value })}
+                      onChange={(value) => update(selected.id, { parameter: value })}
                     />
                   )}
                 </div>
@@ -388,7 +388,7 @@ export function ParameterLimitsEditor({
                     type="number"
                     value={selected.minValue}
                     disabled={!selected.overrideParameter}
-                    onChange={(_, d) => update(selected.id, { minValue: d.value })}
+                    onChange={(value) => update(selected.id, { minValue: value })}
                   />
                 </div>
                 <div className={styles.numWrap}>
@@ -399,7 +399,7 @@ export function ParameterLimitsEditor({
                     type="number"
                     value={selected.maxValue}
                     disabled={!selected.overrideParameter}
-                    onChange={(_, d) => update(selected.id, { maxValue: d.value })}
+                    onChange={(value) => update(selected.id, { maxValue: value })}
                   />
                 </div>
                 <div className={styles.grow}>
@@ -429,7 +429,7 @@ export function ParameterLimitsEditor({
                   <Input
                     type="number"
                     value={selected.lowerErrorLimit}
-                    onChange={(_, d) => update(selected.id, { lowerErrorLimit: d.value })}
+                    onChange={(value) => update(selected.id, { lowerErrorLimit: value })}
                   />
                 </div>
                 <div className={styles.numWrap}>
@@ -439,7 +439,7 @@ export function ParameterLimitsEditor({
                   <Input
                     type="number"
                     value={selected.lowerWarningLimit}
-                    onChange={(_, d) => update(selected.id, { lowerWarningLimit: d.value })}
+                    onChange={(value) => update(selected.id, { lowerWarningLimit: value })}
                   />
                 </div>
                 <div className={styles.numWrap}>
@@ -449,7 +449,7 @@ export function ParameterLimitsEditor({
                   <Input
                     type="number"
                     value={selected.target}
-                    onChange={(_, d) => update(selected.id, { target: d.value })}
+                    onChange={(value) => update(selected.id, { target: value })}
                   />
                 </div>
                 <div className={styles.numWrap}>
@@ -459,7 +459,7 @@ export function ParameterLimitsEditor({
                   <Input
                     type="number"
                     value={selected.upperWarningLimit}
-                    onChange={(_, d) => update(selected.id, { upperWarningLimit: d.value })}
+                    onChange={(value) => update(selected.id, { upperWarningLimit: value })}
                   />
                 </div>
                 <div className={styles.numWrap}>
@@ -469,7 +469,7 @@ export function ParameterLimitsEditor({
                   <Input
                     type="number"
                     value={selected.upperErrorLimit}
-                    onChange={(_, d) => update(selected.id, { upperErrorLimit: d.value })}
+                    onChange={(value) => update(selected.id, { upperErrorLimit: value })}
                   />
                 </div>
               </div>
@@ -562,16 +562,16 @@ export function SampleLimitsEditor({
                 {t("businessData.dataCollectionLimitSet.operations.samplesTitle")}
               </span>
               <Button
-                appearance="secondary"
-                size="small"
+                variant="secondary"
+                size="sm"
                 onClick={addSample}
                 aria-label={t("businessData.dataCollectionLimitSet.operations.addSample")}
               >
                 <Add24Regular />
               </Button>
               <Button
-                appearance="secondary"
-                size="small"
+                variant="secondary"
+                size="sm"
                 disabled={!selectedSample}
                 onClick={() => selectedSample && removeSample(selectedSample.id)}
                 aria-label={t("businessData.dataCollectionLimitSet.operations.removeSample")}
@@ -634,7 +634,7 @@ export function SampleLimitsEditor({
                     </div>
                     <Input
                       value={selectedSample.sampleId}
-                      onChange={(_, d) => updateSample(selectedSample.id, { sampleId: d.value })}
+                      onChange={(value) => updateSample(selectedSample.id, { sampleId: value })}
                     />
                   </div>
                 </div>
@@ -646,8 +646,8 @@ export function SampleLimitsEditor({
                     <Input
                       type="number"
                       value={selectedSample.lowerErrorLimit}
-                      onChange={(_, d) =>
-                        updateSample(selectedSample.id, { lowerErrorLimit: d.value })
+                      onChange={(value) =>
+                        updateSample(selectedSample.id, { lowerErrorLimit: value })
                       }
                     />
                   </div>
@@ -658,8 +658,8 @@ export function SampleLimitsEditor({
                     <Input
                       type="number"
                       value={selectedSample.lowerWarningLimit}
-                      onChange={(_, d) =>
-                        updateSample(selectedSample.id, { lowerWarningLimit: d.value })
+                      onChange={(value) =>
+                        updateSample(selectedSample.id, { lowerWarningLimit: value })
                       }
                     />
                   </div>
@@ -670,7 +670,7 @@ export function SampleLimitsEditor({
                     <Input
                       type="number"
                       value={selectedSample.target}
-                      onChange={(_, d) => updateSample(selectedSample.id, { target: d.value })}
+                      onChange={(value) => updateSample(selectedSample.id, { target: value })}
                     />
                   </div>
                   <div className={styles.numWrap}>
@@ -680,8 +680,8 @@ export function SampleLimitsEditor({
                     <Input
                       type="number"
                       value={selectedSample.upperWarningLimit}
-                      onChange={(_, d) =>
-                        updateSample(selectedSample.id, { upperWarningLimit: d.value })
+                      onChange={(value) =>
+                        updateSample(selectedSample.id, { upperWarningLimit: value })
                       }
                     />
                   </div>
@@ -692,8 +692,8 @@ export function SampleLimitsEditor({
                     <Input
                       type="number"
                       value={selectedSample.upperErrorLimit}
-                      onChange={(_, d) =>
-                        updateSample(selectedSample.id, { upperErrorLimit: d.value })
+                      onChange={(value) =>
+                        updateSample(selectedSample.id, { upperErrorLimit: value })
                       }
                     />
                   </div>
@@ -727,11 +727,11 @@ function CopyParametersDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={source === ""}
             onClick={() => onCopy(sourceParameters.map((p, i) => toRow(p, Date.now() + i)))}
           >
@@ -785,11 +785,11 @@ export function EditDataCollectionLimitSetDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => onSubmit({ description, type, dataCollection })}
           >
             {t("common.save")}
@@ -807,7 +807,7 @@ export function EditDataCollectionLimitSetDialog({
         <div className={styles.fieldLabel}>
           {t("businessData.dataCollectionLimitSet.detail.description")}
         </div>
-        <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Textarea value={description} onChange={setDescription} />
       </div>
       <div className={styles.fieldRow}>
         <div className={styles.fieldLabel}>
@@ -930,7 +930,7 @@ export function CopyLimitSetsNamesStep({
       {sources.map((s) => (
         <div key={s} className={styles.fieldRow}>
           <div className={styles.fieldLabel}>{s}</div>
-          <Input value={getName(s)} onChange={(_, d) => setName(s, d.value)} />
+          <Input value={getName(s)} onChange={(value) => setName(s, value)} />
         </div>
       ))}
     </div>

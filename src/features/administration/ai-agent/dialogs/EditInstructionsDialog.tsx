@@ -33,10 +33,10 @@ import {
   MenuList,
   MenuPopover,
   MenuTrigger,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { DialogAgentSub } from "./DialogAgentSub";
 
 const useEditStyles = makeStyles({
@@ -52,7 +52,7 @@ const useEditStyles = makeStyles({
   editor: {
     flexGrow: 1,
     minWidth: 0,
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    border: `1px solid ${theme.color.border}`,
     borderRadius: "2px",
     backgroundColor: "#fff",
   },
@@ -62,18 +62,18 @@ const useEditStyles = makeStyles({
     flexWrap: "wrap",
     gap: "2px",
     padding: "4px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: "#F7F7F7",
   },
   sep: {
     width: "1px",
     alignSelf: "stretch",
-    backgroundColor: tokens.colorNeutralStroke2,
+    backgroundColor: theme.color.borderSubtle,
     margin: "2px 4px",
   },
   sel: {
     height: "32px",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "4px",
     background: "#fff",
     fontFamily: "inherit",
@@ -154,8 +154,8 @@ export function EditInstructionsDialog({
     disabled?: boolean;
   }) => (
     <Button
-      size="small"
-      appearance="subtle"
+      size="sm"
+      variant="subtle"
       icon={icon}
       aria-label={label}
       title={label}
@@ -176,8 +176,8 @@ export function EditInstructionsDialog({
     <Menu>
       <MenuTrigger disableButtonEnhancement>
         <Button
-          size="small"
-          appearance="subtle"
+          size="sm"
+          variant="subtle"
           icon={icon}
           iconPosition="before"
           aria-label={label}
@@ -223,7 +223,7 @@ export function EditInstructionsDialog({
         <>
           <Button onClick={onClose}>{t("common.cancel")}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => onSave(editorRef.current?.innerText ?? value)}
           >
             {t("common.save")}

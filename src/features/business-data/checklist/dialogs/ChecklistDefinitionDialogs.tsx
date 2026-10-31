@@ -29,7 +29,7 @@ export function PreviewChecklistDialog({
       title={t("businessData.checklist.operations.previewTitle")}
       onClose={onClose}
       footer={
-        <Button appearance="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose}>
           {t("common.close")}
         </Button>
       }
@@ -39,13 +39,13 @@ export function PreviewChecklistDialog({
       </div>
       <div className={styles.toolbar}>
         <Field label={t("businessData.checklist.operations.conditionDate")}>
-          <Input type="date" value={date} onChange={(_, d) => setDate(d.value)} />
+          <Input type="date" value={date} onChange={setDate} />
         </Field>
         <Field label={t("businessData.checklist.operations.conditionMaterial")}>
-          <Input value={material} onChange={(_, d) => setMaterial(d.value)} />
+          <Input value={material} onChange={setMaterial} />
         </Field>
         <Field label={t("businessData.checklist.operations.conditionProduct")}>
-          <Input value={product} onChange={(_, d) => setProduct(d.value)} />
+          <Input value={product} onChange={setProduct} />
         </Field>
       </div>
       {items.length === 0 ? (
@@ -118,11 +118,11 @@ export function CloneChecklistDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           <Button
-            appearance="primary"
+            variant="primary"
             disabled={rows.length === 0 || rows.some((r) => r.name.trim() === "")}
             onClick={() => onClone(rows)}
           >
@@ -143,29 +143,29 @@ export function CloneChecklistDialog({
             <Input
               placeholder={t("businessData.checklist.detail.name")}
               value={row.name}
-              onChange={(_, d) => update(row.id, { name: d.value })}
+              onChange={(value) => update(row.id, { name: value })}
             />
           </div>
           <div className={styles.paramNameWrap}>
             <Input
               placeholder={t("businessData.checklist.operations.revision")}
               value={row.revision}
-              onChange={(_, d) => update(row.id, { revision: d.value })}
+              onChange={(value) => update(row.id, { revision: value })}
             />
           </div>
           <div className={styles.paramNameWrap}>
             <Input
               placeholder={t("businessData.checklist.operations.comment")}
               value={row.comment}
-              onChange={(_, d) => update(row.id, { comment: d.value })}
+              onChange={(value) => update(row.id, { comment: value })}
             />
           </div>
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </DialogShell>

@@ -44,10 +44,10 @@ export function ManageDataCollectionParametersDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={() => onConfirm(toParameters())}>
+          <Button variant="primary" onClick={() => onConfirm(toParameters())}>
             {t("businessData.dataCollection.operations.update")}
           </Button>
         </>

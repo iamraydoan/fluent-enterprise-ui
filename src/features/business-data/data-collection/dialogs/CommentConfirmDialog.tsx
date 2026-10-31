@@ -33,10 +33,10 @@ export function CommentConfirmDialog({
       onClose={onClose}
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button appearance="primary" onClick={() => onConfirm(comment)}>
+          <Button variant="primary" onClick={() => onConfirm(comment)}>
             {t(confirmLabelKey)}
           </Button>
         </>
@@ -47,7 +47,7 @@ export function CommentConfirmDialog({
         <span className={styles.fieldLabel}>
           {t("businessData.dataCollection.operations.comment")}
         </span>
-        <Textarea value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Textarea value={comment} onChange={setComment} />
       </div>
     </BaseDialog>
   );

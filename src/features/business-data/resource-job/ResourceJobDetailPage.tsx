@@ -92,7 +92,7 @@ function LifecycleDialog({
     >
       <DialogEntityBanner icon="📋" name={jobName} />
       <Field label={t("businessData.resourceJob.dialogs.lifecycle.comment")}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );

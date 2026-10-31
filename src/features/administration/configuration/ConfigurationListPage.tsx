@@ -4,10 +4,11 @@ import type { ConfigurationEntry } from "@/api";
 import { createAction, DataListPage, refreshAction, SidePanel } from "@/components/common";
 import type { DataColumn, DataFilter, DataTableCardApi, HeaderAction } from "@/components/common";
 import { MoreVertical24Regular, Wrench20Regular } from "@/components/icons";
-import { makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
+import { theme } from "@/styles/theme";
 import { ConfigurationTree } from "./ConfigurationTree";
 import { CONFIG_ENTRY_TYPE_LABELS, CONFIG_ENTRY_TYPES, entryName, maskedValue } from "./data";
 
@@ -20,21 +21,21 @@ const usePageStyles = makeStyles({
     padding: "0 12px",
     marginBottom: "4px",
     border: "none",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
-    borderRadius: tokens.borderRadiusMedium,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: theme.radius.md,
     backgroundColor: "transparent",
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
-    fontWeight: tokens.fontWeightSemibold,
-    color: tokens.colorNeutralForeground1,
+    fontWeight: theme.font.weightSemibold,
+    color: theme.color.textPrimary,
     textAlign: "left",
     ":hover": {
-      backgroundColor: tokens.colorNeutralBackground1Hover,
+      backgroundColor: theme.color.surfaceHover,
     },
   },
   allEntriesActive: {
-    backgroundColor: tokens.colorNeutralBackground1Selected,
+    backgroundColor: theme.color.surfaceSelected,
   },
 });
 

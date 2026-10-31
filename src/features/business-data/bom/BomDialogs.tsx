@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter } from "@/components/common";
-import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 interface BomItemRow {
@@ -20,8 +21,8 @@ const useListStyles = makeStyles({
     alignItems: "center",
     marginBottom: "8px",
   },
-  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
 });
 
 function BomItemListEditor({
@@ -59,29 +60,29 @@ function BomItemListEditor({
           <Input
             placeholder={t("businessData.bom.operations.product")}
             value={row.product}
-            onChange={(_, data) => updateRow(row.id, { product: data.value })}
+            onChange={(value) => updateRow(row.id, { product: value })}
           />
           <Input
             placeholder={t("businessData.bom.operations.quantity")}
             value={row.quantity}
-            onChange={(_, data) => updateRow(row.id, { quantity: data.value })}
+            onChange={(value) => updateRow(row.id, { quantity: value })}
           />
           <Input
             placeholder={t("businessData.bom.operations.units")}
             value={row.units}
-            onChange={(_, data) => updateRow(row.id, { units: data.value })}
+            onChange={(value) => updateRow(row.id, { units: value })}
           />
           <Input
             placeholder={t("businessData.bom.operations.position")}
             value={row.position}
-            onChange={(_, data) => updateRow(row.id, { position: data.value })}
+            onChange={(value) => updateRow(row.id, { position: value })}
           />
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>
@@ -127,7 +128,7 @@ export function ManageBomItemsDialog({
         <Checkbox
           label={t("businessData.bom.operations.makeEffective")}
           checked={effective}
-          onChange={(_, data) => setEffective(data.checked === true)}
+          onChange={setEffective}
         />
       </div>
     </BaseDialog>

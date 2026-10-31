@@ -109,14 +109,14 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 3 ? (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => setStep(step + 1)}
               disabled={step === 2 && !canSubmit}
             >
               {t(L.next)}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(mode === MODE_CREATE ? L.create : mode === MODE_EDIT ? L.save : L.clone)}
             </Button>
           )}
@@ -133,7 +133,7 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
           <FormField label={<>{t(L.changeSet)}</>} labelWidth="220px">
             <Input
               value={changeSet}
-              onChange={(_, d) => setChangeSet(d.value)}
+              onChange={setChangeSet}
               disabled={useAutoCs}
             />
           </FormField>
@@ -148,11 +148,11 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
             <Checkbox
               label={t(L.useAutomaticChangeSet)}
               checked={useAutoCs === true}
-              onChange={(_, d) => setUseAutoCs(d.checked === true)}
+              onChange={setUseAutoCs}
             />
           </FormField>
           <FormField label={<>{t(L.approvalRole)}</>} labelWidth="220px">
-            <Input value={approvalRole} onChange={(_, d) => setApprovalRole(d.value)} />
+            <Input value={approvalRole} onChange={setApprovalRole} />
           </FormField>
         </>
       )}
@@ -169,44 +169,44 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
           >
             <Input
               value={name}
-              onChange={(_, d) => setName(d.value)}
+              onChange={setName}
               disabled={mode === MODE_EDIT}
             />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="220px">
-            <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Textarea value={description} onChange={setDescription} />
           </FormField>
           <FormField label={<>{t(L.type)}</>} labelWidth="220px">
-            <Input value={type} onChange={(_, d) => setType(d.value)} />
+            <Input value={type} onChange={setType} />
           </FormField>
           <FormField label={<>{t(L.resultsRequiredBeforeTrackOut)}</>} labelWidth="220px">
             <Checkbox
               checked={resultsRequired === true}
-              onChange={(_, d) => setResultsRequired(d.checked === true)}
+              onChange={setResultsRequired}
             />
           </FormField>
           <FormField label={<>{t(L.enableMultipleSamples)}</>} labelWidth="220px">
             <Checkbox
               checked={multipleSamples === true}
-              onChange={(_, d) => setMultipleSamples(d.checked === true)}
+              onChange={setMultipleSamples}
             />
           </FormField>
           <FormField label={<>{t(L.containsSeparateInspectionSteps)}</>} labelWidth="220px">
             <Checkbox
               checked={separateSteps === true}
-              onChange={(_, d) => setSeparateSteps(d.checked === true)}
+              onChange={setSeparateSteps}
             />
           </FormField>
           <FormField label={<>{t(L.closeAutomaticallyOnPass)}</>} labelWidth="220px">
             <Checkbox
               checked={closeOnPass === true}
-              onChange={(_, d) => setCloseOnPass(d.checked === true)}
+              onChange={setCloseOnPass}
             />
           </FormField>
           <FormField label={<>{t(L.closeAutomaticallyOnFail)}</>} labelWidth="220px">
             <Checkbox
               checked={closeOnFail === true}
-              onChange={(_, d) => setCloseOnFail(d.checked === true)}
+              onChange={setCloseOnFail}
             />
           </FormField>
           <FormField label={<>{t(L.futureHoldCreationMode)}</>} labelWidth="220px">
@@ -226,7 +226,7 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
         <>
           <div className={styles.row}>
             <Button
-              size="small"
+              size="sm"
               onClick={() =>
                 setSteps([...steps, { name: "", inProcess: false, flow: "", step: "" }])
               }
@@ -239,34 +239,34 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
               <Input
                 placeholder={t(L.stepName)}
                 value={s.name}
-                onChange={(_, d) =>
-                  setSteps(steps.map((x, j) => (j === i ? { ...x, name: d.value } : x)))
+                onChange={(value) =>
+                  setSteps(steps.map((x, j) => (j === i ? { ...x, name: value } : x)))
                 }
               />
               <Checkbox
                 label={t(L.isInProcessInspection)}
                 checked={s.inProcess === true}
-                onChange={(_, d) =>
+                onChange={(checked) =>
                   setSteps(
-                    steps.map((x, j) => (j === i ? { ...x, inProcess: d.checked === true } : x)),
+                    steps.map((x, j) => (j === i ? { ...x, inProcess: checked === true } : x)),
                   )
                 }
               />
               <Input
                 placeholder={t(L.inspectionFlow)}
                 value={s.flow}
-                onChange={(_, d) =>
-                  setSteps(steps.map((x, j) => (j === i ? { ...x, flow: d.value } : x)))
+                onChange={(value) =>
+                  setSteps(steps.map((x, j) => (j === i ? { ...x, flow: value } : x)))
                 }
               />
               <Input
                 placeholder={t(L.inspectionStep)}
                 value={s.step}
-                onChange={(_, d) =>
-                  setSteps(steps.map((x, j) => (j === i ? { ...x, step: d.value } : x)))
+                onChange={(value) =>
+                  setSteps(steps.map((x, j) => (j === i ? { ...x, step: value } : x)))
                 }
               />
-              <Button size="small" onClick={() => setSteps(steps.filter((_, j) => j !== i))}>
+              <Button size="sm" onClick={() => setSteps(steps.filter((_, j) => j !== i))}>
                 {t(L.remove)}
               </Button>
             </div>

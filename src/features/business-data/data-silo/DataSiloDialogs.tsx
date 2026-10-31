@@ -68,20 +68,20 @@ export function CreateDataSiloDialog({ onClose }: { onClose: () => void }) {
       size="xl"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t(L.cancel)}
           </Button>
-          <Button appearance="primary" onClick={onClose} disabled={name.trim() === ""}>
+          <Button variant="primary" onClick={onClose} disabled={name.trim() === ""}>
             {t(L.create)}
           </Button>
         </>
       }
     >
-      {field(L.name, false, <Input value={name} onChange={(_, d) => setName(d.value)} />)}
+      {field(L.name, false, <Input value={name} onChange={setName} />)}
       {field(
         L.description,
         false,
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />,
+        <Input value={description} onChange={setDescription} />,
       )}
       {field(L.type, true, <Input value={t(L.typeDefault)} disabled />)}
       <div className={styles.sectionTitle}>{t(L.properties)}</div>
@@ -91,12 +91,12 @@ export function CreateDataSiloDialog({ onClose }: { onClose: () => void }) {
       {field(
         L.isExternal,
         false,
-        <Checkbox checked={isExternal} onChange={(_, d) => setIsExternal(d.checked === true)} />,
+        <Checkbox checked={isExternal} onChange={setIsExternal} />,
       )}
       {field(
         L.isSystem,
         false,
-        <Checkbox checked={isSystem} onChange={(_, d) => setIsSystem(d.checked === true)} />,
+        <Checkbox checked={isSystem} onChange={setIsSystem} />,
       )}
       {field(L.keywords, false, <Input />)}
       {field(L.siteName, false, <Input />)}

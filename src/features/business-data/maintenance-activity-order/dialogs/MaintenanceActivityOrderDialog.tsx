@@ -34,10 +34,10 @@ export function MaintenanceActivityOrderDialog({
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.save)} />}
     >
       <FormField label={<>{t(L.description)}</>} labelWidth="160px">
-        <Textarea value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Textarea value={description} onChange={setDescription} />
       </FormField>
       <FormField label={<>{t(L.dataGroup)}</>} labelWidth="160px">
-        <Input value={dataGroup} onChange={(_, d) => setDataGroup(d.value)} />
+        <Input value={dataGroup} onChange={setDataGroup} />
       </FormField>
     </BaseDialog>
   );

@@ -42,7 +42,7 @@ export function ColumnChooser<TRow extends RowData>({ table }: ColumnChooserProp
     <Popover positioning="below-end" withArrow={false}>
       <PopoverTrigger disableButtonEnhancement>
         <Button
-          appearance="subtle"
+          variant="subtle"
           icon={<ColumnTriple20Regular />}
           aria-label={t("common.chooseColumns")}
         />
@@ -67,20 +67,20 @@ export function ColumnChooser<TRow extends RowData>({ table }: ColumnChooserProp
                   label={meta?.labelKey ? t(meta.labelKey) : id}
                   checked={column.getIsVisible()}
                   disabled={locked}
-                  onChange={(_, eventData) => column.toggleVisibility(!!eventData.checked)}
+                  onChange={(checked) => column.toggleVisibility(checked)}
                 />
                 <span>
                   <Button
-                    size="small"
-                    appearance="subtle"
+                    size="sm"
+                    variant="subtle"
                     icon={<ArrowUp20Regular />}
                     aria-label={t("common.moveUp")}
                     disabled={index <= 1 || locked}
                     onClick={() => moveColumn(id, -1)}
                   />
                   <Button
-                    size="small"
-                    appearance="subtle"
+                    size="sm"
+                    variant="subtle"
                     icon={<ArrowDown20Regular />}
                     aria-label={t("common.moveDown")}
                     disabled={locked || index === orderedIds.length - 1}

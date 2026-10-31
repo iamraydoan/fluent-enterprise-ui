@@ -44,7 +44,7 @@ export function NumField({
       <Input
         type="number"
         value={value === undefined ? "" : String(value)}
-        onChange={(_, d) => onChange(d.value === "" ? undefined : Number(d.value))}
+        onChange={(value) => onChange(value === "" ? undefined : Number(value))}
       />
     </div>
   );

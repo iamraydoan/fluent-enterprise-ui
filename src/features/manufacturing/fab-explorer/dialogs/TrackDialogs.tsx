@@ -86,7 +86,7 @@ export function TrackOutAndMoveNextDialog({
       }
     >
       <FormField label={t("manufacturing.fabExplorer.dialogs.trackOutAndMoveNext.nextStep")}>
-        <Input value={nextStep} onChange={(_, d) => setNextStep(d.value)} />
+        <Input value={nextStep} onChange={setNextStep} />
       </FormField>
       <div>
         {t("manufacturing.fabExplorer.dialogs.trackOutAndMoveNext.message", {
@@ -153,10 +153,10 @@ export function SpecialMoveNextDialog({
       }
     >
       <FormField label={t("manufacturing.fabExplorer.dialogs.specialMoveNext.step")}>
-        <Input value={step} onChange={(_, d) => setStep(d.value)} />
+        <Input value={step} onChange={setStep} />
       </FormField>
       <FormField label={t("manufacturing.fabExplorer.dialogs.specialMoveNext.flow")}>
-        <Input value={flow} onChange={(_, d) => setFlow(d.value)} />
+        <Input value={flow} onChange={setFlow} />
       </FormField>
       <div>
         {t("manufacturing.fabExplorer.dialogs.specialMoveNext.message", {

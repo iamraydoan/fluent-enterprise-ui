@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 export interface MaterialRow {
@@ -23,8 +24,8 @@ const useListStyles = makeStyles({
     alignItems: "center",
     marginBottom: "8px",
   },
-  empty: { padding: "16px", textAlign: "center", color: tokens.colorNeutralForeground3 },
-  hint: { fontSize: "13px", color: tokens.colorNeutralForeground2, marginBottom: "12px" },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
 });
 
 export function MaterialListEditor({
@@ -58,8 +59,8 @@ export function MaterialListEditor({
           <Input
             placeholder={t("businessData.batch.operations.materialName")}
             value={row.material}
-            onChange={(_, data) =>
-              setRows(rows.map((r) => (r.id === row.id ? { ...r, material: data.value } : r)))
+            onChange={(value) =>
+              setRows(rows.map((r) => (r.id === row.id ? { ...r, material: value } : r)))
             }
           />
           <Checkbox
@@ -67,12 +68,12 @@ export function MaterialListEditor({
             checked={row.isMain}
             onChange={() => setMain(row.id)}
           />
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>
@@ -107,17 +108,17 @@ export function ContainerListEditor({
           <Input
             placeholder={t("businessData.batch.operations.containerName")}
             value={row.container}
-            onChange={(_, data) =>
-              setRows(rows.map((r) => (r.id === row.id ? { ...r, container: data.value } : r)))
+            onChange={(value) =>
+              setRows(rows.map((r) => (r.id === row.id ? { ...r, container: value } : r)))
             }
           />
           <span />
-          <Button appearance="secondary" onClick={() => removeRow(row.id)}>
+          <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
         </div>
       ))}
-      <Button appearance="secondary" onClick={addRow}>
+      <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
       </Button>
     </div>
@@ -132,7 +133,7 @@ const useManageDialogStyles = makeStyles({
     columnGap: "12px",
     marginBottom: "12px",
   },
-  fieldLabel: { fontSize: "13px", color: tokens.colorNeutralForeground2, textAlign: "right" },
+  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
 });
 
 export function ManageBatchMaterialsDialog({
@@ -168,7 +169,7 @@ export function ManageBatchMaterialsDialog({
       </div>
       <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
         <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
-        <Input value={comment} onChange={(_, data) => setComment(data.value)} />
+        <Input value={comment} onChange={setComment} />
       </div>
     </BaseDialog>
   );
@@ -250,7 +251,7 @@ export function ChangeBatchResourceDialog({
         }
         labelWidth="170px"
       >
-        <Input value={resource} onChange={(_, data) => setResource(data.value)} />
+        <Input value={resource} onChange={setResource} />
       </FormField>
       <FormField
         label={
@@ -260,7 +261,7 @@ export function ChangeBatchResourceDialog({
         }
         labelWidth="170px"
       >
-        <Input value={comment} onChange={(_, data) => setComment(data.value)} />
+        <Input value={comment} onChange={setComment} />
       </FormField>
       <Text>{t("businessData.batch.operations.changeResourceHint", { name: batchName })}</Text>
     </BaseDialog>

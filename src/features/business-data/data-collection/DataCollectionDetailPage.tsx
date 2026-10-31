@@ -164,7 +164,7 @@ export function DataCollectionDetailPage() {
             {left === "businessData.dataCollection.detail.sections.parameters" ? (
               <div className={styles.paramBlock}>
                 <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px" }}>
-                  <Button appearance="secondary" onClick={openManageParameters}>
+                  <Button variant="secondary" onClick={openManageParameters}>
                     {t("businessData.dataCollection.operations.manageParametersTitle")}
                   </Button>
                 </div>
@@ -200,7 +200,7 @@ export function DataCollectionDetailPage() {
                       count: dc.limitSets.length,
                     })}
                   </Text>
-                  <Button appearance="secondary" size="small" onClick={openCopyLimitSets}>
+                  <Button variant="secondary" size="sm" onClick={openCopyLimitSets}>
                     {t("businessData.dataCollectionLimitSet.operations.copyTitle")}
                   </Button>
                 </div>
@@ -332,27 +332,27 @@ function InstanceRow({
         </div>
       </div>
       <div style={{ display: "flex", columnGap: "4px", flexWrap: "wrap" }}>
-        <Button appearance="secondary" size="small" onClick={onView}>
+        <Button variant="secondary" size="sm" onClick={onView}>
           {t("businessData.dataCollection.operations.viewInstanceTitle")}
         </Button>
-        <Button appearance="secondary" size="small" onClick={onPost}>
+        <Button variant="secondary" size="sm" onClick={onPost}>
           {t("businessData.dataCollection.operations.post")}
         </Button>
-        <Button appearance="secondary" size="small" onClick={onCorrect}>
+        <Button variant="secondary" size="sm" onClick={onCorrect}>
           {t("businessData.dataCollection.operations.correct")}
         </Button>
-        <Button appearance="secondary" size="small" onClick={onClose}>
+        <Button variant="secondary" size="sm" onClick={onClose}>
           {t("businessData.dataCollection.operations.close")}
         </Button>
-        <Button appearance="secondary" size="small" onClick={onReset}>
+        <Button variant="secondary" size="sm" onClick={onReset}>
           {t("businessData.dataCollection.operations.reset")}
         </Button>
         {terminated ? (
-          <Button appearance="secondary" size="small" onClick={onUnterminate}>
+          <Button variant="secondary" size="sm" onClick={onUnterminate}>
             {t("businessData.dataCollection.operations.unterminateInstance")}
           </Button>
         ) : (
-          <Button appearance="secondary" size="small" onClick={onTerminate}>
+          <Button variant="secondary" size="sm" onClick={onTerminate}>
             {t("businessData.dataCollection.operations.terminateInstance")}
           </Button>
         )}

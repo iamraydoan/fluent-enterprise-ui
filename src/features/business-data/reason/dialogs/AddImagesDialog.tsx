@@ -54,24 +54,24 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
       width="min(1100px, 92vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {step === 2 && (
-            <Button appearance="secondary" onClick={() => setStep(1)}>
+            <Button variant="secondary" onClick={() => setStep(1)}>
               {t("common.back")}
             </Button>
           )}
           {step === 1 ? (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => setStep(2)}
               disabled={selected.length === 0}
             >
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(`${k}.add`)}
             </Button>
           )}
@@ -128,7 +128,7 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
                 <Field label={t(`${k}.assessmentCriteria`)}>
                   <Input
                     value={criteria[img.name] ?? ""}
-                    onChange={(_, d) => setCriteria({ ...criteria, [img.name]: d.value })}
+                    onChange={(value) => setCriteria({ ...criteria, [img.name]: value })}
                   />
                 </Field>
               </div>
@@ -138,7 +138,7 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
       )}
 
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

@@ -120,10 +120,10 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
               {t("businessData.productGroup.operations.manageParameters.parameters")}
             </Text>
             <div style={{ display: "flex", gap: "4px" }}>
-              <Button appearance="subtle" icon={<Add24Regular />} onClick={addParam} />
+              <Button variant="subtle" icon={<Add24Regular />} onClick={addParam} />
               {selected && (
                 <Button
-                  appearance="subtle"
+                  variant="subtle"
                   icon={<Delete20Regular />}
                   onClick={() => removeParam(selected.id)}
                 />
@@ -157,9 +157,9 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                     t("businessData.productGroup.operations.manageParameters.newParam")}
                 </Text>
                 <Button
-                  appearance="subtle"
+                  variant="subtle"
                   icon={<Delete20Regular />}
-                  size="small"
+                  size="sm"
                   onClick={(e) => {
                     e.stopPropagation();
                     removeParam(p.id);
@@ -193,7 +193,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
               >
                 <Input
                   value={selected.parameter}
-                  onChange={(_, d) => updateSelected({ parameter: d.value })}
+                  onChange={(value) => updateSelected({ parameter: value })}
                   placeholder={t(
                     "businessData.productGroup.operations.create.placeholders.selectParameter",
                   )}
@@ -202,7 +202,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
               <Field label={t("businessData.productGroup.operations.manageParameters.fields.unit")}>
                 <Input
                   value={selected.unit}
-                  onChange={(_, d) => updateSelected({ unit: d.value })}
+                  onChange={(value) => updateSelected({ unit: value })}
                 />
               </Field>
               <Field label={t("businessData.productGroup.operations.manageParameters.fields.type")}>
@@ -237,7 +237,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                 >
                   <Input
                     value={selected.value}
-                    onChange={(_, d) => updateSelected({ value: d.value })}
+                    onChange={(value) => updateSelected({ value: value })}
                     style={{ maxWidth: "280px" }}
                   />
                 </Field>
@@ -252,7 +252,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                       >
                         <Input
                           value={selected.lowerSpec}
-                          onChange={(_, d) => updateSelected({ lowerSpec: d.value })}
+                          onChange={(value) => updateSelected({ lowerSpec: value })}
                         />
                       </Field>
                     </div>
@@ -264,7 +264,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                       >
                         <Input
                           value={selected.targetSpec}
-                          onChange={(_, d) => updateSelected({ targetSpec: d.value })}
+                          onChange={(value) => updateSelected({ targetSpec: value })}
                         />
                       </Field>
                     </div>
@@ -276,7 +276,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                       >
                         <Input
                           value={selected.upperSpec}
-                          onChange={(_, d) => updateSelected({ upperSpec: d.value })}
+                          onChange={(value) => updateSelected({ upperSpec: value })}
                         />
                       </Field>
                     </div>
@@ -315,7 +315,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
               >
                 <Input
                   value={selected.reportingInfo}
-                  onChange={(_, d) => updateSelected({ reportingInfo: d.value })}
+                  onChange={(value) => updateSelected({ reportingInfo: value })}
                 />
               </Field>
             </>
@@ -329,7 +329,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
       <Field label={t("businessData.productGroup.operations.manageParameters.fields.comments")}>
         <Input
           value={comments}
-          onChange={(_, d) => setComments(d.value)}
+          onChange={setComments}
           placeholder={t("businessData.productGroup.operations.create.placeholders.enterComments")}
         />
       </Field>

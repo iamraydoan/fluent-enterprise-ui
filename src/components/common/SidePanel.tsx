@@ -47,7 +47,7 @@ export function SidePanel({ title, collapsed, onToggle, children }: SidePanelPro
     return (
       <div>
         <Button
-          appearance="subtle"
+          variant="subtle"
           icon={<PanelLeftExpand20Regular />}
           aria-label={t("common.expandPanel")}
           onClick={onToggle}
@@ -62,7 +62,7 @@ export function SidePanel({ title, collapsed, onToggle, children }: SidePanelPro
           {title}
         </Text>
         <Button
-          appearance="subtle"
+          variant="subtle"
           icon={<PanelLeftContract20Regular />}
           aria-label={t("common.collapsePanel")}
           onClick={onToggle}

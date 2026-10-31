@@ -45,7 +45,7 @@ export function InsertDialog({ open, onClose, onConfirm }: InsertDialogProps) {
     >
       <Input
         value={code}
-        onChange={(_, data) => setCode(data.value)}
+        onChange={setCode}
         placeholder={t(L.placeholder)}
         aria-label={t(L.placeholder)}
         autoFocus

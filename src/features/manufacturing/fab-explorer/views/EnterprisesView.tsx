@@ -147,7 +147,7 @@ export function EnterprisesView({ nav, go }: EnterprisesViewProps) {
           <Input
             placeholder={t("fabExplorer.search")}
             value={search}
-            onChange={(_, data) => setSearch(data.value)}
+            onChange={setSearch}
             style={{ width: "200px" }}
           />
         </div>

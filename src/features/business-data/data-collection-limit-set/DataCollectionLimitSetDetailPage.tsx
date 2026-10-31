@@ -140,7 +140,7 @@ export function DataCollectionLimitSetDetailPage() {
                       count: ls.parameterLimits.length,
                     })}
                   </Text>
-                  <Button appearance="secondary" size="small" onClick={openManageParameters}>
+                  <Button variant="secondary" size="sm" onClick={openManageParameters}>
                     {t("businessData.dataCollectionLimitSet.operations.manageParametersTitle")}
                   </Button>
                 </div>

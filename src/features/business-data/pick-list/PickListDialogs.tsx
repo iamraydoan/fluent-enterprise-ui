@@ -90,7 +90,7 @@ export function EditPickListDialog({
         <Input value={initialName ?? ""} disabled />
       </Field>
       <Field label={t(`${P}.fields.description` as never)}>
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Input value={description} onChange={setDescription} />
       </Field>
     </BaseDialog>
   );

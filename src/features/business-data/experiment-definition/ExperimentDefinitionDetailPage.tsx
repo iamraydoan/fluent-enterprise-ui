@@ -207,7 +207,7 @@ export function ExperimentDefinitionDetailPage({ name }: { name: string }) {
           ]}
         />
         <div style={{ marginTop: "12px" }}>
-          <Button appearance="primary" onClick={() => setSetEffectiveOpen(true)}>
+          <Button variant="primary" onClick={() => setSetEffectiveOpen(true)}>
             {t("businessData.experimentDefinition.actions.setEffective")}
           </Button>
         </div>

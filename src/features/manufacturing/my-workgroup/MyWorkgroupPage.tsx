@@ -28,6 +28,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles, tileSurface} from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { PanelSettingsDialog } from "./dialogs";
 
 const usePageStyles = makeStyles({
@@ -235,7 +236,7 @@ function ResourceTile({ tile, onOpen }: { tile: WorkgroupResourceTile; onOpen: (
     <div
       className={mergeClasses(sharedStyles.contentCard, styles.tile)}
       style={{
-        backgroundColor: isUp ? tileSurface.backgroundColor : "#FDECEC",
+        backgroundColor: isUp ? tileSurface.backgroundColor : theme.color.dangerSubtle,
       }}
       onClick={onOpen}
       role="button"
@@ -366,7 +367,7 @@ export function MyWorkgroupPage() {
         <div className={styles.side}>
           {collapsed ? (
             <Button
-              appearance="subtle"
+              variant="subtle"
               icon={<PanelLeftExpand20Regular />}
               aria-label={t("common.expandPanel")}
               onClick={() => setCollapsed(false)}
@@ -402,13 +403,13 @@ export function MyWorkgroupPage() {
                 </Menu>
                 <span className={styles.headerActions}>
                   <Button
-                    appearance="subtle"
+                    variant="subtle"
                     icon={<Settings20Regular />}
                     aria-label={t("myWorkgroup.settings")}
                     onClick={() => setSettingsOpen(true)}
                   />
                   <Button
-                    appearance="subtle"
+                    variant="subtle"
                     icon={<ChevronLeft20Regular />}
                     aria-label={t("common.collapsePanel")}
                     onClick={() => setCollapsed(true)}
@@ -473,12 +474,12 @@ export function MyWorkgroupPage() {
                   <span className={styles.facilityWrap}>
                     <Input
                       value={resourceFacility}
-                      onChange={(_, data) => setResourceFacility(data.value)}
+                      onChange={setResourceFacility}
                       placeholder={t(L.facilityPlaceholder)}
                       style={{ width: "140px" }}
                     />
                     <Button
-                      appearance="subtle"
+                      variant="subtle"
                       icon={<Search20Regular />}
                       aria-label={t(L.facility)}
                     />
@@ -492,7 +493,7 @@ export function MyWorkgroupPage() {
                 />
                 <Input
                   value={resourceName}
-                  onChange={(_, data) => setResourceName(data.value)}
+                  onChange={setResourceName}
                   placeholder={t(L.resourceNamePlaceholder)}
                   contentBefore={<Search20Regular />}
                   style={{ width: "220px" }}
@@ -535,12 +536,12 @@ export function MyWorkgroupPage() {
                   <span className={styles.facilityWrap}>
                     <Input
                       value={stepFacility}
-                      onChange={(_, data) => setStepFacility(data.value)}
+                      onChange={setStepFacility}
                       placeholder={t(L.facilityPlaceholder)}
                       style={{ width: "140px" }}
                     />
                     <Button
-                      appearance="subtle"
+                      variant="subtle"
                       icon={<Search20Regular />}
                       aria-label={t(L.facility)}
                     />
@@ -548,7 +549,7 @@ export function MyWorkgroupPage() {
                 </span>
                 <Input
                   value={stepName}
-                  onChange={(_, data) => setStepName(data.value)}
+                  onChange={setStepName}
                   placeholder={t(L.stepNamePlaceholder)}
                   contentBefore={<Search20Regular />}
                   style={{ width: "220px" }}

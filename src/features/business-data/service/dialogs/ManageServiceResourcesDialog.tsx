@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Body1Strong, Button, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ManageServiceResourcesDialogProps {
   open: boolean;
@@ -71,10 +72,10 @@ export function ManageServiceResourcesDialog({
           >
             <Body1Strong>{t(`${k}.resources`, { count: rows.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addRow}>
+              <Button size="sm" variant="subtle" onClick={addRow}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeRow(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeRow(selected)}>
                 🗑
               </Button>
             </div>
@@ -94,7 +95,7 @@ export function ManageServiceResourcesDialog({
                 style={{
                   padding: "8px 12px",
                   cursor: "pointer",
-                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >
@@ -109,10 +110,10 @@ export function ManageServiceResourcesDialog({
         <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.resource`)}>
-            <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+            <Input value={resource} onChange={setResource} />
           </Field>
           <Field label={t(`${k}.enabledInResource`)}>
-            <Switch checked={enabled} onChange={(_, d) => setEnabled(d.checked)} />
+            <Switch checked={enabled} onChange={setEnabled} />
           </Field>
         </div>
       </div>

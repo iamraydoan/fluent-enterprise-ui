@@ -83,24 +83,24 @@ export function AssignEmployeesDialog({
       width="min(1200px, 94vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {step === 2 && (
-            <Button appearance="secondary" onClick={() => setStep(1)}>
+            <Button variant="secondary" onClick={() => setStep(1)}>
               {t("common.back")}
             </Button>
           )}
           {step === 1 ? (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => setStep(2)}
               disabled={selected.length === 0}
             >
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {t(`${k}.assign`)}
             </Button>
           )}
@@ -116,7 +116,7 @@ export function AssignEmployeesDialog({
           <div style={{ flexGrow: 1 }}>
             <div style={{ display: "flex", columnGap: 12, marginBottom: 12 }}>
               <Field label={t(`${k}.search`)}>
-                <Input value={search} onChange={(_, d) => setSearch(d.value)} />
+                <Input value={search} onChange={setSearch} />
               </Field>
             </div>
             <div style={{ marginBottom: 8 }}>
@@ -200,10 +200,10 @@ export function AssignEmployeesDialog({
           <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
             <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
             <Field label={t(`${k}.qualificationDate`)} required>
-              <Input value={qualificationDate} onChange={(_, d) => setQualificationDate(d.value)} />
+              <Input value={qualificationDate} onChange={setQualificationDate} />
             </Field>
             <Field label={t(`${k}.validTo`)}>
-              <Input value={validTo} onChange={(_, d) => setValidTo(d.value)} />
+              <Input value={validTo} onChange={setValidTo} />
             </Field>
             <Field label={t(`${k}.reason`)} required>
               <select value={reason} onChange={(e) => setReason(e.target.value)}>
@@ -224,17 +224,17 @@ export function AssignEmployeesDialog({
               </select>
             </Field>
             <Field label={t(`${k}.remarks`)}>
-              <Input value={remarks} onChange={(_, d) => setRemarks(d.value)} />
+              <Input value={remarks} onChange={setRemarks} />
             </Field>
             <Field label={t(`${k}.evidence`)}>
-              <Input value={evidence} onChange={(_, d) => setEvidence(d.value)} />
+              <Input value={evidence} onChange={setEvidence} />
             </Field>
           </div>
         </div>
       )}
 
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

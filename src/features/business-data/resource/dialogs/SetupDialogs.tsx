@@ -93,10 +93,10 @@ function SetupDialogBase({
         </TableBody>
       </Table>
       <Field label={t(`${k}.reason`)}>
-        <Input value={reason} onChange={(_, d) => setReason(d.value)} />
+        <Input value={reason} onChange={setReason} />
       </Field>
       <Field label={t(`${k}.comment`)}>
-        <Input value={comment} onChange={(_, d) => setComment(d.value)} />
+        <Input value={comment} onChange={setComment} />
       </Field>
     </BaseDialog>
   );
@@ -242,7 +242,7 @@ export function ViewSetupDialog({
           onCancel={onClose}
           onConfirm={onClose}
           confirmLabel={t("common.close")}
-          confirmAppearance="secondary"
+          confirmVariant="secondary"
           hideCancel
         />
       }
@@ -293,7 +293,7 @@ export function ViewLineSetupDialog({
           onCancel={onClose}
           onConfirm={onClose}
           confirmLabel={t("common.close")}
-          confirmAppearance="secondary"
+          confirmVariant="secondary"
           hideCancel
         />
       }

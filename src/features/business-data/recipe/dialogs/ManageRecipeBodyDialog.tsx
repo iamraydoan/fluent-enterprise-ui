@@ -56,8 +56,8 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
         </Field>
         <Field label={t(`${k}.fileName`)} required={!isNone}>
           <div style={{ display: "flex", columnGap: 8 }}>
-            <Input value={fileName} onChange={(_, d) => setFileName(d.value)} />
-            <Button appearance="secondary" onClick={() => {}}>
+            <Input value={fileName} onChange={setFileName} />
+            <Button variant="secondary" onClick={() => {}}>
               {t(`${k}.uploadBody`)}
             </Button>
           </div>
@@ -75,7 +75,7 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
         </div>
       </div>
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

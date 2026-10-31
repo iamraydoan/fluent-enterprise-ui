@@ -62,10 +62,10 @@ export function ManageResourceTraineesDialog({
         <div style={{ display: "flex", columnGap: "8px" }}>
           <Input
             value={newTrainee}
-            onChange={(_, data) => setNewTrainee(data.value)}
+            onChange={setNewTrainee}
             style={{ flexGrow: 1 }}
           />
-          <Button appearance="primary" onClick={addTrainee}>
+          <Button variant="primary" onClick={addTrainee}>
             {t("fabExplorer.addTrainee")}
           </Button>
         </div>
@@ -74,7 +74,7 @@ export function ManageResourceTraineesDialog({
         {trainees.map((e) => (
           <div key={e} className={styles.row}>
             <span>{e}</span>
-            <Button appearance="secondary" size="small" onClick={() => removeTrainee(e)}>
+            <Button variant="secondary" size="sm" onClick={() => removeTrainee(e)}>
               {t("fabExplorer.removeTrainee")}
             </Button>
           </div>

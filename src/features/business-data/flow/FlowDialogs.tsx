@@ -34,7 +34,7 @@ export function FlowLogicalNamesDialog({ onClose }: { onClose: () => void }) {
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.update)} />}
     >
       <div className={styles.row}>
-        <Button size="small" onClick={() => setNames([...names, ""])}>
+        <Button size="sm" onClick={() => setNames([...names, ""])}>
           + {t(L.addLogicalName)}
         </Button>
       </div>
@@ -43,9 +43,9 @@ export function FlowLogicalNamesDialog({ onClose }: { onClose: () => void }) {
           <Input
             placeholder={t(L.logicalName)}
             value={n}
-            onChange={(_, d) => setNames(names.map((x, j) => (j === i ? d.value : x)))}
+            onChange={(value) => setNames(names.map((x, j) => (j === i ? value : x)))}
           />
-          <Button size="small" onClick={() => setNames(names.filter((_, j) => j !== i))}>
+          <Button size="sm" onClick={() => setNames(names.filter((_, j) => j !== i))}>
             {t(L.remove)}
           </Button>
         </div>
@@ -65,13 +65,13 @@ export function FlowReworkPathsDialog({ onClose }: { onClose: () => void }) {
       width="600px"
       onClose={onClose}
       footer={
-        <Button appearance="primary" onClick={onClose}>
+        <Button variant="primary" onClick={onClose}>
           {t(L.close)}
         </Button>
       }
     >
       <FormField label={<>{t(L.filterByStep)}</>} labelWidth="150px">
-        <Input value={filter} onChange={(_, d) => setFilter(d.value)} />
+        <Input value={filter} onChange={setFilter} />
       </FormField>
     </BaseDialog>
   );

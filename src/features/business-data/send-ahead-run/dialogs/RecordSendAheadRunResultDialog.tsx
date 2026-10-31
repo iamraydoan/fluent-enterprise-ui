@@ -44,7 +44,7 @@ export function RecordSendAheadRunResultDialog({
           </select>
         </Field>
         <Field label={t(`${k}.remarks`)}>
-          <Input value={remarks} onChange={(_, d) => setRemarks(d.value)} />
+          <Input value={remarks} onChange={setRemarks} />
         </Field>
       </div>
     </BaseDialog>

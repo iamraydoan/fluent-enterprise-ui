@@ -3,6 +3,7 @@ import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/commo
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ManageFeedStepsDialogProps {
   open: boolean;
@@ -71,10 +72,10 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
           >
             <Body1Strong>{t(`${k}.steps`, { count: steps.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
-              <Button size="small" appearance="subtle" onClick={addStep}>
+              <Button size="sm" variant="subtle" onClick={addStep}>
                 +
               </Button>
-              <Button size="small" appearance="subtle" onClick={() => removeStep(selected)}>
+              <Button size="sm" variant="subtle" onClick={() => removeStep(selected)}>
                 🗑
               </Button>
             </div>
@@ -94,7 +95,7 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
                 style={{
                   padding: "8px 12px",
                   cursor: "pointer",
-                  backgroundColor: i === selected ? "#e3f2fd" : "transparent",
+                  backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >
@@ -110,7 +111,7 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
             <Field key={f.key} label={t(f.labelKey)}>
               <Input
                 value={values[f.key] ?? steps[selected]?.[f.key] ?? ""}
-                onChange={(_, d) => setValues({ ...values, [f.key]: d.value })}
+                onChange={(value) => setValues({ ...values, [f.key]: value })}
               />
             </Field>
           ))}

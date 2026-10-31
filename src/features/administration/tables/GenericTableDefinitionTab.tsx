@@ -1,9 +1,10 @@
 import { useState } from "react";
 import type { GenericTableDetail } from "@/api";
 import { Card, CardGrid, Empty, KV, Panel } from "@/components/common";
-import { Body1Strong, Caption1, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Body1Strong, Caption1, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDefStyles = makeStyles({
   layout: { display: "flex", columnGap: "12px", minHeight: "400px" },
@@ -22,12 +23,12 @@ const useDefStyles = makeStyles({
     textAlign: "left",
     fontFamily: "inherit",
     fontSize: "13px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    borderRadius: theme.radius.md,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   navActive: {
-    backgroundColor: tokens.colorNeutralBackground1Selected,
-    fontWeight: tokens.fontWeightSemibold,
+    backgroundColor: theme.color.surfaceSelected,
+    fontWeight: theme.font.weightSemibold,
   },
   main: { flexGrow: 1, minWidth: 0 },
 });

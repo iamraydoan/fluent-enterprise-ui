@@ -121,7 +121,7 @@ export function MainLayout() {
             <Text weight="semibold" size={400}>
               {t("mainLayout.noOpenTabs")}
             </Text>
-            <Button appearance="primary" onClick={() => handleNavigate(ADMINISTRATION_SECTION_ID)}>
+            <Button variant="primary" onClick={() => handleNavigate(ADMINISTRATION_SECTION_ID)}>
               {t("mainLayout.openAdministration")}
             </Button>
           </div>

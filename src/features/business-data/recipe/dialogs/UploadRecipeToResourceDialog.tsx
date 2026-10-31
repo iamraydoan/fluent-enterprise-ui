@@ -77,7 +77,7 @@ export function UploadRecipeToResourceDialog({
         </TableBody>
       </Table>
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

@@ -157,12 +157,12 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           {step > 0 && <Button onClick={() => setStep(step - 1)}>{t(`${P}.back` as never)}</Button>}
           {step < 1 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+            <Button variant="primary" onClick={() => setStep(step + 1)}>
               {t(`${P}.next` as never)}
             </Button>
           ) : (
             <Button
-              appearance="primary"
+              variant="primary"
               onClick={() => {
                 onSubmit?.();
                 handleClose();
@@ -200,10 +200,10 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
         {step === 0 && (
           <>
             <Field label={t(`${P}.fields.name` as never)} required>
-              <Input value={name} onChange={(_, d) => setName(d.value)} />
+              <Input value={name} onChange={setName} />
             </Field>
             <Field label={t(`${P}.fields.description` as never)}>
-              <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+              <Input value={description} onChange={setDescription} />
             </Field>
             <SelectField
               label={t(`${P}.fields.type` as never)}
@@ -221,7 +221,7 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
               label={t(`${P}.fields.displayName` as never)}
               hint={t(`${P}.hints.displayName` as never)}
             >
-              <Input value={displayName} onChange={(_, d) => setDisplayName(d.value)} />
+              <Input value={displayName} onChange={setDisplayName} />
             </Field>
             <SelectField
               label={t(`${P}.fields.scope` as never)}
@@ -239,7 +239,7 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
               hint={t(`${P}.hints.dataType` as never)}
             />
             <Field label={t(`${P}.fields.units` as never)}>
-              <Input value={units} onChange={(_, d) => setUnits(d.value)} />
+              <Input value={units} onChange={setUnits} />
             </Field>
           </>
         )}
@@ -273,7 +273,7 @@ export function EditParameterDialog({
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -288,7 +288,7 @@ export function EditParameterDialog({
         <Input value={initialName ?? ""} disabled />
       </Field>
       <Field label={t(`${P}.fields.description` as never)}>
-        <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+        <Input value={description} onChange={setDescription} />
       </Field>
     </BaseDialog>
   );
@@ -314,7 +314,7 @@ export function CloneParameterDialog({ open, onClose, onSubmit }: DialogProps) {
         <>
           <Button onClick={handleClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               handleClose();
@@ -326,7 +326,7 @@ export function CloneParameterDialog({ open, onClose, onSubmit }: DialogProps) {
       }
     >
       <Field label={t(`${P}.fields.name` as never)} hint={t(`${P}.hints.nameGenerator` as never)}>
-        <Input value={name} onChange={(_, d) => setName(d.value)} />
+        <Input value={name} onChange={setName} />
       </Field>
     </BaseDialog>
   );
@@ -345,7 +345,7 @@ export function TerminateParameterDialog({ open, onClose, onSubmit }: DialogProp
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();
@@ -374,7 +374,7 @@ export function UnterminateParameterDialog({ open, onClose, onSubmit }: DialogPr
         <>
           <Button onClick={onClose}>{t(`${P}.cancel` as never)}</Button>
           <Button
-            appearance="primary"
+            variant="primary"
             onClick={() => {
               onSubmit?.();
               onClose();

@@ -48,20 +48,20 @@ export function ResourceJobFormDialog({
       width="min(1000px, 92vw)"
       footer={
         <>
-          <Button appearance="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
           {!nameReadOnly && step > 1 && (
-            <Button appearance="secondary" onClick={() => setStep(step - 1)}>
+            <Button variant="secondary" onClick={() => setStep(step - 1)}>
               {t("common.back")}
             </Button>
           )}
           {!nameReadOnly && step < 3 ? (
-            <Button appearance="primary" onClick={() => setStep(step + 1)}>
+            <Button variant="primary" onClick={() => setStep(step + 1)}>
               {t("common.next")}
             </Button>
           ) : (
-            <Button appearance="primary" onClick={onClose}>
+            <Button variant="primary" onClick={onClose}>
               {submitLabel}
             </Button>
           )}
@@ -75,19 +75,19 @@ export function ResourceJobFormDialog({
       {(step === 1 || nameReadOnly) && (
         <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
           <Field label={t(`${k}.name`)} required>
-            <Input value={name} readOnly={nameReadOnly} onChange={(_, d) => setName(d.value)} />
+            <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
           <Field label={t(`${k}.description`)}>
-            <Input value={description} onChange={(_, d) => setDescription(d.value)} />
+            <Input value={description} onChange={setDescription} />
           </Field>
           <Field label={t(`${k}.resource`)} required>
-            <Input value={resource} onChange={(_, d) => setResource(d.value)} />
+            <Input value={resource} onChange={setResource} />
           </Field>
           <Field label={t(`${k}.type`)}>
-            <Input value={type} onChange={(_, d) => setType(d.value)} />
+            <Input value={type} onChange={setType} />
           </Field>
           <Field label={t(`${k}.subType`)}>
-            <Input value={subType} onChange={(_, d) => setSubType(d.value)} />
+            <Input value={subType} onChange={setSubType} />
           </Field>
           {!nameReadOnly && (
             <Field label={t(`${k}.initialSystemState`)}>
@@ -111,17 +111,17 @@ export function ResourceJobFormDialog({
           </Field>
           <div style={{ display: "flex", columnGap: 12 }}>
             <Field label={t(`${k}.priority`)}>
-              <Input value={priority} onChange={(_, d) => setPriority(d.value)} />
+              <Input value={priority} onChange={setPriority} />
             </Field>
             <Field label={t(`${k}.progress`)}>
-              <Input value={progress} onChange={(_, d) => setProgress(d.value)} />
+              <Input value={progress} onChange={setProgress} />
             </Field>
           </div>
           <Field label={t(`${k}.equipmentJobId`)}>
-            <Input value={equipmentJobId} onChange={(_, d) => setEquipmentJobId(d.value)} />
+            <Input value={equipmentJobId} onChange={setEquipmentJobId} />
           </Field>
           <Field label={t(`${k}.jobInformation`)}>
-            <Input value={jobInformation} onChange={(_, d) => setJobInformation(d.value)} />
+            <Input value={jobInformation} onChange={setJobInformation} />
           </Field>
         </div>
       )}
@@ -135,7 +135,7 @@ export function ResourceJobFormDialog({
       )}
 
       <Field label={t(`${k}.comments`)}>
-        <Input value={comments} onChange={(_, d) => setComments(d.value)} />
+        <Input value={comments} onChange={setComments} />
       </Field>
     </BaseDialog>
   );

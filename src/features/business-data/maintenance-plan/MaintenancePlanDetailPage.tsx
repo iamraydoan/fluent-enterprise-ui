@@ -6,6 +6,7 @@ import { Wrench24Regular } from "@/components/icons";
 import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { AssociateMaintenancePlanDialog } from "./dialogs/AssociateMaintenancePlanDialog";
@@ -122,7 +123,7 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
                 display: "block",
                 width: "100%",
                 textAlign: "left",
-                background: index === selectedActivity ? "#e8f0f8" : "transparent",
+                background: index === selectedActivity ? theme.color.brandSubtle : "transparent",
                 border: "none",
                 padding: "8px 12px",
                 cursor: "pointer",
