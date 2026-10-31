@@ -154,7 +154,8 @@
     "create": "作成",
     "add": "追加",
     "remove": "削除",
-    "none": "なし"
+    "none": "なし",
+    "selectAll": "すべて選択"
   },
   "configuration": {
     "pageLabel": "構成",
@@ -7771,7 +7772,9 @@
           "materialName": "材料名",
           "processingType": "処理タイプ",
           "systemState": "システム状態",
-          "resourceName": "リソース名"
+          "resourceName": "リソース名",
+          "stateQueued": "Queued",
+          "stateInProcess": "In Process"
         },
         "columns": {
           "material": "材料",
@@ -7791,7 +7794,9 @@
           "order": "順序",
           "storagePosition": "保管位置",
           "container": "コンテナ"
-        }
+        },
+        "materialsTitle": "Materials ({{count}})",
+        "resourcesTitle": "Resources ({{count}})"
       },
       "resourceView": {
         "back": "戻る",
@@ -7819,7 +7824,9 @@
           "step": "工程",
           "state": "状態",
           "all": "すべて"
-        }
+        },
+        "storageTitle": "Stored Materials ({{count}})",
+        "materialsTitle": "Materials ({{count}})"
       },
       "operations": {
         "refresh": "更新",

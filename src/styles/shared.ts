@@ -5,6 +5,11 @@ export const cardSurface = {
   borderRadius: "12px",
 };
 
+export const tileSurface = {
+  backgroundColor: "#EAF3F9",
+  hoverBackgroundColor: "#DCEBF5",
+};
+
 export const useSharedStyles = makeStyles({
   pageTabsBar: {
     display: "flex",

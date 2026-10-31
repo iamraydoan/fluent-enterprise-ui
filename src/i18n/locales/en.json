@@ -154,7 +154,8 @@
     "create": "Create",
     "add": "Add",
     "remove": "Remove",
-    "none": "None"
+    "none": "None",
+    "selectAll": "Select all"
   },
   "configuration": {
     "pageLabel": "Configuration",
@@ -7771,7 +7772,9 @@
           "materialName": "Material Name",
           "processingType": "PROCESSING TYPE",
           "systemState": "SYSTEM STATE",
-          "resourceName": "Resource Name"
+          "resourceName": "Resource Name",
+          "stateQueued": "Queued",
+          "stateInProcess": "In Process"
         },
         "columns": {
           "material": "MATERIAL",
@@ -7791,7 +7794,9 @@
           "order": "ORDER",
           "storagePosition": "STORAGE POSITION",
           "container": "CONTAINER"
-        }
+        },
+        "materialsTitle": "Materials ({{count}})",
+        "resourcesTitle": "Resources ({{count}})"
       },
       "resourceView": {
         "back": "Back",
@@ -7819,7 +7824,9 @@
           "step": "STEP",
           "state": "STATE",
           "all": "ALL"
-        }
+        },
+        "storageTitle": "Stored Materials ({{count}})",
+        "materialsTitle": "Materials ({{count}})"
       },
       "operations": {
         "refresh": "Refresh",

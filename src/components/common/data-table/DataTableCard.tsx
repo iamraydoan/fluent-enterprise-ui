@@ -6,7 +6,7 @@ import type {
   RowData,
   SortingState,
 } from "@tanstack/react-table";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { SelectFilter } from "@/components/common/SelectFilter";
 import { ColumnChooser } from "@/components/common/data-table/ColumnChooser";
 import type { DataTableMeta } from "@/components/common/data-table/ColumnChooser";
@@ -47,6 +47,7 @@ import { useSharedStyles } from "@/styles/shared";
 export interface DataTableCardApi {
   resetFilters: () => void;
   resetColumns: () => void;
+  refresh: () => void;
 }
 
 interface DataTableCardProps<TRow extends RowData> {
@@ -58,6 +59,9 @@ interface DataTableCardProps<TRow extends RowData> {
   getRowId?: (row: TRow) => string;
   onRowClick?: (row: TRow) => void;
   apiRef?: { current: DataTableCardApi | null };
+  selectable?: boolean;
+  selectedIds?: Set<string>;
+  onSelectionChange?: (ids: Set<string>) => void;
 }
 
 function defaultSelectValues(filters: DataFilter[]): Record<string, string> {
@@ -101,6 +105,9 @@ export function DataTableCard<TRow extends RowData>({
   getRowId,
   onRowClick,
   apiRef,
+  selectable = false,
+  selectedIds,
+  onSelectionChange,
 }: DataTableCardProps<TRow>) {
   const { t, language } = useAppTranslation();
   const sharedStyles = useSharedStyles();
@@ -138,7 +145,7 @@ export function DataTableCard<TRow extends RowData>({
     }
   }
 
-  const { data, isLoading } = useListQuery({
+  const { data, isLoading, refetch } = useListQuery({
     page: pagination.pageIndex + 1,
     limit: pagination.pageSize,
     sort: sorting.length > 0 ? `${sorting[0].desc ? "-" : ""}${sorting[0].id}` : undefined,
@@ -147,10 +154,75 @@ export function DataTableCard<TRow extends RowData>({
   const rows = data?.data ?? emptyRows;
   const total = data?.meta.total ?? 0;
 
-  const columnDefs = useMemo(
-    () => toColumnDefs(columns, t, language, onRowClick),
-    [columns, t, language, onRowClick],
+  const resolveRowId = useCallback(
+    (row: TRow): string => (getRowId ? getRowId(row) : ((row as { id?: string }).id ?? "")),
+    [getRowId],
   );
+
+  const toggleRow = useCallback(
+    (id: string) => {
+      if (!onSelectionChange) return;
+      const next = new Set(selectedIds ?? []);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      onSelectionChange(next);
+    },
+    [onSelectionChange, selectedIds],
+  );
+
+  const toggleAllRows = useCallback(() => {
+    if (!onSelectionChange) return;
+    const pageIds = rows.map(resolveRowId);
+    const allSelected = pageIds.length > 0 && pageIds.every((id) => selectedIds?.has(id));
+    if (allSelected) {
+      const next = new Set(selectedIds ?? []);
+      for (const id of pageIds) next.delete(id);
+      onSelectionChange(next);
+    } else {
+      onSelectionChange(new Set([...(selectedIds ?? []), ...pageIds]));
+    }
+  }, [onSelectionChange, rows, selectedIds, resolveRowId]);
+
+  const columnDefs = useMemo(() => {
+    const defs = toColumnDefs(columns, t, language, onRowClick);
+    if (!selectable) return defs;
+    const pageIds = rows.map(resolveRowId);
+    const allSelected = pageIds.length > 0 && pageIds.every((id) => selectedIds?.has(id));
+    const selectColumn: (typeof defs)[number] = {
+      id: "__select__",
+      header: () => (
+        <Checkbox
+          checked={allSelected}
+          onChange={toggleAllRows}
+          aria-label={t("common.selectAll")}
+        />
+      ),
+      cell: (info) => {
+        const id = resolveRowId(info.row.original);
+        return (
+          <Checkbox
+            checked={!!selectedIds?.has(id)}
+            onChange={() => toggleRow(id)}
+            aria-label={id}
+            onClick={(e) => e.stopPropagation()}
+          />
+        );
+      },
+      meta: { sortable: false, width: "40px" },
+    };
+    return [selectColumn, ...defs];
+  }, [
+    columns,
+    t,
+    language,
+    onRowClick,
+    selectable,
+    rows,
+    selectedIds,
+    resolveRowId,
+    toggleRow,
+    toggleAllRows,
+  ]);
   const table = useTable({
     features: dataTableFeatures,
     columns: columnDefs,
@@ -187,7 +259,7 @@ export function DataTableCard<TRow extends RowData>({
 
   useEffect(() => {
     if (apiRef) {
-      apiRef.current = { resetFilters, resetColumns };
+      apiRef.current = { resetFilters, resetColumns, refresh: () => refetch?.() };
     }
   });
 
@@ -318,18 +390,26 @@ export function DataTableCard<TRow extends RowData>({
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                onClick={onRowClick ? () => onRowClick(row.original) : undefined}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id} className={sharedStyles.tableCell}>
-                    <table.FlexRender cell={cell} />
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
+            {table.getRowModel().rows.map((row) => {
+              const isSelected = selectable && !!selectedIds?.has(resolveRowId(row.original));
+              return (
+                <TableRow
+                  key={row.id}
+                  onClick={onRowClick ? () => onRowClick(row.original) : undefined}
+                  style={
+                    isSelected
+                      ? { backgroundColor: tokens.colorNeutralBackground1Selected }
+                      : undefined
+                  }
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id} className={sharedStyles.tableCell}>
+                      <table.FlexRender cell={cell} />
+                    </TableCell>
+                  ))}
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
         {!isLoading && rows.length === 0 && (
