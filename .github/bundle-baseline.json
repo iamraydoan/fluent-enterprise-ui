@@ -1,0 +1,6 @@
+{
+  "initialJsGzipBudgetKb": 350,
+  "measuredAt": "2026-11-01",
+  "measuredGzipKb": 320,
+  "note": "Initial JS = entry script + modulepreload chunks from dist/index.html (gzip). Raise only with justification; prefer code-splitting or lazy-loading instead."
+}

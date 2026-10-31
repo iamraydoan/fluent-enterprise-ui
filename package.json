@@ -67,6 +67,7 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "check:deps": "depcruise src",
+    "check:bundle": "node scripts/check-bundle-size.mjs",
     "knip": "knip",
     "test": "vitest run",
     "test:watch": "vitest --project unit",
