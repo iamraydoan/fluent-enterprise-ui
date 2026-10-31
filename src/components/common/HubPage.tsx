@@ -4,12 +4,13 @@ import { Input, makeStyles, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
+import { cardSurface } from "@/styles/shared";
 
 const useHubStyles = makeStyles({
   page: {
     flexGrow: 1,
     minHeight: 0,
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
     borderRadius: "0 0 12px 12px",
     display: "flex",
     flexDirection: "column",

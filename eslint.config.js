@@ -98,6 +98,14 @@ export default tseslint.config(
       "react-refresh/only-export-components": "error",
       "no-console": "error",
       "no-debugger": "error",
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "Literal[value='#FAFAFA'], Literal[value='#fafafa']",
+          message:
+            "Do not hardcode the card surface color. Spread cardSurface from @/styles/shared instead (single source of truth).",
+        },
+      ],
       "no-alert": "error",
       "no-eval": "error",
       "import-x/no-duplicates": "error",
@@ -136,6 +144,10 @@ export default tseslint.config(
         },
       ],
     },
+  },
+  {
+    files: ["src/styles/shared.ts"],
+    rules: { "no-restricted-syntax": "off" },
   },
   {
     files: ["src/routes/**/*.{ts,tsx}"],

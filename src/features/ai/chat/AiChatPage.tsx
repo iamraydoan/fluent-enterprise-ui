@@ -28,12 +28,13 @@ import {
   Tooltip,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { cardSurface } from "@/styles/shared";
 import { CHAT_EXAMPLES, SEED_CHATS } from "./data";
 import type { ChatSession } from "./data";
 
 const useChatStyles = makeStyles({
   bar: {
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
     borderRadius: "0 0 12px 12px",
     height: "36px",
     display: "flex",

@@ -7,6 +7,7 @@ import { PageTabs } from "@/layouts/PageTabs";
 import { Sidebar } from "@/layouts/Sidebar";
 import { useTabsStore } from "@/stores/tabs-store";
 import type { PageTab } from "@/stores/tabs-store";
+import { cardSurface } from "@/styles/shared";
 
 const useStyles = makeStyles({
   layoutGrid: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
   },
   welcome: {
     flexGrow: 1,
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
     borderRadius: "0 0 12px 12px",
     display: "flex",
     flexDirection: "column",

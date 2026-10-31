@@ -20,7 +20,7 @@ export const useSharedStyles = makeStyles({
     height: "42px",
     width: "244px",
     padding: "0 10px",
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
     borderRadius: "12px 12px 0 0",
     boxSizing: "border-box",
   },
@@ -32,7 +32,7 @@ export const useSharedStyles = makeStyles({
     paddingRight: "6px",
   },
 
-  headerBlock: { backgroundColor: "#FAFAFA", borderRadius: "0 0 12px 12px", flexShrink: 0 },
+  headerBlock: { ...cardSurface, borderRadius: "0 0 12px 12px", flexShrink: 0 },
   actionBarButtons: { display: "flex", alignItems: "stretch", padding: "6px 8px 0" },
   actionBarGroup: {
     display: "flex",

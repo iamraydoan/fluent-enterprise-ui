@@ -3,12 +3,13 @@ import type { ReactElement } from "react";
 import { Wrench24Regular } from "@/components/icons";
 import { Caption1, makeStyles, Text, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { cardSurface } from "@/styles/shared";
 
 const usePlaceholderStyles = makeStyles({
   stub: {
     flexGrow: 1,
     minHeight: 0,
-    backgroundColor: "#FAFAFA",
+    ...cardSurface,
     borderRadius: "0 0 12px 12px",
     display: "flex",
     flexDirection: "column",
