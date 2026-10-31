@@ -7622,5 +7622,305 @@
         "menuLabel": "Hủy kết thúc"
       }
     }
+  },
+  "manufacturing": {
+    "fabExplorer": {
+      "stepView": {
+        "materials": "Vật liệu",
+        "resources": "Tài nguyên",
+        "back": "Quay lại",
+        "refreshCategory": "Làm mới {{category}}",
+        "itemsSelected": "{{count}} item selected",
+        "itemsSelected_plural": "{{count}} items selected",
+        "details": "CHI TIẾT",
+        "holdsOffFlows": "GIỮ/LỆCH LUỒNG",
+        "protocols": "QUY TRÌNH",
+        "documents": "TÀI LIỆU",
+        "filters": {
+          "state": "TRẠNG THÁI",
+          "all": "TẤT CẢ",
+          "product": "SẢN PHẨM",
+          "productPlaceholder": "Sản phẩm",
+          "flow": "LUỒNG",
+          "flowPlaceholder": "Luồng",
+          "materialName": "Tên vật liệu",
+          "processingType": "LOẠI XỬ LÝ",
+          "systemState": "TRẠNG THÁI HỆ THỐNG",
+          "resourceName": "Tên tài nguyên"
+        },
+        "columns": {
+          "material": "VẬT LIỆU",
+          "qty": "SL",
+          "units": "ĐVT",
+          "product": "SẢN PHẨM",
+          "flow": "LUỒNG",
+          "step": "CÔNG ĐOẠN",
+          "priority": "ƯU TIÊN",
+          "state": "TRẠNG THÁI",
+          "inOffFlow": "LỆCH LUỒNG",
+          "resource": "TÀI NGUYÊN",
+          "description": "MÔ TẢ",
+          "processingType": "LOẠI XỬ LÝ",
+          "group": "NHÓM",
+          "systemState": "TRẠNG THÁI HỆ THỐNG",
+          "order": "THỨ TỰ",
+          "storagePosition": "VỊ TRÍ KHO",
+          "container": "THÙNG CHỨA"
+        }
+      },
+      "resourceView": {
+        "back": "Quay lại",
+        "dispatchList": "Danh sách điều phối",
+        "materialsAtResource": "Vật liệu tại tài nguyên",
+        "loadPorts": "Cổng nạp",
+        "subResources": "Tài nguyên con",
+        "consumables": "Vật tư tiêu hao",
+        "durables": "Vật tư bền",
+        "recipe": "Công thức",
+        "upcomingMaintenances": "Bảo trì sắp tới",
+        "alerts": "Cảnh báo",
+        "details": "CHI TIẾT",
+        "panelSettings": "Cài đặt panel",
+        "availableSections": "Mục khả dụng",
+        "selectedSections": "Mục đã chọn",
+        "itemsSelected": "{{count}} items selected",
+        "storable": "CÓ THỂ LƯU",
+        "stored": "ĐÃ LƯU",
+        "resourceMaterials": "Vật liệu tài nguyên",
+        "search": "Tìm kiếm",
+        "filters": {
+          "product": "SẢN PHẨM",
+          "flow": "LUỒNG",
+          "step": "CÔNG ĐOẠN",
+          "state": "TRẠNG THÁI",
+          "all": "TẤT CẢ"
+        }
+      },
+      "operations": {
+        "refresh": "Làm mới",
+        "dispatch": "Điều phối",
+        "dispatchAndTrackIn": "Điều phối và Track-In",
+        "undispatch": "Hủy điều phối",
+        "trackIn": "Track-In",
+        "trackOut": "Track-Out",
+        "trackOutAndMoveNext": "Track-Out và chuyển tiếp",
+        "moveNext": "Chuyển tiếp",
+        "specialMoveNext": "Chuyển tiếp đặc biệt",
+        "changeResourceState": "Đổi trạng thái",
+        "changeMaterialState": "Đổi",
+        "split": "Tách",
+        "merge": "Gộp",
+        "changeMaterialType": "Đổi loại vật liệu",
+        "rework": "Làm lại",
+        "recordLossBonus": "Ghi hao hụt/tăng",
+        "recordAssembledLossBonus": "Ghi hao hụt/tăng lắp ráp",
+        "recordSubMaterialLosses": "Ghi hao hụt vật liệu con",
+        "holdMaterial": "Giữ vật liệu",
+        "releaseMaterial": "Nhả vật liệu",
+        "postData": "Nhập dữ liệu",
+        "performChecklist": "Thực hiện checklist",
+        "checkInEmployee": "Check-In nhân viên",
+        "checkOutEmployee": "Check-Out nhân viên",
+        "abort": "Hủy bỏ",
+        "store": "Lưu kho",
+        "retrieve": "Lấy ra",
+        "more": "Thêm",
+        "build": "Dựng",
+        "manage": "Quản lý",
+        "request": "Yêu cầu",
+        "openInstance": "Mở instance"
+      },
+      "layout": {
+        "views": "Chế độ xem",
+        "layout": "Bố cục",
+        "saveLayout": "Lưu bố cục",
+        "saveAsMyDefault": "Lưu làm bố cục mặc định của tôi",
+        "saveAsDefaultForAllUsers": "Lưu làm mặc định cho mọi người dùng",
+        "resetToMyDefault": "Đặt lại về mặc định của tôi",
+        "resetToAllUsersDefault": "Đặt lại về mặc định mọi người dùng",
+        "resetToApplicationDefault": "Đặt lại về mặc định ứng dụng",
+        "saveLayoutTitle": "Lưu bố cục",
+        "selectOption": "Chọn một trong các tùy chọn sau",
+        "save": "Lưu",
+        "resetLayoutTitle": "Đặt lại Bố cục",
+        "reset": "Đặt lại",
+        "layoutSaved": "Đã lưu bố cục",
+        "layoutReset": "Đã đặt lại bố cục về mặc định"
+      },
+      "dialogs": {
+        "changeResourceState": {
+          "title": "Đổi Resource State",
+          "resource": "Resource",
+          "newState": "Trạng thái mới",
+          "comment": "Ghi chú"
+        },
+        "dispatch": {
+          "title": "Điều phối",
+          "materials": "Vật liệu",
+          "resource": "Resource",
+          "message": "Điều phối {{count}} material(s) to {{resource}}?"
+        },
+        "undispatch": {
+          "title": "Hủy điều phối",
+          "message": "Hủy điều phối {{count}} material(s)?"
+        },
+        "trackIn": {
+          "title": "Track-In",
+          "materials": "Vật liệu",
+          "resource": "Resource",
+          "message": "Track-In {{count}} material(s) at {{resource}}?"
+        },
+        "trackOut": {
+          "title": "Track-Out",
+          "materials": "Vật liệu",
+          "message": "Track-Out {{count}} material(s)?"
+        },
+        "trackOutAndMoveNext": {
+          "title": "Track-Out và chuyển tiếp",
+          "materials": "Vật liệu",
+          "nextStep": "Công đoạn tiếp",
+          "message": "Track-Out {{count}} material(s) and move to {{step}}?"
+        },
+        "moveNext": {
+          "title": "Chuyển tiếp",
+          "materials": "Vật liệu",
+          "nextStep": "Công đoạn tiếp",
+          "message": "Move {{count}} material(s) to {{step}}?"
+        },
+        "specialMoveNext": {
+          "title": "Chuyển tiếp đặc biệt",
+          "materials": "Vật liệu",
+          "step": "Step",
+          "flow": "Luồng",
+          "message": "Move {{count}} material(s) to the selected step?"
+        },
+        "dispatchAndTrackIn": {
+          "title": "Điều phối và Track-In",
+          "materials": "Vật liệu",
+          "resource": "Resource",
+          "message": "Điều phối và Track-In {{count}} material(s) at {{resource}}?"
+        },
+        "abort": {
+          "title": "Hủy bỏ",
+          "materials": "Vật liệu",
+          "comment": "Ghi chú",
+          "message": "Hủy bỏ {{count}} material(s)? This cannot be undone."
+        },
+        "split": {
+          "title": "Tách",
+          "material": "Material",
+          "qty": "Số lượng",
+          "units": "Đơn vị",
+          "newQty": "Số lượng mới",
+          "message": "Tách {{name}} into two materials?"
+        },
+        "merge": {
+          "title": "Gộp",
+          "materials": "Vật liệu",
+          "targetMaterial": "Vật liệu đích",
+          "message": "Gộp {{count}} material(s) into {{target}}?"
+        },
+        "changeMaterialType": {
+          "title": "Đổi loại vật liệu",
+          "materials": "Vật liệu",
+          "newType": "Loại mới",
+          "comment": "Ghi chú"
+        },
+        "rework": {
+          "title": "Làm lại",
+          "materials": "Vật liệu",
+          "step": "Step",
+          "comment": "Ghi chú",
+          "message": "Send {{count}} material(s) to rework at {{step}}?"
+        },
+        "recordLossBonus": {
+          "title": "Ghi hao hụt/tăng",
+          "material": "Material",
+          "type": "Loại",
+          "loss": "Hao hụt",
+          "bonus": "Tăng",
+          "qty": "Số lượng",
+          "reason": "Lý do",
+          "comment": "Ghi chú"
+        },
+        "recordAssembledLossBonus": {
+          "title": "Ghi hao hụt/tăng lắp ráp",
+          "material": "Material",
+          "qty": "Số lượng",
+          "reason": "Lý do"
+        },
+        "recordSubMaterialLosses": {
+          "title": "Ghi hao hụt vật liệu con",
+          "material": "Material",
+          "subMaterial": "Vật liệu con",
+          "qty": "Số lượng",
+          "reason": "Lý do"
+        },
+        "holdMaterial": {
+          "title": "Giữ vật liệu",
+          "materials": "Vật liệu",
+          "hold": "Giữ",
+          "comment": "Ghi chú",
+          "message": "Giữ {{count}} material(s)?"
+        },
+        "releaseMaterial": {
+          "title": "Nhả vật liệu",
+          "materials": "Vật liệu",
+          "comment": "Ghi chú",
+          "message": "Release {{count}} material(s)?"
+        },
+        "postData": {
+          "title": "Nhập dữ liệu",
+          "materials": "Vật liệu",
+          "parameter": "Tham số",
+          "value": "Giá trị"
+        },
+        "performChecklist": {
+          "title": "Thực hiện checklist",
+          "materials": "Vật liệu",
+          "checklist": "Checklist"
+        },
+        "checkInEmployee": {
+          "title": "Check-In nhân viên",
+          "resource": "Resource",
+          "employee": "Nhân viên"
+        },
+        "checkOutEmployee": {
+          "title": "Check-Out nhân viên",
+          "resource": "Resource",
+          "employee": "Nhân viên",
+          "message": "Check-Out {{employee}} from {{resource}}?"
+        },
+        "store": {
+          "title": "Lưu kho",
+          "materials": "Vật liệu",
+          "resource": "Resource",
+          "message": "Lưu kho {{count}} material(s) at {{resource}}?"
+        },
+        "retrieve": {
+          "title": "Lấy ra",
+          "materials": "Vật liệu",
+          "message": "Lấy ra {{count}} material(s)?"
+        },
+        "saveLayout": {
+          "title": "Lưu bố cục",
+          "selectOption": "Chọn một trong các tùy chọn sau",
+          "saveAsMyDefault": "Lưu làm bố cục mặc định của tôi",
+          "saveAsDefaultForAllUsers": "Lưu làm mặc định cho mọi người dùng"
+        },
+        "resetLayout": {
+          "title": "Đặt lại Bố cục",
+          "resetToMyDefault": "Đặt lại về mặc định của tôi",
+          "resetToAllUsersDefault": "Đặt lại về mặc định mọi người dùng",
+          "resetToApplicationDefault": "Đặt lại về mặc định ứng dụng"
+        },
+        "panelSettings": {
+          "title": "Cài đặt panel",
+          "availableSections": "Mục khả dụng",
+          "selectedSections": "Mục đã chọn",
+          "update": "Cập nhật"
+        }
+      }
+    }
   }
 }

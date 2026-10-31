@@ -656,3 +656,25 @@ export type {
   WorkgroupListParams,
   WorkgroupRecord,
 } from "./businessData/workgroup";
+export {
+  getFabResourceDetail,
+  getStepSummary,
+  listDispatchList,
+  listResourceMaterials,
+  listStepMaterials,
+  listStepResources,
+  postFabOperation,
+  useDispatchList,
+  useFabResourceDetail,
+  useResourceMaterials,
+  useStepMaterials,
+  useStepResources,
+  useStepSummary,
+} from "./manufacturing/fabExplorer";
+export type {
+  FabMaterial,
+  FabOperationInput,
+  FabResource,
+  FabResourceDetail,
+  StepSummary,
+} from "./manufacturing/fabExplorer";

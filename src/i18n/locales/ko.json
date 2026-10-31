@@ -7622,5 +7622,305 @@
         "menuLabel": "종료 취소"
       }
     }
+  },
+  "manufacturing": {
+    "fabExplorer": {
+      "stepView": {
+        "materials": "자재",
+        "resources": "리소스",
+        "back": "뒤로",
+        "refreshCategory": "새로고침 {{category}}",
+        "itemsSelected": "{{count}} item selected",
+        "itemsSelected_plural": "{{count}} items selected",
+        "details": "상세",
+        "holdsOffFlows": "홀드/오프플로우",
+        "protocols": "프로토콜",
+        "documents": "문서",
+        "filters": {
+          "state": "상태",
+          "all": "전체",
+          "product": "제품",
+          "productPlaceholder": "제품",
+          "flow": "플로우",
+          "flowPlaceholder": "플로우",
+          "materialName": "자재명",
+          "processingType": "처리 유형",
+          "systemState": "시스템 상태",
+          "resourceName": "리소스명"
+        },
+        "columns": {
+          "material": "자재",
+          "qty": "수량",
+          "units": "단위",
+          "product": "제품",
+          "flow": "플로우",
+          "step": "공정",
+          "priority": "우선순위",
+          "state": "상태",
+          "inOffFlow": "오프플로우",
+          "resource": "리소스",
+          "description": "설명",
+          "processingType": "처리 유형",
+          "group": "그룹",
+          "systemState": "시스템 상태",
+          "order": "순서",
+          "storagePosition": "보관 위치",
+          "container": "컨테이너"
+        }
+      },
+      "resourceView": {
+        "back": "뒤로",
+        "dispatchList": "디스패치 목록",
+        "materialsAtResource": "리소스의 자재",
+        "loadPorts": "로드 포트",
+        "subResources": "하위 리소스",
+        "consumables": "소모품",
+        "durables": "내구품",
+        "recipe": "레시피",
+        "upcomingMaintenances": "예정된 유지보수",
+        "alerts": "알림",
+        "details": "상세",
+        "panelSettings": "패널 설정",
+        "availableSections": "사용 가능한 섹션",
+        "selectedSections": "선택된 섹션",
+        "itemsSelected": "{{count}} items selected",
+        "storable": "보관 가능",
+        "stored": "보관됨",
+        "resourceMaterials": "리소스 자재",
+        "search": "검색",
+        "filters": {
+          "product": "제품",
+          "flow": "플로우",
+          "step": "공정",
+          "state": "상태",
+          "all": "전체"
+        }
+      },
+      "operations": {
+        "refresh": "새로고침",
+        "dispatch": "디스패치",
+        "dispatchAndTrackIn": "디스패치 및 트랙인",
+        "undispatch": "디스패치 해제",
+        "trackIn": "트랙인",
+        "trackOut": "트랙아웃",
+        "trackOutAndMoveNext": "트랙아웃 및 다음 공정으로",
+        "moveNext": "다음 공정으로",
+        "specialMoveNext": "특수 다음 공정 이동",
+        "changeResourceState": "상태 변경",
+        "changeMaterialState": "변경",
+        "split": "분할",
+        "merge": "병합",
+        "changeMaterialType": "자재 유형 변경",
+        "rework": "재작업",
+        "recordLossBonus": "로스/보너스 기록",
+        "recordAssembledLossBonus": "조립 로스/보너스 기록",
+        "recordSubMaterialLosses": "하위자재 로스 기록",
+        "holdMaterial": "자재 홀드",
+        "releaseMaterial": "자재 홀드 해제",
+        "postData": "데이터 입력",
+        "performChecklist": "체크리스트 수행",
+        "checkInEmployee": "직원 체크인",
+        "checkOutEmployee": "직원 체크아웃",
+        "abort": "중단",
+        "store": "보관",
+        "retrieve": "인출",
+        "more": "더보기",
+        "build": "빌드",
+        "manage": "관리",
+        "request": "요청",
+        "openInstance": "인스턴스 열기"
+      },
+      "layout": {
+        "views": "보기",
+        "layout": "레이아웃",
+        "saveLayout": "레이아웃 저장",
+        "saveAsMyDefault": "내 기본 레이아웃으로 저장",
+        "saveAsDefaultForAllUsers": "모든 사용자의 기본값으로 저장",
+        "resetToMyDefault": "내 기본값으로 재설정",
+        "resetToAllUsersDefault": "모든 사용자 기본값으로 재설정",
+        "resetToApplicationDefault": "애플리케이션 기본값으로 재설정",
+        "saveLayoutTitle": "레이아웃 저장",
+        "selectOption": "다음 옵션 중 하나를 선택하세요",
+        "save": "저장",
+        "resetLayoutTitle": "재설정 레이아웃",
+        "reset": "재설정",
+        "layoutSaved": "레이아웃이 저장되었습니다",
+        "layoutReset": "레이아웃이 기본값으로 재설정되었습니다"
+      },
+      "dialogs": {
+        "changeResourceState": {
+          "title": "변경 Resource State",
+          "resource": "Resource",
+          "newState": "새 상태",
+          "comment": "코멘트"
+        },
+        "dispatch": {
+          "title": "디스패치",
+          "materials": "자재",
+          "resource": "Resource",
+          "message": "디스패치 {{count}} material(s) to {{resource}}?"
+        },
+        "undispatch": {
+          "title": "디스패치 해제",
+          "message": "디스패치 해제 {{count}} material(s)?"
+        },
+        "trackIn": {
+          "title": "트랙인",
+          "materials": "자재",
+          "resource": "Resource",
+          "message": "트랙인 {{count}} material(s) at {{resource}}?"
+        },
+        "trackOut": {
+          "title": "트랙아웃",
+          "materials": "자재",
+          "message": "트랙아웃 {{count}} material(s)?"
+        },
+        "trackOutAndMoveNext": {
+          "title": "트랙아웃 및 다음 공정으로",
+          "materials": "자재",
+          "nextStep": "다음 공정",
+          "message": "트랙아웃 {{count}} material(s) and move to {{step}}?"
+        },
+        "moveNext": {
+          "title": "다음 공정으로",
+          "materials": "자재",
+          "nextStep": "다음 공정",
+          "message": "Move {{count}} material(s) to {{step}}?"
+        },
+        "specialMoveNext": {
+          "title": "특수 다음 공정 이동",
+          "materials": "자재",
+          "step": "Step",
+          "flow": "플로우",
+          "message": "Move {{count}} material(s) to the selected step?"
+        },
+        "dispatchAndTrackIn": {
+          "title": "디스패치 및 트랙인",
+          "materials": "자재",
+          "resource": "Resource",
+          "message": "디스패치 및 트랙인 {{count}} material(s) at {{resource}}?"
+        },
+        "abort": {
+          "title": "중단",
+          "materials": "자재",
+          "comment": "코멘트",
+          "message": "중단 {{count}} material(s)? This cannot be undone."
+        },
+        "split": {
+          "title": "분할",
+          "material": "Material",
+          "qty": "수량",
+          "units": "단위",
+          "newQty": "새 수량",
+          "message": "분할 {{name}} into two materials?"
+        },
+        "merge": {
+          "title": "병합",
+          "materials": "자재",
+          "targetMaterial": "대상 자재",
+          "message": "병합 {{count}} material(s) into {{target}}?"
+        },
+        "changeMaterialType": {
+          "title": "자재 유형 변경",
+          "materials": "자재",
+          "newType": "새 유형",
+          "comment": "코멘트"
+        },
+        "rework": {
+          "title": "재작업",
+          "materials": "자재",
+          "step": "Step",
+          "comment": "코멘트",
+          "message": "Send {{count}} material(s) to rework at {{step}}?"
+        },
+        "recordLossBonus": {
+          "title": "로스/보너스 기록",
+          "material": "Material",
+          "type": "유형",
+          "loss": "로스",
+          "bonus": "보너스",
+          "qty": "수량",
+          "reason": "사유",
+          "comment": "코멘트"
+        },
+        "recordAssembledLossBonus": {
+          "title": "조립 로스/보너스 기록",
+          "material": "Material",
+          "qty": "수량",
+          "reason": "사유"
+        },
+        "recordSubMaterialLosses": {
+          "title": "하위자재 로스 기록",
+          "material": "Material",
+          "subMaterial": "하위자재",
+          "qty": "수량",
+          "reason": "사유"
+        },
+        "holdMaterial": {
+          "title": "자재 홀드",
+          "materials": "자재",
+          "hold": "홀드",
+          "comment": "코멘트",
+          "message": "홀드 {{count}} material(s)?"
+        },
+        "releaseMaterial": {
+          "title": "자재 홀드 해제",
+          "materials": "자재",
+          "comment": "코멘트",
+          "message": "Release {{count}} material(s)?"
+        },
+        "postData": {
+          "title": "데이터 입력",
+          "materials": "자재",
+          "parameter": "파라미터",
+          "value": "값"
+        },
+        "performChecklist": {
+          "title": "체크리스트 수행",
+          "materials": "자재",
+          "checklist": "체크리스트"
+        },
+        "checkInEmployee": {
+          "title": "직원 체크인",
+          "resource": "Resource",
+          "employee": "직원"
+        },
+        "checkOutEmployee": {
+          "title": "직원 체크아웃",
+          "resource": "Resource",
+          "employee": "직원",
+          "message": "Check-Out {{employee}} from {{resource}}?"
+        },
+        "store": {
+          "title": "보관",
+          "materials": "자재",
+          "resource": "Resource",
+          "message": "보관 {{count}} material(s) at {{resource}}?"
+        },
+        "retrieve": {
+          "title": "인출",
+          "materials": "자재",
+          "message": "인출 {{count}} material(s)?"
+        },
+        "saveLayout": {
+          "title": "레이아웃 저장",
+          "selectOption": "다음 옵션 중 하나를 선택하세요",
+          "saveAsMyDefault": "내 기본 레이아웃으로 저장",
+          "saveAsDefaultForAllUsers": "모든 사용자의 기본값으로 저장"
+        },
+        "resetLayout": {
+          "title": "재설정 레이아웃",
+          "resetToMyDefault": "내 기본값으로 재설정",
+          "resetToAllUsersDefault": "모든 사용자 기본값으로 재설정",
+          "resetToApplicationDefault": "애플리케이션 기본값으로 재설정"
+        },
+        "panelSettings": {
+          "title": "패널 설정",
+          "availableSections": "사용 가능한 섹션",
+          "selectedSections": "선택된 섹션",
+          "update": "업데이트"
+        }
+      }
+    }
   }
 }
