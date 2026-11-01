@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ChecklistInstance } from "@/api";
+import { Empty, HStack  } from "@/components/common";
 import { Button, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../../components/MiniSelect";
@@ -267,11 +268,7 @@ export function PerformChecklistDialog({
               {t("businessData.checklist.operations.saveAndClose")}
             </Button>
           )}
-          <Button
-            variant="primary"
-            disabled={!allDone}
-            onClick={() => onPerform(snapshot(), true)}
-          >
+          <Button variant="primary" disabled={!allDone} onClick={() => onPerform(snapshot(), true)}>
             {t(immediate ? "businessData.checklist.operations.perform" : "common.close")}
           </Button>
         </>
@@ -291,9 +288,7 @@ export function PerformChecklistDialog({
           {t("businessData.checklist.operations.optionalList")}
         </Button>
       </div>
-      {visibleItems.length === 0 && (
-        <div className={styles.empty}>{t("businessData.checklist.operations.noItems")}</div>
-      )}
+      {visibleItems.length === 0 && <Empty>{t("businessData.checklist.operations.noItems")}</Empty>}
       {visibleItems.map((item) => {
         const s = stateOf(item.name);
         return (
@@ -306,7 +301,7 @@ export function PerformChecklistDialog({
               </div>
             </div>
             <span className={styles.stateBadge}>{s}</span>
-            <div style={{ display: "flex", columnGap: "4px" }}>
+            <HStack gap="4px">
               {s === ITEM_STATE_NOT_STARTED && (
                 <Button
                   variant="secondary"
@@ -330,7 +325,7 @@ export function PerformChecklistDialog({
                   {t("businessData.checklist.operations.skip")}
                 </Button>
               )}
-            </div>
+            </HStack>
           </div>
         );
       })}

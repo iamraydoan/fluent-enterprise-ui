@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ChecklistItem, ChecklistItemParameter } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Checkbox, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../../components/MiniSelect";
@@ -62,9 +63,7 @@ export function ChecklistItemsEditor({
   return (
     <div>
       <div className={styles.hint}>{t("businessData.checklist.operations.itemsHint")}</div>
-      {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.checklist.operations.noItems")}</div>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.checklist.operations.noItems")}</Empty>}
       {rows.map((row) => (
         <div key={row.id} style={{ marginBottom: "8px" }}>
           <div className={styles.itemRow}>
@@ -216,7 +215,7 @@ function ItemParametersEditor({
         {t("businessData.checklist.operations.parameters")}
       </div>
       {parameters.length === 0 && (
-        <div className={styles.empty}>{t("businessData.checklist.operations.noParameters")}</div>
+        <Empty>{t("businessData.checklist.operations.noParameters")}</Empty>
       )}
       {parameters.map((p, idx) => (
         <div key={idx} className={styles.paramRow}>

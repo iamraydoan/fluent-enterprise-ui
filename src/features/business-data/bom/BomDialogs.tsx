@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty, Grid, HStack  } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -15,13 +15,8 @@ interface BomItemRow {
 
 const useListStyles = makeStyles({
   row: {
-    display: "grid",
-    gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto",
-    columnGap: "8px",
-    alignItems: "center",
     marginBottom: "8px",
   },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
 });
 
@@ -52,11 +47,9 @@ function BomItemListEditor({
   return (
     <div>
       <div className={styles.hint}>{t("businessData.bom.operations.itemsHint")}</div>
-      {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.bom.operations.noItems")}</div>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.bom.operations.noItems")}</Empty>}
       {rows.map((row) => (
-        <div key={row.id} className={styles.row}>
+        <Grid columns="minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto" gap="8px" align="center" key={row.id} className={styles.row}>
           <Input
             placeholder={t("businessData.bom.operations.product")}
             value={row.product}
@@ -80,7 +73,7 @@ function BomItemListEditor({
           <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
-        </div>
+        </Grid>
       ))}
       <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
@@ -90,7 +83,9 @@ function BomItemListEditor({
 }
 
 const useManageDialogStyles = makeStyles({
-  checkRow: { display: "flex", alignItems: "center", columnGap: "8px", marginTop: "12px" },
+  checkRow: {
+    marginTop: "12px",
+  }
 });
 
 export function ManageBomItemsDialog({
@@ -124,13 +119,13 @@ export function ManageBomItemsDialog({
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
         />
       </div>
-      <div className={styles.checkRow}>
+      <HStack gap="8px" align="center" className={styles.checkRow}>
         <Checkbox
           label={t("businessData.bom.operations.makeEffective")}
           checked={effective}
           onChange={setEffective}
         />
-      </div>
+      </HStack>
     </BaseDialog>
   );
 }

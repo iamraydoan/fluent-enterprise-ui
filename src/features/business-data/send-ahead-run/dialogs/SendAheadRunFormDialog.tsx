@@ -1,9 +1,10 @@
 import { useState } from "react";
 import type { SendAheadRunDetail, SendAheadRunRecord } from "@/api";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface SendAheadRunFormDialogProps {
   open: boolean;
@@ -67,12 +68,10 @@ export function SendAheadRunFormDialog({
         </>
       }
     >
-      {!nameReadOnly && (
-                <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />
-      )}
+      {!nameReadOnly && <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -82,11 +81,11 @@ export function SendAheadRunFormDialog({
           <Field label={t(`${k}.dataGroup`)}>
             <Input value={dataGroup} onChange={setDataGroup} />
           </Field>
-        </div>
+        </VStack>
       )}
 
       {step > 1 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: "#666" }}>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
           {t("businessData.sendAheadRun.dialogs.form.stepBody", {
             step: t(STEP_KEYS[step - 1]),
           })}

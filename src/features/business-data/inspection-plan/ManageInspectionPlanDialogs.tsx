@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
-import { Button, Input, makeStyles } from "@/components/ui";
+import { BaseDialog, DialogFooter, HStack  } from "@/components/common";
+import { Button, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
@@ -21,9 +21,6 @@ const L: Record<string, TranslationKey> = {
   remove: "businessData.inspectionPlan.dialog.remove",
 };
 
-const useStyles = makeStyles({
-  row: { display: "flex", gap: "8px", alignItems: "center" },
-});
 
 export function ManageConfigurationsDialog({
   name,
@@ -33,7 +30,6 @@ export function ManageConfigurationsDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
   const [configurations, setConfigurations] = useState<string[]>([]);
 
   return (
@@ -44,13 +40,13 @@ export function ManageConfigurationsDialog({
       onClose={onClose}
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.update)} />}
     >
-      <div className={styles.row}>
+      <HStack gap="8px" align="center">
         <Button size="sm" onClick={() => setConfigurations([...configurations, ""])}>
           + {t(L.addConfiguration)}
         </Button>
-      </div>
+      </HStack>
       {configurations.map((c, i) => (
-        <div key={i} className={styles.row}>
+        <HStack gap="8px" align="center" key={i}>
           <Input
             placeholder={t(L.configurationName)}
             value={c}
@@ -64,7 +60,7 @@ export function ManageConfigurationsDialog({
           >
             {t(L.remove)}
           </Button>
-        </div>
+        </HStack>
       ))}
     </BaseDialog>
   );
@@ -72,7 +68,6 @@ export function ManageConfigurationsDialog({
 
 export function ManageStepsDialog({ name, onClose }: { name: string; onClose: () => void }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
   const [steps, setSteps] = useState<{ name: string; inProcess: boolean }[]>([]);
 
   return (
@@ -83,13 +78,13 @@ export function ManageStepsDialog({ name, onClose }: { name: string; onClose: ()
       onClose={onClose}
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.update)} />}
     >
-      <div className={styles.row}>
+      <HStack gap="8px" align="center">
         <Button size="sm" onClick={() => setSteps([...steps, { name: "", inProcess: false }])}>
           + {t(L.addStep)}
         </Button>
-      </div>
+      </HStack>
       {steps.map((s, i) => (
-        <div key={i} className={styles.row}>
+        <HStack gap="8px" align="center" key={i}>
           <Input
             placeholder={t(L.stepName)}
             value={s.name}
@@ -100,7 +95,7 @@ export function ManageStepsDialog({ name, onClose }: { name: string; onClose: ()
           <Button size="sm" onClick={() => setSteps(steps.filter((_, j) => j !== i))}>
             {t(L.remove)}
           </Button>
-        </div>
+        </HStack>
       ))}
     </BaseDialog>
   );

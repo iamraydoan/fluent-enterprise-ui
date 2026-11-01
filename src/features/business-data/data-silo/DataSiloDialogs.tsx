@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, makeStyles} from "@/components/ui";
+import { Button, Checkbox, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -79,26 +79,14 @@ export function CreateDataSiloDialog({ onClose }: { onClose: () => void }) {
       }
     >
       {field(L.name, false, <Input value={name} onChange={setName} />)}
-      {field(
-        L.description,
-        false,
-        <Input value={description} onChange={setDescription} />,
-      )}
+      {field(L.description, false, <Input value={description} onChange={setDescription} />)}
       {field(L.type, true, <Input value={t(L.typeDefault)} disabled />)}
       <div className={styles.sectionTitle}>{t(L.properties)}</div>
       {field(L.dataVersion, false, <Input />)}
       {field(L.enterpriseName, false, <Input />)}
       {field(L.facilityName, false, <Input />)}
-      {field(
-        L.isExternal,
-        false,
-        <Checkbox checked={isExternal} onChange={setIsExternal} />,
-      )}
-      {field(
-        L.isSystem,
-        false,
-        <Checkbox checked={isSystem} onChange={setIsSystem} />,
-      )}
+      {field(L.isExternal, false, <Checkbox checked={isExternal} onChange={setIsExternal} />)}
+      {field(L.isSystem, false, <Checkbox checked={isSystem} onChange={setIsSystem} />)}
       {field(L.keywords, false, <Input />)}
       {field(L.siteName, false, <Input />)}
       {field(L.user, true, <Input />)}

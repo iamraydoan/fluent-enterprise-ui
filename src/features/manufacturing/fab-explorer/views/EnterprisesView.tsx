@@ -6,10 +6,10 @@ import {
   FilterGroup,
   SidePanel,
   SidebarNavItem,
-  TileGrid,
+  TileGrid, HStack, VStack 
 } from "@/components/common";
 import { Globe24Regular, Grid24Regular, Organization24Regular } from "@/components/icons";
-import { Input, makeStyles} from "@/components/ui";
+import { Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { theme } from "@/styles/theme";
@@ -17,8 +17,12 @@ import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
 
 const useViewStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  body: {
+    minHeight: 0,
+  },
+  main: {
+    minWidth: 0,
+  },
   sectionLabel: {
     fontSize: "11px",
     color: theme.color.textTertiary,
@@ -68,7 +72,7 @@ export function EnterprisesView({ nav, go }: EnterprisesViewProps) {
   const types = ["ALL", ...Array.from(new Set(facilities.map((f) => f.type)))];
 
   return (
-    <div className={styles.body}>
+    <HStack gap="10px" className={styles.body}>
       <SidePanel
         title={t("fabExplorer.facilities")}
         collapsed={collapsed}
@@ -107,7 +111,7 @@ export function EnterprisesView({ nav, go }: EnterprisesViewProps) {
           </>
         )}
       </SidePanel>
-      <div className={styles.main}>
+      <VStack gap="12px" className={styles.main}>
         <FilterBar justifyEnd>
           <FilterGroup label={t("fabExplorer.type")}>
             <select
@@ -148,7 +152,7 @@ export function EnterprisesView({ nav, go }: EnterprisesViewProps) {
             />
           ))}
         </TileGrid>
-      </div>
-    </div>
+      </VStack>
+    </HStack>
   );
 }

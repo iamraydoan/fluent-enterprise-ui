@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -51,16 +51,11 @@ const L: Record<string, TranslationKey> = {
 
 const useWizardStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: "24px",
     padding: "12px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
   step: {
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
     color: theme.color.textTertiary,
   },
   stepActive: { color: theme.color.textPrimary, fontWeight: theme.font.weightSemibold },
@@ -177,28 +172,20 @@ export function DocumentWizardDialog({
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="24px" className={styles.steps}>
         {steps.map((s, i) => (
-          <div key={i} className={`${styles.step} ${i === step ? styles.stepActive : ""}`}>
+          <HStack gap="8px" align="center" key={i} className={`${styles.step} ${i === step ? styles.stepActive : ""}`}>
             <span className={`${styles.stepNum} ${i === step ? styles.stepNumActive : ""}`}>
               {i + 1}
             </span>
             {t(s)}
-          </div>
+          </HStack>
         ))}
-      </div>
+      </HStack>
       {step === 0 && mode === MODE_CREATE && (
         <>
-          {field(
-            L.changeSet,
-            false,
-            <Input value={changeSet} onChange={setChangeSet} />,
-          )}
-          {field(
-            L.approvalRole,
-            false,
-            <Input value={approvalRole} onChange={setApprovalRole} />,
-          )}
+          {field(L.changeSet, false, <Input value={changeSet} onChange={setChangeSet} />)}
+          {field(L.approvalRole, false, <Input value={approvalRole} onChange={setApprovalRole} />)}
           <Checkbox
             label={t(L.useAutomaticChangeSet)}
             checked={autoChangeSet}
@@ -211,26 +198,14 @@ export function DocumentWizardDialog({
           {field(
             L.name,
             true,
-            <Input
-              value={name}
-              onChange={setName}
-              disabled={mode === MODE_EDIT}
-            />,
+            <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />,
           )}
           {mode !== MODE_EDIT &&
-            field(
-              L.revision,
-              false,
-              <Input value={revision} onChange={setRevision} />,
-            )}
-          {field(
-            L.description,
-            false,
-            <Textarea value={description} onChange={setDescription} />,
-          )}
+            field(L.revision, false, <Input value={revision} onChange={setRevision} />)}
+          {field(L.description, false, <Textarea value={description} onChange={setDescription} />)}
           {field(L.type, true, <Input value={type} onChange={setType} />)}
           <div className={styles.sectionTitle}>{t(L.source)}</div>
-          <div style={{ display: "flex", gap: "16px", marginBottom: "12px" }}>
+          <HStack gap="16px" style={{marginBottom: "12px"}}>
             <Checkbox
               label={t(L.internal)}
               checked={source === SOURCE_INTERNAL}
@@ -241,38 +216,27 @@ export function DocumentWizardDialog({
               checked={source === SOURCE_EXTERNAL}
               onChange={() => setSource(SOURCE_EXTERNAL)}
             />
-          </div>
+          </HStack>
           {source === SOURCE_INTERNAL
             ? field(
                 L.file,
                 false,
-                <div style={{ display: "flex", gap: "8px" }}>
+                <HStack gap="8px">
                   <Input value={file} onChange={setFile} style={{ flex: 1 }} />
                   <Button>{t(L.browse)}</Button>
-                </div>,
+                </HStack>,
               )
             : field(L.url, false, <Input value={url} onChange={setUrl} />)}
           {field(
             L.changeDescription,
             false,
-            <Textarea
-              value={changeDescription}
-              onChange={setChangeDescription}
-            />,
+            <Textarea value={changeDescription} onChange={setChangeDescription} />,
           )}
           {field(L.folder, false, <Input value={folder} onChange={setFolder} />)}
-          {field(
-            L.ownerRole,
-            false,
-            <Input value={ownerRole} onChange={setOwnerRole} />,
-          )}
+          {field(L.ownerRole, false, <Input value={ownerRole} onChange={setOwnerRole} />)}
           {field(L.group, false, <Input value={group} onChange={setGroup} />)}
           {field(L.author, false, <Input value={author} onChange={setAuthor} />)}
-          {field(
-            L.keywords,
-            false,
-            <Input value={keywords} onChange={setKeywords} />,
-          )}
+          {field(L.keywords, false, <Input value={keywords} onChange={setKeywords} />)}
           {field(
             L.distNewVersion,
             false,
@@ -295,11 +259,7 @@ export function DocumentWizardDialog({
               <Input value={expirationDays} onChange={setExpirationDays} />,
             )}
           {mode === MODE_CLONE &&
-            field(
-              L.comment,
-              false,
-              <Textarea value={comment} onChange={setComment} />,
-            )}
+            field(L.comment, false, <Textarea value={comment} onChange={setComment} />)}
         </>
       )}
     </BaseDialog>

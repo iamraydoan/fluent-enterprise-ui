@@ -1,17 +1,18 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useMcpServer } from "@/api";
+import type { DetailTab, MiniBarGroup } from "@/components/common";
 import {
   Card,
   CardGrid,
   DetailShell,
   Empty,
   KV,
+  MenuTriggerButton,
   MiniBar,
   Panel,
-  DetailTile,
+  DetailTile, HStack 
 } from "@/components/common";
-import type { DetailTab, MiniBarGroup } from "@/components/common";
 import {
   ArrowSync20Regular,
   Attach20Regular,
@@ -77,17 +78,6 @@ const useMcpDetailStyles = makeStyles({
     fontSize: "13px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
   },
-  menuBtn: {
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    color: "#222",
-    display: "inline-flex",
-    alignItems: "center",
-    columnGap: "6px",
-  },
 });
 
 const TOP_TABS: DetailTab[] = [
@@ -152,7 +142,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
     content = (
       <CardGrid>
         <Card title={t("mcpServer.cards.server")}>
-          <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
+          <HStack gap={18} align="flex-start">
             <DetailTile icon={<Attach24Regular />} />
             <div style={{ flexGrow: 1, minWidth: 0 }}>
               <KV
@@ -168,7 +158,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
               style={{ color: theme.color.textBrand, margin: "6px 4px" }}
               aria-label={t("common.information")}
             />
-          </div>
+          </HStack>
         </Card>
         <Card title={t("mcpServer.cards.information")}>
           <KV
@@ -213,8 +203,8 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
     content = (
       <Panel>
         <MiniBar groups={toolsBarGroups} />
-        <div style={{ padding: "12px 12px 0", fontSize: 13, color: "#444" }}>
-          {t("mcpServer.lastSync")} <span style={{ color: "#222", marginLeft: 6 }}>{lastSync}</span>
+        <div style={{ padding: "12px 12px 0", fontSize: 13, color: theme.color.textSecondary }}>
+          {t("mcpServer.lastSync")} <span style={{ color: theme.color.textPrimary, marginLeft: 6 }}>{lastSync}</span>
         </div>
         <div className={mcpDetailStyles.titleRow}>
           <Text size={400}>{t("mcpServer.toolsTitle", { count: detail.tools.length })}</Text>
@@ -266,10 +256,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
               onCheckedValueChange={(checkedItems) => setPageSize(Number(checkedItems[0]))}
             >
               <MenuTrigger disableButtonEnhancement>
-                <button className={mcpDetailStyles.menuBtn}>
-                  {pageSize}
-                  <span style={{ fontSize: 8, color: theme.color.textBrand }}>▼</span>
-                </button>
+                <MenuTriggerButton>{pageSize}</MenuTriggerButton>
               </MenuTrigger>
               <MenuPopover>
                 <MenuList>

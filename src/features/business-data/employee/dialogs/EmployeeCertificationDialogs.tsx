@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea} from "@/components/ui";
+import { Button, Checkbox, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -63,16 +63,10 @@ function useCertificationForm() {
           <Input value={certificationDate} onChange={setCertificationDate} />
         </FormField>
         <FormField label={<>{t(L.isTrainer)}</>}>
-          <Checkbox
-            checked={isTrainer === true}
-            onChange={setIsTrainer}
-          />
+          <Checkbox checked={isTrainer === true} onChange={setIsTrainer} />
         </FormField>
         <FormField label={<>{t(L.isTrainee)}</>}>
-          <Checkbox
-            checked={isTrainee === true}
-            onChange={setIsTrainee}
-          />
+          <Checkbox checked={isTrainee === true} onChange={setIsTrainee} />
         </FormField>
         <FormField label={<>{t(L.comment)}</>}>
           <Textarea value={comment} onChange={setComment} />

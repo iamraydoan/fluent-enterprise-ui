@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogEntityBanner, WizardSteps } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, HStack, VStack, WizardSteps } from "@/components/common";
 import {
   Body1Strong,
   Button,
@@ -108,11 +108,11 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
       )}
 
       {step === 2 && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
+        <VStack gap={16}>
           {selectedImages.map((img) => (
             <div key={img.name} style={{ border: "1px solid #ddd", borderRadius: 4, padding: 12 }}>
               <Body1Strong>{img.name}</Body1Strong>
-              <div style={{ display: "flex", columnGap: 12, marginTop: 8 }}>
+              <HStack gap={12} style={{marginTop: 8}}>
                 <Field label={t(`${k}.assessment`)}>
                   <select
                     value={assessments[img.name] ?? "Unspecified"}
@@ -131,10 +131,10 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
                     onChange={(value) => setCriteria({ ...criteria, [img.name]: value })}
                   />
                 </Field>
-              </div>
+              </HStack>
             </div>
           ))}
-        </div>
+        </VStack>
       )}
 
       <Field label={t(`${k}.comments`)}>

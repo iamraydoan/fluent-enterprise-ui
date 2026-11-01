@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Checkbox, Input, makeStyles} from "@/components/ui";
+import { Checkbox, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 import type { OperationValues } from "../components/operationTypes";

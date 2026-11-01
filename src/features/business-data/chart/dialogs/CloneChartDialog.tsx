@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { ChartDetail } from "@/api";
-import { Button, Input} from "@/components/ui";
+import { Empty } from "@/components/common";
+import { Button, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 import { DialogShell, NumField } from "./dialogShared";
@@ -79,9 +80,7 @@ export function CloneChartDialog({
       <div className={styles.hint}>
         {t("businessData.chart.operations.cloneHint", { name: chart?.name ?? "" })}
       </div>
-      {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.chart.operations.noCloneRows")}</div>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.chart.operations.noCloneRows")}</Empty>}
       {rows.map((row) => (
         <div
           key={row.id}

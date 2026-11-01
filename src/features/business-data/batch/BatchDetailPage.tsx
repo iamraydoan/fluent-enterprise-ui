@@ -1,8 +1,15 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBatchDetail } from "@/api";
-import { DetailShell, ListPage, editAction, refreshAction, DetailTabs } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
+import {
+  DetailShell,
+  ListPage,
+  editAction,
+  refreshAction,
+  DetailTabs,
+  Empty,  SectionHeader, Grid, HStack 
+} from "@/components/common";
 import {
   ArrowDownload24Regular,
   ArrowExportUp24Regular,
@@ -10,7 +17,7 @@ import {
   Box24Regular,
   MoreVertical24Regular,
 } from "@/components/icons";
-import { Text, makeStyles } from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -18,11 +25,7 @@ import { theme } from "@/styles/theme";
 import { useBatchDialogs } from "./useBatchDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
+  
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
@@ -30,9 +33,10 @@ const useDetailStyles = makeStyles({
     paddingBottom: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -72,7 +76,7 @@ export function BatchDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.batch.detail.loading")}</div>
+        <Empty>{t("businessData.batch.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -153,9 +157,9 @@ export function BatchDetailPage() {
             onAskAi={() => undefined}
             showState={false}
           >
-            <div className={styles.cards}>
+            <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>{t("businessData.batch.detail.batch")}</Text>
+                <SectionHeader title={t("businessData.batch.detail.batch")} />
                 <KV label={t("businessData.batch.detail.name")} value={batch.name} />
                 <KV label={t("businessData.batch.detail.description")} value={batch.description} />
                 <KV label={t("businessData.batch.detail.type")} value={batch.type} />
@@ -167,9 +171,7 @@ export function BatchDetailPage() {
                 <KV label={t("businessData.batch.detail.dataGroup")} value={batch.dataGroup} />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.batch.detail.information")}
-                </Text>
+                <SectionHeader title={t("businessData.batch.detail.information")} />
                 <KV label={t("businessData.batch.detail.resource")} value={batch.resource} />
                 <KV label={t("businessData.batch.detail.loadState")} value={batch.loadState} />
                 <KV label={t("businessData.batch.detail.step")} value={batch.step} />
@@ -180,9 +182,7 @@ export function BatchDetailPage() {
                 />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.batch.detail.resourceInformation")}
-                </Text>
+                <SectionHeader title={t("businessData.batch.detail.resourceInformation")} />
                 <KV
                   label={t("businessData.batch.detail.resourceType")}
                   value={batch.resourceType}
@@ -211,9 +211,7 @@ export function BatchDetailPage() {
                 />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.batch.detail.materialInformation")}
-                </Text>
+                <SectionHeader title={t("businessData.batch.detail.materialInformation")} />
                 <KV
                   label={t("businessData.batch.detail.mainMaterial")}
                   value={batch.mainMaterial}
@@ -232,20 +230,16 @@ export function BatchDetailPage() {
                 <KV label={t("businessData.batch.detail.batchSize")} value={batch.batchSize} />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.batch.detail.containerInformation")}
-                </Text>
+                <SectionHeader title={t("businessData.batch.detail.containerInformation")} />
                 <KV
                   label={t("businessData.batch.detail.containerType")}
                   value={batch.containerType}
                 />
               </div>
-            </div>
+            </Grid>
           </DetailShell>
         )}
-        {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.batch.detail.historyEmpty")}</div>
-        )}
+        {tab !== "details" && <Empty>{t("businessData.batch.detail.historyEmpty")}</Empty>}
       </DetailTabs>
     </ListPage>
   );
@@ -255,9 +249,9 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.batch.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }

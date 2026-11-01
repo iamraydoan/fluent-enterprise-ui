@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ScheduleDetail, ScheduleRecord } from "@/api";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner, VStack  } from "@/components/common";
 import { Body1Strong, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
@@ -33,26 +33,18 @@ export function AdjustScheduleJobDialog({
       }
     >
       <DialogEntityBanner icon="📊" name={scheduleName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <VStack gap={12}>
         <Body1Strong>{t(`${k}.jobBody`)}</Body1Strong>
         <Field label={t(`${k}.resource`)}>
           <Input value={resource} onChange={setResource} />
         </Field>
         <Field label={t(`${k}.plannedStart`)}>
-          <Input
-            value={plannedStart}
-            type="datetime-local"
-            onChange={setPlannedStart}
-          />
+          <Input value={plannedStart} type="datetime-local" onChange={setPlannedStart} />
         </Field>
         <Field label={t(`${k}.plannedEnd`)}>
-          <Input
-            value={plannedEnd}
-            type="datetime-local"
-            onChange={setPlannedEnd}
-          />
+          <Input value={plannedEnd} type="datetime-local" onChange={setPlannedEnd} />
         </Field>
-      </div>
+      </VStack>
     </BaseDialog>
   );
 }

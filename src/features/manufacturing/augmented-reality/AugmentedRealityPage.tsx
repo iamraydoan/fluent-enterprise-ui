@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Card, Empty, KV, ListPage, refreshAction } from "@/components/common";
+import { Card, Empty, KV, ListPage, refreshAction, HStack, VStack  } from "@/components/common";
 import {
   ArrowRotateClockwise24Regular,
   Cube24Regular,
   ZoomIn24Regular,
   ZoomOut24Regular,
 } from "@/components/icons";
-import { Button, Text, makeStyles, mergeClasses} from "@/components/ui";
+import { Button, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
@@ -49,8 +49,12 @@ const TAG_DETAILS: Record<string, TagDetail> = {
 };
 
 const useArStyles = makeStyles({
-  body: { display: "flex", columnGap: "12px", flexGrow: 1, minHeight: 0 },
-  viewportCard: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
+  body: {
+    minHeight: 0,
+  },
+  viewportCard: {
+    minWidth: 0,
+  },
   viewport: {
     position: "relative",
     flexGrow: 1,
@@ -68,25 +72,16 @@ const useArStyles = makeStyles({
     color: theme.color.textTertiary,
     fontSize: "12px",
   },
-  tag: {
-    position: "absolute",
-    transform: "translate(-50%, -50%)",
-    padding: "6px 10px",
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.color.brand,
-    color: theme.color.textOnBrand,
-    fontSize: "12px",
-    fontWeight: theme.font.weightSemibold,
-    border: "none",
-    cursor: "pointer",
-    whiteSpace: "nowrap",
-  },
   tagSelected: {
     outline: `2px solid ${theme.color.borderBrand}`,
     outlineOffset: "2px",
   },
-  controls: { display: "flex", columnGap: "8px", marginTop: "12px" },
-  side: { width: "340px", flexShrink: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  controls: {
+    marginTop: "12px",
+  },
+  side: {
+    width: "340px",
+  }
 });
 
 export function AugmentedRealityPage() {
@@ -124,8 +119,8 @@ export function AugmentedRealityPage() {
         actions: [refreshAction],
       }}
     >
-      <div className={styles.body}>
-        <div className={styles.viewportCard}>
+      <HStack gap="12px" className={styles.body}>
+        <VStack className={styles.viewportCard}>
           <Card title={t("manufacturing.augmentedReality.viewportTitle")}>
             <div
               className={styles.viewport}
@@ -135,17 +130,18 @@ export function AugmentedRealityPage() {
                 {t("manufacturing.augmentedReality.viewportEmpty")}
               </span>
               {TAGS.map((tag) => (
-                <button
+                <Button
                   key={tag.id}
-                  className={mergeClasses(styles.tag, tag.id === selectedId && styles.tagSelected)}
-                  style={{ left: `${tag.x}%`, top: `${tag.y}%` }}
+                  variant={tag.id === selectedId ? "primary" : "secondary"}
+                  size="sm"
+                  style={{ position: "absolute", left: `${tag.x}%`, top: `${tag.y}%` }}
                   onClick={() => setSelectedId(tag.id)}
                 >
                   {tag.entity}
-                </button>
+                </Button>
               ))}
             </div>
-            <div className={styles.controls}>
+            <HStack gap="8px" className={styles.controls}>
               <Button
                 variant="secondary"
                 icon={<ZoomIn24Regular />}
@@ -167,17 +163,17 @@ export function AugmentedRealityPage() {
               >
                 {t("manufacturing.augmentedReality.rotate")}
               </Button>
-            </div>
+            </HStack>
           </Card>
-        </div>
-        <div className={styles.side}>
+        </VStack>
+        <VStack gap="12px" className={styles.side}>
           <Card title={t("manufacturing.augmentedReality.detectedTags")}>
             {TAGS.length === 0 ? (
               <Empty>
                 <Text>{t("manufacturing.augmentedReality.noTags")}</Text>
               </Empty>
             ) : (
-              <div style={{ display: "flex", flexDirection: "column", rowGap: "8px" }}>
+              <VStack gap="8px">
                 {TAGS.map((tag) => (
                   <Button
                     key={tag.id}
@@ -187,7 +183,7 @@ export function AugmentedRealityPage() {
                     {tag.entity} ({tag.type})
                   </Button>
                 ))}
-              </div>
+              </VStack>
             )}
           </Card>
           <Card title={t("manufacturing.augmentedReality.entityDetails")}>
@@ -199,8 +195,8 @@ export function AugmentedRealityPage() {
               </Empty>
             )}
           </Card>
-        </div>
-      </div>
+        </VStack>
+      </HStack>
     </ListPage>
   );
 }

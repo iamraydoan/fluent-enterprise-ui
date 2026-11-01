@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogEntityBanner, WizardSteps } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, HStack, VStack, WizardSteps } from "@/components/common";
 import {
   Body1Strong,
   Button,
@@ -113,13 +113,13 @@ export function AssignEmployeesDialog({
       <DialogEntityBanner icon="🏆" name={qualificationName} />
 
       {step === 1 && (
-        <div style={{ display: "flex", columnGap: 16 }}>
+        <HStack gap={16}>
           <div style={{ flexGrow: 1 }}>
-            <div style={{ display: "flex", columnGap: 12, marginBottom: 12 }}>
+            <HStack gap={12} style={{marginBottom: 12}}>
               <Field label={t(`${k}.search`)}>
                 <Input value={search} onChange={setSearch} />
               </Field>
-            </div>
+            </HStack>
             <div style={{ marginBottom: 8 }}>
               {t(`${k}.employeesCount`, { count: filtered.length })} /{" "}
               {t(`${k}.selectedCount`, { count: selected.length })}
@@ -172,11 +172,11 @@ export function AssignEmployeesDialog({
               ))}
             </div>
           </div>
-        </div>
+        </HStack>
       )}
 
       {step === 2 && (
-        <div style={{ display: "flex", columnGap: 16 }}>
+        <HStack gap={16}>
           <div style={{ width: 320, flexShrink: 0 }}>
             <Body1Strong>{t(`${k}.employees`)}</Body1Strong>
             <Table>
@@ -198,7 +198,7 @@ export function AssignEmployeesDialog({
               </TableBody>
             </Table>
           </div>
-          <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
+          <VStack gap={12}>
             <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
             <Field label={t(`${k}.qualificationDate`)} required>
               <Input value={qualificationDate} onChange={setQualificationDate} />
@@ -230,8 +230,8 @@ export function AssignEmployeesDialog({
             <Field label={t(`${k}.evidence`)}>
               <Input value={evidence} onChange={setEvidence} />
             </Field>
-          </div>
-        </div>
+          </VStack>
+        </HStack>
       )}
 
       <Field label={t(`${k}.comments`)}>

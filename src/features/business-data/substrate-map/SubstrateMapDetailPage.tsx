@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSubstrateMapDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, HStack, VStack  } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -68,13 +68,13 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
   } else if (left === "businessData.substrateMap.sections.overlayInformation") {
     content = (
       <Panel>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <HStack align="center" justify="space-between">
           <Body1Strong>
             {t("businessData.substrateMap.sections.overlayInformation")} ({data.overlays.length})
           </Body1Strong>
           <Button>{t("businessData.substrateMap.manageOverlayInfo")}</Button>
-        </div>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        </HStack>
+        <VStack gap="8px" style={{marginTop: "12px"}}>
           {data.overlays.map((overlay) => (
             <div
               key={overlay.name}
@@ -90,7 +90,7 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
               </div>
             </div>
           ))}
-        </div>
+        </VStack>
       </Panel>
     );
   } else if (left !== "businessData.substrateMap.sections.details") {

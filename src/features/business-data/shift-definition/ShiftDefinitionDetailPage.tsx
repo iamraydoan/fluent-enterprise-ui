@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useShiftDefinitionDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, HStack  } from "@/components/common";
 import { Timer24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -64,12 +64,12 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
   } else if (left === "businessData.shiftDefinition.sections.shifts") {
     content = (
       <Panel>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <HStack align="center" justify="space-between">
           <Body1Strong>{t("businessData.shiftDefinition.sections.shifts")}</Body1Strong>
           <Button onClick={() => setManageOpen(true)}>
             {t("businessData.shiftDefinition.manage")}
           </Button>
-        </div>
+        </HStack>
         {data.shifts.length === 0 ? (
           <Caption1>{t("businessData.shiftDefinition.emptySection")}</Caption1>
         ) : (

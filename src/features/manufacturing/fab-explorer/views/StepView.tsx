@@ -1,14 +1,15 @@
 import { useMemo, useRef, useState } from "react";
 import { postFabOperation, useStepMaterials, useStepResources, useStepSummary } from "@/api";
 import type { FabResource } from "@/api";
+import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
 import {
   ActionBar,
   DataTableCard,
+  IconButton,
   RibbonButton,
   SidePanel,
-  searchFilter,
+  searchFilter, HStack, VStack 
 } from "@/components/common";
-import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
 import {
   ArrowSync24Regular,
   Box24Regular,
@@ -48,11 +49,11 @@ import {
 import { MATERIAL_COLUMNS } from "./materialColumns";
 
 const useViewStyles = makeStyles({
-  page: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0 },
+  page: {
+    height: "100%",
+    minHeight: 0,
+  },
   header: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     padding: "8px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surface,
@@ -72,10 +73,21 @@ const useViewStyles = makeStyles({
     borderRadius: "50%",
     backgroundColor: theme.color.brand,
   },
-  body: { display: "flex", flexGrow: 1, minHeight: 0, columnGap: "10px", padding: "10px" },
-  left: { width: "220px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
-  center: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "8px" },
-  right: { width: "260px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
+  body: {
+    minHeight: 0,
+    padding: "10px",
+  },
+  left: {
+    width: "220px",
+    minHeight: 0,
+  },
+  center: {
+    minWidth: 0,
+  },
+  right: {
+    width: "260px",
+    minHeight: 0,
+  },
   filterBar: {
     display: "flex",
     alignItems: "center",
@@ -87,9 +99,6 @@ const useViewStyles = makeStyles({
     borderRadius: theme.radius.md,
   },
   catRow: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     width: "100%",
     padding: "8px 12px",
     border: "none",
@@ -98,7 +107,7 @@ const useViewStyles = makeStyles({
     textAlign: "left",
     fontSize: "13px",
     borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
+    ": hover": { backgroundColor: theme.color.surfaceHover },
   },
   catActive: {
     backgroundColor: theme.color.surfaceSelected,
@@ -118,20 +127,16 @@ const useViewStyles = makeStyles({
     fontWeight: theme.font.weightSemibold,
     color: theme.color.textTertiary,
     padding: "8px 12px 4px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
   },
   detailCard: {
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
     padding: "12px",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "8px",
   },
-  toolbarRight: { marginLeft: "auto", display: "flex", columnGap: "4px" },
+  toolbarRight: {
+    marginLeft: "auto",
+  }
 });
 
 type Category = "materials" | "resources";
@@ -350,20 +355,19 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
   };
 
   return (
-    <div className={styles.page}>
-      <div className={styles.header}>
-        <button
-          className={styles.backBtn}
+    <VStack className={styles.page}>
+      <HStack gap="8px" align="center" className={styles.header}>
+        <IconButton
+          icon={<ChevronLeft20Regular />}
           onClick={onBack}
           aria-label={t("manufacturing.fabExplorer.stepView.back")}
-        >
-          <ChevronLeft20Regular />
-        </button>
+          size="sm"
+        />
         <span className={styles.stateDot} />
         <Text weight="semibold" size={400}>
           {name}
         </Text>
-      </div>
+      </HStack>
 
       <ActionBar>
         <RibbonButton
@@ -421,7 +425,7 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
           label={t("manufacturing.fabExplorer.operations.more")}
           menu={moreMenu}
         />
-        <div className={styles.toolbarRight}>
+        <HStack gap="4px" className={styles.toolbarRight}>
           <RibbonButton
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.layout.views")}
@@ -431,24 +435,26 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
             label={t("manufacturing.fabExplorer.layout.layout")}
             menu={layoutMenu}
           />
-        </div>
+        </HStack>
       </ActionBar>
 
-      <div className={styles.body}>
-        <div className={styles.left}>
+      <HStack gap="10px" className={styles.body}>
+        <VStack className={styles.left}>
           <SidePanel
             title={t("manufacturing.fabExplorer.stepView.details")}
             collapsed={false}
             onToggle={() => undefined}
           >
             {CATEGORIES.map((cat) => (
-              <div
+              <HStack
+                align="center"
+                justify="space-between"
                 key={cat}
-                className={mergeClasses(styles.catRow, category === cat && styles.catActive)}
                 onClick={() => {
                   setCategory(cat);
                   setSelected(new Set());
                 }}
+                className={mergeClasses(styles.catRow, category === cat && styles.catActive)}
               >
                 <Text size={300} weight={category === cat ? "semibold" : "regular"}>
                   {t(L[cat])} (
@@ -457,8 +463,8 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
                     : (summary?.resourceCount ?? 0)}
                   )
                 </Text>
-                <button
-                  className={styles.catRefresh}
+                <IconButton
+                  icon={<ArrowSync24Regular />}
                   aria-label={t("manufacturing.fabExplorer.stepView.refreshCategory", {
                     category: t(L[cat]),
                   })}
@@ -466,15 +472,14 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
                     e.stopPropagation();
                     refreshCategory(cat);
                   }}
-                >
-                  <ArrowSync24Regular />
-                </button>
-              </div>
+                  size="sm"
+                />
+              </HStack>
             ))}
           </SidePanel>
-        </div>
+        </VStack>
 
-        <div className={styles.center}>
+        <VStack gap="8px" className={styles.center}>
           {category === "materials" ? (
             <DataTableCard
               title={(count) => t("manufacturing.fabExplorer.stepView.materialsTitle", { count })}
@@ -501,13 +506,13 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
               apiRef={resourcesApiRef}
             />
           )}
-        </div>
+        </VStack>
 
-        <div className={styles.right}>
-          <div className={styles.detailCard}>
-            <div className={styles.sectionTitle}>
+        <VStack className={styles.right}>
+          <VStack gap="8px" className={styles.detailCard}>
+            <HStack align="center" justify="space-between" className={styles.sectionTitle}>
               <span>{t(L.details)}</span>
-            </div>
+            </HStack>
             <Text size={300} weight="semibold">
               {t(L.holds)} (1)
             </Text>
@@ -520,9 +525,9 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
               {t(L.documents)} (1)
             </Text>
             <Text size={300}>{MOCK_DOC}</Text>
-          </div>
-        </div>
-      </div>
+          </VStack>
+        </VStack>
+      </HStack>
 
       <DispatchDialog
         open={dlg === DLG.dispatch}
@@ -655,6 +660,6 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
       />
       <SaveLayoutDialog open={dlg === DLG.saveLayout} onClose={closeDlg} onConfirm={closeDlg} />
       <ResetLayoutDialog open={dlg === DLG.resetLayout} onClose={closeDlg} onConfirm={closeDlg} />
-    </div>
+    </VStack>
   );
 }

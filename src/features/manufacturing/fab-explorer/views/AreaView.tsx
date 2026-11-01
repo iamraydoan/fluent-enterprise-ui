@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useFabArea, useFabResources, useFabSteps, useFabUndispatchableMaterials } from "@/api";
 import type { FabResourceState } from "@/api";
-import { Card, FilterBar, FilterGroup, SidePanel } from "@/components/common";
-import { makeStyles, Text} from "@/components/ui";
+import { Card, FilterBar, FilterGroup, SidePanel, Grid, HStack, VStack  } from "@/components/common";
+import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { useSharedStyles, tileSurface } from "@/styles/shared";
@@ -10,43 +10,36 @@ import { theme } from "@/styles/theme";
 import type { FabNavigation } from "../FabExplorerPage";
 
 const useViewStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  body: {
+    minHeight: 0,
+  },
+  main: {
+    minWidth: 0,
+  },
   stepRow: {
-    display: "flex",
-    columnGap: "0",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     minHeight: "120px",
   },
   stepInfo: {
     width: "140px",
-    flexShrink: 0,
     padding: "12px",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "4px",
     borderRight: `1px solid ${theme.color.borderSubtle}`,
   },
   resourceGrid: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "8px",
     padding: "12px",
-    flexGrow: 1,
   },
   resourceTile: {
     width: "110px",
     borderRadius: "4px",
     padding: "8px",
     cursor: "pointer",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "4px",
     borderLeft: "4px solid",
-    ":hover": { filter: "brightness(0.95)" },
+    ": hover": { filter: "brightness(0.95)" },
   },
-  resourceStats: { display: "flex", flexDirection: "column", fontSize: "11px", rowGap: "2px" },
-  statRow: { display: "flex", justifyContent: "space-between" },
+  resourceStats: {
+    fontSize: "11px",
+  },
+  
   undispatchTable: { width: "100%", borderCollapse: "collapse", fontSize: "13px" },
   undispatchHeader: {
     textAlign: "left",
@@ -56,11 +49,7 @@ const useViewStyles = makeStyles({
     fontSize: "12px",
   },
   undispatchCell: { padding: "8px", borderBottom: `1px solid ${theme.color.border}` },
-  infoCards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
-    gap: "12px",
-  },
+  
   infoCard: { padding: "12px", textAlign: "center" },
 });
 
@@ -109,9 +98,9 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
     filteredResources.filter((r) => r.services.includes(stepName));
 
   return (
-    <div className={styles.body}>
-      <div className={styles.main}>
-        <div className={styles.infoCards}>
+    <HStack gap="10px" className={styles.body}>
+      <VStack gap="12px" className={styles.main}>
+        <Grid columns="repeat(auto-fill, minmax(160px, 1fr))" gap="12px">
           <div className={`${sharedStyles.contentCard} ${styles.infoCard}`}>
             <Text size={200} style={{ color: theme.color.textTertiary }}>
               {t("fabExplorer.processedMaterials")}
@@ -136,7 +125,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
               {inProcessMaterials}
             </Text>
           </div>
-        </div>
+        </Grid>
 
         <FilterBar justifyEnd>
           <FilterGroup label={t("fabExplorer.resourceState")}>
@@ -164,8 +153,8 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
           {steps.map((step) => {
             const stepResources = getStepResources(step.name);
             return (
-              <div key={step.name} className={styles.stepRow}>
-                <div className={styles.stepInfo}>
+              <HStack gap="0" key={step.name} className={styles.stepRow}>
+                <VStack gap="4px" className={styles.stepInfo}>
                   <Text
                     weight="semibold"
                     size={300}
@@ -177,14 +166,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                   <Text size={200} style={{ color: theme.color.textTertiary }}>
                     {step.description}
                   </Text>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      columnGap: "8px",
-                      marginTop: "8px",
-                    }}
-                  >
+                  <HStack gap="8px" align="center" style={{marginTop: "8px"}}>
                     <span
                       style={{
                         width: "24px",
@@ -198,23 +180,24 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                     <Text size={300} weight="semibold">
                       {step.materialCount}
                     </Text>
-                  </div>
-                </div>
-                <div className={styles.resourceGrid}>
+                  </HStack>
+                </VStack>
+                <HStack gap="8px" wrap className={styles.resourceGrid}>
                   {stepResources.length === 0 && (
                     <Text size={200} style={{ color: theme.color.textTertiary }}>
                       {t("fabExplorer.noResources")}
                     </Text>
                   )}
                   {stepResources.map((r) => (
-                    <div
+                    <VStack
+                      gap="4px"
                       key={r.name}
-                      className={styles.resourceTile}
                       style={{
                         backgroundColor: tileSurface.backgroundColor,
                         borderLeftColor: STATE_COLORS[r.state],
                       }}
                       onClick={() => onSelectResource(r.name)}
+                      className={styles.resourceTile}
                       role="button"
                       tabIndex={0}
                       onKeyDown={(e) => {
@@ -227,28 +210,28 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                       <Text size={100} style={{ color: theme.color.textTertiary }}>
                         {r.type}
                       </Text>
-                      <div className={styles.resourceStats}>
-                        <div className={styles.statRow}>
+                      <VStack gap="2px" className={styles.resourceStats}>
+                        <HStack justify="space-between">
                           <span>{t("fabExplorer.processedMaterials").split(" ")[0]}</span>
                           <span>{r.processedMaterials}</span>
-                        </div>
-                        <div className={styles.statRow}>
+                        </HStack>
+                        <HStack justify="space-between">
                           <span>Q</span>
                           <span>{r.inQueueMaterials}</span>
-                        </div>
-                        <div className={styles.statRow}>
+                        </HStack>
+                        <HStack justify="space-between">
                           <span>P</span>
                           <span>{r.inProcessMaterials}</span>
-                        </div>
-                      </div>
-                    </div>
+                        </HStack>
+                      </VStack>
+                    </VStack>
                   ))}
-                </div>
-              </div>
+                </HStack>
+              </HStack>
             );
           })}
         </Card>
-      </div>
+      </VStack>
       <SidePanel title={t("fabExplorer.panels")} collapsed={false} onToggle={() => {}}>
         <Card title={t("fabExplorer.undispatchableMaterials")}>
           <table className={styles.undispatchTable}>
@@ -263,17 +246,11 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
             <tbody>
               {undispatchable.map((m, i) => (
                 <tr key={`${m.name}-${i}`}>
-                  <td
-                    className={styles.undispatchCell}
-                    style={{ color: theme.color.textBrand }}
-                  >
+                  <td className={styles.undispatchCell} style={{ color: theme.color.textBrand }}>
                     {m.name}
                   </td>
                   <td className={styles.undispatchCell}>{m.quantity}</td>
-                  <td
-                    className={styles.undispatchCell}
-                    style={{ color: theme.color.textBrand }}
-                  >
+                  <td className={styles.undispatchCell} style={{ color: theme.color.textBrand }}>
                     {m.step}
                   </td>
                   <td className={styles.undispatchCell}>{m.dueDate}</td>
@@ -286,6 +263,6 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
           </Text>
         </Card>
       </SidePanel>
-    </div>
+    </HStack>
   );
 }

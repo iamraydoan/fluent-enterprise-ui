@@ -2,6 +2,7 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useDataCollectionDetail } from "@/api";
 import type { DataCollectionInstance, DataCollectionParameter } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   DetailShell,
   ListPage,
@@ -11,10 +12,10 @@ import {
   terminateAction,
   unterminateAction,
   DetailTabs,
+  Empty,  SectionHeader, Grid, HStack, VStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Text, makeStyles} from "@/components/ui";
+import { Button, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -23,11 +24,7 @@ import { useCopyDataCollectionLimitSetsDialog } from "../data-collection-limit-s
 import { useDataCollectionDialogs } from "./useDataCollectionDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
+  
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
@@ -35,9 +32,10 @@ const useDetailStyles = makeStyles({
     paddingBottom: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
   paramHeader: {
     width: "100%",
     textAlign: "left",
@@ -50,7 +48,7 @@ const useDetailStyles = makeStyles({
     fontWeight: theme.font.weightSemibold,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  paramBlock: { display: "flex", flexDirection: "column", rowGap: "12px" },
+  
 });
 
 const TABS = ["details", "compare", "references", "history"] as const;
@@ -102,7 +100,7 @@ export function DataCollectionDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.dataCollection.detail.loading")}</div>
+        <Empty>{t("businessData.dataCollection.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -163,61 +161,52 @@ export function DataCollectionDetailPage() {
             showState={false}
           >
             {left === "businessData.dataCollection.detail.sections.parameters" ? (
-              <div className={styles.paramBlock}>
-                <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px" }}>
+              <VStack gap="12px">
+                <HStack justify="flex-end" style={{marginBottom: "8px"}}>
                   <Button variant="secondary" onClick={openManageParameters}>
                     {t("businessData.dataCollection.operations.manageParametersTitle")}
                   </Button>
-                </div>
+                </HStack>
                 {dc.parameters.map((p) => (
                   <div key={p.parameter} className={sharedStyles.contentCard}>
-                    <button
-                      className={styles.paramHeader}
-                      onClick={() => setExpanded(expanded === p.parameter ? null : p.parameter)}
-                    >
-                      {p.parameter}
-                      <span
-                        style={{
-                          display: "block",
-                          fontWeight: "normal",
-                          fontSize: 12,
-                          color: theme.color.textTertiary,
-                        }}
-                      >
-                        {p.dataType}
-                      </span>
-                    </button>
+                    <SectionHeader
+                      title={
+                        <>
+                          {p.parameter}
+                          <Text size={200} style={{ color: theme.color.textTertiary }}>
+                            {p.dataType}
+                          </Text>
+                        </>
+                      }
+                      collapsible
+                      expanded={expanded === p.parameter}
+                      onToggle={() => setExpanded(expanded === p.parameter ? null : p.parameter)}
+                    />
                     {expanded === p.parameter && <ParameterDetail parameter={p} />}
                   </div>
                 ))}
-              </div>
+              </VStack>
             ) : left === "businessData.dataCollection.detail.sections.limitSets" ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <div
-                  style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
-                >
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.dataCollection.detail.limitSetsTitle", {
+                <HStack align="center" justify="space-between">
+                  <SectionHeader title={t("businessData.dataCollection.detail.limitSetsTitle", {
                       count: dc.limitSets.length,
-                    })}
-                  </Text>
+                    })} />
                   <Button variant="secondary" size="sm" onClick={openCopyLimitSets}>
                     {t("businessData.dataCollectionLimitSet.operations.copyTitle")}
                   </Button>
-                </div>
+                </HStack>
                 {dc.limitSets.map((l) => (
-                  <div key={l.name} className={styles.row}>
+                  <HStack gap="12px" key={l.name} className={styles.row}>
                     <span>{l.name}</span>
-                  </div>
+                  </HStack>
                 ))}
               </div>
             ) : left === "businessData.dataCollection.detail.sections.instances" ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.dataCollection.detail.instancesTitle", {
+                <SectionHeader title={t("businessData.dataCollection.detail.instancesTitle", {
                     count: dc.instances.length,
-                  })}
-                </Text>
+                  })} />
                 {dc.instances.map((i) => (
                   <InstanceRow
                     key={i.name}
@@ -233,11 +222,9 @@ export function DataCollectionDetailPage() {
                 ))}
               </div>
             ) : (
-              <div className={styles.cards}>
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.dataCollection.detail.dataCollection")}
-                  </Text>
+                  <SectionHeader title={t("businessData.dataCollection.detail.dataCollection")} />
                   <KV label={t("businessData.dataCollection.detail.name")} value={dc.name} />
                   <KV
                     label={t("businessData.dataCollection.detail.description")}
@@ -254,18 +241,14 @@ export function DataCollectionDetailPage() {
                   />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.dataCollection.detail.changeSet")}
-                  </Text>
+                  <SectionHeader title={t("businessData.dataCollection.detail.changeSet")} />
                   <KV
                     label={t("businessData.dataCollection.detail.changeSetLabel")}
                     value={dc.changeSet}
                   />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.dataCollection.detail.details")}
-                  </Text>
+                  <SectionHeader title={t("businessData.dataCollection.detail.details")} />
                   <KV label={t("businessData.dataCollection.detail.scope")} value={dc.scope} />
                   <KV
                     label={t("businessData.dataCollection.detail.userInterface")}
@@ -276,13 +259,11 @@ export function DataCollectionDetailPage() {
                     value={dc.limitCheckingMode}
                   />
                 </div>
-              </div>
+              </Grid>
             )}
           </DetailShell>
         )}
-        {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.dataCollection.detail.historyEmpty")}</div>
-        )}
+        {tab !== "details" && <Empty>{t("businessData.dataCollection.detail.historyEmpty")}</Empty>}
       </DetailTabs>
       {dialogs}
       {copyDialog}
@@ -317,14 +298,11 @@ function InstanceRow({
   const styles = useDetailStyles();
   const terminated = instance.state === "Terminated";
   return (
-    <div
-      className={styles.row}
-      style={{
+    <HStack gap="12px" style={{
         alignItems: "center",
         padding: "8px 0",
         borderBottom: `1px solid ${theme.color.borderSubtle}`,
-      }}
-    >
+      }} className={styles.row}>
       <div style={{ flexGrow: 1 }}>
         <div style={{ fontWeight: 600 }}>{instance.name}</div>
         <div style={{ fontSize: "12px", color: theme.color.textTertiary }}>
@@ -332,7 +310,7 @@ function InstanceRow({
           {postedCountSuffix(instance.postedData.length)}
         </div>
       </div>
-      <div style={{ display: "flex", columnGap: "4px", flexWrap: "wrap" }}>
+      <HStack gap="4px" wrap>
         <Button variant="secondary" size="sm" onClick={onView}>
           {t("businessData.dataCollection.operations.viewInstanceTitle")}
         </Button>
@@ -357,8 +335,8 @@ function InstanceRow({
             {t("businessData.dataCollection.operations.terminateInstance")}
           </Button>
         )}
-      </div>
-    </div>
+      </HStack>
+    </HStack>
   );
 }
 
@@ -367,11 +345,9 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
   const sharedStyles = useSharedStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.cards} style={{ padding: 16 }}>
+    <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px" style={{ padding: 16 }}>
       <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-        <Text className={styles.cardTitle}>
-          {t("businessData.dataCollection.detail.parameterDetails")}
-        </Text>
+        <SectionHeader title={t("businessData.dataCollection.detail.parameterDetails")} />
         <KV label={t("businessData.dataCollection.detail.parameter")} value={parameter.parameter} />
         <Bool
           label={t("businessData.dataCollection.detail.isOptional")}
@@ -379,7 +355,7 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
         />
       </div>
       <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-        <Text className={styles.cardTitle}>{t("businessData.dataCollection.detail.samples")}</Text>
+        <SectionHeader title={t("businessData.dataCollection.detail.samples")} />
         <KV label={t("businessData.dataCollection.detail.type")} value={parameter.dataType} />
         <KV
           label={t("businessData.dataCollection.detail.minimumSamples")}
@@ -391,7 +367,7 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
         />
       </div>
       <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-        <Text className={styles.cardTitle}>{t("businessData.dataCollection.detail.readings")}</Text>
+        <SectionHeader title={t("businessData.dataCollection.detail.readings")} />
         <KV
           label={t("businessData.dataCollection.detail.minimumSampleReadings")}
           value={String(parameter.minimumSampleReadings)}
@@ -402,15 +378,13 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
         />
       </div>
       <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-        <Text className={styles.cardTitle}>
-          {t("businessData.dataCollection.detail.calculation")}
-        </Text>
+        <SectionHeader title={t("businessData.dataCollection.detail.calculation")} />
         <KV
           label={t("businessData.dataCollection.detail.limitChecking")}
           value={parameter.limitChecking}
         />
       </div>
-    </div>
+    </Grid>
   );
 }
 
@@ -418,10 +392,10 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.dataCollection.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }
 
@@ -429,13 +403,13 @@ function Bool({ label, value }: { label: string; value: boolean }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>
         {value
           ? t("businessData.dataCollection.detail.yes")
           : t("businessData.dataCollection.detail.no")}
       </span>
-    </div>
+    </HStack>
   );
 }

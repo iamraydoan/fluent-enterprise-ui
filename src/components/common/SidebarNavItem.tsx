@@ -21,17 +21,26 @@ const useNavItemStyles = makeStyles({
     fontWeight: tokens.fontWeightSemibold,
   },
   desc: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
+  count: { marginLeft: "auto", fontSize: "12px", fontWeight: tokens.fontWeightSemibold },
 });
 
 interface SidebarNavItemProps {
   icon?: React.ReactNode;
   label: string;
   description?: string;
+  count?: React.ReactNode;
   active: boolean;
   onClick: () => void;
 }
 
-export function SidebarNavItem({ icon, label, description, active, onClick }: SidebarNavItemProps) {
+export function SidebarNavItem({
+  icon,
+  label,
+  description,
+  count,
+  active,
+  onClick,
+}: SidebarNavItemProps) {
   const styles = useNavItemStyles();
   return (
     <button
@@ -46,6 +55,7 @@ export function SidebarNavItem({ icon, label, description, active, onClick }: Si
         </Text>
         {description && <div className={styles.desc}>{description}</div>}
       </span>
+      {count !== undefined && <span className={styles.count}>{count}</span>}
     </button>
   );
 }

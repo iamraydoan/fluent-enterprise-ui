@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FormField } from "@/components/common";
+import { FormField, IconButton, HStack, VStack  } from "@/components/common";
 import { ChevronLeft20Regular, ChevronRight20Regular, Dismiss16Regular } from "@/components/icons";
 import {
   Button,
@@ -34,21 +34,15 @@ const useWizardStyles = makeStyles({
   surface: {
     width: "min(640px, calc(100vw - 48px))",
     maxHeight: "min(720px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
     overflow: "hidden",
     ...cardSurface,
   },
   head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     minHeight: "52px",
     padding: "0 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    flexShrink: 0,
   },
-  headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
+  
   closeButton: {
     border: "none",
     backgroundColor: "transparent",
@@ -59,10 +53,7 @@ const useWizardStyles = makeStyles({
     ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   steps: {
-    display: "flex",
-    columnGap: "8px",
     padding: "12px 24px 0",
-    flexShrink: 0,
   },
   stepPill: {
     flexGrow: 1,
@@ -78,25 +69,17 @@ const useWizardStyles = makeStyles({
     flexShrink: 0,
   },
   body: {
-    flexGrow: 1,
     minHeight: 0,
     overflowY: "auto",
     padding: "16px 24px",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "12px",
   },
   fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
   fieldRequired: { color: theme.color.textDanger },
   foot: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     padding: "12px 24px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
-    flexShrink: 0,
   },
-  footGroup: { display: "flex", columnGap: "8px", alignItems: "center" },
+  
   selectButton: {
     width: "100%",
     justifyContent: "space-between",
@@ -171,38 +154,37 @@ export function EntityWizardDialog({
 
   return (
     <div className={styles.overlay} onClick={handleClose}>
-      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.head}>
-          <div className={styles.headTitle}>
+      <VStack onClick={(event) => event.stopPropagation()} className={styles.surface}>
+        <HStack align="center" justify="space-between" className={styles.head}>
+          <HStack gap="10px" align="center">
             <Text weight="semibold">{t(titleKey)}</Text>
-          </div>
-          <button
-            className={styles.closeButton}
+          </HStack>
+          <IconButton
+            icon={<Dismiss16Regular />}
             onClick={handleClose}
             aria-label={t("common.close")}
-          >
-            <Dismiss16Regular />
-          </button>
-        </div>
+            size="sm"
+          />
+        </HStack>
         {steps.length > 1 && (
-          <div className={styles.steps}>
+          <HStack gap="8px" className={styles.steps}>
             {steps.map((s, index) => (
               <div
                 key={s.titleKey}
                 className={`${styles.stepPill} ${index <= stepIndex ? styles.stepPillActive : ""}`}
               />
             ))}
-          </div>
+          </HStack>
         )}
         <div className={styles.stepTitle}>{t(step.titleKey)}</div>
-        <div className={styles.body}>
+        <VStack gap="12px" className={styles.body}>
           {step.fields.map((field) => (
             <WizardFieldInput key={field.key} field={field} values={values} onChange={setValue} />
           ))}
-        </div>
+        </VStack>
         {error && <div className={styles.error}>{error}</div>}
-        <div className={styles.foot}>
-          <div className={styles.footGroup}>
+        <HStack align="center" justify="space-between" className={styles.foot}>
+          <HStack gap="8px" align="center">
             {!isFirst && (
               <Button
                 variant="secondary"
@@ -212,8 +194,8 @@ export function EntityWizardDialog({
                 {t("common.back")}
               </Button>
             )}
-          </div>
-          <div className={styles.footGroup}>
+          </HStack>
+          <HStack gap="8px" align="center">
             <Button variant="secondary" onClick={handleClose}>
               {t("common.cancel")}
             </Button>
@@ -225,9 +207,9 @@ export function EntityWizardDialog({
             >
               {isLast ? t(submitLabelKey) : t("common.next")}
             </Button>
-          </div>
-        </div>
-      </div>
+          </HStack>
+        </HStack>
+      </VStack>
     </div>
   );
 }
@@ -315,9 +297,7 @@ function WizardFieldInput({
       <Input
         type={field.type === "number" ? "number" : field.type === "date" ? "date" : "text"}
         value={value === undefined || typeof value === "boolean" ? "" : String(value)}
-        onChange={(value) =>
-          onChange(field.key, field.type === "number" ? Number(value) : value)
-        }
+        onChange={(value) => onChange(field.key, field.type === "number" ? Number(value) : value)}
       />
     </FormField>
   );

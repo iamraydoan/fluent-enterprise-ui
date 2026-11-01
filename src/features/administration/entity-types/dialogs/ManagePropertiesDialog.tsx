@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useUpdateEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty, PropertySearchType } from "@/api";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, FormField, OptionItem, Grid, HStack, VStack  } from "@/components/common";
 import { Add24Regular, Delete20Regular, Warning12Filled } from "@/components/icons";
 import {
   Button,
@@ -23,27 +23,22 @@ const MAX_SEARCHABLE = 2;
 
 const useDialogStyles = makeStyles({
   bodyGrid: {
-    display: "grid",
-    gridTemplateColumns: "300px minmax(0, 1fr)",
-    columnGap: "24px",
-    flexGrow: 1,
     minHeight: 0,
   },
   headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
-  listPane: { display: "flex", flexDirection: "column", minHeight: 0 },
+  listPane: {
+    minHeight: 0,
+  },
   listHead: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     marginBottom: "8px",
   },
-  listActions: { display: "flex", columnGap: "4px" },
+  
   list: {
     flexGrow: 1,
     minHeight: 0,
     overflowY: "auto",
     border: `1px solid ${theme.color.border}`,
-    backgroundColor: "#fff",
+    backgroundColor: theme.color.surface,
   },
   listItem: {
     width: "100%",
@@ -58,25 +53,13 @@ const useDialogStyles = makeStyles({
     fontSize: "13px",
     ":hover": { backgroundColor: theme.color.surfaceHover },
   },
-  listItemSelected: { backgroundColor: theme.color.surfaceSelected },
   formPane: { minHeight: 0, overflowY: "auto", paddingRight: "8px" },
   sectionTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     margin: "16px 0 8px",
   },
-  fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "160px minmax(0, 1fr)",
-    alignItems: "center",
-    columnGap: "12px",
-    marginBottom: "8px",
-  },
-  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
   alert: {
-    display: "flex",
-    alignItems: "flex-start",
-    columnGap: "8px",
     padding: "10px 12px",
     borderRadius: theme.radius.md,
     marginBottom: "12px",
@@ -161,13 +144,13 @@ export function ManagePropertiesDialog({
         </>
       }
     >
-      <div className={styles.bodyGrid}>
-        <div className={styles.listPane}>
-          <div className={styles.listHead}>
+      <Grid columns="300px minmax(0, 1fr)" gap="24px" className={styles.bodyGrid}>
+        <VStack className={styles.listPane}>
+          <HStack align="center" justify="space-between" className={styles.listHead}>
             <Text weight="semibold" size={300}>
               {t("entityTypes.manage.properties")}
             </Text>
-            <div className={styles.listActions}>
+            <HStack gap="4px">
               <Button
                 variant="subtle"
                 size="sm"
@@ -182,39 +165,41 @@ export function ManagePropertiesDialog({
                 aria-label={t("entityTypes.manage.remove")}
                 onClick={() => {}}
               />
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             className={styles.list}
             role="listbox"
             aria-label={t("entityTypes.manage.properties")}
           >
             {properties.map((property) => (
-              <button
+              <OptionItem
                 key={property.name}
-                className={`${styles.listItem} ${property.name === selected ? styles.listItemSelected : ""}`}
+                title={
+                  <>
+                    {property.name}
+                    {property.isSystem ? ` (${t("entityTypes.manage.system")})` : ""}
+                  </>
+                }
+                selected={property.name === selected}
                 onClick={() => setSelected(property.name)}
-                role="option"
-                aria-selected={property.name === selected}
-              >
-                {property.name}
-                {property.isSystem ? ` (${t("entityTypes.manage.system")})` : ""}
-              </button>
+                ariaLabel={property.name}
+              />
             ))}
           </div>
-        </div>
+        </VStack>
         <div className={styles.formPane}>
           {error && (
-            <div className={`${styles.alert} ${styles.alertError}`} role="alert">
+            <HStack gap="8px" align="flex-start" className={`${styles.alert} ${styles.alertError}`} role="alert">
               <Warning12Filled />
               <span>{error}</span>
-            </div>
+            </HStack>
           )}
           {hasContains && (
-            <div className={`${styles.alert} ${styles.alertWarning}`} role="status">
+            <HStack gap="8px" align="flex-start" className={`${styles.alert} ${styles.alertWarning}`} role="status">
               <Warning12Filled />
               <span>{t("entityTypes.manage.containsWarning")}</span>
-            </div>
+            </HStack>
           )}
           {selectedProperty && (
             <PropertyForm
@@ -223,7 +208,7 @@ export function ManagePropertiesDialog({
             />
           )}
         </div>
-      </div>
+      </Grid>
     </BaseDialog>
   );
 }
@@ -243,51 +228,43 @@ function PropertyForm({
   return (
     <>
       <div className={styles.sectionTitle}>{t("entityTypes.manage.propertyDetails")}</div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("entityTypes.property.name")}</span>
+      <FormField label={t("entityTypes.property.name")} labelWidth="160px" labelAlign="right">
         <Text size={300}>{property.name}</Text>
-      </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("entityTypes.property.description")}</span>
+      </FormField>
+      <FormField label={t("entityTypes.property.description")} labelWidth="160px" labelAlign="right">
         <Input
           size="sm"
           value={property.description}
           onChange={(value) => onPatch({ description: value })}
           disabled={property.isSystem}
         />
-      </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("entityTypes.property.kind")}</span>
+      </FormField>
+      <FormField label={t("entityTypes.property.kind")} labelWidth="160px" labelAlign="right">
         <Text size={300}>{property.kind}</Text>
-      </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("entityTypes.property.enabled")}</span>
+      </FormField>
+      <FormField label={t("entityTypes.property.enabled")} labelWidth="160px" labelAlign="right">
         <Checkbox
           checked={property.enabled}
           onChange={(checked) => onPatch({ enabled: checked === true })}
           disabled={property.isSystem}
         />
-      </div>
+      </FormField>
 
       <div className={styles.sectionTitle}>{t("entityTypes.manage.content")}</div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("entityTypes.property.referenceType")}</span>
+      <FormField label={t("entityTypes.property.referenceType")} labelWidth="160px" labelAlign="right">
         <Text size={300}>{property.referenceType}</Text>
-      </div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("entityTypes.property.scalarType")}</span>
+      </FormField>
+      <FormField label={t("entityTypes.property.scalarType")} labelWidth="160px" labelAlign="right">
         <Text size={300}>{property.scalarType}</Text>
-      </div>
+      </FormField>
       {property.size !== undefined && (
-        <div className={styles.fieldRow}>
-          <span className={styles.fieldLabel}>{t("entityTypes.property.size")}</span>
-          <Text size={300}>{property.size}</Text>
-        </div>
+        <FormField label={t("entityTypes.property.size")} labelWidth="160px" labelAlign="right">
+        <Text size={300}>{property.size}</Text>
+      </FormField>
       )}
 
       <div className={styles.sectionTitle}>{t("entityTypes.manage.flags")}</div>
-      <div className={styles.fieldRow}>
-        <span className={styles.fieldLabel}>{t("entityTypes.property.searchable")}</span>
+      <FormField label={t("entityTypes.property.searchable")} labelWidth="160px" labelAlign="right">
         <Checkbox
           checked={property.searchable}
           disabled={!searchableAllowed || isName || property.isSystem}
@@ -299,17 +276,15 @@ function PropertyForm({
             });
           }}
         />
-      </div>
+      </FormField>
       {!searchableAllowed && !isName && (
-        <div className={styles.fieldRow}>
-          <span />
+        <FormField label="" labelWidth="160px" labelAlign="right">
           <Text size={200}>{t("entityTypes.manage.searchableNotAllowed")}</Text>
-        </div>
+        </FormField>
       )}
       {property.searchable && (
-        <div className={styles.fieldRow}>
-          <span className={styles.fieldLabel}>{t("entityTypes.property.searchType")}</span>
-          <Menu>
+        <FormField label={t("entityTypes.property.searchType")} labelWidth="160px" labelAlign="right">
+        <Menu>
             <MenuTrigger disableButtonEnhancement>
               <Button variant="subtle" size="sm" disabled={isName || property.isSystem}>
                 {t(searchTypeLabelKey(property.searchType ?? DEFAULT_SEARCH_TYPE))}
@@ -333,7 +308,7 @@ function PropertyForm({
               </MenuList>
             </MenuPopover>
           </Menu>
-        </div>
+      </FormField>
       )}
     </>
   );

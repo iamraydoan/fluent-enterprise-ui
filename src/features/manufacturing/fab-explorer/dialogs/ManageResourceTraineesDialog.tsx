@@ -1,20 +1,17 @@
 import { useState } from "react";
 import { useFabResources } from "@/api";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Button, Input, makeStyles} from "@/components/ui";
+import { BaseDialog, DialogFooter, FormField, HStack, VStack  } from "@/components/common";
+import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  list: { display: "flex", flexDirection: "column", rowGap: "8px" },
+  
   row: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
     padding: "8px 0",
     borderBottom: `1px solid ${theme.color.border}`,
     fontSize: "13px",
-  },
+  }
 });
 
 interface ManageResourceTraineesDialogProps {
@@ -60,27 +57,23 @@ export function ManageResourceTraineesDialog({
       }
     >
       <FormField label={t("fabExplorer.addTrainee")}>
-        <div style={{ display: "flex", columnGap: "8px" }}>
-          <Input
-            value={newTrainee}
-            onChange={setNewTrainee}
-            style={{ flexGrow: 1 }}
-          />
+        <HStack gap="8px">
+          <Input value={newTrainee} onChange={setNewTrainee} style={{ flexGrow: 1 }} />
           <Button variant="primary" onClick={addTrainee}>
             {t("fabExplorer.addTrainee")}
           </Button>
-        </div>
+        </HStack>
       </FormField>
-      <div className={styles.list}>
+      <VStack gap="8px">
         {trainees.map((e) => (
-          <div key={e} className={styles.row}>
+          <HStack align="center" justify="space-between" key={e} className={styles.row}>
             <span>{e}</span>
             <Button variant="secondary" size="sm" onClick={() => removeTrainee(e)}>
               {t("fabExplorer.removeTrainee")}
             </Button>
-          </div>
+          </HStack>
         ))}
-      </div>
+      </VStack>
       <div style={{ fontSize: "12px", color: theme.color.textTertiary }}>
         {t("fabExplorer.resources")}: {resources.length}
       </div>

@@ -55,8 +55,8 @@ export function ManageDataCollectionParametersDialog({
     >
       <DataCollectionParametersEditor
         values={{
-          parameters: (values.parameters ??
-            parameters.map((p, idx) => ({ ...p, id: Date.now() + idx }))),
+          parameters:
+            values.parameters ?? parameters.map((p, idx) => ({ ...p, id: Date.now() + idx })),
         }}
         onChange={onChange}
       />

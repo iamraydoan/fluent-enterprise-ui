@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useFabFacilities, useFabSites } from "@/api";
-import { EntityTile, FilterBar, SidePanel, SidebarNavItem, TileGrid } from "@/components/common";
+import { EntityTile, FilterBar, SidePanel, SidebarNavItem, TileGrid, HStack, VStack  } from "@/components/common";
 import {
   ChevronLeft20Regular,
   Globe24Regular,
   Grid24Regular,
   Organization24Regular,
 } from "@/components/icons";
-import { Input, makeStyles} from "@/components/ui";
+import { Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { theme } from "@/styles/theme";
@@ -15,12 +15,13 @@ import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
 
 const useViewStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  body: {
+    minHeight: 0,
+  },
+  main: {
+    minWidth: 0,
+  },
   breadcrumb: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     fontSize: "13px",
     color: theme.color.textBrand,
   },
@@ -62,7 +63,7 @@ export function SitesView({ nav, go }: SitesViewProps) {
   );
 
   return (
-    <div className={styles.body}>
+    <HStack gap="10px" className={styles.body}>
       <SidePanel
         title={t("fabExplorer.facilities")}
         collapsed={collapsed}
@@ -90,8 +91,8 @@ export function SitesView({ nav, go }: SitesViewProps) {
           />
         ))}
       </SidePanel>
-      <div className={styles.main}>
-        <div className={styles.breadcrumb}>
+      <VStack gap="12px" className={styles.main}>
+        <HStack gap="8px" align="center" className={styles.breadcrumb}>
           <span
             className={styles.breadcrumbLink}
             onClick={() => go({ level: FAB_LEVELS.enterprises, enterprise: "", site: "" })}
@@ -100,7 +101,7 @@ export function SitesView({ nav, go }: SitesViewProps) {
           </span>
           <span>&gt;</span>
           <span>{nav.enterprise.toUpperCase()}</span>
-        </div>
+        </HStack>
         <FilterBar justifyEnd>
           <Input
             placeholder={t("fabExplorer.search")}
@@ -128,7 +129,7 @@ export function SitesView({ nav, go }: SitesViewProps) {
             />
           ))}
         </TileGrid>
-      </div>
-    </div>
+      </VStack>
+    </HStack>
   );
 }

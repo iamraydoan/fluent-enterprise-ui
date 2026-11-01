@@ -1,4 +1,4 @@
-import { makeStyles} from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { theme } from "@/styles/theme";
 
 export const useDialogStyles = makeStyles({

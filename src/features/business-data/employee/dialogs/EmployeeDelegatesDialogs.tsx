@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
-import { Button, Input, makeStyles } from "@/components/ui";
+import { BaseDialog, DialogFooter, HStack  } from "@/components/common";
+import { Button, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
@@ -18,9 +18,6 @@ const L: Record<string, TranslationKey> = {
   remove: "businessData.employee.dialog.remove",
 };
 
-const useDialogStyles = makeStyles({
-  row: { display: "flex", gap: "8px", alignItems: "center" },
-});
 
 interface DialogProps {
   name: string;
@@ -29,7 +26,6 @@ interface DialogProps {
 
 export function ManageDelegatesDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [delegates, setDelegates] = useState<
     { employee: string; validFrom: string; validTo: string }[]
   >([]);
@@ -42,16 +38,16 @@ export function ManageDelegatesDialog({ name, onClose }: DialogProps) {
       size="lg"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.update)} />}
     >
-      <div className={styles.row}>
+      <HStack gap="8px" align="center">
         <Button
           size="sm"
           onClick={() => setDelegates([...delegates, { employee: "", validFrom: "", validTo: "" }])}
         >
           + {t(L.addDelegate)}
         </Button>
-      </div>
+      </HStack>
       {delegates.map((d, i) => (
-        <div key={i} className={styles.row}>
+        <HStack gap="8px" align="center" key={i}>
           <Input
             placeholder={t(L.delegateEmployee)}
             value={d.employee}
@@ -76,7 +72,7 @@ export function ManageDelegatesDialog({ name, onClose }: DialogProps) {
           <Button size="sm" onClick={() => setDelegates(delegates.filter((_, j) => j !== i))}>
             {t(L.remove)}
           </Button>
-        </div>
+        </HStack>
       ))}
     </BaseDialog>
   );
@@ -84,7 +80,6 @@ export function ManageDelegatesDialog({ name, onClose }: DialogProps) {
 
 export function ManageTraineesDialog({ name, onClose }: DialogProps) {
   const { t } = useAppTranslation();
-  const styles = useDialogStyles();
   const [trainees, setTrainees] = useState<string[]>([]);
 
   return (
@@ -95,13 +90,13 @@ export function ManageTraineesDialog({ name, onClose }: DialogProps) {
       size="lg"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.checkOut)} />}
     >
-      <div className={styles.row}>
+      <HStack gap="8px" align="center">
         <Button size="sm" onClick={() => setTrainees([...trainees, ""])}>
           + {t(L.addTrainee)}
         </Button>
-      </div>
+      </HStack>
       {trainees.map((tr, i) => (
-        <div key={i} className={styles.row}>
+        <HStack gap="8px" align="center" key={i}>
           <Input
             value={tr}
             onChange={(value) => setTrainees(trainees.map((x, j) => (j === i ? value : x)))}
@@ -109,7 +104,7 @@ export function ManageTraineesDialog({ name, onClose }: DialogProps) {
           <Button size="sm" onClick={() => setTrainees(trainees.filter((_, j) => j !== i))}>
             {t(L.remove)}
           </Button>
-        </div>
+        </HStack>
       ))}
     </BaseDialog>
   );

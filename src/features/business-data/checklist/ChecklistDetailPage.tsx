@@ -2,6 +2,7 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useChecklistDetail } from "@/api";
 import type { ChecklistInstance } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   DetailShell,
   ListPage,
@@ -11,10 +12,12 @@ import {
   terminateAction,
   unterminateAction,
   DetailTabs,
+  Empty,
+  OptionItem,
+  SectionHeader, Grid, HStack, VStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import { Box24Regular, Eye20Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Text, makeStyles} from "@/components/ui";
+import { Button, makeStyles, TabList, Tab } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -22,11 +25,7 @@ import { theme } from "@/styles/theme";
 import { useChecklistDialogs } from "./useChecklistDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
+  
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
@@ -34,16 +33,12 @@ const useDetailStyles = makeStyles({
     paddingBottom: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
-  label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
-  split: {
-    display: "grid",
-    gridTemplateColumns: "minmax(320px, 2fr) 3fr",
-    gap: "12px",
-    alignItems: "start",
+  row: {
+    fontSize: "13px",
   },
-  itemList: { display: "flex", flexDirection: "column", rowGap: "4px" },
+  label: { color: theme.color.textTertiary, minWidth: "200px" },
+  
+  
   itemButton: {
     textAlign: "left",
     padding: "10px 12px",
@@ -55,26 +50,11 @@ const useDetailStyles = makeStyles({
     borderRadius: "4px",
     ":hover": { backgroundColor: theme.color.surfaceHover },
   },
-  itemActive: {
-    backgroundColor: theme.color.brandInvertedSelected,
-    fontWeight: theme.font.weightSemibold,
-  },
-  itemDesc: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
   subTabs: {
     display: "flex",
     columnGap: "4px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: "12px",
-  },
-  subTab: {
-    padding: "8px 16px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "12px",
-    textTransform: "uppercase",
-    borderBottom: "2px solid transparent",
   },
   subTabActive: {
     color: theme.color.textBrand,
@@ -128,7 +108,7 @@ export function ChecklistDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.checklist.detail.loading")}</div>
+        <Empty>{t("businessData.checklist.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -193,16 +173,12 @@ export function ChecklistDetailPage() {
           >
             {showInstances ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.checklist.detail.instancesTitle", {
+                <SectionHeader title={t("businessData.checklist.detail.instancesTitle", {
                     count: cl.instances.length,
-                  })}
-                </Text>
-                <div className={styles.itemList}>
+                  })} />
+                <VStack gap="4px">
                   {cl.instances.length === 0 && (
-                    <div className={styles.empty}>
-                      {t("businessData.checklist.detail.noInstances")}
-                    </div>
+                    <Empty>{t("businessData.checklist.detail.noInstances")}</Empty>
                   )}
                   {cl.instances.map((i) => (
                     <InstanceRow
@@ -215,14 +191,12 @@ export function ChecklistDetailPage() {
                       onDeviation={() => openDeviation(i)}
                     />
                   ))}
-                </div>
+                </VStack>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.checklist.detail.checklist")}
-                  </Text>
+                  <SectionHeader title={t("businessData.checklist.detail.checklist")} />
                   <KV label={t("businessData.checklist.detail.name")} value={cl.name} />
                   <KV
                     label={t("businessData.checklist.detail.description")}
@@ -236,9 +210,7 @@ export function ChecklistDetailPage() {
                   <KV label={t("businessData.checklist.detail.dataGroup")} value={cl.dataGroup} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.checklist.detail.information")}
-                  </Text>
+                  <SectionHeader title={t("businessData.checklist.detail.information")} />
                   <KV label={t("businessData.checklist.detail.scope")} value={cl.scope} />
                   <KV
                     label={t("businessData.checklist.detail.executionMode")}
@@ -263,43 +235,36 @@ export function ChecklistDetailPage() {
                     value={cl.standardDuration}
                   />
                 </div>
-              </div>
+              </Grid>
             )}
           </DetailShell>
         )}
         {tab === "checklistItems" && (
           <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-            <Text className={styles.cardTitle}>
-              {t("businessData.checklist.detail.itemsTitle", { count: cl.items.length })}
-            </Text>
-            <div className={styles.split}>
-              <div className={styles.itemList}>
+            <SectionHeader title={t("businessData.checklist.detail.itemsTitle", { count: cl.items.length })} />
+            <Grid columns="minmax(320px, 2fr) 3fr" gap="12px" align="start">
+              <VStack gap="4px">
                 {cl.items.map((i, idx) => (
-                  <button
+                  <OptionItem
                     key={i.name}
-                    className={`${styles.itemButton} ${idx === Math.min(itemIdx, cl.items.length - 1) ? styles.itemActive : ""}`}
+                    title={i.name}
+                    description={i.description}
+                    selected={idx === Math.min(itemIdx, cl.items.length - 1)}
                     onClick={() => setItemIdx(idx)}
-                  >
-                    <div>{i.name}</div>
-                    <div className={styles.itemDesc}>{i.description}</div>
-                  </button>
+                  />
                 ))}
-              </div>
+              </VStack>
               {item && (
                 <div>
-                  <div className={styles.subTabs}>
+                  <TabList selectedValue={subTab} onTabSelect={setSubTab} size="sm">
                     {SUB_TABS.map((v) => (
-                      <button
-                        key={v}
-                        className={`${styles.subTab} ${subTab === v ? styles.subTabActive : ""}`}
-                        onClick={() => setSubTab(v)}
-                      >
+                      <Tab key={v} value={v}>
                         {t(`businessData.checklist.detail.subTabs.${v}`)}
-                      </button>
+                      </Tab>
                     ))}
-                  </div>
+                  </TabList>
                   {subTab === "generalData" && (
-                    <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+                    <VStack gap={12}>
                       <KV label={t("businessData.checklist.detail.itemName")} value={item.name} />
                       <KV
                         label={t("businessData.checklist.detail.activityType")}
@@ -321,20 +286,18 @@ export function ChecklistDetailPage() {
                         label={t("businessData.checklist.detail.floating")}
                         value={item.floating}
                       />
-                    </div>
+                    </VStack>
                   )}
                   {subTab !== "generalData" && (
-                    <div className={styles.empty}>
-                      {t("businessData.checklist.detail.historyEmpty")}
-                    </div>
+                    <Empty>{t("businessData.checklist.detail.historyEmpty")}</Empty>
                   )}
                 </div>
               )}
-            </div>
+            </Grid>
           </div>
         )}
         {!["details", "checklistItems"].includes(tab) && (
-          <div className={styles.empty}>{t("businessData.checklist.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.checklist.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
       {dialogs}
@@ -360,14 +323,11 @@ function InstanceRow({
   const { t } = useAppTranslation();
   const styles = useDetailStyles();
   return (
-    <div
-      className={styles.row}
-      style={{
+    <HStack gap="12px" style={{
         alignItems: "center",
         padding: "8px 0",
         borderBottom: `1px solid ${theme.color.borderSubtle}`,
-      }}
-    >
+      }} className={styles.row}>
       <div style={{ flexGrow: 1 }}>
         <div style={{ fontWeight: 600 }}>{instance.name}</div>
         <div style={{ fontSize: "12px", color: theme.color.textTertiary }}>
@@ -376,7 +336,7 @@ function InstanceRow({
           {instance.material ? ` · ${instance.material}` : ""}
         </div>
       </div>
-      <div style={{ display: "flex", columnGap: "4px", flexWrap: "wrap" }}>
+      <HStack gap="4px" wrap>
         <Button variant="secondary" size="sm" onClick={onPerform}>
           {t("businessData.checklist.operations.perform")}
         </Button>
@@ -392,8 +352,8 @@ function InstanceRow({
         <Button variant="secondary" size="sm" onClick={onDeviation}>
           {t("businessData.checklist.operations.openDeviation")}
         </Button>
-      </div>
-    </div>
+      </HStack>
+    </HStack>
   );
 }
 
@@ -401,10 +361,10 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.checklist.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }
 
@@ -412,11 +372,11 @@ function Bool({ label, value }: { label: string; value: boolean }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>
         {value ? t("businessData.checklist.detail.yes") : t("businessData.checklist.detail.no")}
       </span>
-    </div>
+    </HStack>
   );
 }

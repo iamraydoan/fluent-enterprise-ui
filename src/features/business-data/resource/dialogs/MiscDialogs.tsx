@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack, VStack } from "@/components/common";
 import {
   Body1Strong,
   Button,
@@ -60,7 +60,7 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.clone`)} />
       }
     >
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <HStack gap={16}>
         <div style={{ width: 280, flexShrink: 0 }}>
           <div
             style={{
@@ -108,11 +108,11 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
           <Field label={t(`${k}.name`)}>
             <Input value={cloneName} onChange={setCloneName} />
           </Field>
-          <div style={{ fontSize: 12, color: "#666" }}>
+          <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
             {t(`${k}.source`, { name: resourceName })}
           </div>
         </div>
-      </div>
+      </HStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />
       </Field>
@@ -160,14 +160,14 @@ export function ResourceOEEConfigurationDialog({ open, onClose, resourceName }: 
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.save`)} />}
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <VStack gap={12}>
         <Field label={t(`${k}.idealCycleTime`)}>
           <Input value={idealCycleTime} onChange={setIdealCycleTime} />
         </Field>
         <Field label={t(`${k}.oeeEnabled`)}>
           <Checkbox checked={oeeEnabled} onChange={setOeeEnabled} />
         </Field>
-      </div>
+      </VStack>
     </BaseDialog>
   );
 }

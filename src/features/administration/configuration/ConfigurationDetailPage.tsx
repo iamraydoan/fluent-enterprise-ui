@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useConfiguration } from "@/api";
-import { Card, CardGrid, DetailShell, KV, DetailTile } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { Card, CardGrid, DetailShell, KV, DetailTile, HStack  } from "@/components/common";
 import {
   Checkmark20Filled,
   Dismiss20Filled,
@@ -40,7 +40,7 @@ export function ConfigurationDetailPage({ path }: ConfigurationDetailPageProps) 
 
   const generalData = (
     <Card title={t("configuration.sections.generalData")}>
-      <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
+      <HStack gap={18} align="flex-start">
         <DetailTile icon={<Wrench24Regular />} />
         <div style={{ flexGrow: 1, minWidth: 0 }}>
           <KV
@@ -64,7 +64,7 @@ export function ConfigurationDetailPage({ path }: ConfigurationDetailPageProps) 
             ]}
           />
         </div>
-      </div>
+      </HStack>
     </Card>
   );
 

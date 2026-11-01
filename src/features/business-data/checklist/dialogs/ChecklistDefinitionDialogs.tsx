@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ChecklistItem } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { joinMeta } from "../checklistLookups";
@@ -49,7 +50,7 @@ export function PreviewChecklistDialog({
         </Field>
       </div>
       {items.length === 0 ? (
-        <div className={styles.empty}>{t("businessData.checklist.operations.noItems")}</div>
+        <Empty>{t("businessData.checklist.operations.noItems")}</Empty>
       ) : (
         items.map((item, i) => (
           <div key={i} className={styles.performRow}>
@@ -134,9 +135,7 @@ export function CloneChecklistDialog({
       <div className={styles.hint}>
         {t("businessData.checklist.operations.cloneHint", { name: checklistName })}
       </div>
-      {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.checklist.operations.noCloneRows")}</div>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.checklist.operations.noCloneRows")}</Empty>}
       {rows.map((row) => (
         <div key={row.id} className={styles.paramRow}>
           <div className={styles.paramNameWrap}>

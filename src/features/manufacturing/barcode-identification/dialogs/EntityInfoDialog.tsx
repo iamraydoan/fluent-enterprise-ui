@@ -1,6 +1,6 @@
 import type { BarcodeEntityInfo } from "@/api";
-import { BaseDialog, DialogFooter } from "@/components/common";
-import { makeStyles, Text} from "@/components/ui";
+import { BaseDialog, DialogFooter, Grid, VStack  } from "@/components/common";
+import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -8,16 +8,9 @@ import { theme } from "@/styles/theme";
 
 const useInfoStyles = makeStyles({
   rows: {
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "14px",
     padding: "8px 0",
   },
   row: {
-    display: "grid",
-    gridTemplateColumns: "220px 1fr",
-    columnGap: "12px",
-    alignItems: "baseline",
     fontSize: "13px",
   },
   label: {
@@ -50,9 +43,9 @@ export function EntityInfoDialog({ info, onClose }: EntityInfoDialogProps) {
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.close)} hideCancel />
       }
     >
-      <div className={styles.rows}>
+      <VStack gap="14px" className={styles.rows}>
         {info?.rows.map((row) => (
-          <div key={row.labelKey} className={styles.row}>
+          <Grid columns="220px 1fr" gap="12px" align="baseline" key={row.labelKey} className={styles.row}>
             <Text className={styles.label}>{t(row.labelKey as TranslationKey)}:</Text>
             {row.link ? (
               <a
@@ -65,9 +58,9 @@ export function EntityInfoDialog({ info, onClose }: EntityInfoDialogProps) {
             ) : (
               <Text>{row.value}</Text>
             )}
-          </div>
+          </Grid>
         ))}
-      </div>
+      </VStack>
     </BaseDialog>
   );
 }

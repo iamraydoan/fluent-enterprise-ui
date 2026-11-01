@@ -259,7 +259,10 @@ const useChatStyles = makeStyles({
     fontFamily: "inherit",
     fontSize: "13px",
     color: "#333",
-    ":hover": { backgroundColor: theme.color.brandSubtle, border: `1px solid ${theme.color.borderBrand}` },
+    ":hover": {
+      backgroundColor: theme.color.brandSubtle,
+      border: `1px solid ${theme.color.borderBrand}`,
+    },
   },
 });
 
@@ -483,9 +486,7 @@ export function AiChatPage() {
                 <Text size={300} truncate wrap={false} style={{ maxWidth: 210 }}>
                   {candidate.title}
                 </Text>
-                <Caption1 style={{ color: theme.color.textTertiary }}>
-                  {candidate.agent}
-                </Caption1>
+                <Caption1 style={{ color: theme.color.textTertiary }}>{candidate.agent}</Caption1>
               </button>
             ))}
           </aside>

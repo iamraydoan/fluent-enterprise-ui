@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ReasonDetail, ReasonType } from "@/api";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
 import { Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
@@ -71,18 +71,18 @@ export function ReasonFormDialog({
       <WizardSteps steps={[t(`${k}.generalData`), t(`${k}.information`)]} current={step} />
 
       {step === 1 && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
           <Field label={t(`${k}.description`)}>
             <Input value={description} onChange={setDescription} />
           </Field>
-        </div>
+        </VStack>
       )}
 
       {step === 2 && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.type`)} required>
             <select value={type} onChange={(e) => setType(e.target.value as ReasonType)}>
               {REASON_TYPES.map((o) => (
@@ -95,10 +95,7 @@ export function ReasonFormDialog({
           {isLossOrBonus && (
             <>
               <Field label={t(`${k}.excludeFromStepYield`)}>
-                <Checkbox
-                  checked={excludeFromStepYield}
-                  onChange={setExcludeFromStepYield}
-                />
+                <Checkbox checked={excludeFromStepYield} onChange={setExcludeFromStepYield} />
               </Field>
               <Field label={t(`${k}.excludeFromResourceYield`)}>
                 <Checkbox
@@ -111,7 +108,7 @@ export function ReasonFormDialog({
           <Field label={t(`${k}.category`)}>
             <Input value={category} onChange={setCategory} />
           </Field>
-        </div>
+        </VStack>
       )}
 
       <Field label={t(`${k}.comments`)}>

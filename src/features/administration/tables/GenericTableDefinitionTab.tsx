@@ -1,19 +1,17 @@
 import { useState } from "react";
 import type { GenericTableDetail } from "@/api";
-import { Card, CardGrid, Empty, KV, Panel } from "@/components/common";
-import { Body1Strong, Caption1, makeStyles, mergeClasses } from "@/components/ui";
+import { Card, CardGrid, Empty, KV, Panel, SidebarNavItem, HStack, VStack  } from "@/components/common";
+import { Body1Strong, Caption1, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDefStyles = makeStyles({
-  layout: { display: "flex", columnGap: "12px", minHeight: "400px" },
+  layout: {
+    minHeight: "400px",
+  },
   nav: {
     width: "220px",
-    flexShrink: 0,
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "2px",
   },
   navItem: {
     padding: "10px 12px",
@@ -25,10 +23,6 @@ const useDefStyles = makeStyles({
     fontSize: "13px",
     borderRadius: theme.radius.md,
     ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  navActive: {
-    backgroundColor: theme.color.surfaceSelected,
-    fontWeight: theme.font.weightSemibold,
   },
   main: { flexGrow: 1, minWidth: 0 },
 });
@@ -44,18 +38,17 @@ export function GenericTableDefinitionTab({ table }: { table: GenericTableDetail
   const [section, setSection] = useState<TranslationKey>("genericTables.definition.definition");
 
   return (
-    <div className={styles.layout}>
-      <div className={styles.nav}>
+    <HStack gap="12px" className={styles.layout}>
+      <VStack gap="2px" className={styles.nav}>
         {NAV_ITEMS.map((item) => (
-          <button
+          <SidebarNavItem
             key={item}
-            className={mergeClasses(styles.navItem, section === item && styles.navActive)}
+            label={t(item)}
+            active={section === item}
             onClick={() => setSection(item)}
-          >
-            {t(item)}
-          </button>
+          />
         ))}
-      </div>
+      </VStack>
       <div className={styles.main}>
         {section === "genericTables.definition.definition" ? (
           <CardGrid>
@@ -97,6 +90,6 @@ export function GenericTableDefinitionTab({ table }: { table: GenericTableDetail
           </Panel>
         )}
       </div>
-    </div>
+    </HStack>
   );
 }

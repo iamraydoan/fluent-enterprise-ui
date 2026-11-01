@@ -1,3 +1,4 @@
+import { HStack } from "@/components/common";
 import { Bot20Regular, ChevronDown20Regular } from "@/components/icons";
 import { makeStyles } from "@/components/ui";
 import { cardSurface } from "@/styles/shared";
@@ -5,13 +6,9 @@ import { theme } from "@/styles/theme";
 
 const useDialogAgentSubStyles = makeStyles({
   sub: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     padding: "8px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     ...cardSurface,
-    flexShrink: 0,
     fontSize: "13px",
   },
   link: {
@@ -37,15 +34,15 @@ export function DialogAgentSub({
 }) {
   const styles = useDialogAgentSubStyles();
   return (
-    <div className={styles.sub}>
+    <HStack align="center" justify="space-between" className={styles.sub}>
       <span style={{ display: "inline-flex", alignItems: "center", columnGap: 10, minWidth: 0 }}>
         <span className={styles.link}>
           <Bot20Regular />
           {agentName}
         </span>
-        {agentDescription && <span style={{ color: "#333" }}>{` / ${agentDescription}`}</span>}
+        {agentDescription && <span style={{ color: theme.color.textPrimary }}>{` / ${agentDescription}`}</span>}
       </span>
       <ChevronDown20Regular style={{ color: theme.color.textBrand }} />
-    </div>
+    </HStack>
   );
 }

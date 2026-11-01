@@ -1,6 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useDataCollectionLimitSetDetail } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   DetailShell,
   ListPage,
@@ -9,8 +10,8 @@ import {
   terminateAction,
   unterminateAction,
   DetailTabs,
+  Empty,  SectionHeader, Grid, HStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
   Button,
@@ -20,7 +21,6 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  Text,
   makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -30,11 +30,7 @@ import { theme } from "@/styles/theme";
 import { useDataCollectionLimitSetDialogs } from "./useDataCollectionLimitSetDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
+  
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
@@ -42,9 +38,10 @@ const useDetailStyles = makeStyles({
     paddingBottom: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "180px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -75,9 +72,7 @@ export function DataCollectionLimitSetDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>
-          {t("businessData.dataCollectionLimitSet.detail.loading")}
-        </div>
+        <Empty>{t("businessData.dataCollectionLimitSet.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -132,18 +127,14 @@ export function DataCollectionLimitSetDetailPage() {
           >
             {showLimits ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <div
-                  style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
-                >
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.dataCollectionLimitSet.detail.limitsTitle", {
+                <HStack align="center" justify="space-between">
+                  <SectionHeader title={t("businessData.dataCollectionLimitSet.detail.limitsTitle", {
                       count: ls.parameterLimits.length,
-                    })}
-                  </Text>
+                    })} />
                   <Button variant="secondary" size="sm" onClick={openManageParameters}>
                     {t("businessData.dataCollectionLimitSet.operations.manageParametersTitle")}
                   </Button>
-                </div>
+                </HStack>
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -214,11 +205,9 @@ export function DataCollectionLimitSetDetailPage() {
                 </Table>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.dataCollectionLimitSet.detail.dataCollectionLimitSet")}
-                  </Text>
+                  <SectionHeader title={t("businessData.dataCollectionLimitSet.detail.dataCollectionLimitSet")} />
                   <KV
                     label={t("businessData.dataCollectionLimitSet.detail.name")}
                     value={ls.name}
@@ -241,22 +230,18 @@ export function DataCollectionLimitSetDetailPage() {
                   />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.dataCollectionLimitSet.detail.information")}
-                  </Text>
+                  <SectionHeader title={t("businessData.dataCollectionLimitSet.detail.information")} />
                   <KV
                     label={t("businessData.dataCollectionLimitSet.detail.dataCollection")}
                     value={ls.dataCollection}
                   />
                 </div>
-              </div>
+              </Grid>
             )}
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>
-            {t("businessData.dataCollectionLimitSet.detail.historyEmpty")}
-          </div>
+          <Empty>{t("businessData.dataCollectionLimitSet.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
       {dialogs}
@@ -268,11 +253,11 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>
         {value === "" ? t("businessData.dataCollectionLimitSet.detail.emptyValue") : value}
       </span>
-    </div>
+    </HStack>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -53,26 +53,19 @@ export function CloneQualificationCheckDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.clone`)} />
       }
     >
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <HStack gap={16}>
         <div style={{ width: 280, flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: 8,
-            }}
-          >
+          <HStack align="center" justify="space-between" style={{marginBottom: 8}}>
             <Body1Strong>{t(`${k}.clones`, { count: clones.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: 4 }}>
+            <HStack gap={4}>
               <Button size="sm" variant="subtle" onClick={addClone}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeClone(selected)}>
                 🗑
               </Button>
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             style={{
               border: "1px solid #ddd",
@@ -97,18 +90,18 @@ export function CloneQualificationCheckDialog({
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)}>
             <Input value={cloneName} onChange={setCloneName} />
           </Field>
           <Field label={t(`${k}.instanceType`)}>
             <Input value={sourceInstanceType} readOnly onChange={() => {}} />
           </Field>
-          <div style={{ fontSize: 12, color: "#666" }}>
+          <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
             {t(`${k}.source`, { name: sourceName })}
           </div>
-        </div>
-      </div>
+        </VStack>
+      </HStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />
       </Field>

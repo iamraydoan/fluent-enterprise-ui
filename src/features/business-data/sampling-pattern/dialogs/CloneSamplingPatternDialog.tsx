@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, HStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -51,7 +51,7 @@ export function CloneSamplingPatternDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.clone`)} />
       }
     >
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <HStack gap={16}>
         <div style={{ width: 280, flexShrink: 0 }}>
           <div
             style={{
@@ -99,11 +99,11 @@ export function CloneSamplingPatternDialog({
           <Field label={t(`${k}.name`)}>
             <Input value={cloneName} onChange={setCloneName} />
           </Field>
-          <div style={{ fontSize: 12, color: "#666" }}>
+          <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
             {t(`${k}.source`, { name: sourceName })}
           </div>
         </div>
-      </div>
+      </HStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />
       </Field>

@@ -46,7 +46,7 @@ const useEditStyles = makeStyles({
     textAlign: "right",
     paddingTop: "12px",
     fontSize: "13px",
-    color: "#444",
+    color: theme.color.textSecondary,
     flexShrink: 0,
   },
   editor: {
@@ -54,7 +54,7 @@ const useEditStyles = makeStyles({
     minWidth: 0,
     border: `1px solid ${theme.color.border}`,
     borderRadius: "2px",
-    backgroundColor: "#fff",
+    backgroundColor: theme.color.surface,
   },
   toolbar: {
     display: "flex",
@@ -75,11 +75,11 @@ const useEditStyles = makeStyles({
     height: "32px",
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "4px",
-    background: "#fff",
+    background: theme.color.surface,
     fontFamily: "inherit",
     fontSize: "13px",
     padding: "0 6px",
-    color: "#333",
+    color: theme.color.textPrimary,
   },
   area: {
     minHeight: "220px",
@@ -222,21 +222,18 @@ export function EditInstructionsDialog({
       footer={
         <>
           <Button onClick={onClose}>{t("common.cancel")}</Button>
-          <Button
-            variant="primary"
-            onClick={() => onSave(editorRef.current?.innerText ?? value)}
-          >
+          <Button variant="primary" onClick={() => onSave(editorRef.current?.innerText ?? value)}>
             {t("common.save")}
           </Button>
         </>
       }
     >
-      <div style={{ padding: "26px 32px 10px", fontSize: 14, color: "#333" }}>
+      <div style={{ padding: "26px 32px 10px", fontSize: 14, color: theme.color.textPrimary }}>
         {t("dialogs.editInstructions.instructions")}
       </div>
       <div className={editStyles.field}>
         <div className={editStyles.label}>
-          <span style={{ color: "#C50F1F" }}>{t("dialogs.editInstructions.requiredMark")}</span>
+          <span style={{ color: theme.color.textDanger }}>{t("dialogs.editInstructions.requiredMark")}</span>
           {t("dialogs.editInstructions.instructionsLabel")}
         </div>
         <div className={editStyles.editor}>

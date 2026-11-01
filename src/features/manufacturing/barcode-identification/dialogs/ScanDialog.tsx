@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
-import { makeStyles, Text} from "@/components/ui";
+import { BaseDialog, DialogFooter, HStack  } from "@/components/common";
+import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
+
+const VIEWFINDER_BACKGROUND = "#1b1b1b";
 
 const useScanStyles = makeStyles({
   viewport: {
     position: "relative",
     width: "100%",
     aspectRatio: "4 / 3",
-    backgroundColor: "#1b1b1b",
+    backgroundColor: VIEWFINDER_BACKGROUND,
     borderRadius: theme.radius.md,
     overflow: "hidden",
     display: "flex",
@@ -18,9 +20,6 @@ const useScanStyles = makeStyles({
     justifyContent: "center",
   },
   code: {
-    display: "flex",
-    columnGap: "3px",
-    alignItems: "stretch",
     height: "96px",
   },
   bar: {
@@ -41,9 +40,6 @@ const useScanStyles = makeStyles({
     minHeight: "20px",
   },
   typeRow: {
-    display: "flex",
-    justifyContent: "center",
-    columnGap: "24px",
     paddingTop: "4px",
   },
   typeOption: {
@@ -109,15 +105,15 @@ export function ScanDialog({ open, onClose, onDetected }: ScanDialogProps) {
     >
       <style>{`@keyframes barcode-scan-line { 0% { top: 12%; } 50% { top: 86%; } 100% { top: 12%; } }`}</style>
       <div className={styles.viewport} aria-label={t(L.title)}>
-        <div className={styles.code} aria-hidden="true">
+        <HStack gap="3px" align="stretch" aria-hidden="true" className={styles.code}>
           {BARS.map((width, index) => (
             <span key={index} className={styles.bar} style={{ width: `${width}px` }} />
           ))}
-        </div>
+        </HStack>
         <div className={styles.scanLine} aria-hidden="true" />
       </div>
       <Text className={styles.status}>{t(L.scanning)}</Text>
-      <div className={styles.typeRow} role="radiogroup" aria-label={t(L.title)}>
+      <HStack gap="24px" justify="center" role="radiogroup" aria-label={t(L.title)} className={styles.typeRow}>
         <label className={styles.typeOption}>
           <input
             type="radio"
@@ -136,7 +132,7 @@ export function ScanDialog({ open, onClose, onDetected }: ScanDialogProps) {
           />
           {t(L.qrCode)}
         </label>
-      </div>
+      </HStack>
     </BaseDialog>
   );
 }

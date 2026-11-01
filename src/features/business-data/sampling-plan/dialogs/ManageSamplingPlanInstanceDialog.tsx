@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -114,7 +114,7 @@ export function ManageSamplingPlanInstanceDialog({
       }
     >
       <DialogEntityBanner icon="📊" name={planName} />
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <HStack gap={16}>
         <div style={{ width: 320, flexShrink: 0 }}>
           <div
             style={{
@@ -154,7 +154,7 @@ export function ManageSamplingPlanInstanceDialog({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{inst.materialType || t(`${k}.newInstance`)}</div>
-                <div style={{ fontSize: 12, color: "#666" }}>{inst.samplingType}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{inst.samplingType}</div>
               </div>
             ))}
           </div>
@@ -179,7 +179,7 @@ export function ManageSamplingPlanInstanceDialog({
             </Field>
           ))}
         </div>
-      </div>
+      </HStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />
       </Field>

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { BaseDialog, DialogEntityBanner, DialogFooter, WizardSteps } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, WizardSteps, VStack  } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const RESOURCE_STATES = [
   "Standby",
@@ -63,13 +64,19 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
       }
     >
       <WizardSteps
-        steps={[t(`${k}.step1`), t(`${k}.step2`), t(`${k}.step3`), t(`${k}.step4`), t(`${k}.step5`)]}
+        steps={[
+          t(`${k}.step1`),
+          t(`${k}.step2`),
+          t(`${k}.step3`),
+          t(`${k}.step4`),
+          t(`${k}.step5`),
+        ]}
         current={step}
       />
       <DialogEntityBanner icon="🔧" name={resourceName} />
 
       {step === 1 && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.newState`)} required>
             <select value={newState} onChange={(e) => setNewState(e.target.value)}>
               {RESOURCE_STATES.map((o) => (
@@ -85,12 +92,12 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
           <Field label={t(`${k}.comment`)}>
             <Input value={comment} onChange={setComment} />
           </Field>
-        </div>
+        </VStack>
       )}
-      {step === 2 && <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step2Body`)}</div>}
-      {step === 3 && <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step3Body`)}</div>}
-      {step === 4 && <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step4Body`)}</div>}
-      {step === 5 && <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step5Body`)}</div>}
+      {step === 2 && <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step2Body`)}</div>}
+      {step === 3 && <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step3Body`)}</div>}
+      {step === 4 && <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step4Body`)}</div>}
+      {step === 5 && <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step5Body`)}</div>}
     </BaseDialog>
   );
 }

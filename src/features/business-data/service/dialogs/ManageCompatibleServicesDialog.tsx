@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -79,15 +79,15 @@ export function ManageCompatibleServicesDialog({
       }
     >
       <DialogEntityBanner icon="📊" name={serviceName} />
-      <div style={{ display: "flex", columnGap: 12, marginBottom: 12 }}>
+      <HStack gap={12} style={{marginBottom: 12}}>
         <Button variant={tab === "fulfilled" ? "primary" : "secondary"} onClick={showFulfilled}>
           {t(`${k}.canBeFulfilledBy`)}
         </Button>
         <Button variant={tab === "fulfill" ? "primary" : "secondary"} onClick={showFulfill}>
           {t(`${k}.canFulfill`)}
         </Button>
-      </div>
-      <div style={{ display: "flex", columnGap: 16 }}>
+      </HStack>
+      <HStack gap={16}>
         <div style={{ width: 300, flexShrink: 0 }}>
           <div
             style={{
@@ -127,7 +127,7 @@ export function ManageCompatibleServicesDialog({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{r.service || t(`${k}.newService`)}</div>
-                <div style={{ fontSize: 12, color: "#666" }}>{r.description}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{r.description}</div>
               </div>
             ))}
           </div>
@@ -147,7 +147,7 @@ export function ManageCompatibleServicesDialog({
             />
           </Field>
         </div>
-      </div>
+      </HStack>
     </BaseDialog>
   );
 }

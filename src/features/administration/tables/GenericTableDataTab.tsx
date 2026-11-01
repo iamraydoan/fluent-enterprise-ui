@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { GenericTableDetail } from "@/api";
+import { HStack } from "@/components/common";
 import { Add24Regular, ArrowSync20Regular } from "@/components/icons";
 import {
   Button,
@@ -18,9 +19,6 @@ import { theme } from "@/styles/theme";
 
 const useGridStyles = makeStyles({
   toolbar: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "4px",
     padding: "8px 0",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: "12px",
@@ -47,14 +45,10 @@ const useGridStyles = makeStyles({
   boolTrue: { color: theme.color.textSuccess },
   boolFalse: { color: theme.color.textTertiary },
   footer: {
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    columnGap: "16px",
     padding: "8px 0",
     fontSize: "13px",
     color: theme.color.textSecondary,
-  },
+  }
 });
 
 function formatCell(value: unknown, dataType: string): string {
@@ -86,14 +80,14 @@ export function GenericTableDataTab({ table }: { table: GenericTableDetail }) {
 
   return (
     <div>
-      <div className={styles.toolbar}>
+      <HStack gap="4px" align="center" className={styles.toolbar}>
         <Button variant="subtle" icon={<ArrowSync20Regular />}>
           {t("actionBar.refresh")}
         </Button>
         <Button variant="subtle" icon={<Add24Regular />}>
           {t("genericTables.data.add")}
         </Button>
-      </div>
+      </HStack>
       <div className={styles.title}>
         {t("genericTables.data.title", { name: table.name, count: table.rows.length })}
       </div>
@@ -153,10 +147,10 @@ export function GenericTableDataTab({ table }: { table: GenericTableDetail }) {
           </TableBody>
         </Table>
       </div>
-      <div className={styles.footer}>
+      <HStack gap="16px" align="center" justify="flex-end" className={styles.footer}>
         <span>{t("genericTables.data.selected", { count: selected.size })}</span>
         <span>{t("genericTables.data.total", { count: table.rows.length })}</span>
-      </div>
+      </HStack>
     </div>
   );
 }

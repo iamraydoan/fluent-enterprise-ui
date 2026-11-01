@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useStepDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, VStack  } from "@/components/common";
 import { Flow24Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -72,13 +72,13 @@ export function StepDetailPage({ name }: { name: string }) {
     content = (
       <Panel>
         <Body1Strong>{t("businessData.step.tabs.contexts")}</Body1Strong>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        <VStack gap="8px" style={{marginTop: "12px"}}>
           {CONTEXTS.map((key) => (
             <div key={key} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
               <Body1Strong>{t(key)}</Body1Strong>
             </div>
           ))}
-        </div>
+        </VStack>
       </Panel>
     );
   } else if (top !== "details") {

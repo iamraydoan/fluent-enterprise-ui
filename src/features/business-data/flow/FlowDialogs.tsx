@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Button, Input, makeStyles } from "@/components/ui";
+import { BaseDialog, DialogFooter, FormField, HStack  } from "@/components/common";
+import { Button, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
@@ -16,13 +16,9 @@ const L: Record<string, TranslationKey> = {
   close: "businessData.flow.manageDialog.close",
 };
 
-const useStyles = makeStyles({
-  row: { display: "flex", gap: "8px", alignItems: "center" },
-});
 
 export function FlowLogicalNamesDialog({ onClose }: { onClose: () => void }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
   const [names, setNames] = useState<string[]>([]);
 
   return (
@@ -33,13 +29,13 @@ export function FlowLogicalNamesDialog({ onClose }: { onClose: () => void }) {
       onClose={onClose}
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.update)} />}
     >
-      <div className={styles.row}>
+      <HStack gap="8px" align="center">
         <Button size="sm" onClick={() => setNames([...names, ""])}>
           + {t(L.addLogicalName)}
         </Button>
-      </div>
+      </HStack>
       {names.map((n, i) => (
-        <div key={i} className={styles.row}>
+        <HStack gap="8px" align="center" key={i}>
           <Input
             placeholder={t(L.logicalName)}
             value={n}
@@ -48,7 +44,7 @@ export function FlowLogicalNamesDialog({ onClose }: { onClose: () => void }) {
           <Button size="sm" onClick={() => setNames(names.filter((_, j) => j !== i))}>
             {t(L.remove)}
           </Button>
-        </div>
+        </HStack>
       ))}
     </BaseDialog>
   );

@@ -1,3 +1,4 @@
+import { Empty, Grid  } from "@/components/common";
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -14,13 +15,8 @@ export interface BinConversionRow {
 
 const useListStyles = makeStyles({
   row: {
-    display: "grid",
-    gridTemplateColumns: "repeat(5, minmax(0, 1fr)) auto",
-    columnGap: "8px",
-    alignItems: "center",
     marginBottom: "8px",
   },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
 });
 
@@ -59,12 +55,10 @@ export function BinConversionListEditor({
     <div>
       <div className={styles.hint}>{t("businessData.binConverter.operations.conversionsHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>
-          {t("businessData.binConverter.operations.noConversions")}
-        </div>
+        <Empty>{t("businessData.binConverter.operations.noConversions")}</Empty>
       )}
       {rows.map((row) => (
-        <div key={row.id} className={styles.row}>
+        <Grid columns="repeat(5, minmax(0, 1fr)) auto" gap="8px" align="center" key={row.id} className={styles.row}>
           <Input
             placeholder={t("businessData.binConverter.operations.fromBinCode")}
             value={row.fromBinCode}
@@ -93,7 +87,7 @@ export function BinConversionListEditor({
           <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
-        </div>
+        </Grid>
       ))}
       <Button variant="secondary" onClick={addRow}>
         {t("common.add")}

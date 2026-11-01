@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Button, Input, makeStyles} from "@/components/ui";
+import { BaseDialog, DialogFooter, FormField, Grid, HStack, VStack  } from "@/components/common";
+import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -24,9 +24,6 @@ const L: Record<string, TranslationKey> = {
 
 const useStyles = makeStyles({
   panelHead: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     marginBottom: "8px",
     fontWeight: theme.font.weightSemibold,
   },
@@ -47,7 +44,7 @@ const useStyles = makeStyles({
     backgroundColor: theme.color.surfaceSecondary,
     fontWeight: theme.font.weightSemibold,
   },
-  details: { display: "flex", flexDirection: "column", gap: "12px" },
+  
 });
 
 export function ManageShippingFacilitiesDialog({
@@ -71,9 +68,9 @@ export function ManageShippingFacilitiesDialog({
       onClose={onClose}
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.update)} />}
     >
-      <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: "16px" }}>
+      <Grid columns="240px 1fr" gap="16px">
         <div>
-          <div className={styles.panelHead}>
+          <HStack align="center" justify="space-between" className={styles.panelHead}>
             <span>{t(L.facilities)}</span>
             <Button
               size="sm"
@@ -86,7 +83,7 @@ export function ManageShippingFacilitiesDialog({
             >
               + {t(L.addFacility)}
             </Button>
-          </div>
+          </HStack>
           <div className={styles.list}>
             {facilities.map((f, i) => (
               <div
@@ -116,8 +113,8 @@ export function ManageShippingFacilitiesDialog({
             </Button>
           )}
         </div>
-        <div className={styles.details}>
-          <div className={styles.panelHead}>{t(L.facilityDetails)}</div>
+        <VStack gap="12px">
+          <HStack align="center" justify="space-between" className={styles.panelHead}>{t(L.facilityDetails)}</HStack>
           <FormField
             label={
               <>
@@ -144,8 +141,8 @@ export function ManageShippingFacilitiesDialog({
           <FormField label={<>{t(L.isRemote)}</>} labelWidth="140px">
             <span>{t(L.no)}</span>
           </FormField>
-        </div>
-      </div>
+        </VStack>
+      </Grid>
     </BaseDialog>
   );
 }

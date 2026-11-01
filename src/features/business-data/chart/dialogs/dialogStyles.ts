@@ -1,11 +1,10 @@
-import { makeStyles} from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { theme } from "@/styles/theme";
 
 export const useDialogStyles = makeStyles({
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   ruleRow: {
     display: "grid",
     gridTemplateColumns: "110px 150px minmax(0,1fr) 130px 130px auto",

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -42,8 +42,6 @@ const L: Record<string, TranslationKey> = {
 
 const useDialogStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: "16px",
     padding: "12px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
@@ -113,11 +111,11 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="16px" className={styles.steps}>
         <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
         <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
         <span className={step === 3 ? styles.stepActive : styles.step}>{t(L.step3)}</span>
-      </div>
+      </HStack>
       {step === 1 && (
         <>
           <FormField
@@ -172,11 +170,7 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
             }
             labelWidth="220px"
           >
-            <Input
-              value={name}
-              onChange={setName}
-              disabled={mode === MODE_EDIT}
-            />
+            <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="220px">
             <Textarea value={description} onChange={setDescription} />
@@ -208,10 +202,7 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
             <Input value={costCenter} onChange={setCostCenter} />
           </FormField>
           <FormField label={<>{t(L.requireClockIn)}</>} labelWidth="220px">
-            <Checkbox
-              checked={requireClockIn === true}
-              onChange={setRequireClockIn}
-            />
+            <Checkbox checked={requireClockIn === true} onChange={setRequireClockIn} />
           </FormField>
           <FormField label={<>{t(L.automaticClockIn)}</>} labelWidth="220px">
             <Checkbox
@@ -221,10 +212,7 @@ export function EmployeeDialog({ mode, initialName, onClose }: DialogProps) {
             />
           </FormField>
           <FormField label={<>{t(L.automaticClockOutAtEndOfShift)}</>} labelWidth="220px">
-            <Checkbox
-              checked={automaticClockOut === true}
-              onChange={setAutomaticClockOut}
-            />
+            <Checkbox checked={automaticClockOut === true} onChange={setAutomaticClockOut} />
           </FormField>
         </>
       )}

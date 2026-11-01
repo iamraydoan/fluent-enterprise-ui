@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -75,7 +75,7 @@ function ManageDialogBase({
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(updateKey)} />}
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <HStack gap={16}>
         <div style={{ width: 320, flexShrink: 0 }}>
           <div
             style={{
@@ -115,7 +115,7 @@ function ManageDialogBase({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{item.name}</div>
-                <div style={{ fontSize: 12, color: "#666" }}>{item.detail}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{item.detail}</div>
               </div>
             ))}
           </div>
@@ -151,7 +151,7 @@ function ManageDialogBase({
             </Field>
           ))}
         </div>
-      </div>
+      </HStack>
       <Field label={t(commentsKey)}>
         <Input value={comments} onChange={setComments} />
       </Field>

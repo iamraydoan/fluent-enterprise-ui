@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -60,7 +60,7 @@ export function ManageServiceResourcesDialog({
       }
     >
       <DialogEntityBanner icon="📊" name={serviceName} />
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <HStack gap={16}>
         <div style={{ width: 300, flexShrink: 0 }}>
           <div
             style={{
@@ -100,7 +100,7 @@ export function ManageServiceResourcesDialog({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{r.resource || t(`${k}.newResource`)}</div>
-                <div style={{ fontSize: 12, color: "#666" }}>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
                   {r.enabled ? t(`${k}.enabled`) : t(`${k}.disabled`)}
                 </div>
               </div>
@@ -116,7 +116,7 @@ export function ManageServiceResourcesDialog({
             <Switch checked={enabled} onChange={setEnabled} />
           </Field>
         </div>
-      </div>
+      </HStack>
     </BaseDialog>
   );
 }

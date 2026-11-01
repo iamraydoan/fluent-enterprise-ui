@@ -38,7 +38,7 @@ export function PlaceholderPage({ title, icon, body }: PlaceholderPageProps) {
   return (
     <section className={placeholderStyles.stub} aria-label={title}>
       <div style={{ fontSize: 40 }}>{renderedIcon}</div>
-      <Text weight="semibold" size={500} style={{ color: "#222" }}>
+      <Text weight="semibold" size={500} style={{ color: theme.color.textPrimary }}>
         {title}
       </Text>
       <Caption1>{body ?? t("placeholder.defaultBody")}</Caption1>

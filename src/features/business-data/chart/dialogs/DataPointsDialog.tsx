@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ChartDataPoint } from "@/api";
+import { Empty } from "@/components/common";
 import {
   Button,
   Table,
@@ -154,7 +155,7 @@ export function DataPointsDialog({
         </Button>
       </div>
       {dataPoints.length === 0 ? (
-        <div className={styles.empty}>{t("businessData.chart.operations.noDataPoints")}</div>
+        <Empty>{t("businessData.chart.operations.noDataPoints")}</Empty>
       ) : (
         <Table>
           <TableHeader>

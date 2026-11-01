@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner, VStack  } from "@/components/common";
 import { Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
@@ -29,7 +29,7 @@ export function AddResourceToContainerDialog({
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.add`)} />}
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <VStack gap={12}>
         <Field label={t(`${k}.container`)} required>
           <Input value={container} onChange={setContainer} />
         </Field>
@@ -39,7 +39,7 @@ export function AddResourceToContainerDialog({
         <Field label={t(`${k}.comment`)}>
           <Input value={comment} onChange={setComment} />
         </Field>
-      </div>
+      </VStack>
     </BaseDialog>
   );
 }
@@ -94,7 +94,7 @@ export function TransferResourceBetweenContainersDialog({
       }
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <VStack gap={12}>
         <Field label={t(`${k}.sourceContainer`)} required>
           <Input value={sourceContainer} onChange={setSourceContainer} />
         </Field>
@@ -107,7 +107,7 @@ export function TransferResourceBetweenContainersDialog({
         <Field label={t(`${k}.comment`)}>
           <Input value={comment} onChange={setComment} />
         </Field>
-      </div>
+      </VStack>
     </BaseDialog>
   );
 }

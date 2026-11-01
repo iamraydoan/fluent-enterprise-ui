@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { SamplingPatternDetail, SamplingPatternMode, SamplingPatternRecord } from "@/api";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, VStack  } from "@/components/common";
 import { Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
@@ -54,7 +54,7 @@ export function SamplingPatternFormDialog({
       width="min(900px, 90vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
     >
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <VStack gap={12}>
         <Field label={t(`${k}.name`)} required>
           <Input value={name} readOnly={nameReadOnly} onChange={setName} />
         </Field>
@@ -92,10 +92,7 @@ export function SamplingPatternFormDialog({
               <Input value={materialCount} onChange={setMaterialCount} />
             </Field>
             <Field label={t(`${k}.countIsPercentage`)}>
-              <Checkbox
-                checked={countIsPercentage}
-                onChange={setCountIsPercentage}
-              />
+              <Checkbox checked={countIsPercentage} onChange={setCountIsPercentage} />
             </Field>
             <Field label={t(`${k}.selectionMethod`)}>
               <select value={selectionMethod} onChange={(e) => setSelectionMethod(e.target.value)}>
@@ -120,7 +117,7 @@ export function SamplingPatternFormDialog({
             </Field>
           </>
         )}
-      </div>
+      </VStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />
       </Field>

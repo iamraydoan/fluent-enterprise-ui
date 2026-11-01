@@ -1,9 +1,10 @@
 import { useState } from "react";
 import type { ServiceDetail, ServiceRecord } from "@/api";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
 import { Button, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ServiceFormDialogProps {
   open: boolean;
@@ -68,12 +69,10 @@ export function ServiceFormDialog({
         </>
       }
     >
-      {!nameReadOnly && (
-        <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />
-      )}
+      {!nameReadOnly && <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -98,11 +97,11 @@ export function ServiceFormDialog({
           <Field label={t(`${k}.enabled`)}>
             <Switch checked={enabled} onChange={setEnabled} />
           </Field>
-        </div>
+        </VStack>
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step2Body`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step2Body`)}</div>
       )}
 
       <Field label={t(`${k}.comments`)}>

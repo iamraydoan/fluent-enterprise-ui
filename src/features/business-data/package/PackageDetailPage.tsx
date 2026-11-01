@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePackageDetail } from "@/api";
 import type { DetailMoreMenuItem } from "@/components/common";
-import { DetailShell, KV } from "@/components/common";
+import { DetailShell, KV, Grid  } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -15,7 +15,7 @@ import {
 } from "./PackageDialogs";
 
 const useStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" },
+  
   sectionTitle: { marginBottom: "8px" },
 });
 
@@ -94,7 +94,7 @@ export function PackageDetailPage({ name }: { name: string }) {
         moreActions={moreMenuItems}
       >
         {top === "details" && left === LEFT_ITEMS[0] && (
-          <div className={styles.cards}>
+          <Grid columns="repeat(2, 1fr)" gap="12px">
             <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
               <Text weight="semibold" size={400} className={styles.sectionTitle}>
                 {t("businessData.package.detail.generalData")}
@@ -111,7 +111,7 @@ export function PackageDetailPage({ name }: { name: string }) {
                 ]}
               />
             </div>
-          </div>
+          </Grid>
         )}
         {top === "details" && left === LEFT_ITEMS[1] && (
           <div className={shared.contentCard} style={{ padding: "14px 16px" }}>

@@ -6,17 +6,14 @@ import {
   useUpdateBarcodeIdentificationSettings,
 } from "@/api";
 import type { BarcodeEntityKind } from "@/api";
-import { BaseDialog, DialogFooter, SidebarNavItem } from "@/components/common";
-import { makeStyles, Text} from "@/components/ui";
+import { BaseDialog, DialogFooter, SidebarNavItem, Grid, VStack  } from "@/components/common";
+import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useSettingsStyles = makeStyles({
   body: {
-    display: "grid",
-    gridTemplateColumns: "220px 1fr",
-    columnGap: "16px",
     minHeight: "280px",
   },
   listLabel: {
@@ -24,16 +21,8 @@ const useSettingsStyles = makeStyles({
     fontWeight: theme.font.weightSemibold,
     marginBottom: "8px",
   },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "16px",
-  },
+  
   field: {
-    display: "grid",
-    gridTemplateColumns: "140px 1fr",
-    columnGap: "12px",
-    alignItems: "center",
     fontSize: "13px",
   },
   required: {
@@ -112,7 +101,7 @@ export function SettingsDialog({ open, onClose }: SettingsDialogProps) {
         />
       }
     >
-      <div className={styles.body}>
+      <Grid columns="220px 1fr" gap="16px" className={styles.body}>
         <div>
           <Text className={styles.listLabel}>{t(L.entities)}</Text>
           {BARCODE_ENTITIES.map((entity) => (
@@ -124,15 +113,15 @@ export function SettingsDialog({ open, onClose }: SettingsDialogProps) {
             />
           ))}
         </div>
-        <div className={styles.form}>
-          <div className={styles.field}>
+        <VStack gap="16px">
+          <Grid columns="140px 1fr" gap="12px" align="center" className={styles.field}>
             <Text>
               <span className={styles.required}>* </span>
               {t(L.entity)}:
             </Text>
             <Text weight="semibold">{t(ENTITY_LABEL_KEYS[selectedEntity])}</Text>
-          </div>
-          <div className={styles.field}>
+          </Grid>
+          <Grid columns="140px 1fr" gap="12px" align="center" className={styles.field}>
             <Text>
               <span className={styles.required}>* </span>
               {t(L.barcodeProperty)}:
@@ -151,9 +140,9 @@ export function SettingsDialog({ open, onClose }: SettingsDialogProps) {
                 </option>
               ))}
             </select>
-          </div>
-        </div>
-      </div>
+          </Grid>
+        </VStack>
+      </Grid>
     </BaseDialog>
   );
 }

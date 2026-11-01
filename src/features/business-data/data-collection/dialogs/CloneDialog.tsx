@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, Empty } from "@/components/common";
 import { Button, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useDialogStyles } from "./dialogStyles";
@@ -64,9 +64,7 @@ export function CloneDataCollectionDialog({
         {t("businessData.dataCollection.operations.cloneHint", { name: dataCollectionName })}
       </div>
       {rows.length === 0 && (
-        <div className={styles.empty}>
-          {t("businessData.dataCollection.operations.noCloneRows")}
-        </div>
+        <Empty>{t("businessData.dataCollection.operations.noCloneRows")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.paramRow}>

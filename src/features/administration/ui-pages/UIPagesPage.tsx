@@ -10,7 +10,7 @@ import {
   importAction,
   refreshAction,
   SidePanel,
-  SidebarNavItem,
+  SidebarNavItem, Grid, MenuTriggerButton, VStack, HStack  
 } from "@/components/common";
 import { DocumentBulletList24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
 import {
@@ -33,31 +33,21 @@ const ALL_FOLDERS = "all";
 
 const usePageStyles = makeStyles({
   contentCard: {
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "12px",
     padding: "16px",
-    flexGrow: 1,
     minHeight: 0,
   },
   grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-    gap: "12px",
     overflowY: "auto",
     paddingBottom: "8px",
   },
   tile: {
     padding: "14px",
     cursor: "pointer",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "10px",
     minHeight: "110px",
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
+    ": hover": { backgroundColor: theme.color.surfaceHover },
   },
   tileName: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
   tileMeta: { fontSize: "12px", color: theme.color.textTertiary },
@@ -136,7 +126,7 @@ export function UIPagesPage() {
         </SidePanel>
       }
     >
-      <div className={mergeClasses(sharedStyles.contentCard, styles.contentCard)}>
+      <VStack gap="12px" className={mergeClasses(sharedStyles.contentCard, styles.contentCard)}>
         <FilterBar>
           <FilterGroup>
             <Checkbox
@@ -155,9 +145,9 @@ export function UIPagesPage() {
           <FilterGroup label={t("uiPages.filters.scope")}>
             <Menu>
               <MenuTrigger disableButtonEnhancement>
-                <button style={{ width: "auto" }}>
+                <MenuTriggerButton>
                   {scope === "all" ? t("uiPages.filters.all") : scope}
-                </button>
+                </MenuTriggerButton>
               </MenuTrigger>
               <MenuPopover>
                 <MenuList>
@@ -173,9 +163,9 @@ export function UIPagesPage() {
           <FilterGroup label={t("uiPages.filters.section")}>
             <Menu>
               <MenuTrigger disableButtonEnhancement>
-                <button style={{ width: "auto" }}>
+                <MenuTriggerButton>
                   {section === "all" ? t("uiPages.filters.all") : section}
-                </button>
+                </MenuTriggerButton>
               </MenuTrigger>
               <MenuPopover>
                 <MenuList>
@@ -211,13 +201,13 @@ export function UIPagesPage() {
         {pages.length === 0 ? (
           <div className={styles.empty}>{t("uiPages.noPages")}</div>
         ) : (
-          <div className={styles.grid}>
+          <Grid columns="repeat(auto-fill, minmax(220px, 1fr))" gap="12px" className={styles.grid}>
             {pages.map((page) => (
               <UIPageTile key={page.name} page={page} />
             ))}
-          </div>
+          </Grid>
         )}
-      </div>
+      </VStack>
     </DataListPage>
   );
 }
@@ -225,19 +215,19 @@ export function UIPagesPage() {
 function UIPageTile({ page }: { page: UIPageRecord }) {
   const styles = usePageStyles();
   return (
-    <div className={styles.tile} role="button" tabIndex={0} aria-label={page.name}>
+    <VStack gap="10px" role="button" tabIndex={0} aria-label={page.name} className={styles.tile}>
       <Text weight="semibold" size={400} className={styles.tileName} title={page.name}>
         {page.name}
       </Text>
-      <div style={{ display: "flex", columnGap: "6px" }}>
+      <HStack gap="6px">
         <Text className={styles.tileMeta}>{page.type}</Text>
         <Text className={styles.tileMeta}>{page.scope}</Text>
-      </div>
+      </HStack>
       {page.description !== "" && (
         <Text className={styles.tileMeta} title={page.description}>
           {page.description}
         </Text>
       )}
-    </div>
+    </VStack>
   );
 }

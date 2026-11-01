@@ -1,6 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useCalendarDetail } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   DetailShell,
   ListPage,
@@ -10,8 +11,8 @@ import {
   terminateAction,
   unterminateAction,
   DetailTabs,
+  Empty,  SectionHeader, Grid, HStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
   Table,
@@ -20,7 +21,6 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  Text,
   makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -30,11 +30,7 @@ import { theme } from "@/styles/theme";
 import { useCalendarDialogs } from "./useCalendarDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
+  
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
@@ -42,20 +38,14 @@ const useDetailStyles = makeStyles({
     paddingBottom: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
-  label: { color: theme.color.textTertiary, minWidth: "190px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
-  yearGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-    gap: "16px",
+  row: {
+    fontSize: "13px",
   },
-  monthCell: { display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "2px" },
+  label: { color: theme.color.textTertiary, minWidth: "190px" },
+  
+  
   dayCell: {
     aspectRatio: "1.2",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
     fontSize: "12px",
     borderRadius: "4px",
   },
@@ -68,13 +58,13 @@ const useDetailStyles = makeStyles({
     marginBottom: "8px",
   },
   weekdayHeader: {
-    display: "grid",
-    gridTemplateColumns: "repeat(7, 1fr)",
-    gap: "2px",
     marginBottom: "4px",
   },
   weekday: { fontSize: "11px", color: theme.color.textTertiary, textAlign: "center" },
-  legend: { display: "flex", columnGap: "16px", marginTop: "16px", fontSize: "12px" },
+  legend: {
+    marginTop: "16px",
+    fontSize: "12px",
+  },
   legendSwatch: {
     width: "12px",
     height: "12px",
@@ -123,23 +113,25 @@ function MonthGrid({ year, month }: { year: number; month: number }) {
       <div className={styles.monthTitle}>
         {MONTH_NAMES[month]} {year}
       </div>
-      <div className={styles.weekdayHeader}>
+      <Grid columns="repeat(7, 1fr)" gap="2px" className={styles.weekdayHeader}>
         {WEEKDAY_SHORT.map((w) => (
           <span key={w} className={styles.weekday}>
             {w}
           </span>
         ))}
-      </div>
-      <div className={styles.monthCell}>
+      </Grid>
+      <Grid columns="repeat(7, 1fr)" gap="2px">
         {cells.map((c, i) => (
-          <div
+          <HStack
+            align="center"
+            justify="center"
             key={i}
             className={`${styles.dayCell} ${c.day !== null ? (c.working ? styles.dayWorking : styles.dayNonWorking) : ""}`}
           >
             {c.day ?? ""}
-          </div>
+          </HStack>
         ))}
-      </div>
+      </Grid>
     </div>
   );
 }
@@ -173,7 +165,7 @@ export function CalendarDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.calendar.detail.loading")}</div>
+        <Empty>{t("businessData.calendar.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -232,11 +224,9 @@ export function CalendarDetailPage() {
           >
             {showWeek ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.calendar.detail.weekDaysTitle", {
+                <SectionHeader title={t("businessData.calendar.detail.weekDaysTitle", {
                     count: cal.weekDefinition.length,
-                  })}
-                </Text>
+                  })} />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -263,11 +253,9 @@ export function CalendarDetailPage() {
                 </Table>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.calendar.detail.calendar")}
-                  </Text>
+                  <SectionHeader title={t("businessData.calendar.detail.calendar")} />
                   <KV label={t("businessData.calendar.detail.name")} value={cal.name} />
                   <KV
                     label={t("businessData.calendar.detail.description")}
@@ -280,9 +268,7 @@ export function CalendarDetailPage() {
                   <KV label={t("businessData.calendar.detail.dataGroup")} value={cal.dataGroup} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.calendar.detail.information")}
-                  </Text>
+                  <SectionHeader title={t("businessData.calendar.detail.information")} />
                   <KV label={t("businessData.calendar.detail.timeZone")} value={cal.timeZone} />
                   <KV
                     label={t("businessData.calendar.detail.clockInEarlyStart")}
@@ -313,18 +299,18 @@ export function CalendarDetailPage() {
                     value={cal.dayStartTime}
                   />
                 </div>
-              </div>
+              </Grid>
             )}
           </DetailShell>
         )}
         {tab === "calendarDays" && (
           <div className={sharedStyles.contentCard} style={{ padding: 16 }}>
-            <div className={styles.yearGrid}>
+            <Grid columns="repeat(auto-fit, minmax(340px, 1fr))" gap="16px">
               {Array.from({ length: 12 }, (_, m) => (
                 <MonthGrid key={m} year={2026} month={m} />
               ))}
-            </div>
-            <div className={styles.legend}>
+            </Grid>
+            <HStack gap="16px" className={styles.legend}>
               <span>
                 <span
                   className={styles.legendSwatch}
@@ -339,11 +325,11 @@ export function CalendarDetailPage() {
                 />
                 {t("businessData.calendar.detail.legendNonWorking")}
               </span>
-            </div>
+            </HStack>
           </div>
         )}
         {tab !== "details" && tab !== "calendarDays" && (
-          <div className={styles.empty}>{t("businessData.calendar.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.calendar.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>
@@ -354,9 +340,9 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.calendar.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }

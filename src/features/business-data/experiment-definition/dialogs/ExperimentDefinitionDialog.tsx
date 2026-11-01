@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -55,11 +55,8 @@ const L: Record<string, TranslationKey> = {
 
 const useDialogStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: "12px",
     padding: "12px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    flexWrap: "wrap",
     margin: "-16px -20px 0",
   },
   step: { fontSize: theme.font.sizeSm, color: theme.color.textTertiary },
@@ -75,7 +72,7 @@ const useDialogStyles = makeStyles({
     fontSize: theme.font.sizeMd,
     backgroundColor: theme.color.surface,
   },
-  row: { display: "flex", gap: "8px", alignItems: "center" },
+  
 });
 
 interface DialogProps {
@@ -139,21 +136,17 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="12px" wrap className={styles.steps}>
         {stepLabels.map((s, i) => (
           <span key={i} className={step === i + 1 ? styles.stepActive : styles.step}>
             {t(s)}
           </span>
         ))}
-      </div>
+      </HStack>
       {step === 1 && (
         <>
           <FormField label={<>{t(L.changeSet)}</>}>
-            <Input
-              value={changeSet}
-              onChange={setChangeSet}
-              disabled={useAutoCs}
-            />
+            <Input value={changeSet} onChange={setChangeSet} disabled={useAutoCs} />
           </FormField>
           <FormField
             label={
@@ -196,11 +189,7 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
               </>
             }
           >
-            <Input
-              value={name}
-              onChange={setName}
-              disabled={mode === MODE_EDIT}
-            />
+            <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />
           </FormField>
           <FormField label={<>{t(L.description)}</>}>
             <Textarea value={description} onChange={setDescription} />
@@ -268,16 +257,16 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
       )}
       {step === 3 && (
         <>
-          <div className={styles.row}>
+          <HStack gap="8px" align="center">
             <Button
               size="sm"
               onClick={() => setObjectives([...objectives, { name: "", target: "" }])}
             >
               + {t(L.addObjective)}
             </Button>
-          </div>
+          </HStack>
           {objectives.map((o, i) => (
-            <div key={i} className={styles.row}>
+            <HStack gap="8px" align="center" key={i}>
               <Input
                 placeholder={t(L.objectiveName)}
                 value={o.name}
@@ -292,20 +281,17 @@ export function ExperimentDefinitionDialog({ mode, initialName, onClose }: Dialo
                   setObjectives(objectives.map((x, j) => (j === i ? { ...x, target: value } : x)))
                 }
               />
-              <Button
-                size="sm"
-                onClick={() => setObjectives(objectives.filter((_, j) => j !== i))}
-              >
+              <Button size="sm" onClick={() => setObjectives(objectives.filter((_, j) => j !== i))}>
                 {t(L.remove)}
               </Button>
-            </div>
+            </HStack>
           ))}
         </>
       )}
       {(step === 4 || step === 5) && (
-        <div className={styles.row}>
+        <HStack gap="8px" align="center">
           <span>{t(step === 4 ? L.step4 : L.step5)}</span>
-        </div>
+        </HStack>
       )}
     </BaseDialog>
   );

@@ -1,6 +1,6 @@
 import type { FabMaterial } from "@/api";
 import type { DataColumn } from "@/components/common";
-import { Text} from "@/components/ui";
+import { Text } from "@/components/ui";
 import { theme } from "@/styles/theme";
 
 export const MATERIAL_COLUMNS: DataColumn<FabMaterial>[] = [

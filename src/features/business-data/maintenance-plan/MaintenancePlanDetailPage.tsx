@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useMaintenancePlanDetail } from "@/api";
-import { Card, CardGrid, DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, Panel, OptionItem, HStack  } from "@/components/common";
 import { Wrench24Regular } from "@/components/icons";
 import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { AssociateMaintenancePlanDialog } from "./dialogs/AssociateMaintenancePlanDialog";
@@ -111,26 +110,16 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
   if (top === "activities") {
     const activity = data.activities[selectedActivity];
     return shell(
-      <div style={{ display: "flex", gap: 16, height: "100%" }}>
+      <HStack gap={16} style={{height: "100%"}}>
         <Panel>
           <Text weight="semibold">{t("businessData.maintenancePlan.sections.activities")}</Text>
           {data.activities.map((item, index) => (
-            <button
+            <OptionItem
               key={item.name}
-              type="button"
+              title={item.name}
+              selected={index === selectedActivity}
               onClick={() => setSelectedActivity(index)}
-              style={{
-                display: "block",
-                width: "100%",
-                textAlign: "left",
-                background: index === selectedActivity ? theme.color.brandSubtle : "transparent",
-                border: "none",
-                padding: "8px 12px",
-                cursor: "pointer",
-              }}
-            >
-              <Text>{item.name}</Text>
-            </button>
+            />
           ))}
         </Panel>
         {activity && (
@@ -179,7 +168,7 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
             />
           </Card>
         )}
-      </div>,
+      </HStack>,
     );
   }
 
@@ -204,14 +193,14 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
             [t("businessData.maintenancePlan.details.dataGroup"), data.dataGroup],
           ]}
         />
-        <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
+        <HStack gap="8px" style={{marginTop: "12px"}}>
           <Button onClick={() => setSetEffectiveOpen(true)}>
             {t("businessData.maintenancePlan.terminateDialog.setEffective")}
           </Button>
           <Button onClick={() => setAssociateOpen(true)}>
             {t("businessData.maintenancePlan.associate.associate")}
           </Button>
-        </div>
+        </HStack>
       </Card>
     </CardGrid>,
   );

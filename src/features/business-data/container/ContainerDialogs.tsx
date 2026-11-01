@@ -1,30 +1,23 @@
 import { useState } from "react";
 import type { ContainerPosition } from "@/api";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, Empty, HStack, VStack  } from "@/components/common";
 import { ArrowDown16Regular, ArrowUp16Regular } from "@/components/icons";
-import { Button, Input, Textarea, makeStyles} from "@/components/ui";
+import { Button, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
-  fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
+  fieldRow: {
+    marginBottom: "12px",
+  },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   flexRow: {
-    display: "flex",
-    flexWrap: "wrap",
-    columnGap: "8px",
-    rowGap: "8px",
-    alignItems: "center",
     marginBottom: "8px",
   },
   grow: { flex: "1 1 140px", minWidth: "120px" },
   posRow: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     padding: "6px 0",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
@@ -62,10 +55,10 @@ function DialogShell({
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   const styles = useDialogStyles();
   return (
-    <div className={styles.fieldRow}>
+    <VStack gap="4px" className={styles.fieldRow}>
       <span className={styles.fieldLabel}>{label}</span>
       {children}
-    </div>
+    </VStack>
   );
 }
 
@@ -123,11 +116,9 @@ export function CloneContainerDialog({
       <div className={styles.hint}>
         {t("businessData.container.operations.cloneHint", { name: containerName })}
       </div>
-      {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.container.operations.noCloneRows")}</div>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.container.operations.noCloneRows")}</Empty>}
       {rows.map((row) => (
-        <div key={row.id} className={styles.flexRow}>
+        <HStack gap="8px" align="center" wrap key={row.id} className={styles.flexRow}>
           <div className={styles.grow}>
             <Input
               placeholder={t("businessData.container.detail.name")}
@@ -152,7 +143,7 @@ export function CloneContainerDialog({
           <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
-        </div>
+        </HStack>
       ))}
       <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
@@ -198,10 +189,10 @@ export function CommentConfirmDialog({
       }
     >
       <div className={styles.hint}>{t(messageKey, messageParams)}</div>
-      <div className={styles.fieldRow}>
+      <VStack gap="4px" className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.container.operations.comment")}</span>
         <Textarea value={comment} onChange={setComment} />
-      </div>
+      </VStack>
     </DialogShell>
   );
 }
@@ -363,7 +354,7 @@ export function ManagePositionsDialog({
         {t("businessData.container.operations.managePositionsHint", { name: containerName })}
       </div>
       {rows.map((row, idx) => (
-        <div key={row.position} className={styles.posRow}>
+        <HStack gap="8px" align="center" key={row.position} className={styles.posRow}>
           <span className={styles.posNum}>{row.position}</span>
           <div style={{ flexGrow: 1 }}>
             <Input
@@ -372,12 +363,7 @@ export function ManagePositionsDialog({
               onChange={(value) => updateMaterial(idx, value)}
             />
           </div>
-          <Button
-            variant="secondary"
-            size="sm"
-            disabled={idx === 0}
-            onClick={() => move(idx, -1)}
-          >
+          <Button variant="secondary" size="sm" disabled={idx === 0} onClick={() => move(idx, -1)}>
             <ArrowUp16Regular />
           </Button>
           <Button
@@ -388,12 +374,12 @@ export function ManagePositionsDialog({
           >
             <ArrowDown16Regular />
           </Button>
-        </div>
+        </HStack>
       ))}
-      <div className={styles.fieldRow} style={{ marginTop: "12px" }}>
+      <VStack gap="4px" style={{ marginTop: "12px" }} className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.container.operations.comment")}</span>
         <Textarea value={comment} onChange={setComment} />
-      </div>
+      </VStack>
     </DialogShell>
   );
 }
@@ -555,7 +541,7 @@ export function TransferMaterialDialog({
       <div className={styles.hint}>
         {t("businessData.container.operations.transferMaterialHint", { name: containerName })}
       </div>
-      <div className={styles.fieldRow}>
+      <VStack gap="4px" className={styles.fieldRow}>
         <span className={styles.fieldLabel}>
           {t("businessData.container.operations.materials")}
         </span>
@@ -564,7 +550,7 @@ export function TransferMaterialDialog({
             ? t("businessData.container.operations.noMaterials")
             : materials.map((m) => m.material).join(", ")}
         </span>
-      </div>
+      </VStack>
       <Field label={t("businessData.container.operations.newContainer")}>
         <Input value={newContainer} onChange={setNewContainer} />
       </Field>

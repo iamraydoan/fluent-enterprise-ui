@@ -1,6 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useAreaDetail } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   DetailShell,
   ListPage,
@@ -10,10 +11,10 @@ import {
   terminateAction,
   unterminateAction,
   DetailTabs,
+  Empty,  SectionHeader, Grid, HStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
-import { Text, makeStyles } from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -21,11 +22,7 @@ import { theme } from "@/styles/theme";
 import { useAreaDialogs } from "./useAreaDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
+  
   card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
@@ -33,9 +30,10 @@ const useDetailStyles = makeStyles({
     paddingBottom: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "120px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "areaView", "maintenance", "references", "history"] as const;
@@ -99,7 +97,7 @@ export function AreaDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.area.detail.loading")}</div>
+        <Empty>{t("businessData.area.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -135,9 +133,9 @@ export function AreaDetailPage() {
               onAskAi={() => undefined}
               showState={false}
             >
-              <div className={styles.cards}>
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>{t("businessData.area.detail.area")}</Text>
+                  <SectionHeader title={t("businessData.area.detail.area")} />
                   <KV label={t("businessData.area.detail.name")} value={area.name} />
                   <KV label={t("businessData.area.detail.description")} value={area.description} />
                   <KV label={t("businessData.area.detail.type")} value={area.type} />
@@ -148,9 +146,7 @@ export function AreaDetailPage() {
                   <KV label={t("businessData.area.detail.dataGroup")} value={area.dataGroup} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.area.detail.information")}
-                  </Text>
+                  <SectionHeader title={t("businessData.area.detail.information")} />
                   <KV label={t("businessData.area.detail.facility")} value={area.facility} />
                   <KV
                     label={t("businessData.area.detail.displayOrder")}
@@ -159,15 +155,13 @@ export function AreaDetailPage() {
                   <KV label={t("businessData.area.detail.areaType")} value={area.areaType} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>{t("businessData.area.detail.planning")}</Text>
+                  <SectionHeader title={t("businessData.area.detail.planning")} />
                   <KV label={t("businessData.area.detail.calendar")} value={area.calendar} />
                   <KV label={t("businessData.area.detail.schedule")} value={area.schedule} />
                   <KV label={t("businessData.area.detail.costCenter")} value={area.costCenter} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.area.detail.shiftLogbooks")}
-                  </Text>
+                  <SectionHeader title={t("businessData.area.detail.shiftLogbooks")} />
                   <KV
                     label={t("businessData.area.detail.enableShiftLogbook")}
                     value={
@@ -177,12 +171,10 @@ export function AreaDetailPage() {
                     }
                   />
                 </div>
-              </div>
+              </Grid>
             </DetailShell>
           )}
-          {tab !== "details" && (
-            <div className={styles.empty}>{t("businessData.area.detail.historyEmpty")}</div>
-          )}
+          {tab !== "details" && <Empty>{t("businessData.area.detail.historyEmpty")}</Empty>}
         </DetailTabs>
       </ListPage>
       {dialogs}
@@ -194,9 +186,9 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.area.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }

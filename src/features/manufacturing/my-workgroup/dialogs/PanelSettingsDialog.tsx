@@ -1,16 +1,13 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, SectionHeader, Grid, HStack  } from "@/components/common";
 import { ArrowDown20Regular, ArrowUp20Regular, Delete20Regular } from "@/components/icons";
-import { Button, Checkbox, Text, makeStyles, mergeClasses} from "@/components/ui";
+import { Button, Checkbox, Text, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  columns: { display: "grid", gridTemplateColumns: "1fr 220px", gap: "16px" },
+  
   columnTitle: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     marginBottom: "8px",
   },
   list: {
@@ -19,9 +16,6 @@ const useDialogStyles = makeStyles({
     overflow: "hidden",
   },
   headerRow: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "10px",
     padding: "10px 12px",
     backgroundColor: theme.color.surfaceSecondary,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
@@ -31,9 +25,6 @@ const useDialogStyles = makeStyles({
     letterSpacing: "0.5px",
   },
   row: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "10px",
     padding: "10px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
@@ -41,9 +32,6 @@ const useDialogStyles = makeStyles({
   },
   rowSelected: { backgroundColor: theme.color.surfaceSelected },
   selectedRow: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     padding: "10px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
@@ -60,18 +48,6 @@ const useDialogStyles = makeStyles({
     borderTop: `1px solid ${theme.color.borderSubtle}`,
     paddingTop: "12px",
   },
-  commentsHeader: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "100%",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "14px",
-    padding: "4px 0",
-  },
 });
 
 type Panel = "resources" | "steps";
@@ -80,8 +56,6 @@ const ALL_PANELS: Panel[] = ["resources", "steps"];
 
 const DRAG_HANDLE = "⋮⋮";
 
-const EXPAND_ICON = "▾";
-const COLLAPSE_ICON = "▴";
 const EMPTY_DASH = "—";
 
 interface PanelSettingsDialogProps {
@@ -142,18 +116,18 @@ export function PanelSettingsDialog({
         />
       }
     >
-      <div className={styles.columns}>
+      <Grid columns="1fr 220px" gap="16px">
         <div>
-          <div className={styles.columnTitle}>
+          <HStack align="center" justify="space-between" className={styles.columnTitle}>
             <Text weight="semibold">
               {t("myWorkgroup.panelSettings.availableSections")} ({ALL_PANELS.length}){" "}
               <Text size={300} style={{ color: theme.color.textTertiary }}>
                 / {t("myWorkgroup.panelSettings.itemsSelected", { count: selected.length })}
               </Text>
             </Text>
-          </div>
+          </HStack>
           <div className={styles.list} role="listbox" aria-multiselectable>
-            <div className={styles.headerRow}>
+            <HStack gap="10px" align="center" className={styles.headerRow}>
               <Checkbox
                 checked={selected.length === ALL_PANELS.length}
                 onChange={() =>
@@ -162,12 +136,14 @@ export function PanelSettingsDialog({
                 aria-label={t("myWorkgroup.panelSettings.sections")}
               />
               <span>{t("myWorkgroup.panelSettings.sections")}</span>
-            </div>
+            </HStack>
             {ALL_PANELS.map((panel) => (
-              <div
+              <HStack
+                gap="10px"
+                align="center"
                 key={panel}
-                className={mergeClasses(styles.row, selected.includes(panel) && styles.rowSelected)}
                 onClick={() => toggle(panel)}
+                className={mergeClasses(styles.row, selected.includes(panel) && styles.rowSelected)}
                 role="option"
                 aria-selected={selected.includes(panel)}
               >
@@ -178,12 +154,12 @@ export function PanelSettingsDialog({
                   aria-label={panelLabel(panel)}
                 />
                 <span>{panelLabel(panel)}</span>
-              </div>
+              </HStack>
             ))}
           </div>
         </div>
         <div>
-          <div className={styles.columnTitle}>
+          <HStack align="center" justify="space-between" className={styles.columnTitle}>
             <Text weight="semibold">
               {t("myWorkgroup.panelSettings.selectedSections")} ({selected.length})
             </Text>
@@ -207,10 +183,10 @@ export function PanelSettingsDialog({
                 onClick={() => move(0, 1)}
               />
             </span>
-          </div>
+          </HStack>
           <div className={styles.list}>
             {selected.map((panel) => (
-              <div key={panel} className={styles.selectedRow}>
+              <HStack gap="8px" align="center" key={panel} className={styles.selectedRow}>
                 <span className={styles.dragHandle} aria-hidden>
                   {DRAG_HANDLE}
                 </span>
@@ -221,23 +197,25 @@ export function PanelSettingsDialog({
                   aria-label={t("common.remove")}
                   onClick={() => remove(panel)}
                 />
-              </div>
+              </HStack>
             ))}
             {selected.length === 0 && (
-              <div className={styles.selectedRow}>
+              <HStack gap="8px" align="center" className={styles.selectedRow}>
                 <Text size={300} style={{ color: theme.color.textTertiary }}>
                   {EMPTY_DASH}
                 </Text>
-              </div>
+              </HStack>
             )}
           </div>
         </div>
-      </div>
+      </Grid>
       <div className={styles.comments}>
-        <button className={styles.commentsHeader} onClick={() => setCommentsOpen((v) => !v)}>
-          <span>{t("myWorkgroup.panelSettings.comments")}:</span>
-          <span>{commentsOpen ? COLLAPSE_ICON : EXPAND_ICON}</span>
-        </button>
+        <SectionHeader
+          title={t("myWorkgroup.panelSettings.comments")}
+          collapsible
+          expanded={commentsOpen}
+          onToggle={() => setCommentsOpen((v) => !v)}
+        />
         {commentsOpen && (
           <Text size={300} style={{ color: theme.color.textTertiary }}>
             {EMPTY_DASH}

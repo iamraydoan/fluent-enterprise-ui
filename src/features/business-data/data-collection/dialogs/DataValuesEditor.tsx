@@ -1,3 +1,4 @@
+import { Empty } from "@/components/common";
 import { Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
@@ -34,9 +35,7 @@ export function DataValuesEditor({
         {t("businessData.dataCollection.operations.dataValuesHint")}
       </div>
       {parameters.length === 0 && (
-        <div className={styles.empty}>
-          {t("businessData.dataCollection.operations.noParameters")}
-        </div>
+        <Empty>{t("businessData.dataCollection.operations.noParameters")}</Empty>
       )}
       {parameters.map((p) => (
         <div key={p.parameter} className={styles.fieldRow}>

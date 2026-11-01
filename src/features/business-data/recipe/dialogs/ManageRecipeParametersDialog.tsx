@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -111,16 +111,9 @@ export function ManageRecipeParametersDialog({
       }
     >
       <DialogEntityBanner icon="🎛" name={recipeName} />
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <HStack gap={16}>
         <div style={{ width: 320, flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: 8,
-            }}
-          >
+          <HStack align="center" justify="space-between" style={{marginBottom: 8}}>
             <Body1Strong>{t(`${k}.parameters`)}</Body1Strong>
             <div style={{ display: "flex", columnGap: 4 }}>
               <Button size="sm" variant="subtle" onClick={addParameter}>
@@ -130,7 +123,7 @@ export function ManageRecipeParametersDialog({
                 🗑
               </Button>
             </div>
-          </div>
+          </HStack>
           <div
             style={{
               border: "1px solid #ddd",
@@ -151,12 +144,12 @@ export function ManageRecipeParametersDialog({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{p.name}</div>
-                <div style={{ fontSize: 12, color: "#666" }}>{p.value}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{p.value}</div>
               </div>
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <VStack gap={12}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.parameter`)} required>
             <Input value={name} onChange={setName} />
@@ -185,8 +178,8 @@ export function ManageRecipeParametersDialog({
               onChange={setOverridable}
             />
           </Field>
-        </div>
-      </div>
+        </VStack>
+      </HStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />
       </Field>

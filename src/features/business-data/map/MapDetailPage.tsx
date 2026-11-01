@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMapDetail } from "@/api";
-import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack  } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
 import {
   Button,
@@ -120,7 +120,7 @@ export function MapDetailPage({ name }: { name: string }) {
             ))}
           </TableBody>
         </Table>
-        <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
+        <HStack gap="8px" style={{marginTop: "12px"}}>
           <Button onClick={() => undefined}>{t("businessData.map.actions.downloadLayer")}</Button>
           <Button onClick={() => setLinkOpen(true)}>
             {t("businessData.map.actions.linkMaterial")}
@@ -128,7 +128,7 @@ export function MapDetailPage({ name }: { name: string }) {
           <Button onClick={() => setUnlinkOpen(true)}>
             {t("businessData.map.actions.unlinkMaterial")}
           </Button>
-        </div>
+        </HStack>
       </Card>,
     );
   }
