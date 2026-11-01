@@ -10,6 +10,7 @@ import {
   ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
@@ -31,11 +32,6 @@ import { theme } from "@/styles/theme";
 import { useCalendarDialogs } from "./useCalendarDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: theme.spacing.md,
-  },
   card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
@@ -45,11 +41,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "190px" },
-  yearGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-    gap: theme.spacing.lg,
-  },
   monthCell: { display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "2px" },
   dayCell: {
     aspectRatio: "1.2",
@@ -263,7 +254,7 @@ export function CalendarDetailPage() {
                 </Table>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <TileGrid minWidth="300px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.calendar.detail.calendar")}
@@ -313,17 +304,17 @@ export function CalendarDetailPage() {
                     value={cal.dayStartTime}
                   />
                 </div>
-              </div>
+              </TileGrid>
             )}
           </DetailShell>
         )}
         {tab === "calendarDays" && (
           <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
-            <div className={styles.yearGrid}>
+            <TileGrid minWidth="340px">
               {Array.from({ length: 12 }, (_, m) => (
                 <MonthGrid key={m} year={2026} month={m} />
               ))}
-            </div>
+            </TileGrid>
             <div className={styles.legend}>
               <span>
                 <span

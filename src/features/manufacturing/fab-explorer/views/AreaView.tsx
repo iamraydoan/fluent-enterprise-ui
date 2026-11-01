@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFabArea, useFabResources, useFabSteps, useFabUndispatchableMaterials } from "@/api";
 import type { FabResourceState } from "@/api";
-import { Card, FilterBar, FilterGroup, SidePanel } from "@/components/common";
+import { Card, FilterBar, FilterGroup, SidePanel, TileGrid } from "@/components/common";
 import { makeStyles, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
@@ -56,11 +56,6 @@ const useViewStyles = makeStyles({
     fontSize: "12px",
   },
   undispatchCell: { padding: theme.spacing.sm, borderBottom: `1px solid ${theme.color.border}` },
-  infoCards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
-    gap: theme.spacing.md,
-  },
   infoCard: { padding: theme.spacing.md, textAlign: "center" },
 });
 
@@ -111,7 +106,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
   return (
     <div className={styles.body}>
       <div className={styles.main}>
-        <div className={styles.infoCards}>
+        <TileGrid minWidth="160px">
           <div className={`${sharedStyles.contentCard} ${styles.infoCard}`}>
             <Text size={200} style={{ color: theme.color.textTertiary }}>
               {t("fabExplorer.processedMaterials")}
@@ -136,7 +131,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
               {inProcessMaterials}
             </Text>
           </div>
-        </div>
+        </TileGrid>
 
         <FilterBar justifyEnd>
           <FilterGroup label={t("fabExplorer.resourceState")}>

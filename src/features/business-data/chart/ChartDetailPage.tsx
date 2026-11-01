@@ -11,6 +11,7 @@ import {
   ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
@@ -38,11 +39,6 @@ import { theme } from "@/styles/theme";
 import { useChartDialogs } from "./useChartDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: theme.spacing.md,
-  },
   card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
@@ -259,7 +255,7 @@ export function ChartDetailPage() {
                   onDataPoints={openDataPoints}
                 />
               ) : (
-                <div className={styles.cards}>
+                <TileGrid minWidth="300px">
                   <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                     <Text className={styles.cardTitle}>{t("businessData.chart.detail.chart")}</Text>
                     <KV label={t("businessData.chart.detail.name")} value={chart.name} />
@@ -380,7 +376,7 @@ export function ChartDetailPage() {
                       value={String(chart.dataPointSize)}
                     />
                   </div>
-                </div>
+                </TileGrid>
               )}
             </DetailShell>
           )}

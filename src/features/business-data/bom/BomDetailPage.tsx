@@ -10,6 +10,7 @@ import {
   ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
@@ -31,11 +32,6 @@ import { theme } from "@/styles/theme";
 import { useBomDialogs } from "./useBomDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: theme.spacing.md,
-  },
   card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
@@ -182,7 +178,7 @@ export function BomDetailPage() {
                 </Table>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <TileGrid minWidth="300px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>{t("businessData.bom.detail.bom")}</Text>
                   <KV label={t("businessData.bom.detail.name")} value={bom.name} />
@@ -226,7 +222,7 @@ export function BomDetailPage() {
                     }
                   />
                 </div>
-              </div>
+              </TileGrid>
             )}
           </DetailShell>
         )}

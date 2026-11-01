@@ -12,6 +12,7 @@ import {
   refreshAction,
   SidebarNavItem,
   SidePanel,
+  TileGrid,
 } from "@/components/common";
 import { DocumentBulletList24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
 import {
@@ -40,13 +41,6 @@ const usePageStyles = makeStyles({
     padding: theme.spacing.lg,
     flexGrow: 1,
     minHeight: 0,
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-    gap: theme.spacing.md,
-    overflowY: "auto",
-    paddingBottom: theme.spacing.sm,
   },
   tile: {
     padding: "14px",
@@ -211,11 +205,11 @@ export function UIPagesPage() {
         {pages.length === 0 ? (
           <Empty>{t("uiPages.noPages")}</Empty>
         ) : (
-          <div className={styles.grid}>
+          <TileGrid>
             {pages.map((page) => (
               <UIPageTile key={page.name} page={page} />
             ))}
-          </div>
+          </TileGrid>
         )}
       </div>
     </DataListPage>

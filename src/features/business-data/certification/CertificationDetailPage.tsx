@@ -9,6 +9,7 @@ import {
   ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
@@ -30,11 +31,6 @@ import { theme } from "@/styles/theme";
 import { useCertificationDialogs } from "./useCertificationDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: theme.spacing.md,
-  },
   card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
@@ -212,7 +208,7 @@ export function CertificationDetailPage() {
                 </Table>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <TileGrid minWidth="300px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.certification.detail.certification")}
@@ -292,7 +288,7 @@ export function CertificationDetailPage() {
                     value={cert.traineeByDefault}
                   />
                 </div>
-              </div>
+              </TileGrid>
             )}
           </DetailShell>
         )}

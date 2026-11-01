@@ -10,6 +10,7 @@ import {
   ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
@@ -31,11 +32,6 @@ import { theme } from "@/styles/theme";
 import { useContainerDialogs } from "./useContainerDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: theme.spacing.md,
-  },
   card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
@@ -45,11 +41,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "180px" },
-  positionsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
-    gap: theme.spacing.sm,
-  },
   positionCell: {
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "6px",
@@ -240,7 +231,7 @@ export function ContainerDetailPage() {
                 </Table>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <TileGrid minWidth="300px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.container.detail.container")}
@@ -306,7 +297,7 @@ export function ContainerDetailPage() {
                     value={c.positionSorting}
                   />
                 </div>
-              </div>
+              </TileGrid>
             )}
           </DetailShell>
         )}
@@ -316,7 +307,7 @@ export function ContainerDetailPage() {
               <Text className={styles.cardTitle}>
                 {t("businessData.container.detail.positionsView")}
               </Text>
-              <div className={styles.positionsGrid}>
+              <TileGrid minWidth="90px">
                 {c.positions.map((p) => (
                   <button
                     key={p.position}
@@ -331,7 +322,7 @@ export function ContainerDetailPage() {
                     </div>
                   </button>
                 ))}
-              </div>
+              </TileGrid>
             </div>
             <div className={`${sharedStyles.contentCard} ${styles.card}`}>
               <Text className={styles.cardTitle}>

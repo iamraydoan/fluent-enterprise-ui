@@ -1,7 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBatchDetail } from "@/api";
-import { DetailShell, DetailTabs, Empty, ListPage, editAction, refreshAction } from "@/components/common";
+import { DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, TileGrid } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
   ArrowDownload24Regular,
@@ -18,11 +18,6 @@ import { theme } from "@/styles/theme";
 import { useBatchDialogs } from "./useBatchDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: theme.spacing.md,
-  },
   card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
@@ -152,7 +147,7 @@ export function BatchDetailPage() {
             onAskAi={() => undefined}
             showState={false}
           >
-            <div className={styles.cards}>
+            <TileGrid minWidth="300px">
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <Text className={styles.cardTitle}>{t("businessData.batch.detail.batch")}</Text>
                 <KV label={t("businessData.batch.detail.name")} value={batch.name} />
@@ -239,7 +234,7 @@ export function BatchDetailPage() {
                   value={batch.containerType}
                 />
               </div>
-            </div>
+            </TileGrid>
           </DetailShell>
         )}
         {tab !== "details" && (
