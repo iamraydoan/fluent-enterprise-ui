@@ -16,16 +16,7 @@ const useViewStyles = makeStyles({
   main: {
     minWidth: 0,
   },
-  tileFooter: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
-    marginTop: "auto",
-  },
   areaCount: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: theme.spacing.xs,
     fontSize: "12px",
     color: theme.color.textSecondary,
   },
@@ -139,9 +130,9 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
               footer={
                 <>
                   <Grid24Regular />
-                  <span className={styles.areaCount}>
+                  <HStack align="center" gap="xs" className={styles.areaCount}>
                     {f.areaCount} <Grid24Regular />
-                  </span>
+                  </HStack>
                 </>
               }
             />

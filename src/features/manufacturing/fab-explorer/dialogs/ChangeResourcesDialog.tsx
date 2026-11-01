@@ -16,11 +16,7 @@ const useDialogStyles = makeStyles({
     fontSize: "13px",
     fontWeight: theme.font.weightSemibold,
   },
-  stepActive: { display: "flex", alignItems: "center", columnGap: "6px" },
   stepInactive: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "6px",
     opacity: 0.6,
   },
   table: { width: "100%", borderCollapse: "collapse", fontSize: "13px" },
@@ -103,7 +99,7 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
       footer={footer}
     >
       <HStack gap="8px" align="center" className={styles.stepsBar}>
-        <span className={styles.stepActive}>1. {t("fabExplorer.resources")}</span>
+        <span>1. {t("fabExplorer.resources")}</span>
         <span>-</span>
         <span className={styles.stepInactive}>2. {t("fabExplorer.newState")}</span>
       </HStack>

@@ -15,9 +15,6 @@ const useScanStyles = makeStyles({
     backgroundColor: VIEWFINDER_BACKGROUND,
     borderRadius: theme.radius.md,
     overflow: "hidden",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
   },
   code: {
     height: "96px",
@@ -104,14 +101,14 @@ export function ScanDialog({ open, onClose, onDetected }: ScanDialogProps) {
       }
     >
       <style>{`@keyframes barcode-scan-line { 0% { top: 12%; } 50% { top: 86%; } 100% { top: 12%; } }`}</style>
-      <div className={styles.viewport} aria-label={t(L.title)}>
+      <HStack align="center" justify="center" gap="none" className={styles.viewport} aria-label={t(L.title)}>
         <HStack gap="3px" align="stretch" aria-hidden="true" className={styles.code}>
           {BARS.map((width, index) => (
             <span key={index} className={styles.bar} style={{ width: `${width}px` }} />
           ))}
         </HStack>
         <div className={styles.scanLine} aria-hidden="true" />
-      </div>
+      </HStack>
       <Text className={styles.status}>{t(L.scanning)}</Text>
       <HStack gap="24px" justify="center" role="radiogroup" aria-label={t(L.title)} className={styles.typeRow}>
         <label className={styles.typeOption}>

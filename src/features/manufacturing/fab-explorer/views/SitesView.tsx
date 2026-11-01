@@ -29,16 +29,7 @@ const useViewStyles = makeStyles({
     cursor: "pointer",
     ":hover": { textDecoration: "underline" },
   },
-  tileFooter: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
-    marginTop: "auto",
-  },
   areaCount: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: theme.spacing.xs,
     fontSize: "12px",
     color: theme.color.textSecondary,
   },
@@ -121,9 +112,9 @@ export function SitesView({ nav, go }: SitesViewProps) {
               footer={
                 <>
                   <Grid24Regular />
-                  <span className={styles.areaCount}>
+                  <HStack align="center" gap="xs" className={styles.areaCount}>
                     {f.areaCount} <Grid24Regular />
-                  </span>
+                  </HStack>
                 </>
               }
             />

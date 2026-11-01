@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { lookupBarcode, useBarcodeEntityInfo } from "@/api";
 import type { BarcodeEntityKind, ScannedBarcode } from "@/api";
-import { EntityTile, IconButton, ListPage, refreshAction, TileGrid } from "@/components/common";
+import { EntityTile, Grid, HStack, IconButton, ListPage, refreshAction, TileGrid, VStack } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
   ArrowExit24Regular,
@@ -31,32 +31,9 @@ import type { BarcodeActionTile } from "./barcodeIdentificationTypes";
 import { EntityInfoDialog, InsertDialog, ScanDialog, SettingsDialog } from "./dialogs";
 
 const usePageStyles = makeStyles({
-  body: {
-    display: "flex",
-    flexDirection: "column",
-    flexGrow: 1,
-    minHeight: 0,
-    padding: "16px",
-    overflow: "auto",
-  },
-  empty: {
-    flexGrow: 1,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    rowGap: "8px",
-    color: theme.color.textTertiary,
-  },
   emptyIcon: {
     color: theme.color.textQuaternary,
     "& svg": { width: "64px", height: "64px" },
-  },
-  columns: {
-    display: "grid",
-    gridTemplateColumns: "minmax(320px, 5fr) minmax(320px, 7fr)",
-    columnGap: "16px",
-    alignItems: "start",
   },
   listTitle: {
     fontSize: "14px",
@@ -64,15 +41,11 @@ const usePageStyles = makeStyles({
     padding: "4px 0 12px",
   },
   row: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     padding: "10px 4px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   rowIcon: {
     color: theme.color.textBrand,
-    display: "flex",
   },
   rowName: {
     color: theme.color.textBrand,
@@ -82,9 +55,6 @@ const usePageStyles = makeStyles({
     color: theme.color.textSecondary,
   },
   hint: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     padding: "12px 4px",
     color: theme.color.textQuaternary,
     fontSize: "13px",
@@ -96,7 +66,6 @@ const usePageStyles = makeStyles({
     fontSize: "13px",
   },
   tileIcon: {
-    display: "flex",
     "& svg": { width: "32px", height: "32px" },
   },
 });
@@ -217,9 +186,9 @@ export function BarcodeIdentificationPage() {
           actions,
         }}
       >
-        <div className={styles.body}>
+        <VStack grow p={16} style={{ overflow: "auto" }}>
           {scanned.length === 0 ? (
-            <div className={styles.empty}>
+            <VStack grow align="center" justify="center" gap={8} style={{ color: theme.color.textTertiary }}>
               <span className={styles.emptyIcon}>
                 <BarcodeScanner24Regular />
               </span>
@@ -228,15 +197,15 @@ export function BarcodeIdentificationPage() {
               {notFoundCode && (
                 <Text className={styles.notFound}>{t(L.notFound, { code: notFoundCode })}</Text>
               )}
-            </div>
+            </VStack>
           ) : (
-            <div className={styles.columns}>
+            <Grid columns="minmax(320px, 5fr) minmax(320px, 7fr)" gap={16} align="start">
               <div>
                 <Text className={styles.listTitle}>
                   {t(L.scannedTitle, { count: scanned.length })}
                 </Text>
                 {scanned.map((item) => (
-                  <div key={item.code} className={styles.row}>
+                  <HStack key={item.code} align="center" gap={8} className={styles.row}>
                     <span className={styles.rowIcon}>{ENTITY_ICONS[item.entityKind]}</span>
                     <Text className={styles.rowName}>{item.name}</Text>
                     <Text className={styles.rowState}>({item.state})</Text>
@@ -245,12 +214,12 @@ export function BarcodeIdentificationPage() {
                       onClick={() => setInfoCode(item.code)}
                       ariaLabel={item.name}
                     />
-                  </div>
+                  </HStack>
                 ))}
-                <div className={styles.hint}>
+                <HStack align="center" gap={8} className={styles.hint}>
                   <BarcodeScanner24Regular />
                   <Text size={300}>{t(L.scanHint)}</Text>
-                </div>
+                </HStack>
                 {notFoundCode && (
                   <Text className={styles.notFound}>{t(L.notFound, { code: notFoundCode })}</Text>
                 )}
@@ -266,9 +235,9 @@ export function BarcodeIdentificationPage() {
                   />
                 ))}
               </TileGrid>
-            </div>
+            </Grid>
           )}
-        </div>
+        </VStack>
       </ListPage>
       <ScanDialog
         open={scanOpen}
