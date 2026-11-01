@@ -1,65 +1,53 @@
-import type { MouseEvent, ReactNode } from "react";
-import { ChevronDown16Regular } from "@/components/icons";
+import type { ReactNode } from "react";
 import { makeStyles, mergeClasses } from "@/components/ui";
 import { theme } from "@/styles/theme";
 
 const useMenuTriggerButtonStyles = makeStyles({
-  button: {
+  root: {
     display: "inline-flex",
     alignItems: "center",
-    columnGap: "4px",
+    columnGap: theme.spacing.xs,
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
     fontFamily: "inherit",
     fontWeight: theme.font.weightSemibold,
     color: theme.color.textPrimary,
+    padding: `${theme.spacing.xs} ${theme.spacing.sm}`,
     borderRadius: theme.radius.md,
+    whiteSpace: "nowrap",
     ":hover": { backgroundColor: theme.color.surfaceHover },
-    ":focus-visible": { outline: `2px solid ${theme.color.borderBrand}`, outlineOffset: "1px" },
-    ":disabled": { cursor: "not-allowed", opacity: 0.5 },
+    ":focus-visible": { outline: `2px solid ${theme.color.brand}`, outlineOffset: "1px" },
+    ":disabled": { cursor: "default", opacity: 0.5 },
   },
-  sm: { fontSize: "13px", padding: "4px 6px" },
-  md: { fontSize: "14px", padding: "6px 8px" },
-  outline: { border: `1px solid ${theme.color.border}` },
-  chevron: { color: theme.color.textSecondary, display: "inline-flex" },
+  sm: { fontSize: "13px" },
+  md: { fontSize: "15px" },
 });
 
 interface MenuTriggerButtonProps {
-  children: ReactNode;
   size?: "sm" | "md";
-  variant?: "subtle" | "outline";
-  onClick?: (e: MouseEvent<HTMLElement>) => void;
   disabled?: boolean;
   ariaLabel?: string;
+  className?: string;
+  children: ReactNode;
 }
 
 export function MenuTriggerButton({
-  children,
   size = "sm",
-  variant = "subtle",
-  onClick,
   disabled,
   ariaLabel,
+  className,
+  children,
 }: MenuTriggerButtonProps) {
   const styles = useMenuTriggerButtonStyles();
   return (
     <button
       type="button"
-      className={mergeClasses(
-        styles.button,
-        size === "sm" ? styles.sm : styles.md,
-        variant === "outline" && styles.outline,
-      )}
-      onClick={onClick}
+      className={mergeClasses(styles.root, size === "md" ? styles.md : styles.sm, className)}
       disabled={disabled}
       aria-label={ariaLabel}
-      aria-haspopup="menu"
     >
       {children}
-      <span className={styles.chevron}>
-        <ChevronDown16Regular />
-      </span>
     </button>
   );
 }

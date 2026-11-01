@@ -1,7 +1,14 @@
-import type { CSSProperties, ReactNode } from "react";
-import { mergeClasses } from "@/components/ui";
-import { theme } from "@/styles/theme";
+import type { ReactNode } from "react";
+import { HStack, VStack } from "./Stack";
 import type { StackGap } from "./Stack";
+import { makeStyles, mergeClasses } from "@/components/ui";
+import { theme } from "@/styles/theme";
+
+const useSplitStyles = makeStyles({
+  root: { flexGrow: 1, minHeight: 0 },
+  sidebar: { flexShrink: 0, minHeight: 0 },
+  main: { flexGrow: 1, minWidth: 0, minHeight: 0 },
+});
 
 interface SplitProps {
   sidebar: ReactNode;
@@ -17,32 +24,16 @@ function resolveGap(gap: string): string {
 }
 
 export function Split({ sidebar, children, sidebarWidth = "300px", gap = "md", className }: SplitProps) {
+  const styles = useSplitStyles();
   const gapValue = resolveGap(gap);
-  const rootStyle: CSSProperties = {
-    display: "flex",
-    columnGap: gapValue,
-    flexGrow: 1,
-    minHeight: 0,
-  };
-  const sideStyle: CSSProperties = {
-    width: sidebarWidth,
-    flexShrink: 0,
-    display: "flex",
-    flexDirection: "column",
-    minHeight: 0,
-  };
-  const mainStyle: CSSProperties = {
-    flexGrow: 1,
-    minWidth: 0,
-    display: "flex",
-    flexDirection: "column",
-    rowGap: gapValue,
-    minHeight: 0,
-  };
   return (
-    <div className={mergeClasses(className)} style={rootStyle}>
-      <div style={sideStyle}>{sidebar}</div>
-      <div style={mainStyle}>{children}</div>
-    </div>
+    <HStack gap={gapValue} className={mergeClasses(styles.root, className)}>
+      <VStack className={styles.sidebar} style={{ width: sidebarWidth }}>
+        {sidebar}
+      </VStack>
+      <VStack grow gap={gapValue} className={styles.main}>
+        {children}
+      </VStack>
+    </HStack>
   );
 }

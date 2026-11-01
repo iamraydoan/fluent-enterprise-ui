@@ -38,14 +38,14 @@ export { RECORD_STATE_COLUMN_OPTIONS } from "./listState";
 export { SidePanel } from "./SidePanel";
 export { FilterBar, FilterGroup } from "./FilterBar";
 export { EntityTile, TileGrid } from "./EntityTile";
-export { HStack, VStack } from "./Stack";
+export { HStack, VStack, Grid } from "./Stack";
 export type { StackGap } from "./Stack";
-export { Section } from "./Section";
-export { Split } from "./Split";
-export { MenuTriggerButton } from "./MenuTriggerButton";
-export { IconButton } from "./IconButton";
-export { Dot } from "./Dot";
 export { OptionItem } from "./OptionItem";
+export { Section, SectionHeader } from "./Section";
+export { Split } from "./Split";
+export { IconButton } from "./IconButton";
+export { MenuTriggerButton } from "./MenuTriggerButton";
+export { Dot } from "./Dot";
 export { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "./DetailShell";
 export { ActionBar } from "./ActionBar";
 export { RibbonButton } from "./RibbonButton";
@@ -57,8 +57,3 @@ export type {
   MiniBarButton,
   MiniBarGroup,
 } from "./DetailShell";
-export { HStack, VStack, Grid } from "./Stack";
-export { OptionItem } from "./OptionItem";
-export { Section, SectionHeader } from "./Section";
-export { IconButton } from "./IconButton";
-export { MenuTriggerButton } from "./MenuTriggerButton";

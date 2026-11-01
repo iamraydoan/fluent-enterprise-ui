@@ -1,40 +1,73 @@
 import type { CSSProperties, ReactNode } from "react";
-import { makeStyles, mergeClasses } from "@/components/ui";
+import { mergeClasses } from "@/components/ui";
+import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
-const useStackStyles = makeStyles({
-  hstack: { display: "flex", flexDirection: "row", alignItems: "center" },
-  vstack: { display: "flex", flexDirection: "column", alignItems: "stretch" },
-  grow: { flexGrow: 1, minWidth: 0, minHeight: 0 },
-  wrap: { flexWrap: "wrap" },
-});
+export type StackGap = "none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+
+const ALIGN_MAP = {
+  start: "flex-start",
+  center: "center",
+  end: "flex-end",
+  stretch: "stretch",
+} as const;
+
+const JUSTIFY_MAP = {
+  start: "flex-start",
+  center: "center",
+  end: "flex-end",
+  between: "space-between",
+  around: "space-around",
+} as const;
 
 interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  gap?: CSSProperties["gap"];
-  align?: CSSProperties["alignItems"];
-  justify?: CSSProperties["justifyContent"];
+  gap?: StackGap | (string & {}) | number;
+  align?: keyof typeof ALIGN_MAP | CSSProperties["alignItems"];
+  justify?: keyof typeof JUSTIFY_MAP | CSSProperties["justifyContent"];
   wrap?: boolean;
   grow?: boolean;
+  surface?: boolean;
+  divider?: boolean;
+  p?: StackGap | (string & {}) | number;
+  title?: string;
   className?: string;
   style?: CSSProperties;
 }
 
-export function HStack({
-  children,
-  gap,
-  align,
-  justify,
-  wrap,
-  grow,
-  className,
-  style,
-  ...rest
-}: StackProps) {
-  const styles = useStackStyles();
+function resolveSpacing(value: string | number): string {
+  if (typeof value === "number") return `${value}px`;
+  if (value === "none") return "0";
+  return (theme.spacing as Record<string, string>)[value] ?? value;
+}
+
+function stackStyle(direction: "row" | "column", props: StackProps): CSSProperties {
+  const { gap = "md", align, justify, wrap, grow, surface, divider, p } = props;
+  return {
+    display: "flex",
+    flexDirection: direction,
+    gap: resolveSpacing(gap),
+    ...(align !== undefined
+      ? { alignItems: (ALIGN_MAP as Record<string, string>)[align] ?? align }
+      : {}),
+    ...(justify !== undefined
+      ? { justifyContent: (JUSTIFY_MAP as Record<string, string>)[justify] ?? justify }
+      : {}),
+    ...(wrap ? { flexWrap: "wrap" } : {}),
+    ...(grow ? { flexGrow: 1, minWidth: 0, minHeight: 0 } : {}),
+    ...(surface ? cardSurface : {}),
+    ...(divider ? { borderBottom: `1px solid ${theme.color.borderSubtle}` } : {}),
+    ...(p !== undefined ? { padding: resolveSpacing(p) } : {}),
+  };
+}
+
+export function HStack(props: StackProps) {
+  const { children, title, className, style, ...rest } = props;
   return (
     <div
-      className={mergeClasses(styles.hstack, wrap && styles.wrap, grow && styles.grow, className)}
-      style={{ columnGap: gap, rowGap: gap, alignItems: align, justifyContent: justify, ...style }}
+      className={mergeClasses(className)}
+      style={{ ...stackStyle("row", props), ...style }}
+      title={title}
       {...rest}
     >
       {children}
@@ -42,22 +75,13 @@ export function HStack({
   );
 }
 
-export function VStack({
-  children,
-  gap,
-  align,
-  justify,
-  wrap,
-  grow,
-  className,
-  style,
-  ...rest
-}: StackProps) {
-  const styles = useStackStyles();
+export function VStack(props: StackProps) {
+  const { children, title, className, style, ...rest } = props;
   return (
     <div
-      className={mergeClasses(styles.vstack, wrap && styles.wrap, grow && styles.grow, className)}
-      style={{ rowGap: gap, columnGap: gap, alignItems: align, justifyContent: justify, ...style }}
+      className={mergeClasses(className)}
+      style={{ ...stackStyle("column", props), ...style }}
+      title={title}
       {...rest}
     >
       {children}

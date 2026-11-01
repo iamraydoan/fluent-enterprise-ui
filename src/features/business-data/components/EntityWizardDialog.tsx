@@ -1,6 +1,16 @@
 import { useState } from "react";
-import { FormField, IconButton } from "@/components/common";
-import { ChevronLeft20Regular, ChevronRight20Regular, Dismiss16Regular } from "@/components/icons";
+import type { KeyboardEvent, ReactNode } from "react";
+import { FormField, WizardSteps } from "@/components/common";
+import {
+  ChevronDown16Regular,
+  ChevronDown20Regular,
+  ChevronLeft20Regular,
+  ChevronRight20Regular,
+  ChevronUp20Regular,
+  Dismiss16Regular,
+  QuestionCircle20Regular,
+  Sparkle24Filled,
+} from "@/components/icons";
 import {
   Button,
   Checkbox,
@@ -13,10 +23,12 @@ import {
   Text,
   Textarea,
   makeStyles,
+  mergeClasses,
+  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
+import { cardSurface, tileSurface } from "@/styles/shared";
 import { theme } from "@/styles/theme";
 import type { OperationOnChange, OperationValues, WizardField, WizardStep } from "./operationTypes";
 
@@ -32,67 +44,100 @@ const useWizardStyles = makeStyles({
     backgroundColor: "rgba(0, 0, 0, 0.4)",
   },
   surface: {
-    width: "min(640px, calc(100vw - 48px))",
-    maxHeight: "min(720px, calc(100vh - 48px))",
+    width: "min(1100px, calc(100vw - 48px))",
+    maxHeight: "min(860px, calc(100vh - 48px))",
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
     ...cardSurface,
   },
-  head: {
+  headBand: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    minHeight: "52px",
-    padding: "0 16px",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
+    minHeight: "56px",
+    padding: "0 12px 0 20px",
+    ...tileSurface,
+    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
     flexShrink: 0,
   },
   headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
-  steps: {
-    display: "flex",
-    columnGap: "8px",
-    padding: "12px 24px 0",
-    flexShrink: 0,
-  },
-  stepPill: {
-    flexGrow: 1,
-    height: "4px",
-    borderRadius: "2px",
-    backgroundColor: theme.color.borderSubtle,
-  },
-  stepPillActive: { backgroundColor: theme.color.borderBrand },
-  stepTitle: {
-    padding: "12px 24px 0",
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    flexShrink: 0,
-  },
+  headIcon: { color: tokens.colorNeutralForeground1, display: "flex" },
+  headActions: { display: "flex", alignItems: "center", columnGap: "4px" },
   body: {
     flexGrow: 1,
     minHeight: 0,
     overflowY: "auto",
-    padding: "16px 24px",
+    padding: "20px 24px",
     display: "flex",
     flexDirection: "column",
-    rowGap: "12px",
+    rowGap: "20px",
+    backgroundColor: theme.color.surface,
   },
-  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
-  fieldRequired: { color: theme.color.textDanger },
-  foot: {
+  section: { display: "flex", flexDirection: "column", rowGap: "12px" },
+  sectionTitle: { fontSize: "14px", marginBottom: "4px" },
+  fieldLabel: {
+    fontSize: "13px",
+    color: theme.color.textSecondary,
+    textAlign: "right",
+    lineHeight: "36px",
+  },
+  fieldRequired: { color: theme.color.textDanger, marginRight: "4px" },
+  wizardControl: { minHeight: "36px", width: "100%", boxSizing: "border-box" },
+  inputWrap: { width: "100%" },
+  comboBox: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "8px",
+    minHeight: "36px",
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "0 8px",
+    backgroundColor: theme.color.surface,
+    border: `1px solid ${theme.color.border}`,
+    borderRadius: theme.radius.md,
+    cursor: "pointer",
+  },
+  comboIcon: { color: theme.color.textBrand, display: "flex", flexShrink: 0 },
+  comboText: {
+    flexGrow: 1,
+    fontSize: "14px",
+    color: theme.color.textPrimary,
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    textAlign: "left",
+  },
+  comboPlaceholder: { color: theme.color.textTertiary },
+  comboChevron: { color: theme.color.textSecondary, display: "flex", flexShrink: 0 },
+  commentsBar: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "12px 24px",
+    padding: "10px 24px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
+    cursor: "pointer",
+    flexShrink: 0,
+    backgroundColor: theme.color.surface,
+  },
+  commentsBody: { padding: "0 24px 16px", backgroundColor: theme.color.surface, flexShrink: 0 },
+  foot: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    columnGap: "8px",
+    padding: "12px 24px",
+    ...tileSurface,
+    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
     flexShrink: 0,
   },
-  footGroup: { display: "flex", columnGap: "8px", alignItems: "center" },
-  selectButton: {
-    width: "100%",
-    justifyContent: "space-between",
+  error: {
+    fontSize: "12px",
+    color: theme.color.textDanger,
+    padding: "0 24px 8px",
+    backgroundColor: theme.color.surface,
+    flexShrink: 0,
   },
-  error: { fontSize: "12px", color: theme.color.textDanger, padding: "0 24px" },
 });
 
 interface EntityWizardDialogProps {
@@ -103,6 +148,10 @@ interface EntityWizardDialogProps {
   submitLabelKey: TranslationKey;
   onClose: () => void;
   onSubmit: (values: OperationValues) => void;
+  titleIcon?: ReactNode;
+  onHelp?: () => void;
+  commentsValue?: string;
+  onCommentsChange?: (value: string) => void;
 }
 
 export function EntityWizardDialog({
@@ -113,18 +162,26 @@ export function EntityWizardDialog({
   submitLabelKey,
   onClose,
   onSubmit,
+  titleIcon,
+  onHelp,
+  commentsValue,
+  onCommentsChange,
 }: EntityWizardDialogProps) {
   const { t } = useAppTranslation();
   const styles = useWizardStyles();
   const [stepIndex, setStepIndex] = useState(0);
   const [values, setValues] = useState<OperationValues>(initialValues);
   const [error, setError] = useState<string | null>(null);
+  const [commentsOpen, setCommentsOpen] = useState(false);
 
   if (!open) return null;
 
   const step = steps[stepIndex];
   const isFirst = stepIndex === 0;
   const isLast = stepIndex === steps.length - 1;
+  const sections = step.sections ?? [];
+  const hasSections = sections.length > 0;
+  const stepFields = hasSections ? sections.flatMap((s) => s.fields) : step.fields;
 
   const setValue: OperationOnChange = (key, value) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -132,7 +189,7 @@ export function EntityWizardDialog({
   };
 
   const validateStep = (): boolean => {
-    for (const field of step.fields) {
+    for (const field of stepFields) {
       if (field.required) {
         const value = values[field.key];
         if (value === undefined || value === null || value === "") {
@@ -147,7 +204,7 @@ export function EntityWizardDialog({
   const handleNext = () => {
     if (!validateStep()) return;
     if (isLast) {
-      onSubmit(values);
+      onSubmit(onCommentsChange ? { ...values, comments: commentsValue ?? "" } : values);
     } else {
       setStepIndex(stepIndex + 1);
     }
@@ -157,64 +214,132 @@ export function EntityWizardDialog({
     setStepIndex(0);
     setValues(initialValues);
     setError(null);
+    setCommentsOpen(false);
     onClose();
+  };
+
+  const toggleComments = () => setCommentsOpen((prev) => !prev);
+  const handleCommentsKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleComments();
+    }
   };
 
   return (
     <div className={styles.overlay} onClick={handleClose}>
       <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.head}>
+        <div className={styles.headBand}>
           <div className={styles.headTitle}>
-            <Text weight="semibold">{t(titleKey)}</Text>
+            <span className={styles.headIcon}>{titleIcon ?? <Sparkle24Filled />}</span>
+            <Text weight="semibold" size={400}>
+              {t(titleKey)}
+            </Text>
           </div>
-          <IconButton
-            icon={<Dismiss16Regular />}
-            onClick={handleClose}
-            ariaLabel={t("common.close")}
-          />
+          <div className={styles.headActions}>
+            {onHelp && (
+              <Button
+                variant="transparent"
+                icon={<QuestionCircle20Regular />}
+                aria-label={t("common.help")}
+                onClick={onHelp}
+              />
+            )}
+            <Button
+              variant="transparent"
+              icon={<Dismiss16Regular />}
+              aria-label={t("common.close")}
+              onClick={handleClose}
+            />
+          </div>
         </div>
         {steps.length > 1 && (
-          <div className={styles.steps}>
-            {steps.map((s, index) => (
-              <div
-                key={s.titleKey}
-                className={`${styles.stepPill} ${index <= stepIndex ? styles.stepPillActive : ""}`}
-              />
-            ))}
-          </div>
+          <WizardSteps
+            variant="band"
+            steps={steps.map((s) => t(s.titleKey))}
+            current={stepIndex + 1}
+          />
         )}
-        <div className={styles.stepTitle}>{t(step.titleKey)}</div>
         <div className={styles.body}>
-          {step.fields.map((field) => (
-            <WizardFieldInput key={field.key} field={field} values={values} onChange={setValue} />
-          ))}
+          {hasSections ? (
+            sections.map((section) => (
+              <div key={section.titleKey} className={styles.section}>
+                <Text weight="semibold" className={styles.sectionTitle}>
+                  {t(section.titleKey)}
+                </Text>
+                {section.fields.map((field) => (
+                  <WizardFieldInput
+                    key={field.key}
+                    field={field}
+                    values={values}
+                    onChange={setValue}
+                  />
+                ))}
+              </div>
+            ))
+          ) : (
+            <div className={styles.section}>
+              <Text weight="semibold" className={styles.sectionTitle}>
+                {t(step.titleKey)}
+              </Text>
+              {step.fields.map((field) => (
+                <WizardFieldInput
+                  key={field.key}
+                  field={field}
+                  values={values}
+                  onChange={setValue}
+                />
+              ))}
+            </div>
+          )}
         </div>
         {error && <div className={styles.error}>{error}</div>}
-        <div className={styles.foot}>
-          <div className={styles.footGroup}>
-            {!isFirst && (
-              <Button
-                variant="secondary"
-                icon={<ChevronLeft20Regular />}
-                onClick={() => setStepIndex(stepIndex - 1)}
-              >
-                {t("common.back")}
-              </Button>
-            )}
-          </div>
-          <div className={styles.footGroup}>
-            <Button variant="secondary" onClick={handleClose}>
-              {t("common.cancel")}
-            </Button>
-            <Button
-              variant="primary"
-              icon={isLast ? undefined : <ChevronRight20Regular />}
-              iconPosition={isLast ? undefined : "after"}
-              onClick={handleNext}
+        {onCommentsChange && (
+          <>
+            <div
+              className={styles.commentsBar}
+              role="button"
+              tabIndex={0}
+              aria-expanded={commentsOpen}
+              onClick={toggleComments}
+              onKeyDown={handleCommentsKeyDown}
             >
-              {isLast ? t(submitLabelKey) : t("common.next")}
+              <Text size={300}>{t("dialogs.commentsLabel")}</Text>
+              {commentsOpen ? <ChevronUp20Regular /> : <ChevronDown20Regular />}
+            </div>
+            {commentsOpen && (
+              <div className={styles.commentsBody}>
+                <Textarea
+                  value={commentsValue ?? ""}
+                  onChange={onCommentsChange}
+                  rows={3}
+                  className={styles.wizardControl}
+                />
+              </div>
+            )}
+          </>
+        )}
+        <div className={styles.foot}>
+          <Button variant="secondary" onClick={handleClose}>
+            {t("common.cancel")}
+          </Button>
+          {!isFirst && (
+            <Button
+              variant="secondary"
+              icon={<ChevronLeft20Regular />}
+              onClick={() => setStepIndex(stepIndex - 1)}
+            >
+              {t("common.back")}
             </Button>
-          </div>
+          )}
+          <Button
+            variant="primary"
+            icon={isLast ? undefined : <ChevronRight20Regular />}
+            iconPosition={isLast ? undefined : "after"}
+            onClick={handleNext}
+          >
+            {isLast ? t(submitLabelKey) : t("common.next")}
+          </Button>
         </div>
       </div>
     </div>
@@ -236,8 +361,8 @@ function WizardFieldInput({
 
   const label = (
     <span className={styles.fieldLabel}>
-      {t(field.labelKey)}
-      {field.required && <span className={styles.fieldRequired}> *</span>}
+      {field.required && <span className={styles.fieldRequired}>*</span>}
+      {t(field.labelKey)}:
     </span>
   );
 
@@ -247,8 +372,7 @@ function WizardFieldInput({
 
   if (field.type === "checkbox") {
     return (
-      <FormField label={label} labelWidth="170px">
-        {label}
+      <FormField label={label} labelWidth="180px">
         <Checkbox
           checked={value === true}
           onChange={(checked) => onChange(field.key, checked === true)}
@@ -259,55 +383,90 @@ function WizardFieldInput({
 
   if (field.type === "textarea") {
     return (
-      <FormField label={label} labelWidth="170px">
-        {label}
-        <Textarea
-          value={typeof value === "string" ? value : ""}
-          onChange={(value) => onChange(field.key, value)}
-        />
+      <FormField label={label} labelWidth="180px">
+        <div
+          className={styles.inputWrap}
+          style={field.inputWidth ? { width: field.inputWidth } : undefined}
+        >
+          <Textarea
+            value={typeof value === "string" ? value : ""}
+            onChange={(value) => onChange(field.key, value)}
+            placeholder={field.placeholderKey ? t(field.placeholderKey) : undefined}
+            className={styles.wizardControl}
+          />
+        </div>
       </FormField>
     );
   }
 
   if (field.type === "select") {
     const selected = field.options?.find((o) => o.value === value);
+    const hasValue = value !== undefined && value !== null && value !== "";
     return (
-      <FormField label={label} labelWidth="170px">
-        {label}
-        <Menu
-          positioning="below-start"
-          checkedValues={{ selected: value === undefined ? [] : [String(value)] }}
-          onCheckedValueChange={(checkedItems) => onChange(field.key, checkedItems[0] ?? "")}
+      <FormField label={label} labelWidth="180px">
+        <div
+          className={styles.inputWrap}
+          style={field.inputWidth ? { width: field.inputWidth } : undefined}
         >
-          <MenuTrigger disableButtonEnhancement>
-            <Button variant="secondary" className={styles.selectButton}>
-              {selected?.label ?? t("businessData.operations.selectOption")}
-            </Button>
-          </MenuTrigger>
-          <MenuPopover>
-            <MenuList>
-              {(field.options ?? []).map((option) => (
-                <MenuItemRadio key={option.value} name="selected" value={option.value}>
-                  {option.label}
-                </MenuItemRadio>
-              ))}
-            </MenuList>
-          </MenuPopover>
-        </Menu>
+          <Menu
+            positioning="below-start"
+            checkedValues={{ selected: hasValue ? [String(value)] : [] }}
+            onCheckedValueChange={(checkedItems) => onChange(field.key, checkedItems[0] ?? "")}
+          >
+            <MenuTrigger disableButtonEnhancement>
+              <div className={styles.comboBox} role="button" tabIndex={0}>
+                {field.leadingIcon && <span className={styles.comboIcon}>{field.leadingIcon}</span>}
+                <span
+                  className={mergeClasses(styles.comboText, !hasValue && styles.comboPlaceholder)}
+                >
+                  {selected?.label ?? t("businessData.operations.selectOption")}
+                </span>
+                {hasValue && (
+                  <Button
+                    variant="transparent"
+                    icon={<Dismiss16Regular />}
+                    aria-label={t("common.clear")}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      onChange(field.key, "");
+                    }}
+                  />
+                )}
+                <span className={styles.comboChevron}>
+                  <ChevronDown16Regular />
+                </span>
+              </div>
+            </MenuTrigger>
+            <MenuPopover>
+              <MenuList>
+                {(field.options ?? []).map((option) => (
+                  <MenuItemRadio key={option.value} name="selected" value={option.value}>
+                    {option.label}
+                  </MenuItemRadio>
+                ))}
+              </MenuList>
+            </MenuPopover>
+          </Menu>
+        </div>
       </FormField>
     );
   }
 
   return (
-    <FormField label={label} labelWidth="170px">
-      {label}
-      <Input
-        type={field.type === "number" ? "number" : field.type === "date" ? "date" : "text"}
-        value={value === undefined || typeof value === "boolean" ? "" : String(value)}
-        onChange={(value) =>
-          onChange(field.key, field.type === "number" ? Number(value) : value)
-        }
-      />
+    <FormField label={label} labelWidth="180px">
+      <div
+        className={styles.inputWrap}
+        style={field.inputWidth ? { width: field.inputWidth } : undefined}
+      >
+        <Input
+          type={field.type === "number" ? "number" : field.type === "date" ? "date" : "text"}
+          value={value === undefined || typeof value === "boolean" ? "" : String(value)}
+          onChange={(value) => onChange(field.key, field.type === "number" ? Number(value) : value)}
+          placeholder={field.placeholderKey ? t(field.placeholderKey) : undefined}
+          contentBefore={field.leadingIcon ?? undefined}
+          className={styles.wizardControl}
+        />
+      </div>
     </FormField>
   );
 }

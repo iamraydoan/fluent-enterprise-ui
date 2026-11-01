@@ -29,6 +29,7 @@ interface SidebarNavItemProps {
   label: string;
   description?: string;
   count?: React.ReactNode;
+  endContent?: React.ReactNode;
   active: boolean;
   onClick: () => void;
 }
@@ -38,6 +39,7 @@ export function SidebarNavItem({
   label,
   description,
   count,
+  endContent,
   active,
   onClick,
 }: SidebarNavItemProps) {
@@ -56,6 +58,7 @@ export function SidebarNavItem({
         {description && <div className={styles.desc}>{description}</div>}
       </span>
       {count !== undefined && <span className={styles.count}>{count}</span>}
+      {endContent}
     </button>
   );
 }

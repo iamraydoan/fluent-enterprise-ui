@@ -3,67 +3,58 @@ import { makeStyles, mergeClasses } from "@/components/ui";
 import { theme } from "@/styles/theme";
 
 const useOptionItemStyles = makeStyles({
-  item: {
+  root: {
     display: "flex",
     alignItems: "center",
-    columnGap: "10px",
+    columnGap: theme.spacing.sm,
     width: "100%",
-    padding: "10px 12px",
-    border: `1px solid ${theme.color.border}`,
-    backgroundColor: theme.color.surface,
-    borderRadius: theme.radius.md,
+    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
+    border: "none",
+    backgroundColor: "transparent",
     cursor: "pointer",
     textAlign: "left",
     fontFamily: "inherit",
-    fontSize: "13px",
+    fontSize: "14px",
     color: theme.color.textPrimary,
+    borderRadius: theme.radius.md,
     ":hover": { backgroundColor: theme.color.surfaceHover },
-    ":focus-visible": { outline: `2px solid ${theme.color.borderBrand}`, outlineOffset: "1px" },
-    ":disabled": { cursor: "not-allowed", opacity: 0.6 },
+    ":focus-visible": { outline: `2px solid ${theme.color.brand}`, outlineOffset: "1px" },
+    ":disabled": { cursor: "default", opacity: 0.5 },
   },
   selected: {
     backgroundColor: theme.color.surfaceSelected,
-    border: `1px solid ${theme.color.borderBrand}`,
     fontWeight: theme.font.weightSemibold,
   },
-  body: { display: "flex", flexDirection: "column", rowGap: "2px", minWidth: 0 },
-  description: { fontSize: "12px", color: theme.color.textSecondary },
 });
 
 interface OptionItemProps {
-  selected: boolean;
-  onClick: () => void;
-  title: ReactNode;
-  description?: ReactNode;
-  icon?: ReactNode;
+  selected?: boolean;
   disabled?: boolean;
+  onClick?: () => void;
   ariaLabel?: string;
+  className?: string;
+  children: ReactNode;
 }
 
 export function OptionItem({
   selected,
-  onClick,
-  title,
-  description,
-  icon,
   disabled,
+  onClick,
   ariaLabel,
+  className,
+  children,
 }: OptionItemProps) {
   const styles = useOptionItemStyles();
   return (
     <button
       type="button"
-      className={mergeClasses(styles.item, selected && styles.selected)}
+      className={mergeClasses(styles.root, selected && styles.selected, className)}
       onClick={onClick}
       disabled={disabled}
-      aria-pressed={selected}
       aria-label={ariaLabel}
+      aria-pressed={selected}
     >
-      {icon}
-      <span className={styles.body}>
-        <span>{title}</span>
-        {description && <span className={styles.description}>{description}</span>}
-      </span>
+      {children}
     </button>
   );
 }
