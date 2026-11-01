@@ -1,32 +1,11 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
-import { Checkbox, Text, makeStyles, mergeClasses} from "@/components/ui";
+import { BaseDialog, DialogFooter, OptionItem } from "@/components/common";
+import { Checkbox, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useLayoutStyles = makeStyles({
-  option: {
-    display: "block",
-    width: "100%",
-    textAlign: "left",
-    padding: "12px 16px",
-    border: `1px solid ${theme.color.border}`,
-    borderBottom: "none",
-    backgroundColor: theme.color.surface,
-    cursor: "pointer",
-    fontSize: "13px",
-    ":first-of-type": { borderTopLeftRadius: "8px", borderTopRightRadius: "8px" },
-    ":last-of-type": {
-      borderBottom: `1px solid ${theme.color.border}`,
-      borderBottomLeftRadius: "8px",
-      borderBottomRightRadius: "8px",
-    },
-  },
-  optionSelected: {
-    backgroundColor: theme.color.surfaceSelected,
-    fontWeight: theme.font.weightSemibold,
-  },
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   sectionRow: {
     display: "flex",
@@ -73,18 +52,12 @@ export function SaveLayoutDialog({
       <div className={styles.hint}>
         {t("manufacturing.fabExplorer.dialogs.saveLayout.selectOption")}
       </div>
-      <button
-        className={mergeClasses(styles.option, scope === "mine" && styles.optionSelected)}
-        onClick={() => setScope("mine")}
-      >
+      <OptionItem selected={scope === "mine"} onClick={() => setScope("mine")}>
         {t("manufacturing.fabExplorer.dialogs.saveLayout.saveAsMyDefault")}
-      </button>
-      <button
-        className={mergeClasses(styles.option, scope === "all" && styles.optionSelected)}
-        onClick={() => setScope("all")}
-      >
+      </OptionItem>
+      <OptionItem selected={scope === "all"} onClick={() => setScope("all")}>
         {t("manufacturing.fabExplorer.dialogs.saveLayout.saveAsDefaultForAllUsers")}
-      </button>
+      </OptionItem>
     </BaseDialog>
   );
 }
@@ -129,13 +102,13 @@ export function ResetLayoutDialog({
         {t("manufacturing.fabExplorer.dialogs.saveLayout.selectOption")}
       </div>
       {options.map((opt) => (
-        <button
+        <OptionItem
           key={opt.value}
-          className={mergeClasses(styles.option, scope === opt.value && styles.optionSelected)}
+          selected={scope === opt.value}
           onClick={() => setScope(opt.value)}
         >
           {t(opt.labelKey)}
-        </button>
+        </OptionItem>
       ))}
     </BaseDialog>
   );

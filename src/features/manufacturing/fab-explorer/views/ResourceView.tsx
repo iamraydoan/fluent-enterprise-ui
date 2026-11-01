@@ -9,8 +9,10 @@ import {
 import {
   ActionBar,
   DataTableCard,
+  IconButton,
   RibbonButton,
   SidePanel,
+  SidebarNavItem,
   searchFilter,
 } from "@/components/common";
 import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
@@ -21,7 +23,7 @@ import {
   Send24Regular,
   Settings20Regular,
 } from "@/components/icons";
-import { Text, makeStyles, mergeClasses } from "@/components/ui";
+import { Tab, TabList, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
@@ -69,15 +71,6 @@ const useViewStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surface,
   },
-  backBtn: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: theme.radius.md,
-    display: "flex",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
   body: { display: "flex", flexGrow: 1, minHeight: 0, columnGap: "10px", padding: "10px" },
   left: { width: "230px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
   center: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "8px" },
@@ -91,24 +84,6 @@ const useViewStyles = makeStyles({
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
-  },
-  catRow: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "100%",
-    padding: "8px 12px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    textAlign: "left",
-    fontSize: "13px",
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  catActive: {
-    backgroundColor: theme.color.surfaceSelected,
-    fontWeight: theme.font.weightSemibold,
   },
   sectionHead: {
     display: "flex",
@@ -126,21 +101,6 @@ const useViewStyles = makeStyles({
     rowGap: "8px",
   },
   toolbarRight: { marginLeft: "auto", display: "flex", columnGap: "4px" },
-  tabs: { display: "flex", columnGap: "4px", padding: "0 4px" },
-  tab: {
-    padding: "8px 16px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontSize: "13px",
-    textTransform: "uppercase",
-    borderBottom: "2px solid transparent",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  tabActive: {
-    fontWeight: theme.font.weightSemibold,
-    borderBottom: `2px solid ${theme.color.borderBrand}`,
-  },
 });
 
 type Category =
@@ -429,13 +389,11 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <button
-          className={styles.backBtn}
+        <IconButton
+          icon={<ChevronLeft20Regular />}
           onClick={onBack}
-          aria-label={t("manufacturing.fabExplorer.resourceView.back")}
-        >
-          <ChevronLeft20Regular />
-        </button>
+          ariaLabel={t("manufacturing.fabExplorer.resourceView.back")}
+        />
         <Text weight="semibold" size={400}>
           {name}
         </Text>
@@ -571,25 +529,20 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
             >
               <div className={styles.sectionHead}>
                 <span />
-                <button
-                  className={styles.backBtn}
-                  aria-label={t("manufacturing.fabExplorer.resourceView.panelSettings")}
+                <IconButton
+                  icon={<Settings20Regular />}
+                  ariaLabel={t("manufacturing.fabExplorer.resourceView.panelSettings")}
                   onClick={() => setDlg(DLG.panelSettings)}
-                >
-                  <Settings20Regular />
-                </button>
+                />
               </div>
               {visibleCategories.map((cat) => (
-                <button
+                <SidebarNavItem
                   key={cat}
-                  className={mergeClasses(styles.catRow, category === cat && styles.catActive)}
+                  label={t(L[cat])}
+                  active={category === cat}
                   onClick={() => selectCategory(cat)}
-                >
-                  <Text size={300} weight={category === cat ? "semibold" : "regular"}>
-                    {t(L[cat])}
-                  </Text>
-                  <Text size={300}>{categoryCount(cat)}</Text>
-                </button>
+                  endContent={<Text size={300}>{categoryCount(cat)}</Text>}
+                />
               ))}
             </SidePanel>
           </div>
@@ -601,21 +554,19 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
               <Text weight="semibold" size={400}>
                 {t("manufacturing.fabExplorer.resourceView.resourceMaterials")}
               </Text>
-              <div className={styles.tabs} role="tablist">
+              <TabList
+                selectedValue={storageTab}
+                onTabSelect={(value) => setStorageTab(value as typeof storageTab)}
+                aria-label={t("manufacturing.fabExplorer.resourceView.resourceMaterials")}
+              >
                 {STORAGE_TABS.map((tab) => (
-                  <button
-                    key={tab}
-                    role="tab"
-                    aria-selected={storageTab === tab}
-                    className={mergeClasses(styles.tab, storageTab === tab && styles.tabActive)}
-                    onClick={() => setStorageTab(tab)}
-                  >
+                  <Tab key={tab} value={tab}>
                     {tab === "storable"
                       ? t("manufacturing.fabExplorer.resourceView.storable")
                       : t("manufacturing.fabExplorer.resourceView.stored")}
-                  </button>
+                  </Tab>
                 ))}
-              </div>
+              </TabList>
               <DataTableCard
                 title={(count) =>
                   t("manufacturing.fabExplorer.resourceView.storageTitle", { count })

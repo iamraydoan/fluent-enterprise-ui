@@ -4,6 +4,7 @@ import type { FabResource } from "@/api";
 import {
   ActionBar,
   DataTableCard,
+  IconButton,
   RibbonButton,
   SidePanel,
   searchFilter,
@@ -57,15 +58,6 @@ const useViewStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surface,
   },
-  backBtn: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: theme.radius.md,
-    display: "flex",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
   stateDot: {
     width: "10px",
     height: "10px",
@@ -103,15 +95,6 @@ const useViewStyles = makeStyles({
   catActive: {
     backgroundColor: theme.color.surfaceSelected,
     fontWeight: theme.font.weightSemibold,
-  },
-  catRefresh: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "4px",
-    borderRadius: "4px",
-    display: "flex",
-    ":hover": { backgroundColor: theme.color.surfaceTertiary },
   },
   sectionTitle: {
     fontSize: "12px",
@@ -352,13 +335,11 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <button
-          className={styles.backBtn}
+        <IconButton
+          icon={<ChevronLeft20Regular />}
           onClick={onBack}
-          aria-label={t("manufacturing.fabExplorer.stepView.back")}
-        >
-          <ChevronLeft20Regular />
-        </button>
+          ariaLabel={t("manufacturing.fabExplorer.stepView.back")}
+        />
         <span className={styles.stateDot} />
         <Text weight="semibold" size={400}>
           {name}
@@ -457,18 +438,16 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
                     : (summary?.resourceCount ?? 0)}
                   )
                 </Text>
-                <button
-                  className={styles.catRefresh}
-                  aria-label={t("manufacturing.fabExplorer.stepView.refreshCategory", {
+                <IconButton
+                  icon={<ArrowSync24Regular />}
+                  ariaLabel={t("manufacturing.fabExplorer.stepView.refreshCategory", {
                     category: t(L[cat]),
                   })}
                   onClick={(e) => {
                     e.stopPropagation();
                     refreshCategory(cat);
                   }}
-                >
-                  <ArrowSync24Regular />
-                </button>
+                />
               </div>
             ))}
           </SidePanel>

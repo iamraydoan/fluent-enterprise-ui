@@ -5,6 +5,7 @@ import {
   DataListPage,
   FilterBar,
   FilterGroup,
+  MenuTriggerButton,
   createAction,
   exportAction,
   importAction,
@@ -155,9 +156,9 @@ export function UIPagesPage() {
           <FilterGroup label={t("uiPages.filters.scope")}>
             <Menu>
               <MenuTrigger disableButtonEnhancement>
-                <button style={{ width: "auto" }}>
+                <MenuTriggerButton ariaLabel={t("uiPages.filters.scope")}>
                   {scope === "all" ? t("uiPages.filters.all") : scope}
-                </button>
+                </MenuTriggerButton>
               </MenuTrigger>
               <MenuPopover>
                 <MenuList>
@@ -173,9 +174,9 @@ export function UIPagesPage() {
           <FilterGroup label={t("uiPages.filters.section")}>
             <Menu>
               <MenuTrigger disableButtonEnhancement>
-                <button style={{ width: "auto" }}>
+                <MenuTriggerButton ariaLabel={t("uiPages.filters.section")}>
                   {section === "all" ? t("uiPages.filters.all") : section}
-                </button>
+                </MenuTriggerButton>
               </MenuTrigger>
               <MenuPopover>
                 <MenuList>

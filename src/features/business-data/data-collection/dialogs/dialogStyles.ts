@@ -43,19 +43,6 @@ export const useDialogStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: "12px",
   },
-  tab: {
-    padding: "8px 16px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    borderBottom: "2px solid transparent",
-  },
-  tabActive: {
-    fontWeight: theme.font.weightSemibold,
-    borderBottom: `2px solid ${theme.color.borderBrand}`,
-  },
   kvRow: { display: "flex", columnGap: "12px", fontSize: "13px", marginBottom: "8px" },
   kvLabel: { color: theme.color.textTertiary, minWidth: "160px" },
 });

@@ -5,11 +5,12 @@ import {
   Card,
   CardGrid,
   DetailShell,
+  DetailTile,
   Empty,
   KV,
+  MenuTriggerButton,
   MiniBar,
   Panel,
-  DetailTile,
 } from "@/components/common";
 import type { DetailTab, MiniBarGroup } from "@/components/common";
 import {
@@ -76,17 +77,6 @@ const useMcpDetailStyles = makeStyles({
     padding: "8px 4px 12px",
     fontSize: "13px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
-  },
-  menuBtn: {
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    color: "#222",
-    display: "inline-flex",
-    alignItems: "center",
-    columnGap: "6px",
   },
 });
 
@@ -266,10 +256,10 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
               onCheckedValueChange={(checkedItems) => setPageSize(Number(checkedItems[0]))}
             >
               <MenuTrigger disableButtonEnhancement>
-                <button className={mcpDetailStyles.menuBtn}>
+                <MenuTriggerButton ariaLabel={t("common.rowsPerPage")}>
                   {pageSize}
                   <span style={{ fontSize: 8, color: theme.color.textBrand }}>▼</span>
-                </button>
+                </MenuTriggerButton>
               </MenuTrigger>
               <MenuPopover>
                 <MenuList>

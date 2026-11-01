@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useAiAgents, useSendChat } from "@/api";
+import { IconButton, MenuTriggerButton } from "@/components/common";
 import {
   ArrowUp20Regular,
   Attach20Regular,
@@ -42,20 +43,6 @@ const useChatStyles = makeStyles({
     padding: "0 12px",
     flexShrink: 0,
   },
-  agentBtn: {
-    display: "inline-flex",
-    alignItems: "center",
-    columnGap: "8px",
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    color: "#222",
-    padding: "4px 6px",
-    borderRadius: "4px",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
   body: {
     flexGrow: 1,
     minHeight: 0,
@@ -75,19 +62,6 @@ const useChatStyles = makeStyles({
     paddingTop: "12px",
     rowGap: "6px",
   },
-  toolBtn: {
-    width: "38px",
-    height: "38px",
-    display: "grid",
-    placeItems: "center",
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    borderRadius: "8px",
-    color: "#222",
-    ":hover": { backgroundColor: theme.color.borderSubtle },
-  },
-  toolOn: { backgroundColor: theme.color.surfaceSelected },
   history: {
     width: "250px",
     flexShrink: 0,
@@ -199,18 +173,6 @@ const useChatStyles = makeStyles({
     color: "#222",
   },
   composerRow: { display: "flex", alignItems: "center", justifyContent: "space-between" },
-  send: {
-    width: "38px",
-    height: "38px",
-    borderRadius: "999px",
-    border: "none",
-    display: "grid",
-    placeItems: "center",
-    cursor: "pointer",
-    backgroundColor: theme.color.borderSubtle,
-    color: "#fff",
-  },
-  sendOn: { backgroundColor: "#1E2330" },
   userMsg: {
     alignSelf: "flex-end",
     maxWidth: "75%",
@@ -383,14 +345,14 @@ export function AiChatPage() {
               icon={<Mic20Regular />}
               aria-label={t("aiChat.dictate")}
             />
-            <button
-              className={mergeClasses(chatStyles.send, text.trim() && !busy && chatStyles.sendOn)}
+            <IconButton
+              variant="primary"
+              shape="circular"
+              icon={<ArrowUp20Regular />}
               onClick={() => send()}
               disabled={!text.trim() || busy}
-              aria-label={t("aiChat.send")}
-            >
-              <ArrowUp20Regular />
-            </button>
+              ariaLabel={t("aiChat.send")}
+            />
           </span>
         </div>
       </div>
@@ -408,11 +370,11 @@ export function AiChatPage() {
           }}
         >
           <MenuTrigger disableButtonEnhancement>
-            <button className={chatStyles.agentBtn}>
+            <MenuTriggerButton>
               <Bot20Regular />
               {agent.name}
               <ChevronDown16Regular style={{ color: theme.color.textBrand }} />
-            </button>
+            </MenuTriggerButton>
           </MenuTrigger>
           <MenuPopover>
             <MenuList>
@@ -429,22 +391,18 @@ export function AiChatPage() {
       <div className={chatStyles.body}>
         <div className={chatStyles.tools}>
           <Tooltip content={t("aiChat.toggleHistory")} relationship="label" positioning="after">
-            <button
-              className={chatStyles.toolBtn}
-              aria-label={t("aiChat.toggleHistory")}
+            <IconButton
+              icon={<PanelLeft20Regular />}
+              ariaLabel={t("aiChat.toggleHistory")}
               onClick={() => setShowHistory((value) => !value)}
-            >
-              <PanelLeft20Regular />
-            </button>
+            />
           </Tooltip>
           <Tooltip content={t("aiChat.newChat")} relationship="label" positioning="after">
-            <button
-              className={chatStyles.toolBtn}
-              aria-label={t("aiChat.newChat")}
+            <IconButton
+              icon={<Compose20Regular />}
+              ariaLabel={t("aiChat.newChat")}
               onClick={newChat}
-            >
-              <Compose20Regular />
-            </button>
+            />
           </Tooltip>
           <div
             style={{
@@ -454,14 +412,12 @@ export function AiChatPage() {
             }}
           />
           <Tooltip content={t("aiChat.chats")} relationship="label" positioning="after">
-            <button
-              className={mergeClasses(chatStyles.toolBtn, showHistory && chatStyles.toolOn)}
-              aria-label={t("aiChat.chats")}
-              aria-pressed={showHistory}
+            <IconButton
+              icon={<ChatMultiple20Regular />}
+              ariaLabel={t("aiChat.chats")}
+              active={showHistory}
               onClick={() => setShowHistory((value) => !value)}
-            >
-              <ChatMultiple20Regular />
-            </button>
+            />
           </Tooltip>
         </div>
 

@@ -5,6 +5,7 @@ import type { DataCollectionInstance, DataCollectionParameter } from "@/api";
 import {
   DetailShell,
   ListPage,
+  Section,
   cloneAction,
   editAction,
   refreshAction,
@@ -38,18 +39,6 @@ const useDetailStyles = makeStyles({
   row: { display: "flex", columnGap: "12px", fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
   empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
-  paramHeader: {
-    width: "100%",
-    textAlign: "left",
-    padding: "10px 12px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
   paramBlock: { display: "flex", flexDirection: "column", rowGap: "12px" },
 });
 
@@ -171,23 +160,23 @@ export function DataCollectionDetailPage() {
                 </div>
                 {dc.parameters.map((p) => (
                   <div key={p.parameter} className={sharedStyles.contentCard}>
-                    <button
-                      className={styles.paramHeader}
-                      onClick={() => setExpanded(expanded === p.parameter ? null : p.parameter)}
+                    <Section
+                      collapsible
+                      expanded={expanded === p.parameter}
+                      onExpandedChange={() =>
+                        setExpanded(expanded === p.parameter ? null : p.parameter)
+                      }
+                      title={
+                        <>
+                          {p.parameter}
+                          <Text size={200} style={{ color: theme.color.textTertiary }}>
+                            {p.dataType}
+                          </Text>
+                        </>
+                      }
                     >
-                      {p.parameter}
-                      <span
-                        style={{
-                          display: "block",
-                          fontWeight: "normal",
-                          fontSize: 12,
-                          color: theme.color.textTertiary,
-                        }}
-                      >
-                        {p.dataType}
-                      </span>
-                    </button>
-                    {expanded === p.parameter && <ParameterDetail parameter={p} />}
+                      <ParameterDetail parameter={p} />
+                    </Section>
                   </div>
                 ))}
               </div>

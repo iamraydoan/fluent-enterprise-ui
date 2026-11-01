@@ -1,11 +1,9 @@
 import { useMemo, useState } from "react";
 import { useEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty } from "@/api";
-import { Card, FilterBar, FilterGroup } from "@/components/common";
+import { Card, FilterBar, FilterGroup, Section } from "@/components/common";
 import {
   ArrowSync20Regular,
-  ChevronDown20Regular,
-  ChevronRight20Regular,
   Search20Regular,
   Settings20Regular,
 } from "@/components/icons";
@@ -46,19 +44,6 @@ const useSectionStyles = makeStyles({
   list: { display: "flex", flexDirection: "column" },
   row: {
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  rowHead: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
-    width: "100%",
-    padding: "10px 12px",
-    backgroundColor: "transparent",
-    border: "none",
-    cursor: "pointer",
-    textAlign: "left",
-    fontFamily: "inherit",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   rowTitle: { fontSize: "14px", fontWeight: theme.font.weightSemibold },
   rowSub: { fontSize: "12px", color: theme.color.textTertiary },
@@ -213,19 +198,24 @@ function PropertyRow({
   const styles = useSectionStyles();
   return (
     <div className={styles.row} role="listitem">
-      <button className={styles.rowHead} onClick={onToggle} aria-expanded={expanded}>
-        {expanded ? <ChevronDown20Regular /> : <ChevronRight20Regular />}
-        <span>
-          <div className={styles.rowTitle}>{property.name}</div>
-          <div className={styles.rowSub}>
-            {property.description} / {property.referenceType}
-          </div>
-        </span>
-        {property.searchable && (
-          <span className={styles.searchableBadge}>{t("entityTypes.properties.searchable")}</span>
-        )}
-      </button>
-      {expanded && (
+      <Section
+        collapsible
+        expanded={expanded}
+        onExpandedChange={() => onToggle()}
+        title={
+          <span>
+            <div className={styles.rowTitle}>{property.name}</div>
+            <div className={styles.rowSub}>
+              {property.description} / {property.referenceType}
+            </div>
+          </span>
+        }
+        actions={
+          property.searchable ? (
+            <span className={styles.searchableBadge}>{t("entityTypes.properties.searchable")}</span>
+          ) : undefined
+        }
+      >
         <div className={styles.rowBody}>
           <div className={styles.detailRow}>
             <span className={styles.detailLabel}>{t("entityTypes.property.kind")}</span>
@@ -251,7 +241,7 @@ function PropertyRow({
             <Text size={300}>{property.enabled ? t("common.yes") : t("common.no")}</Text>
           </div>
         </div>
-      )}
+      </Section>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useUpdateEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty, PropertySearchType } from "@/api";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, OptionItem } from "@/components/common";
 import { Add24Regular, Delete20Regular, Warning12Filled } from "@/components/icons";
 import {
   Button,
@@ -45,20 +45,6 @@ const useDialogStyles = makeStyles({
     border: `1px solid ${theme.color.border}`,
     backgroundColor: "#fff",
   },
-  listItem: {
-    width: "100%",
-    display: "block",
-    padding: "10px 12px",
-    border: "none",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    textAlign: "left",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  listItemSelected: { backgroundColor: theme.color.surfaceSelected },
   formPane: { minHeight: 0, overflowY: "auto", paddingRight: "8px" },
   sectionTitle: {
     fontSize: "14px",
@@ -190,16 +176,14 @@ export function ManagePropertiesDialog({
             aria-label={t("entityTypes.manage.properties")}
           >
             {properties.map((property) => (
-              <button
+              <OptionItem
                 key={property.name}
-                className={`${styles.listItem} ${property.name === selected ? styles.listItemSelected : ""}`}
+                selected={property.name === selected}
                 onClick={() => setSelected(property.name)}
-                role="option"
-                aria-selected={property.name === selected}
               >
                 {property.name}
                 {property.isSystem ? ` (${t("entityTypes.manage.system")})` : ""}
-              </button>
+              </OptionItem>
             ))}
           </div>
         </div>

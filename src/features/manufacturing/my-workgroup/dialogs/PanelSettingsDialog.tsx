@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, Section } from "@/components/common";
 import { ArrowDown20Regular, ArrowUp20Regular, Delete20Regular } from "@/components/icons";
 import { Button, Checkbox, Text, makeStyles, mergeClasses} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -60,18 +60,6 @@ const useDialogStyles = makeStyles({
     borderTop: `1px solid ${theme.color.borderSubtle}`,
     paddingTop: "12px",
   },
-  commentsHeader: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "100%",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "14px",
-    padding: "4px 0",
-  },
 });
 
 type Panel = "resources" | "steps";
@@ -80,8 +68,6 @@ const ALL_PANELS: Panel[] = ["resources", "steps"];
 
 const DRAG_HANDLE = "⋮⋮";
 
-const EXPAND_ICON = "▾";
-const COLLAPSE_ICON = "▴";
 const EMPTY_DASH = "—";
 
 interface PanelSettingsDialogProps {
@@ -233,17 +219,16 @@ export function PanelSettingsDialog({
           </div>
         </div>
       </div>
-      <div className={styles.comments}>
-        <button className={styles.commentsHeader} onClick={() => setCommentsOpen((v) => !v)}>
-          <span>{t("myWorkgroup.panelSettings.comments")}:</span>
-          <span>{commentsOpen ? COLLAPSE_ICON : EXPAND_ICON}</span>
-        </button>
-        {commentsOpen && (
-          <Text size={300} style={{ color: theme.color.textTertiary }}>
-            {EMPTY_DASH}
-          </Text>
-        )}
-      </div>
+      <Section
+        title={`${t("myWorkgroup.panelSettings.comments")}:`}
+        collapsible
+        expanded={commentsOpen}
+        onExpandedChange={setCommentsOpen}
+      >
+        <Text size={300} style={{ color: theme.color.textTertiary }}>
+          {EMPTY_DASH}
+        </Text>
+      </Section>
     </BaseDialog>
   );
 }

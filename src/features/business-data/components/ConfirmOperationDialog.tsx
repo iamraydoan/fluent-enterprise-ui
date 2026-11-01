@@ -1,5 +1,6 @@
 import { Dismiss16Regular, Warning20Filled } from "@/components/icons";
 import { Button, Text, makeStyles} from "@/components/ui";
+import { IconButton } from "@/components/common";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
@@ -31,15 +32,6 @@ const useConfirmStyles = makeStyles({
     padding: "0 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
-  },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: theme.radius.md,
-    display: "flex",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   body: {
     display: "flex",
@@ -89,9 +81,7 @@ export function ConfirmOperationDialog({
       <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
         <div className={styles.head}>
           <Text weight="semibold">{t(titleKey)}</Text>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
+          <IconButton icon={<Dismiss16Regular />} onClick={onClose} ariaLabel={t("common.close")} />
         </div>
         <div className={styles.body}>
           <span className={danger ? styles.dangerIcon : styles.warningIcon}>

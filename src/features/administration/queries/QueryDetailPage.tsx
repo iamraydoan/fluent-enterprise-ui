@@ -12,13 +12,12 @@ import {
   ListPage,
   refreshAction,
   saveAction,
+  Section,
   settingsAction,
 } from "@/components/common";
 import {
   Add24Regular,
   BotSparkle24Regular,
-  ChevronDown20Regular,
-  ChevronRight20Regular,
   Dismiss20Regular,
   DocumentSearch24Regular,
   Info20Regular,
@@ -55,16 +54,6 @@ const useDetailStyles = makeStyles({
   },
   card: { padding: "16px", flexShrink: 0 },
   sectionCard: { padding: "16px", flexShrink: 0 },
-  sectionHeader: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    padding: "4px 0",
-  },
   kvRow: { display: "flex", alignItems: "center", columnGap: "12px", padding: "6px 0" },
   kvLabel: {
     width: "120px",
@@ -208,42 +197,30 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
           </div>
 
           <div className={mergeClasses(sharedStyles.contentCard, styles.sectionCard)}>
-            <button
-              className={styles.sectionHeader}
-              onClick={() => setFiltersOpen((value) => !value)}
-              aria-expanded={filtersOpen}
+            <Section
+              title={t("queries.detail.filtersCount", { count: data.filters.length })}
+              collapsible
+              expanded={filtersOpen}
+              onExpandedChange={setFiltersOpen}
             >
-              {filtersOpen ? <ChevronDown20Regular /> : <ChevronRight20Regular />}
-              <Text weight="semibold" size={300}>
-                {t("queries.detail.filtersCount", { count: data.filters.length })}
-              </Text>
-            </button>
-            {filtersOpen && (
-              <>
-                {data.filters.map((filter) => (
-                  <FilterRow key={filter.property} filter={filter} />
-                ))}
-                <div className={styles.addFilterRow}>
-                  <Button variant="subtle" icon={<Add24Regular />}>
-                    {t("queries.detail.addFilter")}
-                  </Button>
-                </div>
-              </>
-            )}
+              {data.filters.map((filter) => (
+                <FilterRow key={filter.property} filter={filter} />
+              ))}
+              <div className={styles.addFilterRow}>
+                <Button variant="subtle" icon={<Add24Regular />}>
+                  {t("queries.detail.addFilter")}
+                </Button>
+              </div>
+            </Section>
           </div>
 
           <div className={mergeClasses(sharedStyles.contentCard, styles.sectionCard)}>
-            <button
-              className={styles.sectionHeader}
-              onClick={() => setResultsOpen((value) => !value)}
-              aria-expanded={resultsOpen}
+            <Section
+              title={t("queries.detail.resultsCount", { count: data.results.length })}
+              collapsible
+              expanded={resultsOpen}
+              onExpandedChange={setResultsOpen}
             >
-              {resultsOpen ? <ChevronDown20Regular /> : <ChevronRight20Regular />}
-              <Text weight="semibold" size={300}>
-                {t("queries.detail.resultsCount", { count: data.results.length })}
-              </Text>
-            </button>
-            {resultsOpen && (
               <div className={styles.tableScroll}>
                 <Table>
                   <TableHeader>
@@ -264,7 +241,7 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
                   </TableBody>
                 </Table>
               </div>
-            )}
+            </Section>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { lookupBarcode, useBarcodeEntityInfo } from "@/api";
 import type { BarcodeEntityKind, ScannedBarcode } from "@/api";
-import { ListPage, refreshAction } from "@/components/common";
+import { EntityTile, IconButton, ListPage, refreshAction, TileGrid } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
   ArrowExit24Regular,
@@ -81,17 +81,6 @@ const usePageStyles = makeStyles({
   rowState: {
     color: theme.color.textSecondary,
   },
-  eyeButton: {
-    marginLeft: "auto",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    color: theme.color.textBrand,
-    display: "flex",
-    padding: "4px",
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
   hint: {
     display: "flex",
     alignItems: "center",
@@ -105,28 +94,6 @@ const usePageStyles = makeStyles({
     padding: "8px 4px",
     color: theme.color.textDanger,
     fontSize: "13px",
-  },
-  tiles: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gap: "12px",
-  },
-  tile: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    rowGap: "8px",
-    minHeight: "110px",
-    padding: "16px",
-    backgroundColor: theme.color.surface,
-    border: `1px solid ${theme.color.borderBrand}`,
-    borderRadius: theme.radius.md,
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "14px",
-    color: theme.color.textBrand,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   tileIcon: {
     display: "flex",
@@ -273,13 +240,11 @@ export function BarcodeIdentificationPage() {
                     <span className={styles.rowIcon}>{ENTITY_ICONS[item.entityKind]}</span>
                     <Text className={styles.rowName}>{item.name}</Text>
                     <Text className={styles.rowState}>({item.state})</Text>
-                    <button
-                      className={styles.eyeButton}
+                    <IconButton
+                      icon={<Eye24Regular />}
                       onClick={() => setInfoCode(item.code)}
-                      aria-label={item.name}
-                    >
-                      <Eye24Regular />
-                    </button>
+                      ariaLabel={item.name}
+                    />
                   </div>
                 ))}
                 <div className={styles.hint}>
@@ -290,14 +255,17 @@ export function BarcodeIdentificationPage() {
                   <Text className={styles.notFound}>{t(L.notFound, { code: notFoundCode })}</Text>
                 )}
               </div>
-              <div className={styles.tiles}>
+              <TileGrid minWidth="140px">
                 {ACTION_TILES.map((tile) => (
-                  <button key={tile.id} className={styles.tile} onClick={() => undefined}>
-                    <span className={styles.tileIcon}>{tile.icon}</span>
-                    <span>{t(tile.labelKey)}</span>
-                  </button>
+                  <EntityTile
+                    key={tile.id}
+                    title={<span className={styles.tileIcon}>{tile.icon}</span>}
+                    subtitle={t(tile.labelKey)}
+                    onClick={() => undefined}
+                    ariaLabel={t(tile.labelKey)}
+                  />
                 ))}
-              </div>
+              </TileGrid>
             </div>
           )}
         </div>

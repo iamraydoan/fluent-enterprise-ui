@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { DataCollectionInstance } from "@/api";
 import { BaseDialog } from "@/components/common";
-import { Button, Input, Textarea } from "@/components/ui";
+import { Button, Input, Tab, TabList, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../../components/MiniSelect";
 import { useDialogStyles } from "./dialogStyles";
@@ -130,20 +130,10 @@ export function ViewDataCollectionInstanceDialog({
         </Button>
       }
     >
-      <div className={styles.tabs}>
-        <button
-          className={`${styles.tab} ${tab === "data" ? styles.tabActive : ""}`}
-          onClick={() => setTab("data")}
-        >
-          {t("businessData.dataCollection.operations.dataTab")}
-        </button>
-        <button
-          className={`${styles.tab} ${tab === "context" ? styles.tabActive : ""}`}
-          onClick={() => setTab("context")}
-        >
-          {t("businessData.dataCollection.operations.contextTab")}
-        </button>
-      </div>
+      <TabList selectedValue={tab} onTabSelect={(value) => setTab(value as "data" | "context")} aria-label={t("businessData.dataCollection.operations.viewInstanceTitle")}>
+        <Tab value="data">{t("businessData.dataCollection.operations.dataTab")}</Tab>
+        <Tab value="context">{t("businessData.dataCollection.operations.contextTab")}</Tab>
+      </TabList>
       {tab === "data" ? (
         instance.postedData.length === 0 ? (
           <div className={styles.empty}>{t("businessData.dataCollection.operations.noData")}</div>

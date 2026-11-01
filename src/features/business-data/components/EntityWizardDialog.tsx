@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FormField } from "@/components/common";
+import { FormField, IconButton } from "@/components/common";
 import { ChevronLeft20Regular, ChevronRight20Regular, Dismiss16Regular } from "@/components/icons";
 import {
   Button,
@@ -49,15 +49,6 @@ const useWizardStyles = makeStyles({
     flexShrink: 0,
   },
   headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: theme.radius.md,
-    display: "flex",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
   steps: {
     display: "flex",
     columnGap: "8px",
@@ -176,13 +167,11 @@ export function EntityWizardDialog({
           <div className={styles.headTitle}>
             <Text weight="semibold">{t(titleKey)}</Text>
           </div>
-          <button
-            className={styles.closeButton}
+          <IconButton
+            icon={<Dismiss16Regular />}
             onClick={handleClose}
-            aria-label={t("common.close")}
-          >
-            <Dismiss16Regular />
-          </button>
+            ariaLabel={t("common.close")}
+          />
         </div>
         {steps.length > 1 && (
           <div className={styles.steps}>

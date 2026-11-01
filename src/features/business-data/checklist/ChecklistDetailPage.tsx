@@ -4,6 +4,7 @@ import { useChecklistDetail } from "@/api";
 import type { ChecklistInstance } from "@/api";
 import {
   DetailShell,
+  EntityTile,
   ListPage,
   cloneAction,
   editAction,
@@ -14,7 +15,7 @@ import {
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, Eye20Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Text, makeStyles} from "@/components/ui";
+import { Button, Tab, TabList, Text, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -44,43 +45,6 @@ const useDetailStyles = makeStyles({
     alignItems: "start",
   },
   itemList: { display: "flex", flexDirection: "column", rowGap: "4px" },
-  itemButton: {
-    textAlign: "left",
-    padding: "10px 12px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    borderRadius: "4px",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  itemActive: {
-    backgroundColor: theme.color.brandInvertedSelected,
-    fontWeight: theme.font.weightSemibold,
-  },
-  itemDesc: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
-  subTabs: {
-    display: "flex",
-    columnGap: "4px",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    marginBottom: "12px",
-  },
-  subTab: {
-    padding: "8px 16px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "12px",
-    textTransform: "uppercase",
-    borderBottom: "2px solid transparent",
-  },
-  subTabActive: {
-    color: theme.color.textBrand,
-    borderBottom: `2px solid ${theme.color.borderBrand}`,
-    fontWeight: theme.font.weightSemibold,
-  },
 });
 
 const TABS = ["details", "checklistItems", "compare", "references", "history"] as const;
@@ -275,29 +239,30 @@ export function ChecklistDetailPage() {
             <div className={styles.split}>
               <div className={styles.itemList}>
                 {cl.items.map((i, idx) => (
-                  <button
+                  <EntityTile
                     key={i.name}
-                    className={`${styles.itemButton} ${idx === Math.min(itemIdx, cl.items.length - 1) ? styles.itemActive : ""}`}
+                    title={i.name}
+                    description={i.description}
+                    selected={idx === Math.min(itemIdx, cl.items.length - 1)}
                     onClick={() => setItemIdx(idx)}
-                  >
-                    <div>{i.name}</div>
-                    <div className={styles.itemDesc}>{i.description}</div>
-                  </button>
+                  />
                 ))}
               </div>
               {item && (
                 <div>
-                  <div className={styles.subTabs}>
+                  <TabList
+                    selectedValue={subTab}
+                    onTabSelect={setSubTab}
+                    aria-label={t("businessData.checklist.detail.itemsTitle", {
+                      count: cl.items.length,
+                    })}
+                  >
                     {SUB_TABS.map((v) => (
-                      <button
-                        key={v}
-                        className={`${styles.subTab} ${subTab === v ? styles.subTabActive : ""}`}
-                        onClick={() => setSubTab(v)}
-                      >
+                      <Tab key={v} value={v}>
                         {t(`businessData.checklist.detail.subTabs.${v}`)}
-                      </button>
+                      </Tab>
                     ))}
-                  </div>
+                  </TabList>
                   {subTab === "generalData" && (
                     <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                       <KV label={t("businessData.checklist.detail.itemName")} value={item.name} />
