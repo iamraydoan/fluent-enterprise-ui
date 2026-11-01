@@ -7,6 +7,7 @@ import {
   DetailShell,
   DetailTile,
   Empty,
+  HStack,
   KV,
   MenuTriggerButton,
   MiniBar,
@@ -50,9 +51,6 @@ import { MCP_SERVER_SECTIONS } from "./data";
 const useMcpDetailStyles = makeStyles({
   link: { color: theme.color.textBrand, wordBreak: "break-all" },
   titleRow: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     padding: "10px 0 8px",
   },
   scroll: {
@@ -70,10 +68,6 @@ const useMcpDetailStyles = makeStyles({
   },
   td: { height: "34.5px", fontSize: "13px" },
   foot: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    columnGap: "28px",
     padding: "8px 4px 12px",
     fontSize: "13px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
@@ -142,7 +136,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
     content = (
       <CardGrid>
         <Card title={t("mcpServer.cards.server")}>
-          <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
+          <HStack gap={18} align="flex-start">
             <DetailTile icon={<Attach24Regular />} />
             <div style={{ flexGrow: 1, minWidth: 0 }}>
               <KV
@@ -158,7 +152,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
               style={{ color: theme.color.textBrand, margin: "6px 4px" }}
               aria-label={t("common.information")}
             />
-          </div>
+          </HStack>
         </Card>
         <Card title={t("mcpServer.cards.information")}>
           <KV
@@ -206,7 +200,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
         <div style={{ padding: "12px 12px 0", fontSize: 13, color: "#444" }}>
           {t("mcpServer.lastSync")} <span style={{ color: "#222", marginLeft: 6 }}>{lastSync}</span>
         </div>
-        <div className={mcpDetailStyles.titleRow}>
+        <HStack align="center" justify="between" gap="none" className={mcpDetailStyles.titleRow}>
           <Text size={400}>{t("mcpServer.toolsTitle", { count: detail.tools.length })}</Text>
           <div>
             <Button
@@ -220,7 +214,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
               aria-label={t("common.moreOptions")}
             />
           </div>
-        </div>
+        </HStack>
         <div className={mcpDetailStyles.scroll}>
           <Table
             aria-label={t("mcpServer.sections.tools")}
@@ -248,7 +242,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
             </TableBody>
           </Table>
         </div>
-        <div className={mcpDetailStyles.foot}>
+        <HStack align="center" justify="end" gap="28px" className={mcpDetailStyles.foot}>
           <span style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
             {t("common.rowsPerPage")}
             <Menu
@@ -291,7 +285,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
               aria-label={t("common.nextPage")}
             />
           </div>
-        </div>
+        </HStack>
       </Panel>
     );
   } else {

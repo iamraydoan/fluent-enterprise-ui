@@ -59,9 +59,6 @@ import { ToolDescriptionDialog } from "./dialogs/ToolDescriptionDialog";
 
 const useDetailStyles = makeStyles({
   titleRow: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     padding: `${theme.spacing.md} 0 ${theme.spacing.sm}`,
   },
   scroll: {
@@ -124,7 +121,7 @@ function ToolsGrid({
     });
   return (
     <>
-      <div className={detailStyles.titleRow}>
+      <HStack align="center" justify="between" gap="none" className={detailStyles.titleRow}>
         <Text size={400}>{t("aiAgent.toolsTitle", { count: countSelectedTools(selection) })}</Text>
         <div>
           <Button
@@ -138,7 +135,7 @@ function ToolsGrid({
             aria-label={t("common.moreOptions")}
           />
         </div>
-      </div>
+      </HStack>
       <div className={detailStyles.scroll}>
         <Table
           aria-label={t("aiAgent.toolsTitle", { count: countSelectedTools(selection) })}
@@ -309,9 +306,9 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
   } else if (top === "history") {
     content = (
       <Panel>
-        <div className={detailStyles.titleRow}>
+        <HStack align="center" justify="between" gap="none" className={detailStyles.titleRow}>
           <Text size={400}>{t("aiAgent.historyTitle", { count: data.history.length })}</Text>
-        </div>
+        </HStack>
         <div className={detailStyles.scroll}>
           <Table
             aria-label={t("aiAgent.historyTitle", { count: data.history.length })}

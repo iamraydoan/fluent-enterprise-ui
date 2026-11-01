@@ -9,11 +9,13 @@ import {
   executeAction,
   exportAction,
   generateAction,
+  HStack,
   ListPage,
   refreshAction,
   saveAction,
   Section,
   settingsAction,
+  VStack,
 } from "@/components/common";
 import {
   Add24Regular,
@@ -42,19 +44,12 @@ import { useSharedStyles } from "@/styles/shared";
 import { theme } from "@/styles/theme";
 
 const useDetailStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
   main: {
-    flexGrow: 1,
-    minWidth: 0,
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "10px",
-    minHeight: 0,
     overflowY: "auto",
   },
   card: { padding: "16px", flexShrink: 0 },
   sectionCard: { padding: "16px", flexShrink: 0 },
-  kvRow: { display: "flex", alignItems: "center", columnGap: "12px", padding: "6px 0" },
+  kvRow: { padding: "6px 0" },
   kvLabel: {
     width: "120px",
     flexShrink: 0,
@@ -64,15 +59,11 @@ const useDetailStyles = makeStyles({
   kvValue: { fontSize: "13px" },
   cardTitle: { fontSize: "14px", fontWeight: theme.font.weightSemibold, marginBottom: "8px" },
   filterRow: {
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "8px",
     padding: "12px",
     marginTop: "8px",
     backgroundColor: theme.color.surfaceSecondary,
     borderRadius: theme.radius.md,
   },
-  filterFields: { display: "flex", alignItems: "center", columnGap: "12px" },
   filterField: {
     flexGrow: 1,
     padding: "8px 12px",
@@ -81,7 +72,6 @@ const useDetailStyles = makeStyles({
     borderRadius: theme.radius.md,
     fontSize: "13px",
   },
-  filterToggles: { display: "flex", alignItems: "center", columnGap: "16px" },
   addFilterRow: { marginTop: "8px" },
   tableScroll: { marginTop: "8px", overflowX: "auto" },
   aiPanel: {
@@ -89,24 +79,14 @@ const useDetailStyles = makeStyles({
     flexShrink: 0,
     padding: "0",
     overflow: "hidden",
-    display: "flex",
-    flexDirection: "column",
   },
   aiHeader: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     padding: "12px 12px 12px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   aiHeaderTitle: { flexGrow: 1 },
   chatBody: {
-    flexGrow: 1,
-    minHeight: 0,
     overflowY: "auto",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "12px",
     padding: "16px",
   },
   userBubble: {
@@ -116,20 +96,16 @@ const useDetailStyles = makeStyles({
     borderRadius: theme.radius.lg,
     padding: "10px 14px",
   },
-  agentNameRow: { display: "flex", alignItems: "center", columnGap: "6px" },
+  aiInputRow: {
+    padding: "12px 16px",
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
+  },
   agentBubble: {
     alignSelf: "flex-start",
     maxWidth: "90%",
     backgroundColor: theme.color.surfaceTertiary,
     borderRadius: theme.radius.lg,
     padding: "10px 14px",
-  },
-  aiInputRow: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
-    padding: "12px 16px",
-    borderTop: `1px solid ${theme.color.borderSubtle}`,
   },
   aiInput: { flexGrow: 1 },
   loading: { padding: "32px", color: theme.color.textTertiary },
@@ -173,11 +149,11 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
 
   return (
     <ListPage header={{ icon: <DocumentSearch24Regular />, title: data.name, actions }}>
-      <div className={styles.body}>
-        <div className={styles.main}>
+      <HStack gap="10px" grow>
+        <VStack gap="10px" grow className={styles.main}>
           <div className={mergeClasses(sharedStyles.contentCard, styles.card)}>
             <div className={styles.cardTitle}>{t("queries.detail.generalData")}</div>
-            <div className={styles.kvRow}>
+            <HStack align="center" gap="12px" className={styles.kvRow}>
               <span className={styles.kvLabel}>{t("queries.detail.name")}</span>
               <Text weight="semibold" size={300} className={styles.kvValue}>
                 {data.name}
@@ -187,13 +163,13 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
                 icon={<Info20Regular />}
                 aria-label={t("queries.detail.generalData")}
               />
-            </div>
-            <div className={styles.kvRow}>
+            </HStack>
+            <HStack align="center" gap="12px" className={styles.kvRow}>
               <span className={styles.kvLabel}>{t("queries.detail.description")}</span>
               <Text size={300} className={styles.kvValue}>
                 {data.description}
               </Text>
-            </div>
+            </HStack>
           </div>
 
           <div className={mergeClasses(sharedStyles.contentCard, styles.sectionCard)}>
@@ -243,11 +219,11 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
               </div>
             </Section>
           </div>
-        </div>
+        </VStack>
 
         {aiOpen && (
-          <div className={mergeClasses(sharedStyles.contentCard, styles.aiPanel)}>
-            <div className={styles.aiHeader}>
+          <VStack gap="none" className={mergeClasses(sharedStyles.contentCard, styles.aiPanel)}>
+            <HStack align="center" gap="8px" className={styles.aiHeader}>
               <BotSparkle24Regular />
               <Text weight="semibold" size={400} className={styles.aiHeaderTitle}>
                 {t("queries.aiEditor.title")}
@@ -258,32 +234,32 @@ export function QueryDetailPage({ name }: QueryDetailPageProps) {
                 aria-label={t("common.close")}
                 onClick={() => setAiOpen(false)}
               />
-            </div>
-            <div className={styles.chatBody}>
+            </HStack>
+            <VStack gap="12px" grow className={styles.chatBody}>
               <div className={styles.userBubble}>
                 <Text size={300}>{t("queries.aiEditor.sampleUserMsg")}</Text>
               </div>
-              <div className={styles.agentNameRow}>
+              <HStack align="center" gap="6px">
                 <BotSparkle24Regular />
                 <Text weight="semibold" size={200}>
                   {t("queries.aiEditor.agentName")}
                 </Text>
-              </div>
+              </HStack>
               <div className={styles.agentBubble}>
                 <Text size={300}>{t("queries.aiEditor.sampleAgentMsg")}</Text>
               </div>
-            </div>
-            <div className={styles.aiInputRow}>
+            </VStack>
+            <HStack align="center" gap="8px" className={styles.aiInputRow}>
               <Input className={styles.aiInput} placeholder={t("queries.aiEditor.placeholder")} />
               <Button
                 variant="subtle"
                 icon={<Send24Regular />}
                 aria-label={t("queries.aiEditor.send")}
               />
-            </div>
-          </div>
+            </HStack>
+          </VStack>
         )}
-      </div>
+      </HStack>
     </ListPage>
   );
 }
@@ -292,8 +268,8 @@ function FilterRow({ filter }: { filter: QueryFilter }) {
   const { t } = useAppTranslation();
   const styles = useDetailStyles();
   return (
-    <div className={styles.filterRow}>
-      <div className={styles.filterFields}>
+    <VStack gap="8px" className={styles.filterRow}>
+      <HStack align="center" gap="12px">
         <div className={styles.filterField}>
           <Text size={300}>{filter.property}</Text>
         </div>
@@ -303,11 +279,11 @@ function FilterRow({ filter }: { filter: QueryFilter }) {
         <div className={styles.filterField}>
           <Text size={300}>{filter.value}</Text>
         </div>
-      </div>
-      <div className={styles.filterToggles}>
+      </HStack>
+      <HStack align="center" gap="16px">
         <Checkbox defaultChecked={filter.isParameter} label={t("queries.detail.parameter")} />
         <Checkbox defaultChecked={filter.isOptional} label={t("queries.detail.optional")} />
-      </div>
-    </div>
+      </HStack>
+    </VStack>
   );
 }
