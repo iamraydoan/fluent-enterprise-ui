@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -62,24 +62,17 @@ export function ManageServiceResourcesDialog({
       <DialogEntityBanner icon="📊" name={serviceName} />
       <HStack gap={16}>
         <div style={{ width: 300, flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: theme.spacing.sm,
-            }}
-          >
+          <HStack align="center" justify="between" style={{ marginBottom: theme.spacing.sm }}>
             <Body1Strong>{t(`${k}.resources`, { count: rows.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
+            <HStack gap={theme.spacing.xs}>
               <Button size="sm" variant="subtle" onClick={addRow}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeRow(selected)}>
                 🗑
               </Button>
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             style={{
               border: "1px solid #ddd",
@@ -107,7 +100,7 @@ export function ManageServiceResourcesDialog({
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack grow gap={theme.spacing.md}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.resource`)}>
             <Input value={resource} onChange={setResource} />
@@ -115,7 +108,7 @@ export function ManageServiceResourcesDialog({
           <Field label={t(`${k}.enabledInResource`)}>
             <Switch checked={enabled} onChange={setEnabled} />
           </Field>
-        </div>
+        </VStack>
       </HStack>
     </BaseDialog>
   );

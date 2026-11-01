@@ -86,16 +86,16 @@ export function ManageRepairActionsDialog({
       <DialogEntityBanner icon="🚩" name={`${reasonType} / ${reasonName}`} />
       <HStack gap={16}>
         <div style={{ width: 320, flexShrink: 0 }}>
-          <HStack align="center" justify="space-between" style={{marginBottom: 8}}>
+          <HStack align="center" justify="space-between" style={{ marginBottom: 8 }}>
             <Body1Strong>{t(`${k}.repairActions`, { count: actions.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
+            <HStack gap={theme.spacing.xs}>
               <Button size="sm" variant="subtle" onClick={addAction}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeAction(selected)}>
                 🗑
               </Button>
-            </div>
+            </HStack>
           </HStack>
           <div
             style={{
@@ -117,7 +117,9 @@ export function ManageRepairActionsDialog({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{a.name}</div>
-                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{a.partReplacementMode}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
+                  {a.partReplacementMode}
+                </div>
               </div>
             ))}
           </div>

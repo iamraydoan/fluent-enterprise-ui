@@ -1,40 +1,47 @@
-import {
-  useParams,
-} from "@tanstack/react-router";
-import {
-  useState,
-} from "react";
-import {
-  useChartDetail,
-} from "@/api";
+import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
+import { useChartDetail } from "@/api";
 import type { LogicalChartDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction, DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, terminateAction, unterminateAction, SectionHeader, Grid, HStack,
+  cloneAction,
+  DetailShell,
+  DetailTabs,
+  editAction,
+  Empty,
+  ListPage,
+  refreshAction,
+  terminateAction,
+  unterminateAction,
+  SectionHeader,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
 import {
-  Box24Regular, Checkmark20Filled, Dismiss20Filled, MoreVertical24Regular,
+  Box24Regular,
+  Checkmark20Filled,
+  Dismiss20Filled,
+  MoreVertical24Regular,
 } from "@/components/icons";
 import {
-  Button, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, makeStyles,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  makeStyles,
 } from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import {
-  useSharedStyles,
-} from "@/styles/shared";
-import {
-  theme,
-} from "@/styles/theme";
-import {
-  useChartDialogs,
-} from "./useChartDialogs";
+import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
+import { useChartDialogs } from "./useChartDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  card: { padding: theme.spacing.lg },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -47,8 +54,7 @@ const useDetailStyles = makeStyles({
   label: { color: theme.color.textTertiary, minWidth: "200px" },
   toolbar: {
     marginBottom: theme.spacing.md,
-  }
-  
+  },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -202,8 +208,10 @@ export function ChartDetailPage() {
                   ])}
                 />
               ) : left === "businessData.chart.detail.sections.rules" ? (
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.chart.detail.rulesTitle", { count: chart.rules.length })} />
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <SectionHeader
+                    title={t("businessData.chart.detail.rulesTitle", { count: chart.rules.length })}
+                  />
                   <HStack gap="8px" className={styles.toolbar}>
                     <Button variant="secondary" onClick={openManageRules}>
                       {t("businessData.chart.operations.manageRules")}
@@ -241,7 +249,7 @@ export function ChartDetailPage() {
                       ))}
                     </TableBody>
                   </Table>
-                </div>
+                </VStack>
               ) : left === "businessData.chart.detail.sections.logicalCharts" ? (
                 <LogicalChartsCard
                   chart={chart}
@@ -253,7 +261,7 @@ export function ChartDetailPage() {
                 />
               ) : (
                 <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                  <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                     <SectionHeader title={t("businessData.chart.detail.chart")} />
                     <KV label={t("businessData.chart.detail.name")} value={chart.name} />
                     <KV
@@ -266,8 +274,8 @@ export function ChartDetailPage() {
                       value={chart.universalState}
                     />
                     <Bool label={t("businessData.chart.detail.enabled")} value={chart.enabled} />
-                  </div>
-                  <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  </VStack>
+                  <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                     <SectionHeader title={t("businessData.chart.detail.properties")} />
                     <KV label={t("businessData.chart.detail.parameter")} value={chart.parameter} />
                     <KV label={t("businessData.chart.detail.chartType")} value={chart.chartType} />
@@ -307,8 +315,8 @@ export function ChartDetailPage() {
                       label={t("businessData.chart.detail.stdDev")}
                       value={chart.stdDev === undefined ? "" : String(chart.stdDev)}
                     />
-                  </div>
-                  <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  </VStack>
+                  <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                     <SectionHeader title={t("businessData.chart.detail.display")} />
                     <KV
                       label={t("businessData.chart.detail.filterMode")}
@@ -331,8 +339,8 @@ export function ChartDetailPage() {
                       label={t("businessData.chart.detail.showSpecLimits")}
                       value={chart.showSpecLimits}
                     />
-                  </div>
-                  <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  </VStack>
+                  <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                     <SectionHeader title={t("businessData.chart.detail.retention")} />
                     <KV
                       label={t("businessData.chart.detail.dataPoints")}
@@ -366,7 +374,7 @@ export function ChartDetailPage() {
                       label={t("businessData.chart.detail.dataPointSize")}
                       value={String(chart.dataPointSize)}
                     />
-                  </div>
+                  </VStack>
                 </Grid>
               )}
             </DetailShell>
@@ -398,8 +406,12 @@ function LogicalChartsCard({
   const styles = useDetailStyles();
   const sharedStyles = useSharedStyles();
   return (
-    <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-      <SectionHeader title={t("businessData.chart.detail.logicalChartsTitle", { count: chart.logicalCharts.length })} />
+    <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+      <SectionHeader
+        title={t("businessData.chart.detail.logicalChartsTitle", {
+          count: chart.logicalCharts.length,
+        })}
+      />
       <HStack gap="8px" className={styles.toolbar}>
         <Button variant="secondary" onClick={onAdd}>
           {t("businessData.chart.operations.addLogicalChart")}
@@ -446,7 +458,7 @@ function LogicalChartsCard({
           ))}
         </TableBody>
       </Table>
-    </div>
+    </VStack>
   );
 }
 
@@ -462,7 +474,7 @@ function TableCard({
   const styles = useDetailStyles();
   const sharedStyles = useSharedStyles();
   return (
-    <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+    <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
       <SectionHeader title={title} />
       <Table>
         <TableHeader>
@@ -482,7 +494,7 @@ function TableCard({
           ))}
         </TableBody>
       </Table>
-    </div>
+    </VStack>
   );
 }
 

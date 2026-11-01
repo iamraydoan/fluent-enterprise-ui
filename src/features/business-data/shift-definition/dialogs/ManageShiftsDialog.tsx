@@ -1,24 +1,21 @@
 import { useState } from "react";
 import type { ShiftDefinitionShift } from "@/api";
-import { BaseDialog, DialogFooter, FormField, OptionItem, VStack } from "@/components/common";
-import { Add24Regular, Delete20Regular } from "@/components/icons";
 import {
-  Body1Strong,
-  Button,
-  Caption1,
-  Input,
-  Text,
-  makeStyles,
-} from "@/components/ui";
+  BaseDialog,
+  DialogFooter,
+  FormField,
+  HStack,
+  OptionItem,
+  VStack,
+} from "@/components/common";
+import { Add24Regular, Delete20Regular } from "@/components/icons";
+import { Body1Strong, Button, Caption1, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 
 const useDialogStyles = makeStyles({
   listPane: {
     width: "320px",
     flexShrink: 0,
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "8px",
   },
   formPane: { flexGrow: 1, minWidth: 0 },
 });
@@ -50,23 +47,19 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
         />
       }
     >
-      <div style={{ display: "flex", columnGap: "16px", minHeight: 0 }}>
-        <div className={styles.listPane}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <HStack gap="16px" style={{ minHeight: 0 }}>
+        <VStack gap="8px" className={styles.listPane}>
+          <HStack justify="between" align="center">
             <Text weight="semibold">{t("businessData.shiftDefinition.sections.shifts")}</Text>
-            <div style={{ display: "flex", columnGap: "4px" }}>
-              <Button
-                variant="subtle"
-                icon={<Add24Regular />}
-                aria-label={t("actionBar.create")}
-              />
+            <HStack gap="4px">
+              <Button variant="subtle" icon={<Add24Regular />} aria-label={t("actionBar.create")} />
               <Button
                 variant="subtle"
                 icon={<Delete20Regular />}
                 aria-label={t("actionBar.delete")}
               />
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           {shifts.map((shift) => (
             <OptionItem
               key={shift.name}
@@ -86,7 +79,7 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
               </VStack>
             </OptionItem>
           ))}
-        </div>
+        </VStack>
         <div className={styles.formPane}>
           <Body1Strong>{definitionName}</Body1Strong>
           {active !== undefined && (
@@ -114,7 +107,7 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
             </div>
           )}
         </div>
-      </div>
+      </HStack>
     </BaseDialog>
   );
 }

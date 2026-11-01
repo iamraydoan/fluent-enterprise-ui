@@ -1,39 +1,32 @@
-import {
-  useParams,
-} from "@tanstack/react-router";
-import {
-  useState,
-} from "react";
-import {
-  useBusinessPartnerDetail,
-} from "@/api";
+import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
+import { useBusinessPartnerDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction, DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, terminateAction, unterminateAction, SectionHeader, Grid, HStack,
+  cloneAction,
+  DetailShell,
+  DetailTabs,
+  editAction,
+  Empty,
+  ListPage,
+  refreshAction,
+  terminateAction,
+  unterminateAction,
+  SectionHeader,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
-import {
-  Box24Regular,
-} from "@/components/icons";
-import {
-  makeStyles,
-} from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { Box24Regular } from "@/components/icons";
+import { makeStyles } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import {
-  useSharedStyles,
-} from "@/styles/shared";
-import {
-  theme,
-} from "@/styles/theme";
-import {
-  useBusinessPartnerDialogs,
-} from "./useBusinessPartnerDialogs";
+import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
+import { useBusinessPartnerDialogs } from "./useBusinessPartnerDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  card: { padding: theme.spacing.lg },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -115,7 +108,7 @@ export function BusinessPartnerDetailPage() {
             showState={false}
           >
             <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <SectionHeader title={t("businessData.businessPartner.detail.businessPartner")} />
                 <KV label={t("businessData.businessPartner.detail.name")} value={bp.name} />
                 <KV
@@ -130,8 +123,8 @@ export function BusinessPartnerDetailPage() {
                   label={t("businessData.businessPartner.detail.dataGroup")}
                   value={bp.dataGroup}
                 />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              </VStack>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <SectionHeader title={t("businessData.businessPartner.detail.properties")} />
                 <Bool
                   label={t("businessData.businessPartner.detail.contractor")}
@@ -153,9 +146,11 @@ export function BusinessPartnerDetailPage() {
                   label={t("businessData.businessPartner.detail.labelSpecification")}
                   value={bp.labelSpecification}
                 />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.businessPartner.detail.contactInformation")} />
+              </VStack>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <SectionHeader
+                  title={t("businessData.businessPartner.detail.contactInformation")}
+                />
                 <KV
                   label={t("businessData.businessPartner.detail.contactTitle")}
                   value={bp.contactTitle}
@@ -177,23 +172,25 @@ export function BusinessPartnerDetailPage() {
                   label={t("businessData.businessPartner.detail.businessFax")}
                   value={bp.businessFax}
                 />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.businessPartner.detail.addressInformation")} />
+              </VStack>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <SectionHeader
+                  title={t("businessData.businessPartner.detail.addressInformation")}
+                />
                 <KV label={t("businessData.businessPartner.detail.address")} value={bp.address} />
                 <KV label={t("businessData.businessPartner.detail.zipCode")} value={bp.zipCode} />
                 <KV label={t("businessData.businessPartner.detail.country")} value={bp.country} />
                 <KV label={t("businessData.businessPartner.detail.state")} value={bp.stateName} />
                 <KV label={t("businessData.businessPartner.detail.city")} value={bp.city} />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              </VStack>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <SectionHeader title={t("businessData.businessPartner.detail.otherInformation")} />
                 <KV
                   label={t("businessData.businessPartner.detail.taxNumber")}
                   value={bp.taxNumber}
                 />
                 <KV label={t("businessData.businessPartner.detail.website")} value={bp.website} />
-              </div>
+              </VStack>
             </Grid>
           </DetailShell>
         )}

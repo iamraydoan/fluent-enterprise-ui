@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, FormField, Grid, HStack  } from "@/components/common";
+import { BaseDialog, FormField, Grid, HStack } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -60,25 +60,16 @@ const useWizardStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
-  
+
   stepNum: {
     width: "22px",
     height: "22px",
     borderRadius: "50%",
     backgroundColor: theme.color.surfaceTertiary,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
     fontSize: "12px",
   },
   stepActive: { backgroundColor: theme.color.brand, color: theme.color.surface },
-  field: {
-    display: "grid",
-    gridTemplateColumns: "180px 1fr",
-    alignItems: "center",
-    gap: theme.spacing.sm,
-    marginBottom: "10px",
-  },
+
   label: { textAlign: "right", fontSize: "13px" },
   required: { color: theme.color.textDanger },
   sectionTitle: {
@@ -91,7 +82,7 @@ const useWizardStyles = makeStyles({
   layerRow: {
     marginBottom: theme.spacing.sm,
     minWidth: "0",
-  }
+  },
 });
 
 export interface WizardLayer {
@@ -214,9 +205,13 @@ export function MapDefinitionWizardDialog({
       <HStack gap="24px" className={styles.steps}>
         {steps.map((label, index) => (
           <HStack gap="6px" align="center" key={label}>
-            <span className={`${styles.stepNum} ${index === step ? styles.stepActive : ""}`}>
+            <HStack
+              align="center"
+              justify="center"
+              className={`${styles.stepNum} ${index === step ? styles.stepActive : ""}`}
+            >
               {index + 1}
-            </span>
+            </HStack>
             <Text weight={index === step ? "semibold" : "regular"}>{label}</Text>
           </HStack>
         ))}
@@ -319,7 +314,13 @@ export function MapDefinitionWizardDialog({
         <>
           <div className={styles.sectionTitle}>{t(L.stepLayers)}</div>
           {layers.map((layer, index) => (
-            <Grid columns="minmax(100px, 1fr) 110px 100px auto 32px" gap="8px" align="center" key={index} className={styles.layerRow}>
+            <Grid
+              columns="minmax(100px, 1fr) 110px 100px auto 32px"
+              gap="8px"
+              align="center"
+              key={index}
+              className={styles.layerRow}
+            >
               <Input
                 placeholder={t(L.layerName)}
                 value={layer.name}

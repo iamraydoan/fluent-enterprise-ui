@@ -1,39 +1,44 @@
-import {
-  useParams,
-} from "@tanstack/react-router";
-import {
-  useState,
-} from "react";
-import {
-  useChangeSetDetail,
-} from "@/api";
+import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
+import { useChangeSetDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction, DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, terminateAction, SectionHeader, Grid, HStack,
+  cloneAction,
+  DetailShell,
+  DetailTabs,
+  editAction,
+  Empty,
+  ListPage,
+  refreshAction,
+  terminateAction,
+  SectionHeader,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
 import {
-  Box24Regular, Checkmark16Filled, MoreVertical24Regular, Send24Regular,
+  Box24Regular,
+  Checkmark16Filled,
+  MoreVertical24Regular,
+  Send24Regular,
 } from "@/components/icons";
 import {
-  Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  makeStyles,
 } from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import {
-  useSharedStyles,
-} from "@/styles/shared";
-import {
-  theme,
-} from "@/styles/theme";
-import {
-  useChangeSetDialogs,
-} from "./useChangeSetDialogs";
+import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
+import { useChangeSetDialogs } from "./useChangeSetDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  card: { padding: theme.spacing.lg },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -178,8 +183,10 @@ export function ChangeSetDetailPage() {
             showState={false}
           >
             {showItems ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.changeSet.detail.itemsTitle", { count: cs.items.length })} />
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <SectionHeader
+                  title={t("businessData.changeSet.detail.itemsTitle", { count: cs.items.length })}
+                />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -224,12 +231,14 @@ export function ChangeSetDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </div>
+              </VStack>
             ) : showSubscribers ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.changeSet.detail.subscribersTitle", {
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <SectionHeader
+                  title={t("businessData.changeSet.detail.subscribersTitle", {
                     count: cs.subscribers.length,
-                  })} />
+                  })}
+                />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -246,10 +255,10 @@ export function ChangeSetDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </div>
+              </VStack>
             ) : (
               <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.changeSet.detail.changeSet")} />
                   <KV label={t("businessData.changeSet.detail.name")} value={cs.name} />
                   <KV
@@ -266,14 +275,14 @@ export function ChangeSetDetailPage() {
                     value={cs.systemState}
                   />
                   <KV label={t("businessData.changeSet.detail.dataGroup")} value={cs.dataGroup} />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.changeSet.detail.information")} />
                   <KV label={t("businessData.changeSet.detail.category")} value={cs.category} />
                   <KV label={t("businessData.changeSet.detail.urgency")} value={cs.urgency} />
                   <KV label={t("businessData.changeSet.detail.owner")} value={cs.owner} />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.changeSet.detail.approval")} />
                   <Bool
                     label={t("businessData.changeSet.detail.requiresApproval")}
@@ -287,8 +296,8 @@ export function ChangeSetDetailPage() {
                     label={t("businessData.changeSet.detail.makeItemsEffectiveOnApproval")}
                     value={cs.makeItemsEffectiveOnApproval}
                   />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.changeSet.detail.notification")} />
                   <Bool
                     label={t("businessData.changeSet.detail.sendEmailToApprovers")}
@@ -298,8 +307,8 @@ export function ChangeSetDetailPage() {
                     label={t("businessData.changeSet.detail.sendEmailToRequester")}
                     value={cs.sendEmailToRequester}
                   />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.changeSet.detail.documentation")} />
                   <KV
                     label={t("businessData.changeSet.detail.reasonForChange")}
@@ -309,7 +318,7 @@ export function ChangeSetDetailPage() {
                     label={t("businessData.changeSet.detail.descriptionOfChange")}
                     value={cs.descriptionOfChange}
                   />
-                </div>
+                </VStack>
               </Grid>
             )}
           </DetailShell>

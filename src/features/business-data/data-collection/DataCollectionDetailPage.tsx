@@ -12,10 +12,13 @@ import {
   terminateAction,
   unterminateAction,
   DetailTabs,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Text, makeStyles} from "@/components/ui";
+import { Button, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -24,22 +27,16 @@ import { useCopyDataCollectionLimitSetsDialog } from "../data-collection-limit-s
 import { useDataCollectionDialogs } from "./useDataCollectionDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: "16px" },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     paddingBottom: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
   empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
-  paramBlock: { display: "flex", flexDirection: "column", rowGap: "12px" },
 });
 
 const TABS = ["details", "compare", "references", "history"] as const;
@@ -152,12 +149,12 @@ export function DataCollectionDetailPage() {
             showState={false}
           >
             {left === "businessData.dataCollection.detail.sections.parameters" ? (
-              <div className={styles.paramBlock}>
-                <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px" }}>
+              <VStack gap="12px">
+                <HStack justify="end" style={{ marginBottom: "8px" }}>
                   <Button variant="secondary" onClick={openManageParameters}>
                     {t("businessData.dataCollection.operations.manageParametersTitle")}
                   </Button>
-                </div>
+                </HStack>
                 {dc.parameters.map((p) => (
                   <div key={p.parameter} className={sharedStyles.contentCard}>
                     <Section
@@ -179,12 +176,10 @@ export function DataCollectionDetailPage() {
                     </Section>
                   </div>
                 ))}
-              </div>
+              </VStack>
             ) : left === "businessData.dataCollection.detail.sections.limitSets" ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <div
-                  style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
-                >
+              <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <HStack align="center" justify="between">
                   <Text className={styles.cardTitle}>
                     {t("businessData.dataCollection.detail.limitSetsTitle", {
                       count: dc.limitSets.length,
@@ -193,15 +188,15 @@ export function DataCollectionDetailPage() {
                   <Button variant="secondary" size="sm" onClick={openCopyLimitSets}>
                     {t("businessData.dataCollectionLimitSet.operations.copyTitle")}
                   </Button>
-                </div>
+                </HStack>
                 {dc.limitSets.map((l) => (
-                  <div key={l.name} className={styles.row}>
+                  <HStack key={l.name} gap="12px" className={styles.row}>
                     <span>{l.name}</span>
-                  </div>
+                  </HStack>
                 ))}
-              </div>
+              </VStack>
             ) : left === "businessData.dataCollection.detail.sections.instances" ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <Text className={styles.cardTitle}>
                   {t("businessData.dataCollection.detail.instancesTitle", {
                     count: dc.instances.length,
@@ -220,10 +215,10 @@ export function DataCollectionDetailPage() {
                     onUnterminate={() => openUnterminateInstance(i)}
                   />
                 ))}
-              </div>
+              </VStack>
             ) : (
-              <div className={styles.cards}>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
+                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.dataCollection.detail.dataCollection")}
                   </Text>
@@ -241,8 +236,8 @@ export function DataCollectionDetailPage() {
                     label={t("businessData.dataCollection.detail.dataGroup")}
                     value={dc.dataGroup}
                   />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.dataCollection.detail.changeSet")}
                   </Text>
@@ -250,8 +245,8 @@ export function DataCollectionDetailPage() {
                     label={t("businessData.dataCollection.detail.changeSetLabel")}
                     value={dc.changeSet}
                   />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.dataCollection.detail.details")}
                   </Text>
@@ -264,8 +259,8 @@ export function DataCollectionDetailPage() {
                     label={t("businessData.dataCollection.detail.limitCheckingMode")}
                     value={dc.limitCheckingMode}
                   />
-                </div>
-              </div>
+                </VStack>
+              </Grid>
             )}
           </DetailShell>
         )}
@@ -306,10 +301,11 @@ function InstanceRow({
   const styles = useDetailStyles();
   const terminated = instance.state === "Terminated";
   return (
-    <div
+    <HStack
+      gap="12px"
+      align="center"
       className={styles.row}
       style={{
-        alignItems: "center",
         padding: "8px 0",
         borderBottom: `1px solid ${theme.color.borderSubtle}`,
       }}
@@ -321,7 +317,7 @@ function InstanceRow({
           {postedCountSuffix(instance.postedData.length)}
         </div>
       </div>
-      <div style={{ display: "flex", columnGap: "4px", flexWrap: "wrap" }}>
+      <HStack gap="4px" wrap>
         <Button variant="secondary" size="sm" onClick={onView}>
           {t("businessData.dataCollection.operations.viewInstanceTitle")}
         </Button>
@@ -346,8 +342,8 @@ function InstanceRow({
             {t("businessData.dataCollection.operations.terminateInstance")}
           </Button>
         )}
-      </div>
-    </div>
+      </HStack>
+    </HStack>
   );
 }
 
@@ -356,8 +352,8 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
   const sharedStyles = useSharedStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.cards} style={{ padding: 16 }}>
-      <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+    <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px" style={{ padding: 16 }}>
+      <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
         <Text className={styles.cardTitle}>
           {t("businessData.dataCollection.detail.parameterDetails")}
         </Text>
@@ -366,8 +362,8 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
           label={t("businessData.dataCollection.detail.isOptional")}
           value={parameter.isOptional}
         />
-      </div>
-      <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+      </VStack>
+      <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
         <Text className={styles.cardTitle}>{t("businessData.dataCollection.detail.samples")}</Text>
         <KV label={t("businessData.dataCollection.detail.type")} value={parameter.dataType} />
         <KV
@@ -378,8 +374,8 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
           label={t("businessData.dataCollection.detail.maximumSamples")}
           value={String(parameter.maximumSamples)}
         />
-      </div>
-      <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+      </VStack>
+      <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
         <Text className={styles.cardTitle}>{t("businessData.dataCollection.detail.readings")}</Text>
         <KV
           label={t("businessData.dataCollection.detail.minimumSampleReadings")}
@@ -389,8 +385,8 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
           label={t("businessData.dataCollection.detail.maximumSampleReadings")}
           value={String(parameter.maximumSampleReadings)}
         />
-      </div>
-      <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+      </VStack>
+      <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
         <Text className={styles.cardTitle}>
           {t("businessData.dataCollection.detail.calculation")}
         </Text>
@@ -398,8 +394,8 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
           label={t("businessData.dataCollection.detail.limitChecking")}
           value={parameter.limitChecking}
         />
-      </div>
-    </div>
+      </VStack>
+    </Grid>
   );
 }
 
@@ -407,10 +403,10 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.dataCollection.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }
 
@@ -418,13 +414,13 @@ function Bool({ label, value }: { label: string; value: boolean }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>
         {value
           ? t("businessData.dataCollection.detail.yes")
           : t("businessData.dataCollection.detail.no")}
       </span>
-    </div>
+    </HStack>
   );
 }

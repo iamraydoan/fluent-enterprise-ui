@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -62,24 +62,17 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
       <DialogEntityBanner icon="📊" name={scheduleName} />
       <HStack gap={16}>
         <div style={{ width: 300, flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: theme.spacing.sm,
-            }}
-          >
+          <HStack align="center" justify="between" style={{ marginBottom: theme.spacing.sm }}>
             <Body1Strong>{t(`${k}.steps`, { count: steps.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
+            <HStack gap={theme.spacing.xs}>
               <Button size="sm" variant="subtle" onClick={addStep}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeStep(selected)}>
                 🗑
               </Button>
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             style={{
               border: "1px solid #ddd",
@@ -105,7 +98,7 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack grow gap={theme.spacing.md}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           {FIELDS.map((f) => (
             <Field key={f.key} label={t(f.labelKey)}>
@@ -115,7 +108,7 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
               />
             </Field>
           ))}
-        </div>
+        </VStack>
       </HStack>
     </BaseDialog>
   );

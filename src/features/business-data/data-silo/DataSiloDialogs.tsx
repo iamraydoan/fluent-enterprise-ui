@@ -26,12 +26,6 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useDialogStyles = makeStyles({
-  field: {
-    display: "grid",
-    gridTemplateColumns: "160px 1fr",
-    alignItems: "center",
-    columnGap: theme.spacing.md,
-  },
   label: { fontSize: "13px", textAlign: "right" },
   required: { color: theme.color.textDanger },
   sectionTitle: { fontSize: "14px", fontWeight: 600, paddingTop: theme.spacing.sm },

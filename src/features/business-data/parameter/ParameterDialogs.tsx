@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, HStack  } from "@/components/common";
+import { BaseDialog, HStack } from "@/components/common";
 import {
   Button,
   Input,
@@ -17,9 +17,6 @@ import { PARAMETER_DATA_TYPES, PARAMETER_SCOPES, PARAMETER_TYPES } from "./param
 
 const useDialogStyles = makeStyles({
   steps: {
-    display: "flex",
-    alignItems: "center",
-    gap: theme.spacing.sm,
     padding: `${theme.spacing.md} 20px`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surfaceSecondary,
@@ -34,8 +31,6 @@ const useDialogStyles = makeStyles({
     width: "20px",
     height: "20px",
     borderRadius: "50%",
-    display: "grid",
-    placeItems: "center",
     fontSize: "11px",
     fontWeight: 700,
     backgroundColor: theme.color.surfaceOverlay,
@@ -49,7 +44,7 @@ const useDialogStyles = makeStyles({
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
   required: { color: theme.color.textDanger, marginRight: theme.spacing.xs },
   hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: theme.spacing.xs },
-  row: { display: "flex", gap: theme.spacing.md },
+
   col: { flex: 1 },
 });
 
@@ -172,7 +167,7 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap={theme.spacing.sm} align="center" className={styles.steps}>
         {[0, 1].map((i) => (
           <HStack gap="8px" align="center" key={i}>
             {i > 0 && (
@@ -185,14 +180,18 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
               />
             )}
             <HStack gap="6px" align="center" className={styles.step}>
-              <span className={`${styles.stepNumber} ${i === step ? styles.stepActive : ""}`}>
+              <HStack
+                align="center"
+                justify="center"
+                className={`${styles.stepNumber} ${i === step ? styles.stepActive : ""}`}
+              >
                 {i + 1}
-              </span>
+              </HStack>
               <span>{t(`${P}.steps.${i === 0 ? "generalData" : "information"}` as never)}</span>
             </HStack>
           </HStack>
         ))}
-      </div>
+      </HStack>
       <div style={{ paddingTop: theme.spacing.lg }}>
         {step === 0 && (
           <>

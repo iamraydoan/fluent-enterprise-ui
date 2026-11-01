@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -77,24 +77,17 @@ function ManageDialogBase({
       <DialogEntityBanner icon="🔧" name={resourceName} />
       <HStack gap={16}>
         <div style={{ width: 320, flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: theme.spacing.sm,
-            }}
-          >
+          <HStack align="center" justify="between" style={{ marginBottom: theme.spacing.sm }}>
             <Body1Strong>{t(listLabelKey, { count: list.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
+            <HStack gap={theme.spacing.xs}>
               <Button size="sm" variant="subtle" onClick={addItem}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeItem(selected)}>
                 🗑
               </Button>
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             style={{
               border: "1px solid #ddd",
@@ -120,7 +113,7 @@ function ManageDialogBase({
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack grow gap={theme.spacing.md}>
           <Body1Strong>{t(detailsTitleKey)}</Body1Strong>
           {fields.map((f) => (
             <Field key={f.key} label={t(f.labelKey)}>
@@ -150,7 +143,7 @@ function ManageDialogBase({
               )}
             </Field>
           ))}
-        </div>
+        </VStack>
       </HStack>
       <Field label={t(commentsKey)}>
         <Input value={comments} onChange={setComments} />

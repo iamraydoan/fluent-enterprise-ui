@@ -12,10 +12,13 @@ import {
   terminateAction,
   unterminateAction,
   DetailTabs,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, Eye20Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Tab, TabList, Text, makeStyles} from "@/components/ui";
+import { Button, Tab, TabList, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -23,28 +26,16 @@ import { theme } from "@/styles/theme";
 import { useChecklistDialogs } from "./useChecklistDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: "16px" },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     paddingBottom: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
   empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
-  split: {
-    display: "grid",
-    gridTemplateColumns: "minmax(320px, 2fr) 3fr",
-    gap: "12px",
-    alignItems: "start",
-  },
-  itemList: { display: "flex", flexDirection: "column", rowGap: "4px" },
 });
 
 const TABS = ["details", "checklistItems", "compare", "references", "history"] as const;
@@ -156,13 +147,13 @@ export function ChecklistDetailPage() {
             showState={false}
           >
             {showInstances ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <Text className={styles.cardTitle}>
                   {t("businessData.checklist.detail.instancesTitle", {
                     count: cl.instances.length,
                   })}
                 </Text>
-                <div className={styles.itemList}>
+                <VStack gap="4px">
                   {cl.instances.length === 0 && (
                     <div className={styles.empty}>
                       {t("businessData.checklist.detail.noInstances")}
@@ -179,11 +170,11 @@ export function ChecklistDetailPage() {
                       onDeviation={() => openDeviation(i)}
                     />
                   ))}
-                </div>
-              </div>
+                </VStack>
+              </VStack>
             ) : (
-              <div className={styles.cards}>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
+                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.checklist.detail.checklist")}
                   </Text>
@@ -198,8 +189,8 @@ export function ChecklistDetailPage() {
                     value={cl.universalState}
                   />
                   <KV label={t("businessData.checklist.detail.dataGroup")} value={cl.dataGroup} />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.checklist.detail.information")}
                   </Text>
@@ -226,18 +217,18 @@ export function ChecklistDetailPage() {
                     label={t("businessData.checklist.detail.standardDuration")}
                     value={cl.standardDuration}
                   />
-                </div>
-              </div>
+                </VStack>
+              </Grid>
             )}
           </DetailShell>
         )}
         {tab === "checklistItems" && (
-          <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+          <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
             <Text className={styles.cardTitle}>
               {t("businessData.checklist.detail.itemsTitle", { count: cl.items.length })}
             </Text>
-            <div className={styles.split}>
-              <div className={styles.itemList}>
+            <Grid columns="minmax(320px, 2fr) 3fr" gap="12px" align="start">
+              <VStack gap="4px">
                 {cl.items.map((i, idx) => (
                   <EntityTile
                     key={i.name}
@@ -247,7 +238,7 @@ export function ChecklistDetailPage() {
                     onClick={() => setItemIdx(idx)}
                   />
                 ))}
-              </div>
+              </VStack>
               {item && (
                 <div>
                   <TabList
@@ -264,7 +255,7 @@ export function ChecklistDetailPage() {
                     ))}
                   </TabList>
                   {subTab === "generalData" && (
-                    <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+                    <VStack gap={12}>
                       <KV label={t("businessData.checklist.detail.itemName")} value={item.name} />
                       <KV
                         label={t("businessData.checklist.detail.activityType")}
@@ -286,7 +277,7 @@ export function ChecklistDetailPage() {
                         label={t("businessData.checklist.detail.floating")}
                         value={item.floating}
                       />
-                    </div>
+                    </VStack>
                   )}
                   {subTab !== "generalData" && (
                     <div className={styles.empty}>
@@ -295,8 +286,8 @@ export function ChecklistDetailPage() {
                   )}
                 </div>
               )}
-            </div>
-          </div>
+            </Grid>
+          </VStack>
         )}
         {!["details", "checklistItems"].includes(tab) && (
           <div className={styles.empty}>{t("businessData.checklist.detail.historyEmpty")}</div>
@@ -325,10 +316,11 @@ function InstanceRow({
   const { t } = useAppTranslation();
   const styles = useDetailStyles();
   return (
-    <div
+    <HStack
+      gap="12px"
+      align="center"
       className={styles.row}
       style={{
-        alignItems: "center",
         padding: "8px 0",
         borderBottom: `1px solid ${theme.color.borderSubtle}`,
       }}
@@ -341,7 +333,7 @@ function InstanceRow({
           {instance.material ? ` · ${instance.material}` : ""}
         </div>
       </div>
-      <div style={{ display: "flex", columnGap: "4px", flexWrap: "wrap" }}>
+      <HStack gap="4px" wrap>
         <Button variant="secondary" size="sm" onClick={onPerform}>
           {t("businessData.checklist.operations.perform")}
         </Button>
@@ -357,8 +349,8 @@ function InstanceRow({
         <Button variant="secondary" size="sm" onClick={onDeviation}>
           {t("businessData.checklist.operations.openDeviation")}
         </Button>
-      </div>
-    </div>
+      </HStack>
+    </HStack>
   );
 }
 
@@ -366,10 +358,10 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.checklist.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }
 
@@ -377,11 +369,11 @@ function Bool({ label, value }: { label: string; value: boolean }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>
         {value ? t("businessData.checklist.detail.yes") : t("businessData.checklist.detail.no")}
       </span>
-    </div>
+    </HStack>
   );
 }
