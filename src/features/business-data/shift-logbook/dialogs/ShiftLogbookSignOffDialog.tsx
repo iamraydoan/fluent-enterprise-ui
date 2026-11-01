@@ -3,8 +3,8 @@ import type { ShiftLogbookEntry } from "@/api";
 import { BaseDialog, DialogFooter } from "@/components/common";
 import { Body1Strong, Caption1, Text, Textarea, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { formatEntryMeta } from "../shiftLogbookHelpers";
 
 const useDialogStyles = makeStyles({

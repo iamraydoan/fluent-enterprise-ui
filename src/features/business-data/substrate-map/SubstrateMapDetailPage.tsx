@@ -6,8 +6,8 @@ import { Grid24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { formatOverlayMeta } from "./substrateMapHelpers";
 
 const TOP_TABS: DetailTab[] = [

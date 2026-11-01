@@ -6,8 +6,8 @@ import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import {
   EditPickListDialog,
   ManagePickListItemsDialog,

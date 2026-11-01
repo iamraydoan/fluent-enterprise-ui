@@ -1,9 +1,9 @@
 import { useState } from "react";
 import type { ChartDetail } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Input} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
-import { Empty } from "@/components/common";
 import { DialogShell, NumField } from "./dialogShared";
 import { useDialogStyles } from "./dialogStyles";
 

@@ -1,7 +1,7 @@
 import type { ChartContextElement } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Checkbox, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { Empty } from "@/components/common";
 import { MiniSelect } from "../../components/MiniSelect";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { ELEMENT_TYPE_OPTIONS } from "../chartLookups";

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { ChartRuleRow } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { Empty } from "@/components/common";
 import { MiniSelect } from "../../components/MiniSelect";
 import { RULE_SCOPE_OPTIONS, SPC_RULES } from "../chartLookups";
 import { DialogShell } from "./dialogShared";

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ChartDataPoint } from "@/api";
+import { Empty } from "@/components/common";
 import {
   Button,
   Table,
@@ -11,7 +12,6 @@ import {
   Textarea,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { Empty } from "@/components/common";
 import { MiniSelect } from "../../components/MiniSelect";
 import { DATA_POINT_ACTION_KEYS } from "../chartLookups";
 import type { DataPointAction } from "../chartLookups";

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { ChecklistItem } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { Empty } from "@/components/common";
 import { joinMeta } from "../checklistLookups";
 import { DialogShell, Field } from "./dialogShared";
 import { useDialogStyles } from "./dialogStyles";

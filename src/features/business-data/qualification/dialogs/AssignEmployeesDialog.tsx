@@ -14,8 +14,8 @@ import {
   TableRow,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { theme } from "@/styles/theme";
 import { containsIgnoreCase } from "@/lib/utils";
+import { theme } from "@/styles/theme";
 
 interface AssignEmployeesDialogProps {
   open: boolean;

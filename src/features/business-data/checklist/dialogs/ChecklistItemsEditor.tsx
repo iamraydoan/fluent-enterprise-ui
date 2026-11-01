@@ -1,9 +1,9 @@
 import { useState } from "react";
 import type { ChecklistItem, ChecklistItemParameter } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Checkbox, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
-import { Empty } from "@/components/common";
 import { MiniSelect } from "../../components/MiniSelect";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import {

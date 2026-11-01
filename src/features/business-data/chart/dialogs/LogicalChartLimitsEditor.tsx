@@ -1,7 +1,7 @@
+import { Empty } from "@/components/common";
 import { Button, Checkbox, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
-import { Empty } from "@/components/common";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { NumField } from "./dialogShared";
 import { numOrUndef, useDialogStyles } from "./dialogStyles";
