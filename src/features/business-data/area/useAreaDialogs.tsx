@@ -1,6 +1,11 @@
 import { useState } from "react";
 import type { AreaDetail, AreaUpsertInput } from "@/api";
 import { useCreateArea, useSetAreaState, useUpdateArea } from "@/api";
+import {
+  Organization24Regular,
+  Sparkle24Filled,
+  TextBulletList20Regular,
+} from "@/components/icons";
 import { useAppTranslation } from "@/i18n";
 import { ConfirmOperationDialog } from "../components/ConfirmOperationDialog";
 import { EntityWizardDialog } from "../components/EntityWizardDialog";
@@ -28,35 +33,57 @@ const CALENDAR_OPTIONS = [{ value: "Standard", label: "Standard" }];
 const CREATE_AREA_STEPS: WizardStep[] = [
   {
     titleKey: "businessData.area.detail.generalData",
-    fields: [
-      { key: "name", labelKey: "businessData.area.detail.name", type: "text", required: true },
-      { key: "description", labelKey: "businessData.area.detail.description", type: "textarea" },
+    fields: [],
+    sections: [
       {
-        key: "type",
-        labelKey: "businessData.area.detail.type",
-        type: "select",
-        options: TYPE_OPTIONS,
-        required: true,
+        titleKey: "businessData.area.detail.generalData",
+        fields: [
+          { key: "name", labelKey: "businessData.area.detail.name", type: "text", required: true },
+          {
+            key: "description",
+            labelKey: "businessData.area.detail.description",
+            type: "textarea",
+          },
+          {
+            key: "type",
+            labelKey: "businessData.area.detail.type",
+            type: "select",
+            options: TYPE_OPTIONS,
+            required: true,
+            leadingIcon: <TextBulletList20Regular />,
+          },
+        ],
       },
       {
-        key: "facility",
-        labelKey: "businessData.area.detail.facility",
-        type: "select",
-        options: FACILITY_OPTIONS,
-        required: true,
-      },
-      { key: "displayOrder", labelKey: "businessData.area.detail.displayOrder", type: "number" },
-      {
-        key: "areaType",
-        labelKey: "businessData.area.detail.areaType",
-        type: "select",
-        options: AREA_TYPE_OPTIONS,
-        required: true,
-      },
-      {
-        key: "parentArea",
-        labelKey: "businessData.area.operations.parentArea",
-        type: "text",
+        titleKey: "businessData.area.detail.information",
+        fields: [
+          {
+            key: "facility",
+            labelKey: "businessData.area.detail.facility",
+            type: "select",
+            options: FACILITY_OPTIONS,
+            required: true,
+            leadingIcon: <Organization24Regular />,
+          },
+          {
+            key: "displayOrder",
+            labelKey: "businessData.area.detail.displayOrder",
+            type: "number",
+            inputWidth: "240px",
+          },
+          {
+            key: "areaType",
+            labelKey: "businessData.area.detail.areaType",
+            type: "select",
+            options: AREA_TYPE_OPTIONS,
+            required: true,
+          },
+          {
+            key: "parentArea",
+            labelKey: "businessData.area.operations.parentArea",
+            type: "text",
+          },
+        ],
       },
     ],
   },
@@ -128,6 +155,7 @@ export interface AreaDialogs {
 export function useAreaDialogs(area?: AreaDetail): AreaDialogs {
   const { t } = useAppTranslation();
   const [createOpen, setCreateOpen] = useState(false);
+  const [createComments, setCreateComments] = useState("");
   const [editOpen, setEditOpen] = useState(false);
   const [cloneOpen, setCloneOpen] = useState(false);
   const [terminateOpen, setTerminateOpen] = useState(false);
@@ -177,12 +205,19 @@ export function useAreaDialogs(area?: AreaDetail): AreaDialogs {
       <EntityWizardDialog
         open={createOpen}
         titleKey="businessData.area.operations.createTitle"
+        titleIcon={<Sparkle24Filled />}
         steps={CREATE_AREA_STEPS}
         submitLabelKey="common.create"
-        onClose={() => setCreateOpen(false)}
+        commentsValue={createComments}
+        onCommentsChange={setCreateComments}
+        onClose={() => {
+          setCreateOpen(false);
+          setCreateComments("");
+        }}
         onSubmit={(values) => {
           createMutation.mutate(toUpsertInput(values));
           setCreateOpen(false);
+          setCreateComments("");
         }}
       />
       <EntityWizardDialog
