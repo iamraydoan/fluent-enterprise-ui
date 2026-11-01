@@ -11,7 +11,7 @@ export const MATERIAL_COLUMNS: DataColumn<FabMaterial>[] = [
       <Text size={300}>
         {r.name}
         {r.subMaterialCount > 0 && (
-          <span style={{ color: theme.color.textBrand, fontWeight: 600, marginLeft: 8 }}>
+          <span style={{ color: theme.color.textBrand, fontWeight: 600, marginLeft: theme.spacing.sm }}>
             ({r.subMaterialCount})
           </span>
         )}

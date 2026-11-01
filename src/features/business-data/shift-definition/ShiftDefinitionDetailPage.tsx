@@ -7,6 +7,7 @@ import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { ManageShiftsDialog } from "./dialogs/ManageShiftsDialog";
 import { ShiftDefinitionCloneDialog } from "./dialogs/ShiftDefinitionCloneDialog";
 import { ShiftDefinitionEditDialog } from "./dialogs/ShiftDefinitionEditDialog";
@@ -77,7 +78,7 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
             <div
               key={shift.name}
               className={sharedStyles.contentCard}
-              style={{ marginTop: "8px", padding: "12px" }}
+              style={{ marginTop: theme.spacing.sm, padding: theme.spacing.md }}
             >
               <Body1Strong>{shift.name}</Body1Strong>
               <Caption1>
@@ -110,7 +111,7 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
           <Body1Strong>{t("businessData.shiftDefinition.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -124,7 +125,7 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
             ]}
           />
         </div>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
           <Body1Strong>{t("businessData.shiftDefinition.detail.information")}</Body1Strong>
           <KV
             rows={[

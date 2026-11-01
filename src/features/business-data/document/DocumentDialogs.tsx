@@ -52,15 +52,15 @@ const L: Record<string, TranslationKey> = {
 const useWizardStyles = makeStyles({
   steps: {
     display: "flex",
-    gap: "24px",
-    padding: "12px 16px",
+    gap: theme.spacing.xl,
+    padding: `${theme.spacing.md} ${theme.spacing.lg}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
   step: {
     display: "flex",
     alignItems: "center",
-    gap: "8px",
+    gap: theme.spacing.sm,
     color: theme.color.textTertiary,
   },
   stepActive: { color: theme.color.textPrimary, fontWeight: theme.font.weightSemibold },
@@ -81,15 +81,15 @@ const useWizardStyles = makeStyles({
   field: {
     display: "grid",
     gridTemplateColumns: "200px 1fr",
-    gap: "12px",
+    gap: theme.spacing.md,
     alignItems: "center",
-    marginBottom: "12px",
+    marginBottom: theme.spacing.md,
   },
   sectionTitle: {
     fontWeight: theme.font.weightSemibold,
-    marginTop: "16px",
-    marginBottom: "12px",
-    paddingBottom: "4px",
+    marginTop: theme.spacing.lg,
+    marginBottom: theme.spacing.md,
+    paddingBottom: theme.spacing.xs,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });
@@ -230,7 +230,7 @@ export function DocumentWizardDialog({
           )}
           {field(L.type, true, <Input value={type} onChange={setType} />)}
           <div className={styles.sectionTitle}>{t(L.source)}</div>
-          <div style={{ display: "flex", gap: "16px", marginBottom: "12px" }}>
+          <div style={{ display: "flex", gap: theme.spacing.lg, marginBottom: theme.spacing.md }}>
             <Checkbox
               label={t(L.internal)}
               checked={source === SOURCE_INTERNAL}
@@ -246,7 +246,7 @@ export function DocumentWizardDialog({
             ? field(
                 L.file,
                 false,
-                <div style={{ display: "flex", gap: "8px" }}>
+                <div style={{ display: "flex", gap: theme.spacing.sm }}>
                   <Input value={file} onChange={setFile} style={{ flex: 1 }} />
                   <Button>{t(L.browse)}</Button>
                 </div>,

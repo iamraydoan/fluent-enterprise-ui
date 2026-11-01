@@ -1,7 +1,9 @@
 import { useState } from "react";
 import type { ChecklistItem, ChecklistItemParameter } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Checkbox, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { MiniSelect } from "../../components/MiniSelect";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import {
@@ -63,10 +65,10 @@ export function ChecklistItemsEditor({
     <div>
       <div className={styles.hint}>{t("businessData.checklist.operations.itemsHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.checklist.operations.noItems")}</div>
+        <Empty>{t("businessData.checklist.operations.noItems")}</Empty>
       )}
       {rows.map((row) => (
-        <div key={row.id} style={{ marginBottom: "8px" }}>
+        <div key={row.id} style={{ marginBottom: theme.spacing.sm }}>
           <div className={styles.itemRow}>
             <div className={styles.itemNameWrap}>
               <Input
@@ -212,11 +214,11 @@ function ItemParametersEditor({
 
   return (
     <div>
-      <div className={styles.fieldLabel} style={{ marginBottom: "8px" }}>
+      <div className={styles.fieldLabel} style={{ marginBottom: theme.spacing.sm }}>
         {t("businessData.checklist.operations.parameters")}
       </div>
       {parameters.length === 0 && (
-        <div className={styles.empty}>{t("businessData.checklist.operations.noParameters")}</div>
+        <Empty>{t("businessData.checklist.operations.noParameters")}</Empty>
       )}
       {parameters.map((p, idx) => (
         <div key={idx} className={styles.paramRow}>

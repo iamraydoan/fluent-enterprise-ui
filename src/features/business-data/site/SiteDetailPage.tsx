@@ -7,6 +7,7 @@ import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { formatOptional } from "./siteHelpers";
 
 const TOP_TABS: DetailTab[] = [
@@ -55,9 +56,9 @@ export function SiteDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.site.sections.facilities")} ({data.facilities.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
           {data.facilities.map((facility) => (
-            <div key={facility} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
+            <div key={facility} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{facility}</Body1Strong>
             </div>
           ))}
@@ -78,7 +79,7 @@ export function SiteDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
           <Body1Strong>{t("businessData.site.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -93,7 +94,7 @@ export function SiteDetailPage({ name }: { name: string }) {
             ]}
           />
         </div>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
           <Body1Strong>{t("businessData.site.detail.remoteShipping")}</Body1Strong>
           <KV
             rows={[

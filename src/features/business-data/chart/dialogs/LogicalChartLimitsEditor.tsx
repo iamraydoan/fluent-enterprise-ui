@@ -1,3 +1,4 @@
+import { Empty } from "@/components/common";
 import { Button, Checkbox, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -57,14 +58,14 @@ export function LogicalChartLimitsEditor({
     <div>
       <div className={styles.hint}>{t("businessData.chart.operations.setLimitsLogicalHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.chart.operations.noLogicalCharts")}</div>
+        <Empty>{t("businessData.chart.operations.noLogicalCharts")}</Empty>
       )}
       {rows.map((row) => (
         <div
           key={row.name}
           style={{
-            marginBottom: "16px",
-            paddingBottom: "12px",
+            marginBottom: theme.spacing.lg,
+            paddingBottom: theme.spacing.md,
             borderBottom: `1px solid ${theme.color.borderSubtle}`,
           }}
         >
@@ -73,7 +74,7 @@ export function LogicalChartLimitsEditor({
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginBottom: "8px",
+              marginBottom: theme.spacing.sm,
             }}
           >
             <Text weight="semibold">{row.name}</Text>

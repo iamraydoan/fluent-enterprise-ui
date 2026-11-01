@@ -60,18 +60,18 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
       }
     >
       <DialogEntityBanner icon="📊" name={scheduleName} />
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <div style={{ display: "flex", columnGap: theme.spacing.lg }}>
         <div style={{ width: 300, flexShrink: 0 }}>
           <div
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              marginBottom: 8,
+              marginBottom: theme.spacing.sm,
             }}
           >
             <Body1Strong>{t(`${k}.steps`, { count: steps.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: 4 }}>
+            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
               <Button size="sm" variant="subtle" onClick={addStep}>
                 +
               </Button>
@@ -93,19 +93,19 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
                 key={`${fs.step}-${i}`}
                 onClick={() => selectStep(i)}
                 style={{
-                  padding: "8px 12px",
+                  padding: `${theme.spacing.sm} ${theme.spacing.md}`,
                   cursor: "pointer",
                   backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{fs.step || t(`${k}.newStep`)}</div>
-                <div style={{ fontSize: 12, color: "#666" }}>{fs.facility}</div>
+                <div style={{ fontSize: 12, color: theme.color.textTertiary }}>{fs.facility}</div>
               </div>
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           {FIELDS.map((f) => (
             <Field key={f.key} label={t(f.labelKey)}>

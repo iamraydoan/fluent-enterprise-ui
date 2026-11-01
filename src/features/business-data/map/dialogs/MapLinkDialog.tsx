@@ -25,7 +25,7 @@ const L: Record<string, TranslationKey> = {
 
 const useDialogStyles = makeStyles({
   select: {
-    padding: "6px 8px",
+    padding: `6px ${theme.spacing.sm}`,
     border: `1px solid ${theme.color.border}`,
     borderRadius: theme.radius.md,
     fontSize: theme.font.sizeMd,

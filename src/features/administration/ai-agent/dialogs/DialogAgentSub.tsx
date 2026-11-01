@@ -8,7 +8,7 @@ const useDialogAgentSubStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "8px 16px",
+    padding: `${theme.spacing.sm} ${theme.spacing.lg}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     ...cardSurface,
     flexShrink: 0,
@@ -43,7 +43,7 @@ export function DialogAgentSub({
           <Bot20Regular />
           {agentName}
         </span>
-        {agentDescription && <span style={{ color: "#333" }}>{` / ${agentDescription}`}</span>}
+        {agentDescription && <span style={{ color: theme.color.textPrimary }}>{` / ${agentDescription}`}</span>}
       </span>
       <ChevronDown20Regular style={{ color: theme.color.textBrand }} />
     </div>

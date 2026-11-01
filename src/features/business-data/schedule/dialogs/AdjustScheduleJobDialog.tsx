@@ -3,6 +3,7 @@ import type { ScheduleDetail, ScheduleRecord } from "@/api";
 import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Body1Strong, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface AdjustScheduleJobDialogProps {
   open: boolean;
@@ -33,7 +34,7 @@ export function AdjustScheduleJobDialog({
       }
     >
       <DialogEntityBanner icon="📊" name={scheduleName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
         <Body1Strong>{t(`${k}.jobBody`)}</Body1Strong>
         <Field label={t(`${k}.resource`)}>
           <Input value={resource} onChange={setResource} />

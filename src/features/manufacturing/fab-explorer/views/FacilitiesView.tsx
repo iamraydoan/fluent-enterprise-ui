@@ -11,7 +11,7 @@ import { FAB_LEVELS } from "../fabLevels";
 
 const useViewStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   tileFooter: {
     display: "flex",
     justifyContent: "space-between",
@@ -21,30 +21,30 @@ const useViewStyles = makeStyles({
   areaCount: {
     display: "flex",
     alignItems: "center",
-    columnGap: "4px",
+    columnGap: theme.spacing.xs,
     fontSize: "12px",
     color: theme.color.textSecondary,
   },
   dashboardBar: {
     display: "flex",
-    columnGap: "8px",
-    padding: "8px 0",
+    columnGap: theme.spacing.sm,
+    padding: `${theme.spacing.sm} 0`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   kpiGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-    gap: "12px",
+    gap: theme.spacing.md,
   },
-  kpiCard: { padding: "16px", textAlign: "center" },
+  kpiCard: { padding: theme.spacing.lg, textAlign: "center" },
   kpiValue: { fontSize: "32px", fontWeight: theme.font.weightSemibold },
   kpiTrend: { fontSize: "12px" },
-  materialsList: { display: "flex", flexDirection: "column", rowGap: "8px" },
+  materialsList: { display: "flex", flexDirection: "column", rowGap: theme.spacing.sm },
   materialRow: {
     display: "flex",
     justifyContent: "space-between",
     fontSize: "13px",
-    padding: "8px 0",
+    padding: `${theme.spacing.sm} 0`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });

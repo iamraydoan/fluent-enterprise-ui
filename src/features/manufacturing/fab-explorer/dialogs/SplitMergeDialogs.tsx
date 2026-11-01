@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface OpDialogProps {
   open: boolean;
@@ -67,7 +68,7 @@ export function MergeDialog({ open, materials, onClose, onConfirm }: OpDialogPro
           value={target}
           onChange={(e) => setTarget(e.target.value)}
           style={{
-            padding: "6px 8px",
+            padding: `6px ${theme.spacing.sm}`,
             borderRadius: "4px",
             border: "1px solid #ccc",
             width: "100%",

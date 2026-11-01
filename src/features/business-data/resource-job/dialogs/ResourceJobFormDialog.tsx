@@ -3,6 +3,7 @@ import type { ResourceJobDetail, ResourceJobRecord } from "@/api";
 import { BaseDialog, WizardSteps } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ResourceJobFormDialogProps {
   open: boolean;
@@ -73,7 +74,7 @@ export function ResourceJobFormDialog({
       )}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -109,7 +110,7 @@ export function ResourceJobFormDialog({
               ))}
             </select>
           </Field>
-          <div style={{ display: "flex", columnGap: 12 }}>
+          <div style={{ display: "flex", columnGap: theme.spacing.md }}>
             <Field label={t(`${k}.priority`)}>
               <Input value={priority} onChange={setPriority} />
             </Field>
@@ -127,11 +128,11 @@ export function ResourceJobFormDialog({
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.materialsBody`)}</div>
+        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.materialsBody`)}</div>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.containersBody`)}</div>
+        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.containersBody`)}</div>
       )}
 
       <Field label={t(`${k}.comments`)}>

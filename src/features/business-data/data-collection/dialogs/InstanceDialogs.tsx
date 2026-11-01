@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { DataCollectionInstance } from "@/api";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, Empty } from "@/components/common";
 import { Button, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../../components/MiniSelect";
@@ -146,7 +146,7 @@ export function ViewDataCollectionInstanceDialog({
       </div>
       {tab === "data" ? (
         instance.postedData.length === 0 ? (
-          <div className={styles.empty}>{t("businessData.dataCollection.operations.noData")}</div>
+          <Empty>{t("businessData.dataCollection.operations.noData")}</Empty>
         ) : (
           instance.postedData.map((d) => (
             <div key={d.parameter} className={styles.kvRow}>

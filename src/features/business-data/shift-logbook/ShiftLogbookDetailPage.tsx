@@ -8,6 +8,7 @@ import { Body1Strong, Button, Caption1, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { ShiftLogbookEntryDialog } from "./dialogs/ShiftLogbookEntryDialog";
 import { ShiftLogbookSignOffDialog } from "./dialogs/ShiftLogbookSignOffDialog";
 import { SHIFT_LOGBOOK_DETAILS_SECTION, formatEntryMeta } from "./shiftLogbookHelpers";
@@ -67,12 +68,12 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
             {t("businessData.shiftLogbook.addEntry.add")}
           </Button>
         </div>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
           {data.entries.length === 0 ? (
             <Caption1>{t("businessData.shiftLogbook.emptySection")}</Caption1>
           ) : (
             data.entries.map((entry, i) => (
-              <div key={i} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
+              <div key={i} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
                 <div
                   style={{
                     display: "flex",
@@ -104,7 +105,7 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
           <Body1Strong>{t("businessData.shiftLogbook.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -119,7 +120,7 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
             ]}
           />
         </div>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
           <Body1Strong>{t("businessData.shiftLogbook.detail.shiftInfo")}</Body1Strong>
           <KV
             rows={[
@@ -131,9 +132,9 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
           />
         </div>
         {summaryOpen && (
-          <div className={sharedStyles.contentCard} style={{ padding: "16px" }}>
+          <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
             <Body1Strong>{t("businessData.shiftLogbook.summary.title")}</Body1Strong>
-            <Text style={{ marginTop: "8px" }}>
+            <Text style={{ marginTop: theme.spacing.sm }}>
               {t("businessData.shiftLogbook.summary.content", {
                 count: data.entries.length,
                 area: data.area,

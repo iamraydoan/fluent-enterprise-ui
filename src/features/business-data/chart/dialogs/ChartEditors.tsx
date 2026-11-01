@@ -1,4 +1,5 @@
 import type { ChartContextElement } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Checkbox, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../../components/MiniSelect";
@@ -42,7 +43,7 @@ export function ContextListEditor({
     <div>
       <div className={styles.hint}>{t("businessData.chart.operations.contextsHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.chart.operations.noContexts")}</div>
+        <Empty>{t("businessData.chart.operations.noContexts")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.contextRow}>

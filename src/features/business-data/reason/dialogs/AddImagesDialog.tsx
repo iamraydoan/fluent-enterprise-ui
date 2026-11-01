@@ -14,6 +14,7 @@ import {
   TableRow,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface AddImagesDialogProps {
   open: boolean;
@@ -108,11 +109,11 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
       )}
 
       {step === 2 && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.lg }}>
           {selectedImages.map((img) => (
-            <div key={img.name} style={{ border: "1px solid #ddd", borderRadius: 4, padding: 12 }}>
+            <div key={img.name} style={{ border: "1px solid #ddd", borderRadius: 4, padding: theme.spacing.md }}>
               <Body1Strong>{img.name}</Body1Strong>
-              <div style={{ display: "flex", columnGap: 12, marginTop: 8 }}>
+              <div style={{ display: "flex", columnGap: theme.spacing.md, marginTop: theme.spacing.sm }}>
                 <Field label={t(`${k}.assessment`)}>
                   <select
                     value={assessments[img.name] ?? "Unspecified"}

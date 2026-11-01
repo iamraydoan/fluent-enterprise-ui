@@ -7,7 +7,7 @@ import type { OperationValues } from "../components/operationTypes";
 
 const useDialogStyles = makeStyles({
   fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "16px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.lg },
 });
 
 function DialogShell({

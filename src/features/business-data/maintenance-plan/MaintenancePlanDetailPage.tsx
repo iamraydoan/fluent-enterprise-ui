@@ -111,7 +111,7 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
   if (top === "activities") {
     const activity = data.activities[selectedActivity];
     return shell(
-      <div style={{ display: "flex", gap: 16, height: "100%" }}>
+      <div style={{ display: "flex", gap: theme.spacing.lg, height: "100%" }}>
         <Panel>
           <Text weight="semibold">{t("businessData.maintenancePlan.sections.activities")}</Text>
           {data.activities.map((item, index) => (
@@ -125,7 +125,7 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
                 textAlign: "left",
                 background: index === selectedActivity ? theme.color.brandSubtle : "transparent",
                 border: "none",
-                padding: "8px 12px",
+                padding: `${theme.spacing.sm} ${theme.spacing.md}`,
                 cursor: "pointer",
               }}
             >
@@ -204,7 +204,7 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
             [t("businessData.maintenancePlan.details.dataGroup"), data.dataGroup],
           ]}
         />
-        <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm }}>
           <Button onClick={() => setSetEffectiveOpen(true)}>
             {t("businessData.maintenancePlan.terminateDialog.setEffective")}
           </Button>

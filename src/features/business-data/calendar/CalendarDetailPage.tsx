@@ -2,14 +2,16 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useCalendarDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
@@ -30,26 +32,15 @@ import { theme } from "@/styles/theme";
 import { useCalendarDialogs } from "./useCalendarDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "190px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
-  yearGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-    gap: "16px",
-  },
   monthCell: { display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "2px" },
   dayCell: {
     aspectRatio: "1.2",
@@ -65,16 +56,16 @@ const useDetailStyles = makeStyles({
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     textAlign: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
   weekdayHeader: {
     display: "grid",
     gridTemplateColumns: "repeat(7, 1fr)",
     gap: "2px",
-    marginBottom: "4px",
+    marginBottom: theme.spacing.xs,
   },
   weekday: { fontSize: "11px", color: theme.color.textTertiary, textAlign: "center" },
-  legend: { display: "flex", columnGap: "16px", marginTop: "16px", fontSize: "12px" },
+  legend: { display: "flex", columnGap: theme.spacing.lg, marginTop: theme.spacing.lg, fontSize: "12px" },
   legendSwatch: {
     width: "12px",
     height: "12px",
@@ -173,7 +164,7 @@ export function CalendarDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.calendar.detail.loading")}</div>
+        <Empty>{t("businessData.calendar.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -263,7 +254,7 @@ export function CalendarDetailPage() {
                 </Table>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <TileGrid minWidth="300px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.calendar.detail.calendar")}
@@ -313,17 +304,17 @@ export function CalendarDetailPage() {
                     value={cal.dayStartTime}
                   />
                 </div>
-              </div>
+              </TileGrid>
             )}
           </DetailShell>
         )}
         {tab === "calendarDays" && (
-          <div className={sharedStyles.contentCard} style={{ padding: 16 }}>
-            <div className={styles.yearGrid}>
+          <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
+            <TileGrid minWidth="340px">
               {Array.from({ length: 12 }, (_, m) => (
                 <MonthGrid key={m} year={2026} month={m} />
               ))}
-            </div>
+            </TileGrid>
             <div className={styles.legend}>
               <span>
                 <span
@@ -343,7 +334,7 @@ export function CalendarDetailPage() {
           </div>
         )}
         {tab !== "details" && tab !== "calendarDays" && (
-          <div className={styles.empty}>{t("businessData.calendar.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.calendar.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>

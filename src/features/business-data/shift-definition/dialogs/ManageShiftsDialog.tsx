@@ -20,11 +20,11 @@ const useDialogStyles = makeStyles({
     flexShrink: 0,
     display: "flex",
     flexDirection: "column",
-    rowGap: "8px",
+    rowGap: theme.spacing.sm,
   },
   formPane: { flexGrow: 1, minWidth: 0 },
   shiftItem: {
-    padding: "10px 12px",
+    padding: `10px ${theme.spacing.md}`,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
     cursor: "pointer",
@@ -60,11 +60,11 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
         />
       }
     >
-      <div style={{ display: "flex", columnGap: "16px", minHeight: 0 }}>
+      <div style={{ display: "flex", columnGap: theme.spacing.lg, minHeight: 0 }}>
         <div className={styles.listPane}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <Text weight="semibold">{t("businessData.shiftDefinition.sections.shifts")}</Text>
-            <div style={{ display: "flex", columnGap: "4px" }}>
+            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
               <Button
                 variant="subtle"
                 icon={<Add24Regular />}
@@ -101,7 +101,7 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
         <div className={styles.formPane}>
           <Body1Strong>{definitionName}</Body1Strong>
           {active !== undefined && (
-            <div style={{ marginTop: "12px" }}>
+            <div style={{ marginTop: theme.spacing.md }}>
               <FormField label={<>{t("businessData.shiftDefinition.shiftForm.name")}</>}>
                 <Input defaultValue={active.name} />
               </FormField>

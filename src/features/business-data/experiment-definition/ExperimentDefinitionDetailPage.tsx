@@ -7,6 +7,7 @@ import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
+import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { ExperimentDefinitionDialog } from "./dialogs/ExperimentDefinitionDialog";
@@ -206,7 +207,7 @@ export function ExperimentDefinitionDetailPage({ name }: { name: string }) {
             ],
           ]}
         />
-        <div style={{ marginTop: "12px" }}>
+        <div style={{ marginTop: theme.spacing.md }}>
           <Button variant="primary" onClick={() => setSetEffectiveOpen(true)}>
             {t("businessData.experimentDefinition.actions.setEffective")}
           </Button>

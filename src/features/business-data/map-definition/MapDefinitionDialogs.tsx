@@ -57,8 +57,8 @@ const L: Record<string, TranslationKey> = {
 const useWizardStyles = makeStyles({
   steps: {
     display: "flex",
-    gap: "24px",
-    padding: "12px 16px",
+    gap: theme.spacing.xl,
+    padding: `${theme.spacing.md} ${theme.spacing.lg}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
@@ -78,24 +78,24 @@ const useWizardStyles = makeStyles({
     display: "grid",
     gridTemplateColumns: "180px 1fr",
     alignItems: "center",
-    gap: "8px",
+    gap: theme.spacing.sm,
     marginBottom: "10px",
   },
   label: { textAlign: "right", fontSize: "13px" },
   required: { color: theme.color.textDanger },
   sectionTitle: {
     fontWeight: 600,
-    marginTop: "16px",
-    marginBottom: "8px",
-    paddingBottom: "4px",
+    marginTop: theme.spacing.lg,
+    marginBottom: theme.spacing.sm,
+    paddingBottom: theme.spacing.xs,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   layerRow: {
     display: "grid",
     gridTemplateColumns: "minmax(100px, 1fr) 110px 100px auto 32px",
-    gap: "8px",
+    gap: theme.spacing.sm,
     alignItems: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
     minWidth: "0",
   },
 });
@@ -249,7 +249,7 @@ export function MapDefinitionWizardDialog({
           {field(
             L.layoutType,
             true,
-            <div style={{ display: "flex", gap: 16 }}>
+            <div style={{ display: "flex", gap: theme.spacing.lg }}>
               <label>
                 <input
                   type="radio"
@@ -284,7 +284,7 @@ export function MapDefinitionWizardDialog({
           {field(
             L.maskFile,
             false,
-            <div style={{ display: "flex", gap: 8 }}>
+            <div style={{ display: "flex", gap: theme.spacing.sm }}>
               <Input value={maskFile} style={{ flex: 1 }} readOnly />
               <Button variant="secondary">{t(L.browse)}</Button>
               <Button variant="secondary" onClick={() => setMaskFile("")}>
@@ -377,7 +377,7 @@ export function MapDefinitionWizardDialog({
           <Button variant="secondary" onClick={addLayer}>
             {t(L.addLayer)}
           </Button>
-          <div style={{ marginTop: 12 }}>
+          <div style={{ marginTop: theme.spacing.md }}>
             <Text size={300}>
               {t(L.showGridLinesByDefault)}: {booleanLabel(showGridLines)} |{" "}
               {t(L.showRulerByDefault)}: {booleanLabel(showRuler)}

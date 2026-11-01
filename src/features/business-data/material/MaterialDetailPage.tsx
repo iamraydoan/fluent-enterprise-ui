@@ -7,6 +7,7 @@ import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import {
   AbortMaterialDialog,
   AttachMaterialDialog,
@@ -38,8 +39,8 @@ import {
 } from "./MaterialDialogs";
 
 const useStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" },
-  sectionTitle: { marginBottom: "8px" },
+  cards: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: theme.spacing.md },
+  sectionTitle: { marginBottom: theme.spacing.sm },
 });
 
 const TOP_TABS: DetailTab[] = [
@@ -69,7 +70,7 @@ function Card({ titleKey, rows }: { titleKey: TranslationKey; rows: [string, Rea
   const shared = useSharedStyles();
   const styles = useStyles();
   return (
-    <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+    <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
       <Text weight="semibold" size={400} className={styles.sectionTitle}>
         {t(titleKey)}
       </Text>

@@ -11,9 +11,9 @@ const useDialogStyles = makeStyles({
   stepsBar: {
     display: "flex",
     alignItems: "center",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     margin: "-16px -20px 0",
-    padding: "12px 20px",
+    padding: `${theme.spacing.md} 20px`,
     backgroundColor: theme.color.brandSubtle,
     color: theme.color.textOnBrand,
     fontSize: "13px",
@@ -29,15 +29,15 @@ const useDialogStyles = makeStyles({
   table: { width: "100%", borderCollapse: "collapse", fontSize: "13px" },
   th: {
     textAlign: "left",
-    padding: "8px",
+    padding: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     color: theme.color.textTertiary,
     fontSize: "12px",
     textTransform: "uppercase",
   },
-  td: { padding: "8px", borderBottom: `1px solid ${theme.color.border}` },
+  td: { padding: theme.spacing.sm, borderBottom: `1px solid ${theme.color.border}` },
   rowSelected: { backgroundColor: theme.color.surfaceSelected },
-  commentsBox: { marginTop: "16px" },
+  commentsBox: { marginTop: theme.spacing.lg },
 });
 
 interface ChangeResourcesDialogProps {
@@ -173,7 +173,7 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
             <select
               value={newState}
               onChange={(e) => setNewState(e.target.value as FabResourceState)}
-              style={{ padding: "8px", borderRadius: "4px", width: "100%" }}
+              style={{ padding: theme.spacing.sm, borderRadius: "4px", width: "100%" }}
             >
               {STATES.map((s) => (
                 <option key={s} value={s}>
@@ -186,7 +186,7 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
             <Text weight="semibold" size={300}>
               {t("fabExplorer.resources")}: {selected.length}
             </Text>
-            <ul style={{ fontSize: "13px", marginTop: "8px" }}>
+            <ul style={{ fontSize: "13px", marginTop: theme.spacing.sm }}>
               {selected.map((name) => (
                 <li key={name}>{name}</li>
               ))}

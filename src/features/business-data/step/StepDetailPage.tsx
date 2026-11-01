@@ -8,6 +8,7 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatList } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.step.tabs.details" },
@@ -72,9 +73,9 @@ export function StepDetailPage({ name }: { name: string }) {
     content = (
       <Panel>
         <Body1Strong>{t("businessData.step.tabs.contexts")}</Body1Strong>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
           {CONTEXTS.map((key) => (
-            <div key={key} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
+            <div key={key} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{t(key)}</Body1Strong>
             </div>
           ))}
@@ -95,7 +96,7 @@ export function StepDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.step.sections.logicalNames")} ({data.logicalNames.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px" }}>{formatList(data.logicalNames)}</div>
+        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.logicalNames)}</div>
       </Panel>
     );
   } else if (left === "businessData.step.sections.areas") {
@@ -104,7 +105,7 @@ export function StepDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.step.sections.areas")} ({data.areas.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px" }}>{formatList(data.areas)}</div>
+        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.areas)}</div>
       </Panel>
     );
   } else if (left === "businessData.step.sections.reasons") {
@@ -113,7 +114,7 @@ export function StepDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.step.sections.reasons")} ({data.reasons.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px" }}>{formatList(data.reasons)}</div>
+        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.reasons)}</div>
       </Panel>
     );
   } else if (left !== "businessData.step.sections.details") {
@@ -126,7 +127,7 @@ export function StepDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+      <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
         <Body1Strong>{t("businessData.step.sections.details")}</Body1Strong>
         <KV
           rows={[

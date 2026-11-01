@@ -84,18 +84,18 @@ export function ManageRepairActionsDialog({
       }
     >
       <DialogEntityBanner icon="🚩" name={`${reasonType} / ${reasonName}`} />
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <div style={{ display: "flex", columnGap: theme.spacing.lg }}>
         <div style={{ width: 320, flexShrink: 0 }}>
           <div
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              marginBottom: 8,
+              marginBottom: theme.spacing.sm,
             }}
           >
             <Body1Strong>{t(`${k}.repairActions`, { count: actions.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: 4 }}>
+            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
               <Button size="sm" variant="subtle" onClick={addAction}>
                 +
               </Button>
@@ -117,19 +117,19 @@ export function ManageRepairActionsDialog({
                 key={`${a.name}-${i}`}
                 onClick={() => selectAction(i)}
                 style={{
-                  padding: "8px 12px",
+                  padding: `${theme.spacing.sm} ${theme.spacing.md}`,
                   cursor: "pointer",
                   backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{a.name}</div>
-                <div style={{ fontSize: 12, color: "#666" }}>{a.partReplacementMode}</div>
+                <div style={{ fontSize: 12, color: theme.color.textTertiary }}>{a.partReplacementMode}</div>
               </div>
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.repairAction`)} required>
             <Input value={actionName} onChange={setActionName} />

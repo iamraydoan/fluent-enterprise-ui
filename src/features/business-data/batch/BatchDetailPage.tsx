@@ -1,7 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBatchDetail } from "@/api";
-import { DetailShell, ListPage, editAction, refreshAction, DetailTabs } from "@/components/common";
+import { DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, TileGrid } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
   ArrowDownload24Regular,
@@ -18,21 +18,15 @@ import { theme } from "@/styles/theme";
 import { useBatchDialogs } from "./useBatchDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -72,7 +66,7 @@ export function BatchDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.batch.detail.loading")}</div>
+        <Empty>{t("businessData.batch.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -153,7 +147,7 @@ export function BatchDetailPage() {
             onAskAi={() => undefined}
             showState={false}
           >
-            <div className={styles.cards}>
+            <TileGrid minWidth="300px">
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <Text className={styles.cardTitle}>{t("businessData.batch.detail.batch")}</Text>
                 <KV label={t("businessData.batch.detail.name")} value={batch.name} />
@@ -240,11 +234,11 @@ export function BatchDetailPage() {
                   value={batch.containerType}
                 />
               </div>
-            </div>
+            </TileGrid>
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.batch.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.batch.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>

@@ -13,6 +13,7 @@ import {
   Text,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import {
   PRODUCT_GROUP_MATURITIES,
   PRODUCT_GROUP_TYPES,
@@ -94,7 +95,7 @@ export function CreateProductGroupDialog({ open, onClose, onSubmit }: DialogProp
         ]}
         current={step}
       />
-      <div style={{ paddingTop: "16px" }}>
+      <div style={{ paddingTop: theme.spacing.lg }}>
         {step === 0 && (
           <>
             <Field
@@ -417,7 +418,7 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: "12px",
+          marginBottom: theme.spacing.md,
         }}
       >
         <Text weight="semibold">
@@ -428,7 +429,7 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
         </Button>
       </div>
       {rows.map((row, i) => (
-        <div key={i} className={styles.row} style={{ marginBottom: "12px" }}>
+        <div key={i} className={styles.row} style={{ marginBottom: theme.spacing.md }}>
           <div className={styles.col}>
             <Input
               value={row.name}
@@ -455,7 +456,7 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
           )}
         </div>
       ))}
-      <div className={styles.hint} style={{ marginBottom: "16px" }}>
+      <div className={styles.hint} style={{ marginBottom: theme.spacing.lg }}>
         {t("businessData.productGroup.operations.clone.hints.nameGenerator")}
       </div>
       <Field label={t("businessData.productGroup.operations.clone.fields.comment")}>

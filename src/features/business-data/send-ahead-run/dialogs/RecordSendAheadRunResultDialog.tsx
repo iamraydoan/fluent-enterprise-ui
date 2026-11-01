@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Body1Strong, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface RecordSendAheadRunResultDialogProps {
   open: boolean;
@@ -32,7 +33,7 @@ export function RecordSendAheadRunResultDialog({
       }
     >
       <DialogEntityBanner icon="📊" name={runName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
         <Body1Strong>{t(`${k}.resultBody`)}</Body1Strong>
         <Field label={t(`${k}.result`)}>
           <select value={result} onChange={(e) => setResult(e.target.value)}>

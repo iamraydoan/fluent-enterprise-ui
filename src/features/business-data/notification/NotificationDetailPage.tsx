@@ -7,6 +7,7 @@ import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import {
   ClearNotificationDialog,
   CloneNotificationDialog,
@@ -15,8 +16,8 @@ import {
 } from "./NotificationDialogs";
 
 const useStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" },
-  sectionTitle: { marginBottom: "8px" },
+  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: theme.spacing.md },
+  sectionTitle: { marginBottom: theme.spacing.sm },
 });
 
 const TOP_TABS: { value: string; labelKey: TranslationKey }[] = [
@@ -85,7 +86,7 @@ export function NotificationDetailPage({ name }: { name: string }) {
       >
         {top === "details" && left === LEFT_ITEMS[0] && (
           <div className={styles.cards}>
-            <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+            <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
               <Text weight="semibold" size={400} className={styles.sectionTitle}>
                 {t("businessData.notification.detail.generalData")}
               </Text>
@@ -104,21 +105,21 @@ export function NotificationDetailPage({ name }: { name: string }) {
           </div>
         )}
         {top === "details" && left === LEFT_ITEMS[1] && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.notification.left.clearHistory")}
             </Text>
           </div>
         )}
         {top === "references" && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.notification.tabs.references")}
             </Text>
           </div>
         )}
         {top === "history" && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.notification.tabs.history")}
             </Text>

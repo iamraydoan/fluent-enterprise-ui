@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMyWorkgroupResources, useMyWorkgroupSteps, useMyWorkgroups } from "@/api";
 import type { WorkgroupResourceTile, WorkgroupStepTile } from "@/api";
-import { EntityTile, FilterBar, FilterGroup, ListPage, TileGrid } from "@/components/common";
+import { Empty, EntityTile, FilterBar, FilterGroup, ListPage, TileGrid } from "@/components/common";
 import {
   ArrowExportUp24Regular,
   ArrowSync24Regular,
@@ -33,26 +33,26 @@ import { PanelSettingsDialog } from "./dialogs";
 const usePageStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
   side: { display: "flex", flexDirection: "column", minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   panel: { width: "300px", flexShrink: 0, display: "flex", flexDirection: "column" },
   panelHeader: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "8px 8px 8px 12px",
+    padding: `${theme.spacing.sm} ${theme.spacing.sm} ${theme.spacing.sm} ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   workgroupButton: {
     display: "flex",
     alignItems: "center",
-    columnGap: "4px",
+    columnGap: theme.spacing.xs,
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "15px",
     fontWeight: theme.font.weightSemibold,
-    padding: "4px 6px",
+    padding: `${theme.spacing.xs} 6px`,
     borderRadius: theme.radius.md,
     ":hover": { backgroundColor: theme.color.surfaceHover },
   },
@@ -63,7 +63,7 @@ const usePageStyles = makeStyles({
     alignItems: "center",
     columnGap: "10px",
     width: "100%",
-    padding: "10px 12px",
+    padding: `10px ${theme.spacing.md}`,
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
@@ -85,26 +85,20 @@ const usePageStyles = makeStyles({
   dropdownButton: {
     display: "flex",
     alignItems: "center",
-    columnGap: "4px",
+    columnGap: theme.spacing.xs,
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
     fontWeight: theme.font.weightSemibold,
-    padding: "4px 6px",
+    padding: `${theme.spacing.xs} 6px`,
     borderRadius: theme.radius.md,
     ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   facilityWrap: { display: "flex", alignItems: "stretch" },
   tileCounts: { display: "flex", alignItems: "center", columnGap: "14px" },
-  tileCount: { display: "flex", alignItems: "center", columnGap: "4px", fontSize: "13px" },
-  empty: {
-    padding: "48px",
-    textAlign: "center",
-    color: theme.color.textTertiary,
-    fontSize: "14px",
-  },
+  tileCount: { display: "flex", alignItems: "center", columnGap: theme.spacing.xs, fontSize: "13px" },
 });
 
 type Panel = "resources" | "steps";
@@ -421,9 +415,9 @@ export function MyWorkgroupPage() {
                 />
               </FilterBar>
               {resourcesLoading ? (
-                <div className={styles.empty}>{t("myWorkgroup.loading")}</div>
+                <Empty>{t("myWorkgroup.loading")}</Empty>
               ) : resources.length === 0 ? (
-                <div className={styles.empty}>{t("myWorkgroup.noResources")}</div>
+                <Empty>{t("myWorkgroup.noResources")}</Empty>
               ) : (
                 <TileGrid minWidth="300px">
                   {resources.map((tile) => (
@@ -476,9 +470,9 @@ export function MyWorkgroupPage() {
                 />
               </FilterBar>
               {stepsLoading ? (
-                <div className={styles.empty}>{t("myWorkgroup.loading")}</div>
+                <Empty>{t("myWorkgroup.loading")}</Empty>
               ) : steps.length === 0 ? (
-                <div className={styles.empty}>{t("myWorkgroup.noSteps")}</div>
+                <Empty>{t("myWorkgroup.noSteps")}</Empty>
               ) : (
                 <TileGrid minWidth="300px">
                   {steps.map((tile) => (

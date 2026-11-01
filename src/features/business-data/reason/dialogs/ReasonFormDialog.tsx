@@ -3,6 +3,7 @@ import type { ReasonDetail, ReasonType } from "@/api";
 import { BaseDialog, WizardSteps } from "@/components/common";
 import { Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ReasonFormDialogProps {
   open: boolean;
@@ -71,7 +72,7 @@ export function ReasonFormDialog({
       <WizardSteps steps={[t(`${k}.generalData`), t(`${k}.information`)]} current={step} />
 
       {step === 1 && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -82,7 +83,7 @@ export function ReasonFormDialog({
       )}
 
       {step === 2 && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.type`)} required>
             <select value={type} onChange={(e) => setType(e.target.value as ReasonType)}>
               {REASON_TYPES.map((o) => (

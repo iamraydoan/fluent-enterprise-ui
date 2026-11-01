@@ -6,6 +6,7 @@ import { Organization24Regular } from "@/components/icons";
 import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { FacilityDialog } from "./dialogs/FacilityDialog";
@@ -128,7 +129,7 @@ export function FacilityDetailPage({ name }: { name: string }) {
             ],
           ]}
         />
-        <div style={{ marginTop: "12px" }}>
+        <div style={{ marginTop: theme.spacing.md }}>
           <Button onClick={() => setManageShippingOpen(true)}>
             {t("businessData.facility.manageShipping.manage")}
           </Button>

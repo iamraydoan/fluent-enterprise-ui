@@ -15,6 +15,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
+import { theme } from "@/styles/theme";
 
 interface AssignEmployeesDialogProps {
   open: boolean;
@@ -113,14 +114,14 @@ export function AssignEmployeesDialog({
       <DialogEntityBanner icon="🏆" name={qualificationName} />
 
       {step === 1 && (
-        <div style={{ display: "flex", columnGap: 16 }}>
+        <div style={{ display: "flex", columnGap: theme.spacing.lg }}>
           <div style={{ flexGrow: 1 }}>
-            <div style={{ display: "flex", columnGap: 12, marginBottom: 12 }}>
+            <div style={{ display: "flex", columnGap: theme.spacing.md, marginBottom: theme.spacing.md }}>
               <Field label={t(`${k}.search`)}>
                 <Input value={search} onChange={setSearch} />
               </Field>
             </div>
-            <div style={{ marginBottom: 8 }}>
+            <div style={{ marginBottom: theme.spacing.sm }}>
               {t(`${k}.employeesCount`, { count: filtered.length })} /{" "}
               {t(`${k}.selectedCount`, { count: selected.length })}
             </div>
@@ -161,12 +162,12 @@ export function AssignEmployeesDialog({
                 border: "1px solid #ddd",
                 borderRadius: 4,
                 minHeight: 300,
-                marginTop: 8,
+                marginTop: theme.spacing.sm,
                 overflow: "auto",
               }}
             >
               {selectedEmployees.map((e) => (
-                <div key={e.number} style={{ padding: "8px 12px", borderBottom: "1px solid #eee" }}>
+                <div key={e.number} style={{ padding: `${theme.spacing.sm} ${theme.spacing.md}`, borderBottom: "1px solid #eee" }}>
                   {e.name} ({e.number})
                 </div>
               ))}
@@ -176,7 +177,7 @@ export function AssignEmployeesDialog({
       )}
 
       {step === 2 && (
-        <div style={{ display: "flex", columnGap: 16 }}>
+        <div style={{ display: "flex", columnGap: theme.spacing.lg }}>
           <div style={{ width: 320, flexShrink: 0 }}>
             <Body1Strong>{t(`${k}.employees`)}</Body1Strong>
             <Table>
@@ -198,7 +199,7 @@ export function AssignEmployeesDialog({
               </TableBody>
             </Table>
           </div>
-          <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
+          <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
             <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
             <Field label={t(`${k}.qualificationDate`)} required>
               <Input value={qualificationDate} onChange={setQualificationDate} />

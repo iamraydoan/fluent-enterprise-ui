@@ -3,6 +3,7 @@ import { BaseDialog, DialogEntityBanner, WizardSteps } from "@/components/common
 import { Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface GenerateScheduleScenarioDialogProps {
   open: boolean;
@@ -61,7 +62,7 @@ export function GenerateScheduleScenarioDialog({
     >
       <DialogEntityBanner icon="📊" name={scenarioName} />
             <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />
-      <div style={{ padding: "12px 0", color: "#666" }}>{t(BODIES[step - 1])}</div>
+      <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(BODIES[step - 1])}</div>
     </BaseDialog>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty, FormField } from "@/components/common";
 import { Button, Checkbox, Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -16,19 +16,18 @@ const useDialogStyles = makeStyles({
     display: "grid",
     gridTemplateColumns: "170px minmax(0, 1fr)",
     alignItems: "center",
-    columnGap: "12px",
-    marginBottom: "12px",
+    columnGap: theme.spacing.md,
+    marginBottom: theme.spacing.md,
   },
   fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "16px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.lg },
   empRow: {
     display: "grid",
     gridTemplateColumns: "minmax(0, 1fr) auto auto",
-    columnGap: "12px",
+    columnGap: theme.spacing.md,
     alignItems: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 function EmployeeListEditor({
@@ -52,7 +51,7 @@ function EmployeeListEditor({
   return (
     <div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.certification.operations.noEmployees")}</div>
+        <Empty>{t("businessData.certification.operations.noEmployees")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.empRow}>
@@ -123,7 +122,7 @@ function EmployeeDialogShell({
         onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
         showGranted={showGranted}
       />
-      <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
+      <div className={styles.fieldRow} style={{ marginTop: theme.spacing.lg }}>
         <span className={styles.fieldLabel}>
           {t("businessData.certification.operations.plannedDate")}
         </span>

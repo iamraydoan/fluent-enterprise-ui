@@ -7,6 +7,7 @@ import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
+import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import {
@@ -245,7 +246,7 @@ export function EmployeeDetailPage({ name }: { name: string }) {
             [t("businessData.employee.details.costPerHour"), `$${data.costPerHour.toFixed(2)}`],
           ]}
         />
-        <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm }}>
           <Button onClick={() => setManageCertOpen(true)}>
             {t("businessData.employee.certifications.manage")}
           </Button>
@@ -262,7 +263,7 @@ export function EmployeeDetailPage({ name }: { name: string }) {
             {t("businessData.employee.qualifications.assign")}
           </Button>
         </div>
-        <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm, flexWrap: "wrap" }}>
           <Button size="sm" onClick={() => setCheckInOpen(true)}>
             {t("businessData.employee.attendance.checkIn")}
           </Button>
@@ -288,7 +289,7 @@ export function EmployeeDetailPage({ name }: { name: string }) {
             {t("businessData.employee.delegates.checkOut")}
           </Button>
         </div>
-        <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm, flexWrap: "wrap" }}>
           <Button size="sm" onClick={() => setNonWorkingOpen(true)}>
             {t("businessData.employee.calendarDays.set")}
           </Button>

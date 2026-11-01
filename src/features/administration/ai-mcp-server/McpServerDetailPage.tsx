@@ -52,7 +52,7 @@ const useMcpDetailStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "10px 0 8px",
+    padding: `10px 0 ${theme.spacing.sm}`,
   },
   scroll: {
     overflow: "auto",
@@ -73,7 +73,7 @@ const useMcpDetailStyles = makeStyles({
     alignItems: "center",
     justifyContent: "flex-end",
     columnGap: "28px",
-    padding: "8px 4px 12px",
+    padding: `${theme.spacing.sm} ${theme.spacing.xs} ${theme.spacing.md}`,
     fontSize: "13px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
   },
@@ -83,7 +83,7 @@ const useMcpDetailStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
-    color: "#222",
+    color: theme.color.textPrimary,
     display: "inline-flex",
     alignItems: "center",
     columnGap: "6px",
@@ -165,7 +165,7 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
               />
             </div>
             <Info20Regular
-              style={{ color: theme.color.textBrand, margin: "6px 4px" }}
+              style={{ color: theme.color.textBrand, margin: `6px ${theme.spacing.xs}` }}
               aria-label={t("common.information")}
             />
           </div>
@@ -213,8 +213,8 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
     content = (
       <Panel>
         <MiniBar groups={toolsBarGroups} />
-        <div style={{ padding: "12px 12px 0", fontSize: 13, color: "#444" }}>
-          {t("mcpServer.lastSync")} <span style={{ color: "#222", marginLeft: 6 }}>{lastSync}</span>
+        <div style={{ padding: `${theme.spacing.md} ${theme.spacing.md} 0`, fontSize: 13, color: theme.color.textSecondary }}>
+          {t("mcpServer.lastSync")} <span style={{ color: theme.color.textPrimary, marginLeft: 6 }}>{lastSync}</span>
         </div>
         <div className={mcpDetailStyles.titleRow}>
           <Text size={400}>{t("mcpServer.toolsTitle", { count: detail.tools.length })}</Text>

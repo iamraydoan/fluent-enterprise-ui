@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ContainerDialogProps {
   open: boolean;
@@ -29,7 +30,7 @@ export function AddResourceToContainerDialog({
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.add`)} />}
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
         <Field label={t(`${k}.container`)} required>
           <Input value={container} onChange={setContainer} />
         </Field>
@@ -63,7 +64,7 @@ export function RemoveResourceFromContainerDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.remove`)} />
       }
     >
-      <div style={{ padding: "12px 0" }}>{t(`${k}.removeMessage`, { name: resourceName })}</div>
+      <div style={{ padding: `${theme.spacing.md} 0` }}>{t(`${k}.removeMessage`, { name: resourceName })}</div>
       <Field label={t(`${k}.comment`)}>
         <Input value={comment} onChange={setComment} />
       </Field>
@@ -94,7 +95,7 @@ export function TransferResourceBetweenContainersDialog({
       }
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
         <Field label={t(`${k}.sourceContainer`)} required>
           <Input value={sourceContainer} onChange={setSourceContainer} />
         </Field>
@@ -216,7 +217,7 @@ export function RetrieveResourceDialog({ open, onClose, resourceName }: Containe
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.retrieve`)} />
       }
     >
-      <div style={{ padding: "12px 0" }}>{t(`${k}.retrieveMessage`, { name: resourceName })}</div>
+      <div style={{ padding: `${theme.spacing.md} 0` }}>{t(`${k}.retrieveMessage`, { name: resourceName })}</div>
       <Field label={t(`${k}.comment`)}>
         <Input value={comment} onChange={setComment} />
       </Field>

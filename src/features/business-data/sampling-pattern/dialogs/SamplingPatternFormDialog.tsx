@@ -3,6 +3,7 @@ import type { SamplingPatternDetail, SamplingPatternMode, SamplingPatternRecord 
 import { BaseDialog, DialogFooter } from "@/components/common";
 import { Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface SamplingPatternFormDialogProps {
   open: boolean;
@@ -54,7 +55,7 @@ export function SamplingPatternFormDialog({
       width="min(900px, 90vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
     >
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
         <Field label={t(`${k}.name`)} required>
           <Input value={name} readOnly={nameReadOnly} onChange={setName} />
         </Field>

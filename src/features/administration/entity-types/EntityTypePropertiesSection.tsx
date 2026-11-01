@@ -31,16 +31,16 @@ const useSectionStyles = makeStyles({
   toolbar: {
     display: "flex",
     alignItems: "center",
-    columnGap: "4px",
-    padding: "8px 12px",
+    columnGap: theme.spacing.xs,
+    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   filterBar: {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    columnGap: "16px",
-    padding: "10px 12px",
+    columnGap: theme.spacing.lg,
+    padding: `10px ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   list: { display: "flex", flexDirection: "column" },
@@ -50,9 +50,9 @@ const useSectionStyles = makeStyles({
   rowHead: {
     display: "flex",
     alignItems: "center",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     width: "100%",
-    padding: "10px 12px",
+    padding: `10px ${theme.spacing.md}`,
     backgroundColor: "transparent",
     border: "none",
     cursor: "pointer",
@@ -63,12 +63,12 @@ const useSectionStyles = makeStyles({
   rowTitle: { fontSize: "14px", fontWeight: theme.font.weightSemibold },
   rowSub: { fontSize: "12px", color: theme.color.textTertiary },
   rowBody: {
-    padding: "4px 12px 12px 36px",
+    padding: `${theme.spacing.xs} ${theme.spacing.md} ${theme.spacing.md} 36px`,
     display: "flex",
     flexDirection: "column",
-    rowGap: "4px",
+    rowGap: theme.spacing.xs,
   },
-  detailRow: { display: "flex", columnGap: "8px", fontSize: "13px" },
+  detailRow: { display: "flex", columnGap: theme.spacing.sm, fontSize: "13px" },
   detailLabel: { color: theme.color.textTertiary, minWidth: "110px" },
   searchableBadge: {
     fontSize: "11px",
@@ -76,7 +76,7 @@ const useSectionStyles = makeStyles({
     color: theme.color.textSuccess,
     backgroundColor: theme.color.successEmphasis,
     borderRadius: theme.radius.sm,
-    padding: "2px 8px",
+    padding: `2px ${theme.spacing.sm}`,
   },
 });
 

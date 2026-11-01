@@ -2,14 +2,16 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBusinessPartnerDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
@@ -21,21 +23,15 @@ import { theme } from "@/styles/theme";
 import { useBusinessPartnerDialogs } from "./useBusinessPartnerDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -65,7 +61,7 @@ export function BusinessPartnerDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.businessPartner.detail.loading")}</div>
+        <Empty>{t("businessData.businessPartner.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -106,7 +102,7 @@ export function BusinessPartnerDetailPage() {
             onAskAi={() => undefined}
             showState={false}
           >
-            <div className={styles.cards}>
+            <TileGrid minWidth="300px">
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <Text className={styles.cardTitle}>
                   {t("businessData.businessPartner.detail.businessPartner")}
@@ -196,7 +192,7 @@ export function BusinessPartnerDetailPage() {
                 />
                 <KV label={t("businessData.businessPartner.detail.website")} value={bp.website} />
               </div>
-            </div>
+            </TileGrid>
           </DetailShell>
         )}
         {tab !== "details" && (

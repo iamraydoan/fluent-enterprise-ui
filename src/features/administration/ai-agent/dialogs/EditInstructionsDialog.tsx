@@ -40,13 +40,13 @@ import { theme } from "@/styles/theme";
 import { DialogAgentSub } from "./DialogAgentSub";
 
 const useEditStyles = makeStyles({
-  field: { display: "flex", columnGap: "12px", padding: "0 32px", alignItems: "flex-start" },
+  field: { display: "flex", columnGap: theme.spacing.md, padding: `0 ${theme.spacing["2xl"]}`, alignItems: "flex-start" },
   label: {
     width: "110px",
     textAlign: "right",
-    paddingTop: "12px",
+    paddingTop: theme.spacing.md,
     fontSize: "13px",
-    color: "#444",
+    color: theme.color.textSecondary,
     flexShrink: 0,
   },
   editor: {
@@ -61,7 +61,7 @@ const useEditStyles = makeStyles({
     alignItems: "center",
     flexWrap: "wrap",
     gap: "2px",
-    padding: "4px",
+    padding: theme.spacing.xs,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surfaceSecondary,
   },
@@ -69,7 +69,7 @@ const useEditStyles = makeStyles({
     width: "1px",
     alignSelf: "stretch",
     backgroundColor: theme.color.borderSubtle,
-    margin: "2px 4px",
+    margin: `2px ${theme.spacing.xs}`,
   },
   sel: {
     height: "32px",
@@ -79,13 +79,13 @@ const useEditStyles = makeStyles({
     fontFamily: "inherit",
     fontSize: "13px",
     padding: "0 6px",
-    color: "#333",
+    color: theme.color.textPrimary,
   },
   area: {
     minHeight: "220px",
     maxHeight: "46vh",
     overflowY: "auto",
-    padding: "8px 10px",
+    padding: `${theme.spacing.sm} 10px`,
     fontSize: "13px",
     lineHeight: "20px",
     outline: "none",
@@ -231,12 +231,12 @@ export function EditInstructionsDialog({
         </>
       }
     >
-      <div style={{ padding: "26px 32px 10px", fontSize: 14, color: "#333" }}>
+      <div style={{ padding: `26px ${theme.spacing["2xl"]} 10px`, fontSize: 14, color: theme.color.textPrimary }}>
         {t("dialogs.editInstructions.instructions")}
       </div>
       <div className={editStyles.field}>
         <div className={editStyles.label}>
-          <span style={{ color: "#C50F1F" }}>{t("dialogs.editInstructions.requiredMark")}</span>
+          <span style={{ color: theme.color.textDanger }}>{t("dialogs.editInstructions.requiredMark")}</span>
           {t("dialogs.editInstructions.instructionsLabel")}
         </div>
         <div className={editStyles.editor}>

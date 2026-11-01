@@ -7,6 +7,7 @@ import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import {
   CloneProductGroupDialog,
   EditProductGroupDialog,
@@ -16,8 +17,8 @@ import {
 } from "./dialogs";
 
 const useStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" },
-  sectionTitle: { marginBottom: "8px" },
+  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: theme.spacing.md },
+  sectionTitle: { marginBottom: theme.spacing.sm },
 });
 
 const TOP_TABS: { value: string; labelKey: TranslationKey }[] = [
@@ -99,7 +100,7 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
       >
         {top === "details" && left === LEFT_ITEMS[0] && (
           <div className={styles.cards}>
-            <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+            <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
               <Text weight="semibold" size={400} className={styles.sectionTitle}>
                 {t("businessData.productGroup.detail.generalData")}
               </Text>
@@ -112,7 +113,7 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
                 ]}
               />
             </div>
-            <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+            <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
               <Text weight="semibold" size={400} className={styles.sectionTitle}>
                 {t("businessData.productGroup.detail.information")}
               </Text>
@@ -121,7 +122,7 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
           </div>
         )}
         {top === "details" && left === LEFT_ITEMS[1] && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.productGroup.left.parameters")}
             </Text>
@@ -129,7 +130,7 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
           </div>
         )}
         {top === "details" && left === LEFT_ITEMS[2] && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.productGroup.left.products")}
             </Text>
@@ -137,14 +138,14 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
           </div>
         )}
         {top === "details" && left === LEFT_ITEMS[3] && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.productGroup.left.attachments")}
             </Text>
           </div>
         )}
         {top === "contexts" && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.productGroup.tabs.contexts")}
             </Text>
@@ -152,7 +153,7 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
           </div>
         )}
         {top === "compare" && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.productGroup.tabs.compare")}
             </Text>
@@ -160,7 +161,7 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
           </div>
         )}
         {top === "references" && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.productGroup.tabs.references")}
             </Text>
@@ -168,7 +169,7 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
           </div>
         )}
         {top === "history" && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.productGroup.tabs.history")}
             </Text>

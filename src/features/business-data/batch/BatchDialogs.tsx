@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -20,12 +20,11 @@ const useListStyles = makeStyles({
   row: {
     display: "grid",
     gridTemplateColumns: "minmax(0, 1fr) auto auto",
-    columnGap: "12px",
+    columnGap: theme.spacing.md,
     alignItems: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
 });
 
 export function MaterialListEditor({
@@ -52,7 +51,7 @@ export function MaterialListEditor({
     <div>
       <div className={styles.hint}>{t("businessData.batch.operations.materialsHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.batch.operations.noMaterials")}</div>
+        <Empty>{t("businessData.batch.operations.noMaterials")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.row}>
@@ -101,7 +100,7 @@ export function ContainerListEditor({
     <div>
       <div className={styles.hint}>{t("businessData.batch.operations.containersHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.batch.operations.noContainers")}</div>
+        <Empty>{t("businessData.batch.operations.noContainers")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.row}>
@@ -130,8 +129,8 @@ const useManageDialogStyles = makeStyles({
     display: "grid",
     gridTemplateColumns: "170px minmax(0, 1fr)",
     alignItems: "center",
-    columnGap: "12px",
-    marginBottom: "12px",
+    columnGap: theme.spacing.md,
+    marginBottom: theme.spacing.md,
   },
   fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
 });
@@ -161,13 +160,13 @@ export function ManageBatchMaterialsDialog({
       }
     >
       <Text>{t("businessData.batch.operations.manageMaterialsHint", { name: batchName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         <MaterialListEditor
           values={values}
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
         />
       </div>
-      <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
+      <div className={styles.fieldRow} style={{ marginTop: theme.spacing.lg }}>
         <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
         <Input value={comment} onChange={setComment} />
       </div>
@@ -198,7 +197,7 @@ export function ManageBatchContainersDialog({
       }
     >
       <Text>{t("businessData.batch.operations.manageContainersHint", { name: batchName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         <ContainerListEditor
           values={values}
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}

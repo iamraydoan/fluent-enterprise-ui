@@ -3,6 +3,7 @@ import type { QualificationCheckDetail } from "@/api";
 import { BaseDialog, DialogFooter } from "@/components/common";
 import { Body1Strong, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface QualificationCheckFormDialogProps {
   open: boolean;
@@ -38,7 +39,7 @@ export function QualificationCheckFormDialog({
       width="min(900px, 90vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
     >
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.lg }}>
         <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
         <Field label={t(`${k}.name`)} required>
           <Input value={name} readOnly={nameReadOnly} onChange={setName} />
@@ -50,7 +51,7 @@ export function QualificationCheckFormDialog({
           <Input value={dataGroup} onChange={setDataGroup} />
         </Field>
         <Field label={t(`${k}.instanceType`)} required>
-          <div style={{ display: "flex", columnGap: 16 }}>
+          <div style={{ display: "flex", columnGap: theme.spacing.lg }}>
             <label style={{ display: "flex", alignItems: "center", columnGap: 6 }}>
               <input
                 type="radio"

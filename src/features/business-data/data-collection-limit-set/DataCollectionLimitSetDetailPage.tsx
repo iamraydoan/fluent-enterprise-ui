@@ -3,12 +3,13 @@ import { useState } from "react";
 import { useDataCollectionLimitSetDetail } from "@/api";
 import {
   DetailShell,
-  ListPage,
+  DetailTabs,
   editAction,
+  ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
@@ -30,21 +31,16 @@ import { theme } from "@/styles/theme";
 import { useDataCollectionLimitSetDialogs } from "./useDataCollectionLimitSetDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "180px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
+  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -214,7 +210,7 @@ export function DataCollectionLimitSetDetailPage() {
                 </Table>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <TileGrid minWidth="300px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.dataCollectionLimitSet.detail.dataCollectionLimitSet")}
@@ -249,7 +245,7 @@ export function DataCollectionLimitSetDetailPage() {
                     value={ls.dataCollection}
                   />
                 </div>
-              </div>
+              </TileGrid>
             )}
           </DetailShell>
         )}

@@ -3,14 +3,16 @@ import { useState } from "react";
 import { useChartDetail } from "@/api";
 import type { LogicalChartDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
@@ -37,23 +39,17 @@ import { theme } from "@/styles/theme";
 import { useChartDialogs } from "./useChartDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
-  toolbar: { display: "flex", columnGap: "8px", marginBottom: "12px" },
-  actionsCell: { display: "flex", columnGap: "4px", flexWrap: "wrap" },
+  toolbar: { display: "flex", columnGap: theme.spacing.sm, marginBottom: theme.spacing.md },
+  actionsCell: { display: "flex", columnGap: theme.spacing.xs, flexWrap: "wrap" },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -105,7 +101,7 @@ export function ChartDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.chart.detail.loading")}</div>
+        <Empty>{t("businessData.chart.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -259,7 +255,7 @@ export function ChartDetailPage() {
                   onDataPoints={openDataPoints}
                 />
               ) : (
-                <div className={styles.cards}>
+                <TileGrid minWidth="300px">
                   <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                     <Text className={styles.cardTitle}>{t("businessData.chart.detail.chart")}</Text>
                     <KV label={t("businessData.chart.detail.name")} value={chart.name} />
@@ -380,12 +376,12 @@ export function ChartDetailPage() {
                       value={String(chart.dataPointSize)}
                     />
                   </div>
-                </div>
+                </TileGrid>
               )}
             </DetailShell>
           )}
           {tab !== "details" && (
-            <div className={styles.empty}>{t("businessData.chart.detail.historyEmpty")}</div>
+            <Empty>{t("businessData.chart.detail.historyEmpty")}</Empty>
           )}
         </DetailTabs>
       </ListPage>

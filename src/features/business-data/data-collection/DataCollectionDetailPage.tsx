@@ -3,14 +3,16 @@ import { useState } from "react";
 import { useDataCollectionDetail } from "@/api";
 import type { DataCollectionInstance, DataCollectionParameter } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
@@ -23,25 +25,19 @@ import { useCopyDataCollectionLimitSetsDialog } from "../data-collection-limit-s
 import { useDataCollectionDialogs } from "./useDataCollectionDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
   paramHeader: {
     width: "100%",
     textAlign: "left",
-    padding: "10px 12px",
+    padding: `10px ${theme.spacing.md}`,
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
@@ -50,7 +46,7 @@ const useDetailStyles = makeStyles({
     fontWeight: theme.font.weightSemibold,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  paramBlock: { display: "flex", flexDirection: "column", rowGap: "12px" },
+  paramBlock: { display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
 });
 
 const TABS = ["details", "compare", "references", "history"] as const;
@@ -102,7 +98,7 @@ export function DataCollectionDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.dataCollection.detail.loading")}</div>
+        <Empty>{t("businessData.dataCollection.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -164,7 +160,7 @@ export function DataCollectionDetailPage() {
           >
             {left === "businessData.dataCollection.detail.sections.parameters" ? (
               <div className={styles.paramBlock}>
-                <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px" }}>
+                <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: theme.spacing.sm }}>
                   <Button variant="secondary" onClick={openManageParameters}>
                     {t("businessData.dataCollection.operations.manageParametersTitle")}
                   </Button>
@@ -233,7 +229,7 @@ export function DataCollectionDetailPage() {
                 ))}
               </div>
             ) : (
-              <div className={styles.cards}>
+              <TileGrid minWidth="300px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.dataCollection.detail.dataCollection")}
@@ -276,12 +272,12 @@ export function DataCollectionDetailPage() {
                     value={dc.limitCheckingMode}
                   />
                 </div>
-              </div>
+              </TileGrid>
             )}
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.dataCollection.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.dataCollection.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
       {dialogs}
@@ -321,7 +317,7 @@ function InstanceRow({
       className={styles.row}
       style={{
         alignItems: "center",
-        padding: "8px 0",
+        padding: `${theme.spacing.sm} 0`,
         borderBottom: `1px solid ${theme.color.borderSubtle}`,
       }}
     >
@@ -332,7 +328,7 @@ function InstanceRow({
           {postedCountSuffix(instance.postedData.length)}
         </div>
       </div>
-      <div style={{ display: "flex", columnGap: "4px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", columnGap: theme.spacing.xs, flexWrap: "wrap" }}>
         <Button variant="secondary" size="sm" onClick={onView}>
           {t("businessData.dataCollection.operations.viewInstanceTitle")}
         </Button>
@@ -367,7 +363,7 @@ function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) 
   const sharedStyles = useSharedStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.cards} style={{ padding: 16 }}>
+    <div className={styles.cards} style={{ padding: theme.spacing.lg }}>
       <div className={`${sharedStyles.contentCard} ${styles.card}`}>
         <Text className={styles.cardTitle}>
           {t("businessData.dataCollection.detail.parameterDetails")}

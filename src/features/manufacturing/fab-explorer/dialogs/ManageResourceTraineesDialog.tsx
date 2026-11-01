@@ -6,12 +6,12 @@ import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  list: { display: "flex", flexDirection: "column", rowGap: "8px" },
+  list: { display: "flex", flexDirection: "column", rowGap: theme.spacing.sm },
   row: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "8px 0",
+    padding: `${theme.spacing.sm} 0`,
     borderBottom: `1px solid ${theme.color.border}`,
     fontSize: "13px",
   },
@@ -60,7 +60,7 @@ export function ManageResourceTraineesDialog({
       }
     >
       <FormField label={t("fabExplorer.addTrainee")}>
-        <div style={{ display: "flex", columnGap: "8px" }}>
+        <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
           <Input
             value={newTrainee}
             onChange={setNewTrainee}

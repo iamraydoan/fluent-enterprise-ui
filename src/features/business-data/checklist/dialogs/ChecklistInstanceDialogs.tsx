@@ -1,7 +1,9 @@
 import { useState } from "react";
 import type { ChecklistInstance } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { MiniSelect } from "../../components/MiniSelect";
 import {
   DEVIATION_TYPES,
@@ -292,7 +294,7 @@ export function PerformChecklistDialog({
         </Button>
       </div>
       {visibleItems.length === 0 && (
-        <div className={styles.empty}>{t("businessData.checklist.operations.noItems")}</div>
+        <Empty>{t("businessData.checklist.operations.noItems")}</Empty>
       )}
       {visibleItems.map((item) => {
         const s = stateOf(item.name);
@@ -306,7 +308,7 @@ export function PerformChecklistDialog({
               </div>
             </div>
             <span className={styles.stateBadge}>{s}</span>
-            <div style={{ display: "flex", columnGap: "4px" }}>
+            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
               {s === ITEM_STATE_NOT_STARTED && (
                 <Button
                   variant="secondary"

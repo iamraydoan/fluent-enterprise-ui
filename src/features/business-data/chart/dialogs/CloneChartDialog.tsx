@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ChartDetail } from "@/api";
+import { Empty } from "@/components/common";
 import { Button, Input} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -80,14 +81,14 @@ export function CloneChartDialog({
         {t("businessData.chart.operations.cloneHint", { name: chart?.name ?? "" })}
       </div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.chart.operations.noCloneRows")}</div>
+        <Empty>{t("businessData.chart.operations.noCloneRows")}</Empty>
       )}
       {rows.map((row) => (
         <div
           key={row.id}
           style={{
-            marginBottom: "12px",
-            paddingBottom: "12px",
+            marginBottom: theme.spacing.md,
+            paddingBottom: theme.spacing.md,
             borderBottom: `1px solid ${theme.color.borderSubtle}`,
           }}
         >
@@ -116,7 +117,7 @@ export function CloneChartDialog({
           </div>
           <div
             className={styles.ruleRow}
-            style={{ gridTemplateColumns: "repeat(6, minmax(0,1fr))", marginTop: "8px" }}
+            style={{ gridTemplateColumns: "repeat(6, minmax(0,1fr))", marginTop: theme.spacing.sm }}
           >
             <NumField
               label={t("businessData.chart.detail.lsl")}
@@ -153,7 +154,7 @@ export function CloneChartDialog({
             placeholder={t("businessData.chart.detail.description")}
             value={row.description}
             onChange={(value) => update(row.id, { description: value })}
-            style={{ marginTop: "8px" }}
+            style={{ marginTop: theme.spacing.sm }}
           />
         </div>
       ))}

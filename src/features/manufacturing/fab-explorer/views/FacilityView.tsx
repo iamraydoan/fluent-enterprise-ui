@@ -20,22 +20,22 @@ import { FAB_LEVELS } from "../fabLevels";
 
 const useViewStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
-  toolbar: { display: "flex", columnGap: "8px", alignItems: "center" },
+  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  toolbar: { display: "flex", columnGap: theme.spacing.sm, alignItems: "center" },
   stateCounts: {
     display: "flex",
-    columnGap: "12px",
+    columnGap: theme.spacing.md,
     fontSize: "12px",
     color: theme.color.textSecondary,
     marginTop: "auto",
   },
-  stateCount: { display: "flex", alignItems: "center", columnGap: "4px" },
-  materialsList: { display: "flex", flexDirection: "column", rowGap: "8px" },
+  stateCount: { display: "flex", alignItems: "center", columnGap: theme.spacing.xs },
+  materialsList: { display: "flex", flexDirection: "column", rowGap: theme.spacing.sm },
   materialRow: {
     display: "flex",
     justifyContent: "space-between",
     fontSize: "13px",
-    padding: "8px 0",
+    padding: `${theme.spacing.sm} 0`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });
@@ -75,7 +75,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
           style={{
             fontSize: "11px",
             color: theme.color.textTertiary,
-            padding: "12px 12px 4px",
+            padding: `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.xs}`,
           }}
         >
           {t("fabExplorer.areas")}
@@ -157,7 +157,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
             </TileGrid>
           )}
           {tab === "materials" && (
-            <div style={{ display: "flex", flexDirection: "column", rowGap: "16px" }}>
+            <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.lg }}>
               <Card title={t("fabExplorer.localMaterials")}>
                 <div className={styles.materialsList}>
                   {localMaterials.map((m) => (

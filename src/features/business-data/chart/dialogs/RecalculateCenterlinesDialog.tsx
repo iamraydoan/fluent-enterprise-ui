@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { ChartDataPoint } from "@/api";
 import { Button, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { DialogShell } from "./dialogShared";
 import { useDialogStyles } from "./dialogStyles";
 
@@ -78,7 +79,7 @@ export function RecalculateCenterlinesDialog({
           })}
         </div>
       )}
-      <div className={styles.fieldRow} style={{ marginTop: "12px" }}>
+      <div className={styles.fieldRow} style={{ marginTop: theme.spacing.md }}>
         <span className={styles.fieldLabel}>{t("businessData.chart.operations.comment")}</span>
         <Textarea value={comment} onChange={setComment} />
       </div>

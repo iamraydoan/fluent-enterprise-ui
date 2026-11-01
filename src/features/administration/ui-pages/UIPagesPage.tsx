@@ -2,15 +2,17 @@ import { useState } from "react";
 import { useUIPageFolders, useUIPages } from "@/api";
 import type { UIPageRecord, UIPageScope } from "@/api";
 import {
+  createAction,
   DataListPage,
+  Empty,
+  exportAction,
   FilterBar,
   FilterGroup,
-  createAction,
-  exportAction,
   importAction,
   refreshAction,
-  SidePanel,
   SidebarNavItem,
+  SidePanel,
+  TileGrid,
 } from "@/components/common";
 import { DocumentBulletList24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
 import {
@@ -35,17 +37,10 @@ const usePageStyles = makeStyles({
   contentCard: {
     display: "flex",
     flexDirection: "column",
-    rowGap: "12px",
-    padding: "16px",
+    rowGap: theme.spacing.md,
+    padding: theme.spacing.lg,
     flexGrow: 1,
     minHeight: 0,
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-    gap: "12px",
-    overflowY: "auto",
-    paddingBottom: "8px",
   },
   tile: {
     padding: "14px",
@@ -65,10 +60,9 @@ const usePageStyles = makeStyles({
     fontSize: "11px",
     color: theme.color.textTertiary,
     textTransform: "uppercase",
-    padding: "12px 12px 4px",
+    padding: `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.xs}`,
     letterSpacing: "0.5px",
   },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const SCOPES: Array<"all" | UIPageScope> = [
@@ -209,13 +203,13 @@ export function UIPagesPage() {
           </FilterGroup>
         </FilterBar>
         {pages.length === 0 ? (
-          <div className={styles.empty}>{t("uiPages.noPages")}</div>
+          <Empty>{t("uiPages.noPages")}</Empty>
         ) : (
-          <div className={styles.grid}>
+          <TileGrid>
             {pages.map((page) => (
               <UIPageTile key={page.name} page={page} />
             ))}
-          </div>
+          </TileGrid>
         )}
       </div>
     </DataListPage>

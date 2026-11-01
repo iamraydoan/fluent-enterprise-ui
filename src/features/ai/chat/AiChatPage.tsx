@@ -39,20 +39,20 @@ const useChatStyles = makeStyles({
     height: "36px",
     display: "flex",
     alignItems: "center",
-    padding: "0 12px",
+    padding: `0 ${theme.spacing.md}`,
     flexShrink: 0,
   },
   agentBtn: {
     display: "inline-flex",
     alignItems: "center",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     border: "none",
     background: "transparent",
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
-    color: "#222",
-    padding: "4px 6px",
+    color: theme.color.textPrimary,
+    padding: `${theme.spacing.xs} 6px`,
     borderRadius: "4px",
     ":hover": { backgroundColor: theme.color.surfaceHover },
   },
@@ -72,7 +72,7 @@ const useChatStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingTop: "12px",
+    paddingTop: theme.spacing.md,
     rowGap: "6px",
   },
   toolBtn: {
@@ -84,7 +84,7 @@ const useChatStyles = makeStyles({
     background: "transparent",
     cursor: "pointer",
     borderRadius: "8px",
-    color: "#222",
+    color: theme.color.textPrimary,
     ":hover": { backgroundColor: theme.color.borderSubtle },
   },
   toolOn: { backgroundColor: theme.color.surfaceSelected },
@@ -95,7 +95,7 @@ const useChatStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     overflowY: "auto",
-    padding: "12px 8px",
+    padding: `${theme.spacing.md} ${theme.spacing.sm}`,
     rowGap: "2px",
     backgroundColor: theme.color.surfaceSecondary,
   },
@@ -104,7 +104,7 @@ const useChatStyles = makeStyles({
     flexDirection: "column",
     alignItems: "flex-start",
     rowGap: "2px",
-    padding: "8px 10px",
+    padding: `${theme.spacing.sm} 10px`,
     border: "none",
     background: "transparent",
     cursor: "pointer",
@@ -132,7 +132,7 @@ const useChatStyles = makeStyles({
   col: {
     width: "100%",
     maxWidth: "820px",
-    padding: "24px 24px 8px",
+    padding: `${theme.spacing.xl} ${theme.spacing.xl} ${theme.spacing.sm}`,
     display: "flex",
     flexDirection: "column",
     rowGap: "18px",
@@ -145,7 +145,7 @@ const useChatStyles = makeStyles({
     justifyContent: "center",
     rowGap: "14px",
     textAlign: "center",
-    padding: "0 24px",
+    padding: `0 ${theme.spacing.xl}`,
     width: "100%",
     maxWidth: "820px",
     marginBottom: "40px",
@@ -172,18 +172,18 @@ const useChatStyles = makeStyles({
   composerWrap: {
     width: "100%",
     maxWidth: "820px",
-    padding: "0 24px 24px",
+    padding: `0 ${theme.spacing.xl} ${theme.spacing.xl}`,
     boxSizing: "border-box",
   },
   composer: {
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "24px",
-    padding: "14px 16px 10px 20px",
+    padding: `14px ${theme.spacing.lg} 10px 20px`,
     boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
     backgroundColor: "#fff",
     display: "flex",
     flexDirection: "column",
-    rowGap: "8px",
+    rowGap: theme.spacing.sm,
     ":focus-within": { border: `1px solid ${theme.color.borderBrand}` },
   },
   textarea: {
@@ -196,7 +196,7 @@ const useChatStyles = makeStyles({
     lineHeight: "22px",
     background: "transparent",
     maxHeight: "150px",
-    color: "#222",
+    color: theme.color.textPrimary,
   },
   composerRow: { display: "flex", alignItems: "center", justifyContent: "space-between" },
   send: {
@@ -221,7 +221,7 @@ const useChatStyles = makeStyles({
     lineHeight: "21px",
     whiteSpace: "pre-wrap",
   },
-  botRow: { display: "flex", columnGap: "12px", alignItems: "flex-start" },
+  botRow: { display: "flex", columnGap: theme.spacing.md, alignItems: "flex-start" },
   botIcon: {
     width: "28px",
     height: "28px",
@@ -232,21 +232,21 @@ const useChatStyles = makeStyles({
     placeItems: "center",
     backgroundColor: "#fff",
   },
-  chips: { display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "8px" },
+  chips: { display: "flex", flexWrap: "wrap", gap: "6px", marginTop: theme.spacing.sm },
   chip: {
     display: "inline-flex",
     alignItems: "center",
-    columnGap: "4px",
+    columnGap: theme.spacing.xs,
     fontSize: "12px",
-    color: "#444",
+    color: theme.color.textSecondary,
     backgroundColor: theme.color.surfaceSecondary,
     borderRadius: "999px",
-    padding: "2px 10px 2px 8px",
+    padding: `2px 10px 2px ${theme.spacing.sm}`,
   },
   examples: {
     display: "flex",
     flexWrap: "wrap",
-    gap: "8px",
+    gap: theme.spacing.sm,
     justifyContent: "center",
     marginTop: "6px",
   },
@@ -258,7 +258,7 @@ const useChatStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
-    color: "#333",
+    color: theme.color.textPrimary,
     ":hover": { backgroundColor: theme.color.brandSubtle, border: `1px solid ${theme.color.borderBrand}` },
   },
 });
@@ -376,7 +376,7 @@ export function AiChatPage() {
             icon={<Attach20Regular />}
             aria-label={t("aiChat.attachFile")}
           />
-          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 4 }}>
+          <span style={{ display: "inline-flex", alignItems: "center", columnGap: theme.spacing.xs }}>
             <Button
               variant="subtle"
               shape="circular"
@@ -467,7 +467,7 @@ export function AiChatPage() {
 
         {showHistory && (
           <aside className={chatStyles.history} aria-label={t("aiChat.chatHistory")}>
-            <Body1Strong style={{ padding: "4px 10px 8px" }}>{t("aiChat.chats")}</Body1Strong>
+            <Body1Strong style={{ padding: `${theme.spacing.xs} 10px ${theme.spacing.sm}` }}>{t("aiChat.chats")}</Body1Strong>
             {chats.map((candidate) => (
               <button
                 key={candidate.id}

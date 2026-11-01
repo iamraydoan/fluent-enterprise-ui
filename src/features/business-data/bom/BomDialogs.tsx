@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -17,12 +17,11 @@ const useListStyles = makeStyles({
   row: {
     display: "grid",
     gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     alignItems: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
 });
 
 function BomItemListEditor({
@@ -53,7 +52,7 @@ function BomItemListEditor({
     <div>
       <div className={styles.hint}>{t("businessData.bom.operations.itemsHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.bom.operations.noItems")}</div>
+        <Empty>{t("businessData.bom.operations.noItems")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.row}>
@@ -90,7 +89,7 @@ function BomItemListEditor({
 }
 
 const useManageDialogStyles = makeStyles({
-  checkRow: { display: "flex", alignItems: "center", columnGap: "8px", marginTop: "12px" },
+  checkRow: { display: "flex", alignItems: "center", columnGap: theme.spacing.sm, marginTop: theme.spacing.md },
 });
 
 export function ManageBomItemsDialog({
@@ -118,7 +117,7 @@ export function ManageBomItemsDialog({
       }
     >
       <Text>{t("businessData.bom.operations.manageItemsHint", { name: bomName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         <BomItemListEditor
           values={values}
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}

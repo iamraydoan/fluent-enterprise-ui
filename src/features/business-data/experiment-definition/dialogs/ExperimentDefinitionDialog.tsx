@@ -56,8 +56,8 @@ const L: Record<string, TranslationKey> = {
 const useDialogStyles = makeStyles({
   steps: {
     display: "flex",
-    gap: "12px",
-    padding: "12px 16px",
+    gap: theme.spacing.md,
+    padding: `${theme.spacing.md} ${theme.spacing.lg}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexWrap: "wrap",
     margin: "-16px -20px 0",
@@ -69,13 +69,13 @@ const useDialogStyles = makeStyles({
     color: theme.color.textBrand,
   },
   select: {
-    padding: "6px 8px",
+    padding: `6px ${theme.spacing.sm}`,
     border: `1px solid ${theme.color.border}`,
     borderRadius: theme.radius.md,
     fontSize: theme.font.sizeMd,
     backgroundColor: theme.color.surface,
   },
-  row: { display: "flex", gap: "8px", alignItems: "center" },
+  row: { display: "flex", gap: theme.spacing.sm, alignItems: "center" },
 });
 
 interface DialogProps {

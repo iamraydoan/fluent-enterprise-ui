@@ -14,8 +14,8 @@ const useDetailStyles = makeStyles({
   tabBar: {
     display: "flex",
     alignItems: "center",
-    columnGap: "4px",
-    padding: "0 16px",
+    columnGap: theme.spacing.xs,
+    padding: `0 ${theme.spacing.lg}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: "#fff",
     flexShrink: 0,
@@ -23,8 +23,8 @@ const useDetailStyles = makeStyles({
   titleStrip: {
     display: "flex",
     alignItems: "center",
-    columnGap: "8px",
-    padding: "10px 16px",
+    columnGap: theme.spacing.sm,
+    padding: `10px ${theme.spacing.lg}`,
     backgroundColor: "#fff",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
@@ -33,9 +33,9 @@ const useDetailStyles = makeStyles({
     flexGrow: 1,
     minHeight: 0,
     overflow: "auto",
-    padding: "12px",
+    padding: theme.spacing.md,
     ...cardSurface,
-    margin: "12px",
+    margin: theme.spacing.md,
   },
 });
 

@@ -4,10 +4,11 @@ import { BaseDialog, DialogFooter } from "@/components/common";
 import { Body1Strong, Caption1, Text, Textarea, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { formatEntryMeta } from "../shiftLogbookHelpers";
 
 const useDialogStyles = makeStyles({
-  entryCard: { marginBottom: "8px", padding: "12px" },
+  entryCard: { marginBottom: theme.spacing.sm, padding: theme.spacing.md },
 });
 
 export function ShiftLogbookSignOffDialog({
@@ -37,7 +38,7 @@ export function ShiftLogbookSignOffDialog({
       }
     >
       <Text weight="semibold">{t("businessData.shiftLogbook.signOff.reviewEntries")}</Text>
-      <div style={{ marginTop: "8px" }}>
+      <div style={{ marginTop: theme.spacing.sm }}>
         {entries.map((entry, i) => (
           <div key={i} className={mergeClasses(sharedStyles.contentCard, styles.entryCard)}>
             <Body1Strong>{entry.title}</Body1Strong>
@@ -46,9 +47,9 @@ export function ShiftLogbookSignOffDialog({
           </div>
         ))}
       </div>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         <Text>{t("businessData.shiftLogbook.signOff.comment")}</Text>
-        <div style={{ marginTop: "4px" }}>
+        <div style={{ marginTop: theme.spacing.xs }}>
           <Textarea value={comment} onChange={setComment} rows={3} />
         </div>
       </div>

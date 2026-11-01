@@ -8,6 +8,7 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatList } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.team.tabs.details" },
@@ -55,7 +56,7 @@ export function TeamDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.team.sections.employees")} ({data.employees.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px" }}>{formatList(data.employees)}</div>
+        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.employees)}</div>
       </Panel>
     );
   } else if (left === "businessData.team.sections.calendarDays") {
@@ -64,7 +65,7 @@ export function TeamDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.team.sections.calendarDays")} ({data.calendarDays.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px" }}>{formatList(data.calendarDays)}</div>
+        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.calendarDays)}</div>
       </Panel>
     );
   } else if (left !== "businessData.team.sections.details") {
@@ -77,7 +78,7 @@ export function TeamDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+      <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
         <Body1Strong>{t("businessData.team.sections.details")}</Body1Strong>
         <KV
           rows={[

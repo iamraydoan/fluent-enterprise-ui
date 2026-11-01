@@ -2,14 +2,16 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBinConverterDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
+  TileGrid,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
@@ -30,21 +32,15 @@ import { theme } from "@/styles/theme";
 import { useBinConverterDialogs } from "./useBinConverterDialogs";
 
 const useDetailStyles = makeStyles({
-  cards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
-  },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "compare", "references", "history"] as const;
@@ -75,7 +71,7 @@ export function BinConverterDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.binConverter.detail.loading")}</div>
+        <Empty>{t("businessData.binConverter.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -159,7 +155,7 @@ export function BinConverterDetailPage() {
                 </Table>
               </div>
             ) : (
-              <div className={styles.cards}>
+              <TileGrid minWidth="300px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <Text className={styles.cardTitle}>
                     {t("businessData.binConverter.detail.binConverter")}
@@ -185,12 +181,12 @@ export function BinConverterDetailPage() {
                   />
                   <KV label={t("businessData.binConverter.detail.binType")} value={bc.binType} />
                 </div>
-              </div>
+              </TileGrid>
             )}
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.binConverter.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.binConverter.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>

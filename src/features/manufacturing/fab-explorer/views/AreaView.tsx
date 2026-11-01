@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFabArea, useFabResources, useFabSteps, useFabUndispatchableMaterials } from "@/api";
 import type { FabResourceState } from "@/api";
-import { Card, FilterBar, FilterGroup, SidePanel } from "@/components/common";
+import { Card, FilterBar, FilterGroup, SidePanel, TileGrid } from "@/components/common";
 import { makeStyles, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
@@ -11,7 +11,7 @@ import type { FabNavigation } from "../FabExplorerPage";
 
 const useViewStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   stepRow: {
     display: "flex",
     columnGap: "0",
@@ -21,27 +21,27 @@ const useViewStyles = makeStyles({
   stepInfo: {
     width: "140px",
     flexShrink: 0,
-    padding: "12px",
+    padding: theme.spacing.md,
     display: "flex",
     flexDirection: "column",
-    rowGap: "4px",
+    rowGap: theme.spacing.xs,
     borderRight: `1px solid ${theme.color.borderSubtle}`,
   },
   resourceGrid: {
     display: "flex",
     flexWrap: "wrap",
-    gap: "8px",
-    padding: "12px",
+    gap: theme.spacing.sm,
+    padding: theme.spacing.md,
     flexGrow: 1,
   },
   resourceTile: {
     width: "110px",
     borderRadius: "4px",
-    padding: "8px",
+    padding: theme.spacing.sm,
     cursor: "pointer",
     display: "flex",
     flexDirection: "column",
-    rowGap: "4px",
+    rowGap: theme.spacing.xs,
     borderLeft: "4px solid",
     ":hover": { filter: "brightness(0.95)" },
   },
@@ -50,18 +50,13 @@ const useViewStyles = makeStyles({
   undispatchTable: { width: "100%", borderCollapse: "collapse", fontSize: "13px" },
   undispatchHeader: {
     textAlign: "left",
-    padding: "8px",
+    padding: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     color: theme.color.textTertiary,
     fontSize: "12px",
   },
-  undispatchCell: { padding: "8px", borderBottom: `1px solid ${theme.color.border}` },
-  infoCards: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
-    gap: "12px",
-  },
-  infoCard: { padding: "12px", textAlign: "center" },
+  undispatchCell: { padding: theme.spacing.sm, borderBottom: `1px solid ${theme.color.border}` },
+  infoCard: { padding: theme.spacing.md, textAlign: "center" },
 });
 
 interface AreaViewProps {
@@ -111,7 +106,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
   return (
     <div className={styles.body}>
       <div className={styles.main}>
-        <div className={styles.infoCards}>
+        <TileGrid minWidth="160px">
           <div className={`${sharedStyles.contentCard} ${styles.infoCard}`}>
             <Text size={200} style={{ color: theme.color.textTertiary }}>
               {t("fabExplorer.processedMaterials")}
@@ -136,7 +131,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
               {inProcessMaterials}
             </Text>
           </div>
-        </div>
+        </TileGrid>
 
         <FilterBar justifyEnd>
           <FilterGroup label={t("fabExplorer.resourceState")}>
@@ -153,7 +148,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={{
-              padding: "6px 8px",
+              padding: `6px ${theme.spacing.sm}`,
               borderRadius: "4px",
               border: `1px solid ${theme.color.border}`,
             }}
@@ -181,8 +176,8 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      columnGap: "8px",
-                      marginTop: "8px",
+                      columnGap: theme.spacing.sm,
+                      marginTop: theme.spacing.sm,
                     }}
                   >
                     <span

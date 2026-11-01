@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogEntityBanner, DialogFooter, WizardSteps } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const RESOURCE_STATES = [
   "Standby",
@@ -69,7 +70,7 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
       <DialogEntityBanner icon="🔧" name={resourceName} />
 
       {step === 1 && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.newState`)} required>
             <select value={newState} onChange={(e) => setNewState(e.target.value)}>
               {RESOURCE_STATES.map((o) => (
@@ -87,10 +88,10 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
           </Field>
         </div>
       )}
-      {step === 2 && <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step2Body`)}</div>}
-      {step === 3 && <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step3Body`)}</div>}
-      {step === 4 && <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step4Body`)}</div>}
-      {step === 5 && <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.step5Body`)}</div>}
+      {step === 2 && <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.step2Body`)}</div>}
+      {step === 3 && <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.step3Body`)}</div>}
+      {step === 4 && <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.step4Body`)}</div>}
+      {step === 5 && <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.step5Body`)}</div>}
     </BaseDialog>
   );
 }
@@ -298,7 +299,7 @@ export function EvaluateDispatchableRuleDialog({
       }
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
-      <div style={{ padding: "12px 0" }}>{t(`${k}.verifyInfo`)}</div>
+      <div style={{ padding: `${theme.spacing.md} 0` }}>{t(`${k}.verifyInfo`)}</div>
       <Field label={t(`${k}.comment`)}>
         <Input value={comment} onChange={setComment} />
       </Field>

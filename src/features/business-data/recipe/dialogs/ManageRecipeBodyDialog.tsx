@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ManageRecipeBodyDialogProps {
   open: boolean;
@@ -35,7 +36,7 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
       }
     >
       <DialogEntityBanner icon="🎛" name={recipeName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
         <Field label={t(`${k}.source`)}>
           <select value={source} onChange={(e) => setSource(e.target.value)}>
             {SOURCES.map((o) => (
@@ -55,7 +56,7 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
           </select>
         </Field>
         <Field label={t(`${k}.fileName`)} required={!isNone}>
-          <div style={{ display: "flex", columnGap: 8 }}>
+          <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
             <Input value={fileName} onChange={setFileName} />
             <Button variant="secondary" onClick={() => {}}>
               {t(`${k}.uploadBody`)}
@@ -70,7 +71,7 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
             style={{ width: "100%", fontFamily: "monospace", fontSize: 13 }}
           />
         </Field>
-        <div style={{ fontSize: 12, color: "#666" }}>
+        <div style={{ fontSize: 12, color: theme.color.textTertiary }}>
           {t(`${k}.size`)}: {size} B
         </div>
       </div>
