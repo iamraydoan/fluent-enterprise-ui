@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useAiAgents, useSendChat } from "@/api";
-import { IconButton, MenuTriggerButton } from "@/components/common";
+import { IconButton, MenuTriggerButton, OptionItem } from "@/components/common";
 import {
   ArrowUp20Regular,
   Attach20Regular,
@@ -23,7 +23,6 @@ import {
   MenuList,
   MenuPopover,
   MenuTrigger,
-  mergeClasses,
   Text,
   Tooltip,
 } from "@/components/ui";
@@ -73,22 +72,6 @@ const useChatStyles = makeStyles({
     rowGap: "2px",
     backgroundColor: theme.color.surfaceSecondary,
   },
-  histItem: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    rowGap: "2px",
-    padding: "8px 10px",
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    borderRadius: "8px",
-    fontFamily: "inherit",
-    textAlign: "left",
-    width: "100%",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  histOn: { backgroundColor: theme.color.brandSubtle },
   main: {
     flexGrow: 1,
     minWidth: 0,
@@ -211,17 +194,6 @@ const useChatStyles = makeStyles({
     gap: "8px",
     justifyContent: "center",
     marginTop: "6px",
-  },
-  example: {
-    border: `1px solid ${theme.color.borderSubtle}`,
-    borderRadius: "999px",
-    padding: "6px 14px",
-    background: "#fff",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    color: "#333",
-    ":hover": { backgroundColor: theme.color.brandSubtle, border: `1px solid ${theme.color.borderBrand}` },
   },
 });
 
@@ -425,12 +397,9 @@ export function AiChatPage() {
           <aside className={chatStyles.history} aria-label={t("aiChat.chatHistory")}>
             <Body1Strong style={{ padding: "4px 10px 8px" }}>{t("aiChat.chats")}</Body1Strong>
             {chats.map((candidate) => (
-              <button
+              <OptionItem
                 key={candidate.id}
-                className={mergeClasses(
-                  chatStyles.histItem,
-                  currentChatId === candidate.id && chatStyles.histOn,
-                )}
+                selected={currentChatId === candidate.id}
                 onClick={() => {
                   setCurrentChatId(candidate.id);
                   setAgentName(candidate.agent);
@@ -442,7 +411,7 @@ export function AiChatPage() {
                 <Caption1 style={{ color: theme.color.textTertiary }}>
                   {candidate.agent}
                 </Caption1>
-              </button>
+              </OptionItem>
             ))}
           </aside>
         )}
@@ -462,9 +431,9 @@ export function AiChatPage() {
               <div style={{ width: "100%" }}>{composer}</div>
               <div className={chatStyles.examples}>
                 {CHAT_EXAMPLES.map((key) => (
-                  <button key={key} className={chatStyles.example} onClick={() => send(t(key))}>
+                  <Button key={key} variant="outline" size="sm" onClick={() => send(t(key))}>
                     {t(key)}
-                  </button>
+                  </Button>
                 ))}
               </div>
             </div>
