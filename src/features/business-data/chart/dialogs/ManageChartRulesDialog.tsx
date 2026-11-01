@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { ChartRuleRow } from "@/api";
 import { Button, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { Empty } from "@/components/common";
 import { MiniSelect } from "../../components/MiniSelect";
 import { RULE_SCOPE_OPTIONS, SPC_RULES } from "../chartLookups";
 import { DialogShell } from "./dialogShared";
@@ -95,7 +96,7 @@ export function ManageChartRulesDialog({
         {t("businessData.chart.operations.manageRulesHint", { name: chartName })}
       </div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.chart.operations.noRules")}</div>
+        <Empty>{t("businessData.chart.operations.noRules")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id}>

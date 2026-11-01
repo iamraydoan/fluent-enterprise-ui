@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ContainerPosition } from "@/api";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, Empty } from "@/components/common";
 import { ArrowDown16Regular, ArrowUp16Regular } from "@/components/icons";
 import { Button, Input, Textarea, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -11,7 +11,6 @@ const useDialogStyles = makeStyles({
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
   fieldRow: { display: "flex", flexDirection: "column", rowGap: theme.spacing.xs, marginBottom: theme.spacing.md },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
-  empty: { padding: theme.spacing.lg, textAlign: "center", color: theme.color.textTertiary },
   flexRow: {
     display: "flex",
     flexWrap: "wrap",
@@ -124,7 +123,7 @@ export function CloneContainerDialog({
         {t("businessData.container.operations.cloneHint", { name: containerName })}
       </div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.container.operations.noCloneRows")}</div>
+        <Empty>{t("businessData.container.operations.noCloneRows")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.flexRow}>

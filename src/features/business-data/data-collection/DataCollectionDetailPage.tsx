@@ -3,14 +3,15 @@ import { useState } from "react";
 import { useDataCollectionDetail } from "@/api";
 import type { DataCollectionInstance, DataCollectionParameter } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
@@ -37,7 +38,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
   paramHeader: {
     width: "100%",
     textAlign: "left",
@@ -102,7 +102,7 @@ export function DataCollectionDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.dataCollection.detail.loading")}</div>
+        <Empty>{t("businessData.dataCollection.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -281,7 +281,7 @@ export function DataCollectionDetailPage() {
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.dataCollection.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.dataCollection.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
       {dialogs}

@@ -11,6 +11,7 @@ import {
   Textarea,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { Empty } from "@/components/common";
 import { MiniSelect } from "../../components/MiniSelect";
 import { DATA_POINT_ACTION_KEYS } from "../chartLookups";
 import type { DataPointAction } from "../chartLookups";
@@ -154,7 +155,7 @@ export function DataPointsDialog({
         </Button>
       </div>
       {dataPoints.length === 0 ? (
-        <div className={styles.empty}>{t("businessData.chart.operations.noDataPoints")}</div>
+        <Empty>{t("businessData.chart.operations.noDataPoints")}</Empty>
       ) : (
         <Table>
           <TableHeader>

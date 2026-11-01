@@ -2,14 +2,15 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useAreaDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
@@ -35,7 +36,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "120px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "areaView", "maintenance", "references", "history"] as const;
@@ -99,7 +99,7 @@ export function AreaDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.area.detail.loading")}</div>
+        <Empty>{t("businessData.area.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -181,7 +181,7 @@ export function AreaDetailPage() {
             </DetailShell>
           )}
           {tab !== "details" && (
-            <div className={styles.empty}>{t("businessData.area.detail.historyEmpty")}</div>
+            <Empty>{t("businessData.area.detail.historyEmpty")}</Empty>
           )}
         </DetailTabs>
       </ListPage>

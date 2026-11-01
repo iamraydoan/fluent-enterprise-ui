@@ -2,14 +2,15 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBusinessPartnerDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
@@ -35,7 +36,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -65,7 +65,7 @@ export function BusinessPartnerDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.businessPartner.detail.loading")}</div>
+        <Empty>{t("businessData.businessPartner.detail.loading")}</Empty>
       </ListPage>
     );
   }

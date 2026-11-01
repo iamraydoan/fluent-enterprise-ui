@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty, FormField } from "@/components/common";
 import { Button, Checkbox, Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -28,7 +28,6 @@ const useDialogStyles = makeStyles({
     alignItems: "center",
     marginBottom: theme.spacing.sm,
   },
-  empty: { padding: theme.spacing.lg, textAlign: "center", color: theme.color.textTertiary },
 });
 
 function EmployeeListEditor({
@@ -52,7 +51,7 @@ function EmployeeListEditor({
   return (
     <div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.certification.operations.noEmployees")}</div>
+        <Empty>{t("businessData.certification.operations.noEmployees")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.empRow}>

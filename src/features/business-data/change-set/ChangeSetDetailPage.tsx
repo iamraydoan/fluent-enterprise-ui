@@ -2,13 +2,14 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useChangeSetDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
@@ -48,7 +49,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "180px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -94,7 +94,7 @@ export function ChangeSetDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.changeSet.detail.loading")}</div>
+        <Empty>{t("businessData.changeSet.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -334,7 +334,7 @@ export function ChangeSetDetailPage() {
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.changeSet.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.changeSet.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>

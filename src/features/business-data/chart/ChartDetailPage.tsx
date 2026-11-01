@@ -3,14 +3,15 @@ import { useState } from "react";
 import { useChartDetail } from "@/api";
 import type { LogicalChartDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
@@ -51,7 +52,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
   toolbar: { display: "flex", columnGap: theme.spacing.sm, marginBottom: theme.spacing.md },
   actionsCell: { display: "flex", columnGap: theme.spacing.xs, flexWrap: "wrap" },
 });
@@ -105,7 +105,7 @@ export function ChartDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.chart.detail.loading")}</div>
+        <Empty>{t("businessData.chart.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -385,7 +385,7 @@ export function ChartDetailPage() {
             </DetailShell>
           )}
           {tab !== "details" && (
-            <div className={styles.empty}>{t("businessData.chart.detail.historyEmpty")}</div>
+            <Empty>{t("businessData.chart.detail.historyEmpty")}</Empty>
           )}
         </DetailTabs>
       </ListPage>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty, FormField } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -24,7 +24,6 @@ const useListStyles = makeStyles({
     alignItems: "center",
     marginBottom: theme.spacing.sm,
   },
-  empty: { padding: theme.spacing.lg, textAlign: "center", color: theme.color.textTertiary },
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
 });
 
@@ -52,7 +51,7 @@ export function MaterialListEditor({
     <div>
       <div className={styles.hint}>{t("businessData.batch.operations.materialsHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.batch.operations.noMaterials")}</div>
+        <Empty>{t("businessData.batch.operations.noMaterials")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.row}>
@@ -101,7 +100,7 @@ export function ContainerListEditor({
     <div>
       <div className={styles.hint}>{t("businessData.batch.operations.containersHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.batch.operations.noContainers")}</div>
+        <Empty>{t("businessData.batch.operations.noContainers")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.row}>

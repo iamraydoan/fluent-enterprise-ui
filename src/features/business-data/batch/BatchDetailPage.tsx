@@ -1,7 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBatchDetail } from "@/api";
-import { DetailShell, ListPage, editAction, refreshAction, DetailTabs } from "@/components/common";
+import { DetailShell, DetailTabs, Empty, ListPage, editAction, refreshAction } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
   ArrowDownload24Regular,
@@ -32,7 +32,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -72,7 +71,7 @@ export function BatchDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.batch.detail.loading")}</div>
+        <Empty>{t("businessData.batch.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -244,7 +243,7 @@ export function BatchDetailPage() {
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.batch.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.batch.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>

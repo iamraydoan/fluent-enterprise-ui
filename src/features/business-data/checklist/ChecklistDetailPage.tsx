@@ -3,14 +3,15 @@ import { useState } from "react";
 import { useChecklistDetail } from "@/api";
 import type { ChecklistInstance } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, Eye20Regular, MoreVertical24Regular } from "@/components/icons";
@@ -36,7 +37,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
   split: {
     display: "grid",
     gridTemplateColumns: "minmax(320px, 2fr) 3fr",
@@ -128,7 +128,7 @@ export function ChecklistDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.checklist.detail.loading")}</div>
+        <Empty>{t("businessData.checklist.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -334,7 +334,7 @@ export function ChecklistDetailPage() {
           </div>
         )}
         {!["details", "checklistItems"].includes(tab) && (
-          <div className={styles.empty}>{t("businessData.checklist.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.checklist.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
       {dialogs}

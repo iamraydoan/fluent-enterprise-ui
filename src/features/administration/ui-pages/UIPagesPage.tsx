@@ -2,15 +2,16 @@ import { useState } from "react";
 import { useUIPageFolders, useUIPages } from "@/api";
 import type { UIPageRecord, UIPageScope } from "@/api";
 import {
+  createAction,
   DataListPage,
+  Empty,
+  exportAction,
   FilterBar,
   FilterGroup,
-  createAction,
-  exportAction,
   importAction,
   refreshAction,
-  SidePanel,
   SidebarNavItem,
+  SidePanel,
 } from "@/components/common";
 import { DocumentBulletList24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
 import {
@@ -68,7 +69,6 @@ const usePageStyles = makeStyles({
     padding: `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.xs}`,
     letterSpacing: "0.5px",
   },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
 });
 
 const SCOPES: Array<"all" | UIPageScope> = [
@@ -209,7 +209,7 @@ export function UIPagesPage() {
           </FilterGroup>
         </FilterBar>
         {pages.length === 0 ? (
-          <div className={styles.empty}>{t("uiPages.noPages")}</div>
+          <Empty>{t("uiPages.noPages")}</Empty>
         ) : (
           <div className={styles.grid}>
             {pages.map((page) => (

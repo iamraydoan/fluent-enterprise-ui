@@ -3,6 +3,7 @@ import type { ChecklistInstance } from "@/api";
 import { Button, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
+import { Empty } from "@/components/common";
 import { MiniSelect } from "../../components/MiniSelect";
 import {
   DEVIATION_TYPES,
@@ -293,7 +294,7 @@ export function PerformChecklistDialog({
         </Button>
       </div>
       {visibleItems.length === 0 && (
-        <div className={styles.empty}>{t("businessData.checklist.operations.noItems")}</div>
+        <Empty>{t("businessData.checklist.operations.noItems")}</Empty>
       )}
       {visibleItems.map((item) => {
         const s = stateOf(item.name);

@@ -2,14 +2,15 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useCalendarDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
@@ -44,7 +45,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "190px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
   yearGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
@@ -173,7 +173,7 @@ export function CalendarDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.calendar.detail.loading")}</div>
+        <Empty>{t("businessData.calendar.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -343,7 +343,7 @@ export function CalendarDetailPage() {
           </div>
         )}
         {tab !== "details" && tab !== "calendarDays" && (
-          <div className={styles.empty}>{t("businessData.calendar.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.calendar.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>

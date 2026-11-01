@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty, FormField } from "@/components/common";
 import { Button, Input, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -29,7 +29,6 @@ const useDialogStyles = makeStyles({
     alignItems: "center",
     marginBottom: theme.spacing.sm,
   },
-  empty: { padding: theme.spacing.lg, textAlign: "center", color: theme.color.textTertiary },
 });
 
 function NameListEditor({
@@ -57,7 +56,7 @@ function NameListEditor({
   return (
     <div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.changeSet.operations.noEntries")}</div>
+        <Empty>{t("businessData.changeSet.operations.noEntries")}</Empty>
       )}
       {rows.map((row) => (
         <div key={row.id} className={styles.row}>

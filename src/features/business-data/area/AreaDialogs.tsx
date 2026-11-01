@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty } from "@/components/common";
 import { Button, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -12,7 +12,6 @@ const useManageDialogStyles = makeStyles({
     alignItems: "center",
     marginBottom: theme.spacing.sm,
   },
-  empty: { padding: theme.spacing.xl, textAlign: "center", color: theme.color.textTertiary },
   dashboardItem: {
     display: "flex",
     alignItems: "center",
@@ -74,7 +73,7 @@ export function ManageSupplyAreasDialog({
       <Text>{t("businessData.area.operations.manageSupplyAreasHint", { name: areaName })}</Text>
       <div style={{ marginTop: theme.spacing.md }}>
         {rows.length === 0 && (
-          <div className={styles.empty}>{t("businessData.area.operations.noSupplyAreas")}</div>
+          <Empty>{t("businessData.area.operations.noSupplyAreas")}</Empty>
         )}
         {rows.map((row) => (
           <div key={row.id} className={styles.row}>
@@ -150,7 +149,7 @@ export function ManageTransferRequirementTypesDialog({
       <Text>{t("businessData.area.operations.manageTransferTypesHint", { name: areaName })}</Text>
       <div style={{ marginTop: theme.spacing.md }}>
         {rows.length === 0 && (
-          <div className={styles.empty}>{t("businessData.area.operations.noTransferTypes")}</div>
+          <Empty>{t("businessData.area.operations.noTransferTypes")}</Empty>
         )}
         {rows.map((row) => (
           <div key={row.id} className={styles.row}>

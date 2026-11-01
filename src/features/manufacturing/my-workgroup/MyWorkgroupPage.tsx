@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMyWorkgroupResources, useMyWorkgroupSteps, useMyWorkgroups } from "@/api";
 import type { WorkgroupResourceTile, WorkgroupStepTile } from "@/api";
-import { EntityTile, FilterBar, FilterGroup, ListPage, TileGrid } from "@/components/common";
+import { Empty, EntityTile, FilterBar, FilterGroup, ListPage, TileGrid } from "@/components/common";
 import {
   ArrowExportUp24Regular,
   ArrowSync24Regular,
@@ -99,12 +99,6 @@ const usePageStyles = makeStyles({
   facilityWrap: { display: "flex", alignItems: "stretch" },
   tileCounts: { display: "flex", alignItems: "center", columnGap: "14px" },
   tileCount: { display: "flex", alignItems: "center", columnGap: theme.spacing.xs, fontSize: "13px" },
-  empty: {
-    padding: "48px",
-    textAlign: "center",
-    color: theme.color.textTertiary,
-    fontSize: "14px",
-  },
 });
 
 type Panel = "resources" | "steps";
@@ -421,9 +415,9 @@ export function MyWorkgroupPage() {
                 />
               </FilterBar>
               {resourcesLoading ? (
-                <div className={styles.empty}>{t("myWorkgroup.loading")}</div>
+                <Empty>{t("myWorkgroup.loading")}</Empty>
               ) : resources.length === 0 ? (
-                <div className={styles.empty}>{t("myWorkgroup.noResources")}</div>
+                <Empty>{t("myWorkgroup.noResources")}</Empty>
               ) : (
                 <TileGrid minWidth="300px">
                   {resources.map((tile) => (
@@ -476,9 +470,9 @@ export function MyWorkgroupPage() {
                 />
               </FilterBar>
               {stepsLoading ? (
-                <div className={styles.empty}>{t("myWorkgroup.loading")}</div>
+                <Empty>{t("myWorkgroup.loading")}</Empty>
               ) : steps.length === 0 ? (
-                <div className={styles.empty}>{t("myWorkgroup.noSteps")}</div>
+                <Empty>{t("myWorkgroup.noSteps")}</Empty>
               ) : (
                 <TileGrid minWidth="300px">
                   {steps.map((tile) => (

@@ -2,13 +2,14 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useCertificationDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
@@ -43,7 +44,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "170px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -78,7 +78,7 @@ export function CertificationDetailPage() {
   if (isLoading || !cert) {
     return (
       <ListPage header={{ icon: <Box24Regular />, title: displayName, actions: [refreshAction] }}>
-        <div className={styles.empty}>{t("businessData.certification.detail.loading")}</div>
+        <Empty>{t("businessData.certification.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -297,7 +297,7 @@ export function CertificationDetailPage() {
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.certification.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.certification.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>

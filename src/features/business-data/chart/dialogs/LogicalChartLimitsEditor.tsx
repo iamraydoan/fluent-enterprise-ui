@@ -1,6 +1,7 @@
 import { Button, Checkbox, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
+import { Empty } from "@/components/common";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { NumField } from "./dialogShared";
 import { numOrUndef, useDialogStyles } from "./dialogStyles";
@@ -57,7 +58,7 @@ export function LogicalChartLimitsEditor({
     <div>
       <div className={styles.hint}>{t("businessData.chart.operations.setLimitsLogicalHint")}</div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.chart.operations.noLogicalCharts")}</div>
+        <Empty>{t("businessData.chart.operations.noLogicalCharts")}</Empty>
       )}
       {rows.map((row) => (
         <div

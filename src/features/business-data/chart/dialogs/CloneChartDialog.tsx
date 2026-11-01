@@ -3,6 +3,7 @@ import type { ChartDetail } from "@/api";
 import { Button, Input} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
+import { Empty } from "@/components/common";
 import { DialogShell, NumField } from "./dialogShared";
 import { useDialogStyles } from "./dialogStyles";
 
@@ -80,7 +81,7 @@ export function CloneChartDialog({
         {t("businessData.chart.operations.cloneHint", { name: chart?.name ?? "" })}
       </div>
       {rows.length === 0 && (
-        <div className={styles.empty}>{t("businessData.chart.operations.noCloneRows")}</div>
+        <Empty>{t("businessData.chart.operations.noCloneRows")}</Empty>
       )}
       {rows.map((row) => (
         <div

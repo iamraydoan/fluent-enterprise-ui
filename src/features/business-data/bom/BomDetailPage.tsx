@@ -2,14 +2,15 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBomDetail } from "@/api";
 import {
-  DetailShell,
-  ListPage,
   cloneAction,
+  DetailShell,
+  DetailTabs,
   editAction,
+  Empty,
+  ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
@@ -44,7 +45,6 @@ const useDetailStyles = makeStyles({
   },
   row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
-  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
   itemsHeader: {
     display: "flex",
     justifyContent: "space-between",
@@ -84,7 +84,7 @@ export function BomDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.bom.detail.loading")}</div>
+        <Empty>{t("businessData.bom.detail.loading")}</Empty>
       </ListPage>
     );
   }
@@ -231,7 +231,7 @@ export function BomDetailPage() {
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.bom.detail.historyEmpty")}</div>
+          <Empty>{t("businessData.bom.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>
