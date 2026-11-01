@@ -132,7 +132,7 @@ const useViewStyles = makeStyles({
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
-    padding: "12px",
+    padding: theme.spacing.md,
   },
   toolbarRight: {
     marginLeft: "auto",

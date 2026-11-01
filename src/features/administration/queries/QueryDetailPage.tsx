@@ -50,8 +50,8 @@ const useDetailStyles = makeStyles({
     minHeight: 0,
     overflowY: "auto",
   },
-  card: { padding: "16px", flexShrink: 0 },
-  sectionCard: { padding: "16px", flexShrink: 0 },
+  card: { padding: theme.spacing.lg, flexShrink: 0 },
+  sectionCard: { padding: theme.spacing.lg, flexShrink: 0 },
   kvRow: {
     padding: "6px 0",
   },
@@ -64,8 +64,8 @@ const useDetailStyles = makeStyles({
   kvValue: { fontSize: "13px" },
   cardTitle: { fontSize: "14px", fontWeight: theme.font.weightSemibold, marginBottom: theme.spacing.sm },
   filterRow: {
-    padding: "12px",
-    marginTop: "8px",
+    padding: theme.spacing.md,
+    marginTop: theme.spacing.sm,
     backgroundColor: theme.color.surfaceSecondary,
     borderRadius: theme.radius.md,
   },
@@ -79,8 +79,8 @@ const useDetailStyles = makeStyles({
     fontSize: "13px",
   },
   
-  addFilterRow: { marginTop: "8px" },
-  tableScroll: { marginTop: "8px", overflowX: "auto" },
+  addFilterRow: { marginTop: theme.spacing.sm },
+  tableScroll: { marginTop: theme.spacing.sm, overflowX: "auto" },
   aiPanel: {
     width: "340px",
     padding: "0",
@@ -94,7 +94,7 @@ const useDetailStyles = makeStyles({
   chatBody: {
     minHeight: 0,
     overflowY: "auto",
-    padding: "16px",
+    padding: theme.spacing.lg,
   },
   userBubble: {
     alignSelf: "flex-end",

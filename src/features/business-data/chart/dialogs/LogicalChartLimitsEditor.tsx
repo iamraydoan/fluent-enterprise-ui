@@ -66,7 +66,7 @@ export function LogicalChartLimitsEditor({
             borderBottom: `1px solid ${theme.color.borderSubtle}`,
           }}
         >
-          <HStack align="center" justify="space-between" style={{marginBottom: "8px"}}>
+          <HStack align="center" justify="space-between" style={{marginBottom: theme.spacing.sm}}>
             <Text weight="semibold">{row.name}</Text>
             <Button variant="secondary" onClick={() => copyChartLimits(row.name)}>
               {t("businessData.chart.operations.copyChartLimits")}

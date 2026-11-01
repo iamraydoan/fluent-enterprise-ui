@@ -8,13 +8,13 @@ import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
   fieldRow: {
-    marginBottom: "12px",
+    marginBottom: theme.spacing.md,
   },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
   flexRow: {
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
   grow: { flex: "1 1 140px", minWidth: "120px" },
   posRow: {
@@ -376,7 +376,7 @@ export function ManagePositionsDialog({
           </Button>
         </HStack>
       ))}
-      <VStack gap="4px" style={{ marginTop: "12px" }} className={styles.fieldRow}>
+      <VStack gap="4px" style={{ marginTop: theme.spacing.md }} className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("businessData.container.operations.comment")}</span>
         <Textarea value={comment} onChange={setComment} />
       </VStack>

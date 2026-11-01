@@ -19,7 +19,7 @@ import {
 
 const useStyles = makeStyles({
   
-  sectionTitle: { marginBottom: "8px" },
+  sectionTitle: { marginBottom: theme.spacing.sm },
 });
 
 export function PickListDetailPage({ name }: { name: string }) {

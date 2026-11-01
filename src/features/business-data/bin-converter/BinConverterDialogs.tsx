@@ -15,9 +15,9 @@ export interface BinConversionRow {
 
 const useListStyles = makeStyles({
   row: {
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
 });
 
 export function BinConversionListEditor({

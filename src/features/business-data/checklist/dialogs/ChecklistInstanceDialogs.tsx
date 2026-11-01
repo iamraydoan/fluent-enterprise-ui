@@ -1,22 +1,28 @@
-import { useState } from "react";
-import type { ChecklistInstance } from "@/api";
-import { Empty, HStack  } from "@/components/common";
-import { Button, Input, Textarea } from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
-import { theme } from "@/styles/theme";
-import { MiniSelect } from "../../components/MiniSelect";
 import {
-  DEVIATION_TYPES,
-  ITEM_STATE_COMPLETED,
-  ITEM_STATE_NOT_STARTED,
-  ITEM_STATE_SKIPPED,
-  ITEM_STATE_STARTED,
-  SHOW_MANDATORY,
-  SHOW_OPTIONAL,
-  type InstanceItemState,
+  useState,
+} from "react";
+import type { ChecklistInstance } from "@/api";
+import {
+  Empty, HStack,
+} from "@/components/common";
+import {
+  Button, Input, Textarea,
+} from "@/components/ui";
+import {
+  useAppTranslation,
+} from "@/i18n";
+import {
+  MiniSelect,
+} from "../../components/MiniSelect";
+import {
+  DEVIATION_TYPES, ITEM_STATE_COMPLETED, ITEM_STATE_NOT_STARTED, ITEM_STATE_SKIPPED, ITEM_STATE_STARTED, SHOW_MANDATORY, SHOW_OPTIONAL, type InstanceItemState,
 } from "../checklistLookups";
-import { DialogShell } from "./dialogShared";
-import { useDialogStyles } from "./dialogStyles";
+import {
+  DialogShell,
+} from "./dialogShared";
+import {
+  useDialogStyles,
+} from "./dialogStyles";
 
 export function OpenChecklistInstanceDialog({
   open,

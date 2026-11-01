@@ -24,7 +24,7 @@ import {
 
 const useStyles = makeStyles({
   
-  sectionTitle: { marginBottom: "8px" },
+  sectionTitle: { marginBottom: theme.spacing.sm },
 });
 
 export function PlanDetailPage({ name }: { name: string }) {

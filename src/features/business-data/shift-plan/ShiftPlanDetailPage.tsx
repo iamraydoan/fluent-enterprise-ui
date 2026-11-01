@@ -75,7 +75,7 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.shiftPlan.sections.workgroups")} ({data.workgroups.length})
         </Body1Strong>
-        <VStack gap="8px" style={{marginTop: "12px"}}>
+        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
           {data.workgroups.map((wg) => (
             <div key={wg.name} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{wg.name}</Body1Strong>
@@ -95,7 +95,7 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.shiftPlan.manageEmployees")}</Button>
         </HStack>
-        <VStack gap="8px" style={{marginTop: "12px"}}>
+        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
           {data.employees.map((emp) => (
             <div key={emp.name} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{emp.name}</Body1Strong>

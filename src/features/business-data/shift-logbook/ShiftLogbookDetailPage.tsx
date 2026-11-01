@@ -68,7 +68,7 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
             {t("businessData.shiftLogbook.addEntry.add")}
           </Button>
         </HStack>
-        <VStack gap="8px" style={{marginTop: "12px"}}>
+        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
           {data.entries.length === 0 ? (
             <Caption1>{t("businessData.shiftLogbook.emptySection")}</Caption1>
           ) : (

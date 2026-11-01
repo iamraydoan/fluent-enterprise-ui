@@ -205,7 +205,7 @@ export function DocumentWizardDialog({
           {field(L.description, false, <Textarea value={description} onChange={setDescription} />)}
           {field(L.type, true, <Input value={type} onChange={setType} />)}
           <div className={styles.sectionTitle}>{t(L.source)}</div>
-          <HStack gap="16px" style={{marginBottom: "12px"}}>
+          <HStack gap="16px" style={{marginBottom: theme.spacing.md}}>
             <Checkbox
               label={t(L.internal)}
               checked={source === SOURCE_INTERNAL}

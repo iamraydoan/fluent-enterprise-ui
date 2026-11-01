@@ -8,7 +8,7 @@ import { theme } from "@/styles/theme";
 const useDialogStyles = makeStyles({
   
   columnTitle: {
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
   list: {
     border: `1px solid ${theme.color.borderSubtle}`,

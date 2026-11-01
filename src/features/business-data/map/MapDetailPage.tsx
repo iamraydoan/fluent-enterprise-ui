@@ -121,7 +121,7 @@ export function MapDetailPage({ name }: { name: string }) {
             ))}
           </TableBody>
         </Table>
-        <HStack gap="8px" style={{marginTop: "12px"}}>
+        <HStack gap="8px" style={{marginTop: theme.spacing.md}}>
           <Button onClick={() => undefined}>{t("businessData.map.actions.downloadLayer")}</Button>
           <Button onClick={() => setLinkOpen(true)}>
             {t("businessData.map.actions.linkMaterial")}

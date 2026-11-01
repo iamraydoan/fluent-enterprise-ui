@@ -89,7 +89,7 @@ const useWizardStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   layerRow: {
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
     minWidth: "0",
   }
 });

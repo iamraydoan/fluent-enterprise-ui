@@ -5,7 +5,7 @@ export const useDialogStyles = makeStyles({
   steps: {
     display: "flex",
     alignItems: "center",
-    gap: "8px",
+    gap: theme.spacing.sm,
     padding: "12px 20px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surfaceSecondary,
@@ -38,16 +38,16 @@ export const useDialogStyles = makeStyles({
     backgroundColor: theme.color.successSubtle,
     color: theme.color.textSuccessStrong,
   },
-  field: { marginBottom: "16px" },
+  field: { marginBottom: theme.spacing.lg },
   label: {
     display: "block",
     fontSize: "13px",
     fontWeight: 600,
     marginBottom: "6px",
   },
-  required: { color: theme.color.textDanger, marginRight: "4px" },
-  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
-  row: { display: "flex", gap: "12px" },
+  required: { color: theme.color.textDanger, marginRight: theme.spacing.xs },
+  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: theme.spacing.xs },
+  row: { display: "flex", gap: theme.spacing.md },
   col: { flex: 1 },
 });
 

@@ -6,7 +6,7 @@ import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   fieldRow: {
-    marginBottom: "12px",
+    marginBottom: theme.spacing.md,
   },
   required: { color: theme.color.textDanger },
 });

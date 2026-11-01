@@ -1,9 +1,16 @@
-import { useState } from "react";
+import {
+  useState,
+} from "react";
 import type { SamplingPatternDetail, SamplingPatternMode, SamplingPatternRecord } from "@/api";
-import { BaseDialog, DialogFooter, VStack  } from "@/components/common";
-import { Checkbox, Field, Input } from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
-import { theme } from "@/styles/theme";
+import {
+  BaseDialog, DialogFooter, VStack,
+} from "@/components/common";
+import {
+  Checkbox, Field, Input,
+} from "@/components/ui";
+import {
+  useAppTranslation,
+} from "@/i18n";
 
 interface SamplingPatternFormDialogProps {
   open: boolean;

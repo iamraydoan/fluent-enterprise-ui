@@ -77,7 +77,7 @@ const useArStyles = makeStyles({
     outlineOffset: "2px",
   },
   controls: {
-    marginTop: "12px",
+    marginTop: theme.spacing.md,
   },
   side: {
     width: "340px",

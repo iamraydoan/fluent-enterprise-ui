@@ -34,12 +34,12 @@ const ALL_FOLDERS = "all";
 
 const usePageStyles = makeStyles({
   contentCard: {
-    padding: "16px",
+    padding: theme.spacing.lg,
     minHeight: 0,
   },
   grid: {
     overflowY: "auto",
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
   },
   tile: {
     padding: "14px",

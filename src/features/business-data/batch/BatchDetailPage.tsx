@@ -26,7 +26,7 @@ import { useBatchDialogs } from "./useBatchDialogs";
 
 const useDetailStyles = makeStyles({
   
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,

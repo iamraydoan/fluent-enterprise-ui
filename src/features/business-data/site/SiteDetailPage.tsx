@@ -56,7 +56,7 @@ export function SiteDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.site.sections.facilities")} ({data.facilities.length})
         </Body1Strong>
-        <VStack gap="8px" style={{marginTop: "12px"}}>
+        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
           {data.facilities.map((facility) => (
             <div key={facility} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{facility}</Body1Strong>

@@ -22,7 +22,7 @@ import {
 
 const useStyles = makeStyles({
   
-  sectionTitle: { marginBottom: "8px" },
+  sectionTitle: { marginBottom: theme.spacing.sm },
 });
 
 export function PrintableDocumentDetailPage({ name }: { name: string }) {

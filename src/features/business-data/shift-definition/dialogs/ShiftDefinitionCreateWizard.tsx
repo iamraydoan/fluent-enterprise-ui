@@ -169,7 +169,7 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
     const shift = shifts[activeShift];
     body = (
       <>
-        <HStack gap="8px" wrap style={{marginBottom: "12px"}}>
+        <HStack gap="8px" wrap style={{marginBottom: theme.spacing.md}}>
           {shifts.map((s, i) => (
             <Button
               key={i}

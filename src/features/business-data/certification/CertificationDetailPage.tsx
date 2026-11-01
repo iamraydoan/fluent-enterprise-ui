@@ -1,39 +1,39 @@
-import { useParams } from "@tanstack/react-router";
-import { useState } from "react";
-import { useCertificationDetail } from "@/api";
+import {
+  useParams,
+} from "@tanstack/react-router";
+import {
+  useState,
+} from "react";
+import {
+  useCertificationDetail,
+} from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction,
-  DetailShell,
-  DetailTabs,
-  Empty,
-  ListPage,
-  refreshAction,
-  terminateAction,
-  TileGrid,
-  unterminateAction,
-  DetailTabs,
-  Empty,  SectionHeader, Grid, HStack 
+  cloneAction, DetailShell, DetailTabs, Empty, ListPage, refreshAction, terminateAction, unterminateAction, SectionHeader, Grid, HStack,
 } from "@/components/common";
-import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableHeaderCell,
-  TableRow,
-  makeStyles,
+  Box24Regular, MoreVertical24Regular,
+} from "@/components/icons";
+import {
+  Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, makeStyles,
 } from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
+import {
+  useAppTranslation,
+} from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
-import { useCertificationDialogs } from "./useCertificationDialogs";
+import {
+  useSharedStyles,
+} from "@/styles/shared";
+import {
+  theme,
+} from "@/styles/theme";
+import {
+  useCertificationDialogs,
+} from "./useCertificationDialogs";
 
 const useDetailStyles = makeStyles({
   
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,

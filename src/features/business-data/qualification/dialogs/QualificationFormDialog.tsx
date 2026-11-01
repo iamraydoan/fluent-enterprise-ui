@@ -1,9 +1,16 @@
-import { useState } from "react";
+import {
+  useState,
+} from "react";
 import type { QualificationDetail } from "@/api";
-import { BaseDialog, DialogFooter, HStack, VStack } from "@/components/common";
-import { Body1Strong, Field, Input, Switch } from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
-import { theme } from "@/styles/theme";
+import {
+  BaseDialog, DialogFooter, HStack, VStack,
+} from "@/components/common";
+import {
+  Body1Strong, Field, Input, Switch,
+} from "@/components/ui";
+import {
+  useAppTranslation,
+} from "@/i18n";
 
 interface QualificationFormDialogProps {
   open: boolean;

@@ -57,7 +57,7 @@ export function TransferRequirementDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.transferRequirement.sections.items")} ({data.items.length})
         </Body1Strong>
-        <VStack gap="8px" style={{marginTop: "12px"}}>
+        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
           {data.items.map((item) => (
             <div
               key={item.product}

@@ -34,7 +34,7 @@ const useViewStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   
-  kpiCard: { padding: "16px", textAlign: "center" },
+  kpiCard: { padding: theme.spacing.lg, textAlign: "center" },
   kpiValue: { fontSize: "32px", fontWeight: theme.font.weightSemibold },
   kpiTrend: { fontSize: "12px" },
   

@@ -16,7 +16,7 @@ const useDialogStyles = makeStyles({
   fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.lg },
   row: {
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   }
 });
 
@@ -111,7 +111,7 @@ function ListDialogShell({
         extraPlaceholderKey={extraPlaceholderKey}
       />
       {commentLabel && (
-        <FormField label={commentLabel} labelWidth="170px" labelAlign="right" style={{ marginTop: "16px" }}>
+        <FormField label={commentLabel} labelWidth="170px" labelAlign="right" style={{ marginTop: theme.spacing.lg }}>
         <Input value={comment} onChange={setComment} />
       </FormField>
       )}

@@ -73,7 +73,7 @@ export function StepDetailPage({ name }: { name: string }) {
     content = (
       <Panel>
         <Body1Strong>{t("businessData.step.tabs.contexts")}</Body1Strong>
-        <VStack gap="8px" style={{marginTop: "12px"}}>
+        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
           {CONTEXTS.map((key) => (
             <div key={key} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{t(key)}</Body1Strong>

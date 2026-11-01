@@ -37,7 +37,7 @@ import {
 
 const useStyles = makeStyles({
   
-  sectionTitle: { marginBottom: "8px" },
+  sectionTitle: { marginBottom: theme.spacing.sm },
 });
 
 export function ProductDetailPage({ name }: { name: string }) {

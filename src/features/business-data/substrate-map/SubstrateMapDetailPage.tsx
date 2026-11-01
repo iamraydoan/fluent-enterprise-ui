@@ -75,7 +75,7 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.substrateMap.manageOverlayInfo")}</Button>
         </HStack>
-        <VStack gap="8px" style={{marginTop: "12px"}}>
+        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
           {data.overlays.map((overlay) => (
             <div
               key={overlay.name}

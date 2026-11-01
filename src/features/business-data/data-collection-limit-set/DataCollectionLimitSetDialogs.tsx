@@ -37,9 +37,9 @@ import {
 } from "./dataCollectionLimitSetLookups";
 
 const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
   fieldRow: {
-    marginBottom: "12px",
+    marginBottom: theme.spacing.md,
   },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
   staticValue: { fontSize: "13px", padding: "6px 0" },
@@ -53,7 +53,7 @@ const useDialogStyles = makeStyles({
     overflow: "hidden",
   },
   listToolbar: {
-    padding: "8px",
+    padding: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   listTitle: { fontSize: "13px", fontWeight: theme.font.weightSemibold, marginRight: "auto" },
@@ -75,13 +75,13 @@ const useDialogStyles = makeStyles({
   listItemSub: { fontSize: "12px", color: theme.color.textTertiary },
   formPane: { flexGrow: 1, minWidth: 0 },
   formRow: {
-    marginBottom: "12px",
+    marginBottom: theme.spacing.md,
   },
   miniLabel: { fontSize: "12px", color: theme.color.textTertiary, marginBottom: theme.spacing.xs },
   grow: { flex: "1 1 160px", minWidth: "140px" },
   numWrap: { flex: "0 1 120px", minWidth: "100px" },
   optionsBar: {
-    marginBottom: "12px",
+    marginBottom: theme.spacing.md,
   },
   checkRow: {
     padding: "8px 0",

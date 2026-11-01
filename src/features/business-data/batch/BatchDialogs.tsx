@@ -6,8 +6,8 @@ import { theme } from "@/styles/theme";
 import type { OperationOnChange, OperationValues } from "../components/operationTypes";
 
 const useListStyles = makeStyles({
-  row: { marginBottom: "8px" },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  row: { marginBottom: theme.spacing.sm },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
 });
 
 export interface MaterialRow {
@@ -146,7 +146,7 @@ export function ManageBatchMaterialsDialog({
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
         />
       </div>
-      <FormField label={t("businessData.batch.operations.comment")} labelWidth="170px" labelAlign="right" style={{ marginTop: "16px" }}>
+      <FormField label={t("businessData.batch.operations.comment")} labelWidth="170px" labelAlign="right" style={{ marginTop: theme.spacing.lg }}>
         <Input value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>

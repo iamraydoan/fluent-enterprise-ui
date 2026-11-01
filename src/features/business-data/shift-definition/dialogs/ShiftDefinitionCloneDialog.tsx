@@ -7,7 +7,7 @@ import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   gridRow: {
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   }
 });
 

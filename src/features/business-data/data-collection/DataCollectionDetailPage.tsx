@@ -1,34 +1,43 @@
-import { useParams } from "@tanstack/react-router";
-import { useState } from "react";
-import { useDataCollectionDetail } from "@/api";
+import {
+  useParams,
+} from "@tanstack/react-router";
+import {
+  useState,
+} from "react";
+import {
+  useDataCollectionDetail,
+} from "@/api";
 import type { DataCollectionInstance, DataCollectionParameter } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction,
-  DetailShell,
-  DetailTabs,
-  editAction,
-  Empty,
-  ListPage,
-  refreshAction,
-  terminateAction,
-  TileGrid,
-  unterminateAction,
-  DetailTabs,
-  Empty,  SectionHeader, Grid, HStack, VStack 
+  cloneAction, DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, terminateAction, unterminateAction, SectionHeader, Grid, HStack, VStack,
 } from "@/components/common";
-import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Text, makeStyles } from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
+import {
+  Box24Regular, MoreVertical24Regular,
+} from "@/components/icons";
+import {
+  Button, Text, makeStyles,
+} from "@/components/ui";
+import {
+  useAppTranslation,
+} from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
-import { useCopyDataCollectionLimitSetsDialog } from "../data-collection-limit-set/useDataCollectionLimitSetDialogs";
-import { useDataCollectionDialogs } from "./useDataCollectionDialogs";
+import {
+  useSharedStyles,
+} from "@/styles/shared";
+import {
+  theme,
+} from "@/styles/theme";
+import {
+  useCopyDataCollectionLimitSetsDialog,
+} from "../data-collection-limit-set/useDataCollectionLimitSetDialogs";
+import {
+  useDataCollectionDialogs,
+} from "./useDataCollectionDialogs";
 
 const useDetailStyles = makeStyles({
   
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -165,7 +174,7 @@ export function DataCollectionDetailPage() {
           >
             {left === "businessData.dataCollection.detail.sections.parameters" ? (
               <VStack gap="12px">
-                <HStack justify="flex-end" style={{marginBottom: "8px"}}>
+                <HStack justify="flex-end" style={{marginBottom: theme.spacing.sm}}>
                   <Button variant="secondary" onClick={openManageParameters}>
                     {t("businessData.dataCollection.operations.manageParametersTitle")}
                   </Button>

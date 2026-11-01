@@ -1,9 +1,16 @@
-import { useState } from "react";
+import {
+  useState,
+} from "react";
 import type { RecipeDetail, RecipeRecord } from "@/api";
-import { BaseDialog, HStack, VStack, WizardSteps } from "@/components/common";
-import { Button, Checkbox, Field, Input } from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
-import { theme } from "@/styles/theme";
+import {
+  BaseDialog, HStack, VStack, WizardSteps,
+} from "@/components/common";
+import {
+  Button, Checkbox, Field, Input,
+} from "@/components/ui";
+import {
+  useAppTranslation,
+} from "@/i18n";
 
 interface RecipeFormDialogProps {
   open: boolean;

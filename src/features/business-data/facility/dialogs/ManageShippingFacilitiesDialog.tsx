@@ -24,7 +24,7 @@ const L: Record<string, TranslationKey> = {
 
 const useStyles = makeStyles({
   panelHead: {
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
     fontWeight: theme.font.weightSemibold,
   },
   list: {

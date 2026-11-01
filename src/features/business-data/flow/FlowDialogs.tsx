@@ -1,9 +1,16 @@
-import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField, HStack  } from "@/components/common";
-import { Button, Input } from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
+import {
+  useState,
+} from "react";
+import {
+  BaseDialog, DialogFooter, FormField, HStack,
+} from "@/components/common";
+import {
+  Button, Input,
+} from "@/components/ui";
+import {
+  useAppTranslation,
+} from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { theme } from "@/styles/theme";
 
 const L: Record<string, TranslationKey> = {
   logicalNamesTitle: "businessData.flow.manageDialog.logicalNamesTitle",

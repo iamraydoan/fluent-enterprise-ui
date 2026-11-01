@@ -108,7 +108,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
     >
       <HStack gap="20px" style={{minHeight: "420px"}}>
         <div style={{ width: "300px", flexShrink: 0 }}>
-          <HStack align="center" justify="space-between" style={{marginBottom: "12px"}}>
+          <HStack align="center" justify="space-between" style={{marginBottom: theme.spacing.md}}>
             <Text weight="semibold">
               {t("businessData.productGroup.operations.manageParameters.parameters")}
             </Text>

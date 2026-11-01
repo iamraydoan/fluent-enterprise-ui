@@ -1,39 +1,39 @@
-import { useParams } from "@tanstack/react-router";
-import { useState } from "react";
-import { useDataCollectionLimitSetDetail } from "@/api";
+import {
+  useParams,
+} from "@tanstack/react-router";
+import {
+  useState,
+} from "react";
+import {
+  useDataCollectionLimitSetDetail,
+} from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  DetailShell,
-  DetailTabs,
-  editAction,
-  ListPage,
-  refreshAction,
-  terminateAction,
-  TileGrid,
-  unterminateAction,
-  DetailTabs,
-  Empty,  SectionHeader, Grid, HStack 
+  DetailShell, DetailTabs, editAction, ListPage, refreshAction, terminateAction, unterminateAction, Empty, SectionHeader, Grid, HStack,
 } from "@/components/common";
-import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableHeaderCell,
-  TableRow,
-  makeStyles,
+  Box24Regular, MoreVertical24Regular,
+} from "@/components/icons";
+import {
+  Button, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, makeStyles,
 } from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
+import {
+  useAppTranslation,
+} from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
-import { useDataCollectionLimitSetDialogs } from "./useDataCollectionLimitSetDialogs";
+import {
+  useSharedStyles,
+} from "@/styles/shared";
+import {
+  theme,
+} from "@/styles/theme";
+import {
+  useDataCollectionLimitSetDialogs,
+} from "./useDataCollectionLimitSetDialogs";
 
 const useDetailStyles = makeStyles({
   
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,

@@ -1,35 +1,40 @@
-import { useParams } from "@tanstack/react-router";
-import { useState } from "react";
-import { useChecklistDetail } from "@/api";
+import {
+  useParams,
+} from "@tanstack/react-router";
+import {
+  useState,
+} from "react";
+import {
+  useChecklistDetail,
+} from "@/api";
 import type { ChecklistInstance } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction,
-  DetailShell,
-  DetailTabs,
-  editAction,
-  Empty,
-  ListPage,
-  refreshAction,
-  terminateAction,
-  TileGrid,
-  unterminateAction,
-  DetailTabs,
-  Empty,
-  OptionItem,
-  SectionHeader, Grid, HStack, VStack 
+  cloneAction, DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, terminateAction, unterminateAction, OptionItem, SectionHeader, Grid, HStack, VStack,
 } from "@/components/common";
-import { Box24Regular, Eye20Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, makeStyles, TabList, Tab } from "@/components/ui";
-import { useAppTranslation } from "@/i18n";
+import {
+  Box24Regular, Eye20Regular, MoreVertical24Regular,
+} from "@/components/icons";
+import {
+  Button, makeStyles, TabList, Tab,
+} from "@/components/ui";
+import {
+  useAppTranslation,
+} from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
-import { useChecklistDialogs } from "./useChecklistDialogs";
+import {
+  useSharedStyles,
+} from "@/styles/shared";
+import {
+  theme,
+} from "@/styles/theme";
+import {
+  useChecklistDialogs,
+} from "./useChecklistDialogs";
 
 const useDetailStyles = makeStyles({
   
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,

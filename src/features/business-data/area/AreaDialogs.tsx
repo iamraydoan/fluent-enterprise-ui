@@ -2,9 +2,10 @@ import { useState } from "react";
 import { BaseDialog, DialogFooter, Empty, Grid, OptionItem } from "@/components/common";
 import { Button, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useManageDialogStyles = makeStyles({
-  row: { marginBottom: "8px" },
+  row: { marginBottom: theme.spacing.sm },
 });
 
 
@@ -49,7 +50,7 @@ export function ManageSupplyAreasDialog({
       }
     >
       <Text>{t("businessData.area.operations.manageSupplyAreasHint", { name: areaName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         {rows.length === 0 && <Empty>{t("businessData.area.operations.noSupplyAreas")}</Empty>}
         {rows.map((row) => (
           <Grid columns="minmax(0, 1fr) minmax(0, 1fr) auto" gap="12px" className={styles.row} style={{ alignItems: "center" }}>
@@ -123,7 +124,7 @@ export function ManageTransferRequirementTypesDialog({
       }
     >
       <Text>{t("businessData.area.operations.manageTransferTypesHint", { name: areaName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         {rows.length === 0 && <Empty>{t("businessData.area.operations.noTransferTypes")}</Empty>}
         {rows.map((row) => (
           <Grid columns="minmax(0, 1fr) minmax(0, 1fr) auto" gap="12px" className={styles.row} style={{ alignItems: "center" }}>

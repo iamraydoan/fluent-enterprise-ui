@@ -31,7 +31,7 @@ const useViewStyles = makeStyles({
     color: theme.color.textSecondary,
     marginTop: "auto",
   },
-  stateCount: { display: "flex", alignItems: "center", columnGap: "4px" },
+  stateCount: { display: "flex", alignItems: "center", columnGap: theme.spacing.xs },
   
   materialRow: {
     fontSize: "13px",

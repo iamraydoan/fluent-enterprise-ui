@@ -28,7 +28,7 @@ import { PanelSettingsDialog } from "./dialogs";
 
 const usePageStyles = makeStyles({
   tileCounts: { display: "flex", alignItems: "center", columnGap: "14px" },
-  tileCount: { display: "flex", alignItems: "center", columnGap: "4px", fontSize: "13px" },
+  tileCount: { display: "flex", alignItems: "center", columnGap: theme.spacing.xs, fontSize: "13px" },
   navItemActive: { backgroundColor: theme.color.surfaceSelected },
   navCount: { marginLeft: "auto", fontWeight: theme.font.weightSemibold },
   stepDot: {

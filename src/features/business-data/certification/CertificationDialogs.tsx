@@ -15,7 +15,7 @@ const useDialogStyles = makeStyles({
   fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.lg },
   empRow: {
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   }
 });
 
@@ -109,7 +109,7 @@ function EmployeeDialogShell({
         onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
         showGranted={showGranted}
       />
-      <FormField label={t("businessData.certification.operations.plannedDate")} labelWidth="170px" labelAlign="right" style={{ marginTop: "16px" }}>
+      <FormField label={t("businessData.certification.operations.plannedDate")} labelWidth="170px" labelAlign="right" style={{ marginTop: theme.spacing.lg }}>
         <Input type="date" value={plannedDate} onChange={setPlannedDate} />
       </FormField>
       <FormField

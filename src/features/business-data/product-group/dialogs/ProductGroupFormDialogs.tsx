@@ -413,7 +413,7 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
         />
       }
     >
-      <HStack align="center" justify="space-between" style={{marginBottom: "12px"}}>
+      <HStack align="center" justify="space-between" style={{marginBottom: theme.spacing.md}}>
         <Text weight="semibold">
           {t("businessData.productGroup.operations.clone.newInstances")}
         </Text>

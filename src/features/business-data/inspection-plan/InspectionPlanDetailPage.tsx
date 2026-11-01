@@ -173,7 +173,7 @@ export function InspectionPlanDetailPage({ name }: { name: string }) {
             ],
           ]}
         />
-        <HStack gap="8px" style={{marginTop: "12px"}}>
+        <HStack gap="8px" style={{marginTop: theme.spacing.md}}>
           <Button onClick={() => setManageConfigurationsOpen(true)}>
             {t("businessData.inspectionPlan.manageConfigurations.manage")}
           </Button>

@@ -40,7 +40,7 @@ const useScanStyles = makeStyles({
     minHeight: "20px",
   },
   typeRow: {
-    paddingTop: "4px",
+    paddingTop: theme.spacing.xs,
   },
   typeOption: {
     display: "flex",

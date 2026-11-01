@@ -22,11 +22,11 @@ const useViewStyles = makeStyles({
   },
   stepInfo: {
     width: "140px",
-    padding: "12px",
+    padding: theme.spacing.md,
     borderRight: `1px solid ${theme.color.borderSubtle}`,
   },
   resourceGrid: {
-    padding: "12px",
+    padding: theme.spacing.md,
   },
   resourceTile: {
     width: "110px",
@@ -48,9 +48,9 @@ const useViewStyles = makeStyles({
     color: theme.color.textTertiary,
     fontSize: "12px",
   },
-  undispatchCell: { padding: "8px", borderBottom: `1px solid ${theme.color.border}` },
+  undispatchCell: { padding: theme.spacing.sm, borderBottom: `1px solid ${theme.color.border}` },
   
-  infoCard: { padding: "12px", textAlign: "center" },
+  infoCard: { padding: theme.spacing.md, textAlign: "center" },
 });
 
 interface AreaViewProps {
@@ -166,7 +166,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                   <Text size={200} style={{ color: theme.color.textTertiary }}>
                     {step.description}
                   </Text>
-                  <HStack gap="8px" align="center" style={{marginTop: "8px"}}>
+                  <HStack gap="8px" align="center" style={{marginTop: theme.spacing.sm}}>
                     <span
                       style={{
                         width: "24px",

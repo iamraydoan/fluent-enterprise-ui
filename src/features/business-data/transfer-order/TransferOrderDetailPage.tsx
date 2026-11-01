@@ -55,7 +55,7 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.transferOrder.sections.items")} ({data.items.length})
         </Body1Strong>
-        <VStack gap="8px" style={{marginTop: "12px"}}>
+        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
           {data.items.map((item) => (
             <div
               key={item.material}

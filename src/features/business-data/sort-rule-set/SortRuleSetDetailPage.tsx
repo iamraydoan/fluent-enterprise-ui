@@ -59,7 +59,7 @@ export function SortRuleSetDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.sortRuleSet.manageRules")}</Button>
         </HStack>
-        <VStack gap="8px" style={{marginTop: "12px"}}>
+        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
           {data.rules.map((rule, index) => (
             <div key={rule.rule} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>

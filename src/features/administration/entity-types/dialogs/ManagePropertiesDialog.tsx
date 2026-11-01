@@ -30,7 +30,7 @@ const useDialogStyles = makeStyles({
     minHeight: 0,
   },
   listHead: {
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
   
   list: {
@@ -53,7 +53,7 @@ const useDialogStyles = makeStyles({
     fontSize: "13px",
     ":hover": { backgroundColor: theme.color.surfaceHover },
   },
-  formPane: { minHeight: 0, overflowY: "auto", paddingRight: "8px" },
+  formPane: { minHeight: 0, overflowY: "auto", paddingRight: theme.spacing.sm },
   sectionTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,

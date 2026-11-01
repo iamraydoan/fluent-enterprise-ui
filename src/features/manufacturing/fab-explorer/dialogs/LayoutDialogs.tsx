@@ -23,13 +23,13 @@ const useLayoutStyles = makeStyles({
       borderBottomRightRadius: "8px",
     },
   },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
   sectionRow: {
     padding: "8px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   
-  colTitle: { fontWeight: theme.font.weightSemibold, fontSize: "13px", marginBottom: "8px" },
+  colTitle: { fontWeight: theme.font.weightSemibold, fontSize: "13px", marginBottom: theme.spacing.sm },
   colBox: {
     border: `1px solid ${theme.color.border}`,
     borderRadius: "8px",
