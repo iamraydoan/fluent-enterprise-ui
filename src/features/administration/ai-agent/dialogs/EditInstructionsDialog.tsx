@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import type { ReactElement } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, HStack } from "@/components/common";
 import {
   ChevronDown16Regular,
   DocumentAdd20Regular,
@@ -40,7 +40,7 @@ import { theme } from "@/styles/theme";
 import { DialogAgentSub } from "./DialogAgentSub";
 
 const useEditStyles = makeStyles({
-  field: { display: "flex", columnGap: theme.spacing.md, padding: `0 ${theme.spacing["2xl"]}`, alignItems: "flex-start" },
+  field: { padding: `0 ${theme.spacing["2xl"]}` },
   label: {
     width: "110px",
     textAlign: "right",
@@ -57,10 +57,6 @@ const useEditStyles = makeStyles({
     backgroundColor: theme.color.surface,
   },
   toolbar: {
-    display: "flex",
-    alignItems: "center",
-    flexWrap: "wrap",
-    gap: "2px",
     padding: theme.spacing.xs,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surfaceSecondary,
@@ -231,13 +227,16 @@ export function EditInstructionsDialog({
       <div style={{ padding: "26px 32px 10px", fontSize: 14, color: theme.color.textPrimary }}>
         {t("dialogs.editInstructions.instructions")}
       </div>
-      <div className={editStyles.field}>
+      <HStack gap={theme.spacing.md} align="start" className={editStyles.field}>
         <div className={editStyles.label}>
           <span style={{ color: theme.color.textDanger }}>{t("dialogs.editInstructions.requiredMark")}</span>
           {t("dialogs.editInstructions.instructionsLabel")}
         </div>
         <div className={editStyles.editor}>
-          <div
+          <HStack
+            gap="2px"
+            align="center"
+            wrap
             className={editStyles.toolbar}
             role="toolbar"
             aria-label={t("dialogs.editInstructions.formatting")}
@@ -386,7 +385,7 @@ export function EditInstructionsDialog({
               label={t("common.moreOptions")}
               command="removeFormat"
             />
-          </div>
+          </HStack>
           <div
             ref={(element) => {
               if (element) {
@@ -407,7 +406,7 @@ export function EditInstructionsDialog({
             onMouseUp={rememberSelection}
           />
         </div>
-      </div>
+      </HStack>
     </BaseDialog>
   );
 }

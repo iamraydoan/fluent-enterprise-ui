@@ -24,8 +24,6 @@ import { theme } from "@/styles/theme";
 const ALL_FOLDERS = "all";
 
 const usePageStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
   sectionLabel: {
     fontSize: "11px",
     color: theme.color.textTertiary,

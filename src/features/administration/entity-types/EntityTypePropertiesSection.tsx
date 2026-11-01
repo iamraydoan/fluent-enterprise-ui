@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty } from "@/api";
-import { Card, FilterBar, FilterGroup, Section } from "@/components/common";
+import { Card, FilterBar, FilterGroup, HStack, Section, VStack } from "@/components/common";
 import {
   ArrowSync20Regular,
   Search20Regular,
@@ -27,21 +27,9 @@ import { searchTypeLabelKey, NOT_APPLICABLE } from "./propertyUtils";
 
 const useSectionStyles = makeStyles({
   toolbar: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "4px",
     padding: "8px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  filterBar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    columnGap: "16px",
-    padding: "10px 12px",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  list: { display: "flex", flexDirection: "column" },
   row: {
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
@@ -49,11 +37,8 @@ const useSectionStyles = makeStyles({
   rowSub: { fontSize: "12px", color: theme.color.textTertiary },
   rowBody: {
     padding: "4px 12px 12px 36px",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "4px",
   },
-  detailRow: { display: "flex", columnGap: "8px", fontSize: "13px" },
+  detailRow: { fontSize: "13px" },
   detailLabel: { color: theme.color.textTertiary, minWidth: "110px" },
   searchableBadge: {
     fontSize: "11px",
@@ -104,7 +89,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
 
   return (
     <Card title={t("entityTypes.properties.title", { count: properties.length })}>
-      <div className={styles.toolbar}>
+      <HStack align="center" gap="4px" className={styles.toolbar}>
         <Button
           variant="subtle"
           icon={<ArrowSync20Regular />}
@@ -121,7 +106,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
         >
           {t("entityTypes.properties.manage")}
         </Button>
-      </div>
+      </HStack>
       <FilterBar>
         <FilterGroup>
           <Checkbox
@@ -164,7 +149,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
           />
         </FilterGroup>
       </FilterBar>
-      <div className={styles.list} role="list">
+      <VStack gap="none" role="list">
         {visible.map((property) => (
           <PropertyRow
             key={property.name}
@@ -173,7 +158,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
             onToggle={() => toggle(property.name)}
           />
         ))}
-      </div>
+      </VStack>
       {manageOpen && (
         <ManagePropertiesDialog
           entityName={entityName}
@@ -216,31 +201,31 @@ function PropertyRow({
           ) : undefined
         }
       >
-        <div className={styles.rowBody}>
-          <div className={styles.detailRow}>
+        <VStack gap="4px" className={styles.rowBody}>
+          <HStack gap="8px" className={styles.detailRow}>
             <span className={styles.detailLabel}>{t("entityTypes.property.kind")}</span>
             <Text size={300}>{property.kind}</Text>
-          </div>
-          <div className={styles.detailRow}>
+          </HStack>
+          <HStack gap="8px" className={styles.detailRow}>
             <span className={styles.detailLabel}>{t("entityTypes.property.scalarType")}</span>
             <Text size={300}>
               {property.scalarType}
               {property.size !== undefined ? ` (${property.size})` : ""}
             </Text>
-          </div>
-          <div className={styles.detailRow}>
+          </HStack>
+          <HStack gap="8px" className={styles.detailRow}>
             <span className={styles.detailLabel}>{t("entityTypes.property.searchType")}</span>
             <Text size={300}>
               {property.searchable && property.searchType
                 ? t(searchTypeLabelKey(property.searchType))
                 : NOT_APPLICABLE}
             </Text>
-          </div>
-          <div className={styles.detailRow}>
+          </HStack>
+          <HStack gap="8px" className={styles.detailRow}>
             <span className={styles.detailLabel}>{t("entityTypes.property.enabled")}</span>
             <Text size={300}>{property.enabled ? t("common.yes") : t("common.no")}</Text>
-          </div>
-        </div>
+          </HStack>
+        </VStack>
       </Section>
     </div>
   );

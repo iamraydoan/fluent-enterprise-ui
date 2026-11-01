@@ -5,6 +5,7 @@ import {
   DataListPage,
   FilterBar,
   FilterGroup,
+  HStack,
   MenuTriggerButton,
   createAction,
   exportAction,
@@ -12,6 +13,8 @@ import {
   refreshAction,
   SidePanel,
   SidebarNavItem,
+  TileGrid,
+  VStack,
 } from "@/components/common";
 import { DocumentBulletList24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
 import {
@@ -34,17 +37,9 @@ const ALL_FOLDERS = "all";
 
 const usePageStyles = makeStyles({
   contentCard: {
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "12px",
     padding: "16px",
-    flexGrow: 1,
-    minHeight: 0,
   },
   grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-    gap: "12px",
     overflowY: "auto",
     paddingBottom: "8px",
   },
@@ -137,7 +132,11 @@ export function UIPagesPage() {
         </SidePanel>
       }
     >
-      <div className={mergeClasses(sharedStyles.contentCard, styles.contentCard)}>
+      <VStack
+        gap="12px"
+        grow
+        className={mergeClasses(sharedStyles.contentCard, styles.contentCard)}
+      >
         <FilterBar>
           <FilterGroup>
             <Checkbox
@@ -212,13 +211,13 @@ export function UIPagesPage() {
         {pages.length === 0 ? (
           <div className={styles.empty}>{t("uiPages.noPages")}</div>
         ) : (
-          <div className={styles.grid}>
+          <TileGrid minWidth="220px" className={styles.grid}>
             {pages.map((page) => (
               <UIPageTile key={page.name} page={page} />
             ))}
-          </div>
+          </TileGrid>
         )}
-      </div>
+      </VStack>
     </DataListPage>
   );
 }
@@ -230,10 +229,10 @@ function UIPageTile({ page }: { page: UIPageRecord }) {
       <Text weight="semibold" size={400} className={styles.tileName} title={page.name}>
         {page.name}
       </Text>
-      <div style={{ display: "flex", columnGap: "6px" }}>
+      <HStack gap="6px">
         <Text className={styles.tileMeta}>{page.type}</Text>
         <Text className={styles.tileMeta}>{page.scope}</Text>
-      </div>
+      </HStack>
       {page.description !== "" && (
         <Text className={styles.tileMeta} title={page.description}>
           {page.description}

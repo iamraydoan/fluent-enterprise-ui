@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import { HStack, VStack } from "./Stack";
-import type { StackGap } from "./Stack";
 import { makeStyles, mergeClasses } from "@/components/ui";
 import { theme } from "@/styles/theme";
+import { HStack, VStack } from "./Stack";
+import type { StackGap } from "./Stack";
 
 const useSplitStyles = makeStyles({
   root: { flexGrow: 1, minHeight: 0 },

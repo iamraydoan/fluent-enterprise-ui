@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useUpdateEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty, PropertySearchType } from "@/api";
-import { BaseDialog, OptionItem } from "@/components/common";
+import { BaseDialog, Grid, HStack, OptionItem, VStack } from "@/components/common";
 import { Add24Regular, Delete20Regular, Warning12Filled } from "@/components/icons";
 import {
   Button,
@@ -13,6 +13,7 @@ import {
   MenuList,
   MenuPopover,
   MenuTrigger,
+  mergeClasses,
   Text,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -22,22 +23,10 @@ import { DEFAULT_SEARCH_TYPE, isContainsSearchType, searchTypeLabelKey } from ".
 const MAX_SEARCHABLE = 2;
 
 const useDialogStyles = makeStyles({
-  bodyGrid: {
-    display: "grid",
-    gridTemplateColumns: "300px minmax(0, 1fr)",
-    columnGap: "24px",
-    flexGrow: 1,
-    minHeight: 0,
-  },
-  headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
-  listPane: { display: "flex", flexDirection: "column", minHeight: 0 },
+  listPane: { minHeight: 0 },
   listHead: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     marginBottom: "8px",
   },
-  listActions: { display: "flex", columnGap: "4px" },
   list: {
     flexGrow: 1,
     minHeight: 0,
@@ -52,17 +41,10 @@ const useDialogStyles = makeStyles({
     margin: "16px 0 8px",
   },
   fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "160px minmax(0, 1fr)",
-    alignItems: "center",
-    columnGap: "12px",
     marginBottom: "8px",
   },
   fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
   alert: {
-    display: "flex",
-    alignItems: "flex-start",
-    columnGap: "8px",
     padding: "10px 12px",
     borderRadius: theme.radius.md,
     marginBottom: "12px",
@@ -147,13 +129,13 @@ export function ManagePropertiesDialog({
         </>
       }
     >
-      <div className={styles.bodyGrid}>
-        <div className={styles.listPane}>
-          <div className={styles.listHead}>
+      <Grid columns="300px minmax(0, 1fr)" gap="24px" grow>
+        <VStack gap="none" className={styles.listPane}>
+          <HStack align="center" justify="between" gap="none" className={styles.listHead}>
             <Text weight="semibold" size={300}>
               {t("entityTypes.manage.properties")}
             </Text>
-            <div className={styles.listActions}>
+            <HStack gap="4px">
               <Button
                 variant="subtle"
                 size="sm"
@@ -168,8 +150,8 @@ export function ManagePropertiesDialog({
                 aria-label={t("entityTypes.manage.remove")}
                 onClick={() => {}}
               />
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             className={styles.list}
             role="listbox"
@@ -186,19 +168,29 @@ export function ManagePropertiesDialog({
               </OptionItem>
             ))}
           </div>
-        </div>
+        </VStack>
         <div className={styles.formPane}>
           {error && (
-            <div className={`${styles.alert} ${styles.alertError}`} role="alert">
+            <HStack
+              align="start"
+              gap="8px"
+              className={mergeClasses(styles.alert, styles.alertError)}
+              role="alert"
+            >
               <Warning12Filled />
               <span>{error}</span>
-            </div>
+            </HStack>
           )}
           {hasContains && (
-            <div className={`${styles.alert} ${styles.alertWarning}`} role="status">
+            <HStack
+              align="start"
+              gap="8px"
+              className={mergeClasses(styles.alert, styles.alertWarning)}
+              role="status"
+            >
               <Warning12Filled />
               <span>{t("entityTypes.manage.containsWarning")}</span>
-            </div>
+            </HStack>
           )}
           {selectedProperty && (
             <PropertyForm
@@ -207,7 +199,7 @@ export function ManagePropertiesDialog({
             />
           )}
         </div>
-      </div>
+      </Grid>
     </BaseDialog>
   );
 }
@@ -227,11 +219,11 @@ function PropertyForm({
   return (
     <>
       <div className={styles.sectionTitle}>{t("entityTypes.manage.propertyDetails")}</div>
-      <div className={styles.fieldRow}>
+      <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("entityTypes.property.name")}</span>
         <Text size={300}>{property.name}</Text>
-      </div>
-      <div className={styles.fieldRow}>
+      </Grid>
+      <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("entityTypes.property.description")}</span>
         <Input
           size="sm"
@@ -239,38 +231,38 @@ function PropertyForm({
           onChange={(value) => onPatch({ description: value })}
           disabled={property.isSystem}
         />
-      </div>
-      <div className={styles.fieldRow}>
+      </Grid>
+      <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("entityTypes.property.kind")}</span>
         <Text size={300}>{property.kind}</Text>
-      </div>
-      <div className={styles.fieldRow}>
+      </Grid>
+      <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("entityTypes.property.enabled")}</span>
         <Checkbox
           checked={property.enabled}
           onChange={(checked) => onPatch({ enabled: checked === true })}
           disabled={property.isSystem}
         />
-      </div>
+      </Grid>
 
       <div className={styles.sectionTitle}>{t("entityTypes.manage.content")}</div>
-      <div className={styles.fieldRow}>
+      <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("entityTypes.property.referenceType")}</span>
         <Text size={300}>{property.referenceType}</Text>
-      </div>
-      <div className={styles.fieldRow}>
+      </Grid>
+      <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("entityTypes.property.scalarType")}</span>
         <Text size={300}>{property.scalarType}</Text>
-      </div>
+      </Grid>
       {property.size !== undefined && (
-        <div className={styles.fieldRow}>
+        <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
           <span className={styles.fieldLabel}>{t("entityTypes.property.size")}</span>
           <Text size={300}>{property.size}</Text>
-        </div>
+        </Grid>
       )}
 
       <div className={styles.sectionTitle}>{t("entityTypes.manage.flags")}</div>
-      <div className={styles.fieldRow}>
+      <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
         <span className={styles.fieldLabel}>{t("entityTypes.property.searchable")}</span>
         <Checkbox
           checked={property.searchable}
@@ -283,15 +275,15 @@ function PropertyForm({
             });
           }}
         />
-      </div>
+      </Grid>
       {!searchableAllowed && !isName && (
-        <div className={styles.fieldRow}>
+        <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
           <span />
           <Text size={200}>{t("entityTypes.manage.searchableNotAllowed")}</Text>
-        </div>
+        </Grid>
       )}
       {property.searchable && (
-        <div className={styles.fieldRow}>
+        <Grid columns="160px minmax(0, 1fr)" gap="12px" align="center" className={styles.fieldRow}>
           <span className={styles.fieldLabel}>{t("entityTypes.property.searchType")}</span>
           <Menu>
             <MenuTrigger disableButtonEnhancement>
@@ -317,7 +309,7 @@ function PropertyForm({
               </MenuList>
             </MenuPopover>
           </Menu>
-        </div>
+        </Grid>
       )}
     </>
   );
