@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, SectionHeader, Grid, HStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, Section } from "@/components/common";
 import { ArrowDown20Regular, ArrowUp20Regular, Delete20Regular } from "@/components/icons";
-import { Button, Checkbox, Text, makeStyles, mergeClasses } from "@/components/ui";
+import { Button, Checkbox, Text, makeStyles, mergeClasses} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  
+  columns: { display: "grid", gridTemplateColumns: "1fr 220px", gap: "16px" },
   columnTitle: {
-    marginBottom: theme.spacing.sm,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: "8px",
   },
   list: {
     border: `1px solid ${theme.color.borderSubtle}`,
@@ -16,6 +19,9 @@ const useDialogStyles = makeStyles({
     overflow: "hidden",
   },
   headerRow: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "10px",
     padding: "10px 12px",
     backgroundColor: theme.color.surfaceSecondary,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
@@ -25,6 +31,9 @@ const useDialogStyles = makeStyles({
     letterSpacing: "0.5px",
   },
   row: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "10px",
     padding: "10px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
@@ -32,6 +41,9 @@ const useDialogStyles = makeStyles({
   },
   rowSelected: { backgroundColor: theme.color.surfaceSelected },
   selectedRow: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "8px",
     padding: "10px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
@@ -44,9 +56,9 @@ const useDialogStyles = makeStyles({
   },
   toolbar: { display: "flex", alignItems: "center", columnGap: "2px" },
   comments: {
-    marginTop: theme.spacing.lg,
+    marginTop: "16px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
-    paddingTop: theme.spacing.md,
+    paddingTop: "12px",
   },
 });
 
@@ -116,18 +128,18 @@ export function PanelSettingsDialog({
         />
       }
     >
-      <Grid columns="1fr 220px" gap="16px">
+      <div className={styles.columns}>
         <div>
-          <HStack align="center" justify="space-between" className={styles.columnTitle}>
+          <div className={styles.columnTitle}>
             <Text weight="semibold">
               {t("myWorkgroup.panelSettings.availableSections")} ({ALL_PANELS.length}){" "}
               <Text size={300} style={{ color: theme.color.textTertiary }}>
                 / {t("myWorkgroup.panelSettings.itemsSelected", { count: selected.length })}
               </Text>
             </Text>
-          </HStack>
+          </div>
           <div className={styles.list} role="listbox" aria-multiselectable>
-            <HStack gap="10px" align="center" className={styles.headerRow}>
+            <div className={styles.headerRow}>
               <Checkbox
                 checked={selected.length === ALL_PANELS.length}
                 onChange={() =>
@@ -136,14 +148,12 @@ export function PanelSettingsDialog({
                 aria-label={t("myWorkgroup.panelSettings.sections")}
               />
               <span>{t("myWorkgroup.panelSettings.sections")}</span>
-            </HStack>
+            </div>
             {ALL_PANELS.map((panel) => (
-              <HStack
-                gap="10px"
-                align="center"
+              <div
                 key={panel}
-                onClick={() => toggle(panel)}
                 className={mergeClasses(styles.row, selected.includes(panel) && styles.rowSelected)}
+                onClick={() => toggle(panel)}
                 role="option"
                 aria-selected={selected.includes(panel)}
               >
@@ -154,12 +164,12 @@ export function PanelSettingsDialog({
                   aria-label={panelLabel(panel)}
                 />
                 <span>{panelLabel(panel)}</span>
-              </HStack>
+              </div>
             ))}
           </div>
         </div>
         <div>
-          <HStack align="center" justify="space-between" className={styles.columnTitle}>
+          <div className={styles.columnTitle}>
             <Text weight="semibold">
               {t("myWorkgroup.panelSettings.selectedSections")} ({selected.length})
             </Text>
@@ -183,10 +193,10 @@ export function PanelSettingsDialog({
                 onClick={() => move(0, 1)}
               />
             </span>
-          </HStack>
+          </div>
           <div className={styles.list}>
             {selected.map((panel) => (
-              <HStack gap="8px" align="center" key={panel} className={styles.selectedRow}>
+              <div key={panel} className={styles.selectedRow}>
                 <span className={styles.dragHandle} aria-hidden>
                   {DRAG_HANDLE}
                 </span>
@@ -197,31 +207,28 @@ export function PanelSettingsDialog({
                   aria-label={t("common.remove")}
                   onClick={() => remove(panel)}
                 />
-              </HStack>
+              </div>
             ))}
             {selected.length === 0 && (
-              <HStack gap="8px" align="center" className={styles.selectedRow}>
+              <div className={styles.selectedRow}>
                 <Text size={300} style={{ color: theme.color.textTertiary }}>
                   {EMPTY_DASH}
                 </Text>
-              </HStack>
+              </div>
             )}
           </div>
         </div>
-      </Grid>
-      <div className={styles.comments}>
-        <SectionHeader
-          title={t("myWorkgroup.panelSettings.comments")}
-          collapsible
-          expanded={commentsOpen}
-          onToggle={() => setCommentsOpen((v) => !v)}
-        />
-        {commentsOpen && (
-          <Text size={300} style={{ color: theme.color.textTertiary }}>
-            {EMPTY_DASH}
-          </Text>
-        )}
       </div>
+      <Section
+        title={`${t("myWorkgroup.panelSettings.comments")}:`}
+        collapsible
+        expanded={commentsOpen}
+        onExpandedChange={setCommentsOpen}
+      >
+        <Text size={300} style={{ color: theme.color.textTertiary }}>
+          {EMPTY_DASH}
+        </Text>
+      </Section>
     </BaseDialog>
   );
 }

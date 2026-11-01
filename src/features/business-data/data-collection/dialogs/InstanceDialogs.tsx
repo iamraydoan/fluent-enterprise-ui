@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { DataCollectionInstance } from "@/api";
-import { BaseDialog, Empty } from "@/components/common";
-import { Button, Input, Textarea, TabList, Tab } from "@/components/ui";
+import { BaseDialog } from "@/components/common";
+import { Button, Input, Tab, TabList, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { MiniSelect } from "../../components/MiniSelect";
 import { useDialogStyles } from "./dialogStyles";
@@ -130,13 +130,13 @@ export function ViewDataCollectionInstanceDialog({
         </Button>
       }
     >
-      <TabList selectedValue={tab} onTabSelect={(v) => setTab(v as "data" | "context")} size="sm">
+      <TabList selectedValue={tab} onTabSelect={(value) => setTab(value as "data" | "context")} aria-label={t("businessData.dataCollection.operations.viewInstanceTitle")}>
         <Tab value="data">{t("businessData.dataCollection.operations.dataTab")}</Tab>
         <Tab value="context">{t("businessData.dataCollection.operations.contextTab")}</Tab>
       </TabList>
       {tab === "data" ? (
         instance.postedData.length === 0 ? (
-          <Empty>{t("businessData.dataCollection.operations.noData")}</Empty>
+          <div className={styles.empty}>{t("businessData.dataCollection.operations.noData")}</div>
         ) : (
           instance.postedData.map((d) => (
             <div key={d.parameter} className={styles.kvRow}>

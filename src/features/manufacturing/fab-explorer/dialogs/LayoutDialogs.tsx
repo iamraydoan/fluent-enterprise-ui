@@ -1,35 +1,21 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, OptionItem, Grid, HStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, OptionItem } from "@/components/common";
 import { Checkbox, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useLayoutStyles = makeStyles({
-  option: {
-    display: "block",
-    width: "100%",
-    textAlign: "left",
-    padding: `${theme.spacing.md} ${theme.spacing.lg}`,
-    border: `1px solid ${theme.color.border}`,
-    borderBottom: "none",
-    backgroundColor: theme.color.surface,
-    cursor: "pointer",
-    fontSize: "13px",
-    ":first-of-type": { borderTopLeftRadius: "8px", borderTopRightRadius: "8px" },
-    ":last-of-type": {
-      borderBottom: `1px solid ${theme.color.border}`,
-      borderBottomLeftRadius: "8px",
-      borderBottomRightRadius: "8px",
-    },
-  },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   sectionRow: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "8px",
     padding: "8px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  
-  colTitle: { fontWeight: theme.font.weightSemibold, fontSize: "13px", marginBottom: theme.spacing.sm },
+  twoCol: { display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: "16px" },
+  colTitle: { fontWeight: theme.font.weightSemibold, fontSize: "13px", marginBottom: "8px" },
   colBox: {
     border: `1px solid ${theme.color.border}`,
     borderRadius: "8px",
@@ -50,6 +36,8 @@ export function SaveLayoutDialog({
   const { t } = useAppTranslation();
   const styles = useLayoutStyles();
   const [scope, setScope] = useState<"mine" | "all">("mine");
+  const SCOPE_MINE = "mine";
+  const SCOPE_ALL = "all";
   return (
     <BaseDialog
       open={open}
@@ -66,16 +54,12 @@ export function SaveLayoutDialog({
       <div className={styles.hint}>
         {t("manufacturing.fabExplorer.dialogs.saveLayout.selectOption")}
       </div>
-      <OptionItem
-        title={t("manufacturing.fabExplorer.dialogs.saveLayout.saveAsMyDefault")}
-        selected={scope === "mine"}
-        onClick={() => setScope("mine")}
-      />
-      <OptionItem
-        title={t("manufacturing.fabExplorer.dialogs.saveLayout.saveAsDefaultForAllUsers")}
-        selected={scope === "all"}
-        onClick={() => setScope("all")}
-      />
+      <OptionItem selected={scope === SCOPE_MINE} onClick={() => setScope(SCOPE_MINE)}>
+        {t("manufacturing.fabExplorer.dialogs.saveLayout.saveAsMyDefault")}
+      </OptionItem>
+      <OptionItem selected={scope === SCOPE_ALL} onClick={() => setScope(SCOPE_ALL)}>
+        {t("manufacturing.fabExplorer.dialogs.saveLayout.saveAsDefaultForAllUsers")}
+      </OptionItem>
     </BaseDialog>
   );
 }
@@ -122,10 +106,11 @@ export function ResetLayoutDialog({
       {options.map((opt) => (
         <OptionItem
           key={opt.value}
-          title={t(opt.labelKey)}
           selected={scope === opt.value}
           onClick={() => setScope(opt.value)}
-        />
+        >
+          {t(opt.labelKey)}
+        </OptionItem>
       ))}
     </BaseDialog>
   );
@@ -169,7 +154,7 @@ export function PanelSettingsDialog({
         />
       }
     >
-      <Grid columns="1fr 1fr" gap="16px">
+      <div className={styles.twoCol}>
         <div>
           <div className={styles.colTitle}>
             {t("manufacturing.fabExplorer.dialogs.panelSettings.availableSections")} (
@@ -177,13 +162,13 @@ export function PanelSettingsDialog({
           </div>
           <div className={styles.colBox}>
             {sections.map((s) => (
-              <HStack gap="8px" align="center" key={s.id} className={styles.sectionRow}>
+              <div key={s.id} className={styles.sectionRow}>
                 <Checkbox checked={current.includes(s.id)} onChange={() => toggle(s.id)} />
                 <Text size={300}>
                   {s.label}
                   {s.count !== undefined ? ` (${s.count})` : ""}
                 </Text>
-              </HStack>
+              </div>
             ))}
           </div>
         </div>
@@ -196,14 +181,14 @@ export function PanelSettingsDialog({
             {current.map((id) => {
               const s = sections.find((sec) => sec.id === id);
               return (
-                <HStack gap="8px" align="center" key={id} className={styles.sectionRow}>
+                <div key={id} className={styles.sectionRow}>
                   <Text size={300}>{s?.label ?? id}</Text>
-                </HStack>
+                </div>
               );
             })}
           </div>
         </div>
-      </Grid>
+      </div>
     </BaseDialog>
   );
 }

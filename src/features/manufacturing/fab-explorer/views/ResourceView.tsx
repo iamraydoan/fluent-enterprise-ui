@@ -6,7 +6,6 @@ import {
   useFabResourceDetail,
   useResourceMaterials,
 } from "@/api";
-import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
 import {
   ActionBar,
   DataTableCard,
@@ -14,8 +13,9 @@ import {
   RibbonButton,
   SidePanel,
   SidebarNavItem,
-  searchFilter, HStack, VStack 
+  searchFilter,
 } from "@/components/common";
+import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
 import {
   ArrowSync24Regular,
   Box24Regular,
@@ -23,7 +23,7 @@ import {
   Send24Regular,
   Settings20Regular,
 } from "@/components/icons";
-import { Text, makeStyles, TabList, Tab } from "@/components/ui";
+import { Tab, TabList, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
@@ -62,89 +62,45 @@ import type { PanelSection } from "../dialogs";
 import { MATERIAL_COLUMNS } from "./materialColumns";
 
 const useViewStyles = makeStyles({
-  page: {
-    height: "100%",
-    minHeight: 0,
-  },
+  page: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0 },
   header: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "12px",
     padding: "8px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surface,
   },
-  backBtn: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: theme.radius.md,
-    display: "flex",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  body: {
-    minHeight: 0,
-    padding: "10px",
-  },
-  left: {
-    width: "230px",
-    minHeight: 0,
-  },
-  center: {
-    minWidth: 0,
-  },
-  right: {
-    width: "260px",
-    minHeight: 0,
-  },
+  body: { display: "flex", flexGrow: 1, minHeight: 0, columnGap: "10px", padding: "10px" },
+  left: { width: "230px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
+  center: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "8px" },
+  right: { width: "260px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
   filterBar: {
     display: "flex",
     alignItems: "center",
-    columnGap: theme.spacing.md,
+    columnGap: "12px",
     flexWrap: "wrap",
-    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
+    padding: "8px 12px",
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
   },
-  catRow: {
+  sectionHead: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "100%",
-    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    textAlign: "left",
-    fontSize: "13px",
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  sectionHead: {
     padding: "8px 4px",
   },
   detailCard: {
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
+    padding: "12px",
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "8px",
   },
-  toolbarRight: {
-    marginLeft: "auto",
-  },
-  tab: {
-    padding: `${theme.spacing.sm} ${theme.spacing.lg}`,
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontSize: "13px",
-    textTransform: "uppercase",
-    borderBottom: "2px solid transparent",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  tabActive: {
-    fontWeight: theme.font.weightSemibold,
-    borderBottom: `2px solid ${theme.color.borderBrand}`,
-  },
+  toolbarRight: { marginLeft: "auto", display: "flex", columnGap: "4px" },
 });
 
 type Category =
@@ -431,13 +387,12 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
   };
 
   return (
-    <VStack className={styles.page}>
-      <HStack gap="12px" align="center" className={styles.header}>
+    <div className={styles.page}>
+      <div className={styles.header}>
         <IconButton
           icon={<ChevronLeft20Regular />}
           onClick={onBack}
-          aria-label={t("manufacturing.fabExplorer.resourceView.back")}
-          size="sm"
+          ariaLabel={t("manufacturing.fabExplorer.resourceView.back")}
         />
         <Text weight="semibold" size={400}>
           {name}
@@ -447,7 +402,7 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
             {detail.state} ({detail.systemState})
           </Text>
         )}
-      </HStack>
+      </div>
 
       {isStorage ? (
         <ActionBar>
@@ -476,7 +431,7 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
             label={t("manufacturing.fabExplorer.operations.more")}
             menu={moreMenu}
           />
-          <HStack gap="4px" className={styles.toolbarRight}>
+          <div className={styles.toolbarRight}>
             <RibbonButton
               icon={<Box24Regular />}
               label={t("manufacturing.fabExplorer.layout.views")}
@@ -486,7 +441,7 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
               label={t("manufacturing.fabExplorer.layout.layout")}
               menu={layoutMenu}
             />
-          </HStack>
+          </div>
         </ActionBar>
       ) : (
         <ActionBar>
@@ -550,7 +505,7 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
             label={t("manufacturing.fabExplorer.operations.more")}
             menu={moreMenu}
           />
-          <HStack gap="4px" className={styles.toolbarRight}>
+          <div className={styles.toolbarRight}>
             <RibbonButton
               icon={<Box24Regular />}
               label={t("manufacturing.fabExplorer.layout.views")}
@@ -560,41 +515,40 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
               label={t("manufacturing.fabExplorer.layout.layout")}
               menu={layoutMenu}
             />
-          </HStack>
+          </div>
         </ActionBar>
       )}
 
-      <HStack gap="10px" className={styles.body}>
+      <div className={styles.body}>
         {!isStorage && (
-          <VStack className={styles.left}>
+          <div className={styles.left}>
             <SidePanel
               title={t("manufacturing.fabExplorer.stepView.columns.resource")}
               collapsed={false}
               onToggle={() => undefined}
             >
-              <HStack align="center" justify="space-between" className={styles.sectionHead}>
+              <div className={styles.sectionHead}>
                 <span />
                 <IconButton
                   icon={<Settings20Regular />}
-                  aria-label={t("manufacturing.fabExplorer.resourceView.panelSettings")}
+                  ariaLabel={t("manufacturing.fabExplorer.resourceView.panelSettings")}
                   onClick={() => setDlg(DLG.panelSettings)}
-                  size="sm"
                 />
-              </HStack>
+              </div>
               {visibleCategories.map((cat) => (
                 <SidebarNavItem
                   key={cat}
                   label={t(L[cat])}
-                  count={categoryCount(cat)}
                   active={category === cat}
                   onClick={() => selectCategory(cat)}
+                  endContent={<Text size={300}>{categoryCount(cat)}</Text>}
                 />
               ))}
             </SidePanel>
-          </VStack>
+          </div>
         )}
 
-        <VStack gap="8px" className={styles.center}>
+        <div className={styles.center}>
           {isStorage ? (
             <>
               <Text weight="semibold" size={400}>
@@ -602,9 +556,8 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
               </Text>
               <TabList
                 selectedValue={storageTab}
-                onTabSelect={(v) => setStorageTab(v as "storable" | "stored")}
-                size="sm"
-                aria-label={t("manufacturing.fabExplorer.resourceView.storageTitle", { count: 0 })}
+                onTabSelect={(value) => setStorageTab(value as typeof storageTab)}
+                aria-label={t("manufacturing.fabExplorer.resourceView.resourceMaterials")}
               >
                 {STORAGE_TABS.map((tab) => (
                   <Tab key={tab} value={tab}>
@@ -644,11 +597,11 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
               apiRef={gridApiRef}
             />
           )}
-        </VStack>
+        </div>
 
         {!isStorage && (
-          <VStack className={styles.right}>
-            <VStack gap="8px" className={styles.detailCard}>
+          <div className={styles.right}>
+            <div className={styles.detailCard}>
               <Text size={300} weight="semibold">
                 {t("manufacturing.fabExplorer.stepView.details")}
               </Text>
@@ -662,10 +615,10 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
                 {t("manufacturing.fabExplorer.stepView.documents")} (1)
               </Text>
               <Text size={300}>{MOCK_DOC}</Text>
-            </VStack>
-          </VStack>
+            </div>
+          </div>
         )}
-      </HStack>
+      </div>
 
       <DispatchDialog
         open={dlg === DLG.dispatch}
@@ -833,6 +786,6 @@ export function ResourceView({ name, onBack }: { name: string; onBack: () => voi
           closeDlg();
         }}
       />
-    </VStack>
+    </div>
   );
 }

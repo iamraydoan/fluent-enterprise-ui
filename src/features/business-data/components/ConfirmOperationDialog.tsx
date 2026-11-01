@@ -1,6 +1,6 @@
-import { IconButton, Grid, HStack, VStack  } from "@/components/common";
+import { IconButton } from "@/components/common";
 import { Dismiss16Regular, Warning20Filled } from "@/components/icons";
-import { Button, Text, makeStyles } from "@/components/ui";
+import { Button, Text, makeStyles} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
@@ -11,39 +11,43 @@ const useConfirmStyles = makeStyles({
     position: "fixed",
     inset: 0,
     zIndex: 1000,
+    display: "grid",
     placeItems: "center",
-    padding: theme.spacing.xl,
+    padding: "24px",
     boxSizing: "border-box",
     backgroundColor: "rgba(0, 0, 0, 0.4)",
   },
   surface: {
     width: "min(480px, calc(100vw - 48px))",
+    display: "flex",
+    flexDirection: "column",
     overflow: "hidden",
     ...cardSurface,
   },
   head: {
-    minHeight: "52px",
-    padding: `0 ${theme.spacing.lg}`,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  closeButton: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: theme.radius.md,
     display: "flex",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
+    alignItems: "center",
+    justifyContent: "space-between",
+    minHeight: "52px",
+    padding: "0 16px",
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
+    flexShrink: 0,
   },
   body: {
+    display: "flex",
+    columnGap: "12px",
     padding: "20px 24px",
+    alignItems: "flex-start",
   },
   warningIcon: { color: theme.color.textWarning, flexShrink: 0, marginTop: "2px" },
   dangerIcon: { color: theme.color.textDanger, flexShrink: 0, marginTop: "2px" },
   foot: {
+    display: "flex",
+    justifyContent: "flex-end",
+    columnGap: "8px",
     padding: "12px 24px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
-  }
+  },
 });
 
 interface ConfirmOperationDialogProps {
@@ -73,19 +77,19 @@ export function ConfirmOperationDialog({
   if (!open) return null;
 
   return (
-    <Grid onClick={onClose} className={styles.overlay}>
-      <VStack onClick={(event) => event.stopPropagation()} className={styles.surface}>
-        <HStack align="center" justify="space-between" className={styles.head}>
+    <div className={styles.overlay} onClick={onClose}>
+      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
+        <div className={styles.head}>
           <Text weight="semibold">{t(titleKey)}</Text>
-          <IconButton icon={<Dismiss16Regular />} onClick={onClose} aria-label={t("common.close")} size="sm" />
-        </HStack>
-        <HStack gap="12px" align="flex-start" className={styles.body}>
+          <IconButton icon={<Dismiss16Regular />} onClick={onClose} ariaLabel={t("common.close")} />
+        </div>
+        <div className={styles.body}>
           <span className={danger ? styles.dangerIcon : styles.warningIcon}>
             <Warning20Filled />
           </span>
           <Text>{t(messageKey, messageParams)}</Text>
-        </HStack>
-        <HStack gap="8px" justify="flex-end" className={styles.foot}>
+        </div>
+        <div className={styles.foot}>
           <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
@@ -98,8 +102,8 @@ export function ConfirmOperationDialog({
           >
             {t(confirmLabelKey)}
           </Button>
-        </HStack>
-      </VStack>
-    </Grid>
+        </div>
+      </div>
+    </div>
   );
 }

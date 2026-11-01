@@ -1,74 +1,50 @@
-import {
-  useParams,
-} from "@tanstack/react-router";
-import {
-  useState,
-} from "react";
-import {
-  useChecklistDetail,
-} from "@/api";
+import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
+import { useChecklistDetail } from "@/api";
 import type { ChecklistInstance } from "@/api";
-import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction, DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, terminateAction, unterminateAction, OptionItem, SectionHeader, Grid, HStack, VStack,
+  DetailShell,
+  EntityTile,
+  ListPage,
+  cloneAction,
+  editAction,
+  refreshAction,
+  terminateAction,
+  unterminateAction,
+  DetailTabs,
 } from "@/components/common";
-import {
-  Box24Regular, Eye20Regular, MoreVertical24Regular,
-} from "@/components/icons";
-import {
-  Button, makeStyles, TabList, Tab,
-} from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import type { HeaderAction } from "@/components/common";
+import { Box24Regular, Eye20Regular, MoreVertical24Regular } from "@/components/icons";
+import { Button, Tab, TabList, Text, makeStyles} from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import {
-  useSharedStyles,
-} from "@/styles/shared";
-import {
-  theme,
-} from "@/styles/theme";
-import {
-  useChecklistDialogs,
-} from "./useChecklistDialogs";
+import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
+import { useChecklistDialogs } from "./useChecklistDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  cards: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: "12px",
+  },
+  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
+    paddingBottom: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: {
-    fontSize: "13px",
-  },
+  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
-  
-  
-  itemButton: {
-    textAlign: "left",
-    padding: `10px ${theme.spacing.md}`,
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    borderRadius: "4px",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
+  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
+  split: {
+    display: "grid",
+    gridTemplateColumns: "minmax(320px, 2fr) 3fr",
+    gap: "12px",
+    alignItems: "start",
   },
-  subTabs: {
-    display: "flex",
-    columnGap: theme.spacing.xs,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    marginBottom: theme.spacing.md,
-  },
-  subTabActive: {
-    color: theme.color.textBrand,
-    borderBottom: `2px solid ${theme.color.borderBrand}`,
-    fontWeight: theme.font.weightSemibold,
-  },
+  itemList: { display: "flex", flexDirection: "column", rowGap: "4px" },
 });
 
 const TABS = ["details", "checklistItems", "compare", "references", "history"] as const;
@@ -116,7 +92,7 @@ export function ChecklistDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <Empty>{t("businessData.checklist.detail.loading")}</Empty>
+        <div className={styles.empty}>{t("businessData.checklist.detail.loading")}</div>
       </ListPage>
     );
   }
@@ -181,12 +157,16 @@ export function ChecklistDetailPage() {
           >
             {showInstances ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.checklist.detail.instancesTitle", {
+                <Text className={styles.cardTitle}>
+                  {t("businessData.checklist.detail.instancesTitle", {
                     count: cl.instances.length,
-                  })} />
-                <VStack gap="4px">
+                  })}
+                </Text>
+                <div className={styles.itemList}>
                   {cl.instances.length === 0 && (
-                    <Empty>{t("businessData.checklist.detail.noInstances")}</Empty>
+                    <div className={styles.empty}>
+                      {t("businessData.checklist.detail.noInstances")}
+                    </div>
                   )}
                   {cl.instances.map((i) => (
                     <InstanceRow
@@ -199,12 +179,14 @@ export function ChecklistDetailPage() {
                       onDeviation={() => openDeviation(i)}
                     />
                   ))}
-                </VStack>
+                </div>
               </div>
             ) : (
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
+              <div className={styles.cards}>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.checklist.detail.checklist")} />
+                  <Text className={styles.cardTitle}>
+                    {t("businessData.checklist.detail.checklist")}
+                  </Text>
                   <KV label={t("businessData.checklist.detail.name")} value={cl.name} />
                   <KV
                     label={t("businessData.checklist.detail.description")}
@@ -218,7 +200,9 @@ export function ChecklistDetailPage() {
                   <KV label={t("businessData.checklist.detail.dataGroup")} value={cl.dataGroup} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.checklist.detail.information")} />
+                  <Text className={styles.cardTitle}>
+                    {t("businessData.checklist.detail.information")}
+                  </Text>
                   <KV label={t("businessData.checklist.detail.scope")} value={cl.scope} />
                   <KV
                     label={t("businessData.checklist.detail.executionMode")}
@@ -243,17 +227,19 @@ export function ChecklistDetailPage() {
                     value={cl.standardDuration}
                   />
                 </div>
-              </Grid>
+              </div>
             )}
           </DetailShell>
         )}
         {tab === "checklistItems" && (
           <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-            <SectionHeader title={t("businessData.checklist.detail.itemsTitle", { count: cl.items.length })} />
-            <Grid columns="minmax(320px, 2fr) 3fr" gap="12px" align="start">
-              <VStack gap="4px">
+            <Text className={styles.cardTitle}>
+              {t("businessData.checklist.detail.itemsTitle", { count: cl.items.length })}
+            </Text>
+            <div className={styles.split}>
+              <div className={styles.itemList}>
                 {cl.items.map((i, idx) => (
-                  <OptionItem
+                  <EntityTile
                     key={i.name}
                     title={i.name}
                     description={i.description}
@@ -261,10 +247,16 @@ export function ChecklistDetailPage() {
                     onClick={() => setItemIdx(idx)}
                   />
                 ))}
-              </VStack>
+              </div>
               {item && (
                 <div>
-                  <TabList selectedValue={subTab} onTabSelect={setSubTab} size="sm">
+                  <TabList
+                    selectedValue={subTab}
+                    onTabSelect={setSubTab}
+                    aria-label={t("businessData.checklist.detail.itemsTitle", {
+                      count: cl.items.length,
+                    })}
+                  >
                     {SUB_TABS.map((v) => (
                       <Tab key={v} value={v}>
                         {t(`businessData.checklist.detail.subTabs.${v}`)}
@@ -272,7 +264,7 @@ export function ChecklistDetailPage() {
                     ))}
                   </TabList>
                   {subTab === "generalData" && (
-                    <VStack gap={12}>
+                    <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
                       <KV label={t("businessData.checklist.detail.itemName")} value={item.name} />
                       <KV
                         label={t("businessData.checklist.detail.activityType")}
@@ -294,18 +286,20 @@ export function ChecklistDetailPage() {
                         label={t("businessData.checklist.detail.floating")}
                         value={item.floating}
                       />
-                    </VStack>
+                    </div>
                   )}
                   {subTab !== "generalData" && (
-                    <Empty>{t("businessData.checklist.detail.historyEmpty")}</Empty>
+                    <div className={styles.empty}>
+                      {t("businessData.checklist.detail.historyEmpty")}
+                    </div>
                   )}
                 </div>
               )}
-            </Grid>
+            </div>
           </div>
         )}
         {!["details", "checklistItems"].includes(tab) && (
-          <Empty>{t("businessData.checklist.detail.historyEmpty")}</Empty>
+          <div className={styles.empty}>{t("businessData.checklist.detail.historyEmpty")}</div>
         )}
       </DetailTabs>
       {dialogs}
@@ -331,11 +325,14 @@ function InstanceRow({
   const { t } = useAppTranslation();
   const styles = useDetailStyles();
   return (
-    <HStack gap="12px" style={{
+    <div
+      className={styles.row}
+      style={{
         alignItems: "center",
-        padding: `${theme.spacing.sm} 0`,
+        padding: "8px 0",
         borderBottom: `1px solid ${theme.color.borderSubtle}`,
-      }} className={styles.row}>
+      }}
+    >
       <div style={{ flexGrow: 1 }}>
         <div style={{ fontWeight: 600 }}>{instance.name}</div>
         <div style={{ fontSize: "12px", color: theme.color.textTertiary }}>
@@ -344,7 +341,7 @@ function InstanceRow({
           {instance.material ? ` · ${instance.material}` : ""}
         </div>
       </div>
-      <HStack gap="4px" wrap>
+      <div style={{ display: "flex", columnGap: "4px", flexWrap: "wrap" }}>
         <Button variant="secondary" size="sm" onClick={onPerform}>
           {t("businessData.checklist.operations.perform")}
         </Button>
@@ -360,8 +357,8 @@ function InstanceRow({
         <Button variant="secondary" size="sm" onClick={onDeviation}>
           {t("businessData.checklist.operations.openDeviation")}
         </Button>
-      </HStack>
-    </HStack>
+      </div>
+    </div>
   );
 }
 
@@ -369,10 +366,10 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <HStack gap="12px" className={styles.row}>
+    <div className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.checklist.detail.emptyValue") : value}</span>
-    </HStack>
+    </div>
   );
 }
 
@@ -380,11 +377,11 @@ function Bool({ label, value }: { label: string; value: boolean }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <HStack gap="12px" className={styles.row}>
+    <div className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>
         {value ? t("businessData.checklist.detail.yes") : t("businessData.checklist.detail.no")}
       </span>
-    </HStack>
+    </div>
   );
 }

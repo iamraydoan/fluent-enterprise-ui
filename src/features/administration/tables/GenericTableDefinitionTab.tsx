@@ -1,31 +1,11 @@
 import { useState } from "react";
 import type { GenericTableDetail } from "@/api";
-import { Card, CardGrid, Empty, KV, Panel, SidebarNavItem, HStack, VStack  } from "@/components/common";
-import { Body1Strong, Caption1, makeStyles } from "@/components/ui";
+import { Card, CardGrid, Empty, KV, Panel, SidebarNavItem, Split, VStack } from "@/components/common";
+import { Body1Strong, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { theme } from "@/styles/theme";
 
-const useDefStyles = makeStyles({
-  layout: {
-    minHeight: "400px",
-  },
-  nav: {
-    width: "220px",
-  },
-  navItem: {
-    padding: `10px ${theme.spacing.md}`,
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    textAlign: "left",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  main: { flexGrow: 1, minWidth: 0 },
-});
+
 
 const NAV_ITEMS: TranslationKey[] = [
   "genericTables.definition.definition",
@@ -34,23 +14,25 @@ const NAV_ITEMS: TranslationKey[] = [
 
 export function GenericTableDefinitionTab({ table }: { table: GenericTableDetail }) {
   const { t } = useAppTranslation();
-  const styles = useDefStyles();
   const [section, setSection] = useState<TranslationKey>("genericTables.definition.definition");
 
   return (
-    <HStack gap="12px" className={styles.layout}>
-      <VStack gap="2px" className={styles.nav}>
-        {NAV_ITEMS.map((item) => (
-          <SidebarNavItem
-            key={item}
-            label={t(item)}
-            active={section === item}
-            onClick={() => setSection(item)}
-          />
-        ))}
-      </VStack>
-      <div className={styles.main}>
-        {section === "genericTables.definition.definition" ? (
+    <Split
+      sidebarWidth="220px"
+      sidebar={
+        <VStack gap="xs">
+          {NAV_ITEMS.map((item) => (
+            <SidebarNavItem
+              key={item}
+              label={t(item)}
+              active={section === item}
+              onClick={() => setSection(item)}
+            />
+          ))}
+        </VStack>
+      }
+    >
+      {section === "genericTables.definition.definition" ? (
           <CardGrid>
             <Card title={t("genericTables.definition.generalData")}>
               <KV
@@ -89,7 +71,6 @@ export function GenericTableDefinitionTab({ table }: { table: GenericTableDetail
             </Empty>
           </Panel>
         )}
-      </div>
-    </HStack>
+    </Split>
   );
 }

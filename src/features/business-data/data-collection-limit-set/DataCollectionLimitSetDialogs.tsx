@@ -5,7 +5,7 @@ import {
   useDataCollectionLimitSets,
   useDataCollectionParameters,
 } from "@/api";
-import { BaseDialog, Empty, OptionItem, HStack, VStack  } from "@/components/common";
+import { BaseDialog, HStack, OptionItem } from "@/components/common";
 import {
   Add24Regular,
   ArrowDown16Regular,
@@ -21,6 +21,7 @@ import {
   MenuList,
   MenuPopover,
   MenuTrigger,
+  Text,
   Textarea,
   makeStyles,
 } from "@/components/ui";
@@ -37,56 +38,51 @@ import {
 } from "./dataCollectionLimitSetLookups";
 
 const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
-  fieldRow: {
-    marginBottom: theme.spacing.md,
-  },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
   staticValue: { fontSize: "13px", padding: "6px 0" },
-  split: {
-    minHeight: "320px",
-  },
+  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
+  split: { display: "flex", columnGap: "16px", minHeight: "320px" },
   listPane: {
     flex: "0 0 240px",
+    display: "flex",
+    flexDirection: "column",
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
     overflow: "hidden",
   },
   listToolbar: {
-    padding: theme.spacing.sm,
+    display: "flex",
+    columnGap: "4px",
+    rowGap: "4px",
+    flexWrap: "wrap",
+    padding: "8px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
+    alignItems: "center",
   },
   listTitle: { fontSize: "13px", fontWeight: theme.font.weightSemibold, marginRight: "auto" },
   listBody: { flexGrow: 1, overflowY: "auto" },
-  listItem: {
-    width: "100%",
-    textAlign: "left",
-    border: "none",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
-    fontFamily: "inherit",
-    fontSize: "13px",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "2px",
-  },
-  listItemSub: { fontSize: "12px", color: theme.color.textTertiary },
   formPane: { flexGrow: 1, minWidth: 0 },
   formRow: {
-    marginBottom: theme.spacing.md,
+    display: "flex",
+    columnGap: "8px",
+    rowGap: "8px",
+    alignItems: "flex-end",
+    flexWrap: "wrap",
+    marginBottom: "12px",
   },
-  miniLabel: { fontSize: "12px", color: theme.color.textTertiary, marginBottom: theme.spacing.xs },
+  miniLabel: { fontSize: "12px", color: theme.color.textTertiary, marginBottom: "4px" },
   grow: { flex: "1 1 160px", minWidth: "140px" },
   numWrap: { flex: "0 1 120px", minWidth: "100px" },
-  optionsBar: {
-    marginBottom: theme.spacing.md,
-  },
+  optionsBar: { display: "flex", justifyContent: "flex-end", marginBottom: "12px" },
   checkRow: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "8px",
     padding: "8px 0",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  }
+  },
 });
 
 function DialogShell({
@@ -244,7 +240,7 @@ export function ParameterLimitsEditor({
       <div className={styles.hint}>
         {t("businessData.dataCollectionLimitSet.operations.parametersHint")}
       </div>
-      <HStack justify="flex-end" className={styles.optionsBar}>
+      <div className={styles.optionsBar}>
         <Menu positioning="below-end">
           <MenuTrigger disableButtonEnhancement>
             <Button variant="secondary" size="sm">
@@ -262,10 +258,10 @@ export function ParameterLimitsEditor({
             </MenuList>
           </MenuPopover>
         </Menu>
-      </HStack>
-      <HStack gap="16px" className={styles.split}>
-        <VStack className={styles.listPane}>
-          <HStack gap="4px" align="center" wrap className={styles.listToolbar}>
+      </div>
+      <div className={styles.split}>
+        <div className={styles.listPane}>
+          <div className={styles.listToolbar}>
             <span className={styles.listTitle}>
               {t("businessData.dataCollectionLimitSet.operations.parametersTitle")}
             </span>
@@ -304,36 +300,45 @@ export function ParameterLimitsEditor({
             >
               <ArrowDown16Regular />
             </Button>
-          </HStack>
+          </div>
           <div className={styles.listBody}>
             {rows.length === 0 && (
-              <Empty>{t("businessData.dataCollectionLimitSet.operations.noParameters")}</Empty>
+              <div className={styles.empty}>
+                {t("businessData.dataCollectionLimitSet.operations.noParameters")}
+              </div>
             )}
             {rows.map((r) => (
               <OptionItem
                 key={r.id}
-                title={
-                  r.parameter === ""
-                    ? t("businessData.dataCollectionLimitSet.operations.unnamedParameter")
-                    : r.parameter
-                }
-                description={r.limitType}
                 selected={selected?.id === r.id}
                 onClick={() => setSelectedId(r.id)}
-              />
+              >
+                <HStack justify="between" align="center" grow>
+                  <span>
+                    {r.parameter === ""
+                      ? t("businessData.dataCollectionLimitSet.operations.unnamedParameter")
+                      : r.parameter}
+                  </span>
+                  <Text size={200} style={{ color: theme.color.textTertiary }}>
+                    {r.limitType}
+                  </Text>
+                </HStack>
+              </OptionItem>
             ))}
           </div>
-        </VStack>
+        </div>
         <div className={styles.formPane}>
           {!selected && (
-            <Empty>{t("businessData.dataCollectionLimitSet.operations.selectParameter")}</Empty>
+            <div className={styles.empty}>
+              {t("businessData.dataCollectionLimitSet.operations.selectParameter")}
+            </div>
           )}
           {selected && (
             <div>
-              <div className={styles.fieldLabel} style={{ marginBottom: theme.spacing.md }}>
+              <div className={styles.fieldLabel} style={{ marginBottom: "12px" }}>
                 {t("businessData.dataCollectionLimitSet.operations.limitsTitle")}
               </div>
-              <HStack gap="8px" align="flex-end" wrap className={styles.formRow}>
+              <div className={styles.formRow}>
                 <div className={styles.grow}>
                   <div className={styles.miniLabel}>
                     {t("businessData.dataCollectionLimitSet.operations.parameter")}
@@ -353,8 +358,8 @@ export function ParameterLimitsEditor({
                     />
                   )}
                 </div>
-              </HStack>
-              <HStack gap="8px" align="flex-end" wrap className={styles.formRow}>
+              </div>
+              <div className={styles.formRow}>
                 <Checkbox
                   label={t("businessData.dataCollectionLimitSet.operations.overrideValidation")}
                   checked={selected.overrideParameter}
@@ -362,8 +367,8 @@ export function ParameterLimitsEditor({
                     update(selected.id, { overrideParameter: !selected.overrideParameter })
                   }
                 />
-              </HStack>
-              <HStack gap="8px" align="flex-end" wrap className={styles.formRow}>
+              </div>
+              <div className={styles.formRow}>
                 <div className={styles.numWrap}>
                   <div className={styles.miniLabel}>
                     {t("businessData.dataCollectionLimitSet.operations.minValue")}
@@ -404,8 +409,8 @@ export function ParameterLimitsEditor({
                     ariaLabel={t("businessData.dataCollectionLimitSet.operations.limitType")}
                   />
                 </div>
-              </HStack>
-              <HStack gap="8px" align="flex-end" wrap className={styles.formRow}>
+              </div>
+              <div className={styles.formRow}>
                 <div className={styles.numWrap}>
                   <div className={styles.miniLabel}>
                     {t("businessData.dataCollectionLimitSet.operations.lowerErrorLimit")}
@@ -456,8 +461,8 @@ export function ParameterLimitsEditor({
                     onChange={(value) => update(selected.id, { upperErrorLimit: value })}
                   />
                 </div>
-              </HStack>
-              <HStack gap="8px" align="flex-end" wrap className={styles.formRow}>
+              </div>
+              <div className={styles.formRow}>
                 <Checkbox
                   label={t("businessData.dataCollectionLimitSet.operations.includeSampleLimits")}
                   checked={selected.includeSampleLimits}
@@ -466,11 +471,11 @@ export function ParameterLimitsEditor({
                     update(selected.id, { includeSampleLimits: !selected.includeSampleLimits })
                   }
                 />
-              </HStack>
+              </div>
             </div>
           )}
         </div>
-      </HStack>
+      </div>
       {copyOpen && <CopyParametersDialog onClose={() => setCopyOpen(false)} onCopy={copyFrom} />}
     </div>
   );
@@ -534,12 +539,14 @@ export function SampleLimitsEditor({
         {t("businessData.dataCollectionLimitSet.operations.samplesHint")}
       </div>
       {applicable.length === 0 && (
-        <Empty>{t("businessData.dataCollectionLimitSet.operations.noSampleLimits")}</Empty>
+        <div className={styles.empty}>
+          {t("businessData.dataCollectionLimitSet.operations.noSampleLimits")}
+        </div>
       )}
       {applicable.length > 0 && (
-        <HStack gap="16px" className={styles.split}>
-          <VStack className={styles.listPane}>
-            <HStack gap="4px" align="center" wrap className={styles.listToolbar}>
+        <div className={styles.split}>
+          <div className={styles.listPane}>
+            <div className={styles.listToolbar}>
               <span className={styles.listTitle}>
                 {t("businessData.dataCollectionLimitSet.operations.samplesTitle")}
               </span>
@@ -560,50 +567,60 @@ export function SampleLimitsEditor({
               >
                 <Delete20Regular />
               </Button>
-            </HStack>
+            </div>
             <div className={styles.listBody}>
               {applicable.map((p) => (
                 <div key={p.id}>
                   <OptionItem
-                    title={
-                      p.parameter === ""
-                        ? t("businessData.dataCollectionLimitSet.operations.unnamedParameter")
-                        : p.parameter
-                    }
-                    description={p.limitType}
                     selected={selectedParam?.id === p.id}
                     onClick={() => {
                       setSelectedParamId(p.id);
                       setSelectedSampleId(null);
                     }}
-                  />
+                  >
+                    <HStack justify="between" align="center" grow>
+                      <span>
+                        {p.parameter === ""
+                          ? t("businessData.dataCollectionLimitSet.operations.unnamedParameter")
+                          : p.parameter}
+                      </span>
+                      <Text size={200} style={{ color: theme.color.textTertiary }}>
+                        {p.limitType}
+                      </Text>
+                    </HStack>
+                  </OptionItem>
                   {selectedParam?.id === p.id &&
                     p.sampleLimits.map((s) => (
-                      <OptionItem
-                        key={s.id}
-                        title={
-                          s.sampleId === ""
-                            ? t("businessData.dataCollectionLimitSet.operations.unnamedSample")
-                            : s.sampleId
-                        }
-                        selected={selectedSample?.id === s.id}
-                        onClick={() => setSelectedSampleId(s.id)}
-                      />
+                      <div style={{ paddingLeft: "24px" }}>
+                        <OptionItem
+                          key={s.id}
+                          selected={selectedSample?.id === s.id}
+                          onClick={() => setSelectedSampleId(s.id)}
+                        >
+                          <span>
+                            {s.sampleId === ""
+                              ? t("businessData.dataCollectionLimitSet.operations.unnamedSample")
+                              : s.sampleId}
+                          </span>
+                        </OptionItem>
+                      </div>
                     ))}
                 </div>
               ))}
             </div>
-          </VStack>
+          </div>
           <div className={styles.formPane}>
             {!selectedSample && (
-              <Empty>{t("businessData.dataCollectionLimitSet.operations.selectSample")}</Empty>
+              <div className={styles.empty}>
+                {t("businessData.dataCollectionLimitSet.operations.selectSample")}
+              </div>
             )}
             {selectedSample && (
               <div>
-                <div className={styles.fieldLabel} style={{ marginBottom: theme.spacing.md }}>
+                <div className={styles.fieldLabel} style={{ marginBottom: "12px" }}>
                   {t("businessData.dataCollectionLimitSet.operations.sampleLimitsTitle")}
                 </div>
-                <HStack gap="8px" align="flex-end" wrap className={styles.formRow}>
+                <div className={styles.formRow}>
                   <div className={styles.grow}>
                     <div className={styles.miniLabel}>
                       {t("businessData.dataCollectionLimitSet.operations.sampleId")}
@@ -614,8 +631,8 @@ export function SampleLimitsEditor({
                       onChange={(value) => updateSample(selectedSample.id, { sampleId: value })}
                     />
                   </div>
-                </HStack>
-                <HStack gap="8px" align="flex-end" wrap className={styles.formRow}>
+                </div>
+                <div className={styles.formRow}>
                   <div className={styles.numWrap}>
                     <div className={styles.miniLabel}>
                       {t("businessData.dataCollectionLimitSet.operations.lowerErrorLimit")}
@@ -674,11 +691,11 @@ export function SampleLimitsEditor({
                       }
                     />
                   </div>
-                </HStack>
+                </div>
               </div>
             )}
           </div>
-        </HStack>
+        </div>
       )}
     </div>
   );
@@ -717,7 +734,7 @@ function CopyParametersDialog({
         </>
       }
     >
-      <VStack gap="4px" className={styles.fieldRow}>
+      <div className={styles.fieldRow}>
         <div className={styles.fieldLabel}>
           {t("businessData.dataCollectionLimitSet.operations.sourceLimitSet")}
         </div>
@@ -727,7 +744,7 @@ function CopyParametersDialog({
           onSelect={setSource}
           ariaLabel={t("businessData.dataCollectionLimitSet.operations.sourceLimitSet")}
         />
-      </VStack>
+      </div>
       <div className={styles.hint}>
         {t("businessData.dataCollectionLimitSet.operations.copyParametersHint")}
       </div>
@@ -765,25 +782,28 @@ export function EditDataCollectionLimitSetDialog({
           <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
-          <Button variant="primary" onClick={() => onSubmit({ description, type, dataCollection })}>
+          <Button
+            variant="primary"
+            onClick={() => onSubmit({ description, type, dataCollection })}
+          >
             {t("common.save")}
           </Button>
         </>
       }
     >
-      <VStack gap="4px" className={styles.fieldRow}>
+      <div className={styles.fieldRow}>
         <div className={styles.fieldLabel}>
           {t("businessData.dataCollectionLimitSet.detail.name")}
         </div>
         <div className={styles.staticValue}>{name}</div>
-      </VStack>
-      <VStack gap="4px" className={styles.fieldRow}>
+      </div>
+      <div className={styles.fieldRow}>
         <div className={styles.fieldLabel}>
           {t("businessData.dataCollectionLimitSet.detail.description")}
         </div>
         <Textarea value={description} onChange={setDescription} />
-      </VStack>
-      <VStack gap="4px" className={styles.fieldRow}>
+      </div>
+      <div className={styles.fieldRow}>
         <div className={styles.fieldLabel}>
           {t("businessData.dataCollectionLimitSet.detail.type")}
         </div>
@@ -793,8 +813,8 @@ export function EditDataCollectionLimitSetDialog({
           onSelect={setType}
           ariaLabel={t("businessData.dataCollectionLimitSet.detail.type")}
         />
-      </VStack>
-      <VStack gap="4px" className={styles.fieldRow}>
+      </div>
+      <div className={styles.fieldRow}>
         <div className={styles.fieldLabel}>
           {t("businessData.dataCollectionLimitSet.detail.dataCollection")}
         </div>
@@ -804,7 +824,7 @@ export function EditDataCollectionLimitSetDialog({
           onSelect={setDataCollection}
           ariaLabel={t("businessData.dataCollectionLimitSet.detail.dataCollection")}
         />
-      </VStack>
+      </div>
     </DialogShell>
   );
 }
@@ -842,7 +862,7 @@ export function CopyLimitSetsSelectStep({
       <div className={styles.hint}>
         {t("businessData.dataCollectionLimitSet.operations.selectLimitSetsHint")}
       </div>
-      <VStack gap="4px" className={styles.fieldRow}>
+      <div className={styles.fieldRow}>
         <div className={styles.fieldLabel}>
           {t("businessData.dataCollectionLimitSet.operations.filterByDataCollection")}
         </div>
@@ -852,20 +872,24 @@ export function CopyLimitSetsSelectStep({
           onSelect={(v) => onChange(COPY_FILTER_DC_KEY, v)}
           ariaLabel={t("businessData.dataCollectionLimitSet.operations.filterByDataCollection")}
         />
-      </VStack>
+      </div>
       <div>
         {list.map((r) => (
-          <HStack gap="8px" align="center" key={r.name} className={styles.checkRow}>
+          <div key={r.name} className={styles.checkRow}>
             <Checkbox
               checked={selected.includes(r.name)}
               onChange={() => toggle(r.name)}
               label={r.name}
             />
-            <span className={styles.listItemSub}>{limitSetMeta(r.dataCollection, r.state)}</span>
-          </HStack>
+            <Text size={200} style={{ color: theme.color.textTertiary }}>
+              {limitSetMeta(r.dataCollection, r.state)}
+            </Text>
+          </div>
         ))}
         {list.length === 0 && (
-          <Empty>{t("businessData.dataCollectionLimitSet.operations.noLimitSets")}</Empty>
+          <div className={styles.empty}>
+            {t("businessData.dataCollectionLimitSet.operations.noLimitSets")}
+          </div>
         )}
       </div>
     </div>
@@ -886,7 +910,8 @@ export function CopyLimitSetsNamesStep({
   const sources = (values[COPY_SOURCES_KEY] as unknown as string[] | undefined) ?? [];
   const names = (values[COPY_NAMES_KEY] as unknown as Record<string, string> | undefined) ?? {};
   const getName = (s: string) => names[s] ?? `${targetDataCollection}_${s}`;
-  const setName = (s: string, v: string) => onChange(COPY_NAMES_KEY, { ...names, [s]: v });
+  const setName = (s: string, v: string) =>
+    onChange(COPY_NAMES_KEY, { ...names, [s]: v });
 
   return (
     <div>
@@ -894,13 +919,15 @@ export function CopyLimitSetsNamesStep({
         {t("businessData.dataCollectionLimitSet.operations.limitSetNamesHint")}
       </div>
       {sources.length === 0 && (
-        <Empty>{t("businessData.dataCollectionLimitSet.operations.noSourcesSelected")}</Empty>
+        <div className={styles.empty}>
+          {t("businessData.dataCollectionLimitSet.operations.noSourcesSelected")}
+        </div>
       )}
       {sources.map((s) => (
-        <VStack gap="4px" key={s} className={styles.fieldRow}>
+        <div key={s} className={styles.fieldRow}>
           <div className={styles.fieldLabel}>{s}</div>
           <Input value={getName(s)} onChange={(value) => setName(s, value)} />
-        </VStack>
+        </div>
       ))}
     </div>
   );

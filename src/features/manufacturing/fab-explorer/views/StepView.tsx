@@ -1,15 +1,15 @@
 import { useMemo, useRef, useState } from "react";
 import { postFabOperation, useStepMaterials, useStepResources, useStepSummary } from "@/api";
 import type { FabResource } from "@/api";
-import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
 import {
   ActionBar,
   DataTableCard,
   IconButton,
   RibbonButton,
   SidePanel,
-  searchFilter, HStack, VStack 
+  searchFilter,
 } from "@/components/common";
+import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
 import {
   ArrowSync24Regular,
   Box24Regular,
@@ -49,23 +49,14 @@ import {
 import { MATERIAL_COLUMNS } from "./materialColumns";
 
 const useViewStyles = makeStyles({
-  page: {
-    height: "100%",
-    minHeight: 0,
-  },
+  page: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0 },
   header: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "8px",
     padding: "8px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surface,
-  },
-  backBtn: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "6px",
-    borderRadius: theme.radius.md,
-    display: "flex",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   stateDot: {
     width: "10px",
@@ -73,70 +64,57 @@ const useViewStyles = makeStyles({
     borderRadius: "50%",
     backgroundColor: theme.color.brand,
   },
-  body: {
-    minHeight: 0,
-    padding: "10px",
-  },
-  left: {
-    width: "220px",
-    minHeight: 0,
-  },
-  center: {
-    minWidth: 0,
-  },
-  right: {
-    width: "260px",
-    minHeight: 0,
-  },
+  body: { display: "flex", flexGrow: 1, minHeight: 0, columnGap: "10px", padding: "10px" },
+  left: { width: "220px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
+  center: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "8px" },
+  right: { width: "260px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
   filterBar: {
     display: "flex",
     alignItems: "center",
-    columnGap: theme.spacing.md,
+    columnGap: "12px",
     flexWrap: "wrap",
-    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
+    padding: "8px 12px",
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
   },
   catRow: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
     width: "100%",
-    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
+    padding: "8px 12px",
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
     textAlign: "left",
     fontSize: "13px",
     borderRadius: theme.radius.md,
-    ": hover": { backgroundColor: theme.color.surfaceHover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   catActive: {
     backgroundColor: theme.color.surfaceSelected,
     fontWeight: theme.font.weightSemibold,
-  },
-  catRefresh: {
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: theme.spacing.xs,
-    borderRadius: "4px",
-    display: "flex",
-    ":hover": { backgroundColor: theme.color.surfaceTertiary },
   },
   sectionTitle: {
     fontSize: "12px",
     fontWeight: theme.font.weightSemibold,
     color: theme.color.textTertiary,
     padding: "8px 12px 4px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   detailCard: {
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
+    padding: "12px",
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "8px",
   },
-  toolbarRight: {
-    marginLeft: "auto",
-  }
+  toolbarRight: { marginLeft: "auto", display: "flex", columnGap: "4px" },
 });
 
 type Category = "materials" | "resources";
@@ -355,19 +333,18 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
   };
 
   return (
-    <VStack className={styles.page}>
-      <HStack gap="8px" align="center" className={styles.header}>
+    <div className={styles.page}>
+      <div className={styles.header}>
         <IconButton
           icon={<ChevronLeft20Regular />}
           onClick={onBack}
-          aria-label={t("manufacturing.fabExplorer.stepView.back")}
-          size="sm"
+          ariaLabel={t("manufacturing.fabExplorer.stepView.back")}
         />
         <span className={styles.stateDot} />
         <Text weight="semibold" size={400}>
           {name}
         </Text>
-      </HStack>
+      </div>
 
       <ActionBar>
         <RibbonButton
@@ -425,7 +402,7 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
           label={t("manufacturing.fabExplorer.operations.more")}
           menu={moreMenu}
         />
-        <HStack gap="4px" className={styles.toolbarRight}>
+        <div className={styles.toolbarRight}>
           <RibbonButton
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.layout.views")}
@@ -435,26 +412,24 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
             label={t("manufacturing.fabExplorer.layout.layout")}
             menu={layoutMenu}
           />
-        </HStack>
+        </div>
       </ActionBar>
 
-      <HStack gap="10px" className={styles.body}>
-        <VStack className={styles.left}>
+      <div className={styles.body}>
+        <div className={styles.left}>
           <SidePanel
             title={t("manufacturing.fabExplorer.stepView.details")}
             collapsed={false}
             onToggle={() => undefined}
           >
             {CATEGORIES.map((cat) => (
-              <HStack
-                align="center"
-                justify="space-between"
+              <div
                 key={cat}
+                className={mergeClasses(styles.catRow, category === cat && styles.catActive)}
                 onClick={() => {
                   setCategory(cat);
                   setSelected(new Set());
                 }}
-                className={mergeClasses(styles.catRow, category === cat && styles.catActive)}
               >
                 <Text size={300} weight={category === cat ? "semibold" : "regular"}>
                   {t(L[cat])} (
@@ -465,21 +440,20 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
                 </Text>
                 <IconButton
                   icon={<ArrowSync24Regular />}
-                  aria-label={t("manufacturing.fabExplorer.stepView.refreshCategory", {
+                  ariaLabel={t("manufacturing.fabExplorer.stepView.refreshCategory", {
                     category: t(L[cat]),
                   })}
                   onClick={(e) => {
                     e.stopPropagation();
                     refreshCategory(cat);
                   }}
-                  size="sm"
                 />
-              </HStack>
+              </div>
             ))}
           </SidePanel>
-        </VStack>
+        </div>
 
-        <VStack gap="8px" className={styles.center}>
+        <div className={styles.center}>
           {category === "materials" ? (
             <DataTableCard
               title={(count) => t("manufacturing.fabExplorer.stepView.materialsTitle", { count })}
@@ -506,13 +480,13 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
               apiRef={resourcesApiRef}
             />
           )}
-        </VStack>
+        </div>
 
-        <VStack className={styles.right}>
-          <VStack gap="8px" className={styles.detailCard}>
-            <HStack align="center" justify="space-between" className={styles.sectionTitle}>
+        <div className={styles.right}>
+          <div className={styles.detailCard}>
+            <div className={styles.sectionTitle}>
               <span>{t(L.details)}</span>
-            </HStack>
+            </div>
             <Text size={300} weight="semibold">
               {t(L.holds)} (1)
             </Text>
@@ -525,9 +499,9 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
               {t(L.documents)} (1)
             </Text>
             <Text size={300}>{MOCK_DOC}</Text>
-          </VStack>
-        </VStack>
-      </HStack>
+          </div>
+        </div>
+      </div>
 
       <DispatchDialog
         open={dlg === DLG.dispatch}
@@ -660,6 +634,6 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
       />
       <SaveLayoutDialog open={dlg === DLG.saveLayout} onClose={closeDlg} onConfirm={closeDlg} />
       <ResetLayoutDialog open={dlg === DLG.resetLayout} onClose={closeDlg} onConfirm={closeDlg} />
-    </VStack>
+    </div>
   );
 }

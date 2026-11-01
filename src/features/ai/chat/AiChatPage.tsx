@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useAiAgents, useSendChat } from "@/api";
+import { IconButton, MenuTriggerButton, OptionItem } from "@/components/common";
 import {
   ArrowUp20Regular,
   Attach20Regular,
@@ -22,7 +23,6 @@ import {
   MenuList,
   MenuPopover,
   MenuTrigger,
-  mergeClasses,
   Text,
   Tooltip,
 } from "@/components/ui";
@@ -39,22 +39,8 @@ const useChatStyles = makeStyles({
     height: "36px",
     display: "flex",
     alignItems: "center",
-    padding: `0 ${theme.spacing.md}`,
+    padding: "0 12px",
     flexShrink: 0,
-  },
-  agentBtn: {
-    display: "inline-flex",
-    alignItems: "center",
-    columnGap: theme.spacing.sm,
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    color: theme.color.textPrimary,
-    padding: `${theme.spacing.xs} 6px`,
-    borderRadius: "4px",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   body: {
     flexGrow: 1,
@@ -72,22 +58,9 @@ const useChatStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingTop: theme.spacing.md,
+    paddingTop: "12px",
     rowGap: "6px",
   },
-  toolBtn: {
-    width: "38px",
-    height: "38px",
-    display: "grid",
-    placeItems: "center",
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    borderRadius: "8px",
-    color: theme.color.textPrimary,
-    ":hover": { backgroundColor: theme.color.borderSubtle },
-  },
-  toolOn: { backgroundColor: theme.color.surfaceSelected },
   history: {
     width: "250px",
     flexShrink: 0,
@@ -95,26 +68,10 @@ const useChatStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     overflowY: "auto",
-    padding: `${theme.spacing.md} ${theme.spacing.sm}`,
+    padding: "12px 8px",
     rowGap: "2px",
     backgroundColor: theme.color.surfaceSecondary,
   },
-  histItem: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    rowGap: "2px",
-    padding: `${theme.spacing.sm} 10px`,
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-    borderRadius: "8px",
-    fontFamily: "inherit",
-    textAlign: "left",
-    width: "100%",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  histOn: { backgroundColor: theme.color.brandSubtle },
   main: {
     flexGrow: 1,
     minWidth: 0,
@@ -132,7 +89,7 @@ const useChatStyles = makeStyles({
   col: {
     width: "100%",
     maxWidth: "820px",
-    padding: `${theme.spacing.xl} ${theme.spacing.xl} ${theme.spacing.sm}`,
+    padding: "24px 24px 8px",
     display: "flex",
     flexDirection: "column",
     rowGap: "18px",
@@ -145,7 +102,7 @@ const useChatStyles = makeStyles({
     justifyContent: "center",
     rowGap: "14px",
     textAlign: "center",
-    padding: `0 ${theme.spacing.xl}`,
+    padding: "0 24px",
     width: "100%",
     maxWidth: "820px",
     marginBottom: "40px",
@@ -172,18 +129,18 @@ const useChatStyles = makeStyles({
   composerWrap: {
     width: "100%",
     maxWidth: "820px",
-    padding: `0 ${theme.spacing.xl} ${theme.spacing.xl}`,
+    padding: "0 24px 24px",
     boxSizing: "border-box",
   },
   composer: {
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "24px",
-    padding: `14px ${theme.spacing.lg} 10px 20px`,
+    padding: "14px 16px 10px 20px",
     boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
     backgroundColor: "#fff",
     display: "flex",
     flexDirection: "column",
-    rowGap: theme.spacing.sm,
+    rowGap: "8px",
     ":focus-within": { border: `1px solid ${theme.color.borderBrand}` },
   },
   textarea: {
@@ -196,21 +153,9 @@ const useChatStyles = makeStyles({
     lineHeight: "22px",
     background: "transparent",
     maxHeight: "150px",
-    color: theme.color.textPrimary,
+    color: "#222",
   },
   composerRow: { display: "flex", alignItems: "center", justifyContent: "space-between" },
-  send: {
-    width: "38px",
-    height: "38px",
-    borderRadius: "999px",
-    border: "none",
-    display: "grid",
-    placeItems: "center",
-    cursor: "pointer",
-    backgroundColor: theme.color.borderSubtle,
-    color: "#fff",
-  },
-  sendOn: { backgroundColor: "#1E2330" },
   userMsg: {
     alignSelf: "flex-end",
     maxWidth: "75%",
@@ -221,7 +166,7 @@ const useChatStyles = makeStyles({
     lineHeight: "21px",
     whiteSpace: "pre-wrap",
   },
-  botRow: { display: "flex", columnGap: theme.spacing.md, alignItems: "flex-start" },
+  botRow: { display: "flex", columnGap: "12px", alignItems: "flex-start" },
   botIcon: {
     width: "28px",
     height: "28px",
@@ -232,37 +177,23 @@ const useChatStyles = makeStyles({
     placeItems: "center",
     backgroundColor: "#fff",
   },
-  chips: { display: "flex", flexWrap: "wrap", gap: "6px", marginTop: theme.spacing.sm },
+  chips: { display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "8px" },
   chip: {
     display: "inline-flex",
     alignItems: "center",
-    columnGap: theme.spacing.xs,
+    columnGap: "4px",
     fontSize: "12px",
-    color: theme.color.textSecondary,
+    color: "#444",
     backgroundColor: theme.color.surfaceSecondary,
     borderRadius: "999px",
-    padding: `2px 10px 2px ${theme.spacing.sm}`,
+    padding: "2px 10px 2px 8px",
   },
   examples: {
     display: "flex",
     flexWrap: "wrap",
-    gap: theme.spacing.sm,
+    gap: "8px",
     justifyContent: "center",
     marginTop: "6px",
-  },
-  example: {
-    border: `1px solid ${theme.color.borderSubtle}`,
-    borderRadius: "999px",
-    padding: "6px 14px",
-    background: "#fff",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    color: "#333",
-    ":hover": {
-      backgroundColor: theme.color.brandSubtle,
-      border: `1px solid ${theme.color.borderBrand}`,
-    },
   },
 });
 
@@ -379,21 +310,21 @@ export function AiChatPage() {
             icon={<Attach20Regular />}
             aria-label={t("aiChat.attachFile")}
           />
-          <span style={{ display: "inline-flex", alignItems: "center", columnGap: theme.spacing.xs }}>
+          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 4 }}>
             <Button
               variant="subtle"
               shape="circular"
               icon={<Mic20Regular />}
               aria-label={t("aiChat.dictate")}
             />
-            <button
-              className={mergeClasses(chatStyles.send, text.trim() && !busy && chatStyles.sendOn)}
+            <IconButton
+              variant="primary"
+              shape="circular"
+              icon={<ArrowUp20Regular />}
               onClick={() => send()}
               disabled={!text.trim() || busy}
-              aria-label={t("aiChat.send")}
-            >
-              <ArrowUp20Regular />
-            </button>
+              ariaLabel={t("aiChat.send")}
+            />
           </span>
         </div>
       </div>
@@ -411,11 +342,11 @@ export function AiChatPage() {
           }}
         >
           <MenuTrigger disableButtonEnhancement>
-            <button className={chatStyles.agentBtn}>
+            <MenuTriggerButton>
               <Bot20Regular />
               {agent.name}
               <ChevronDown16Regular style={{ color: theme.color.textBrand }} />
-            </button>
+            </MenuTriggerButton>
           </MenuTrigger>
           <MenuPopover>
             <MenuList>
@@ -432,22 +363,18 @@ export function AiChatPage() {
       <div className={chatStyles.body}>
         <div className={chatStyles.tools}>
           <Tooltip content={t("aiChat.toggleHistory")} relationship="label" positioning="after">
-            <button
-              className={chatStyles.toolBtn}
-              aria-label={t("aiChat.toggleHistory")}
+            <IconButton
+              icon={<PanelLeft20Regular />}
+              ariaLabel={t("aiChat.toggleHistory")}
               onClick={() => setShowHistory((value) => !value)}
-            >
-              <PanelLeft20Regular />
-            </button>
+            />
           </Tooltip>
           <Tooltip content={t("aiChat.newChat")} relationship="label" positioning="after">
-            <button
-              className={chatStyles.toolBtn}
-              aria-label={t("aiChat.newChat")}
+            <IconButton
+              icon={<Compose20Regular />}
+              ariaLabel={t("aiChat.newChat")}
               onClick={newChat}
-            >
-              <Compose20Regular />
-            </button>
+            />
           </Tooltip>
           <div
             style={{
@@ -457,27 +384,22 @@ export function AiChatPage() {
             }}
           />
           <Tooltip content={t("aiChat.chats")} relationship="label" positioning="after">
-            <button
-              className={mergeClasses(chatStyles.toolBtn, showHistory && chatStyles.toolOn)}
-              aria-label={t("aiChat.chats")}
-              aria-pressed={showHistory}
+            <IconButton
+              icon={<ChatMultiple20Regular />}
+              ariaLabel={t("aiChat.chats")}
+              active={showHistory}
               onClick={() => setShowHistory((value) => !value)}
-            >
-              <ChatMultiple20Regular />
-            </button>
+            />
           </Tooltip>
         </div>
 
         {showHistory && (
           <aside className={chatStyles.history} aria-label={t("aiChat.chatHistory")}>
-            <Body1Strong style={{ padding: `${theme.spacing.xs} 10px ${theme.spacing.sm}` }}>{t("aiChat.chats")}</Body1Strong>
+            <Body1Strong style={{ padding: "4px 10px 8px" }}>{t("aiChat.chats")}</Body1Strong>
             {chats.map((candidate) => (
-              <button
+              <OptionItem
                 key={candidate.id}
-                className={mergeClasses(
-                  chatStyles.histItem,
-                  currentChatId === candidate.id && chatStyles.histOn,
-                )}
+                selected={currentChatId === candidate.id}
                 onClick={() => {
                   setCurrentChatId(candidate.id);
                   setAgentName(candidate.agent);
@@ -486,8 +408,10 @@ export function AiChatPage() {
                 <Text size={300} truncate wrap={false} style={{ maxWidth: 210 }}>
                   {candidate.title}
                 </Text>
-                <Caption1 style={{ color: theme.color.textTertiary }}>{candidate.agent}</Caption1>
-              </button>
+                <Caption1 style={{ color: theme.color.textTertiary }}>
+                  {candidate.agent}
+                </Caption1>
+              </OptionItem>
             ))}
           </aside>
         )}
@@ -507,9 +431,9 @@ export function AiChatPage() {
               <div style={{ width: "100%" }}>{composer}</div>
               <div className={chatStyles.examples}>
                 {CHAT_EXAMPLES.map((key) => (
-                  <button key={key} className={chatStyles.example} onClick={() => send(t(key))}>
+                  <Button key={key} variant="outline" size="sm" onClick={() => send(t(key))}>
                     {t(key)}
-                  </button>
+                  </Button>
                 ))}
               </div>
             </div>

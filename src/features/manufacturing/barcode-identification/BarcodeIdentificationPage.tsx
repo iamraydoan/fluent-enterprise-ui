@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { lookupBarcode, useBarcodeEntityInfo } from "@/api";
 import type { BarcodeEntityKind, ScannedBarcode } from "@/api";
+import { EntityTile, IconButton, ListPage, refreshAction, TileGrid } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
-import { ListPage, refreshAction, Empty, IconButton, Grid, HStack, VStack  } from "@/components/common";
 import {
   ArrowExit24Regular,
   ArrowSplit24Regular,
@@ -23,7 +23,7 @@ import {
   SplitVertical24Regular,
   Wrench24Regular,
 } from "@/components/icons";
-import { makeStyles, Text } from "@/components/ui";
+import { makeStyles, Text} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -32,21 +32,41 @@ import { EntityInfoDialog, InsertDialog, ScanDialog, SettingsDialog } from "./di
 
 const usePageStyles = makeStyles({
   body: {
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
     minHeight: 0,
-    padding: theme.spacing.lg,
+    padding: "16px",
     overflow: "auto",
+  },
+  empty: {
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    rowGap: "8px",
+    color: theme.color.textTertiary,
   },
   emptyIcon: {
     color: theme.color.textQuaternary,
     "& svg": { width: "64px", height: "64px" },
   },
-  
+  columns: {
+    display: "grid",
+    gridTemplateColumns: "minmax(320px, 5fr) minmax(320px, 7fr)",
+    columnGap: "16px",
+    alignItems: "start",
+  },
   listTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    padding: `${theme.spacing.xs} 0 ${theme.spacing.md}`,
+    padding: "4px 0 12px",
   },
   row: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "8px",
     padding: "10px 4px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
@@ -61,37 +81,19 @@ const usePageStyles = makeStyles({
   rowState: {
     color: theme.color.textSecondary,
   },
-  eyeButton: {
-    marginLeft: "auto",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    color: theme.color.textBrand,
-    display: "flex",
-    padding: theme.spacing.xs,
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
   hint: {
+    display: "flex",
+    alignItems: "center",
+    columnGap: "8px",
     padding: "12px 4px",
     color: theme.color.textQuaternary,
     fontSize: "13px",
     fontStyle: "italic",
   },
   notFound: {
-    padding: `${theme.spacing.sm} ${theme.spacing.xs}`,
+    padding: "8px 4px",
     color: theme.color.textDanger,
     fontSize: "13px",
-  },
-  
-  tile: {
-    minHeight: "110px",
-    padding: theme.spacing.lg,
-    backgroundColor: theme.color.surface,
-    border: `1px solid ${theme.color.borderBrand}`,
-    borderRadius: theme.radius.md,
-    fontSize: "14px",
-    color: theme.color.textBrand,
   },
   tileIcon: {
     display: "flex",
@@ -215,9 +217,9 @@ export function BarcodeIdentificationPage() {
           actions,
         }}
       >
-        <VStack className={styles.body}>
+        <div className={styles.body}>
           {scanned.length === 0 ? (
-            <Empty>
+            <div className={styles.empty}>
               <span className={styles.emptyIcon}>
                 <BarcodeScanner24Regular />
               </span>
@@ -226,45 +228,47 @@ export function BarcodeIdentificationPage() {
               {notFoundCode && (
                 <Text className={styles.notFound}>{t(L.notFound, { code: notFoundCode })}</Text>
               )}
-            </Empty>
+            </div>
           ) : (
-            <Grid columns="minmax(320px, 5fr) minmax(320px, 7fr)" gap="16px" align="start">
+            <div className={styles.columns}>
               <div>
                 <Text className={styles.listTitle}>
                   {t(L.scannedTitle, { count: scanned.length })}
                 </Text>
                 {scanned.map((item) => (
-                  <HStack gap="8px" align="center" key={item.code} className={styles.row}>
+                  <div key={item.code} className={styles.row}>
                     <span className={styles.rowIcon}>{ENTITY_ICONS[item.entityKind]}</span>
                     <Text className={styles.rowName}>{item.name}</Text>
                     <Text className={styles.rowState}>({item.state})</Text>
                     <IconButton
                       icon={<Eye24Regular />}
                       onClick={() => setInfoCode(item.code)}
-                      aria-label={item.name}
-                      size="sm"
+                      ariaLabel={item.name}
                     />
-                  </HStack>
+                  </div>
                 ))}
-                <HStack gap="8px" align="center" className={styles.hint}>
+                <div className={styles.hint}>
                   <BarcodeScanner24Regular />
                   <Text size={300}>{t(L.scanHint)}</Text>
-                </HStack>
+                </div>
                 {notFoundCode && (
                   <Text className={styles.notFound}>{t(L.notFound, { code: notFoundCode })}</Text>
                 )}
               </div>
-              <Grid columns="repeat(2, 1fr)" gap="12px">
+              <TileGrid minWidth="140px">
                 {ACTION_TILES.map((tile) => (
-                  <VStack gap="8px" align="center" justify="center" key={tile.id}   role="img" aria-label={t(tile.labelKey)} className={styles.tile}>
-                    <span className={styles.tileIcon}>{tile.icon}</span>
-                    <span>{t(tile.labelKey)}</span>
-                  </VStack>
+                  <EntityTile
+                    key={tile.id}
+                    title={<span className={styles.tileIcon}>{tile.icon}</span>}
+                    subtitle={t(tile.labelKey)}
+                    onClick={() => undefined}
+                    ariaLabel={t(tile.labelKey)}
+                  />
                 ))}
-              </Grid>
-            </Grid>
+              </TileGrid>
+            </div>
           )}
-        </VStack>
+        </div>
       </ListPage>
       <ScanDialog
         open={scanOpen}

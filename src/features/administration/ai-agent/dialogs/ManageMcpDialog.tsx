@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { BaseDialog, Grid, HStack, OptionItem, VStack } from "@/components/common";
+import { BaseDialog, HStack, OptionItem } from "@/components/common";
 import {
+  ChevronRight20Regular,
   Delete20Regular,
   Eye20Filled,
   Search20Regular,
@@ -15,33 +16,60 @@ import type { ToolSelection } from "../data";
 import { DialogAgentSub } from "./DialogAgentSub";
 
 const useManageStyles = makeStyles({
-  row: {
+  cols: {
+    display: "grid",
+    gridTemplateColumns: "minmax(0,1fr) 540px",
+    columnGap: "48px",
+    padding: "20px 32px 20px",
+    flexGrow: 1,
+    minHeight: 0,
+  },
+  colBox: { display: "flex", flexDirection: "column", minHeight: 0, minWidth: 0 },
+  colHead: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    height: "40px",
+    marginBottom: "10px",
+  },
+  box: {
+    flexGrow: 1,
+    minHeight: 0,
+    border: `1px solid ${theme.color.border}`,
+    display: "flex",
+    overflow: "hidden",
+    backgroundColor: "#fff",
+  },
+  list: { flex: 1, minWidth: 0, overflowY: "auto", display: "flex", flexDirection: "column" },
+  listHead: {
+    height: "44px",
+    flexShrink: 0,
+    display: "flex",
+    alignItems: "center",
+    padding: "0 10px",
+    backgroundColor: theme.color.borderSubtle,
+    fontSize: "13px",
+    columnGap: "8px",
+    position: "sticky",
+    top: 0,
+    zIndex: 1,
+    textTransform: "uppercase",
+  },
+  trow: {
     minHeight: "45px",
     flexShrink: 0,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "0 10px",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    fontSize: "13px",
-    cursor: "pointer",
-    border: "none",
-    background: theme.color.surfaceTertiary,
-    fontFamily: "inherit",
-    textAlign: "left",
-    width: "100%",
-    ":hover": { backgroundColor: theme.color.brandSubtle },
-  },
-  rowOn: { backgroundColor: theme.color.brandSubtle },
-  trow: {
-    minHeight: "45px",
-    flexShrink: 0,
     padding: "0 10px 0 4px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
     backgroundColor: theme.color.surfaceTertiary,
   },
   sRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: "4px 12px",
     minHeight: "44px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
@@ -124,9 +152,9 @@ export function ManageMcpDialog({
         </>
       }
     >
-      <Grid columns="minmax(0,1fr) 540px" gap="48px" grow style={{ padding: "20px 32px 20px", minHeight: 0 }}>
-        <VStack style={{ minHeight: 0, minWidth: 0 }}>
-          <HStack align="center" justify="space-between" style={{ height: "40px", marginBottom: "10px" }}>
+      <div className={manageStyles.cols}>
+        <div className={manageStyles.colBox}>
+          <div className={manageStyles.colHead}>
             <Text size={400}>{t("dialogs.manageMcp.selectTools")}</Text>
             <Input
               variant="outline"
@@ -137,28 +165,36 @@ export function ManageMcpDialog({
               aria-label={t("dialogs.manageMcp.searchTools")}
               style={{ width: 204 }}
             />
-          </HStack>
-          <HStack grow style={{ minHeight: 0, border: `1px solid ${theme.color.border}`, overflow: "hidden", backgroundColor: theme.color.surface }}>
-            <VStack grow style={{ minWidth: 0, overflowY: "auto", borderRight: `1px solid ${theme.color.border}` }}>
-              <HStack align="center" style={{ height: "44px", flexShrink: 0, padding: "0 10px", backgroundColor: theme.color.borderSubtle, fontSize: "13px" }}>{t("dialogs.manageMcp.mcpServers")}</HStack>
+          </div>
+          <div className={manageStyles.box}>
+            <div className={manageStyles.list} style={{ borderRight: `1px solid ${theme.color.border}` }}>
+              <div className={manageStyles.listHead}>{t("dialogs.manageMcp.mcpServers")}</div>
               {AGENT_MCP_SERVERS.map((server) => {
                 const count = Object.keys(draft[server.name] ?? {}).length;
                 return (
                   <OptionItem
                     key={server.name}
-                    title={server.name}
-                    description={t("dialogs.manageMcp.serverCount", {
-                      selected: count,
-                      total: server.tools.length,
-                    })}
                     selected={activeServer === server.name}
                     onClick={() => setActiveServer(server.name)}
-                  />
+                  >
+                    <HStack justify="between" align="center" grow>
+                      <span>{server.name}</span>
+                      <HStack align="center" gap="sm">
+                        <Text size={200}>
+                          {t("dialogs.manageMcp.serverCount", {
+                            selected: count,
+                            total: server.tools.length,
+                          })}
+                        </Text>
+                        <ChevronRight20Regular />
+                      </HStack>
+                    </HStack>
+                  </OptionItem>
                 );
               })}
-            </VStack>
-            <VStack grow style={{ minWidth: 0, overflowY: "auto" }}>
-              <HStack align="center" style={{ height: "44px", flexShrink: 0, padding: "0 10px 0 4px", backgroundColor: theme.color.borderSubtle, fontSize: "13px" }}>
+            </div>
+            <div className={manageStyles.list}>
+              <div className={manageStyles.listHead} style={{ paddingLeft: 4 }}>
                 <Checkbox
                   checked={
                     allOn ? true : tools.some((tool) => isOn(activeServer, tool)) ? "mixed" : false
@@ -167,18 +203,12 @@ export function ManageMcpDialog({
                   aria-label={t("dialogs.manageMcp.selectAllTools")}
                 />
                 {t("dialogs.manageMcp.tools")}
-              </HStack>
+              </div>
               {tools.map((tool) => (
-                <HStack
+                <div
                   key={tool}
-                  align="center"
-                  justify="space-between"
                   className={manageStyles.trow}
-                  style={
-                    isOn(activeServer, tool)
-                      ? { backgroundColor: theme.color.brandSubtle }
-                      : undefined
-                  }
+                  style={isOn(activeServer, tool) ? { backgroundColor: theme.color.brandSubtle } : undefined}
                 >
                   <Checkbox
                     label={tool}
@@ -192,13 +222,13 @@ export function ManageMcpDialog({
                     aria-label={t("dialogs.manageMcp.viewTool", { tool })}
                     onClick={() => onViewTool(activeServer, tool)}
                   />
-                </HStack>
+                </div>
               ))}
-            </VStack>
-          </HStack>
-        </VStack>
-        <VStack style={{ minHeight: 0, minWidth: 0 }}>
-          <HStack align="center" justify="space-between" style={{ height: "40px", marginBottom: "10px" }}>
+            </div>
+          </div>
+        </div>
+        <div className={manageStyles.colBox}>
+          <div className={manageStyles.colHead}>
             <Text size={400}>
               {t("dialogs.manageMcp.selectedTools", { count: selectedList.length })}
             </Text>
@@ -209,10 +239,10 @@ export function ManageMcpDialog({
               disabled={selectedList.length === 0}
               onClick={() => setDraft({})}
             />
-          </HStack>
-          <VStack grow style={{ minHeight: 0, border: `1px solid ${theme.color.border}`, overflowY: "auto", backgroundColor: theme.color.surface }}>
+          </div>
+          <div className={manageStyles.box} style={{ flexDirection: "column", overflowY: "auto" }}>
             {selectedList.map(({ server, tool, deferred }) => (
-              <HStack key={server + tool} align="center" justify="space-between" className={manageStyles.sRow}>
+              <div key={server + tool} className={manageStyles.sRow}>
                 <span>
                   <div>{tool}</div>
                   <div>{server}</div>
@@ -229,16 +259,16 @@ export function ManageMcpDialog({
                 >
                   {deferred ? t("aiAgent.deferred") : t("aiAgent.notDeferred")}
                 </Button>
-              </HStack>
+              </div>
             ))}
             {selectedList.length === 0 && (
-              <div style={{ padding: 20, color: theme.color.textTertiary, fontSize: 13 }}>
+              <div style={{ padding: 20, color: "#777", fontSize: 13 }}>
                 {t("dialogs.manageMcp.noTools")}
               </div>
             )}
-          </VStack>
-        </VStack>
-      </Grid>
+          </div>
+        </div>
+      </div>
     </BaseDialog>
   );
 }

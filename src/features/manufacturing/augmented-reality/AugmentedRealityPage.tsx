@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Empty, KV, ListPage, refreshAction, HStack, VStack  } from "@/components/common";
+import { Card, Empty, KV, ListPage, refreshAction } from "@/components/common";
 import {
   ArrowRotateClockwise24Regular,
   Cube24Regular,
@@ -49,12 +49,8 @@ const TAG_DETAILS: Record<string, TagDetail> = {
 };
 
 const useArStyles = makeStyles({
-  body: {
-    minHeight: 0,
-  },
-  viewportCard: {
-    minWidth: 0,
-  },
+  body: { display: "flex", columnGap: "12px", flexGrow: 1, minHeight: 0 },
+  viewportCard: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
   viewport: {
     position: "relative",
     flexGrow: 1,
@@ -72,16 +68,8 @@ const useArStyles = makeStyles({
     color: theme.color.textTertiary,
     fontSize: "12px",
   },
-  tagSelected: {
-    outline: `2px solid ${theme.color.borderBrand}`,
-    outlineOffset: "2px",
-  },
-  controls: {
-    marginTop: theme.spacing.md,
-  },
-  side: {
-    width: "340px",
-  }
+  controls: { display: "flex", columnGap: "8px", marginTop: "12px" },
+  side: { width: "340px", flexShrink: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
 });
 
 export function AugmentedRealityPage() {
@@ -119,8 +107,8 @@ export function AugmentedRealityPage() {
         actions: [refreshAction],
       }}
     >
-      <HStack gap="12px" className={styles.body}>
-        <VStack className={styles.viewportCard}>
+      <div className={styles.body}>
+        <div className={styles.viewportCard}>
           <Card title={t("manufacturing.augmentedReality.viewportTitle")}>
             <div
               className={styles.viewport}
@@ -132,16 +120,26 @@ export function AugmentedRealityPage() {
               {TAGS.map((tag) => (
                 <Button
                   key={tag.id}
-                  variant={tag.id === selectedId ? "primary" : "secondary"}
+                  variant="primary"
                   size="sm"
-                  style={{ position: "absolute", left: `${tag.x}%`, top: `${tag.y}%` }}
                   onClick={() => setSelectedId(tag.id)}
+                  style={{
+                    position: "absolute",
+                    left: `${tag.x}%`,
+                    top: `${tag.y}%`,
+                    transform: "translate(-50%, -50%)",
+                    outline:
+                      tag.id === selectedId
+                        ? `2px solid ${theme.color.borderBrand}`
+                        : undefined,
+                    outlineOffset: "2px",
+                  }}
                 >
                   {tag.entity}
                 </Button>
               ))}
             </div>
-            <HStack gap="8px" className={styles.controls}>
+            <div className={styles.controls}>
               <Button
                 variant="secondary"
                 icon={<ZoomIn24Regular />}
@@ -163,17 +161,17 @@ export function AugmentedRealityPage() {
               >
                 {t("manufacturing.augmentedReality.rotate")}
               </Button>
-            </HStack>
+            </div>
           </Card>
-        </VStack>
-        <VStack gap="12px" className={styles.side}>
+        </div>
+        <div className={styles.side}>
           <Card title={t("manufacturing.augmentedReality.detectedTags")}>
             {TAGS.length === 0 ? (
               <Empty>
                 <Text>{t("manufacturing.augmentedReality.noTags")}</Text>
               </Empty>
             ) : (
-              <VStack gap="8px">
+              <div style={{ display: "flex", flexDirection: "column", rowGap: "8px" }}>
                 {TAGS.map((tag) => (
                   <Button
                     key={tag.id}
@@ -183,7 +181,7 @@ export function AugmentedRealityPage() {
                     {tag.entity} ({tag.type})
                   </Button>
                 ))}
-              </VStack>
+              </div>
             )}
           </Card>
           <Card title={t("manufacturing.augmentedReality.entityDetails")}>
@@ -195,8 +193,8 @@ export function AugmentedRealityPage() {
               </Empty>
             )}
           </Card>
-        </VStack>
-      </HStack>
+        </div>
+      </div>
     </ListPage>
   );
 }

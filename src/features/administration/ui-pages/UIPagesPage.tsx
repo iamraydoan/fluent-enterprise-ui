@@ -2,16 +2,16 @@ import { useState } from "react";
 import { useUIPageFolders, useUIPages } from "@/api";
 import type { UIPageRecord, UIPageScope } from "@/api";
 import {
-  createAction,
   DataListPage,
-  Empty,
-  exportAction,
   FilterBar,
   FilterGroup,
+  MenuTriggerButton,
+  createAction,
+  exportAction,
   importAction,
   refreshAction,
   SidePanel,
-  SidebarNavItem, Grid, MenuTriggerButton, VStack, HStack  
+  SidebarNavItem,
 } from "@/components/common";
 import { DocumentBulletList24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
 import {
@@ -34,21 +34,31 @@ const ALL_FOLDERS = "all";
 
 const usePageStyles = makeStyles({
   contentCard: {
-    padding: theme.spacing.lg,
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "12px",
+    padding: "16px",
+    flexGrow: 1,
     minHeight: 0,
   },
   grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+    gap: "12px",
     overflowY: "auto",
-    paddingBottom: theme.spacing.sm,
+    paddingBottom: "8px",
   },
   tile: {
     padding: "14px",
     cursor: "pointer",
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "10px",
     minHeight: "110px",
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
-    ": hover": { backgroundColor: theme.color.surfaceHover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   tileName: { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
   tileMeta: { fontSize: "12px", color: theme.color.textTertiary },
@@ -56,9 +66,10 @@ const usePageStyles = makeStyles({
     fontSize: "11px",
     color: theme.color.textTertiary,
     textTransform: "uppercase",
-    padding: `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.xs}`,
+    padding: "12px 12px 4px",
     letterSpacing: "0.5px",
   },
+  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
 });
 
 const SCOPES: Array<"all" | UIPageScope> = [
@@ -126,7 +137,7 @@ export function UIPagesPage() {
         </SidePanel>
       }
     >
-      <VStack gap="12px" className={mergeClasses(sharedStyles.contentCard, styles.contentCard)}>
+      <div className={mergeClasses(sharedStyles.contentCard, styles.contentCard)}>
         <FilterBar>
           <FilterGroup>
             <Checkbox
@@ -145,7 +156,7 @@ export function UIPagesPage() {
           <FilterGroup label={t("uiPages.filters.scope")}>
             <Menu>
               <MenuTrigger disableButtonEnhancement>
-                <MenuTriggerButton>
+                <MenuTriggerButton ariaLabel={t("uiPages.filters.scope")}>
                   {scope === "all" ? t("uiPages.filters.all") : scope}
                 </MenuTriggerButton>
               </MenuTrigger>
@@ -163,7 +174,7 @@ export function UIPagesPage() {
           <FilterGroup label={t("uiPages.filters.section")}>
             <Menu>
               <MenuTrigger disableButtonEnhancement>
-                <MenuTriggerButton>
+                <MenuTriggerButton ariaLabel={t("uiPages.filters.section")}>
                   {section === "all" ? t("uiPages.filters.all") : section}
                 </MenuTriggerButton>
               </MenuTrigger>
@@ -199,15 +210,15 @@ export function UIPagesPage() {
           </FilterGroup>
         </FilterBar>
         {pages.length === 0 ? (
-          <Empty>{t("uiPages.noPages")}</Empty>
+          <div className={styles.empty}>{t("uiPages.noPages")}</div>
         ) : (
-          <Grid columns="repeat(auto-fill, minmax(220px, 1fr))" gap="12px" className={styles.grid}>
+          <div className={styles.grid}>
             {pages.map((page) => (
               <UIPageTile key={page.name} page={page} />
             ))}
-          </Grid>
+          </div>
         )}
-      </VStack>
+      </div>
     </DataListPage>
   );
 }
@@ -215,19 +226,19 @@ export function UIPagesPage() {
 function UIPageTile({ page }: { page: UIPageRecord }) {
   const styles = usePageStyles();
   return (
-    <VStack gap="10px" role="button" tabIndex={0} aria-label={page.name} className={styles.tile}>
+    <div className={styles.tile} role="button" tabIndex={0} aria-label={page.name}>
       <Text weight="semibold" size={400} className={styles.tileName} title={page.name}>
         {page.name}
       </Text>
-      <HStack gap="6px">
+      <div style={{ display: "flex", columnGap: "6px" }}>
         <Text className={styles.tileMeta}>{page.type}</Text>
         <Text className={styles.tileMeta}>{page.scope}</Text>
-      </HStack>
+      </div>
       {page.description !== "" && (
         <Text className={styles.tileMeta} title={page.description}>
           {page.description}
         </Text>
       )}
-    </VStack>
+    </div>
   );
 }
