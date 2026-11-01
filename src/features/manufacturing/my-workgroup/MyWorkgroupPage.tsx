@@ -1,7 +1,21 @@
 import { useState } from "react";
 import { useMyWorkgroupResources, useMyWorkgroupSteps, useMyWorkgroups } from "@/api";
 import type { WorkgroupResourceTile, WorkgroupStepTile } from "@/api";
-import { EntityTile, FilterBar, FilterGroup, ListPage, TileGrid } from "@/components/common";
+import {
+  Dot,
+  Empty,
+  EntityTile,
+  FilterBar,
+  FilterGroup,
+  HStack,
+  IconButton,
+  ListPage,
+  MenuTriggerButton,
+  SidebarNavItem,
+  Split,
+  TileGrid,
+  VStack,
+} from "@/components/common";
 import {
   ArrowExportUp24Regular,
   ArrowSync24Regular,
@@ -22,92 +36,15 @@ import {
   MenuPopover,
   MenuTrigger,
   Text,
-  makeStyles,
-  mergeClasses,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
 import { theme } from "@/styles/theme";
 import { PanelSettingsDialog } from "./dialogs";
 
-const usePageStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  side: { display: "flex", flexDirection: "column", minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
-  panel: { width: "300px", flexShrink: 0, display: "flex", flexDirection: "column" },
-  panelHeader: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "8px 8px 8px 12px",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  workgroupButton: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "4px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "15px",
-    fontWeight: theme.font.weightSemibold,
-    padding: "4px 6px",
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  headerActions: { display: "flex", alignItems: "center", columnGap: "2px" },
-  navList: { display: "flex", flexDirection: "column", padding: "6px", rowGap: "2px" },
-  navItem: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "10px",
-    width: "100%",
-    padding: "10px 12px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    textAlign: "left",
-    fontFamily: "inherit",
-    fontSize: "14px",
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  navItemActive: { backgroundColor: theme.color.surfaceSelected },
-  navCount: { marginLeft: "auto", fontWeight: theme.font.weightSemibold },
-  stepDot: {
-    width: "16px",
-    height: "16px",
-    borderRadius: "50%",
-    backgroundColor: theme.color.brand,
-    flexShrink: 0,
-  },
-  dropdownButton: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "4px",
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    fontWeight: theme.font.weightSemibold,
-    padding: "4px 6px",
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  facilityWrap: { display: "flex", alignItems: "stretch" },
-  tileCounts: { display: "flex", alignItems: "center", columnGap: "14px" },
-  tileCount: { display: "flex", alignItems: "center", columnGap: "4px", fontSize: "13px" },
-  empty: {
-    padding: "48px",
-    textAlign: "center",
-    color: theme.color.textTertiary,
-    fontSize: "14px",
-  },
-});
-
 type Panel = "resources" | "steps";
+
+const RESOURCES_PANEL: Panel = "resources";
+const STEPS_PANEL: Panel = "steps";
 
 const RESOURCE_TYPE_OPTIONS = ["Standard"];
 const RESOURCE_SYSTEM_STATE_OPTIONS = ["Up", "Down"];
@@ -142,7 +79,6 @@ function FilterDropdown({
   onChange: (value: string) => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = usePageStyles();
   return (
     <FilterGroup label={label}>
       <Menu
@@ -153,10 +89,10 @@ function FilterDropdown({
         }}
       >
         <MenuTrigger disableButtonEnhancement>
-          <button className={styles.dropdownButton}>
+          <MenuTriggerButton ariaLabel={label}>
             {value === "" ? t(L.all).toUpperCase() : value.toUpperCase()}
             <ChevronDown16Regular />
-          </button>
+          </MenuTriggerButton>
         </MenuTrigger>
         <MenuPopover>
           <MenuList>
@@ -175,34 +111,47 @@ function FilterDropdown({
   );
 }
 
+function TileCount({ value, title, icon }: { value: number; title: string; icon: React.ReactNode }) {
+  return (
+    <HStack gap="xs" align="center" title={title}>
+      <Text size={300}>{value}</Text>
+      {icon}
+    </HStack>
+  );
+}
+
 function ResourceTile({ tile, onOpen }: { tile: WorkgroupResourceTile; onOpen: () => void }) {
   const { t } = useAppTranslation();
-  const styles = usePageStyles();
-  const isUp = tile.systemState === "Up";
   return (
     <EntityTile
       title={`${tile.name}(${tile.facility})`}
       subtitle={tile.type}
-      accentColor={isUp ? theme.color.textSuccess : theme.color.textDanger}
-      backgroundColor={isUp ? undefined : theme.color.dangerSubtle}
+      accentColor={tile.systemState === "Up" ? theme.color.textSuccess : theme.color.textDanger}
+      backgroundColor={tile.systemState === "Up" ? undefined : theme.color.dangerSubtle}
       onClick={onOpen}
       ariaLabel={`${tile.name} (${tile.facility})`}
       footer={
         <>
-          <span style={{ color: theme.color.textBrand }}>
+          <span style={{ color: theme.color.textBrand, display: "inline-flex" }}>
             <Box24Regular />
           </span>
-          <span className={styles.tileCounts}>
-            <span className={styles.tileCount} title={t("myWorkgroup.tiles.dispatched")}>
-              {tile.dispatched} <ArrowExportUp24Regular />
-            </span>
-            <span className={styles.tileCount} title={t("myWorkgroup.tiles.inProcess")}>
-              {tile.inProcess} <ArrowSync24Regular />
-            </span>
-            <span className={styles.tileCount} title={t("myWorkgroup.tiles.processed")}>
-              {tile.processed} <Checkmark20Filled />
-            </span>
-          </span>
+          <HStack gap="md" align="center">
+            <TileCount
+              value={tile.dispatched}
+              title={t("myWorkgroup.tiles.dispatched")}
+              icon={<ArrowExportUp24Regular />}
+            />
+            <TileCount
+              value={tile.inProcess}
+              title={t("myWorkgroup.tiles.inProcess")}
+              icon={<ArrowSync24Regular />}
+            />
+            <TileCount
+              value={tile.processed}
+              title={t("myWorkgroup.tiles.processed")}
+              icon={<Checkmark20Filled />}
+            />
+          </HStack>
         </>
       }
     />
@@ -211,7 +160,6 @@ function ResourceTile({ tile, onOpen }: { tile: WorkgroupResourceTile; onOpen: (
 
 function StepTile({ tile, onOpen }: { tile: WorkgroupStepTile; onOpen: () => void }) {
   const { t } = useAppTranslation();
-  const styles = usePageStyles();
   return (
     <EntityTile
       title={`${tile.name}(${tile.facility})`}
@@ -220,15 +168,19 @@ function StepTile({ tile, onOpen }: { tile: WorkgroupStepTile; onOpen: () => voi
       ariaLabel={`${tile.name} (${tile.facility})`}
       footer={
         <>
-          <span className={styles.stepDot} />
-          <span className={styles.tileCounts}>
-            <span className={styles.tileCount} title={t("myWorkgroup.tiles.materials")}>
-              {tile.materials} <Box24Regular />
-            </span>
-            <span className={styles.tileCount} title={t("myWorkgroup.tiles.resources")}>
-              {tile.resources} <Box24Regular />
-            </span>
-          </span>
+          <Dot />
+          <HStack gap="md" align="center">
+            <TileCount
+              value={tile.materials}
+              title={t("myWorkgroup.tiles.materials")}
+              icon={<Box24Regular />}
+            />
+            <TileCount
+              value={tile.resources}
+              title={t("myWorkgroup.tiles.resources")}
+              icon={<Box24Regular />}
+            />
+          </HStack>
         </>
       }
     />
@@ -237,13 +189,11 @@ function StepTile({ tile, onOpen }: { tile: WorkgroupStepTile; onOpen: () => voi
 
 export function MyWorkgroupPage() {
   const { t } = useAppTranslation();
-  const styles = usePageStyles();
-  const sharedStyles = useSharedStyles();
-  const [panel, setPanel] = useState<Panel>("resources");
+  const [panel, setPanel] = useState<Panel>(RESOURCES_PANEL);
   const [collapsed, setCollapsed] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [workgroup, setWorkgroup] = useState("W1");
-  const [visiblePanels, setVisiblePanels] = useState<Panel[]>(["resources", "steps"]);
+  const [visiblePanels, setVisiblePanels] = useState<Panel[]>([RESOURCES_PANEL, STEPS_PANEL]);
 
   const [resourceType, setResourceType] = useState("");
   const [resourceSystemState, setResourceSystemState] = useState("");
@@ -285,9 +235,10 @@ export function MyWorkgroupPage() {
         actions: [],
       }}
     >
-      <div className={styles.body}>
-        <div className={styles.side}>
-          {collapsed ? (
+      <Split
+        sidebarWidth="300px"
+        sidebar={
+          collapsed ? (
             <Button
               variant="subtle"
               icon={<PanelLeftExpand20Regular />}
@@ -295,8 +246,8 @@ export function MyWorkgroupPage() {
               onClick={() => setCollapsed(false)}
             />
           ) : (
-            <div className={mergeClasses(sharedStyles.contentCard, styles.panel)}>
-              <div className={styles.panelHeader}>
+            <VStack surface grow gap="none">
+              <HStack align="center" justify="between" p="sm" divider>
                 <Menu
                   checkedValues={{ workgroup: [workgroup] }}
                   onCheckedValueChange={(checkedItems) => {
@@ -305,13 +256,10 @@ export function MyWorkgroupPage() {
                   }}
                 >
                   <MenuTrigger disableButtonEnhancement>
-                    <button
-                      className={styles.workgroupButton}
-                      aria-label={t("myWorkgroup.workgroup")}
-                    >
+                    <MenuTriggerButton size="md" ariaLabel={t("myWorkgroup.workgroup")}>
                       {workgroup}
                       <ChevronDown16Regular />
-                    </button>
+                    </MenuTriggerButton>
                   </MenuTrigger>
                   <MenuPopover>
                     <MenuList>
@@ -323,173 +271,152 @@ export function MyWorkgroupPage() {
                     </MenuList>
                   </MenuPopover>
                 </Menu>
-                <span className={styles.headerActions}>
-                  <Button
-                    variant="subtle"
+                <HStack gap="xs" align="center">
+                  <IconButton
                     icon={<Settings20Regular />}
-                    aria-label={t("myWorkgroup.settings")}
+                    ariaLabel={t("myWorkgroup.settings")}
                     onClick={() => setSettingsOpen(true)}
                   />
-                  <Button
-                    variant="subtle"
+                  <IconButton
                     icon={<ChevronLeft20Regular />}
-                    aria-label={t("common.collapsePanel")}
+                    ariaLabel={t("common.collapsePanel")}
                     onClick={() => setCollapsed(true)}
                   />
-                </span>
-              </div>
-              <div className={styles.navList}>
-                {visiblePanels.includes("resources") && (
-                  <button
-                    className={mergeClasses(
-                      styles.navItem,
-                      panel === "resources" && styles.navItemActive,
-                    )}
-                    onClick={() => setPanel("resources")}
-                    aria-current={panel === "resources" ? "page" : undefined}
-                  >
-                    <span style={{ color: theme.color.textBrand }}>
-                      <Box24Regular />
-                    </span>
-                    <Text weight={panel === "resources" ? "semibold" : "regular"}>
-                      {t(L.resources)}
-                    </Text>
-                    <span className={styles.navCount}>{resources.length}</span>
-                  </button>
+                </HStack>
+              </HStack>
+              <VStack gap="xs" p="xs">
+                {visiblePanels.includes(RESOURCES_PANEL) && (
+                  <SidebarNavItem
+                    icon={
+                      <span style={{ color: theme.color.textBrand, display: "inline-flex" }}>
+                        <Box24Regular />
+                      </span>
+                    }
+                    label={t(L.resources)}
+                    active={panel === RESOURCES_PANEL}
+                    onClick={() => setPanel(RESOURCES_PANEL)}
+                    endContent={<Text size={300}>{resources.length}</Text>}
+                  />
                 )}
-                {visiblePanels.includes("steps") && (
-                  <button
-                    className={mergeClasses(
-                      styles.navItem,
-                      panel === "steps" && styles.navItemActive,
-                    )}
-                    onClick={() => setPanel("steps")}
-                    aria-current={panel === "steps" ? "page" : undefined}
-                  >
-                    <span className={styles.stepDot} />
-                    <Text weight={panel === "steps" ? "semibold" : "regular"}>{t(L.steps)}</Text>
-                    <span className={styles.navCount}>{steps.length}</span>
-                  </button>
+                {visiblePanels.includes(STEPS_PANEL) && (
+                  <SidebarNavItem
+                    icon={<Dot />}
+                    label={t(L.steps)}
+                    active={panel === STEPS_PANEL}
+                    onClick={() => setPanel(STEPS_PANEL)}
+                    endContent={<Text size={300}>{steps.length}</Text>}
+                  />
                 )}
-              </div>
-            </div>
-          )}
-        </div>
-        <div className={styles.main}>
-          {panel === "resources" && visiblePanels.includes("resources") && (
-            <>
-              <FilterBar>
-                <FilterDropdown
-                  label={t(L.type)}
-                  value={resourceType}
-                  options={RESOURCE_TYPE_OPTIONS}
-                  onChange={setResourceType}
-                />
-                <FilterDropdown
-                  label={t(L.systemState)}
-                  value={resourceSystemState}
-                  options={RESOURCE_SYSTEM_STATE_OPTIONS}
-                  onChange={setResourceSystemState}
-                />
-                <FilterGroup label={t(L.facility)}>
-                  <span className={styles.facilityWrap}>
-                    <Input
-                      value={resourceFacility}
-                      onChange={setResourceFacility}
-                      placeholder={t(L.facilityPlaceholder)}
-                      style={{ width: "140px" }}
-                    />
-                    <Button
-                      variant="subtle"
-                      icon={<Search20Regular />}
-                      aria-label={t(L.facility)}
-                    />
-                  </span>
-                </FilterGroup>
-                <FilterDropdown
-                  label={t(L.state)}
-                  value={resourceState}
-                  options={RESOURCE_STATE_OPTIONS}
-                  onChange={setResourceState}
-                />
-                <Input
-                  value={resourceName}
-                  onChange={setResourceName}
-                  placeholder={t(L.resourceNamePlaceholder)}
-                  contentBefore={<Search20Regular />}
-                  style={{ width: "220px" }}
-                />
-              </FilterBar>
-              {resourcesLoading ? (
-                <div className={styles.empty}>{t("myWorkgroup.loading")}</div>
-              ) : resources.length === 0 ? (
-                <div className={styles.empty}>{t("myWorkgroup.noResources")}</div>
-              ) : (
-                <TileGrid minWidth="300px">
-                  {resources.map((tile) => (
-                    <ResourceTile
-                      key={tile.name}
-                      tile={tile}
-                      onOpen={() => openResourceView(tile.name)}
-                    />
-                  ))}
-                </TileGrid>
-              )}
-            </>
-          )}
-          {panel === "steps" && visiblePanels.includes("steps") && (
-            <>
-              <FilterBar>
-                <FilterDropdown
-                  label={t(L.processingType)}
-                  value={stepProcessingType}
-                  options={STEP_PROCESSING_TYPE_OPTIONS}
-                  onChange={setStepProcessingType}
-                />
-                <FilterDropdown
-                  label={t(L.type)}
-                  value={stepType}
-                  options={STEP_TYPE_OPTIONS}
-                  onChange={setStepType}
-                />
-                <FilterGroup label={t(L.facility)}>
-                  <span className={styles.facilityWrap}>
-                    <Input
-                      value={stepFacility}
-                      onChange={setStepFacility}
-                      placeholder={t(L.facilityPlaceholder)}
-                      style={{ width: "140px" }}
-                    />
-                    <Button
-                      variant="subtle"
-                      icon={<Search20Regular />}
-                      aria-label={t(L.facility)}
-                    />
-                  </span>
-                </FilterGroup>
-                <Input
-                  value={stepName}
-                  onChange={setStepName}
-                  placeholder={t(L.stepNamePlaceholder)}
-                  contentBefore={<Search20Regular />}
-                  style={{ width: "220px" }}
-                />
-              </FilterBar>
-              {stepsLoading ? (
-                <div className={styles.empty}>{t("myWorkgroup.loading")}</div>
-              ) : steps.length === 0 ? (
-                <div className={styles.empty}>{t("myWorkgroup.noSteps")}</div>
-              ) : (
-                <TileGrid minWidth="300px">
-                  {steps.map((tile) => (
-                    <StepTile key={tile.name} tile={tile} onOpen={() => openStepView(tile.name)} />
-                  ))}
-                </TileGrid>
-              )}
-            </>
-          )}
-        </div>
-      </div>
+              </VStack>
+            </VStack>
+          )
+        }
+      >
+        {panel === RESOURCES_PANEL && visiblePanels.includes(RESOURCES_PANEL) && (
+          <>
+            <FilterBar>
+              <FilterDropdown
+                label={t(L.type)}
+                value={resourceType}
+                options={RESOURCE_TYPE_OPTIONS}
+                onChange={setResourceType}
+              />
+              <FilterDropdown
+                label={t(L.systemState)}
+                value={resourceSystemState}
+                options={RESOURCE_SYSTEM_STATE_OPTIONS}
+                onChange={setResourceSystemState}
+              />
+              <FilterGroup label={t(L.facility)}>
+                <HStack>
+                  <Input
+                    value={resourceFacility}
+                    onChange={setResourceFacility}
+                    placeholder={t(L.facilityPlaceholder)}
+                    style={{ width: "140px" }}
+                  />
+                  <IconButton icon={<Search20Regular />} ariaLabel={t(L.facility)} />
+                </HStack>
+              </FilterGroup>
+              <FilterDropdown
+                label={t(L.state)}
+                value={resourceState}
+                options={RESOURCE_STATE_OPTIONS}
+                onChange={setResourceState}
+              />
+              <Input
+                value={resourceName}
+                onChange={setResourceName}
+                placeholder={t(L.resourceNamePlaceholder)}
+                contentBefore={<Search20Regular />}
+                style={{ width: "220px" }}
+              />
+            </FilterBar>
+            {resourcesLoading ? (
+              <Empty>{t("myWorkgroup.loading")}</Empty>
+            ) : resources.length === 0 ? (
+              <Empty>{t("myWorkgroup.noResources")}</Empty>
+            ) : (
+              <TileGrid minWidth="300px">
+                {resources.map((tile) => (
+                  <ResourceTile
+                    key={tile.name}
+                    tile={tile}
+                    onOpen={() => openResourceView(tile.name)}
+                  />
+                ))}
+              </TileGrid>
+            )}
+          </>
+        )}
+        {panel === STEPS_PANEL && visiblePanels.includes(STEPS_PANEL) && (
+          <>
+            <FilterBar>
+              <FilterDropdown
+                label={t(L.processingType)}
+                value={stepProcessingType}
+                options={STEP_PROCESSING_TYPE_OPTIONS}
+                onChange={setStepProcessingType}
+              />
+              <FilterDropdown
+                label={t(L.type)}
+                value={stepType}
+                options={STEP_TYPE_OPTIONS}
+                onChange={setStepType}
+              />
+              <FilterGroup label={t(L.facility)}>
+                <HStack>
+                  <Input
+                    value={stepFacility}
+                    onChange={setStepFacility}
+                    placeholder={t(L.facilityPlaceholder)}
+                    style={{ width: "140px" }}
+                  />
+                  <IconButton icon={<Search20Regular />} ariaLabel={t(L.facility)} />
+                </HStack>
+              </FilterGroup>
+              <Input
+                value={stepName}
+                onChange={setStepName}
+                placeholder={t(L.stepNamePlaceholder)}
+                contentBefore={<Search20Regular />}
+                style={{ width: "220px" }}
+              />
+            </FilterBar>
+            {stepsLoading ? (
+              <Empty>{t("myWorkgroup.loading")}</Empty>
+            ) : steps.length === 0 ? (
+              <Empty>{t("myWorkgroup.noSteps")}</Empty>
+            ) : (
+              <TileGrid minWidth="300px">
+                {steps.map((tile) => (
+                  <StepTile key={tile.name} tile={tile} onOpen={() => openStepView(tile.name)} />
+                ))}
+              </TileGrid>
+            )}
+          </>
+        )}
+      </Split>
       <PanelSettingsDialog
         open={settingsOpen}
         onClose={() => setSettingsOpen(false)}

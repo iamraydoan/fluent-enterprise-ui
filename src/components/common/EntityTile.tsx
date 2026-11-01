@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { makeStyles, mergeClasses, Text, tokens } from "@/components/ui";
 import { cardSurface, tileSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const useTileStyles = makeStyles({
   grid: {
@@ -44,6 +45,7 @@ const useTileStyles = makeStyles({
     marginTop: "auto",
     paddingTop: "8px",
   },
+  selected: { backgroundColor: theme.color.surfaceSelected },
 });
 
 interface TileGridProps {
@@ -71,6 +73,7 @@ interface EntityTileProps {
   footer?: ReactNode;
   accentColor?: string;
   backgroundColor?: string;
+  selected?: boolean;
   onClick: () => void;
   ariaLabel?: string;
   className?: string;
@@ -83,6 +86,7 @@ export function EntityTile({
   footer,
   accentColor,
   backgroundColor,
+  selected,
   onClick,
   ariaLabel,
   className,
@@ -90,7 +94,7 @@ export function EntityTile({
   const styles = useTileStyles();
   return (
     <div
-      className={mergeClasses(styles.tile, className)}
+      className={mergeClasses(styles.tile, selected && styles.selected, className)}
       style={backgroundColor ? { backgroundColor } : undefined}
       onClick={onClick}
       role="button"
@@ -99,6 +103,7 @@ export function EntityTile({
         if (e.key === "Enter") onClick();
       }}
       aria-label={ariaLabel}
+      aria-pressed={selected}
     >
       {accentColor && <div className={styles.accent} style={{ backgroundColor: accentColor }} />}
       <div>

@@ -287,6 +287,11 @@ export default tseslint.config(
               "accentColor",
               "backgroundColor",
               "minWidth",
+              "sidebarWidth",
+              "gap",
+              "align",
+              "justify",
+              "p",
             ],
           },
           "object-properties": {
