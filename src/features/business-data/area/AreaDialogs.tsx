@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, OptionItem } from "@/components/common";
 import { Button, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -13,22 +13,6 @@ const useManageDialogStyles = makeStyles({
     marginBottom: "8px",
   },
   empty: { padding: "24px", textAlign: "center", color: theme.color.textTertiary },
-  dashboardItem: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "12px",
-    padding: "12px",
-    border: `1px solid ${theme.color.borderSubtle}`,
-    borderRadius: theme.radius.md,
-    marginBottom: "8px",
-    cursor: "pointer",
-    width: "100%",
-    backgroundColor: "transparent",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    textAlign: "left",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
 });
 
 interface SupplyAreaRow {
@@ -187,7 +171,6 @@ export function ViewAreaDashboardsDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = useManageDialogStyles();
 
   return (
     <BaseDialog
@@ -202,9 +185,9 @@ export function ViewAreaDashboardsDialog({
       }
     >
       {DASHBOARDS.map((dashboard) => (
-        <button key={dashboard} className={styles.dashboardItem} onClick={onClose}>
+        <OptionItem key={dashboard} onClick={onClose}>
           {t(`businessData.area.operations.dashboards.${dashboard}`)}
-        </button>
+        </OptionItem>
       ))}
     </BaseDialog>
   );

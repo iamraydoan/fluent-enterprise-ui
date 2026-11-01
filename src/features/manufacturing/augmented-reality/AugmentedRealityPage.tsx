@@ -6,7 +6,7 @@ import {
   ZoomIn24Regular,
   ZoomOut24Regular,
 } from "@/components/icons";
-import { Button, Text, makeStyles, mergeClasses} from "@/components/ui";
+import { Button, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
@@ -68,23 +68,6 @@ const useArStyles = makeStyles({
     color: theme.color.textTertiary,
     fontSize: "12px",
   },
-  tag: {
-    position: "absolute",
-    transform: "translate(-50%, -50%)",
-    padding: "6px 10px",
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.color.brand,
-    color: theme.color.textOnBrand,
-    fontSize: "12px",
-    fontWeight: theme.font.weightSemibold,
-    border: "none",
-    cursor: "pointer",
-    whiteSpace: "nowrap",
-  },
-  tagSelected: {
-    outline: `2px solid ${theme.color.borderBrand}`,
-    outlineOffset: "2px",
-  },
   controls: { display: "flex", columnGap: "8px", marginTop: "12px" },
   side: { width: "340px", flexShrink: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
 });
@@ -135,14 +118,25 @@ export function AugmentedRealityPage() {
                 {t("manufacturing.augmentedReality.viewportEmpty")}
               </span>
               {TAGS.map((tag) => (
-                <button
+                <Button
                   key={tag.id}
-                  className={mergeClasses(styles.tag, tag.id === selectedId && styles.tagSelected)}
-                  style={{ left: `${tag.x}%`, top: `${tag.y}%` }}
+                  variant="primary"
+                  size="sm"
                   onClick={() => setSelectedId(tag.id)}
+                  style={{
+                    position: "absolute",
+                    left: `${tag.x}%`,
+                    top: `${tag.y}%`,
+                    transform: "translate(-50%, -50%)",
+                    outline:
+                      tag.id === selectedId
+                        ? `2px solid ${theme.color.borderBrand}`
+                        : undefined,
+                    outlineOffset: "2px",
+                  }}
                 >
                   {tag.entity}
-                </button>
+                </Button>
               ))}
             </div>
             <div className={styles.controls}>

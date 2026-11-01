@@ -5,7 +5,7 @@ import {
   useDataCollectionLimitSets,
   useDataCollectionParameters,
 } from "@/api";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, HStack, OptionItem } from "@/components/common";
 import {
   Add24Regular,
   ArrowDown16Regular,
@@ -21,6 +21,7 @@ import {
   MenuList,
   MenuPopover,
   MenuTrigger,
+  Text,
   Textarea,
   makeStyles,
 } from "@/components/ui";
@@ -62,22 +63,6 @@ const useDialogStyles = makeStyles({
   },
   listTitle: { fontSize: "13px", fontWeight: theme.font.weightSemibold, marginRight: "auto" },
   listBody: { flexGrow: 1, overflowY: "auto" },
-  listItem: {
-    width: "100%",
-    textAlign: "left",
-    border: "none",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    padding: "8px 12px",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "2px",
-  },
-  listItemActive: { backgroundColor: theme.color.surfaceSelected },
-  listItemSub: { fontSize: "12px", color: theme.color.textTertiary },
   formPane: { flexGrow: 1, minWidth: 0 },
   formRow: {
     display: "flex",
@@ -323,18 +308,22 @@ export function ParameterLimitsEditor({
               </div>
             )}
             {rows.map((r) => (
-              <button
+              <OptionItem
                 key={r.id}
-                className={`${styles.listItem} ${selected?.id === r.id ? styles.listItemActive : ""}`}
+                selected={selected?.id === r.id}
                 onClick={() => setSelectedId(r.id)}
               >
-                <span>
-                  {r.parameter === ""
-                    ? t("businessData.dataCollectionLimitSet.operations.unnamedParameter")
-                    : r.parameter}
-                </span>
-                <span className={styles.listItemSub}>{r.limitType}</span>
-              </button>
+                <HStack justify="between" align="center" grow>
+                  <span>
+                    {r.parameter === ""
+                      ? t("businessData.dataCollectionLimitSet.operations.unnamedParameter")
+                      : r.parameter}
+                  </span>
+                  <Text size={200} style={{ color: theme.color.textTertiary }}>
+                    {r.limitType}
+                  </Text>
+                </HStack>
+              </OptionItem>
             ))}
           </div>
         </div>
@@ -582,34 +571,39 @@ export function SampleLimitsEditor({
             <div className={styles.listBody}>
               {applicable.map((p) => (
                 <div key={p.id}>
-                  <button
-                    className={`${styles.listItem} ${selectedParam?.id === p.id ? styles.listItemActive : ""}`}
+                  <OptionItem
+                    selected={selectedParam?.id === p.id}
                     onClick={() => {
                       setSelectedParamId(p.id);
                       setSelectedSampleId(null);
                     }}
                   >
-                    <span>
-                      {p.parameter === ""
-                        ? t("businessData.dataCollectionLimitSet.operations.unnamedParameter")
-                        : p.parameter}
-                    </span>
-                    <span className={styles.listItemSub}>{p.limitType}</span>
-                  </button>
+                    <HStack justify="between" align="center" grow>
+                      <span>
+                        {p.parameter === ""
+                          ? t("businessData.dataCollectionLimitSet.operations.unnamedParameter")
+                          : p.parameter}
+                      </span>
+                      <Text size={200} style={{ color: theme.color.textTertiary }}>
+                        {p.limitType}
+                      </Text>
+                    </HStack>
+                  </OptionItem>
                   {selectedParam?.id === p.id &&
                     p.sampleLimits.map((s) => (
-                      <button
-                        key={s.id}
-                        className={`${styles.listItem} ${selectedSample?.id === s.id ? styles.listItemActive : ""}`}
-                        style={{ paddingLeft: "24px" }}
-                        onClick={() => setSelectedSampleId(s.id)}
-                      >
-                        <span>
-                          {s.sampleId === ""
-                            ? t("businessData.dataCollectionLimitSet.operations.unnamedSample")
-                            : s.sampleId}
-                        </span>
-                      </button>
+                      <div style={{ paddingLeft: "24px" }}>
+                        <OptionItem
+                          key={s.id}
+                          selected={selectedSample?.id === s.id}
+                          onClick={() => setSelectedSampleId(s.id)}
+                        >
+                          <span>
+                            {s.sampleId === ""
+                              ? t("businessData.dataCollectionLimitSet.operations.unnamedSample")
+                              : s.sampleId}
+                          </span>
+                        </OptionItem>
+                      </div>
                     ))}
                 </div>
               ))}
@@ -887,7 +881,9 @@ export function CopyLimitSetsSelectStep({
               onChange={() => toggle(r.name)}
               label={r.name}
             />
-            <span className={styles.listItemSub}>{limitSetMeta(r.dataCollection, r.state)}</span>
+            <Text size={200} style={{ color: theme.color.textTertiary }}>
+              {limitSetMeta(r.dataCollection, r.state)}
+            </Text>
           </div>
         ))}
         {list.length === 0 && (

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, HStack, OptionItem } from "@/components/common";
 import {
   ChevronRight20Regular,
   Delete20Regular,
@@ -55,24 +55,6 @@ const useManageStyles = makeStyles({
     zIndex: 1,
     textTransform: "uppercase",
   },
-  row: {
-    minHeight: "45px",
-    flexShrink: 0,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "0 10px",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    fontSize: "13px",
-    cursor: "pointer",
-    border: "none",
-    background: theme.color.surfaceTertiary,
-    fontFamily: "inherit",
-    textAlign: "left",
-    width: "100%",
-    ":hover": { backgroundColor: theme.color.brandSubtle },
-  },
-  rowOn: { backgroundColor: theme.color.brandSubtle },
   trow: {
     minHeight: "45px",
     flexShrink: 0,
@@ -94,15 +76,6 @@ const useManageStyles = makeStyles({
     fontSize: "13px",
     lineHeight: "17px",
     flexShrink: 0,
-  },
-  def: {
-    border: "none",
-    background: "transparent",
-    color: theme.color.textBrand,
-    fontFamily: "inherit",
-    fontSize: "10px",
-    cursor: "pointer",
-    padding: "4px",
   },
 });
 
@@ -199,21 +172,24 @@ export function ManageMcpDialog({
               {AGENT_MCP_SERVERS.map((server) => {
                 const count = Object.keys(draft[server.name] ?? {}).length;
                 return (
-                  <button
+                  <OptionItem
                     key={server.name}
-                    className={`${manageStyles.row} ${activeServer === server.name ? manageStyles.rowOn : ""}`}
+                    selected={activeServer === server.name}
                     onClick={() => setActiveServer(server.name)}
-                    aria-current={activeServer === server.name}
                   >
-                    <span>{server.name}</span>
-                    <span style={{ display: "inline-flex", alignItems: "center", columnGap: 8 }}>
-                      {t("dialogs.manageMcp.serverCount", {
-                        selected: count,
-                        total: server.tools.length,
-                      })}
-                      <ChevronRight20Regular />
-                    </span>
-                  </button>
+                    <HStack justify="between" align="center" grow>
+                      <span>{server.name}</span>
+                      <HStack align="center" gap="sm">
+                        <Text size={200}>
+                          {t("dialogs.manageMcp.serverCount", {
+                            selected: count,
+                            total: server.tools.length,
+                          })}
+                        </Text>
+                        <ChevronRight20Regular />
+                      </HStack>
+                    </HStack>
+                  </OptionItem>
                 );
               })}
             </div>
@@ -271,8 +247,9 @@ export function ManageMcpDialog({
                   <div>{tool}</div>
                   <div>{server}</div>
                 </span>
-                <button
-                  className={manageStyles.def}
+                <Button
+                  variant="subtle"
+                  size="sm"
                   onClick={() =>
                     setDraft((previous) => ({
                       ...previous,
@@ -281,7 +258,7 @@ export function ManageMcpDialog({
                   }
                 >
                   {deferred ? t("aiAgent.deferred") : t("aiAgent.notDeferred")}
-                </button>
+                </Button>
               </div>
             ))}
             {selectedList.length === 0 && (

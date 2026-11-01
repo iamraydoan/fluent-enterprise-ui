@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ShiftDefinitionShift } from "@/api";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField, OptionItem, VStack } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import {
   Body1Strong,
@@ -9,10 +9,8 @@ import {
   Input,
   Text,
   makeStyles,
-  mergeClasses,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   listPane: {
@@ -23,14 +21,6 @@ const useDialogStyles = makeStyles({
     rowGap: "8px",
   },
   formPane: { flexGrow: 1, minWidth: 0 },
-  shiftItem: {
-    padding: "10px 12px",
-    border: `1px solid ${theme.color.borderSubtle}`,
-    borderRadius: theme.radius.md,
-    cursor: "pointer",
-    backgroundColor: theme.color.surface,
-  },
-  shiftActive: { backgroundColor: theme.color.surfaceSelected },
 });
 
 interface ManageShiftsDialogProps {
@@ -78,24 +68,23 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
             </div>
           </div>
           {shifts.map((shift) => (
-            <button
+            <OptionItem
               key={shift.name}
-              className={mergeClasses(
-                styles.shiftItem,
-                shift.name === selected && styles.shiftActive,
-              )}
+              selected={shift.name === selected}
               onClick={() => setSelected(shift.name)}
             >
-              <Text weight="semibold" size={300}>
-                {shift.name}
-              </Text>
-              <Caption1>
-                {t("businessData.shiftDefinition.shiftTimeRange", {
-                  start: shift.startTime,
-                  end: shift.endTime,
-                })}
-              </Caption1>
-            </button>
+              <VStack gap="none">
+                <Text weight="semibold" size={300}>
+                  {shift.name}
+                </Text>
+                <Caption1>
+                  {t("businessData.shiftDefinition.shiftTimeRange", {
+                    start: shift.startTime,
+                    end: shift.endTime,
+                  })}
+                </Caption1>
+              </VStack>
+            </OptionItem>
           ))}
         </div>
         <div className={styles.formPane}>
