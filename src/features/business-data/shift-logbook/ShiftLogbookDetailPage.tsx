@@ -68,24 +68,22 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
             {t("businessData.shiftLogbook.addEntry.add")}
           </Button>
         </HStack>
-        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
+        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
           {data.entries.length === 0 ? (
             <Caption1>{t("businessData.shiftLogbook.emptySection")}</Caption1>
           ) : (
             data.entries.map((entry, i) => (
-              <div key={i} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
+              <div
+                key={i}
+                className={sharedStyles.contentCard}
+                style={{ padding: theme.spacing.md }}
+              >
+                <HStack justify="between" align="center">
                   <Body1Strong>{entry.title}</Body1Strong>
                   <Button variant="subtle" onClick={() => setEditEntry(entry)}>
                     {t("actionBar.edit")}
                   </Button>
-                </div>
+                </HStack>
                 <Caption1>{formatEntryMeta(entry)}</Caption1>
                 <Text>{entry.description}</Text>
               </div>
@@ -105,7 +103,10 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
+        <div
+          className={sharedStyles.contentCard}
+          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
+        >
           <Body1Strong>{t("businessData.shiftLogbook.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -120,7 +121,10 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
             ]}
           />
         </div>
-        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
+        <div
+          className={sharedStyles.contentCard}
+          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
+        >
           <Body1Strong>{t("businessData.shiftLogbook.detail.shiftInfo")}</Body1Strong>
           <KV
             rows={[

@@ -1,39 +1,40 @@
-import {
-  useParams,
-} from "@tanstack/react-router";
-import {
-  useState,
-} from "react";
-import {
-  useCalendarDetail,
-} from "@/api";
+import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
+import { useCalendarDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction, DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, terminateAction, unterminateAction, SectionHeader, Grid, HStack,
+  cloneAction,
+  DetailShell,
+  DetailTabs,
+  editAction,
+  Empty,
+  ListPage,
+  refreshAction,
+  terminateAction,
+  unterminateAction,
+  SectionHeader,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
+import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
-  Box24Regular, MoreVertical24Regular,
-} from "@/components/icons";
-import {
-  Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  makeStyles,
 } from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import {
-  useSharedStyles,
-} from "@/styles/shared";
-import {
-  theme,
-} from "@/styles/theme";
-import {
-  useCalendarDialogs,
-} from "./useCalendarDialogs";
+import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
+import { useCalendarDialogs } from "./useCalendarDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  card: { padding: theme.spacing.lg },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -44,8 +45,7 @@ const useDetailStyles = makeStyles({
     fontSize: "13px",
   },
   label: { color: theme.color.textTertiary, minWidth: "190px" },
-  
-  
+
   dayCell: {
     aspectRatio: "1.2",
     fontSize: "12px",
@@ -225,10 +225,12 @@ export function CalendarDetailPage() {
             showState={false}
           >
             {showWeek ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.calendar.detail.weekDaysTitle", {
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <SectionHeader
+                  title={t("businessData.calendar.detail.weekDaysTitle", {
                     count: cal.weekDefinition.length,
-                  })} />
+                  })}
+                />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -253,10 +255,10 @@ export function CalendarDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </div>
+              </VStack>
             ) : (
               <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.calendar.detail.calendar")} />
                   <KV label={t("businessData.calendar.detail.name")} value={cal.name} />
                   <KV
@@ -268,8 +270,8 @@ export function CalendarDetailPage() {
                     value={cal.universalState}
                   />
                   <KV label={t("businessData.calendar.detail.dataGroup")} value={cal.dataGroup} />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.calendar.detail.information")} />
                   <KV label={t("businessData.calendar.detail.timeZone")} value={cal.timeZone} />
                   <KV
@@ -300,7 +302,7 @@ export function CalendarDetailPage() {
                     label={t("businessData.calendar.detail.dayStartTime")}
                     value={cal.dayStartTime}
                   />
-                </div>
+                </VStack>
               </Grid>
             )}
           </DetailShell>

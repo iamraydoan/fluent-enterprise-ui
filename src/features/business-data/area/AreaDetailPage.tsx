@@ -1,39 +1,32 @@
-import {
-  useParams,
-} from "@tanstack/react-router";
-import {
-  useState,
-} from "react";
-import {
-  useAreaDetail,
-} from "@/api";
+import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
+import { useAreaDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction, DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, terminateAction, unterminateAction, SectionHeader, Grid, HStack,
+  cloneAction,
+  DetailShell,
+  DetailTabs,
+  editAction,
+  Empty,
+  ListPage,
+  refreshAction,
+  terminateAction,
+  unterminateAction,
+  SectionHeader,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
-import {
-  Box24Regular, MoreVertical24Regular,
-} from "@/components/icons";
-import {
-  makeStyles,
-} from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
+import { makeStyles } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import {
-  useSharedStyles,
-} from "@/styles/shared";
-import {
-  theme,
-} from "@/styles/theme";
-import {
-  useAreaDialogs,
-} from "./useAreaDialogs";
+import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
+import { useAreaDialogs } from "./useAreaDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  card: { padding: theme.spacing.lg },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -144,7 +137,7 @@ export function AreaDetailPage() {
               showState={false}
             >
               <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.area.detail.area")} />
                   <KV label={t("businessData.area.detail.name")} value={area.name} />
                   <KV label={t("businessData.area.detail.description")} value={area.description} />
@@ -154,8 +147,8 @@ export function AreaDetailPage() {
                     value={area.universalState}
                   />
                   <KV label={t("businessData.area.detail.dataGroup")} value={area.dataGroup} />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.area.detail.information")} />
                   <KV label={t("businessData.area.detail.facility")} value={area.facility} />
                   <KV
@@ -163,14 +156,14 @@ export function AreaDetailPage() {
                     value={String(area.displayOrder)}
                   />
                   <KV label={t("businessData.area.detail.areaType")} value={area.areaType} />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.area.detail.planning")} />
                   <KV label={t("businessData.area.detail.calendar")} value={area.calendar} />
                   <KV label={t("businessData.area.detail.schedule")} value={area.schedule} />
                   <KV label={t("businessData.area.detail.costCenter")} value={area.costCenter} />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.area.detail.shiftLogbooks")} />
                   <KV
                     label={t("businessData.area.detail.enableShiftLogbook")}
@@ -180,7 +173,7 @@ export function AreaDetailPage() {
                         : t("businessData.area.detail.no")
                     }
                   />
-                </div>
+                </VStack>
               </Grid>
             </DetailShell>
           )}

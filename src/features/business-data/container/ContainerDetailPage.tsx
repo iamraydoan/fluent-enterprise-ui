@@ -1,39 +1,41 @@
-import {
-  useParams,
-} from "@tanstack/react-router";
-import {
-  useState,
-} from "react";
-import {
-  useContainerDetail,
-} from "@/api";
+import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
+import { useContainerDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction, DetailShell, DetailTabs, editAction, Empty, ListPage, refreshAction, terminateAction, unterminateAction, EntityTile, SectionHeader, Grid, HStack,
+  cloneAction,
+  DetailShell,
+  DetailTabs,
+  editAction,
+  Empty,
+  ListPage,
+  refreshAction,
+  terminateAction,
+  unterminateAction,
+  EntityTile,
+  SectionHeader,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
+import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
-  Box24Regular, MoreVertical24Regular,
-} from "@/components/icons";
-import {
-  Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  makeStyles,
 } from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import {
-  useSharedStyles,
-} from "@/styles/shared";
-import {
-  theme,
-} from "@/styles/theme";
-import {
-  useContainerDialogs,
-} from "./useContainerDialogs";
+import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
+import { useContainerDialogs } from "./useContainerDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  card: { padding: theme.spacing.lg },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -44,7 +46,7 @@ const useDetailStyles = makeStyles({
     fontSize: "13px",
   },
   label: { color: theme.color.textTertiary, minWidth: "180px" },
-  
+
   positionCell: {
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "6px",
@@ -56,7 +58,6 @@ const useDetailStyles = makeStyles({
     ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   positionActive: { border: `2px solid ${theme.color.borderBrand}` },
-  
 });
 
 const TABS = ["details", "container", "maintenance", "compare", "references", "history"] as const;
@@ -190,8 +191,12 @@ export function ContainerDetailPage() {
             showState={false}
           >
             {showMaterials ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.container.detail.materialsTitle", { count: c.materials.length })} />
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <SectionHeader
+                  title={t("businessData.container.detail.materialsTitle", {
+                    count: c.materials.length,
+                  })}
+                />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -224,10 +229,10 @@ export function ContainerDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </div>
+              </VStack>
             ) : (
               <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.container.detail.container")} />
                   <KV label={t("businessData.container.detail.name")} value={c.name} />
                   <KV
@@ -244,14 +249,14 @@ export function ContainerDetailPage() {
                     value={c.systemState}
                   />
                   <KV label={t("businessData.container.detail.dataGroup")} value={c.dataGroup} />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.container.detail.information")} />
                   <KV label={t("businessData.container.detail.facility")} value={c.facility} />
                   <KV label={t("businessData.container.detail.parent")} value={c.parent} />
                   <Bool label={t("businessData.container.detail.onHold")} value={c.onHold} />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.container.detail.positions")} />
                   <KV
                     label={t("businessData.container.detail.positionUnitType")}
@@ -285,14 +290,14 @@ export function ContainerDetailPage() {
                     label={t("businessData.container.detail.positionSorting")}
                     value={c.positionSorting}
                   />
-                </div>
+                </VStack>
               </Grid>
             )}
           </DetailShell>
         )}
         {tab === "container" && (
           <Grid columns="3fr minmax(280px, 1fr)" gap="12px" align="start">
-            <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+            <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
               <SectionHeader title={t("businessData.container.detail.positionsView")} />
               <Grid columns="repeat(auto-fill, minmax(90px, 1fr))" gap="8px">
                 {c.positions.map((p) => (
@@ -300,9 +305,7 @@ export function ContainerDetailPage() {
                     key={p.position}
                     title={p.position}
                     description={
-                      p.material === ""
-                        ? t("businessData.container.detail.emptyValue")
-                        : p.material
+                      p.material === "" ? t("businessData.container.detail.emptyValue") : p.material
                     }
                     selected={selectedPosition === p.position}
                     backgroundColor={p.material !== "" ? theme.color.infoSubtle : undefined}
@@ -311,8 +314,8 @@ export function ContainerDetailPage() {
                   />
                 ))}
               </Grid>
-            </div>
-            <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+            </VStack>
+            <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
               <SectionHeader title={t("businessData.container.detail.positionDetails")} />
               {selected ? (
                 <>
@@ -339,7 +342,7 @@ export function ContainerDetailPage() {
               ) : (
                 <Empty>{t("businessData.container.detail.selectPosition")}</Empty>
               )}
-            </div>
+            </VStack>
           </Grid>
         )}
         {!["details", "container"].includes(tab) && (

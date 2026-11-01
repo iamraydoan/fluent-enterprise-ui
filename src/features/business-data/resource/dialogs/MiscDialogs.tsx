@@ -62,24 +62,17 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
     >
       <HStack gap={16}>
         <div style={{ width: 280, flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: theme.spacing.sm,
-            }}
-          >
+          <HStack align="center" justify="between" style={{ marginBottom: theme.spacing.sm }}>
             <Body1Strong>{t(`${k}.clones`, { count: clones.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
+            <HStack gap={theme.spacing.xs}>
               <Button size="sm" variant="subtle" onClick={addClone}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeClone(selected)}>
                 🗑
               </Button>
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             style={{
               border: "1px solid #ddd",
@@ -104,14 +97,14 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack grow gap={theme.spacing.md}>
           <Field label={t(`${k}.name`)}>
             <Input value={cloneName} onChange={setCloneName} />
           </Field>
           <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
             {t(`${k}.source`, { name: resourceName })}
           </div>
-        </div>
+        </VStack>
       </HStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />

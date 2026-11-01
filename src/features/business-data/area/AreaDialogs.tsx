@@ -1,15 +1,11 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, OptionItem } from "@/components/common";
+import { BaseDialog, DialogFooter, Grid, OptionItem } from "@/components/common";
 import { Button, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useManageDialogStyles = makeStyles({
   row: {
-    display: "grid",
-    gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr) auto",
-    columnGap: "12px",
-    alignItems: "center",
     marginBottom: "8px",
   },
   empty: { padding: "24px", textAlign: "center", color: theme.color.textTertiary },
@@ -61,7 +57,13 @@ export function ManageSupplyAreasDialog({
           <div className={styles.empty}>{t("businessData.area.operations.noSupplyAreas")}</div>
         )}
         {rows.map((row) => (
-          <div key={row.id} className={styles.row}>
+          <Grid
+            key={row.id}
+            columns="minmax(0, 1fr) minmax(0, 1fr) auto"
+            gap="12px"
+            align="center"
+            className={styles.row}
+          >
             <Input
               placeholder={t("businessData.area.operations.supplyAreaName")}
               value={row.name}
@@ -75,7 +77,7 @@ export function ManageSupplyAreasDialog({
             <Button variant="secondary" onClick={() => removeRow(row.id)}>
               {t("common.remove")}
             </Button>
-          </div>
+          </Grid>
         ))}
         <Button variant="secondary" onClick={addRow}>
           {t("common.add")}
@@ -137,7 +139,13 @@ export function ManageTransferRequirementTypesDialog({
           <div className={styles.empty}>{t("businessData.area.operations.noTransferTypes")}</div>
         )}
         {rows.map((row) => (
-          <div key={row.id} className={styles.row}>
+          <Grid
+            key={row.id}
+            columns="minmax(0, 1fr) minmax(0, 1fr) auto"
+            gap="12px"
+            align="center"
+            className={styles.row}
+          >
             <Input
               placeholder={TRANSFER_TYPE_OPTIONS[0].label}
               value={row.type}
@@ -151,7 +159,7 @@ export function ManageTransferRequirementTypesDialog({
             <Button variant="secondary" onClick={() => removeRow(row.id)}>
               {t("common.remove")}
             </Button>
-          </div>
+          </Grid>
         ))}
         <Button variant="secondary" onClick={addRow}>
           {t("common.add")}

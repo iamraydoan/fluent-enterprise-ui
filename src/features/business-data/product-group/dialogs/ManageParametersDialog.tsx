@@ -106,9 +106,9 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
         />
       }
     >
-      <HStack gap="20px" style={{minHeight: "420px"}}>
+      <HStack gap="20px" style={{ minHeight: "420px" }}>
         <div style={{ width: "300px", flexShrink: 0 }}>
-          <HStack align="center" justify="space-between" style={{marginBottom: theme.spacing.md}}>
+          <HStack align="center" justify="space-between" style={{ marginBottom: theme.spacing.md }}>
             <Text weight="semibold">
               {t("businessData.productGroup.operations.manageParameters.parameters")}
             </Text>
@@ -136,7 +136,12 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                 justify="space-between"
                 key={p.id}
                 onClick={() => setSelectedId(p.id)}
-                style={{padding: "10px 12px", cursor: "pointer", backgroundColor: p.id === selectedId ? theme.color.brandSubtle : "transparent", borderBottom: `1px solid ${theme.color.borderSubtle}`}}
+                style={{
+                  padding: "10px 12px",
+                  cursor: "pointer",
+                  backgroundColor: p.id === selectedId ? theme.color.brandSubtle : "transparent",
+                  borderBottom: `1px solid ${theme.color.borderSubtle}`,
+                }}
               >
                 <Text>
                   {p.parameter ||
@@ -194,25 +199,18 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
               <Field label={t("businessData.productGroup.operations.manageParameters.fields.type")}>
                 <HStack gap="16px">
                   {PARAM_TYPES.map((opt) => (
-                    <label
-                      key={opt}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "6px",
-                        fontSize: "13px",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <input
-                        type="radio"
-                        name="paramType"
-                        checked={selected.type === opt}
-                        onChange={() => updateSelected({ type: opt })}
-                      />
-                      {t(
-                        `businessData.productGroup.operations.manageParameters.types.${opt.toLowerCase()}` as never,
-                      )}
+                    <label key={opt} style={{ fontSize: "13px", cursor: "pointer" }}>
+                      <HStack align="center" gap="6px">
+                        <input
+                          type="radio"
+                          name="paramType"
+                          checked={selected.type === opt}
+                          onChange={() => updateSelected({ type: opt })}
+                        />
+                        {t(
+                          `businessData.productGroup.operations.manageParameters.types.${opt.toLowerCase()}` as never,
+                        )}
+                      </HStack>
                     </label>
                   ))}
                 </HStack>

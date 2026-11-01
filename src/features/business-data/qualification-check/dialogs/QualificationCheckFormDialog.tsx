@@ -1,16 +1,8 @@
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 import type { QualificationCheckDetail } from "@/api";
-import {
-  BaseDialog, DialogFooter, HStack, VStack,
-} from "@/components/common";
-import {
-  Body1Strong, Field, Input,
-} from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { BaseDialog, DialogFooter, HStack, VStack } from "@/components/common";
+import { Body1Strong, Field, Input } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 
 interface QualificationCheckFormDialogProps {
   open: boolean;
@@ -68,14 +60,16 @@ export function QualificationCheckFormDialog({
               />
               {t(`${k}.single`)}
             </label>
-            <label style={{ display: "flex", alignItems: "center", columnGap: 6 }}>
-              <input
-                type="radio"
-                name="instanceType"
-                checked={instanceType === "Multiple"}
-                onChange={() => setInstanceType("Multiple")}
-              />
-              {t(`${k}.multiple`)}
+            <label>
+              <HStack align="center" gap={6}>
+                <input
+                  type="radio"
+                  name="instanceType"
+                  checked={instanceType === "Multiple"}
+                  onChange={() => setInstanceType("Multiple")}
+                />
+                {t(`${k}.multiple`)}
+              </HStack>
             </label>
           </HStack>
         </Field>

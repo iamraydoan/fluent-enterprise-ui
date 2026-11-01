@@ -75,16 +75,16 @@ export function ManageRecipeSubRecipesDialog({
       <DialogEntityBanner icon="🎛" name={recipeName} />
       <HStack gap={16}>
         <div style={{ width: 320, flexShrink: 0 }}>
-          <HStack align="center" justify="space-between" style={{marginBottom: 8}}>
+          <HStack align="center" justify="space-between" style={{ marginBottom: 8 }}>
             <Body1Strong>{t(`${k}.subRecipes`)}</Body1Strong>
-            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
+            <HStack gap={theme.spacing.xs}>
               <Button size="sm" variant="subtle" onClick={addSubRecipe}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeSubRecipe(selected)}>
                 🗑
               </Button>
-            </div>
+            </HStack>
           </HStack>
           <div
             style={{
@@ -106,7 +106,9 @@ export function ManageRecipeSubRecipesDialog({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{s.recipe}</div>
-                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{s.displayName}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
+                  {s.displayName}
+                </div>
               </div>
             ))}
           </div>

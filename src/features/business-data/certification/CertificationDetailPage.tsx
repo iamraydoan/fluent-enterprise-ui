@@ -1,39 +1,39 @@
-import {
-  useParams,
-} from "@tanstack/react-router";
-import {
-  useState,
-} from "react";
-import {
-  useCertificationDetail,
-} from "@/api";
+import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
+import { useCertificationDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  cloneAction, DetailShell, DetailTabs, Empty, ListPage, refreshAction, terminateAction, unterminateAction, SectionHeader, Grid, HStack,
+  cloneAction,
+  DetailShell,
+  DetailTabs,
+  Empty,
+  ListPage,
+  refreshAction,
+  terminateAction,
+  unterminateAction,
+  SectionHeader,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
+import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
-  Box24Regular, MoreVertical24Regular,
-} from "@/components/icons";
-import {
-  Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  makeStyles,
 } from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import {
-  useSharedStyles,
-} from "@/styles/shared";
-import {
-  theme,
-} from "@/styles/theme";
-import {
-  useCertificationDialogs,
-} from "./useCertificationDialogs";
+import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
+import { useCertificationDialogs } from "./useCertificationDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  card: { padding: theme.spacing.lg },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -144,10 +144,12 @@ export function CertificationDetailPage() {
             showState={false}
           >
             {showEmployees ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.certification.detail.employeesTitle", {
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <SectionHeader
+                  title={t("businessData.certification.detail.employeesTitle", {
                     count: cert.employees.length,
-                  })} />
+                  })}
+                />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -172,12 +174,14 @@ export function CertificationDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </div>
+              </VStack>
             ) : showQualifications ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.certification.detail.qualificationsTitle", {
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <SectionHeader
+                  title={t("businessData.certification.detail.qualificationsTitle", {
                     count: cert.qualifications.length,
-                  })} />
+                  })}
+                />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -206,10 +210,10 @@ export function CertificationDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </div>
+              </VStack>
             ) : (
               <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.certification.detail.certification")} />
                   <KV label={t("businessData.certification.detail.name")} value={cert.name} />
                   <KV
@@ -225,8 +229,8 @@ export function CertificationDetailPage() {
                     label={t("businessData.certification.detail.dataGroup")}
                     value={cert.dataGroup}
                   />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.certification.detail.info")} />
                   <KV
                     label={t("businessData.certification.detail.ownerRole")}
@@ -240,8 +244,8 @@ export function CertificationDetailPage() {
                     label={t("businessData.certification.detail.sendNotificationWhenRequired")}
                     value={cert.sendNotificationWhenRequired}
                   />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.certification.detail.permission")} />
                   <Bool
                     label={t("businessData.certification.detail.allowManualGrants")}
@@ -255,8 +259,8 @@ export function CertificationDetailPage() {
                     label={t("businessData.certification.detail.allowGrantingByManager")}
                     value={cert.allowGrantingByManager}
                   />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.certification.detail.validityPeriod")} />
                   <KV
                     label={t("businessData.certification.detail.validFor")}
@@ -266,8 +270,8 @@ export function CertificationDetailPage() {
                     label={t("businessData.certification.detail.allowOverride")}
                     value={cert.allowOverride}
                   />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                   <SectionHeader title={t("businessData.certification.detail.training")} />
                   <KV
                     label={t("businessData.certification.detail.trainingMaximumDuration")}
@@ -277,7 +281,7 @@ export function CertificationDetailPage() {
                     label={t("businessData.certification.detail.traineeByDefault")}
                     value={cert.traineeByDefault}
                   />
-                </div>
+                </VStack>
               </Grid>
             )}
           </DetailShell>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -79,7 +79,7 @@ export function ManageCompatibleServicesDialog({
       }
     >
       <DialogEntityBanner icon="📊" name={serviceName} />
-      <HStack gap={12} style={{marginBottom: 12}}>
+      <HStack gap={12} style={{ marginBottom: 12 }}>
         <Button variant={tab === "fulfilled" ? "primary" : "secondary"} onClick={showFulfilled}>
           {t(`${k}.canBeFulfilledBy`)}
         </Button>
@@ -89,24 +89,17 @@ export function ManageCompatibleServicesDialog({
       </HStack>
       <HStack gap={16}>
         <div style={{ width: 300, flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: theme.spacing.sm,
-            }}
-          >
+          <HStack align="center" justify="between" style={{ marginBottom: theme.spacing.sm }}>
             <Body1Strong>{t(`${k}.services`, { count: rows.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
+            <HStack gap={theme.spacing.xs}>
               <Button size="sm" variant="subtle" onClick={addRow}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeRow(selected)}>
                 🗑
               </Button>
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             style={{
               border: "1px solid #ddd",
@@ -127,12 +120,14 @@ export function ManageCompatibleServicesDialog({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{r.service || t(`${k}.newService`)}</div>
-                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{r.description}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
+                  {r.description}
+                </div>
               </div>
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack grow gap={theme.spacing.md}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.service`)}>
             <Input
@@ -146,7 +141,7 @@ export function ManageCompatibleServicesDialog({
               onChange={(value) => setValues({ ...values, description: value })}
             />
           </Field>
-        </div>
+        </VStack>
       </HStack>
     </BaseDialog>
   );

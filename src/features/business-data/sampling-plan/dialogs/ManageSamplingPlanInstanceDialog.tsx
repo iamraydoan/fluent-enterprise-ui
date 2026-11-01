@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -116,24 +116,17 @@ export function ManageSamplingPlanInstanceDialog({
       <DialogEntityBanner icon="📊" name={planName} />
       <HStack gap={16}>
         <div style={{ width: 320, flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: theme.spacing.sm,
-            }}
-          >
+          <HStack align="center" justify="between" style={{ marginBottom: theme.spacing.sm }}>
             <Body1Strong>{t(`${k}.instances`, { count: instances.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
+            <HStack gap={theme.spacing.xs}>
               <Button size="sm" variant="subtle" onClick={addInstance}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeInstance(selected)}>
                 🗑
               </Button>
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             style={{
               border: "1px solid #ddd",
@@ -154,12 +147,14 @@ export function ManageSamplingPlanInstanceDialog({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{inst.materialType || t(`${k}.newInstance`)}</div>
-                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{inst.samplingType}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
+                  {inst.samplingType}
+                </div>
               </div>
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack grow gap={theme.spacing.md}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.samplingType`)}>
             <select value={samplingType} onChange={(e) => setSamplingType(e.target.value)}>
@@ -178,7 +173,7 @@ export function ManageSamplingPlanInstanceDialog({
               />
             </Field>
           ))}
-        </div>
+        </VStack>
       </HStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />

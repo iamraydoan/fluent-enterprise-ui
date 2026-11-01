@@ -1,6 +1,6 @@
-import { IconButton } from "@/components/common";
+import { HStack, IconButton, VStack } from "@/components/common";
 import { Dismiss16Regular, Warning20Filled } from "@/components/icons";
-import { Button, Text, makeStyles} from "@/components/ui";
+import { Button, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
@@ -19,32 +19,21 @@ const useConfirmStyles = makeStyles({
   },
   surface: {
     width: "min(480px, calc(100vw - 48px))",
-    display: "flex",
-    flexDirection: "column",
     overflow: "hidden",
     ...cardSurface,
   },
   head: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
     minHeight: "52px",
     padding: "0 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
   body: {
-    display: "flex",
-    columnGap: "12px",
     padding: "20px 24px",
-    alignItems: "flex-start",
   },
   warningIcon: { color: theme.color.textWarning, flexShrink: 0, marginTop: "2px" },
   dangerIcon: { color: theme.color.textDanger, flexShrink: 0, marginTop: "2px" },
   foot: {
-    display: "flex",
-    justifyContent: "flex-end",
-    columnGap: "8px",
     padding: "12px 24px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
   },
@@ -78,18 +67,18 @@ export function ConfirmOperationDialog({
 
   return (
     <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.head}>
+      <VStack className={styles.surface} onClick={(event) => event.stopPropagation()}>
+        <HStack align="center" justify="between" className={styles.head}>
           <Text weight="semibold">{t(titleKey)}</Text>
           <IconButton icon={<Dismiss16Regular />} onClick={onClose} ariaLabel={t("common.close")} />
-        </div>
-        <div className={styles.body}>
+        </HStack>
+        <HStack gap="12px" align="start" className={styles.body}>
           <span className={danger ? styles.dangerIcon : styles.warningIcon}>
             <Warning20Filled />
           </span>
           <Text>{t(messageKey, messageParams)}</Text>
-        </div>
-        <div className={styles.foot}>
+        </HStack>
+        <HStack justify="end" gap="8px" className={styles.foot}>
           <Button variant="secondary" onClick={onClose}>
             {t("common.cancel")}
           </Button>
@@ -102,8 +91,8 @@ export function ConfirmOperationDialog({
           >
             {t(confirmLabelKey)}
           </Button>
-        </div>
-      </div>
+        </HStack>
+      </VStack>
     </div>
   );
 }

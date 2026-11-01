@@ -8,7 +8,11 @@ import {
   editAction,
   refreshAction,
   DetailTabs,
-  Empty,  SectionHeader, Grid, HStack 
+  Empty,
+  SectionHeader,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
 import {
   ArrowDownload24Regular,
@@ -25,8 +29,7 @@ import { theme } from "@/styles/theme";
 import { useBatchDialogs } from "./useBatchDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  card: { padding: theme.spacing.lg },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -158,7 +161,7 @@ export function BatchDetailPage() {
             showState={false}
           >
             <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <SectionHeader title={t("businessData.batch.detail.batch")} />
                 <KV label={t("businessData.batch.detail.name")} value={batch.name} />
                 <KV label={t("businessData.batch.detail.description")} value={batch.description} />
@@ -169,8 +172,8 @@ export function BatchDetailPage() {
                 />
                 <KV label={t("businessData.batch.detail.systemState")} value={batch.systemState} />
                 <KV label={t("businessData.batch.detail.dataGroup")} value={batch.dataGroup} />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              </VStack>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <SectionHeader title={t("businessData.batch.detail.information")} />
                 <KV label={t("businessData.batch.detail.resource")} value={batch.resource} />
                 <KV label={t("businessData.batch.detail.loadState")} value={batch.loadState} />
@@ -180,8 +183,8 @@ export function BatchDetailPage() {
                   label={t("businessData.batch.detail.priority")}
                   value={String(batch.priority)}
                 />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              </VStack>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <SectionHeader title={t("businessData.batch.detail.resourceInformation")} />
                 <KV
                   label={t("businessData.batch.detail.resourceType")}
@@ -209,8 +212,8 @@ export function BatchDetailPage() {
                   label={t("businessData.batch.detail.minimumBatchSize")}
                   value={batch.minimumBatchSize}
                 />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              </VStack>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <SectionHeader title={t("businessData.batch.detail.materialInformation")} />
                 <KV
                   label={t("businessData.batch.detail.mainMaterial")}
@@ -228,14 +231,14 @@ export function BatchDetailPage() {
                 />
                 <KV label={t("businessData.batch.detail.quantity")} value={batch.quantity} />
                 <KV label={t("businessData.batch.detail.batchSize")} value={batch.batchSize} />
-              </div>
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              </VStack>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <SectionHeader title={t("businessData.batch.detail.containerInformation")} />
                 <KV
                   label={t("businessData.batch.detail.containerType")}
                   value={batch.containerType}
                 />
-              </div>
+              </VStack>
             </Grid>
           </DetailShell>
         )}

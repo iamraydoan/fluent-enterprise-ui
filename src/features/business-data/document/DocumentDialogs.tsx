@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { BaseDialog, FormField, HStack } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -64,22 +64,13 @@ const useWizardStyles = makeStyles({
     height: "24px",
     borderRadius: "50%",
     backgroundColor: theme.color.surfaceTertiary,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
     fontSize: theme.font.sizeSm,
   },
   stepNumActive: {
     backgroundColor: theme.color.brand,
     color: theme.color.textOnBrand,
   },
-  field: {
-    display: "grid",
-    gridTemplateColumns: "200px 1fr",
-    gap: theme.spacing.md,
-    alignItems: "center",
-    marginBottom: theme.spacing.md,
-  },
+
   sectionTitle: {
     fontWeight: theme.font.weightSemibold,
     marginTop: theme.spacing.lg,
@@ -174,10 +165,19 @@ export function DocumentWizardDialog({
     >
       <HStack gap="24px" className={styles.steps}>
         {steps.map((s, i) => (
-          <HStack gap="8px" align="center" key={i} className={`${styles.step} ${i === step ? styles.stepActive : ""}`}>
-            <span className={`${styles.stepNum} ${i === step ? styles.stepNumActive : ""}`}>
+          <HStack
+            gap="8px"
+            align="center"
+            key={i}
+            className={`${styles.step} ${i === step ? styles.stepActive : ""}`}
+          >
+            <HStack
+              align="center"
+              justify="center"
+              className={`${styles.stepNum} ${i === step ? styles.stepNumActive : ""}`}
+            >
               {i + 1}
-            </span>
+            </HStack>
             {t(s)}
           </HStack>
         ))}
@@ -205,7 +205,7 @@ export function DocumentWizardDialog({
           {field(L.description, false, <Textarea value={description} onChange={setDescription} />)}
           {field(L.type, true, <Input value={type} onChange={setType} />)}
           <div className={styles.sectionTitle}>{t(L.source)}</div>
-          <HStack gap="16px" style={{marginBottom: theme.spacing.md}}>
+          <HStack gap="16px" style={{ marginBottom: theme.spacing.md }}>
             <Checkbox
               label={t(L.internal)}
               checked={source === SOURCE_INTERNAL}

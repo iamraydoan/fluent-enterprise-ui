@@ -1,39 +1,40 @@
-import {
-  useParams,
-} from "@tanstack/react-router";
-import {
-  useState,
-} from "react";
-import {
-  useDataCollectionLimitSetDetail,
-} from "@/api";
+import { useParams } from "@tanstack/react-router";
+import { useState } from "react";
+import { useDataCollectionLimitSetDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
-  DetailShell, DetailTabs, editAction, ListPage, refreshAction, terminateAction, unterminateAction, Empty, SectionHeader, Grid, HStack,
+  DetailShell,
+  DetailTabs,
+  editAction,
+  ListPage,
+  refreshAction,
+  terminateAction,
+  unterminateAction,
+  Empty,
+  SectionHeader,
+  Grid,
+  HStack,
+  VStack,
 } from "@/components/common";
+import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
-  Box24Regular, MoreVertical24Regular,
-} from "@/components/icons";
-import {
-  Button, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, makeStyles,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+  makeStyles,
 } from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import {
-  useSharedStyles,
-} from "@/styles/shared";
-import {
-  theme,
-} from "@/styles/theme";
-import {
-  useDataCollectionLimitSetDialogs,
-} from "./useDataCollectionLimitSetDialogs";
+import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
+import { useDataCollectionLimitSetDialogs } from "./useDataCollectionLimitSetDialogs";
 
 const useDetailStyles = makeStyles({
-  
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  card: { padding: theme.spacing.lg },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
@@ -128,11 +129,13 @@ export function DataCollectionLimitSetDetailPage() {
             showState={false}
           >
             {showLimits ? (
-              <div className={`${sharedStyles.contentCard} ${styles.card}`}>
+              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
                 <HStack align="center" justify="space-between">
-                  <SectionHeader title={t("businessData.dataCollectionLimitSet.detail.limitsTitle", {
+                  <SectionHeader
+                    title={t("businessData.dataCollectionLimitSet.detail.limitsTitle", {
                       count: ls.parameterLimits.length,
-                    })} />
+                    })}
+                  />
                   <Button variant="secondary" size="sm" onClick={openManageParameters}>
                     {t("businessData.dataCollectionLimitSet.operations.manageParametersTitle")}
                   </Button>
@@ -205,11 +208,13 @@ export function DataCollectionLimitSetDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </div>
+              </VStack>
             ) : (
               <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.dataCollectionLimitSet.detail.dataCollectionLimitSet")} />
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <SectionHeader
+                    title={t("businessData.dataCollectionLimitSet.detail.dataCollectionLimitSet")}
+                  />
                   <KV
                     label={t("businessData.dataCollectionLimitSet.detail.name")}
                     value={ls.name}
@@ -230,14 +235,16 @@ export function DataCollectionLimitSetDetailPage() {
                     label={t("businessData.dataCollectionLimitSet.detail.dataGroup")}
                     value={ls.dataGroup}
                   />
-                </div>
-                <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.dataCollectionLimitSet.detail.information")} />
+                </VStack>
+                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
+                  <SectionHeader
+                    title={t("businessData.dataCollectionLimitSet.detail.information")}
+                  />
                   <KV
                     label={t("businessData.dataCollectionLimitSet.detail.dataCollection")}
                     value={ls.dataCollection}
                   />
-                </div>
+                </VStack>
               </Grid>
             )}
           </DetailShell>

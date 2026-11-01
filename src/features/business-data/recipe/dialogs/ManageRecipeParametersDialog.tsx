@@ -113,16 +113,16 @@ export function ManageRecipeParametersDialog({
       <DialogEntityBanner icon="🎛" name={recipeName} />
       <HStack gap={16}>
         <div style={{ width: 320, flexShrink: 0 }}>
-          <HStack align="center" justify="space-between" style={{marginBottom: 8}}>
+          <HStack align="center" justify="space-between" style={{ marginBottom: 8 }}>
             <Body1Strong>{t(`${k}.parameters`)}</Body1Strong>
-            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
+            <HStack gap={theme.spacing.xs}>
               <Button size="sm" variant="subtle" onClick={addParameter}>
                 +
               </Button>
               <Button size="sm" variant="subtle" onClick={() => removeParameter(selected)}>
                 🗑
               </Button>
-            </div>
+            </HStack>
           </HStack>
           <div
             style={{
@@ -173,10 +173,7 @@ export function ManageRecipeParametersDialog({
             <Input value={value} onChange={setValue} />
           </Field>
           <Field label={t(`${k}.overridable`)}>
-            <Checkbox
-              checked={overridable}
-              onChange={setOverridable}
-            />
+            <Checkbox checked={overridable} onChange={setOverridable} />
           </Field>
         </VStack>
       </HStack>

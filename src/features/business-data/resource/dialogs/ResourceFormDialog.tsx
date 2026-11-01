@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ResourceDetail, ResourceProcessingType, ResourceRecord } from "@/api";
-import { BaseDialog, VStack, WizardSteps } from "@/components/common";
+import { BaseDialog, HStack, VStack, WizardSteps } from "@/components/common";
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -96,9 +96,7 @@ export function ResourceFormDialog({
         </>
       }
     >
-      {!nameReadOnly && (
-        <WizardSteps steps={stepLabels.slice(0, steps.length)} current={step} />
-      )}
+      {!nameReadOnly && <WizardSteps steps={stepLabels.slice(0, steps.length)} current={step} />}
 
       {(step === 1 || nameReadOnly) && (
         <VStack gap={12}>
@@ -126,22 +124,22 @@ export function ResourceFormDialog({
           <Field label={t(`${k}.area`)}>
             <Input value={area} onChange={setArea} />
           </Field>
-          <div style={{ display: "flex", columnGap: theme.spacing.md }}>
+          <HStack gap={theme.spacing.md}>
             <Field label={t(`${k}.priority`)}>
               <Input value={priority} onChange={setPriority} />
             </Field>
             <Field label={t(`${k}.displayOrder`)}>
               <Input value={displayOrder} onChange={setDisplayOrder} />
             </Field>
-          </div>
-          <div style={{ display: "flex", columnGap: theme.spacing.md }}>
+          </HStack>
+          <HStack gap={theme.spacing.md}>
             <Field label={t(`${k}.vendor`)}>
               <Input value={vendor} onChange={setVendor} />
             </Field>
             <Field label={t(`${k}.model`)}>
               <Input value={model} onChange={setModel} />
             </Field>
-          </div>
+          </HStack>
           <Field label={t(`${k}.serialNumber`)}>
             <Input value={serialNumber} onChange={setSerialNumber} />
           </Field>
@@ -164,35 +162,20 @@ export function ResourceFormDialog({
         <VStack gap={12}>
           <Body1Strong>{t(`${k}.materialTracking`)}</Body1Strong>
           <Field label={t(`${k}.allowProductMix`)}>
-            <Checkbox
-              checked={allowProductMix}
-              onChange={setAllowProductMix}
-            />
+            <Checkbox checked={allowProductMix} onChange={setAllowProductMix} />
           </Field>
           <Field label={t(`${k}.enableSubMaterialTracking`)}>
-            <Checkbox
-              checked={enableSubMaterialTracking}
-              onChange={setEnableSubMaterialTracking}
-            />
+            <Checkbox checked={enableSubMaterialTracking} onChange={setEnableSubMaterialTracking} />
           </Field>
           <Field label={t(`${k}.recipeManagementEnabled`)}>
-            <Checkbox
-              checked={recipeManagementEnabled}
-              onChange={setRecipeManagementEnabled}
-            />
+            <Checkbox checked={recipeManagementEnabled} onChange={setRecipeManagementEnabled} />
           </Field>
           <Field label={t(`${k}.trackResourceRecipes`)}>
-            <Checkbox
-              checked={trackResourceRecipes}
-              onChange={setTrackResourceRecipes}
-            />
+            <Checkbox checked={trackResourceRecipes} onChange={setTrackResourceRecipes} />
           </Field>
           <Body1Strong>{t(`${k}.materialLogistics`)}</Body1Strong>
           <Field label={t(`${k}.hasStorageBins`)}>
-            <Checkbox
-              checked={hasStorageBins}
-              onChange={setHasStorageBins}
-            />
+            <Checkbox checked={hasStorageBins} onChange={setHasStorageBins} />
           </Field>
           <Body1Strong>{t(`${k}.setup`)}</Body1Strong>
           <Field label={t(`${k}.setupMode`)}>
@@ -205,14 +188,14 @@ export function ResourceFormDialog({
             </select>
           </Field>
           <Body1Strong>{t(`${k}.coordinates`)}</Body1Strong>
-          <div style={{ display: "flex", columnGap: theme.spacing.md }}>
+          <HStack gap={theme.spacing.md}>
             <Field label={t(`${k}.latitude`)}>
               <Input value={latitude} onChange={setLatitude} />
             </Field>
             <Field label={t(`${k}.longitude`)}>
               <Input value={longitude} onChange={setLongitude} />
             </Field>
-          </div>
+          </HStack>
         </VStack>
       )}
 
@@ -220,10 +203,7 @@ export function ResourceFormDialog({
         <VStack gap={12}>
           <Body1Strong>{t(`${k}.automation`)}</Body1Strong>
           <Field label={t(`${k}.enableAutomationScenarios`)}>
-            <Checkbox
-              checked={enableAutomationScenarios}
-              onChange={setEnableAutomationScenarios}
-            />
+            <Checkbox checked={enableAutomationScenarios} onChange={setEnableAutomationScenarios} />
           </Field>
         </VStack>
       )}
