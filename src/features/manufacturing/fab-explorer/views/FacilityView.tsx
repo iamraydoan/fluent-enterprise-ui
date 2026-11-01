@@ -31,7 +31,6 @@ const useViewStyles = makeStyles({
     color: theme.color.textSecondary,
     marginTop: "auto",
   },
-  stateCount: { display: "flex", alignItems: "center", columnGap: theme.spacing.xs },
   
   materialRow: {
     fontSize: "13px",
@@ -114,7 +113,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
                   ariaLabel={a.name}
                   footer={
                     <HStack gap="12px" className={styles.stateCounts}>
-                      <span className={styles.stateCount} title={t("fabExplorer.up")}>
+                      <HStack align="center" gap="xs" title={t("fabExplorer.up")}>
                         <span
                           style={{
                             width: "10px",
@@ -125,8 +124,8 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
                           }}
                         />
                         {a.resources.up}
-                      </span>
-                      <span className={styles.stateCount} title={t("fabExplorer.down")}>
+                      </HStack>
+                      <HStack align="center" gap="xs" title={t("fabExplorer.down")}>
                         <span
                           style={{
                             width: "10px",
@@ -137,8 +136,8 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
                           }}
                         />
                         {a.resources.down}
-                      </span>
-                      <span className={styles.stateCount} title={t("fabExplorer.maintenance")}>
+                      </HStack>
+                      <HStack align="center" gap="xs" title={t("fabExplorer.maintenance")}>
                         <span
                           style={{
                             width: "10px",
@@ -149,7 +148,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
                           }}
                         />
                         {a.resources.maintenance}
-                      </span>
+                      </HStack>
                     </HStack>
                   }
                 />

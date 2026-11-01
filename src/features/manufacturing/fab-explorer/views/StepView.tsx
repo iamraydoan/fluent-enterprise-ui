@@ -4,9 +4,11 @@ import type { FabResource } from "@/api";
 import {
   ActionBar,
   DataTableCard,
+  HStack,
   IconButton,
   RibbonButton,
   SidePanel,
+  VStack,
   searchFilter,
 } from "@/components/common";
 import type { DataColumn, DataFilter, DataTableCardApi, RibbonMenuItem } from "@/components/common";
@@ -49,11 +51,7 @@ import {
 import { MATERIAL_COLUMNS } from "./materialColumns";
 
 const useViewStyles = makeStyles({
-  page: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0 },
   header: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     padding: "8px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: theme.color.surface,
@@ -63,20 +61,6 @@ const useViewStyles = makeStyles({
     height: "10px",
     borderRadius: "50%",
     backgroundColor: theme.color.brand,
-  },
-  body: { display: "flex", flexGrow: 1, minHeight: 0, columnGap: "10px", padding: "10px" },
-  left: { width: "220px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
-  center: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "8px" },
-  right: { width: "260px", flexShrink: 0, display: "flex", flexDirection: "column", minHeight: 0 },
-  filterBar: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "12px",
-    flexWrap: "wrap",
-    padding: "8px 12px",
-    backgroundColor: theme.color.surface,
-    border: `1px solid ${theme.color.borderSubtle}`,
-    borderRadius: theme.radius.md,
   },
   catRow: {
     display: "flex",
@@ -101,20 +85,13 @@ const useViewStyles = makeStyles({
     fontWeight: theme.font.weightSemibold,
     color: theme.color.textTertiary,
     padding: "8px 12px 4px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
   },
   detailCard: {
     backgroundColor: theme.color.surface,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
     padding: "12px",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "8px",
   },
-  toolbarRight: { marginLeft: "auto", display: "flex", columnGap: "4px" },
 });
 
 type Category = "materials" | "resources";
@@ -333,8 +310,8 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
   };
 
   return (
-    <div className={styles.page}>
-      <div className={styles.header}>
+    <VStack gap="none" style={{ height: "100%", minHeight: 0 }}>
+      <HStack align="center" gap={8} className={styles.header}>
         <IconButton
           icon={<ChevronLeft20Regular />}
           onClick={onBack}
@@ -344,7 +321,7 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
         <Text weight="semibold" size={400}>
           {name}
         </Text>
-      </div>
+      </HStack>
 
       <ActionBar>
         <RibbonButton
@@ -402,7 +379,7 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
           label={t("manufacturing.fabExplorer.operations.more")}
           menu={moreMenu}
         />
-        <div className={styles.toolbarRight}>
+        <HStack gap={4} style={{ marginLeft: "auto" }}>
           <RibbonButton
             icon={<Box24Regular />}
             label={t("manufacturing.fabExplorer.layout.views")}
@@ -412,11 +389,11 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
             label={t("manufacturing.fabExplorer.layout.layout")}
             menu={layoutMenu}
           />
-        </div>
+        </HStack>
       </ActionBar>
 
-      <div className={styles.body}>
-        <div className={styles.left}>
+      <HStack grow gap={10} p={10}>
+        <VStack gap="none" style={{ width: "220px", flexShrink: 0, minHeight: 0 }}>
           <SidePanel
             title={t("manufacturing.fabExplorer.stepView.details")}
             collapsed={false}
@@ -451,9 +428,9 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
               </div>
             ))}
           </SidePanel>
-        </div>
+        </VStack>
 
-        <div className={styles.center}>
+        <VStack grow gap={8}>
           {category === "materials" ? (
             <DataTableCard
               title={(count) => t("manufacturing.fabExplorer.stepView.materialsTitle", { count })}
@@ -480,10 +457,10 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
               apiRef={resourcesApiRef}
             />
           )}
-        </div>
+        </VStack>
 
-        <div className={styles.right}>
-          <div className={styles.detailCard}>
+        <VStack gap="none" style={{ width: "260px", flexShrink: 0, minHeight: 0 }}>
+          <VStack gap={8} className={styles.detailCard}>
             <div className={styles.sectionTitle}>
               <span>{t(L.details)}</span>
             </div>
@@ -499,9 +476,9 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
               {t(L.documents)} (1)
             </Text>
             <Text size={300}>{MOCK_DOC}</Text>
-          </div>
-        </div>
-      </div>
+          </VStack>
+        </VStack>
+      </HStack>
 
       <DispatchDialog
         open={dlg === DLG.dispatch}
@@ -634,6 +611,6 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
       />
       <SaveLayoutDialog open={dlg === DLG.saveLayout} onClose={closeDlg} onConfirm={closeDlg} />
       <ResetLayoutDialog open={dlg === DLG.resetLayout} onClose={closeDlg} onConfirm={closeDlg} />
-    </div>
+    </VStack>
   );
 }

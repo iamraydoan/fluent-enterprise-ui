@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, OptionItem } from "@/components/common";
+import { BaseDialog, DialogFooter, Grid, HStack, OptionItem } from "@/components/common";
 import { Checkbox, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -8,13 +8,9 @@ import { theme } from "@/styles/theme";
 const useLayoutStyles = makeStyles({
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
   sectionRow: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     padding: "8px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  twoCol: { display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: "16px" },
   colTitle: { fontWeight: theme.font.weightSemibold, fontSize: "13px", marginBottom: "8px" },
   colBox: {
     border: `1px solid ${theme.color.border}`,
@@ -154,7 +150,7 @@ export function PanelSettingsDialog({
         />
       }
     >
-      <div className={styles.twoCol}>
+      <Grid columns="1fr 1fr" gap={16}>
         <div>
           <div className={styles.colTitle}>
             {t("manufacturing.fabExplorer.dialogs.panelSettings.availableSections")} (
@@ -162,13 +158,13 @@ export function PanelSettingsDialog({
           </div>
           <div className={styles.colBox}>
             {sections.map((s) => (
-              <div key={s.id} className={styles.sectionRow}>
+              <HStack key={s.id} align="center" gap={8} className={styles.sectionRow}>
                 <Checkbox checked={current.includes(s.id)} onChange={() => toggle(s.id)} />
                 <Text size={300}>
                   {s.label}
                   {s.count !== undefined ? ` (${s.count})` : ""}
                 </Text>
-              </div>
+              </HStack>
             ))}
           </div>
         </div>
@@ -181,14 +177,14 @@ export function PanelSettingsDialog({
             {current.map((id) => {
               const s = sections.find((sec) => sec.id === id);
               return (
-                <div key={id} className={styles.sectionRow}>
+                <HStack key={id} align="center" gap={8} className={styles.sectionRow}>
                   <Text size={300}>{s?.label ?? id}</Text>
-                </div>
+                </HStack>
               );
             })}
           </div>
         </div>
-      </div>
+      </Grid>
     </BaseDialog>
   );
 }

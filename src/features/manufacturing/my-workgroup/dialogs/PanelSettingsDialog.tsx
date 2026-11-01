@@ -1,27 +1,17 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, Section } from "@/components/common";
+import { BaseDialog, DialogFooter, Grid, HStack, Section } from "@/components/common";
 import { ArrowDown20Regular, ArrowUp20Regular, Delete20Regular } from "@/components/icons";
 import { Button, Checkbox, Text, makeStyles, mergeClasses} from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  columns: { display: "grid", gridTemplateColumns: "1fr 220px", gap: "16px" },
-  columnTitle: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: "8px",
-  },
   list: {
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
     overflow: "hidden",
   },
   headerRow: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "10px",
     padding: "10px 12px",
     backgroundColor: theme.color.surfaceSecondary,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
@@ -31,9 +21,6 @@ const useDialogStyles = makeStyles({
     letterSpacing: "0.5px",
   },
   row: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "10px",
     padding: "10px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
@@ -41,9 +28,6 @@ const useDialogStyles = makeStyles({
   },
   rowSelected: { backgroundColor: theme.color.surfaceSelected },
   selectedRow: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
     padding: "10px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
@@ -54,7 +38,6 @@ const useDialogStyles = makeStyles({
     letterSpacing: "2px",
     userSelect: "none",
   },
-  toolbar: { display: "flex", alignItems: "center", columnGap: "2px" },
   comments: {
     marginTop: "16px",
     borderTop: `1px solid ${theme.color.borderSubtle}`,
@@ -128,18 +111,18 @@ export function PanelSettingsDialog({
         />
       }
     >
-      <div className={styles.columns}>
+      <Grid columns="1fr 220px" gap={16}>
         <div>
-          <div className={styles.columnTitle}>
+          <HStack align="center" justify="between" style={{ marginBottom: "8px" }}>
             <Text weight="semibold">
               {t("myWorkgroup.panelSettings.availableSections")} ({ALL_PANELS.length}){" "}
               <Text size={300} style={{ color: theme.color.textTertiary }}>
                 / {t("myWorkgroup.panelSettings.itemsSelected", { count: selected.length })}
               </Text>
             </Text>
-          </div>
+          </HStack>
           <div className={styles.list} role="listbox" aria-multiselectable>
-            <div className={styles.headerRow}>
+            <HStack align="center" gap={10} className={styles.headerRow}>
               <Checkbox
                 checked={selected.length === ALL_PANELS.length}
                 onChange={() =>
@@ -148,10 +131,12 @@ export function PanelSettingsDialog({
                 aria-label={t("myWorkgroup.panelSettings.sections")}
               />
               <span>{t("myWorkgroup.panelSettings.sections")}</span>
-            </div>
+            </HStack>
             {ALL_PANELS.map((panel) => (
-              <div
+              <HStack
                 key={panel}
+                align="center"
+                gap={10}
                 className={mergeClasses(styles.row, selected.includes(panel) && styles.rowSelected)}
                 onClick={() => toggle(panel)}
                 role="option"
@@ -164,16 +149,16 @@ export function PanelSettingsDialog({
                   aria-label={panelLabel(panel)}
                 />
                 <span>{panelLabel(panel)}</span>
-              </div>
+              </HStack>
             ))}
           </div>
         </div>
         <div>
-          <div className={styles.columnTitle}>
+          <HStack align="center" justify="between" style={{ marginBottom: "8px" }}>
             <Text weight="semibold">
               {t("myWorkgroup.panelSettings.selectedSections")} ({selected.length})
             </Text>
-            <span className={styles.toolbar}>
+            <HStack align="center" gap={2}>
               <Button
                 variant="subtle"
                 icon={<Delete20Regular />}
@@ -192,11 +177,11 @@ export function PanelSettingsDialog({
                 aria-label={t("common.moveDown")}
                 onClick={() => move(0, 1)}
               />
-            </span>
-          </div>
+            </HStack>
+          </HStack>
           <div className={styles.list}>
             {selected.map((panel) => (
-              <div key={panel} className={styles.selectedRow}>
+              <HStack key={panel} align="center" gap={8} className={styles.selectedRow}>
                 <span className={styles.dragHandle} aria-hidden>
                   {DRAG_HANDLE}
                 </span>
@@ -207,18 +192,18 @@ export function PanelSettingsDialog({
                   aria-label={t("common.remove")}
                   onClick={() => remove(panel)}
                 />
-              </div>
+              </HStack>
             ))}
             {selected.length === 0 && (
-              <div className={styles.selectedRow}>
+              <HStack align="center" gap={8} className={styles.selectedRow}>
                 <Text size={300} style={{ color: theme.color.textTertiary }}>
                   {EMPTY_DASH}
                 </Text>
-              </div>
+              </HStack>
             )}
           </div>
         </div>
-      </div>
+      </Grid>
       <Section
         title={`${t("myWorkgroup.panelSettings.comments")}:`}
         collapsible
