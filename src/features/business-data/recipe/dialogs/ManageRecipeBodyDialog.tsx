@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack, VStack } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -36,7 +36,7 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
       }
     >
       <DialogEntityBanner icon="🎛" name={recipeName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+      <VStack gap={12}>
         <Field label={t(`${k}.source`)}>
           <select value={source} onChange={(e) => setSource(e.target.value)}>
             {SOURCES.map((o) => (
@@ -56,12 +56,12 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
           </select>
         </Field>
         <Field label={t(`${k}.fileName`)} required={!isNone}>
-          <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
+          <HStack gap={8}>
             <Input value={fileName} onChange={setFileName} />
             <Button variant="secondary" onClick={() => {}}>
               {t(`${k}.uploadBody`)}
             </Button>
-          </div>
+          </HStack>
         </Field>
         <Field label={t(`${k}.body`)} required={!isNone}>
           <textarea
@@ -71,10 +71,10 @@ export function ManageRecipeBodyDialog({ open, onClose, recipeName }: ManageReci
             style={{ width: "100%", fontFamily: "monospace", fontSize: 13 }}
           />
         </Field>
-        <div style={{ fontSize: 12, color: theme.color.textTertiary }}>
+        <div style={{ fontSize: 12, color: theme.color.textSecondary }}>
           {t(`${k}.size`)}: {size} B
         </div>
-      </div>
+      </VStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />
       </Field>

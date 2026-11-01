@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMaterialTransferDetail } from "@/api";
 import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
-import { DetailShell, KV } from "@/components/common";
+import { DetailShell, KV, Grid  } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -31,8 +31,8 @@ import {
 } from "./MaterialTransferDialogs";
 
 const useStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: theme.spacing.md },
-  sectionTitle: { marginBottom: theme.spacing.sm },
+  
+  sectionTitle: { marginBottom: "8px" },
 });
 
 function Card({ titleKey, rows }: { titleKey: TranslationKey; rows: [string, React.ReactNode][] }) {
@@ -51,7 +51,6 @@ function Card({ titleKey, rows }: { titleKey: TranslationKey; rows: [string, Rea
 
 export function MaterialTransferDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
   const { data: detail } = useMaterialTransferDetail(name);
 
   const [top, setTop] = useState("details");
@@ -172,7 +171,7 @@ export function MaterialTransferDetailPage({ name }: { name: string }) {
         showState={false}
         moreActions={moreMenuItems}
       >
-        <div className={styles.cards}>
+        <Grid columns="repeat(2, 1fr)" gap="12px">
           <Card
             titleKey="businessData.materialTransfer.detail.generalData"
             rows={[
@@ -193,7 +192,7 @@ export function MaterialTransferDetailPage({ name }: { name: string }) {
               [t(`${f}.quantity`), detail.quantity],
             ]}
           />
-        </div>
+        </Grid>
       </DetailShell>
       <ApproveMaterialTransferDialog open={approveOpen} onClose={() => setApproveOpen(false)} />
       <CancelMaterialTransferDialog open={cancelOpen} onClose={() => setCancelOpen(false)} />

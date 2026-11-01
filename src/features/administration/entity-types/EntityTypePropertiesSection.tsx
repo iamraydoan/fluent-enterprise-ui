@@ -1,11 +1,9 @@
 import { useMemo, useState } from "react";
 import { useEntityTypeProperties } from "@/api";
 import type { EntityTypeProperty } from "@/api";
-import { Card, FilterBar, FilterGroup } from "@/components/common";
+import { Card, FilterBar, FilterGroup, SectionHeader, HStack, VStack  } from "@/components/common";
 import {
   ArrowSync20Regular,
-  ChevronDown20Regular,
-  ChevronRight20Regular,
   Search20Regular,
   Settings20Regular,
 } from "@/components/icons";
@@ -29,10 +27,7 @@ import { searchTypeLabelKey, NOT_APPLICABLE } from "./propertyUtils";
 
 const useSectionStyles = makeStyles({
   toolbar: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: theme.spacing.xs,
-    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
+    padding: "8px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   filterBar: {
@@ -43,7 +38,7 @@ const useSectionStyles = makeStyles({
     padding: `10px ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  list: { display: "flex", flexDirection: "column" },
+  
   row: {
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
@@ -63,12 +58,11 @@ const useSectionStyles = makeStyles({
   rowTitle: { fontSize: "14px", fontWeight: theme.font.weightSemibold },
   rowSub: { fontSize: "12px", color: theme.color.textTertiary },
   rowBody: {
-    padding: `${theme.spacing.xs} ${theme.spacing.md} ${theme.spacing.md} 36px`,
-    display: "flex",
-    flexDirection: "column",
-    rowGap: theme.spacing.xs,
+    padding: "4px 12px 12px 36px",
   },
-  detailRow: { display: "flex", columnGap: theme.spacing.sm, fontSize: "13px" },
+  detailRow: {
+    fontSize: "13px",
+  },
   detailLabel: { color: theme.color.textTertiary, minWidth: "110px" },
   searchableBadge: {
     fontSize: "11px",
@@ -119,7 +113,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
 
   return (
     <Card title={t("entityTypes.properties.title", { count: properties.length })}>
-      <div className={styles.toolbar}>
+      <HStack gap="4px" align="center" className={styles.toolbar}>
         <Button
           variant="subtle"
           icon={<ArrowSync20Regular />}
@@ -136,7 +130,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
         >
           {t("entityTypes.properties.manage")}
         </Button>
-      </div>
+      </HStack>
       <FilterBar>
         <FilterGroup>
           <Checkbox
@@ -179,7 +173,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
           />
         </FilterGroup>
       </FilterBar>
-      <div className={styles.list} role="list">
+      <VStack role="list">
         {visible.map((property) => (
           <PropertyRow
             key={property.name}
@@ -188,7 +182,7 @@ export function EntityTypePropertiesSection({ entityName }: EntityTypeProperties
             onToggle={() => toggle(property.name)}
           />
         ))}
-      </div>
+      </VStack>
       {manageOpen && (
         <ManagePropertiesDialog
           entityName={entityName}
@@ -213,44 +207,50 @@ function PropertyRow({
   const styles = useSectionStyles();
   return (
     <div className={styles.row} role="listitem">
-      <button className={styles.rowHead} onClick={onToggle} aria-expanded={expanded}>
-        {expanded ? <ChevronDown20Regular /> : <ChevronRight20Regular />}
-        <span>
-          <div className={styles.rowTitle}>{property.name}</div>
-          <div className={styles.rowSub}>
-            {property.description} / {property.referenceType}
-          </div>
-        </span>
-        {property.searchable && (
-          <span className={styles.searchableBadge}>{t("entityTypes.properties.searchable")}</span>
-        )}
-      </button>
+      <SectionHeader
+        title={
+          <span>
+            <div className={styles.rowTitle}>{property.name}</div>
+            <div className={styles.rowSub}>
+              {property.description} / {property.referenceType}
+            </div>
+          </span>
+        }
+        actions={
+          property.searchable ? (
+            <span className={styles.searchableBadge}>{t("entityTypes.properties.searchable")}</span>
+          ) : undefined
+        }
+        collapsible
+        expanded={expanded}
+        onToggle={onToggle}
+      />
       {expanded && (
-        <div className={styles.rowBody}>
-          <div className={styles.detailRow}>
+        <VStack gap="4px" className={styles.rowBody}>
+          <HStack gap="8px" className={styles.detailRow}>
             <span className={styles.detailLabel}>{t("entityTypes.property.kind")}</span>
             <Text size={300}>{property.kind}</Text>
-          </div>
-          <div className={styles.detailRow}>
+          </HStack>
+          <HStack gap="8px" className={styles.detailRow}>
             <span className={styles.detailLabel}>{t("entityTypes.property.scalarType")}</span>
             <Text size={300}>
               {property.scalarType}
               {property.size !== undefined ? ` (${property.size})` : ""}
             </Text>
-          </div>
-          <div className={styles.detailRow}>
+          </HStack>
+          <HStack gap="8px" className={styles.detailRow}>
             <span className={styles.detailLabel}>{t("entityTypes.property.searchType")}</span>
             <Text size={300}>
               {property.searchable && property.searchType
                 ? t(searchTypeLabelKey(property.searchType))
                 : NOT_APPLICABLE}
             </Text>
-          </div>
-          <div className={styles.detailRow}>
+          </HStack>
+          <HStack gap="8px" className={styles.detailRow}>
             <span className={styles.detailLabel}>{t("entityTypes.property.enabled")}</span>
             <Text size={300}>{property.enabled ? t("common.yes") : t("common.no")}</Text>
-          </div>
-        </div>
+          </HStack>
+        </VStack>
       )}
     </div>
   );

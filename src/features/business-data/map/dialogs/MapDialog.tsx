@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Input, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -30,9 +30,7 @@ const L: Record<string, TranslationKey> = {
 
 const useDialogStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: theme.spacing.lg,
-    padding: `${theme.spacing.md} ${theme.spacing.lg}`,
+    padding: "12px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
@@ -88,10 +86,10 @@ export function MapDialog({ open, mode, initialName, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="16px" className={styles.steps}>
         <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
         <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
-      </div>
+      </HStack>
       {step === 1 && (
         <>
           <FormField
@@ -103,11 +101,7 @@ export function MapDialog({ open, mode, initialName, onClose }: DialogProps) {
             }
             labelWidth="150px"
           >
-            <Input
-              value={name}
-              onChange={setName}
-              disabled={mode === MODE_EDIT}
-            />
+            <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="150px">
             <Textarea value={description} onChange={setDescription} />

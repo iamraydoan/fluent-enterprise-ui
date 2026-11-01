@@ -1,34 +1,12 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, Empty } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty, Grid, OptionItem } from "@/components/common";
 import { Button, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { theme } from "@/styles/theme";
 
 const useManageDialogStyles = makeStyles({
-  row: {
-    display: "grid",
-    gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr) auto",
-    columnGap: theme.spacing.md,
-    alignItems: "center",
-    marginBottom: theme.spacing.sm,
-  },
-  dashboardItem: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: theme.spacing.md,
-    padding: theme.spacing.md,
-    border: `1px solid ${theme.color.borderSubtle}`,
-    borderRadius: theme.radius.md,
-    marginBottom: theme.spacing.sm,
-    cursor: "pointer",
-    width: "100%",
-    backgroundColor: "transparent",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    textAlign: "left",
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
+  row: { marginBottom: "8px" },
 });
+
 
 interface SupplyAreaRow {
   id: number;
@@ -71,12 +49,10 @@ export function ManageSupplyAreasDialog({
       }
     >
       <Text>{t("businessData.area.operations.manageSupplyAreasHint", { name: areaName })}</Text>
-      <div style={{ marginTop: theme.spacing.md }}>
-        {rows.length === 0 && (
-          <Empty>{t("businessData.area.operations.noSupplyAreas")}</Empty>
-        )}
+      <div style={{ marginTop: "12px" }}>
+        {rows.length === 0 && <Empty>{t("businessData.area.operations.noSupplyAreas")}</Empty>}
         {rows.map((row) => (
-          <div key={row.id} className={styles.row}>
+          <Grid columns="minmax(0, 1fr) minmax(0, 1fr) auto" gap="12px" className={styles.row} style={{ alignItems: "center" }}>
             <Input
               placeholder={t("businessData.area.operations.supplyAreaName")}
               value={row.name}
@@ -90,7 +66,7 @@ export function ManageSupplyAreasDialog({
             <Button variant="secondary" onClick={() => removeRow(row.id)}>
               {t("common.remove")}
             </Button>
-          </div>
+          </Grid>
         ))}
         <Button variant="secondary" onClick={addRow}>
           {t("common.add")}
@@ -147,12 +123,10 @@ export function ManageTransferRequirementTypesDialog({
       }
     >
       <Text>{t("businessData.area.operations.manageTransferTypesHint", { name: areaName })}</Text>
-      <div style={{ marginTop: theme.spacing.md }}>
-        {rows.length === 0 && (
-          <Empty>{t("businessData.area.operations.noTransferTypes")}</Empty>
-        )}
+      <div style={{ marginTop: "12px" }}>
+        {rows.length === 0 && <Empty>{t("businessData.area.operations.noTransferTypes")}</Empty>}
         {rows.map((row) => (
-          <div key={row.id} className={styles.row}>
+          <Grid columns="minmax(0, 1fr) minmax(0, 1fr) auto" gap="12px" className={styles.row} style={{ alignItems: "center" }}>
             <Input
               placeholder={TRANSFER_TYPE_OPTIONS[0].label}
               value={row.type}
@@ -166,7 +140,7 @@ export function ManageTransferRequirementTypesDialog({
             <Button variant="secondary" onClick={() => removeRow(row.id)}>
               {t("common.remove")}
             </Button>
-          </div>
+          </Grid>
         ))}
         <Button variant="secondary" onClick={addRow}>
           {t("common.add")}
@@ -186,7 +160,6 @@ export function ViewAreaDashboardsDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = useManageDialogStyles();
 
   return (
     <BaseDialog
@@ -201,9 +174,12 @@ export function ViewAreaDashboardsDialog({
       }
     >
       {DASHBOARDS.map((dashboard) => (
-        <button key={dashboard} className={styles.dashboardItem} onClick={onClose}>
-          {t(`businessData.area.operations.dashboards.${dashboard}`)}
-        </button>
+        <OptionItem
+          key={dashboard}
+          title={t(`businessData.area.operations.dashboards.${dashboard}`)}
+          selected={false}
+          onClick={onClose}
+        />
       ))}
     </BaseDialog>
   );

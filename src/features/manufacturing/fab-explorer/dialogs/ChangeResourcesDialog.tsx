@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { useFabResources } from "@/api";
 import type { FabResourceState } from "@/api";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Text, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Checkbox, Input, Text, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   stepsBar: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: theme.spacing.sm,
     margin: "-16px -20px 0",
     padding: `${theme.spacing.md} 20px`,
     backgroundColor: theme.color.brandSubtle,
@@ -59,9 +56,7 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
 
   const { data: resources = [] } = useFabResources(undefined, facilityName);
 
-  const filtered = resources.filter(
-    (r) => !search || containsIgnoreCase(r.name, search),
-  );
+  const filtered = resources.filter((r) => !search || containsIgnoreCase(r.name, search));
 
   const toggle = (name: string) => {
     setSelected((prev) => (prev.includes(name) ? prev.filter((n) => n !== name) : [...prev, name]));
@@ -107,22 +102,22 @@ export function ChangeResourcesDialog({ open, facilityName, onClose }: ChangeRes
       onClose={handleClose}
       footer={footer}
     >
-      <div className={styles.stepsBar}>
+      <HStack gap="8px" align="center" className={styles.stepsBar}>
         <span className={styles.stepActive}>1. {t("fabExplorer.resources")}</span>
         <span>-</span>
         <span className={styles.stepInactive}>2. {t("fabExplorer.newState")}</span>
-      </div>
+      </HStack>
 
       {step === 0 && (
         <>
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <HStack justify="flex-end">
             <Input
               placeholder={t("fabExplorer.search")}
               value={search}
               onChange={setSearch}
               style={{ width: "200px" }}
             />
-          </div>
+          </HStack>
           <table className={styles.table}>
             <thead>
               <tr>

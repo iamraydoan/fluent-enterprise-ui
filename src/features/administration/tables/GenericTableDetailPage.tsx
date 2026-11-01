@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGenericTable } from "@/api";
-import { Empty, Panel } from "@/components/common";
+import { Empty, Panel, HStack, VStack  } from "@/components/common";
 import { Table24Regular } from "@/components/icons";
 import { Body1Strong, Caption1, makeStyles, Tab, TabList, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -10,24 +10,19 @@ import { GenericTableDataTab } from "./GenericTableDataTab";
 import { GenericTableDefinitionTab } from "./GenericTableDefinitionTab";
 
 const useDetailStyles = makeStyles({
-  page: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0 },
+  page: {
+    height: "100%",
+    minHeight: 0,
+  },
   tabBar: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: theme.spacing.xs,
-    padding: `0 ${theme.spacing.lg}`,
+    padding: "0 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    backgroundColor: "#fff",
-    flexShrink: 0,
+    backgroundColor: theme.color.surface,
   },
   titleStrip: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: theme.spacing.sm,
-    padding: `10px ${theme.spacing.lg}`,
-    backgroundColor: "#fff",
+    padding: "10px 16px",
+    backgroundColor: theme.color.surface,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    flexShrink: 0,
   },
   content: {
     flexGrow: 1,
@@ -54,25 +49,21 @@ export function GenericTableDetailPage({ name }: GenericTableDetailPageProps) {
   }
 
   return (
-    <div className={styles.page}>
-      <div className={styles.tabBar}>
-        <TabList
-          selectedValue={tab}
-          onTabSelect={setTab}
-          aria-label={t("genericTables.pageLabel")}
-        >
+    <VStack className={styles.page}>
+      <HStack gap="4px" align="center" className={styles.tabBar}>
+        <TabList selectedValue={tab} onTabSelect={setTab} aria-label={t("genericTables.pageLabel")}>
           <Tab value="data">{t("genericTables.tabs.data")}</Tab>
           <Tab value="definition">{t("genericTables.tabs.definition")}</Tab>
           <Tab value="history">{t("genericTables.tabs.history")}</Tab>
         </TabList>
-      </div>
-      <div className={styles.titleStrip}>
+      </HStack>
+      <HStack gap="8px" align="center" className={styles.titleStrip}>
         <Table24Regular />
         <Text weight="semibold" size={400}>
           {data.name}
         </Text>
         <Text size={300}>({data.state})</Text>
-      </div>
+      </HStack>
       <div className={styles.content}>
         {tab === "data" && <GenericTableDataTab table={data} />}
         {tab === "definition" && <GenericTableDefinitionTab table={data} />}
@@ -85,6 +76,6 @@ export function GenericTableDetailPage({ name }: GenericTableDetailPageProps) {
           </Panel>
         )}
       </div>
-    </div>
+    </VStack>
   );
 }

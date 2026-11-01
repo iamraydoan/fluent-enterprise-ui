@@ -1,6 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBinConverterDetail } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
   DetailShell,
@@ -12,8 +13,9 @@ import {
   terminateAction,
   TileGrid,
   unterminateAction,
+  DetailTabs,
+  Empty,  SectionHeader, Grid, HStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import {
   Table,
@@ -22,7 +24,6 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  Text,
   makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -32,14 +33,17 @@ import { theme } from "@/styles/theme";
 import { useBinConverterDialogs } from "./useBinConverterDialogs";
 
 const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  
+  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
 });
 
@@ -116,11 +120,9 @@ export function BinConverterDetailPage() {
           >
             {showConversions ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.binConverter.detail.conversionsTitle", {
+                <SectionHeader title={t("businessData.binConverter.detail.conversionsTitle", {
                     count: bc.conversions.length,
-                  })}
-                </Text>
+                  })} />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -155,11 +157,9 @@ export function BinConverterDetailPage() {
                 </Table>
               </div>
             ) : (
-              <TileGrid minWidth="300px">
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.binConverter.detail.binConverter")}
-                  </Text>
+                  <SectionHeader title={t("businessData.binConverter.detail.binConverter")} />
                   <KV label={t("businessData.binConverter.detail.name")} value={bc.name} />
                   <KV
                     label={t("businessData.binConverter.detail.description")}
@@ -181,13 +181,11 @@ export function BinConverterDetailPage() {
                   />
                   <KV label={t("businessData.binConverter.detail.binType")} value={bc.binType} />
                 </div>
-              </TileGrid>
+              </Grid>
             )}
           </DetailShell>
         )}
-        {tab !== "details" && (
-          <Empty>{t("businessData.binConverter.detail.historyEmpty")}</Empty>
-        )}
+        {tab !== "details" && <Empty>{t("businessData.binConverter.detail.historyEmpty")}</Empty>}
       </DetailTabs>
     </ListPage>
   );
@@ -197,9 +195,9 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.binConverter.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }

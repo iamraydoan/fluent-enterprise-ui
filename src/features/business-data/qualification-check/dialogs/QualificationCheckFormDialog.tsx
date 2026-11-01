@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { QualificationCheckDetail } from "@/api";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -39,7 +39,7 @@ export function QualificationCheckFormDialog({
       width="min(900px, 90vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
     >
-      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.lg }}>
+      <VStack gap={16}>
         <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
         <Field label={t(`${k}.name`)} required>
           <Input value={name} readOnly={nameReadOnly} onChange={setName} />
@@ -51,8 +51,8 @@ export function QualificationCheckFormDialog({
           <Input value={dataGroup} onChange={setDataGroup} />
         </Field>
         <Field label={t(`${k}.instanceType`)} required>
-          <div style={{ display: "flex", columnGap: theme.spacing.lg }}>
-            <label style={{ display: "flex", alignItems: "center", columnGap: 6 }}>
+          <HStack gap={16}>
+            <label style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}>
               <input
                 type="radio"
                 name="instanceType"
@@ -70,12 +70,12 @@ export function QualificationCheckFormDialog({
               />
               {t(`${k}.multiple`)}
             </label>
-          </div>
+          </HStack>
         </Field>
         <Field label={t(`${k}.comments`)}>
           <Input value={comments} onChange={setComments} />
         </Field>
-      </div>
+      </VStack>
     </BaseDialog>
   );
 }

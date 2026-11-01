@@ -22,6 +22,10 @@ const useTileStyles = makeStyles({
     overflow: "hidden",
     ":hover": { backgroundColor: tileSurface.hoverBackgroundColor },
   },
+  tileSelected: {
+    outline: `2px solid ${tokens.colorBrandStroke1}`,
+    outlineOffset: "-2px",
+  },
   accent: {
     position: "absolute",
     left: 0,
@@ -71,8 +75,9 @@ interface EntityTileProps {
   footer?: ReactNode;
   accentColor?: string;
   backgroundColor?: string;
+  selected?: boolean;
   onClick: () => void;
-  ariaLabel?: string;
+  ariaLabel?: string | number;
   className?: string;
 }
 
@@ -83,6 +88,7 @@ export function EntityTile({
   footer,
   accentColor,
   backgroundColor,
+  selected,
   onClick,
   ariaLabel,
   className,
@@ -90,15 +96,16 @@ export function EntityTile({
   const styles = useTileStyles();
   return (
     <div
-      className={mergeClasses(styles.tile, className)}
+      className={mergeClasses(styles.tile, selected && styles.tileSelected, className)}
       style={backgroundColor ? { backgroundColor } : undefined}
       onClick={onClick}
       role="button"
       tabIndex={0}
+      aria-pressed={selected}
       onKeyDown={(e) => {
         if (e.key === "Enter") onClick();
       }}
-      aria-label={ariaLabel}
+      aria-label={ariaLabel?.toString()}
     >
       {accentColor && <div className={styles.accent} style={{ backgroundColor: accentColor }} />}
       <div>

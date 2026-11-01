@@ -1,5 +1,5 @@
-import { Empty } from "@/components/common";
-import { Button, Checkbox, Text} from "@/components/ui";
+import { Empty, HStack  } from "@/components/common";
+import { Button, Checkbox, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
@@ -33,8 +33,7 @@ export function LogicalChartLimitsEditor({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const rows = (values.logicalChartLimits as unknown as LogicalChartLimitRow[] | undefined) ?? [];
-  const setRows = (next: LogicalChartLimitRow[]) =>
-    onChange("logicalChartLimits", next);
+  const setRows = (next: LogicalChartLimitRow[]) => onChange("logicalChartLimits", next);
   const update = (name: string, patch: Partial<LogicalChartLimitRow>) =>
     setRows(rows.map((r) => (r.name === name ? { ...r, ...patch } : r)));
   const copyChartLimits = (name: string) =>
@@ -57,9 +56,7 @@ export function LogicalChartLimitsEditor({
   return (
     <div>
       <div className={styles.hint}>{t("businessData.chart.operations.setLimitsLogicalHint")}</div>
-      {rows.length === 0 && (
-        <Empty>{t("businessData.chart.operations.noLogicalCharts")}</Empty>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.chart.operations.noLogicalCharts")}</Empty>}
       {rows.map((row) => (
         <div
           key={row.name}
@@ -69,19 +66,12 @@ export function LogicalChartLimitsEditor({
             borderBottom: `1px solid ${theme.color.borderSubtle}`,
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: theme.spacing.sm,
-            }}
-          >
+          <HStack align="center" justify="space-between" style={{marginBottom: "8px"}}>
             <Text weight="semibold">{row.name}</Text>
             <Button variant="secondary" onClick={() => copyChartLimits(row.name)}>
               {t("businessData.chart.operations.copyChartLimits")}
             </Button>
-          </div>
+          </HStack>
           <div className={styles.ruleRow}>
             <NumField
               label={t("businessData.chart.detail.usl")}

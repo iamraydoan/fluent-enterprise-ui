@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useShiftPlanDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, HStack, VStack  } from "@/components/common";
 import { Timer24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -75,7 +75,7 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.shiftPlan.sections.workgroups")} ({data.workgroups.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
+        <VStack gap="8px" style={{marginTop: "12px"}}>
           {data.workgroups.map((wg) => (
             <div key={wg.name} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{wg.name}</Body1Strong>
@@ -83,26 +83,26 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
               <Caption1>{formatWorkgroupResources(wg)}</Caption1>
             </div>
           ))}
-        </div>
+        </VStack>
       </Panel>
     );
   } else if (left === "businessData.shiftPlan.sections.employees") {
     content = (
       <Panel>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <HStack align="center" justify="space-between">
           <Body1Strong>
             {t("businessData.shiftPlan.sections.employees")} ({data.employees.length})
           </Body1Strong>
           <Button>{t("businessData.shiftPlan.manageEmployees")}</Button>
-        </div>
-        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
+        </HStack>
+        <VStack gap="8px" style={{marginTop: "12px"}}>
           {data.employees.map((emp) => (
             <div key={emp.name} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{emp.name}</Body1Strong>
               <Caption1>{formatEmployeeMeta(emp)}</Caption1>
             </div>
           ))}
-        </div>
+        </VStack>
       </Panel>
     );
   } else if (

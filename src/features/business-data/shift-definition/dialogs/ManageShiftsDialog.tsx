@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ShiftDefinitionShift } from "@/api";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField, HStack, VStack } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import {
   Body1Strong,
@@ -17,10 +17,6 @@ import { theme } from "@/styles/theme";
 const useDialogStyles = makeStyles({
   listPane: {
     width: "320px",
-    flexShrink: 0,
-    display: "flex",
-    flexDirection: "column",
-    rowGap: theme.spacing.sm,
   },
   formPane: { flexGrow: 1, minWidth: 0 },
   shiftItem: {
@@ -60,8 +56,8 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
         />
       }
     >
-      <div style={{ display: "flex", columnGap: theme.spacing.lg, minHeight: 0 }}>
-        <div className={styles.listPane}>
+      <HStack gap="16px" style={{minHeight: 0}}>
+        <VStack gap="8px" className={styles.listPane}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <Text weight="semibold">{t("businessData.shiftDefinition.sections.shifts")}</Text>
             <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
@@ -97,7 +93,7 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
               </Caption1>
             </button>
           ))}
-        </div>
+        </VStack>
         <div className={styles.formPane}>
           <Body1Strong>{definitionName}</Body1Strong>
           {active !== undefined && (
@@ -125,7 +121,7 @@ export function ManageShiftsDialog({ definitionName, shifts, onClose }: ManageSh
             </div>
           )}
         </div>
-      </div>
+      </HStack>
     </BaseDialog>
   );
 }

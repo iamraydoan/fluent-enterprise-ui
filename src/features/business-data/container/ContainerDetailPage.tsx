@@ -1,6 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useContainerDetail } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
   DetailShell,
@@ -12,8 +13,11 @@ import {
   terminateAction,
   TileGrid,
   unterminateAction,
+  DetailTabs,
+  Empty,
+  EntityTile,
+  SectionHeader, Grid, HStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
   Table,
@@ -22,7 +26,6 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  Text,
   makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -32,15 +35,19 @@ import { theme } from "@/styles/theme";
 import { useContainerDialogs } from "./useContainerDialogs";
 
 const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  
+  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "180px" },
+  
   positionCell: {
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "6px",
@@ -52,14 +59,7 @@ const useDetailStyles = makeStyles({
     ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   positionActive: { border: `2px solid ${theme.color.borderBrand}` },
-  positionFilled: { backgroundColor: theme.color.infoSubtle },
-  positionNum: { fontWeight: theme.font.weightSemibold, fontSize: "14px" },
-  split: {
-    display: "grid",
-    gridTemplateColumns: "3fr minmax(280px, 1fr)",
-    gap: theme.spacing.md,
-    alignItems: "start",
-  },
+  
 });
 
 const TABS = ["details", "container", "maintenance", "compare", "references", "history"] as const;
@@ -194,9 +194,7 @@ export function ContainerDetailPage() {
           >
             {showMaterials ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.container.detail.materialsTitle", { count: c.materials.length })}
-                </Text>
+                <SectionHeader title={t("businessData.container.detail.materialsTitle", { count: c.materials.length })} />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -231,11 +229,9 @@ export function ContainerDetailPage() {
                 </Table>
               </div>
             ) : (
-              <TileGrid minWidth="300px">
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.container.detail.container")}
-                  </Text>
+                  <SectionHeader title={t("businessData.container.detail.container")} />
                   <KV label={t("businessData.container.detail.name")} value={c.name} />
                   <KV
                     label={t("businessData.container.detail.description")}
@@ -253,17 +249,13 @@ export function ContainerDetailPage() {
                   <KV label={t("businessData.container.detail.dataGroup")} value={c.dataGroup} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.container.detail.information")}
-                  </Text>
+                  <SectionHeader title={t("businessData.container.detail.information")} />
                   <KV label={t("businessData.container.detail.facility")} value={c.facility} />
                   <KV label={t("businessData.container.detail.parent")} value={c.parent} />
                   <Bool label={t("businessData.container.detail.onHold")} value={c.onHold} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.container.detail.positions")}
-                  </Text>
+                  <SectionHeader title={t("businessData.container.detail.positions")} />
                   <KV
                     label={t("businessData.container.detail.positionUnitType")}
                     value={c.positionUnitType}
@@ -297,37 +289,34 @@ export function ContainerDetailPage() {
                     value={c.positionSorting}
                   />
                 </div>
-              </TileGrid>
+              </Grid>
             )}
           </DetailShell>
         )}
         {tab === "container" && (
-          <div className={styles.split}>
+          <Grid columns="3fr minmax(280px, 1fr)" gap="12px" align="start">
             <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-              <Text className={styles.cardTitle}>
-                {t("businessData.container.detail.positionsView")}
-              </Text>
-              <TileGrid minWidth="90px">
+              <SectionHeader title={t("businessData.container.detail.positionsView")} />
+              <Grid columns="repeat(auto-fill, minmax(90px, 1fr))" gap="8px">
                 {c.positions.map((p) => (
-                  <button
+                  <EntityTile
                     key={p.position}
-                    className={`${styles.positionCell} ${p.material !== "" ? styles.positionFilled : ""} ${selectedPosition === p.position ? styles.positionActive : ""}`}
-                    onClick={() => setSelectedPosition(p.position)}
-                  >
-                    <div className={styles.positionNum}>{p.position}</div>
-                    <div>
-                      {p.material === ""
+                    title={p.position}
+                    description={
+                      p.material === ""
                         ? t("businessData.container.detail.emptyValue")
-                        : p.material}
-                    </div>
-                  </button>
+                        : p.material
+                    }
+                    selected={selectedPosition === p.position}
+                    backgroundColor={p.material !== "" ? theme.color.infoSubtle : undefined}
+                    onClick={() => setSelectedPosition(p.position)}
+                    ariaLabel={p.position}
+                  />
                 ))}
-              </TileGrid>
+              </Grid>
             </div>
             <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-              <Text className={styles.cardTitle}>
-                {t("businessData.container.detail.positionDetails")}
-              </Text>
+              <SectionHeader title={t("businessData.container.detail.positionDetails")} />
               {selected ? (
                 <>
                   <KV
@@ -351,12 +340,10 @@ export function ContainerDetailPage() {
                   <KV label={t("businessData.container.detail.unit")} value={selected.unit} />
                 </>
               ) : (
-                <div className={styles.empty}>
-                  {t("businessData.container.detail.selectPosition")}
-                </div>
+                <Empty>{t("businessData.container.detail.selectPosition")}</Empty>
               )}
             </div>
-          </div>
+          </Grid>
         )}
         {!["details", "container"].includes(tab) && (
           <Empty>{t("businessData.container.detail.historyEmpty")}</Empty>
@@ -371,10 +358,10 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.container.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }
 
@@ -382,11 +369,11 @@ function Bool({ label, value }: { label: string; value: boolean }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>
         {value ? t("businessData.container.detail.yes") : t("businessData.container.detail.no")}
       </span>
-    </div>
+    </HStack>
   );
 }

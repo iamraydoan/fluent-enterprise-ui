@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEmployeeDetail } from "@/api";
-import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack  } from "@/components/common";
 import { Organization24Regular } from "@/components/icons";
 import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -246,7 +246,7 @@ export function EmployeeDetailPage({ name }: { name: string }) {
             [t("businessData.employee.details.costPerHour"), `$${data.costPerHour.toFixed(2)}`],
           ]}
         />
-        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm }}>
+        <HStack gap="8px" style={{marginTop: "12px"}}>
           <Button onClick={() => setManageCertOpen(true)}>
             {t("businessData.employee.certifications.manage")}
           </Button>
@@ -262,8 +262,8 @@ export function EmployeeDetailPage({ name }: { name: string }) {
           <Button onClick={() => setAssignQualOpen(true)}>
             {t("businessData.employee.qualifications.assign")}
           </Button>
-        </div>
-        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm, flexWrap: "wrap" }}>
+        </HStack>
+        <HStack gap="8px" wrap style={{marginTop: "12px"}}>
           <Button size="sm" onClick={() => setCheckInOpen(true)}>
             {t("businessData.employee.attendance.checkIn")}
           </Button>
@@ -288,8 +288,8 @@ export function EmployeeDetailPage({ name }: { name: string }) {
           <Button size="sm" onClick={() => setManageTraineesOpen(true)}>
             {t("businessData.employee.delegates.checkOut")}
           </Button>
-        </div>
-        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm, flexWrap: "wrap" }}>
+        </HStack>
+        <HStack gap="8px" wrap style={{marginTop: "12px"}}>
           <Button size="sm" onClick={() => setNonWorkingOpen(true)}>
             {t("businessData.employee.calendarDays.set")}
           </Button>
@@ -302,7 +302,7 @@ export function EmployeeDetailPage({ name }: { name: string }) {
           <Button size="sm" onClick={() => setRemoveAvailabilityOpen(true)}>
             {t("businessData.employee.calendarDays.remove")}
           </Button>
-        </div>
+        </HStack>
       </Card>
     </CardGrid>,
   );

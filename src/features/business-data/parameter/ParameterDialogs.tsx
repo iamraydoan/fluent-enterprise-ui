@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
+import { BaseDialog, HStack  } from "@/components/common";
 import {
   Button,
   Input,
@@ -25,9 +25,6 @@ const useDialogStyles = makeStyles({
     backgroundColor: theme.color.surfaceSecondary,
   },
   step: {
-    display: "flex",
-    alignItems: "center",
-    gap: "6px",
     fontSize: "12px",
     fontWeight: 600,
     textTransform: "uppercase",
@@ -177,7 +174,7 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
     >
       <div className={styles.steps}>
         {[0, 1].map((i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: theme.spacing.sm }}>
+          <HStack gap="8px" align="center" key={i}>
             {i > 0 && (
               <div
                 style={{
@@ -187,13 +184,13 @@ export function CreateParameterDialog({ open, onClose, onSubmit }: DialogProps) 
                 }}
               />
             )}
-            <div className={styles.step}>
+            <HStack gap="6px" align="center" className={styles.step}>
               <span className={`${styles.stepNumber} ${i === step ? styles.stepActive : ""}`}>
                 {i + 1}
               </span>
               <span>{t(`${P}.steps.${i === 0 ? "generalData" : "information"}` as never)}</span>
-            </div>
-          </div>
+            </HStack>
+          </HStack>
         ))}
       </div>
       <div style={{ paddingTop: theme.spacing.lg }}>

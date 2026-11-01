@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ResourceDetail, ResourceProcessingType, ResourceRecord } from "@/api";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, VStack, WizardSteps } from "@/components/common";
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -101,7 +101,7 @@ export function ResourceFormDialog({
       )}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -157,11 +157,11 @@ export function ResourceFormDialog({
           <Field label={t(`${k}.stateModel`)}>
             <Input value={stateModel} onChange={setStateModel} />
           </Field>
-        </div>
+        </VStack>
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Body1Strong>{t(`${k}.materialTracking`)}</Body1Strong>
           <Field label={t(`${k}.allowProductMix`)}>
             <Checkbox
@@ -213,11 +213,11 @@ export function ResourceFormDialog({
               <Input value={longitude} onChange={setLongitude} />
             </Field>
           </div>
-        </div>
+        </VStack>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Body1Strong>{t(`${k}.automation`)}</Body1Strong>
           <Field label={t(`${k}.enableAutomationScenarios`)}>
             <Checkbox
@@ -225,7 +225,7 @@ export function ResourceFormDialog({
               onChange={setEnableAutomationScenarios}
             />
           </Field>
-        </div>
+        </VStack>
       )}
 
       <Field label={t(`${k}.comments`)}>

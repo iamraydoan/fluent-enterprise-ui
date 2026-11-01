@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { QualificationDetail } from "@/api";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -55,7 +55,7 @@ export function QualificationFormDialog({
       width="min(900px, 90vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
     >
-      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.lg }}>
+      <VStack gap={16}>
         <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
         <Field label={t(`${k}.name`)} required>
           <Input value={name} readOnly={nameReadOnly} onChange={setName} />
@@ -102,7 +102,7 @@ export function QualificationFormDialog({
         </Field>
 
         <Body1Strong>{t(`${k}.validityPeriod`)}</Body1Strong>
-        <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
+        <HStack gap={8}>
           <Field label={t(`${k}.validFor`)}>
             <Input value={validForValue} onChange={setValidForValue} />
           </Field>
@@ -115,7 +115,7 @@ export function QualificationFormDialog({
               ))}
             </select>
           </Field>
-        </div>
+        </HStack>
         <Field label={t(`${k}.allowOverride`)}>
           <Switch
             checked={allowOverride}
@@ -124,7 +124,7 @@ export function QualificationFormDialog({
         </Field>
 
         <Body1Strong>{t(`${k}.gracePeriod`)}</Body1Strong>
-        <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
+        <HStack gap={8}>
           <Field label={t(`${k}.duration`)}>
             <Input value={graceValue} onChange={setGraceValue} />
           </Field>
@@ -137,12 +137,12 @@ export function QualificationFormDialog({
               ))}
             </select>
           </Field>
-        </div>
+        </HStack>
 
         <Field label={t(`${k}.comments`)}>
           <Input value={comments} onChange={setComments} />
         </Field>
-      </div>
+      </VStack>
     </BaseDialog>
   );
 }

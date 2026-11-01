@@ -135,9 +135,7 @@ export function CloneChecklistDialog({
       <div className={styles.hint}>
         {t("businessData.checklist.operations.cloneHint", { name: checklistName })}
       </div>
-      {rows.length === 0 && (
-        <Empty>{t("businessData.checklist.operations.noCloneRows")}</Empty>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.checklist.operations.noCloneRows")}</Empty>}
       {rows.map((row) => (
         <div key={row.id} className={styles.paramRow}>
           <div className={styles.paramNameWrap}>

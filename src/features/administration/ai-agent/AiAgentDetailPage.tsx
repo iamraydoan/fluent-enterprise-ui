@@ -1,6 +1,7 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useAiAgent } from "@/api";
+import type { DetailTab, MiniBarButton, MiniBarGroup } from "@/components/common";
 import {
   Card,
   CardGrid,
@@ -9,9 +10,8 @@ import {
   KV,
   MiniBar,
   Panel,
-  DetailTile,
+  DetailTile, HStack 
 } from "@/components/common";
-import type { DetailTab, MiniBarButton, MiniBarGroup } from "@/components/common";
 import {
   ArrowSync20Regular,
   Attach20Regular,
@@ -206,7 +206,7 @@ function ToolsGrid({
                           </span>
                         </TableCell>
                         <TableCell className={detailStyles.td}>
-                          <div style={{ display: "flex", justifyContent: "center" }}>
+                          <HStack justify="center">
                             <Button
                               size="sm"
                               variant="transparent"
@@ -214,10 +214,10 @@ function ToolsGrid({
                               aria-label={t("aiAgent.viewDescription", { tool })}
                               onClick={() => onView(serverName, tool)}
                             />
-                          </div>
+                          </HStack>
                         </TableCell>
                         <TableCell className={detailStyles.td}>
-                          <div style={{ display: "flex", justifyContent: "center" }}>
+                          <HStack justify="center">
                             {deferred ? (
                               <Checkmark20Filled aria-label={t("aiAgent.deferred")} />
                             ) : (
@@ -226,7 +226,7 @@ function ToolsGrid({
                                 aria-label={t("aiAgent.notDeferred")}
                               />
                             )}
-                          </div>
+                          </HStack>
                         </TableCell>
                       </TableRow>
                     ))
@@ -345,7 +345,7 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
     content = (
       <CardGrid>
         <Card title={t("aiAgent.cards.agent")}>
-          <div style={{ display: "flex", columnGap: 18, alignItems: "flex-start" }}>
+          <HStack gap={18} align="flex-start">
             <DetailTile icon={<BotSparkle24Regular />} />
             <div style={{ flexGrow: 1, minWidth: 0 }}>
               <KV
@@ -364,7 +364,7 @@ export function AiAgentDetailPage({ name }: AiAgentDetailPageProps) {
                 aria-label={t("common.information")}
               />
             </Tooltip>
-          </div>
+          </HStack>
         </Card>
         <Card title={t("aiAgent.cards.information")}>
           <KV

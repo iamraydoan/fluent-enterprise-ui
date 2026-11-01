@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePlanDetail } from "@/api";
 import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
-import { DetailShell, KV } from "@/components/common";
+import { DetailShell, KV, Grid  } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -23,8 +23,8 @@ import {
 } from "./PlanDialogs";
 
 const useStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: theme.spacing.md },
-  sectionTitle: { marginBottom: theme.spacing.sm },
+  
+  sectionTitle: { marginBottom: "8px" },
 });
 
 export function PlanDetailPage({ name }: { name: string }) {
@@ -130,8 +130,8 @@ export function PlanDetailPage({ name }: { name: string }) {
         showState={false}
         moreActions={moreMenuItems}
       >
-        <div className={styles.cards}>
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
+        <Grid columns="repeat(2, 1fr)" gap="12px">
+          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.plan.detail.generalData")}
             </Text>
@@ -145,7 +145,7 @@ export function PlanDetailPage({ name }: { name: string }) {
               ]}
             />
           </div>
-        </div>
+        </Grid>
       </DetailShell>
       <CreatePlanDialog open={createOpen} onClose={() => setCreateOpen(false)} />
       <EditPlanDialog

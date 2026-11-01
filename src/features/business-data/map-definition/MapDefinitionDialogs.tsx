@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Text, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, Grid, HStack  } from "@/components/common";
+import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -56,13 +56,11 @@ const L: Record<string, TranslationKey> = {
 
 const useWizardStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: theme.spacing.xl,
-    padding: `${theme.spacing.md} ${theme.spacing.lg}`,
+    padding: "12px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
-  step: { display: "flex", alignItems: "center", gap: "6px" },
+  
   stepNum: {
     width: "22px",
     height: "22px",
@@ -73,7 +71,7 @@ const useWizardStyles = makeStyles({
     justifyContent: "center",
     fontSize: "12px",
   },
-  stepActive: { backgroundColor: theme.color.brand, color: "#fff" },
+  stepActive: { backgroundColor: theme.color.brand, color: theme.color.surface },
   field: {
     display: "grid",
     gridTemplateColumns: "180px 1fr",
@@ -91,13 +89,9 @@ const useWizardStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   layerRow: {
-    display: "grid",
-    gridTemplateColumns: "minmax(100px, 1fr) 110px 100px auto 32px",
-    gap: theme.spacing.sm,
-    alignItems: "center",
-    marginBottom: theme.spacing.sm,
+    marginBottom: "8px",
     minWidth: "0",
-  },
+  }
 });
 
 export interface WizardLayer {
@@ -217,39 +211,31 @@ export function MapDefinitionWizardDialog({
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="24px" className={styles.steps}>
         {steps.map((label, index) => (
-          <div key={label} className={styles.step}>
+          <HStack gap="6px" align="center" key={label}>
             <span className={`${styles.stepNum} ${index === step ? styles.stepActive : ""}`}>
               {index + 1}
             </span>
             <Text weight={index === step ? "semibold" : "regular"}>{label}</Text>
-          </div>
+          </HStack>
         ))}
-      </div>
+      </HStack>
       {step === 0 && (
         <>
           <div className={styles.sectionTitle}>{t(L.generalData)}</div>
           {field(
             L.name,
             true,
-            <Input
-              value={name}
-              disabled={mode === MODE_EDIT}
-              onChange={setName}
-            />,
+            <Input value={name} disabled={mode === MODE_EDIT} onChange={setName} />,
           )}
-          {field(
-            L.description,
-            false,
-            <Input value={description} onChange={setDescription} />,
-          )}
+          {field(L.description, false, <Input value={description} onChange={setDescription} />)}
           {field(L.type, true, <Input value={mapType} onChange={setMapType} />)}
           <div className={styles.sectionTitle}>{t(L.information)}</div>
           {field(
             L.layoutType,
             true,
-            <div style={{ display: "flex", gap: theme.spacing.lg }}>
+            <HStack gap={16}>
               <label>
                 <input
                   type="radio"
@@ -266,14 +252,10 @@ export function MapDefinitionWizardDialog({
                 />{" "}
                 {t(L.irregular)}
               </label>
-            </div>,
+            </HStack>,
           )}
           {field(L.rows, true, <Input value={rows} onChange={setRows} />)}
-          {field(
-            L.columns,
-            true,
-            <Input value={columns} onChange={setColumns} />,
-          )}
+          {field(L.columns, true, <Input value={columns} onChange={setColumns} />)}
           {field(L.height, false, <Input value={height} onChange={setHeight} />)}
           {field(L.width, false, <Input value={width} onChange={setWidth} />)}
           {field(
@@ -284,13 +266,13 @@ export function MapDefinitionWizardDialog({
           {field(
             L.maskFile,
             false,
-            <div style={{ display: "flex", gap: theme.spacing.sm }}>
+            <HStack gap={8}>
               <Input value={maskFile} style={{ flex: 1 }} readOnly />
               <Button variant="secondary">{t(L.browse)}</Button>
               <Button variant="secondary" onClick={() => setMaskFile("")}>
                 {t(L.clear)}
               </Button>
-            </div>,
+            </HStack>,
           )}
           <div className={styles.sectionTitle}>{t(L.colors)}</div>
           {field(
@@ -314,28 +296,17 @@ export function MapDefinitionWizardDialog({
           {field(
             L.showGridLinesByDefault,
             false,
-            <Checkbox
-              checked={showGridLines}
-              onChange={setShowGridLines}
-            />,
+            <Checkbox checked={showGridLines} onChange={setShowGridLines} />,
           )}
           <div className={styles.sectionTitle}>{t(L.options)}</div>
           {field(L.notch, false, <Input value={notch} onChange={setNotch} />)}
-          {field(
-            L.defaultRotation,
-            false,
-            <Input value={rotation} onChange={setRotation} />,
-          )}
+          {field(L.defaultRotation, false, <Input value={rotation} onChange={setRotation} />)}
           {field(
             L.materialUnits,
             false,
             <Input value={materialUnits} onChange={setMaterialUnits} />,
           )}
-          {field(
-            L.rulerMode,
-            false,
-            <Input value={rulerMode} onChange={setRulerMode} />,
-          )}
+          {field(L.rulerMode, false, <Input value={rulerMode} onChange={setRulerMode} />)}
           {field(
             L.showRulerByDefault,
             false,
@@ -348,7 +319,7 @@ export function MapDefinitionWizardDialog({
         <>
           <div className={styles.sectionTitle}>{t(L.stepLayers)}</div>
           {layers.map((layer, index) => (
-            <div key={index} className={styles.layerRow}>
+            <Grid columns="minmax(100px, 1fr) 110px 100px auto 32px" gap="8px" align="center" key={index} className={styles.layerRow}>
               <Input
                 placeholder={t(L.layerName)}
                 value={layer.name}
@@ -372,7 +343,7 @@ export function MapDefinitionWizardDialog({
               <Button variant="subtle" onClick={() => removeLayer(index)}>
                 {t(L.removeLayer)}
               </Button>
-            </div>
+            </Grid>
           ))}
           <Button variant="secondary" onClick={addLayer}>
             {t(L.addLayer)}

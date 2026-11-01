@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
+import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -117,11 +117,7 @@ export function MapLinkDialog({
         }
         labelWidth="150px"
       >
-        <Checkbox
-          label={t(L.isDefault)}
-          checked={isDefault === true}
-          onChange={setIsDefault}
-        />
+        <Checkbox label={t(L.isDefault)} checked={isDefault === true} onChange={setIsDefault} />
       </FormField>
       <FormField
         label={
@@ -131,11 +127,7 @@ export function MapLinkDialog({
         }
         labelWidth="150px"
       >
-        <Checkbox
-          label={t(L.isMerged)}
-          checked={isMerged === true}
-          onChange={setIsMerged}
-        />
+        <Checkbox label={t(L.isMerged)} checked={isMerged === true} onChange={setIsMerged} />
       </FormField>
       <FormField label={<>{t(L.comment)}</>} labelWidth="150px">
         <Textarea value={comment} onChange={setComment} />

@@ -95,9 +95,7 @@ export function ManageChartRulesDialog({
       <div className={styles.hint}>
         {t("businessData.chart.operations.manageRulesHint", { name: chartName })}
       </div>
-      {rows.length === 0 && (
-        <Empty>{t("businessData.chart.operations.noRules")}</Empty>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.chart.operations.noRules")}</Empty>}
       {rows.map((row) => (
         <div key={row.id}>
           <div className={styles.ruleRow}>

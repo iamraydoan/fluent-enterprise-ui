@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useShiftLogbookDetail } from "@/api";
 import type { ShiftLogbookEntry } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
+import { DetailShell, Empty, HStack, KV, Panel, VStack } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { DocumentBulletList24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1, Text } from "@/components/ui";
@@ -60,15 +60,15 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
   } else if (left === "businessData.shiftLogbook.sections.entries") {
     content = (
       <Panel>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <HStack align="center" justify="space-between">
           <Body1Strong>
             {t("businessData.shiftLogbook.sections.entries")} ({data.entries.length})
           </Body1Strong>
           <Button variant="primary" onClick={() => setAddOpen(true)}>
             {t("businessData.shiftLogbook.addEntry.add")}
           </Button>
-        </div>
-        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
+        </HStack>
+        <VStack gap="8px" style={{marginTop: "12px"}}>
           {data.entries.length === 0 ? (
             <Caption1>{t("businessData.shiftLogbook.emptySection")}</Caption1>
           ) : (
@@ -91,7 +91,7 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
               </div>
             ))
           )}
-        </div>
+        </VStack>
       </Panel>
     );
   } else if (left === "businessData.shiftLogbook.sections.attachments") {

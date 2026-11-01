@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { SamplingPlanDetail, SamplingPlanRecord, SamplingPlanType } from "@/api";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -66,11 +66,11 @@ export function SamplingPlanFormDialog({
       }
     >
       {!nameReadOnly && (
-<WizardSteps steps={[t(`${k}.generalData`), t(`${k}.context`)]} current={step} />
+        <WizardSteps steps={[t(`${k}.generalData`), t(`${k}.context`)]} current={step} />
       )}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -99,11 +99,11 @@ export function SamplingPlanFormDialog({
           <Field label={t(`${k}.timeFrequency`)}>
             <Input value={timeFrequency} onChange={setTimeFrequency} />
           </Field>
-        </div>
+        </VStack>
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.contextBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.contextBody`)}</div>
       )}
 
       <Field label={t(`${k}.comments`)}>

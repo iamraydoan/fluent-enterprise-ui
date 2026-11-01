@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack, VStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -84,16 +84,9 @@ export function ManageRepairActionsDialog({
       }
     >
       <DialogEntityBanner icon="🚩" name={`${reasonType} / ${reasonName}`} />
-      <div style={{ display: "flex", columnGap: theme.spacing.lg }}>
+      <HStack gap={16}>
         <div style={{ width: 320, flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: theme.spacing.sm,
-            }}
-          >
+          <HStack align="center" justify="space-between" style={{marginBottom: 8}}>
             <Body1Strong>{t(`${k}.repairActions`, { count: actions.length })}</Body1Strong>
             <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
               <Button size="sm" variant="subtle" onClick={addAction}>
@@ -103,7 +96,7 @@ export function ManageRepairActionsDialog({
                 🗑
               </Button>
             </div>
-          </div>
+          </HStack>
           <div
             style={{
               border: "1px solid #ddd",
@@ -124,12 +117,12 @@ export function ManageRepairActionsDialog({
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{a.name}</div>
-                <div style={{ fontSize: 12, color: theme.color.textTertiary }}>{a.partReplacementMode}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{a.partReplacementMode}</div>
               </div>
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Body1Strong>{t(`${k}.detailsTitle`)}</Body1Strong>
           <Field label={t(`${k}.repairAction`)} required>
             <Input value={actionName} onChange={setActionName} />
@@ -146,8 +139,8 @@ export function ManageRepairActionsDialog({
               ))}
             </select>
           </Field>
-        </div>
-      </div>
+        </VStack>
+      </HStack>
       <Field label={t(`${k}.comments`)}>
         <Input value={comments} onChange={setComments} />
       </Field>

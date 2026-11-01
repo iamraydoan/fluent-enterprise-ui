@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogEntityBanner, DialogFooter, HStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -60,7 +60,7 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
       }
     >
       <DialogEntityBanner icon="📊" name={scheduleName} />
-      <div style={{ display: "flex", columnGap: theme.spacing.lg }}>
+      <HStack gap={16}>
         <div style={{ width: 300, flexShrink: 0 }}>
           <div
             style={{
@@ -100,7 +100,7 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{fs.step || t(`${k}.newStep`)}</div>
-                <div style={{ fontSize: 12, color: theme.color.textTertiary }}>{fs.facility}</div>
+                <div style={{ fontSize: 12, color: theme.color.textSecondary }}>{fs.facility}</div>
               </div>
             ))}
           </div>
@@ -116,7 +116,7 @@ export function ManageFeedStepsDialog({ open, onClose, scheduleName }: ManageFee
             </Field>
           ))}
         </div>
-      </div>
+      </HStack>
     </BaseDialog>
   );
 }

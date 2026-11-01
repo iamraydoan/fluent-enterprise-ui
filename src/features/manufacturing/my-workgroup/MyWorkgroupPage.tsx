@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useMyWorkgroupResources, useMyWorkgroupSteps, useMyWorkgroups } from "@/api";
 import type { WorkgroupResourceTile, WorkgroupStepTile } from "@/api";
-import { Empty, EntityTile, FilterBar, FilterGroup, ListPage, TileGrid } from "@/components/common";
+import { EntityTile, FilterBar, FilterGroup, ListPage, TileGrid, Empty, MenuTriggerButton, SidebarNavItem, HStack, VStack  } from "@/components/common";
 import {
   ArrowExportUp24Regular,
   ArrowSync24Regular,
   Box24Regular,
   Checkmark20Filled,
-  ChevronDown16Regular,
   ChevronLeft20Regular,
   PanelLeftExpand20Regular,
   Search20Regular,
@@ -20,10 +19,7 @@ import {
   MenuItemRadio,
   MenuList,
   MenuPopover,
-  MenuTrigger,
-  Text,
-  makeStyles,
-  mergeClasses,
+  MenuTrigger, makeStyles 
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -31,48 +27,8 @@ import { theme } from "@/styles/theme";
 import { PanelSettingsDialog } from "./dialogs";
 
 const usePageStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  side: { display: "flex", flexDirection: "column", minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
-  panel: { width: "300px", flexShrink: 0, display: "flex", flexDirection: "column" },
-  panelHeader: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: `${theme.spacing.sm} ${theme.spacing.sm} ${theme.spacing.sm} ${theme.spacing.md}`,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  workgroupButton: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: theme.spacing.xs,
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "15px",
-    fontWeight: theme.font.weightSemibold,
-    padding: `${theme.spacing.xs} 6px`,
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  headerActions: { display: "flex", alignItems: "center", columnGap: "2px" },
-  navList: { display: "flex", flexDirection: "column", padding: "6px", rowGap: "2px" },
-  navItem: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "10px",
-    width: "100%",
-    padding: `10px ${theme.spacing.md}`,
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    textAlign: "left",
-    fontFamily: "inherit",
-    fontSize: "14px",
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
+  tileCounts: { display: "flex", alignItems: "center", columnGap: "14px" },
+  tileCount: { display: "flex", alignItems: "center", columnGap: "4px", fontSize: "13px" },
   navItemActive: { backgroundColor: theme.color.surfaceSelected },
   navCount: { marginLeft: "auto", fontWeight: theme.font.weightSemibold },
   stepDot: {
@@ -82,24 +38,8 @@ const usePageStyles = makeStyles({
     backgroundColor: theme.color.brand,
     flexShrink: 0,
   },
-  dropdownButton: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: theme.spacing.xs,
-    border: "none",
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    fontWeight: theme.font.weightSemibold,
-    padding: `${theme.spacing.xs} 6px`,
-    borderRadius: theme.radius.md,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  facilityWrap: { display: "flex", alignItems: "stretch" },
-  tileCounts: { display: "flex", alignItems: "center", columnGap: "14px" },
-  tileCount: { display: "flex", alignItems: "center", columnGap: theme.spacing.xs, fontSize: "13px" },
 });
+
 
 type Panel = "resources" | "steps";
 
@@ -136,7 +76,6 @@ function FilterDropdown({
   onChange: (value: string) => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = usePageStyles();
   return (
     <FilterGroup label={label}>
       <Menu
@@ -147,10 +86,9 @@ function FilterDropdown({
         }}
       >
         <MenuTrigger disableButtonEnhancement>
-          <button className={styles.dropdownButton}>
+          <MenuTriggerButton>
             {value === "" ? t(L.all).toUpperCase() : value.toUpperCase()}
-            <ChevronDown16Regular />
-          </button>
+          </MenuTriggerButton>
         </MenuTrigger>
         <MenuPopover>
           <MenuList>
@@ -231,8 +169,8 @@ function StepTile({ tile, onOpen }: { tile: WorkgroupStepTile; onOpen: () => voi
 
 export function MyWorkgroupPage() {
   const { t } = useAppTranslation();
-  const styles = usePageStyles();
   const sharedStyles = useSharedStyles();
+  const styles = usePageStyles();
   const [panel, setPanel] = useState<Panel>("resources");
   const [collapsed, setCollapsed] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -279,8 +217,8 @@ export function MyWorkgroupPage() {
         actions: [],
       }}
     >
-      <div className={styles.body}>
-        <div className={styles.side}>
+      <HStack gap="10px" grow style={{ minHeight: 0 }}>
+        <VStack style={{ minHeight: 0 }}>
           {collapsed ? (
             <Button
               variant="subtle"
@@ -289,8 +227,8 @@ export function MyWorkgroupPage() {
               onClick={() => setCollapsed(false)}
             />
           ) : (
-            <div className={mergeClasses(sharedStyles.contentCard, styles.panel)}>
-              <div className={styles.panelHeader}>
+            <VStack className={sharedStyles.contentCard} style={{ width: "300px", flexShrink: 0 }}>
+              <HStack align="center" justify="space-between" style={{ padding: "8px 8px 8px 12px", borderBottom: `1px solid ${theme.color.borderSubtle}` }}>
                 <Menu
                   checkedValues={{ workgroup: [workgroup] }}
                   onCheckedValueChange={(checkedItems) => {
@@ -299,13 +237,9 @@ export function MyWorkgroupPage() {
                   }}
                 >
                   <MenuTrigger disableButtonEnhancement>
-                    <button
-                      className={styles.workgroupButton}
-                      aria-label={t("myWorkgroup.workgroup")}
-                    >
+                    <MenuTriggerButton size="md" ariaLabel={t("myWorkgroup.workgroup")}>
                       {workgroup}
-                      <ChevronDown16Regular />
-                    </button>
+                    </MenuTriggerButton>
                   </MenuTrigger>
                   <MenuPopover>
                     <MenuList>
@@ -317,7 +251,7 @@ export function MyWorkgroupPage() {
                     </MenuList>
                   </MenuPopover>
                 </Menu>
-                <span className={styles.headerActions}>
+                <HStack align="center" gap="2px">
                   <Button
                     variant="subtle"
                     icon={<Settings20Regular />}
@@ -330,46 +264,36 @@ export function MyWorkgroupPage() {
                     aria-label={t("common.collapsePanel")}
                     onClick={() => setCollapsed(true)}
                   />
-                </span>
-              </div>
-              <div className={styles.navList}>
+                </HStack>
+              </HStack>
+              <VStack gap="2px" style={{ padding: "6px" }}>
                 {visiblePanels.includes("resources") && (
-                  <button
-                    className={mergeClasses(
-                      styles.navItem,
-                      panel === "resources" && styles.navItemActive,
-                    )}
+                  <SidebarNavItem
+                    icon={
+                      <span style={{ color: theme.color.textBrand }}>
+                        <Box24Regular />
+                      </span>
+                    }
+                    label={t(L.resources)}
+                    count={resources.length}
+                    active={panel === "resources"}
                     onClick={() => setPanel("resources")}
-                    aria-current={panel === "resources" ? "page" : undefined}
-                  >
-                    <span style={{ color: theme.color.textBrand }}>
-                      <Box24Regular />
-                    </span>
-                    <Text weight={panel === "resources" ? "semibold" : "regular"}>
-                      {t(L.resources)}
-                    </Text>
-                    <span className={styles.navCount}>{resources.length}</span>
-                  </button>
+                  />
                 )}
                 {visiblePanels.includes("steps") && (
-                  <button
-                    className={mergeClasses(
-                      styles.navItem,
-                      panel === "steps" && styles.navItemActive,
-                    )}
+                  <SidebarNavItem
+                    icon={<span className={styles.stepDot} />}
+                    label={t(L.steps)}
+                    count={steps.length}
+                    active={panel === "steps"}
                     onClick={() => setPanel("steps")}
-                    aria-current={panel === "steps" ? "page" : undefined}
-                  >
-                    <span className={styles.stepDot} />
-                    <Text weight={panel === "steps" ? "semibold" : "regular"}>{t(L.steps)}</Text>
-                    <span className={styles.navCount}>{steps.length}</span>
-                  </button>
+                  />
                 )}
-              </div>
-            </div>
+              </VStack>
+            </VStack>
           )}
-        </div>
-        <div className={styles.main}>
+        </VStack>
+        <VStack gap="12px" grow style={{ minWidth: 0 }}>
           {panel === "resources" && visiblePanels.includes("resources") && (
             <>
               <FilterBar>
@@ -386,7 +310,7 @@ export function MyWorkgroupPage() {
                   onChange={setResourceSystemState}
                 />
                 <FilterGroup label={t(L.facility)}>
-                  <span className={styles.facilityWrap}>
+                  <HStack align="stretch">
                     <Input
                       value={resourceFacility}
                       onChange={setResourceFacility}
@@ -398,7 +322,7 @@ export function MyWorkgroupPage() {
                       icon={<Search20Regular />}
                       aria-label={t(L.facility)}
                     />
-                  </span>
+                  </HStack>
                 </FilterGroup>
                 <FilterDropdown
                   label={t(L.state)}
@@ -447,7 +371,7 @@ export function MyWorkgroupPage() {
                   onChange={setStepType}
                 />
                 <FilterGroup label={t(L.facility)}>
-                  <span className={styles.facilityWrap}>
+                  <HStack align="stretch">
                     <Input
                       value={stepFacility}
                       onChange={setStepFacility}
@@ -459,7 +383,7 @@ export function MyWorkgroupPage() {
                       icon={<Search20Regular />}
                       aria-label={t(L.facility)}
                     />
-                  </span>
+                  </HStack>
                 </FilterGroup>
                 <Input
                   value={stepName}
@@ -482,8 +406,8 @@ export function MyWorkgroupPage() {
               )}
             </>
           )}
-        </div>
-      </div>
+        </VStack>
+      </HStack>
       <PanelSettingsDialog
         open={settingsOpen}
         onClose={() => setSettingsOpen(false)}

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog } from "@/components/common";
-import { Button, Input, Checkbox, makeStyles} from "@/components/ui";
+import { BaseDialog, HStack  } from "@/components/common";
+import { Button, Input, Checkbox, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -35,9 +35,7 @@ const L: Record<string, TranslationKey> = {
 
 const useStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: theme.spacing.lg,
-    padding: `${theme.spacing.xs} ${theme.spacing.xs} ${theme.spacing.md}`,
+    padding: "4px 4px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: theme.spacing.xs,
   },
@@ -47,7 +45,7 @@ const useStyles = makeStyles({
     fontWeight: theme.font.weightSemibold,
     color: theme.color.textBrand,
   },
-  row: { display: "flex", gap: theme.spacing.sm, alignItems: "center", flexWrap: "wrap" },
+  
   select: {
     padding: `6px ${theme.spacing.sm}`,
     border: `1px solid ${theme.color.border}`,
@@ -116,20 +114,20 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="16px" className={styles.steps}>
         <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
         <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
-      </div>
+      </HStack>
       {step === 1 && (
         <>
-          <div className={styles.row}>
+          <HStack gap="8px" align="center" wrap>
             <strong>{t(L.dimensions)}</strong>
             <Button size="sm" onClick={addDimension}>
               + {t(L.addDimension)}
             </Button>
-          </div>
+          </HStack>
           {dimensions.map((d) => (
-            <div key={d.id} className={styles.row}>
+            <HStack gap="8px" align="center" wrap key={d.id}>
               <select
                 className={styles.select}
                 value={d.valueType}
@@ -165,36 +163,32 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
                 value={d.sourceCommand}
                 onChange={(value) =>
                   setDimensions(
-                    dimensions.map((x) =>
-                      x.id === d.id ? { ...x, sourceCommand: value } : x,
-                    ),
+                    dimensions.map((x) => (x.id === d.id ? { ...x, sourceCommand: value } : x)),
                   )
                 }
               />
               <Button size="sm" onClick={() => removeDimension(d.id)}>
                 {t(L.remove)}
               </Button>
-            </div>
+            </HStack>
           ))}
         </>
       )}
       {step === 2 && (
         <>
-          <div className={styles.row}>
+          <HStack gap="8px" align="center" wrap>
             <strong>{t(L.timeFrames)}</strong>
             <Button size="sm" onClick={addTimeFrame}>
               + {t(L.addTimeFrame)}
             </Button>
-          </div>
+          </HStack>
           {timeFrames.map((f) => (
-            <div key={f.id} className={styles.row}>
+            <HStack gap="8px" align="center" wrap key={f.id}>
               <Input
                 placeholder={t(L.timeFrameName)}
                 value={f.name}
                 onChange={(value) =>
-                  setTimeFrames(
-                    timeFrames.map((x) => (x.id === f.id ? { ...x, name: value } : x)),
-                  )
+                  setTimeFrames(timeFrames.map((x) => (x.id === f.id ? { ...x, name: value } : x)))
                 }
               />
               <Checkbox
@@ -212,24 +206,20 @@ export function KpiDimensionsDialog({ onClose }: { onClose: () => void }) {
                 placeholder={t(L.from)}
                 value={f.from}
                 onChange={(value) =>
-                  setTimeFrames(
-                    timeFrames.map((x) => (x.id === f.id ? { ...x, from: value } : x)),
-                  )
+                  setTimeFrames(timeFrames.map((x) => (x.id === f.id ? { ...x, from: value } : x)))
                 }
               />
               <Input
                 placeholder={t(L.to)}
                 value={f.to}
                 onChange={(value) =>
-                  setTimeFrames(
-                    timeFrames.map((x) => (x.id === f.id ? { ...x, to: value } : x)),
-                  )
+                  setTimeFrames(timeFrames.map((x) => (x.id === f.id ? { ...x, to: value } : x)))
                 }
               />
               <Button size="sm" onClick={() => removeTimeFrame(f.id)}>
                 {t(L.remove)}
               </Button>
-            </div>
+            </HStack>
           ))}
         </>
       )}

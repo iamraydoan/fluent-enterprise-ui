@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTransferOrderDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, VStack  } from "@/components/common";
 import { ArrowExportUp24Regular } from "@/components/icons";
 import { Body1Strong, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -55,7 +55,7 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.transferOrder.sections.items")} ({data.items.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
+        <VStack gap="8px" style={{marginTop: "12px"}}>
           {data.items.map((item) => (
             <div
               key={item.material}
@@ -68,7 +68,7 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
               </div>
             </div>
           ))}
-        </div>
+        </VStack>
       </Panel>
     );
   } else if (left !== "businessData.transferOrder.sections.details") {

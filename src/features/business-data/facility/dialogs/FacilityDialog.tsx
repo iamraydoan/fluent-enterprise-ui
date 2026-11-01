@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -32,9 +32,7 @@ const L: Record<string, TranslationKey> = {
 
 const useStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: theme.spacing.lg,
-    padding: `${theme.spacing.xs} ${theme.spacing.xs} ${theme.spacing.md}`,
+    padding: "4px 4px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: theme.spacing.xs,
   },
@@ -100,10 +98,10 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="16px" className={styles.steps}>
         <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
         <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
-      </div>
+      </HStack>
       {step === 1 && (
         <>
           <FormField
@@ -115,11 +113,7 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
             }
             labelWidth="200px"
           >
-            <Input
-              value={name}
-              onChange={setName}
-              disabled={mode === MODE_EDIT}
-            />
+            <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="200px">
             <Textarea value={description} onChange={setDescription} />
@@ -173,11 +167,7 @@ export function FacilityDialog({ mode, initialName, onClose }: DialogProps) {
             <Input value={site} onChange={setSite} />
           </FormField>
           <FormField label={<>{t(L.remote)}</>} labelWidth="200px">
-            <Checkbox
-              checked={remote === true}
-              onChange={setRemote}
-              disabled
-            />
+            <Checkbox checked={remote === true} onChange={setRemote} disabled />
           </FormField>
           <FormField label={<>{t(L.terminateOnShip)}</>} labelWidth="200px">
             <Checkbox

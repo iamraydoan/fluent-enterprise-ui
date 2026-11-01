@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField, Grid  } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -7,12 +7,8 @@ import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   gridRow: {
-    display: "grid",
-    gridTemplateColumns: "1fr 32px",
-    columnGap: theme.spacing.sm,
-    alignItems: "center",
-    marginBottom: theme.spacing.sm,
-  },
+    marginBottom: "8px",
+  }
 });
 
 export function ShiftDefinitionCloneDialog({
@@ -42,7 +38,7 @@ export function ShiftDefinitionCloneDialog({
       }
     >
       {names.map((name, i) => (
-        <div key={i} className={styles.gridRow}>
+        <Grid columns="1fr 32px" gap="8px" align="center" key={i} className={styles.gridRow}>
           <Input
             value={name}
             onChange={(value) => setNames((prev) => prev.map((n, j) => (j === i ? value : n)))}
@@ -55,7 +51,7 @@ export function ShiftDefinitionCloneDialog({
             aria-label={t("actionBar.delete")}
             disabled={names.length === 1}
           />
-        </div>
+        </Grid>
       ))}
       <Button
         variant="subtle"

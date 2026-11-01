@@ -1,16 +1,6 @@
 import { useState } from "react";
-import type { KeyboardEvent, ReactNode } from "react";
-import { FormField, WizardSteps } from "@/components/common";
-import {
-  ChevronDown16Regular,
-  ChevronDown20Regular,
-  ChevronLeft20Regular,
-  ChevronRight20Regular,
-  ChevronUp20Regular,
-  Dismiss16Regular,
-  QuestionCircle20Regular,
-  Sparkle24Filled,
-} from "@/components/icons";
+import { FormField, IconButton, HStack, VStack  } from "@/components/common";
+import { ChevronLeft20Regular, ChevronRight20Regular, Dismiss16Regular } from "@/components/icons";
 import {
   Button,
   Checkbox,
@@ -43,99 +33,58 @@ const useWizardStyles = makeStyles({
     backgroundColor: "rgba(0, 0, 0, 0.4)",
   },
   surface: {
-    width: "min(1100px, calc(100vw - 48px))",
-    maxHeight: "min(860px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
+    width: "min(640px, calc(100vw - 48px))",
+    maxHeight: "min(720px, calc(100vh - 48px))",
     overflow: "hidden",
     ...cardSurface,
   },
-  headBand: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minHeight: "56px",
-    padding: "0 12px 0 20px",
-    ...tileSurface,
+  head: {
+    minHeight: "52px",
+    padding: "0 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
+  },
+  
+  closeButton: {
+    border: "none",
+    backgroundColor: "transparent",
+    cursor: "pointer",
+    padding: "6px",
+    borderRadius: theme.radius.md,
+    display: "flex",
+    ":hover": { backgroundColor: theme.color.surfaceHover },
+  },
+  steps: {
+    padding: "12px 24px 0",
+  },
+  stepPill: {
+    flexGrow: 1,
+    height: "4px",
+    borderRadius: "2px",
+    backgroundColor: theme.color.borderSubtle,
+  },
+  stepPillActive: { backgroundColor: theme.color.borderBrand },
+  stepTitle: {
+    padding: "12px 24px 0",
+    fontSize: "14px",
+    fontWeight: theme.font.weightSemibold,
     flexShrink: 0,
   },
-  headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
-  headIcon: { color: theme.color.textPrimary, display: "flex" },
-  headActions: { display: "flex", alignItems: "center", columnGap: "4px" },
   body: {
-    flexGrow: 1,
     minHeight: 0,
     overflowY: "auto",
-    padding: "20px 24px",
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "20px",
-    backgroundColor: theme.color.surface,
+    padding: "16px 24px",
   },
-  section: { display: "flex", flexDirection: "column", rowGap: "12px" },
-  sectionTitle: { fontSize: "14px", marginBottom: "4px" },
-  fieldLabel: {
-    fontSize: "13px",
-    color: theme.color.textSecondary,
-    textAlign: "right",
-    lineHeight: "36px",
-  },
-  fieldRequired: { color: theme.color.textDanger, marginRight: "4px" },
-  wizardControl: { minHeight: "36px", width: "100%", boxSizing: "border-box" },
-  inputWrap: { width: "100%" },
-  comboBox: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
-    minHeight: "36px",
-    width: "100%",
-    boxSizing: "border-box",
-    padding: "0 8px",
-    backgroundColor: theme.color.surface,
-    border: `1px solid ${theme.color.border}`,
-    borderRadius: theme.radius.md,
-    cursor: "pointer",
-  },
-  comboIcon: { color: theme.color.textBrand, display: "flex", flexShrink: 0 },
-  comboText: {
-    flexGrow: 1,
-    fontSize: "14px",
-    color: theme.color.textPrimary,
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    textAlign: "left",
-  },
-  comboPlaceholder: { color: theme.color.textTertiary },
-  comboChevron: { color: theme.color.textSecondary, display: "flex", flexShrink: 0 },
-  commentsBar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "10px 24px",
-    borderTop: `1px solid ${theme.color.borderSubtle}`,
-    cursor: "pointer",
-    flexShrink: 0,
-    backgroundColor: theme.color.surface,
-  },
-  commentsBody: { padding: "0 24px 16px", backgroundColor: theme.color.surface, flexShrink: 0 },
+  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
+  fieldRequired: { color: theme.color.textDanger },
   foot: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    columnGap: "8px",
     padding: "12px 24px",
     ...tileSurface,
     borderTop: `1px solid ${theme.color.borderSubtle}`,
-    flexShrink: 0,
   },
-  error: {
-    fontSize: "12px",
-    color: theme.color.textDanger,
-    padding: "0 24px 8px",
-    backgroundColor: theme.color.surface,
-    flexShrink: 0,
+  
+  selectButton: {
+    width: "100%",
+    justifyContent: "space-between",
   },
 });
 
@@ -227,81 +176,56 @@ export function EntityWizardDialog({
 
   return (
     <div className={styles.overlay} onClick={handleClose}>
-      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.headBand}>
-          <div className={styles.headTitle}>
-            <span className={styles.headIcon}>{titleIcon ?? <Sparkle24Filled />}</span>
-            <Text weight="semibold" size={400}>
-              {t(titleKey)}
-            </Text>
-          </div>
-          <div className={styles.headActions}>
-            {onHelp && (
-              <Button
-                variant="transparent"
-                icon={<QuestionCircle20Regular />}
-                aria-label={t("common.help")}
-                onClick={onHelp}
-              />
-            )}
-            <Button
-              variant="transparent"
-              icon={<Dismiss16Regular />}
-              aria-label={t("common.close")}
-              onClick={handleClose}
-            />
-          </div>
-        </div>
-        {steps.length > 1 && (
-          <WizardSteps
-            variant="band"
-            steps={steps.map((s) => t(s.titleKey))}
-            current={stepIndex + 1}
+      <VStack onClick={(event) => event.stopPropagation()} className={styles.surface}>
+        <HStack align="center" justify="space-between" className={styles.head}>
+          <HStack gap="10px" align="center">
+            <Text weight="semibold">{t(titleKey)}</Text>
+          </HStack>
+          <IconButton
+            icon={<Dismiss16Regular />}
+            onClick={handleClose}
+            aria-label={t("common.close")}
+            size="sm"
           />
+        </HStack>
+        {steps.length > 1 && (
+          <HStack gap="8px" className={styles.steps}>
+            {steps.map((s, index) => (
+              <div
+                key={s.titleKey}
+                className={`${styles.stepPill} ${index <= stepIndex ? styles.stepPillActive : ""}`}
+              />
+            ))}
+          </HStack>
         )}
-        <div className={styles.body}>
-          {hasSections ? (
-            sections.map((section) => (
-              <div key={section.titleKey} className={styles.section}>
-                <Text weight="semibold" className={styles.sectionTitle}>
-                  {t(section.titleKey)}
-                </Text>
-                {section.fields.map((field) => (
-                  <WizardFieldInput
-                    key={field.key}
-                    field={field}
-                    values={values}
-                    onChange={setValue}
-                  />
-                ))}
-              </div>
-            ))
-          ) : (
-            <div className={styles.section}>
-              <Text weight="semibold" className={styles.sectionTitle}>
-                {t(step.titleKey)}
-              </Text>
-              {step.fields.map((field) => (
-                <WizardFieldInput
-                  key={field.key}
-                  field={field}
-                  values={values}
-                  onChange={setValue}
-                />
-              ))}
-            </div>
-          )}
-        </div>
+        <div className={styles.stepTitle}>{t(step.titleKey)}</div>
+        <VStack gap="12px" className={styles.body}>
+          {step.fields.map((field) => (
+            <WizardFieldInput key={field.key} field={field} values={values} onChange={setValue} />
+          ))}
+        </VStack>
         {error && <div className={styles.error}>{error}</div>}
-        {onCommentsChange && (
-          <>
-            <div
-              className={styles.commentsBar}
-              role="button"
-              tabIndex={0}
-              aria-expanded={commentsOpen}
-              onClick={toggleComments}
-              onKeyDown={handleCommentsKeyDown}
+        <HStack align="center" justify="space-between" className={styles.foot}>
+          <HStack gap="8px" align="center">
+            {!isFirst && (
+              <Button
+                variant="secondary"
+                icon={<ChevronLeft20Regular />}
+                onClick={() => setStepIndex(stepIndex - 1)}
+              >
+                {t("common.back")}
+              </Button>
+            )}
+          </HStack>
+          <HStack gap="8px" align="center">
+            <Button variant="secondary" onClick={handleClose}>
+              {t("common.cancel")}
+            </Button>
+            <Button
+              variant="primary"
+              icon={isLast ? undefined : <ChevronRight20Regular />}
+              iconPosition={isLast ? undefined : "after"}
+              onClick={handleNext}
             >
               <Text size={300}>{t("dialogs.commentsLabel")}</Text>
               {commentsOpen ? <ChevronUp20Regular /> : <ChevronDown20Regular />}
@@ -330,17 +254,9 @@ export function EntityWizardDialog({
             >
               {t("common.back")}
             </Button>
-          )}
-          <Button
-            variant="primary"
-            icon={isLast ? undefined : <ChevronRight20Regular />}
-            iconPosition={isLast ? undefined : "after"}
-            onClick={handleNext}
-          >
-            {isLast ? t(submitLabelKey) : t("common.next")}
-          </Button>
-        </div>
-      </div>
+          </HStack>
+        </HStack>
+      </VStack>
     </div>
   );
 }
@@ -452,20 +368,13 @@ function WizardFieldInput({
   }
 
   return (
-    <FormField label={label} labelWidth="180px">
-      <div
-        className={styles.inputWrap}
-        style={field.inputWidth ? { width: field.inputWidth } : undefined}
-      >
-        <Input
-          type={field.type === "number" ? "number" : field.type === "date" ? "date" : "text"}
-          value={value === undefined || typeof value === "boolean" ? "" : String(value)}
-          onChange={(value) => onChange(field.key, field.type === "number" ? Number(value) : value)}
-          placeholder={field.placeholderKey ? t(field.placeholderKey) : undefined}
-          contentBefore={field.leadingIcon ?? undefined}
-          className={styles.wizardControl}
-        />
-      </div>
+    <FormField label={label} labelWidth="170px">
+      {label}
+      <Input
+        type={field.type === "number" ? "number" : field.type === "date" ? "date" : "text"}
+        value={value === undefined || typeof value === "boolean" ? "" : String(value)}
+        onChange={(value) => onChange(field.key, field.type === "number" ? Number(value) : value)}
+      />
     </FormField>
   );
 }

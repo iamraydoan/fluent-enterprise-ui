@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -47,9 +47,7 @@ const L: Record<string, TranslationKey> = {
 
 const useDialogStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: theme.spacing.lg,
-    padding: `${theme.spacing.md} ${theme.spacing.lg}`,
+    padding: "12px 16px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },
@@ -66,7 +64,7 @@ const useDialogStyles = makeStyles({
     fontSize: theme.font.sizeMd,
     backgroundColor: theme.color.surface,
   },
-  row: { display: "flex", gap: theme.spacing.sm, alignItems: "center" },
+  
 });
 
 interface DialogProps {
@@ -122,19 +120,15 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="16px" className={styles.steps}>
         <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
         <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
         <span className={step === 3 ? styles.stepActive : styles.step}>{t(L.step3)}</span>
-      </div>
+      </HStack>
       {step === 1 && (
         <>
           <FormField label={<>{t(L.changeSet)}</>} labelWidth="200px">
-            <Input
-              value={changeSet}
-              onChange={setChangeSet}
-              disabled={useAutoCs}
-            />
+            <Input value={changeSet} onChange={setChangeSet} disabled={useAutoCs} />
           </FormField>
           <FormField
             label={
@@ -180,11 +174,7 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
             }
             labelWidth="200px"
           >
-            <Input
-              value={name}
-              onChange={setName}
-              disabled={mode === MODE_EDIT}
-            />
+            <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="200px">
             <Textarea value={description} onChange={setDescription} />
@@ -207,7 +197,7 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
       )}
       {step === 3 && (
         <>
-          <div className={styles.row}>
+          <HStack gap="8px" align="center">
             <Button
               size="sm"
               onClick={() =>
@@ -224,9 +214,9 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
             >
               + {t(L.addActivity)}
             </Button>
-          </div>
+          </HStack>
           {activities.map((a, i) => (
-            <div key={i} className={styles.row}>
+            <HStack gap="8px" align="center" key={i}>
               <Input
                 placeholder={t(L.activityName)}
                 value={a.name}
@@ -259,13 +249,10 @@ export function MaintenancePlanDialog({ open, mode, initialName, onClose }: Dial
                   )
                 }
               />
-              <Button
-                size="sm"
-                onClick={() => setActivities(activities.filter((_, j) => j !== i))}
-              >
+              <Button size="sm" onClick={() => setActivities(activities.filter((_, j) => j !== i))}>
                 {t(L.remove)}
               </Button>
-            </div>
+            </HStack>
           ))}
         </>
       )}

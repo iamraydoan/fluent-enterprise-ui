@@ -1,9 +1,14 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, Empty, FormField } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField, Empty, Grid } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 import type { OperationOnChange, OperationValues } from "../components/operationTypes";
+
+const useListStyles = makeStyles({
+  row: { marginBottom: "8px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+});
 
 export interface MaterialRow {
   id: number;
@@ -16,16 +21,6 @@ export interface ContainerRow {
   container: string;
 }
 
-const useListStyles = makeStyles({
-  row: {
-    display: "grid",
-    gridTemplateColumns: "minmax(0, 1fr) auto auto",
-    columnGap: theme.spacing.md,
-    alignItems: "center",
-    marginBottom: theme.spacing.sm,
-  },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
-});
 
 export function MaterialListEditor({
   values,
@@ -50,11 +45,9 @@ export function MaterialListEditor({
   return (
     <div>
       <div className={styles.hint}>{t("businessData.batch.operations.materialsHint")}</div>
-      {rows.length === 0 && (
-        <Empty>{t("businessData.batch.operations.noMaterials")}</Empty>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.batch.operations.noMaterials")}</Empty>}
       {rows.map((row) => (
-        <div key={row.id} className={styles.row}>
+        <Grid columns="minmax(0, 1fr) auto auto" gap="12px" className={styles.row} style={{ alignItems: "center" }}>
           <Input
             placeholder={t("businessData.batch.operations.materialName")}
             value={row.material}
@@ -70,7 +63,7 @@ export function MaterialListEditor({
           <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
-        </div>
+        </Grid>
       ))}
       <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
@@ -99,11 +92,9 @@ export function ContainerListEditor({
   return (
     <div>
       <div className={styles.hint}>{t("businessData.batch.operations.containersHint")}</div>
-      {rows.length === 0 && (
-        <Empty>{t("businessData.batch.operations.noContainers")}</Empty>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.batch.operations.noContainers")}</Empty>}
       {rows.map((row) => (
-        <div key={row.id} className={styles.row}>
+        <Grid columns="minmax(0, 1fr) auto auto" gap="12px" className={styles.row} style={{ alignItems: "center" }}>
           <Input
             placeholder={t("businessData.batch.operations.containerName")}
             value={row.container}
@@ -115,7 +106,7 @@ export function ContainerListEditor({
           <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
-        </div>
+        </Grid>
       ))}
       <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
@@ -124,16 +115,6 @@ export function ContainerListEditor({
   );
 }
 
-const useManageDialogStyles = makeStyles({
-  fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "170px minmax(0, 1fr)",
-    alignItems: "center",
-    columnGap: theme.spacing.md,
-    marginBottom: theme.spacing.md,
-  },
-  fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
-});
 
 export function ManageBatchMaterialsDialog({
   open,
@@ -145,7 +126,6 @@ export function ManageBatchMaterialsDialog({
   onClose: () => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = useManageDialogStyles();
   const [values, setValues] = useState<OperationValues>({});
   const [comment, setComment] = useState("");
 
@@ -166,10 +146,9 @@ export function ManageBatchMaterialsDialog({
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
         />
       </div>
-      <div className={styles.fieldRow} style={{ marginTop: theme.spacing.lg }}>
-        <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
+      <FormField label={t("businessData.batch.operations.comment")} labelWidth="170px" labelAlign="right" style={{ marginTop: "16px" }}>
         <Input value={comment} onChange={setComment} />
-      </div>
+      </FormField>
     </BaseDialog>
   );
 }
@@ -221,7 +200,6 @@ export function ChangeBatchResourceDialog({
   onChange: (resource: string) => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = useManageDialogStyles();
   const [resource, setResource] = useState(currentResource);
   const [comment, setComment] = useState("");
 
@@ -243,21 +221,13 @@ export function ChangeBatchResourceDialog({
       }
     >
       <FormField
-        label={
-          <>
-            <span className={styles.fieldLabel}>{t("businessData.batch.detail.resource")}</span>
-          </>
-        }
+        label={t("businessData.batch.detail.resource")}
         labelWidth="170px"
       >
         <Input value={resource} onChange={setResource} />
       </FormField>
       <FormField
-        label={
-          <>
-            <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
-          </>
-        }
+        label={t("businessData.batch.operations.comment")}
         labelWidth="170px"
       >
         <Input value={comment} onChange={setComment} />

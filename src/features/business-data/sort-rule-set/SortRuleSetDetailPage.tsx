@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSortRuleSetDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, HStack, VStack  } from "@/components/common";
 import { ArrowUp20Regular } from "@/components/icons";
 import { Body1Strong, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -53,13 +53,13 @@ export function SortRuleSetDetailPage({ name }: { name: string }) {
   } else if (left === "businessData.sortRuleSet.sections.rules") {
     content = (
       <Panel>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <HStack align="center" justify="space-between">
           <Body1Strong>
             {t("businessData.sortRuleSet.sections.rules")} ({data.rules.length})
           </Body1Strong>
           <Button>{t("businessData.sortRuleSet.manageRules")}</Button>
-        </div>
-        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
+        </HStack>
+        <VStack gap="8px" style={{marginTop: "12px"}}>
           {data.rules.map((rule, index) => (
             <div key={rule.rule} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>
@@ -68,7 +68,7 @@ export function SortRuleSetDetailPage({ name }: { name: string }) {
               <div>{formatRuleMeta(rule)}</div>
             </div>
           ))}
-        </div>
+        </VStack>
       </Panel>
     );
   } else if (

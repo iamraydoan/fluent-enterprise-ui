@@ -64,9 +64,7 @@ export function ChecklistItemsEditor({
   return (
     <div>
       <div className={styles.hint}>{t("businessData.checklist.operations.itemsHint")}</div>
-      {rows.length === 0 && (
-        <Empty>{t("businessData.checklist.operations.noItems")}</Empty>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.checklist.operations.noItems")}</Empty>}
       {rows.map((row) => (
         <div key={row.id} style={{ marginBottom: theme.spacing.sm }}>
           <div className={styles.itemRow}>

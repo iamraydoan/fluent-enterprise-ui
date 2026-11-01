@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, Empty, FormField } from "@/components/common";
-import { Button, Input, makeStyles} from "@/components/ui";
+import { BaseDialog, DialogFooter, FormField, Empty, Grid  } from "@/components/common";
+import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -13,22 +13,11 @@ interface SimpleRow {
 }
 
 const useDialogStyles = makeStyles({
-  fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "170px minmax(0, 1fr)",
-    alignItems: "center",
-    columnGap: theme.spacing.md,
-    marginBottom: theme.spacing.md,
-  },
   fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.lg },
   row: {
-    display: "grid",
-    gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr) auto",
-    columnGap: theme.spacing.sm,
-    alignItems: "center",
-    marginBottom: theme.spacing.sm,
-  },
+    marginBottom: "8px",
+  }
 });
 
 function NameListEditor({
@@ -55,11 +44,9 @@ function NameListEditor({
 
   return (
     <div>
-      {rows.length === 0 && (
-        <Empty>{t("businessData.changeSet.operations.noEntries")}</Empty>
-      )}
+      {rows.length === 0 && <Empty>{t("businessData.changeSet.operations.noEntries")}</Empty>}
       {rows.map((row) => (
-        <div key={row.id} className={styles.row}>
+        <Grid columns="minmax(0, 1fr) minmax(0, 1fr) auto" gap="8px" align="center" key={row.id} className={styles.row}>
           <Input
             placeholder={t(namePlaceholderKey)}
             value={row.name}
@@ -73,7 +60,7 @@ function NameListEditor({
           <Button variant="secondary" onClick={() => removeRow(row.id)}>
             {t("common.remove")}
           </Button>
-        </div>
+        </Grid>
       ))}
       <Button variant="secondary" onClick={addRow}>
         {t("common.add")}
@@ -124,10 +111,9 @@ function ListDialogShell({
         extraPlaceholderKey={extraPlaceholderKey}
       />
       {commentLabel && (
-        <div className={styles.fieldRow} style={{ marginTop: theme.spacing.lg }}>
-          <span className={styles.fieldLabel}>{commentLabel}</span>
-          <Input value={comment} onChange={setComment} />
-        </div>
+        <FormField label={commentLabel} labelWidth="170px" labelAlign="right" style={{ marginTop: "16px" }}>
+        <Input value={comment} onChange={setComment} />
+      </FormField>
       )}
     </BaseDialog>
   );

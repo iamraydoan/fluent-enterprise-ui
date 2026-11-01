@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner, VStack  } from "@/components/common";
 import { Body1Strong, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -33,7 +33,7 @@ export function RecordSendAheadRunResultDialog({
       }
     >
       <DialogEntityBanner icon="📊" name={runName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+      <VStack gap={12}>
         <Body1Strong>{t(`${k}.resultBody`)}</Body1Strong>
         <Field label={t(`${k}.result`)}>
           <select value={result} onChange={(e) => setResult(e.target.value)}>
@@ -47,7 +47,7 @@ export function RecordSendAheadRunResultDialog({
         <Field label={t(`${k}.remarks`)}>
           <Input value={remarks} onChange={setRemarks} />
         </Field>
-      </div>
+      </VStack>
     </BaseDialog>
   );
 }

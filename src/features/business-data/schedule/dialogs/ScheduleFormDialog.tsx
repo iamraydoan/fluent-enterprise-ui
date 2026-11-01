@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ScheduleDetail, ScheduleRecord } from "@/api";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -74,12 +74,10 @@ export function ScheduleFormDialog({
         </>
       }
     >
-      {!nameReadOnly && (
-        <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />
-      )}
+      {!nameReadOnly && <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -96,19 +94,16 @@ export function ScheduleFormDialog({
             </select>
           </Field>
           <Field label={t(`${k}.defaultFrozenPeriod`)}>
-            <Input
-              value={defaultFrozenPeriod}
-              onChange={setDefaultFrozenPeriod}
-            />
+            <Input value={defaultFrozenPeriod} onChange={setDefaultFrozenPeriod} />
           </Field>
           <Field label={t(`${k}.timeQuantum`)}>
             <Input value={timeQuantum} onChange={setTimeQuantum} />
           </Field>
-        </div>
+        </VStack>
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Body1Strong>{t(`${k}.schedulingType`)}</Body1Strong>
           <Field label={t(`${k}.type`)}>
             <select value={schedulingType} onChange={(e) => setSchedulingType(e.target.value)}>
@@ -119,16 +114,16 @@ export function ScheduleFormDialog({
               ))}
             </select>
           </Field>
-          <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.optimizationBody`)}</div>
-        </div>
+          <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.optimizationBody`)}</div>
+        </VStack>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.untieBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.untieBody`)}</div>
       )}
 
       {step === 4 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.automaticBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.automaticBody`)}</div>
       )}
 
       <Field label={t(`${k}.comments`)}>

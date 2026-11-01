@@ -1,43 +1,15 @@
 import { useMemo, useRef, useState } from "react";
 import { useConfigurationTree, useConfigurations } from "@/api";
 import type { ConfigurationEntry } from "@/api";
-import { createAction, DataListPage, refreshAction, SidePanel } from "@/components/common";
+import { createAction, DataListPage, refreshAction, SidePanel, SidebarNavItem } from "@/components/common";
 import type { DataColumn, DataFilter, DataTableCardApi, HeaderAction } from "@/components/common";
 import { MoreVertical24Regular, Wrench20Regular } from "@/components/icons";
-import { makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
-import { theme } from "@/styles/theme";
 import { ConfigurationTree } from "./ConfigurationTree";
 import { CONFIG_ENTRY_TYPE_LABELS, CONFIG_ENTRY_TYPES, entryName, maskedValue } from "./data";
 
-const usePageStyles = makeStyles({
-  allEntries: {
-    display: "flex",
-    alignItems: "center",
-    width: "100%",
-    height: "44px",
-    padding: `0 ${theme.spacing.md}`,
-    marginBottom: theme.spacing.xs,
-    border: "none",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    borderRadius: theme.radius.md,
-    backgroundColor: "transparent",
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontSize: "13px",
-    fontWeight: theme.font.weightSemibold,
-    color: theme.color.textPrimary,
-    textAlign: "left",
-    ":hover": {
-      backgroundColor: theme.color.surfaceHover,
-    },
-  },
-  allEntriesActive: {
-    backgroundColor: theme.color.surfaceSelected,
-  },
-});
 
 const COLUMNS: DataColumn<ConfigurationEntry>[] = [
   {
@@ -137,7 +109,6 @@ const FILTERS: DataFilter[] = [
 
 export function ConfigurationListPage() {
   const { t } = useAppTranslation();
-  const styles = usePageStyles();
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/administration/configuration/$path", openRoute);
   const tableApi = useRef<DataTableCardApi | null>(null);
@@ -186,12 +157,11 @@ export function ConfigurationListPage() {
           collapsed={!showTree}
           onToggle={() => setShowTree((visible) => !visible)}
         >
-          <button
-            className={mergeClasses(styles.allEntries, styles.allEntriesActive)}
+          <SidebarNavItem
+            label={t("configuration.tree.allEntries")}
+            active
             onClick={() => tableApi.current?.resetFilters()}
-          >
-            {t("configuration.tree.allEntries")}
-          </button>
+          />
           <ConfigurationTree
             branchPaths={branchPaths ?? []}
             selectedPath={null}

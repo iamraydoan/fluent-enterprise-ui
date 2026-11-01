@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useInspectionPlanDetail } from "@/api";
-import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack  } from "@/components/common";
 import { TableSimple24Regular } from "@/components/icons";
 import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -173,14 +173,14 @@ export function InspectionPlanDetailPage({ name }: { name: string }) {
             ],
           ]}
         />
-        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm }}>
+        <HStack gap="8px" style={{marginTop: "12px"}}>
           <Button onClick={() => setManageConfigurationsOpen(true)}>
             {t("businessData.inspectionPlan.manageConfigurations.manage")}
           </Button>
           <Button onClick={() => setManageStepsOpen(true)}>
             {t("businessData.inspectionPlan.manageSteps.manage")}
           </Button>
-        </div>
+        </HStack>
       </Card>
       <Card title={t("businessData.inspectionPlan.sections.futureHoldInformation")}>
         <KV

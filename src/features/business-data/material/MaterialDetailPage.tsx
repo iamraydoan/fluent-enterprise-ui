@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMaterialDetail } from "@/api";
 import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
-import { DetailShell, KV } from "@/components/common";
+import { DetailShell, KV, Grid  } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -39,8 +39,8 @@ import {
 } from "./MaterialDialogs";
 
 const useStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: theme.spacing.md },
-  sectionTitle: { marginBottom: theme.spacing.sm },
+  
+  sectionTitle: { marginBottom: "8px" },
 });
 
 const TOP_TABS: DetailTab[] = [
@@ -81,7 +81,6 @@ function Card({ titleKey, rows }: { titleKey: TranslationKey; rows: [string, Rea
 
 export function MaterialDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
   const [top, setTop] = useState("details");
   const [left, setLeft] = useState("businessData.material.sideSections.details");
   const { data: detail } = useMaterialDetail(name);
@@ -218,7 +217,7 @@ export function MaterialDetailPage({ name }: { name: string }) {
         moreActions={moreMenuItems}
       >
         {top === "details" && (
-          <div className={styles.cards}>
+          <Grid columns="repeat(3, 1fr)" gap="12px">
             <Card
               titleKey="businessData.material.sections.material"
               rows={[
@@ -269,12 +268,12 @@ export function MaterialDetailPage({ name }: { name: string }) {
                 [t("businessData.material.fields.container"), ""],
               ]}
             />
-          </div>
+          </Grid>
         )}
         {top !== "details" && (
-          <div className={styles.cards}>
+          <Grid columns="repeat(3, 1fr)" gap="12px">
             <Text>{t("businessData.material.emptyTab")}</Text>
-          </div>
+          </Grid>
         )}
       </DetailShell>
       <CreateMaterialDialog open={createOpen} onClose={() => setCreateOpen(false)} />

@@ -1,4 +1,4 @@
-import { makeStyles} from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { theme } from "@/styles/theme";
 
 export const useDialogStyles = makeStyles({
@@ -6,7 +6,6 @@ export const useDialogStyles = makeStyles({
   fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
   sectionTitle: { fontSize: "13px", fontWeight: theme.font.weightSemibold, margin: "16px 0 8px 0" },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
   paramRow: {
     display: "flex",
     flexWrap: "wrap",

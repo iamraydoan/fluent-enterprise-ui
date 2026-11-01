@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -46,9 +46,7 @@ const L: Record<string, TranslationKey> = {
 
 const useStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: theme.spacing.lg,
-    padding: `${theme.spacing.xs} ${theme.spacing.xs} ${theme.spacing.md}`,
+    padding: "4px 4px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: theme.spacing.xs,
   },
@@ -65,7 +63,7 @@ const useStyles = makeStyles({
     fontSize: theme.font.sizeMd,
     backgroundColor: theme.color.surface,
   },
-  row: { display: "flex", gap: theme.spacing.sm, alignItems: "center" },
+  
 });
 
 interface DialogProps {
@@ -124,19 +122,15 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="16px" className={styles.steps}>
         <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
         <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
         <span className={step === 3 ? styles.stepActive : styles.step}>{t(L.step3)}</span>
-      </div>
+      </HStack>
       {step === 1 && (
         <>
           <FormField label={<>{t(L.changeSet)}</>} labelWidth="220px">
-            <Input
-              value={changeSet}
-              onChange={setChangeSet}
-              disabled={useAutoCs}
-            />
+            <Input value={changeSet} onChange={setChangeSet} disabled={useAutoCs} />
           </FormField>
           <FormField
             label={
@@ -168,11 +162,7 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
             }
             labelWidth="220px"
           >
-            <Input
-              value={name}
-              onChange={setName}
-              disabled={mode === MODE_EDIT}
-            />
+            <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />
           </FormField>
           <FormField label={<>{t(L.description)}</>} labelWidth="220px">
             <Textarea value={description} onChange={setDescription} />
@@ -181,34 +171,19 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
             <Input value={type} onChange={setType} />
           </FormField>
           <FormField label={<>{t(L.resultsRequiredBeforeTrackOut)}</>} labelWidth="220px">
-            <Checkbox
-              checked={resultsRequired === true}
-              onChange={setResultsRequired}
-            />
+            <Checkbox checked={resultsRequired === true} onChange={setResultsRequired} />
           </FormField>
           <FormField label={<>{t(L.enableMultipleSamples)}</>} labelWidth="220px">
-            <Checkbox
-              checked={multipleSamples === true}
-              onChange={setMultipleSamples}
-            />
+            <Checkbox checked={multipleSamples === true} onChange={setMultipleSamples} />
           </FormField>
           <FormField label={<>{t(L.containsSeparateInspectionSteps)}</>} labelWidth="220px">
-            <Checkbox
-              checked={separateSteps === true}
-              onChange={setSeparateSteps}
-            />
+            <Checkbox checked={separateSteps === true} onChange={setSeparateSteps} />
           </FormField>
           <FormField label={<>{t(L.closeAutomaticallyOnPass)}</>} labelWidth="220px">
-            <Checkbox
-              checked={closeOnPass === true}
-              onChange={setCloseOnPass}
-            />
+            <Checkbox checked={closeOnPass === true} onChange={setCloseOnPass} />
           </FormField>
           <FormField label={<>{t(L.closeAutomaticallyOnFail)}</>} labelWidth="220px">
-            <Checkbox
-              checked={closeOnFail === true}
-              onChange={setCloseOnFail}
-            />
+            <Checkbox checked={closeOnFail === true} onChange={setCloseOnFail} />
           </FormField>
           <FormField label={<>{t(L.futureHoldCreationMode)}</>} labelWidth="220px">
             <select
@@ -225,7 +200,7 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
       )}
       {step === 3 && (
         <>
-          <div className={styles.row}>
+          <HStack gap="8px" align="center">
             <Button
               size="sm"
               onClick={() =>
@@ -234,9 +209,9 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
             >
               + {t(L.addStep)}
             </Button>
-          </div>
+          </HStack>
           {steps.map((s, i) => (
-            <div key={i} className={styles.row}>
+            <HStack gap="8px" align="center" key={i}>
               <Input
                 placeholder={t(L.stepName)}
                 value={s.name}
@@ -270,7 +245,7 @@ export function InspectionPlanDialog({ mode, initialName, onClose }: DialogProps
               <Button size="sm" onClick={() => setSteps(steps.filter((_, j) => j !== i))}>
                 {t(L.remove)}
               </Button>
-            </div>
+            </HStack>
           ))}
         </>
       )}

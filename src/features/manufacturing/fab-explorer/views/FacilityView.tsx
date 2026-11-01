@@ -6,10 +6,10 @@ import {
   EntityTile,
   SidePanel,
   SidebarNavItem,
-  TileGrid,
+  TileGrid, HStack, VStack 
 } from "@/components/common";
 import { Box24Regular, Grid24Regular } from "@/components/icons";
-import { Button, makeStyles} from "@/components/ui";
+import { Button, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 import type { FabNavigation } from "../FabExplorerPage";
@@ -19,25 +19,25 @@ import { ManageResourceTraineesDialog } from "../dialogs/ManageResourceTraineesD
 import { FAB_LEVELS } from "../fabLevels";
 
 const useViewStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
-  toolbar: { display: "flex", columnGap: theme.spacing.sm, alignItems: "center" },
+  body: {
+    minHeight: 0,
+  },
+  main: {
+    minWidth: 0,
+  },
+  
   stateCounts: {
-    display: "flex",
-    columnGap: theme.spacing.md,
     fontSize: "12px",
     color: theme.color.textSecondary,
     marginTop: "auto",
   },
-  stateCount: { display: "flex", alignItems: "center", columnGap: theme.spacing.xs },
-  materialsList: { display: "flex", flexDirection: "column", rowGap: theme.spacing.sm },
+  stateCount: { display: "flex", alignItems: "center", columnGap: "4px" },
+  
   materialRow: {
-    display: "flex",
-    justifyContent: "space-between",
     fontSize: "13px",
     padding: `${theme.spacing.sm} 0`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
+  }
 });
 
 interface FacilityViewProps {
@@ -63,7 +63,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
   ];
 
   return (
-    <div className={styles.body}>
+    <HStack gap="10px" className={styles.body}>
       <SidePanel title={t("fabExplorer.facilityAreas")} collapsed={false} onToggle={() => {}}>
         <SidebarNavItem
           icon={<Grid24Regular />}
@@ -90,8 +90,8 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
           />
         ))}
       </SidePanel>
-      <div className={styles.main}>
-        <div className={styles.toolbar}>
+      <VStack gap="12px" className={styles.main}>
+        <HStack gap="8px" align="center">
           <Button variant="primary" onClick={() => setChangeResourcesOpen(true)}>
             {t("fabExplorer.changeResources")}
           </Button>
@@ -101,7 +101,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
           <Button variant="secondary" onClick={() => setManageTraineesOpen(true)}>
             {t("fabExplorer.manageResourceTrainees")}
           </Button>
-        </div>
+        </HStack>
         <DetailTabs tabs={tabs} active={tab} onChange={setTab}>
           {tab === "areas" && (
             <TileGrid>
@@ -113,7 +113,7 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
                   onClick={() => go({ level: FAB_LEVELS.area, area: a.name })}
                   ariaLabel={a.name}
                   footer={
-                    <div className={styles.stateCounts}>
+                    <HStack gap="12px" className={styles.stateCounts}>
                       <span className={styles.stateCount} title={t("fabExplorer.up")}>
                         <span
                           style={{
@@ -150,42 +150,42 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
                         />
                         {a.resources.maintenance}
                       </span>
-                    </div>
+                    </HStack>
                   }
                 />
               ))}
             </TileGrid>
           )}
           {tab === "materials" && (
-            <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.lg }}>
+            <VStack gap="16px">
               <Card title={t("fabExplorer.localMaterials")}>
-                <div className={styles.materialsList}>
+                <VStack gap="8px">
                   {localMaterials.map((m) => (
-                    <div key={m.name} className={styles.materialRow}>
+                    <HStack justify="space-between" key={m.name} className={styles.materialRow}>
                       <span>{m.name}</span>
                       <span>
                         {m.quantity} - {m.step}
                       </span>
-                    </div>
+                    </HStack>
                   ))}
-                </div>
+                </VStack>
               </Card>
               <Card title={t("fabExplorer.remoteMaterials")}>
-                <div className={styles.materialsList}>
+                <VStack gap="8px">
                   {remoteMaterials.map((m) => (
-                    <div key={m.name} className={styles.materialRow}>
+                    <HStack justify="space-between" key={m.name} className={styles.materialRow}>
                       <span>{m.name}</span>
                       <span>
                         {m.quantity} - {m.step}
                       </span>
-                    </div>
+                    </HStack>
                   ))}
-                </div>
+                </VStack>
               </Card>
-            </div>
+            </VStack>
           )}
         </DetailTabs>
-      </div>
+      </VStack>
       <ChangeResourcesDialog
         open={changeResourcesOpen}
         facilityName={nav.facility}
@@ -201,6 +201,6 @@ export function FacilityView({ nav, go }: FacilityViewProps) {
         facilityName={nav.facility}
         onClose={() => setManageTraineesOpen(false)}
       />
-    </div>
+    </HStack>
   );
 }

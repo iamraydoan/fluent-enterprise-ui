@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, HStack } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import {
   Button,
@@ -106,20 +106,13 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
         />
       }
     >
-      <div style={{ display: "flex", gap: "20px", minHeight: "420px" }}>
+      <HStack gap="20px" style={{minHeight: "420px"}}>
         <div style={{ width: "300px", flexShrink: 0 }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: theme.spacing.md,
-            }}
-          >
+          <HStack align="center" justify="space-between" style={{marginBottom: "12px"}}>
             <Text weight="semibold">
               {t("businessData.productGroup.operations.manageParameters.parameters")}
             </Text>
-            <div style={{ display: "flex", gap: theme.spacing.xs }}>
+            <HStack gap="4px">
               <Button variant="subtle" icon={<Add24Regular />} onClick={addParam} />
               {selected && (
                 <Button
@@ -128,8 +121,8 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                   onClick={() => removeParam(selected.id)}
                 />
               )}
-            </div>
-          </div>
+            </HStack>
+          </HStack>
           <div
             style={{
               border: `1px solid ${theme.color.borderSubtle}`,
@@ -138,19 +131,12 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
             }}
           >
             {params.map((p) => (
-              <div
+              <HStack
+                align="center"
+                justify="space-between"
                 key={p.id}
                 onClick={() => setSelectedId(p.id)}
-                style={{
-                  padding: `10px ${theme.spacing.md}`,
-                  cursor: "pointer",
-                  backgroundColor:
-                    p.id === selectedId ? theme.color.brandSubtle : "transparent",
-                  borderBottom: `1px solid ${theme.color.borderSubtle}`,
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
+                style={{padding: "10px 12px", cursor: "pointer", backgroundColor: p.id === selectedId ? theme.color.brandSubtle : "transparent", borderBottom: `1px solid ${theme.color.borderSubtle}`}}
               >
                 <Text>
                   {p.parameter ||
@@ -165,7 +151,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                     removeParam(p.id);
                   }}
                 />
-              </div>
+              </HStack>
             ))}
             {params.length === 0 && (
               <div
@@ -206,7 +192,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                 />
               </Field>
               <Field label={t("businessData.productGroup.operations.manageParameters.fields.type")}>
-                <div style={{ display: "flex", gap: theme.spacing.lg }}>
+                <HStack gap="16px">
                   {PARAM_TYPES.map((opt) => (
                     <label
                       key={opt}
@@ -229,7 +215,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                       )}
                     </label>
                   ))}
-                </div>
+                </HStack>
               </Field>
               {selected.type === "Characteristic" ? (
                 <Field
@@ -325,7 +311,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
             </div>
           )}
         </div>
-      </div>
+      </HStack>
       <Field label={t("businessData.productGroup.operations.manageParameters.fields.comments")}>
         <Input
           value={comments}

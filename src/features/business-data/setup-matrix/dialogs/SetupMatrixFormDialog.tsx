@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { SetupMatrixDetail, SetupMatrixRecord } from "@/api";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
 import { Button, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -68,12 +68,10 @@ export function SetupMatrixFormDialog({
         </>
       }
     >
-      {!nameReadOnly && (
-                <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />
-      )}
+      {!nameReadOnly && <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -90,20 +88,17 @@ export function SetupMatrixFormDialog({
             </select>
           </Field>
           <Field label={t(`${k}.useZeroInDiagonal`)}>
-            <Switch
-              checked={useZeroInDiagonal}
-              onChange={setUseZeroInDiagonal}
-            />
+            <Switch checked={useZeroInDiagonal} onChange={setUseZeroInDiagonal} />
           </Field>
-        </div>
+        </VStack>
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.step2Body`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step2Body`)}</div>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.step3Body`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step3Body`)}</div>
       )}
 
       <Field label={t(`${k}.comments`)}>

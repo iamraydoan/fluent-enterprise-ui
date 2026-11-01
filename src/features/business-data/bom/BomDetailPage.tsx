@@ -1,6 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBomDetail } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
   DetailShell,
@@ -12,8 +13,9 @@ import {
   terminateAction,
   TileGrid,
   unterminateAction,
+  DetailTabs,
+  Empty,  SectionHeader, Grid, HStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
   Table,
@@ -22,7 +24,6 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  Text,
   makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -32,21 +33,21 @@ import { theme } from "@/styles/theme";
 import { useBomDialogs } from "./useBomDialogs";
 
 const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  
+  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
   itemsHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: theme.spacing.md,
-  },
+    marginBottom: "12px",
+  }
 });
 
 const TABS = ["details", "compare", "references", "history"] as const;
@@ -135,11 +136,9 @@ export function BomDetailPage() {
           >
             {showItems ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <div className={styles.itemsHeader}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.bom.detail.bomItemsTitle", { count: bom.items.length })}
-                  </Text>
-                </div>
+                <HStack align="center" justify="space-between" className={styles.itemsHeader}>
+                  <SectionHeader title={t("businessData.bom.detail.bomItemsTitle", { count: bom.items.length })} />
+                </HStack>
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -178,9 +177,9 @@ export function BomDetailPage() {
                 </Table>
               </div>
             ) : (
-              <TileGrid minWidth="300px">
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>{t("businessData.bom.detail.bom")}</Text>
+                  <SectionHeader title={t("businessData.bom.detail.bom")} />
                   <KV label={t("businessData.bom.detail.name")} value={bom.name} />
                   <KV label={t("businessData.bom.detail.description")} value={bom.description} />
                   <KV label={t("businessData.bom.detail.type")} value={bom.type} />
@@ -191,13 +190,11 @@ export function BomDetailPage() {
                   <KV label={t("businessData.bom.detail.dataGroup")} value={bom.dataGroup} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>{t("businessData.bom.detail.changeSet")}</Text>
+                  <SectionHeader title={t("businessData.bom.detail.changeSet")} />
                   <KV label={t("businessData.bom.detail.changeSetLabel")} value={bom.changeSet} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.bom.detail.information")}
-                  </Text>
+                  <SectionHeader title={t("businessData.bom.detail.information")} />
                   <KV label={t("businessData.bom.detail.scope")} value={bom.scope} />
                   <KV label={t("businessData.bom.detail.product")} value={bom.product} />
                   <KV
@@ -222,13 +219,11 @@ export function BomDetailPage() {
                     }
                   />
                 </div>
-              </TileGrid>
+              </Grid>
             )}
           </DetailShell>
         )}
-        {tab !== "details" && (
-          <Empty>{t("businessData.bom.detail.historyEmpty")}</Empty>
-        )}
+        {tab !== "details" && <Empty>{t("businessData.bom.detail.historyEmpty")}</Empty>}
       </DetailTabs>
     </ListPage>
   );
@@ -238,9 +233,9 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.bom.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }

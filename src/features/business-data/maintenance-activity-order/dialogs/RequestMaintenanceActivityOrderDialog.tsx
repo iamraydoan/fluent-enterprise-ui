@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Input, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -21,9 +21,7 @@ const L: Record<string, TranslationKey> = {
 
 const useStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: theme.spacing.lg,
-    padding: `${theme.spacing.xs} ${theme.spacing.xs} ${theme.spacing.md}`,
+    padding: "4px 4px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: theme.spacing.xs,
   },
@@ -64,11 +62,7 @@ export function RequestMaintenanceActivityOrderDialog({ onClose }: { onClose: ()
           <Button onClick={onClose}>{t(L.cancel)}</Button>
           {step > 1 && <Button onClick={() => setStep(step - 1)}>{t(L.back)}</Button>}
           {step < 2 ? (
-            <Button
-              variant="primary"
-              onClick={() => setStep(step + 1)}
-              disabled={!entity.trim()}
-            >
+            <Button variant="primary" onClick={() => setStep(step + 1)} disabled={!entity.trim()}>
               {t(L.next)}
             </Button>
           ) : (
@@ -79,10 +73,10 @@ export function RequestMaintenanceActivityOrderDialog({ onClose }: { onClose: ()
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="16px" className={styles.steps}>
         <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
         <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
-      </div>
+      </HStack>
       {step === 1 && (
         <>
           <FormField label={<>{t(L.entityType)}</>} labelWidth="160px">

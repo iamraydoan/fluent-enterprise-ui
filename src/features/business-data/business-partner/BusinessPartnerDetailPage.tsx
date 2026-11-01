@@ -1,6 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useBusinessPartnerDetail } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
   DetailShell,
@@ -12,10 +13,11 @@ import {
   terminateAction,
   TileGrid,
   unterminateAction,
+  DetailTabs,
+  Empty,  SectionHeader, Grid, HStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text, makeStyles} from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
@@ -23,14 +25,17 @@ import { theme } from "@/styles/theme";
 import { useBusinessPartnerDialogs } from "./useBusinessPartnerDialogs";
 
 const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  
+  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "140px" },
 });
 
@@ -102,11 +107,9 @@ export function BusinessPartnerDetailPage() {
             onAskAi={() => undefined}
             showState={false}
           >
-            <TileGrid minWidth="300px">
+            <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.businessPartner.detail.businessPartner")}
-                </Text>
+                <SectionHeader title={t("businessData.businessPartner.detail.businessPartner")} />
                 <KV label={t("businessData.businessPartner.detail.name")} value={bp.name} />
                 <KV
                   label={t("businessData.businessPartner.detail.description")}
@@ -122,9 +125,7 @@ export function BusinessPartnerDetailPage() {
                 />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.businessPartner.detail.properties")}
-                </Text>
+                <SectionHeader title={t("businessData.businessPartner.detail.properties")} />
                 <Bool
                   label={t("businessData.businessPartner.detail.contractor")}
                   value={bp.isContractor}
@@ -147,9 +148,7 @@ export function BusinessPartnerDetailPage() {
                 />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.businessPartner.detail.contactInformation")}
-                </Text>
+                <SectionHeader title={t("businessData.businessPartner.detail.contactInformation")} />
                 <KV
                   label={t("businessData.businessPartner.detail.contactTitle")}
                   value={bp.contactTitle}
@@ -173,9 +172,7 @@ export function BusinessPartnerDetailPage() {
                 />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.businessPartner.detail.addressInformation")}
-                </Text>
+                <SectionHeader title={t("businessData.businessPartner.detail.addressInformation")} />
                 <KV label={t("businessData.businessPartner.detail.address")} value={bp.address} />
                 <KV label={t("businessData.businessPartner.detail.zipCode")} value={bp.zipCode} />
                 <KV label={t("businessData.businessPartner.detail.country")} value={bp.country} />
@@ -183,22 +180,18 @@ export function BusinessPartnerDetailPage() {
                 <KV label={t("businessData.businessPartner.detail.city")} value={bp.city} />
               </div>
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.businessPartner.detail.otherInformation")}
-                </Text>
+                <SectionHeader title={t("businessData.businessPartner.detail.otherInformation")} />
                 <KV
                   label={t("businessData.businessPartner.detail.taxNumber")}
                   value={bp.taxNumber}
                 />
                 <KV label={t("businessData.businessPartner.detail.website")} value={bp.website} />
               </div>
-            </TileGrid>
+            </Grid>
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>
-            {t("businessData.businessPartner.detail.historyEmpty")}
-          </div>
+          <Empty>{t("businessData.businessPartner.detail.historyEmpty")}</Empty>
         )}
       </DetailTabs>
     </ListPage>
@@ -209,10 +202,10 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.businessPartner.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }
 
@@ -220,13 +213,13 @@ function Bool({ label, value }: { label: string; value: boolean }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>
         {value
           ? t("businessData.businessPartner.detail.yes")
           : t("businessData.businessPartner.detail.no")}
       </span>
-    </div>
+    </HStack>
   );
 }

@@ -2,6 +2,7 @@ import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useChartDetail } from "@/api";
 import type { LogicalChartDetail } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
   DetailShell,
@@ -13,8 +14,9 @@ import {
   terminateAction,
   TileGrid,
   unterminateAction,
+  DetailTabs,
+  Empty,  SectionHeader, Grid, HStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import {
   Box24Regular,
   Checkmark20Filled,
@@ -29,7 +31,6 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  Text,
   makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -39,17 +40,22 @@ import { theme } from "@/styles/theme";
 import { useChartDialogs } from "./useChartDialogs";
 
 const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  
+  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
-  toolbar: { display: "flex", columnGap: theme.spacing.sm, marginBottom: theme.spacing.md },
-  actionsCell: { display: "flex", columnGap: theme.spacing.xs, flexWrap: "wrap" },
+  toolbar: {
+    marginBottom: "12px",
+  }
+  
 });
 
 const TABS = ["details", "references", "history"] as const;
@@ -204,14 +210,12 @@ export function ChartDetailPage() {
                 />
               ) : left === "businessData.chart.detail.sections.rules" ? (
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.chart.detail.rulesTitle", { count: chart.rules.length })}
-                  </Text>
-                  <div className={styles.toolbar}>
+                  <SectionHeader title={t("businessData.chart.detail.rulesTitle", { count: chart.rules.length })} />
+                  <HStack gap="8px" className={styles.toolbar}>
                     <Button variant="secondary" onClick={openManageRules}>
                       {t("businessData.chart.operations.manageRules")}
                     </Button>
-                  </div>
+                  </HStack>
                   <Table>
                     <TableHeader>
                       <TableRow>
@@ -255,9 +259,9 @@ export function ChartDetailPage() {
                   onDataPoints={openDataPoints}
                 />
               ) : (
-                <TileGrid minWidth="300px">
+                <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                   <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                    <Text className={styles.cardTitle}>{t("businessData.chart.detail.chart")}</Text>
+                    <SectionHeader title={t("businessData.chart.detail.chart")} />
                     <KV label={t("businessData.chart.detail.name")} value={chart.name} />
                     <KV
                       label={t("businessData.chart.detail.description")}
@@ -271,9 +275,7 @@ export function ChartDetailPage() {
                     <Bool label={t("businessData.chart.detail.enabled")} value={chart.enabled} />
                   </div>
                   <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                    <Text className={styles.cardTitle}>
-                      {t("businessData.chart.detail.properties")}
-                    </Text>
+                    <SectionHeader title={t("businessData.chart.detail.properties")} />
                     <KV label={t("businessData.chart.detail.parameter")} value={chart.parameter} />
                     <KV label={t("businessData.chart.detail.chartType")} value={chart.chartType} />
                     <KV
@@ -314,9 +316,7 @@ export function ChartDetailPage() {
                     />
                   </div>
                   <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                    <Text className={styles.cardTitle}>
-                      {t("businessData.chart.detail.display")}
-                    </Text>
+                    <SectionHeader title={t("businessData.chart.detail.display")} />
                     <KV
                       label={t("businessData.chart.detail.filterMode")}
                       value={chart.filterMode}
@@ -340,9 +340,7 @@ export function ChartDetailPage() {
                     />
                   </div>
                   <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                    <Text className={styles.cardTitle}>
-                      {t("businessData.chart.detail.retention")}
-                    </Text>
+                    <SectionHeader title={t("businessData.chart.detail.retention")} />
                     <KV
                       label={t("businessData.chart.detail.dataPoints")}
                       value={String(chart.dataPoints)}
@@ -376,13 +374,11 @@ export function ChartDetailPage() {
                       value={String(chart.dataPointSize)}
                     />
                   </div>
-                </TileGrid>
+                </Grid>
               )}
             </DetailShell>
           )}
-          {tab !== "details" && (
-            <Empty>{t("businessData.chart.detail.historyEmpty")}</Empty>
-          )}
+          {tab !== "details" && <Empty>{t("businessData.chart.detail.historyEmpty")}</Empty>}
         </DetailTabs>
       </ListPage>
       {dialogs}
@@ -410,14 +406,12 @@ function LogicalChartsCard({
   const sharedStyles = useSharedStyles();
   return (
     <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-      <Text className={styles.cardTitle}>
-        {t("businessData.chart.detail.logicalChartsTitle", { count: chart.logicalCharts.length })}
-      </Text>
-      <div className={styles.toolbar}>
+      <SectionHeader title={t("businessData.chart.detail.logicalChartsTitle", { count: chart.logicalCharts.length })} />
+      <HStack gap="8px" className={styles.toolbar}>
         <Button variant="secondary" onClick={onAdd}>
           {t("businessData.chart.operations.addLogicalChart")}
         </Button>
-      </div>
+      </HStack>
       <Table>
         <TableHeader>
           <TableRow>
@@ -440,7 +434,7 @@ function LogicalChartsCard({
               <TableCell>{l.contextSummary}</TableCell>
               <TableCell>{String(l.dataPoints.length)}</TableCell>
               <TableCell>
-                <div className={styles.actionsCell}>
+                <HStack gap="4px" wrap>
                   <Button variant="secondary" size="sm" onClick={() => onDataPoints(l)}>
                     {t("businessData.chart.operations.dataPoints")}
                   </Button>
@@ -453,7 +447,7 @@ function LogicalChartsCard({
                   <Button variant="secondary" size="sm" onClick={() => onRemove(l)}>
                     {t("common.remove")}
                   </Button>
-                </div>
+                </HStack>
               </TableCell>
             </TableRow>
           ))}
@@ -476,7 +470,7 @@ function TableCard({
   const sharedStyles = useSharedStyles();
   return (
     <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-      <Text className={styles.cardTitle}>{title}</Text>
+      <SectionHeader title={title} />
       <Table>
         <TableHeader>
           <TableRow>
@@ -503,10 +497,10 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.chart.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }
 
@@ -514,9 +508,9 @@ function Bool({ label, value }: { label: string; value: boolean }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value ? t("businessData.chart.detail.yes") : t("businessData.chart.detail.no")}</span>
-    </div>
+    </HStack>
   );
 }

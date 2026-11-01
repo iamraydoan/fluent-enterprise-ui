@@ -1,4 +1,5 @@
 import type { DataCollectionParameter } from "@/api";
+import { Empty } from "@/components/common";
 import { ArrowDown16Regular, ArrowUp16Regular } from "@/components/icons";
 import { Button, Checkbox, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -35,8 +36,7 @@ export function DataCollectionParametersEditor({
   const { t } = useAppTranslation();
   const styles = useDialogStyles();
   const rows = (values[fieldKey] as unknown as DataCollectionParameterRow[] | undefined) ?? [];
-  const setRows = (next: DataCollectionParameterRow[]) =>
-    onChange(fieldKey, next);
+  const setRows = (next: DataCollectionParameterRow[]) => onChange(fieldKey, next);
   const addRow = () => setRows([...rows, EMPTY_PARAMETER(Date.now() + rows.length)]);
   const removeRow = (id: number) => setRows(rows.filter((r) => r.id !== id));
   const update = (id: number, patch: Partial<DataCollectionParameterRow>) =>
@@ -55,9 +55,7 @@ export function DataCollectionParametersEditor({
         {t("businessData.dataCollection.operations.parametersHint")}
       </div>
       {rows.length === 0 && (
-        <div className={styles.empty}>
-          {t("businessData.dataCollection.operations.noParameters")}
-        </div>
+        <Empty>{t("businessData.dataCollection.operations.noParameters")}</Empty>
       )}
       {rows.map((row, idx) => (
         <div key={row.id} className={styles.paramCard}>

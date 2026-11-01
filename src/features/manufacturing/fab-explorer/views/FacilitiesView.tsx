@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useFabDashboard, useFabFacilities, useFabMaterialsToReceive } from "@/api";
-import { Card, EntityTile, SidePanel, TileGrid } from "@/components/common";
+import { Card, EntityTile, SidePanel, TileGrid, Grid, HStack, VStack  } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
-import { Button, makeStyles, Text} from "@/components/ui";
+import { Button, makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
 import { theme } from "@/styles/theme";
@@ -10,8 +10,12 @@ import type { FabNavigation } from "../FabExplorerPage";
 import { FAB_LEVELS } from "../fabLevels";
 
 const useViewStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  body: {
+    minHeight: 0,
+  },
+  main: {
+    minWidth: 0,
+  },
   tileFooter: {
     display: "flex",
     justifyContent: "space-between",
@@ -26,27 +30,19 @@ const useViewStyles = makeStyles({
     color: theme.color.textSecondary,
   },
   dashboardBar: {
-    display: "flex",
-    columnGap: theme.spacing.sm,
-    padding: `${theme.spacing.sm} 0`,
+    padding: "8px 0",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  kpiGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-    gap: theme.spacing.md,
-  },
-  kpiCard: { padding: theme.spacing.lg, textAlign: "center" },
+  
+  kpiCard: { padding: "16px", textAlign: "center" },
   kpiValue: { fontSize: "32px", fontWeight: theme.font.weightSemibold },
   kpiTrend: { fontSize: "12px" },
-  materialsList: { display: "flex", flexDirection: "column", rowGap: theme.spacing.sm },
+  
   materialRow: {
-    display: "flex",
-    justifyContent: "space-between",
     fontSize: "13px",
     padding: `${theme.spacing.sm} 0`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
+  }
 });
 
 interface FacilitiesViewProps {
@@ -78,9 +74,9 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
         : t("fabExplorer.maintenanceDashboard");
 
   return (
-    <div className={styles.body}>
-      <div className={styles.main}>
-        <div className={styles.dashboardBar}>
+    <HStack gap="10px" className={styles.body}>
+      <VStack gap="12px" className={styles.main}>
+        <HStack gap="8px" className={styles.dashboardBar}>
           <Button
             variant={dashboard === DASHBOARD_MANUFACTURING ? "primary" : "secondary"}
             onClick={() =>
@@ -103,11 +99,11 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
           >
             {t("fabExplorer.maintenanceDashboard")}
           </Button>
-        </div>
+        </HStack>
 
         {dashboard && (
           <Card title={dashboardTitle}>
-            <div className={styles.kpiGrid}>
+            <Grid columns="repeat(auto-fill, minmax(180px, 1fr))" gap="12px">
               {kpis.map((kpi) => (
                 <div key={kpi.label} className={`${sharedStyles.contentCard} ${styles.kpiCard}`}>
                   <Text size={300} style={{ color: theme.color.textTertiary }}>
@@ -120,10 +116,7 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
                   <div
                     className={styles.kpiTrend}
                     style={{
-                      color:
-                        kpi.trend >= 0
-                          ? theme.color.textSuccess
-                          : theme.color.textDanger,
+                      color: kpi.trend >= 0 ? theme.color.textSuccess : theme.color.textDanger,
                     }}
                   >
                     {kpi.trend >= 0 ? "+" : ""}
@@ -131,7 +124,7 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
                   </div>
                 </div>
               ))}
-            </div>
+            </Grid>
           </Card>
         )}
 
@@ -154,24 +147,24 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
             />
           ))}
         </TileGrid>
-      </div>
+      </VStack>
       <SidePanel title={t("fabExplorer.materialsToReceive")} collapsed={false} onToggle={() => {}}>
-        <div className={styles.materialsList}>
+        <VStack gap="8px">
           {materials.map((m) => (
-            <div key={`${m.name}-${m.facility}`} className={styles.materialRow}>
+            <HStack justify="space-between" key={`${m.name}-${m.facility}`} className={styles.materialRow}>
               <span>{m.name}</span>
               <span>
                 {m.quantity} ({m.facility})
               </span>
-            </div>
+            </HStack>
           ))}
           {materials.length === 0 && (
             <Text size={200} style={{ color: theme.color.textTertiary }}>
               {t("fabExplorer.noResources")}
             </Text>
           )}
-        </div>
+        </VStack>
       </SidePanel>
-    </div>
+    </HStack>
   );
 }

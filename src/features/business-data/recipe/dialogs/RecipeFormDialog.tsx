@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { RecipeDetail, RecipeRecord } from "@/api";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, HStack, VStack, WizardSteps } from "@/components/common";
 import { Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -76,14 +76,14 @@ export function RecipeFormDialog({
       )}
 
       {step === 1 && !nameReadOnly && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.changeSet`)}>
-            <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
+            <HStack gap={8}>
               <Input value={changeSet} onChange={setChangeSet} />
               <Button variant="secondary" onClick={() => {}}>
                 {t(`${k}.createNew`)}
               </Button>
-            </div>
+            </HStack>
           </Field>
           <Field label={t(`${k}.approverRole`)}>
             <Input value={approverRole} onChange={setApproverRole} />
@@ -94,11 +94,11 @@ export function RecipeFormDialog({
               onChange={setAutomaticChangeSet}
             />
           </Field>
-        </div>
+        </VStack>
       )}
 
       {(step === 2 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -140,7 +140,7 @@ export function RecipeFormDialog({
               onChange={setSupplierInformation}
             />
           </Field>
-        </div>
+        </VStack>
       )}
 
       <Field label={t(`${k}.comments`)}>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ResourceJobDetail, ResourceJobRecord } from "@/api";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, HStack, VStack, WizardSteps } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -74,7 +74,7 @@ export function ResourceJobFormDialog({
       )}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -110,29 +110,29 @@ export function ResourceJobFormDialog({
               ))}
             </select>
           </Field>
-          <div style={{ display: "flex", columnGap: theme.spacing.md }}>
+          <HStack gap={12}>
             <Field label={t(`${k}.priority`)}>
               <Input value={priority} onChange={setPriority} />
             </Field>
             <Field label={t(`${k}.progress`)}>
               <Input value={progress} onChange={setProgress} />
             </Field>
-          </div>
+          </HStack>
           <Field label={t(`${k}.equipmentJobId`)}>
             <Input value={equipmentJobId} onChange={setEquipmentJobId} />
           </Field>
           <Field label={t(`${k}.jobInformation`)}>
             <Input value={jobInformation} onChange={setJobInformation} />
           </Field>
-        </div>
+        </VStack>
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.materialsBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.materialsBody`)}</div>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.containersBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.containersBody`)}</div>
       )}
 
       <Field label={t(`${k}.comments`)}>

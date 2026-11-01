@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useGenericTables } from "@/api";
 import type { GenericTableKind, GenericTableRecord } from "@/api";
+import type { DataColumn } from "@/components/common";
 import {
   createAction,
   DataTableCard,
@@ -9,9 +10,8 @@ import {
   RECORD_STATE_COLUMN_OPTIONS,
   refreshAction,
   SidePanel,
-  SidebarNavItem,
+  SidebarNavItem, HStack, VStack 
 } from "@/components/common";
-import type { DataColumn } from "@/components/common";
 import { Table24Regular } from "@/components/icons";
 import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -21,9 +21,15 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 
 const useHubStyles = makeStyles({
-  body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  side: { display: "flex", flexDirection: "column", minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
+  body: {
+    minHeight: 0,
+  },
+  side: {
+    minHeight: 0,
+  },
+  main: {
+    minWidth: 0,
+  }
 });
 
 const TABLE_KINDS: Array<{
@@ -99,8 +105,8 @@ export function TablesHubPage() {
         actions: [createAction, refreshAction],
       }}
     >
-      <div className={styles.body}>
-        <div className={styles.side}>
+      <HStack gap="10px" className={styles.body}>
+        <VStack className={styles.side}>
           <SidePanel
             title={t("tables.typesTitle")}
             collapsed={collapsed}
@@ -116,11 +122,11 @@ export function TablesHubPage() {
               />
             ))}
           </SidePanel>
-        </div>
-        <div className={styles.main}>
+        </VStack>
+        <VStack className={styles.main}>
           <TablesGrid key={kind} kind={kind} />
-        </div>
-      </div>
+        </VStack>
+      </HStack>
     </ListPage>
   );
 }

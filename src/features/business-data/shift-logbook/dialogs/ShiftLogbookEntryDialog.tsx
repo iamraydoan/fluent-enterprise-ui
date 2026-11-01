@@ -1,16 +1,12 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField } from "@/components/common";
-import { Input, Text, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, DialogFooter, FormField, Grid  } from "@/components/common";
+import { Input, Text, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   fieldRow: {
-    display: "grid",
-    gridTemplateColumns: "140px 1fr",
-    alignItems: "center",
-    columnGap: theme.spacing.md,
-    marginBottom: theme.spacing.md,
+    marginBottom: "12px",
   },
   required: { color: theme.color.textDanger },
 });
@@ -95,14 +91,14 @@ export function ShiftLogbookEntryDialog({ initial, onClose }: EntryDialogProps) 
       <FormField label={<>{t("businessData.shiftLogbook.addEntry.resource")}</>} labelWidth="140px">
         <Input value={resource} onChange={setResource} />
       </FormField>
-      <div className={styles.fieldRow} style={{ alignItems: "start" }}>
+      <Grid columns="140px 1fr" gap="12px" align="center" style={{ alignItems: "start" }} className={styles.fieldRow}>
         <Text>{t("businessData.shiftLogbook.addEntry.description")}</Text>
         <Textarea value={description} onChange={setDescription} rows={5} />
-      </div>
-      <div className={styles.fieldRow} style={{ alignItems: "start" }}>
+      </Grid>
+      <Grid columns="140px 1fr" gap="12px" align="center" style={{ alignItems: "start" }} className={styles.fieldRow}>
         <Text>{t("businessData.shiftLogbook.addEntry.comments")}</Text>
         <Textarea value={comments} onChange={setComments} rows={2} />
-      </div>
+      </Grid>
     </BaseDialog>
   );
 }

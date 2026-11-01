@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, WizardSteps } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -71,12 +71,10 @@ export function ScheduleScenarioFormDialog({
         </>
       }
     >
-      {!nameReadOnly && (
-                <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />
-      )}
+      {!nameReadOnly && <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
+        <VStack gap={12}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -95,19 +93,19 @@ export function ScheduleScenarioFormDialog({
               ))}
             </select>
           </Field>
-        </div>
+        </VStack>
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.optimizationBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.optimizationBody`)}</div>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.untieBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.untieBody`)}</div>
       )}
 
       {step === 4 && !nameReadOnly && (
-        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.automaticBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.automaticBody`)}</div>
       )}
 
       <Field label={t(`${k}.comments`)}>

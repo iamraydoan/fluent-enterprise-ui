@@ -1,6 +1,7 @@
 import { useParams } from "@tanstack/react-router";
 import { useState } from "react";
 import { useChangeSetDetail } from "@/api";
+import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
   DetailShell,
@@ -10,9 +11,9 @@ import {
   ListPage,
   refreshAction,
   terminateAction,
-  TileGrid,
+  DetailTabs,
+  Empty,  SectionHeader, Grid, HStack 
 } from "@/components/common";
-import type { HeaderAction } from "@/components/common";
 import {
   Box24Regular,
   Checkmark16Filled,
@@ -26,7 +27,6 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  Text,
   makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -36,14 +36,17 @@ import { theme } from "@/styles/theme";
 import { useChangeSetDialogs } from "./useChangeSetDialogs";
 
 const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
+  
+  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
+  row: {
+    fontSize: "13px",
+  },
   label: { color: theme.color.textTertiary, minWidth: "180px" },
 });
 
@@ -180,9 +183,7 @@ export function ChangeSetDetailPage() {
           >
             {showItems ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.changeSet.detail.itemsTitle", { count: cs.items.length })}
-                </Text>
+                <SectionHeader title={t("businessData.changeSet.detail.itemsTitle", { count: cs.items.length })} />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -230,11 +231,9 @@ export function ChangeSetDetailPage() {
               </div>
             ) : showSubscribers ? (
               <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
-                  {t("businessData.changeSet.detail.subscribersTitle", {
+                <SectionHeader title={t("businessData.changeSet.detail.subscribersTitle", {
                     count: cs.subscribers.length,
-                  })}
-                </Text>
+                  })} />
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -253,11 +252,9 @@ export function ChangeSetDetailPage() {
                 </Table>
               </div>
             ) : (
-              <TileGrid minWidth="300px">
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.changeSet.detail.changeSet")}
-                  </Text>
+                  <SectionHeader title={t("businessData.changeSet.detail.changeSet")} />
                   <KV label={t("businessData.changeSet.detail.name")} value={cs.name} />
                   <KV
                     label={t("businessData.changeSet.detail.description")}
@@ -275,17 +272,13 @@ export function ChangeSetDetailPage() {
                   <KV label={t("businessData.changeSet.detail.dataGroup")} value={cs.dataGroup} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.changeSet.detail.information")}
-                  </Text>
+                  <SectionHeader title={t("businessData.changeSet.detail.information")} />
                   <KV label={t("businessData.changeSet.detail.category")} value={cs.category} />
                   <KV label={t("businessData.changeSet.detail.urgency")} value={cs.urgency} />
                   <KV label={t("businessData.changeSet.detail.owner")} value={cs.owner} />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.changeSet.detail.approval")}
-                  </Text>
+                  <SectionHeader title={t("businessData.changeSet.detail.approval")} />
                   <Bool
                     label={t("businessData.changeSet.detail.requiresApproval")}
                     value={cs.requiresApproval}
@@ -300,9 +293,7 @@ export function ChangeSetDetailPage() {
                   />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.changeSet.detail.notification")}
-                  </Text>
+                  <SectionHeader title={t("businessData.changeSet.detail.notification")} />
                   <Bool
                     label={t("businessData.changeSet.detail.sendEmailToApprovers")}
                     value={cs.sendEmailToApprovers}
@@ -313,9 +304,7 @@ export function ChangeSetDetailPage() {
                   />
                 </div>
                 <div className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.changeSet.detail.documentation")}
-                  </Text>
+                  <SectionHeader title={t("businessData.changeSet.detail.documentation")} />
                   <KV
                     label={t("businessData.changeSet.detail.reasonForChange")}
                     value={cs.reasonForChange}
@@ -325,13 +314,11 @@ export function ChangeSetDetailPage() {
                     value={cs.descriptionOfChange}
                   />
                 </div>
-              </TileGrid>
+              </Grid>
             )}
           </DetailShell>
         )}
-        {tab !== "details" && (
-          <Empty>{t("businessData.changeSet.detail.historyEmpty")}</Empty>
-        )}
+        {tab !== "details" && <Empty>{t("businessData.changeSet.detail.historyEmpty")}</Empty>}
       </DetailTabs>
     </ListPage>
   );
@@ -341,10 +328,10 @@ function KV({ label, value }: { label: string; value: string }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>{value === "" ? t("businessData.changeSet.detail.emptyValue") : value}</span>
-    </div>
+    </HStack>
   );
 }
 
@@ -352,11 +339,11 @@ function Bool({ label, value }: { label: string; value: boolean }) {
   const styles = useDetailStyles();
   const { t } = useAppTranslation();
   return (
-    <div className={styles.row}>
+    <HStack gap="12px" className={styles.row}>
       <span className={styles.label}>{label}:</span>
       <span>
         {value ? t("businessData.changeSet.detail.yes") : t("businessData.changeSet.detail.no")}
       </span>
-    </div>
+    </HStack>
   );
 }

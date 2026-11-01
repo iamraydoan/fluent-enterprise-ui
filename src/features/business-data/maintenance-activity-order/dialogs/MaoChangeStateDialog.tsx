@@ -58,11 +58,7 @@ export function MaoChangeStateDialog({
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.confirm)} />}
     >
       <div>{t(L.changeStateMessage, { action: actionLabel, name })}</div>
-      <Textarea
-        placeholder={t(L.comment)}
-        value={comment}
-        onChange={setComment}
-      />
+      <Textarea placeholder={t(L.comment)} value={comment} onChange={setComment} />
     </BaseDialog>
   );
 }

@@ -1,3 +1,4 @@
+import { HStack } from "@/components/common";
 import { theme } from "@/styles/theme";
 import { useDialogStyles } from "./dialogShared";
 
@@ -6,7 +7,7 @@ export function WizardSteps({ steps, current }: { steps: string[]; current: numb
   return (
     <div className={styles.steps}>
       {steps.map((step, i) => (
-        <div key={step} style={{ display: "flex", alignItems: "center", gap: theme.spacing.sm }}>
+        <HStack gap="8px" align="center" key={step}>
           {i > 0 && (
             <div
               style={{
@@ -26,14 +27,13 @@ export function WizardSteps({ steps, current }: { steps: string[]; current: numb
             </span>
             <span
               style={{
-                color:
-                  i === current ? theme.color.textPrimary : theme.color.textTertiary,
+                color: i === current ? theme.color.textPrimary : theme.color.textTertiary,
               }}
             >
               {step}
             </span>
           </div>
-        </div>
+        </HStack>
       ))}
     </div>
   );

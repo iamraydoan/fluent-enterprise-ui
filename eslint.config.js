@@ -150,6 +150,47 @@ export default tseslint.config(
     rules: { "no-restricted-syntax": "off" },
   },
   {
+    files: ["src/features/**/*.{ts,tsx}"],
+    ignores: [
+      "src/features/ai/chat/AiChatPage.tsx",
+      "src/features/**/dialogStyles.ts",
+      "src/features/**/dialogShared.ts",
+    ],
+    rules: {
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector:
+            'CallExpression[callee.name="makeStyles"] Property[key.name="display"] > Literal[value=/^(flex|grid)$/]',
+          message:
+            "Do not hand-roll flex/grid in makeStyles. Use HStack/VStack/TileGrid from @/components/common.",
+        },
+        {
+          selector:
+            'JSXAttribute[name.name="style"] Property[key.name="display"] > Literal[value=/^(flex|grid)$/]',
+          message:
+            "Do not hand-roll flex/grid in style props. Use HStack/VStack/TileGrid from @/components/common.",
+        },
+        {
+          selector: 'JSXOpeningElement[name.name="button"]',
+          message:
+            "Do not use raw <button> in features. Use Button/IconButton/MenuTriggerButton/OptionItem/NavItem/SectionHeader from @/components/common or @/components/ui.",
+        },
+        {
+          selector:
+            'CallExpression[callee.name="makeStyles"] Literal[value=/^#[0-9a-fA-F]{3,8}$/]',
+          message:
+            "Do not hardcode hex colors in makeStyles. Use theme.* from @/styles/theme (single source of truth).",
+        },
+        {
+          selector: 'JSXAttribute[name.name="style"] Literal[value=/^#[0-9a-fA-F]{3,8}$/]',
+          message:
+            "Do not hardcode hex colors in style props. Use theme.* from @/styles/theme (single source of truth).",
+        },
+      ],
+    },
+  },
+  {
     files: ["src/routes/**/*.{ts,tsx}"],
     rules: { "react-refresh/only-export-components": "off" },
   },
@@ -260,6 +301,13 @@ export default tseslint.config(
               "variant",
               "confirmVariant",
               "labelWidth",
+              "labelAlign",
+              "gap",
+              "align",
+              "justify",
+              "columns",
+              "wrap",
+              "role",
               "shape",
               "size",
               "color",

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSiteDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, VStack  } from "@/components/common";
 import { Globe24Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -56,13 +56,13 @@ export function SiteDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.site.sections.facilities")} ({data.facilities.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
+        <VStack gap="8px" style={{marginTop: "12px"}}>
           {data.facilities.map((facility) => (
             <div key={facility} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{facility}</Body1Strong>
             </div>
           ))}
-        </div>
+        </VStack>
       </Panel>
     );
   } else if (

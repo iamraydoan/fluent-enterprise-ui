@@ -1,4 +1,5 @@
 import type { DataCollectionParameter } from "@/api";
+import { Empty } from "@/components/common";
 import { useAppTranslation } from "@/i18n";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import { DataValuesEditor } from "./DataValuesEditor";
@@ -27,9 +28,7 @@ export function PerformImmediateParametersStep({
           {t("businessData.dataCollection.operations.useDcParametersHint")}
         </div>
         {dcParameters.length === 0 && (
-          <div className={styles.empty}>
-            {t("businessData.dataCollection.operations.noParameters")}
-          </div>
+          <Empty>{t("businessData.dataCollection.operations.noParameters")}</Empty>
         )}
         {dcParameters.map((p) => (
           <div key={p.parameter} className={styles.kvRow}>

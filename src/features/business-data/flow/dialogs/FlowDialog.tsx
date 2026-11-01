@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BaseDialog, FormField } from "@/components/common";
-import { Button, Checkbox, Input, Textarea, makeStyles} from "@/components/ui";
+import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -43,9 +43,7 @@ const L: Record<string, TranslationKey> = {
 
 const useStyles = makeStyles({
   steps: {
-    display: "flex",
-    gap: theme.spacing.lg,
-    padding: `${theme.spacing.xs} ${theme.spacing.xs} ${theme.spacing.md}`,
+    padding: "4px 4px 12px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: theme.spacing.xs,
   },
@@ -63,7 +61,7 @@ const useStyles = makeStyles({
     backgroundColor: theme.color.surface,
   },
   hint: { fontSize: theme.font.sizeSm, color: theme.color.textTertiary },
-  row: { display: "flex", gap: theme.spacing.sm, alignItems: "center" },
+  
 });
 
 interface DialogProps {
@@ -118,19 +116,15 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
         </>
       }
     >
-      <div className={styles.steps}>
+      <HStack gap="16px" className={styles.steps}>
         <span className={step === 1 ? styles.stepActive : styles.step}>{t(L.step1)}</span>
         <span className={step === 2 ? styles.stepActive : styles.step}>{t(L.step2)}</span>
         <span className={step === 3 ? styles.stepActive : styles.step}>{t(L.step3)}</span>
-      </div>
+      </HStack>
       {step === 1 && (
         <>
           <FormField label={<>{t(L.changeSet)}</>} labelWidth="170px">
-            <Input
-              value={changeSet}
-              onChange={setChangeSet}
-              disabled={useAutoCs}
-            />
+            <Input value={changeSet} onChange={setChangeSet} disabled={useAutoCs} />
           </FormField>
           <FormField
             label={
@@ -176,11 +170,7 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
             }
             labelWidth="170px"
           >
-            <Input
-              value={name}
-              onChange={setName}
-              disabled={mode === MODE_EDIT}
-            />
+            <Input value={name} onChange={setName} disabled={mode === MODE_EDIT} />
           </FormField>
           <FormField label={<>{t(L.revision)}</>} labelWidth="170px">
             <Input value={revision} onChange={setRevision} />
@@ -211,32 +201,28 @@ export function FlowDialog({ mode, initialName, onClose }: DialogProps) {
             }
             labelWidth="170px"
           >
-            <Checkbox
-              label={t(L.isEnabled)}
-              checked={isEnabled === true}
-              onChange={setIsEnabled}
-            />
+            <Checkbox label={t(L.isEnabled)} checked={isEnabled === true} onChange={setIsEnabled} />
           </FormField>
         </>
       )}
       {step === 3 && (
         <>
           <div className={styles.hint}>{t(L.flowItemsHint)}</div>
-          <div className={styles.row}>
+          <HStack gap="8px" align="center">
             <Button size="sm" onClick={() => setItems([...items, `Step ${items.length + 1}`])}>
               + {t(L.addStep)}
             </Button>
             <Button size="sm" onClick={() => setItems([...items, `Flow ${items.length + 1}`])}>
               + {t(L.addFlow)}
             </Button>
-          </div>
+          </HStack>
           {items.map((item, i) => (
-            <div key={i} className={styles.row}>
+            <HStack gap="8px" align="center" key={i}>
               <span style={{ flex: 1 }}>{item}</span>
               <Button size="sm" onClick={() => setItems(items.filter((_, j) => j !== i))}>
                 {t(L.remove)}
               </Button>
-            </div>
+            </HStack>
           ))}
         </>
       )}

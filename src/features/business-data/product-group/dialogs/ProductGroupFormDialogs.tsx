@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter } from "@/components/common";
+import { BaseDialog, DialogFooter, HStack  } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import {
   Button,
@@ -413,21 +413,14 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
         />
       }
     >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: theme.spacing.md,
-        }}
-      >
+      <HStack align="center" justify="space-between" style={{marginBottom: "12px"}}>
         <Text weight="semibold">
           {t("businessData.productGroup.operations.clone.newInstances")}
         </Text>
         <Button variant="subtle" icon={<Add24Regular />} onClick={addRow}>
           {t("businessData.productGroup.operations.clone.add")}
         </Button>
-      </div>
+      </HStack>
       {rows.map((row, i) => (
         <div key={i} className={styles.row} style={{ marginBottom: theme.spacing.md }}>
           <div className={styles.col}>

@@ -54,7 +54,7 @@ const useEditStyles = makeStyles({
     minWidth: 0,
     border: `1px solid ${theme.color.border}`,
     borderRadius: "2px",
-    backgroundColor: "#fff",
+    backgroundColor: theme.color.surface,
   },
   toolbar: {
     display: "flex",
@@ -75,7 +75,7 @@ const useEditStyles = makeStyles({
     height: "32px",
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: "4px",
-    background: "#fff",
+    background: theme.color.surface,
     fontFamily: "inherit",
     fontSize: "13px",
     padding: "0 6px",
@@ -222,16 +222,13 @@ export function EditInstructionsDialog({
       footer={
         <>
           <Button onClick={onClose}>{t("common.cancel")}</Button>
-          <Button
-            variant="primary"
-            onClick={() => onSave(editorRef.current?.innerText ?? value)}
-          >
+          <Button variant="primary" onClick={() => onSave(editorRef.current?.innerText ?? value)}>
             {t("common.save")}
           </Button>
         </>
       }
     >
-      <div style={{ padding: `26px ${theme.spacing["2xl"]} 10px`, fontSize: 14, color: theme.color.textPrimary }}>
+      <div style={{ padding: "26px 32px 10px", fontSize: 14, color: theme.color.textPrimary }}>
         {t("dialogs.editInstructions.instructions")}
       </div>
       <div className={editStyles.field}>

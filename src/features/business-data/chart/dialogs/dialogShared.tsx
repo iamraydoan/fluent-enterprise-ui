@@ -1,5 +1,5 @@
-import { BaseDialog } from "@/components/common";
-import { Input} from "@/components/ui";
+import { BaseDialog, VStack  } from "@/components/common";
+import { Input } from "@/components/ui";
 import { theme } from "@/styles/theme";
 
 export function DialogShell({
@@ -40,13 +40,13 @@ export function NumField({
   onChange: (v: number | undefined) => void;
 }) {
   return (
-    <div className="num-field" style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.xs }}>
+    <VStack gap="4px" className="num-field">
       <span style={{ fontSize: "12px", color: theme.color.textTertiary }}>{label}</span>
       <Input
         type="number"
         value={value === undefined ? "" : String(value)}
         onChange={(value) => onChange(value === "" ? undefined : Number(value))}
       />
-    </div>
+    </VStack>
   );
 }
