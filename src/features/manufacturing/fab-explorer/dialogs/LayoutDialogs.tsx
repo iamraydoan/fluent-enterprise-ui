@@ -36,6 +36,8 @@ export function SaveLayoutDialog({
   const { t } = useAppTranslation();
   const styles = useLayoutStyles();
   const [scope, setScope] = useState<"mine" | "all">("mine");
+  const SCOPE_MINE = "mine";
+  const SCOPE_ALL = "all";
   return (
     <BaseDialog
       open={open}
@@ -52,10 +54,10 @@ export function SaveLayoutDialog({
       <div className={styles.hint}>
         {t("manufacturing.fabExplorer.dialogs.saveLayout.selectOption")}
       </div>
-      <OptionItem selected={scope === "mine"} onClick={() => setScope("mine")}>
+      <OptionItem selected={scope === SCOPE_MINE} onClick={() => setScope(SCOPE_MINE)}>
         {t("manufacturing.fabExplorer.dialogs.saveLayout.saveAsMyDefault")}
       </OptionItem>
-      <OptionItem selected={scope === "all"} onClick={() => setScope("all")}>
+      <OptionItem selected={scope === SCOPE_ALL} onClick={() => setScope(SCOPE_ALL)}>
         {t("manufacturing.fabExplorer.dialogs.saveLayout.saveAsDefaultForAllUsers")}
       </OptionItem>
     </BaseDialog>
