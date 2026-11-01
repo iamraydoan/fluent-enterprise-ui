@@ -16,11 +16,11 @@ import { FAB_LEVELS } from "../fabLevels";
 
 const useViewStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   breadcrumb: {
     display: "flex",
     alignItems: "center",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     fontSize: "13px",
     color: theme.color.textBrand,
   },
@@ -37,7 +37,7 @@ const useViewStyles = makeStyles({
   areaCount: {
     display: "flex",
     alignItems: "center",
-    columnGap: "4px",
+    columnGap: theme.spacing.xs,
     fontSize: "12px",
     color: theme.color.textSecondary,
   },

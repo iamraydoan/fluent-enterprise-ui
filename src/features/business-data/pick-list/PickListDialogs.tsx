@@ -5,18 +5,18 @@ import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  field: { marginBottom: "16px" },
+  field: { marginBottom: theme.spacing.lg },
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
-  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
+  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: theme.spacing.xs },
   table: {
     width: "100%",
     borderCollapse: "collapse",
     fontSize: "13px",
-    marginTop: "12px",
+    marginTop: theme.spacing.md,
   },
   th: {
     textAlign: "left",
-    padding: "8px 12px",
+    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontWeight: 600,
     fontSize: "12px",
@@ -25,7 +25,7 @@ const useDialogStyles = makeStyles({
     color: theme.color.textTertiary,
   },
   td: {
-    padding: "8px 12px",
+    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });
@@ -138,7 +138,7 @@ export function ManagePickListItemsDialog({ open, onClose, onSubmit }: DialogPro
           </tr>
         </tbody>
       </table>
-      <div className={styles.hint} style={{ marginTop: "12px" }}>
+      <div className={styles.hint} style={{ marginTop: theme.spacing.md }}>
         {t(`${P}.warning` as never)}
       </div>
     </BaseDialog>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseDialog, WizardSteps } from "@/components/common";
 import { Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface UnterminateRecipeDialogProps {
   open: boolean;
@@ -52,9 +53,9 @@ export function UnterminateRecipeDialog({
             <WizardSteps steps={[t(`${k}.changeSet`), t(`${k}.details`)]} current={step} />
 
       {step === 1 && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.changeSet`)}>
-            <div style={{ display: "flex", columnGap: 8 }}>
+            <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
               <Input value={changeSet} onChange={setChangeSet} />
               <Button variant="secondary" onClick={() => {}}>
                 {t(`${k}.createNew`)}
@@ -74,7 +75,7 @@ export function UnterminateRecipeDialog({
       )}
 
       {step === 2 && (
-        <div style={{ padding: "12px 0" }}>{t(`${k}.message`, { name: recipeName })}</div>
+        <div style={{ padding: `${theme.spacing.md} 0` }}>{t(`${k}.message`, { name: recipeName })}</div>
       )}
     </BaseDialog>
   );

@@ -18,12 +18,12 @@ const L: Record<string, TranslationKey> = {
 const useDialogStyles = makeStyles({
   steps: {
     display: "flex",
-    columnGap: "8px",
-    padding: "12px 20px",
+    columnGap: theme.spacing.sm,
+    padding: `${theme.spacing.md} 20px`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   step: {
-    padding: "6px 12px",
+    padding: `6px ${theme.spacing.md}`,
     borderRadius: theme.radius.md,
     cursor: "pointer",
     backgroundColor: theme.color.surfaceSecondary,
@@ -33,20 +33,20 @@ const useDialogStyles = makeStyles({
     color: theme.color.textBrandSecondary,
     fontWeight: theme.font.weightSemibold,
   },
-  body: { padding: "16px 20px", overflow: "auto", minHeight: 0 },
+  body: { padding: `${theme.spacing.lg} 20px`, overflow: "auto", minHeight: 0 },
   gridHeader: {
     display: "grid",
     gridTemplateColumns: "1fr 110px 110px 90px 130px 120px 32px",
-    columnGap: "8px",
-    padding: "8px 0",
+    columnGap: theme.spacing.sm,
+    padding: `${theme.spacing.sm} 0`,
     fontWeight: theme.font.weightSemibold,
   },
   gridRow: {
     display: "grid",
     gridTemplateColumns: "1fr 110px 110px 90px 130px 120px 32px",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     alignItems: "center",
-    padding: "4px 0",
+    padding: `${theme.spacing.xs} 0`,
   },
 });
 
@@ -166,7 +166,7 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
             />
           </div>
         ))}
-        <div style={{ marginTop: "8px" }}>
+        <div style={{ marginTop: theme.spacing.sm }}>
           <Button
             variant="subtle"
             icon={<Add24Regular />}
@@ -181,7 +181,7 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
     const shift = shifts[activeShift];
     body = (
       <>
-        <div style={{ display: "flex", columnGap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", columnGap: theme.spacing.sm, marginBottom: theme.spacing.md, flexWrap: "wrap" }}>
           {shifts.map((s, i) => (
             <Button
               key={i}
@@ -219,7 +219,7 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
             />
           </div>
         ))}
-        <div style={{ marginTop: "8px" }}>
+        <div style={{ marginTop: theme.spacing.sm }}>
           <Button variant="subtle" icon={<Add24Regular />} onClick={addNonWorking}>
             {t("actionBar.create")}
           </Button>

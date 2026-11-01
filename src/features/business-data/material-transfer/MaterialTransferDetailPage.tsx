@@ -6,6 +6,7 @@ import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
 import {
   ApproveMaterialTransferDialog,
@@ -30,8 +31,8 @@ import {
 } from "./MaterialTransferDialogs";
 
 const useStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" },
-  sectionTitle: { marginBottom: "8px" },
+  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: theme.spacing.md },
+  sectionTitle: { marginBottom: theme.spacing.sm },
 });
 
 function Card({ titleKey, rows }: { titleKey: TranslationKey; rows: [string, React.ReactNode][] }) {
@@ -39,7 +40,7 @@ function Card({ titleKey, rows }: { titleKey: TranslationKey; rows: [string, Rea
   const shared = useSharedStyles();
   const styles = useStyles();
   return (
-    <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+    <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
       <Text weight="semibold" size={400} className={styles.sectionTitle}>
         {t(titleKey)}
       </Text>

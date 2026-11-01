@@ -25,28 +25,28 @@ const useDetailStyles = makeStyles({
   cards: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
+    gap: theme.spacing.md,
   },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
+  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
   split: {
     display: "grid",
     gridTemplateColumns: "minmax(320px, 2fr) 3fr",
-    gap: "12px",
+    gap: theme.spacing.md,
     alignItems: "start",
   },
-  itemList: { display: "flex", flexDirection: "column", rowGap: "4px" },
+  itemList: { display: "flex", flexDirection: "column", rowGap: theme.spacing.xs },
   itemButton: {
     textAlign: "left",
-    padding: "10px 12px",
+    padding: `10px ${theme.spacing.md}`,
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
@@ -59,15 +59,15 @@ const useDetailStyles = makeStyles({
     backgroundColor: theme.color.brandInvertedSelected,
     fontWeight: theme.font.weightSemibold,
   },
-  itemDesc: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
+  itemDesc: { fontSize: "12px", color: theme.color.textTertiary, marginTop: theme.spacing.xs },
   subTabs: {
     display: "flex",
-    columnGap: "4px",
+    columnGap: theme.spacing.xs,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    marginBottom: "12px",
+    marginBottom: theme.spacing.md,
   },
   subTab: {
-    padding: "8px 16px",
+    padding: `${theme.spacing.sm} ${theme.spacing.lg}`,
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",
@@ -299,7 +299,7 @@ export function ChecklistDetailPage() {
                     ))}
                   </div>
                   {subTab === "generalData" && (
-                    <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+                    <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
                       <KV label={t("businessData.checklist.detail.itemName")} value={item.name} />
                       <KV
                         label={t("businessData.checklist.detail.activityType")}
@@ -364,7 +364,7 @@ function InstanceRow({
       className={styles.row}
       style={{
         alignItems: "center",
-        padding: "8px 0",
+        padding: `${theme.spacing.sm} 0`,
         borderBottom: `1px solid ${theme.color.borderSubtle}`,
       }}
     >
@@ -376,7 +376,7 @@ function InstanceRow({
           {instance.material ? ` · ${instance.material}` : ""}
         </div>
       </div>
-      <div style={{ display: "flex", columnGap: "4px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", columnGap: theme.spacing.xs, flexWrap: "wrap" }}>
         <Button variant="secondary" size="sm" onClick={onPerform}>
           {t("businessData.checklist.operations.perform")}
         </Button>

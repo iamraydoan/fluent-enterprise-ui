@@ -37,12 +37,12 @@ import {
 } from "./dataCollectionLimitSetLookups";
 
 const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
-  fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
+  fieldRow: { display: "flex", flexDirection: "column", rowGap: theme.spacing.xs, marginBottom: theme.spacing.md },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
   staticValue: { fontSize: "13px", padding: "6px 0" },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
-  split: { display: "flex", columnGap: "16px", minHeight: "320px" },
+  empty: { padding: theme.spacing.lg, textAlign: "center", color: theme.color.textTertiary },
+  split: { display: "flex", columnGap: theme.spacing.lg, minHeight: "320px" },
   listPane: {
     flex: "0 0 240px",
     display: "flex",
@@ -53,10 +53,10 @@ const useDialogStyles = makeStyles({
   },
   listToolbar: {
     display: "flex",
-    columnGap: "4px",
-    rowGap: "4px",
+    columnGap: theme.spacing.xs,
+    rowGap: theme.spacing.xs,
     flexWrap: "wrap",
-    padding: "8px",
+    padding: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     alignItems: "center",
   },
@@ -69,7 +69,7 @@ const useDialogStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: "transparent",
     cursor: "pointer",
-    padding: "8px 12px",
+    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
     fontFamily: "inherit",
     fontSize: "13px",
     display: "flex",
@@ -81,21 +81,21 @@ const useDialogStyles = makeStyles({
   formPane: { flexGrow: 1, minWidth: 0 },
   formRow: {
     display: "flex",
-    columnGap: "8px",
-    rowGap: "8px",
+    columnGap: theme.spacing.sm,
+    rowGap: theme.spacing.sm,
     alignItems: "flex-end",
     flexWrap: "wrap",
-    marginBottom: "12px",
+    marginBottom: theme.spacing.md,
   },
-  miniLabel: { fontSize: "12px", color: theme.color.textTertiary, marginBottom: "4px" },
+  miniLabel: { fontSize: "12px", color: theme.color.textTertiary, marginBottom: theme.spacing.xs },
   grow: { flex: "1 1 160px", minWidth: "140px" },
   numWrap: { flex: "0 1 120px", minWidth: "100px" },
-  optionsBar: { display: "flex", justifyContent: "flex-end", marginBottom: "12px" },
+  optionsBar: { display: "flex", justifyContent: "flex-end", marginBottom: theme.spacing.md },
   checkRow: {
     display: "flex",
     alignItems: "center",
-    columnGap: "8px",
-    padding: "8px 0",
+    columnGap: theme.spacing.sm,
+    padding: `${theme.spacing.sm} 0`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
 });
@@ -346,7 +346,7 @@ export function ParameterLimitsEditor({
           )}
           {selected && (
             <div>
-              <div className={styles.fieldLabel} style={{ marginBottom: "12px" }}>
+              <div className={styles.fieldLabel} style={{ marginBottom: theme.spacing.md }}>
                 {t("businessData.dataCollectionLimitSet.operations.limitsTitle")}
               </div>
               <div className={styles.formRow}>
@@ -601,7 +601,7 @@ export function SampleLimitsEditor({
                       <button
                         key={s.id}
                         className={`${styles.listItem} ${selectedSample?.id === s.id ? styles.listItemActive : ""}`}
-                        style={{ paddingLeft: "24px" }}
+                        style={{ paddingLeft: theme.spacing.xl }}
                         onClick={() => setSelectedSampleId(s.id)}
                       >
                         <span>
@@ -623,7 +623,7 @@ export function SampleLimitsEditor({
             )}
             {selectedSample && (
               <div>
-                <div className={styles.fieldLabel} style={{ marginBottom: "12px" }}>
+                <div className={styles.fieldLabel} style={{ marginBottom: theme.spacing.md }}>
                   {t("businessData.dataCollectionLimitSet.operations.sampleLimitsTitle")}
                 </div>
                 <div className={styles.formRow}>

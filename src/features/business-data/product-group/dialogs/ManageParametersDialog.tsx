@@ -113,13 +113,13 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginBottom: "12px",
+              marginBottom: theme.spacing.md,
             }}
           >
             <Text weight="semibold">
               {t("businessData.productGroup.operations.manageParameters.parameters")}
             </Text>
-            <div style={{ display: "flex", gap: "4px" }}>
+            <div style={{ display: "flex", gap: theme.spacing.xs }}>
               <Button variant="subtle" icon={<Add24Regular />} onClick={addParam} />
               {selected && (
                 <Button
@@ -142,7 +142,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                 key={p.id}
                 onClick={() => setSelectedId(p.id)}
                 style={{
-                  padding: "10px 12px",
+                  padding: `10px ${theme.spacing.md}`,
                   cursor: "pointer",
                   backgroundColor:
                     p.id === selectedId ? theme.color.brandSubtle : "transparent",
@@ -170,7 +170,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
             {params.length === 0 && (
               <div
                 style={{
-                  padding: "16px",
+                  padding: theme.spacing.lg,
                   textAlign: "center",
                   color: theme.color.textTertiary,
                 }}
@@ -182,7 +182,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
         </div>
 
         <div style={{ flex: 1 }}>
-          <Text weight="semibold" style={{ marginBottom: "16px", display: "block" }}>
+          <Text weight="semibold" style={{ marginBottom: theme.spacing.lg, display: "block" }}>
             {t("businessData.productGroup.operations.manageParameters.parameterDetails")}
           </Text>
           {selected ? (
@@ -206,7 +206,7 @@ export function ManageProductGroupParametersDialog({ open, onClose, onSubmit }: 
                 />
               </Field>
               <Field label={t("businessData.productGroup.operations.manageParameters.fields.type")}>
-                <div style={{ display: "flex", gap: "16px" }}>
+                <div style={{ display: "flex", gap: theme.spacing.lg }}>
                   {PARAM_TYPES.map((opt) => (
                     <label
                       key={opt}

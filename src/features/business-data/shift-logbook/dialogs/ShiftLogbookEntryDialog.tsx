@@ -9,8 +9,8 @@ const useDialogStyles = makeStyles({
     display: "grid",
     gridTemplateColumns: "140px 1fr",
     alignItems: "center",
-    columnGap: "12px",
-    marginBottom: "12px",
+    columnGap: theme.spacing.md,
+    marginBottom: theme.spacing.md,
   },
   required: { color: theme.color.textDanger },
 });

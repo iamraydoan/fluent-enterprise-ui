@@ -3,6 +3,7 @@ import type { QualificationDetail } from "@/api";
 import { BaseDialog, DialogFooter } from "@/components/common";
 import { Body1Strong, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface QualificationFormDialogProps {
   open: boolean;
@@ -54,7 +55,7 @@ export function QualificationFormDialog({
       width="min(900px, 90vw)"
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={submitLabel} />}
     >
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 16 }}>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.lg }}>
         <Body1Strong>{t(`${k}.generalData`)}</Body1Strong>
         <Field label={t(`${k}.name`)} required>
           <Input value={name} readOnly={nameReadOnly} onChange={setName} />
@@ -101,7 +102,7 @@ export function QualificationFormDialog({
         </Field>
 
         <Body1Strong>{t(`${k}.validityPeriod`)}</Body1Strong>
-        <div style={{ display: "flex", columnGap: 8 }}>
+        <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
           <Field label={t(`${k}.validFor`)}>
             <Input value={validForValue} onChange={setValidForValue} />
           </Field>
@@ -123,7 +124,7 @@ export function QualificationFormDialog({
         </Field>
 
         <Body1Strong>{t(`${k}.gracePeriod`)}</Body1Strong>
-        <div style={{ display: "flex", columnGap: 8 }}>
+        <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
           <Field label={t(`${k}.duration`)}>
             <Input value={graceValue} onChange={setGraceValue} />
           </Field>

@@ -17,12 +17,12 @@ const useListStyles = makeStyles({
   row: {
     display: "grid",
     gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     alignItems: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  empty: { padding: theme.spacing.lg, textAlign: "center", color: theme.color.textTertiary },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
 });
 
 function BomItemListEditor({
@@ -90,7 +90,7 @@ function BomItemListEditor({
 }
 
 const useManageDialogStyles = makeStyles({
-  checkRow: { display: "flex", alignItems: "center", columnGap: "8px", marginTop: "12px" },
+  checkRow: { display: "flex", alignItems: "center", columnGap: theme.spacing.sm, marginTop: theme.spacing.md },
 });
 
 export function ManageBomItemsDialog({
@@ -118,7 +118,7 @@ export function ManageBomItemsDialog({
       }
     >
       <Text>{t("businessData.bom.operations.manageItemsHint", { name: bomName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         <BomItemListEditor
           values={values}
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}

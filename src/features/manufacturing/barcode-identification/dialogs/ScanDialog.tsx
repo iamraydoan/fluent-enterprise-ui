@@ -43,13 +43,13 @@ const useScanStyles = makeStyles({
   typeRow: {
     display: "flex",
     justifyContent: "center",
-    columnGap: "24px",
-    paddingTop: "4px",
+    columnGap: theme.spacing.xl,
+    paddingTop: theme.spacing.xs,
   },
   typeOption: {
     display: "flex",
     alignItems: "center",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     cursor: "pointer",
     fontSize: "13px",
   },

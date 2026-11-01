@@ -4,6 +4,7 @@ import { BaseDialog, WizardSteps } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface SendAheadRunFormDialogProps {
   open: boolean;
@@ -72,7 +73,7 @@ export function SendAheadRunFormDialog({
       )}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -86,7 +87,7 @@ export function SendAheadRunFormDialog({
       )}
 
       {step > 1 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: "#666" }}>
+        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>
           {t("businessData.sendAheadRun.dialogs.form.stepBody", {
             step: t(STEP_KEYS[step - 1]),
           })}

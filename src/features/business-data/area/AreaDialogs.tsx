@@ -8,19 +8,19 @@ const useManageDialogStyles = makeStyles({
   row: {
     display: "grid",
     gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr) auto",
-    columnGap: "12px",
+    columnGap: theme.spacing.md,
     alignItems: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
-  empty: { padding: "24px", textAlign: "center", color: theme.color.textTertiary },
+  empty: { padding: theme.spacing.xl, textAlign: "center", color: theme.color.textTertiary },
   dashboardItem: {
     display: "flex",
     alignItems: "center",
-    columnGap: "12px",
-    padding: "12px",
+    columnGap: theme.spacing.md,
+    padding: theme.spacing.md,
     border: `1px solid ${theme.color.borderSubtle}`,
     borderRadius: theme.radius.md,
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
     cursor: "pointer",
     width: "100%",
     backgroundColor: "transparent",
@@ -72,7 +72,7 @@ export function ManageSupplyAreasDialog({
       }
     >
       <Text>{t("businessData.area.operations.manageSupplyAreasHint", { name: areaName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         {rows.length === 0 && (
           <div className={styles.empty}>{t("businessData.area.operations.noSupplyAreas")}</div>
         )}
@@ -148,7 +148,7 @@ export function ManageTransferRequirementTypesDialog({
       }
     >
       <Text>{t("businessData.area.operations.manageTransferTypesHint", { name: areaName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         {rows.length === 0 && (
           <div className={styles.empty}>{t("businessData.area.operations.noTransferTypes")}</div>
         )}

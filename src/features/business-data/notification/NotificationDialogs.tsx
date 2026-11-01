@@ -23,11 +23,11 @@ import {
 } from "./notificationOptions";
 
 const useDialogStyles = makeStyles({
-  field: { marginBottom: "16px" },
+  field: { marginBottom: theme.spacing.lg },
   label: { display: "block", fontSize: "13px", fontWeight: 600, marginBottom: "6px" },
-  required: { color: theme.color.textDanger, marginRight: "4px" },
-  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: "4px" },
-  row: { display: "flex", gap: "12px" },
+  required: { color: theme.color.textDanger, marginRight: theme.spacing.xs },
+  hint: { fontSize: "12px", color: theme.color.textTertiary, marginTop: theme.spacing.xs },
+  row: { display: "flex", gap: theme.spacing.md },
   col: { flex: 1 },
 });
 

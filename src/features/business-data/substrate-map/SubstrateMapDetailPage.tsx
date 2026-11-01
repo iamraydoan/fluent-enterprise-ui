@@ -6,6 +6,7 @@ import { Grid24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
 import { formatOverlayMeta } from "./substrateMapHelpers";
 
@@ -51,7 +52,7 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
         <Caption1>{t("businessData.substrateMap.content.hint")}</Caption1>
         <div
           className={sharedStyles.contentCard}
-          style={{ padding: "16px", marginTop: "12px", minHeight: "300px" }}
+          style={{ padding: theme.spacing.lg, marginTop: theme.spacing.md, minHeight: "300px" }}
         >
           <Caption1>{t("businessData.substrateMap.content.empty")}</Caption1>
         </div>
@@ -74,12 +75,12 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.substrateMap.manageOverlayInfo")}</Button>
         </div>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
           {data.overlays.map((overlay) => (
             <div
               key={overlay.name}
               className={sharedStyles.contentCard}
-              style={{ padding: "12px" }}
+              style={{ padding: theme.spacing.md }}
             >
               <Body1Strong>
                 {overlay.name}
@@ -103,7 +104,7 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+      <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
         <Body1Strong>{t("businessData.substrateMap.sections.details")}</Body1Strong>
         <KV
           rows={[

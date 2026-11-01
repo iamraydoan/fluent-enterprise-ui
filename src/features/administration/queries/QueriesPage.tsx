@@ -30,7 +30,7 @@ const usePageStyles = makeStyles({
     fontSize: "11px",
     color: theme.color.textTertiary,
     textTransform: "uppercase",
-    padding: "12px 12px 4px",
+    padding: `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.xs}`,
     letterSpacing: "0.5px",
   },
 });

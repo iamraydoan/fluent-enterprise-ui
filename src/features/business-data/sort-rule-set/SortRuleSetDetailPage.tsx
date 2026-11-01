@@ -6,6 +6,7 @@ import { ArrowUp20Regular } from "@/components/icons";
 import { Body1Strong, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
 import { formatRuleMeta } from "./sortRuleSetHelpers";
 
@@ -58,9 +59,9 @@ export function SortRuleSetDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.sortRuleSet.manageRules")}</Button>
         </div>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
           {data.rules.map((rule, index) => (
-            <div key={rule.rule} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
+            <div key={rule.rule} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>
                 {index + 1}. {rule.rule}
               </Body1Strong>
@@ -83,7 +84,7 @@ export function SortRuleSetDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+      <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
         <Body1Strong>{t("businessData.sortRuleSet.sections.details")}</Body1Strong>
         <KV
           rows={[

@@ -18,12 +18,12 @@ import { FAB_LEVELS } from "../fabLevels";
 
 const useViewStyles = makeStyles({
   body: { display: "flex", columnGap: "10px", flexGrow: 1, minHeight: 0 },
-  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  main: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   sectionLabel: {
     fontSize: "11px",
     color: theme.color.textTertiary,
     textTransform: "uppercase",
-    padding: "12px 12px 4px",
+    padding: `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.xs}`,
     letterSpacing: "0.5px",
   },
   tileFooter: {
@@ -35,7 +35,7 @@ const useViewStyles = makeStyles({
   areaCount: {
     display: "flex",
     alignItems: "center",
-    columnGap: "4px",
+    columnGap: theme.spacing.xs,
     fontSize: "12px",
     color: theme.color.textSecondary,
   },

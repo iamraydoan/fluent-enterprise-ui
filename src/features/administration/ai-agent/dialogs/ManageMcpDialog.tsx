@@ -20,7 +20,7 @@ const useManageStyles = makeStyles({
     display: "grid",
     gridTemplateColumns: "minmax(0,1fr) 540px",
     columnGap: "48px",
-    padding: "20px 32px 20px",
+    padding: `20px ${theme.spacing["2xl"]} 20px`,
     flexGrow: 1,
     minHeight: 0,
   },
@@ -49,7 +49,7 @@ const useManageStyles = makeStyles({
     padding: "0 10px",
     backgroundColor: theme.color.borderSubtle,
     fontSize: "13px",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     position: "sticky",
     top: 0,
     zIndex: 1,
@@ -79,7 +79,7 @@ const useManageStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "0 10px 0 4px",
+    padding: `0 10px 0 ${theme.spacing.xs}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
     backgroundColor: theme.color.surfaceTertiary,
@@ -88,7 +88,7 @@ const useManageStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "4px 12px",
+    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
     minHeight: "44px",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
@@ -102,7 +102,7 @@ const useManageStyles = makeStyles({
     fontFamily: "inherit",
     fontSize: "10px",
     cursor: "pointer",
-    padding: "4px",
+    padding: theme.spacing.xs,
   },
 });
 
@@ -206,7 +206,7 @@ export function ManageMcpDialog({
                     aria-current={activeServer === server.name}
                   >
                     <span>{server.name}</span>
-                    <span style={{ display: "inline-flex", alignItems: "center", columnGap: 8 }}>
+                    <span style={{ display: "inline-flex", alignItems: "center", columnGap: theme.spacing.sm }}>
                       {t("dialogs.manageMcp.serverCount", {
                         selected: count,
                         total: server.tools.length,
@@ -218,7 +218,7 @@ export function ManageMcpDialog({
               })}
             </div>
             <div className={manageStyles.list}>
-              <div className={manageStyles.listHead} style={{ paddingLeft: 4 }}>
+              <div className={manageStyles.listHead} style={{ paddingLeft: theme.spacing.xs }}>
                 <Checkbox
                   checked={
                     allOn ? true : tools.some((tool) => isOn(activeServer, tool)) ? "mixed" : false
@@ -285,7 +285,7 @@ export function ManageMcpDialog({
               </div>
             ))}
             {selectedList.length === 0 && (
-              <div style={{ padding: 20, color: "#777", fontSize: 13 }}>
+              <div style={{ padding: 20, color: theme.color.textTertiary, fontSize: 13 }}>
                 {t("dialogs.manageMcp.noTools")}
               </div>
             )}

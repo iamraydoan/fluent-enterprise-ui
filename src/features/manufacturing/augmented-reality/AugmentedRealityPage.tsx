@@ -49,7 +49,7 @@ const TAG_DETAILS: Record<string, TagDetail> = {
 };
 
 const useArStyles = makeStyles({
-  body: { display: "flex", columnGap: "12px", flexGrow: 1, minHeight: 0 },
+  body: { display: "flex", columnGap: theme.spacing.md, flexGrow: 1, minHeight: 0 },
   viewportCard: { flexGrow: 1, minWidth: 0, display: "flex", flexDirection: "column" },
   viewport: {
     position: "relative",
@@ -85,8 +85,8 @@ const useArStyles = makeStyles({
     outline: `2px solid ${theme.color.borderBrand}`,
     outlineOffset: "2px",
   },
-  controls: { display: "flex", columnGap: "8px", marginTop: "12px" },
-  side: { width: "340px", flexShrink: 0, display: "flex", flexDirection: "column", rowGap: "12px" },
+  controls: { display: "flex", columnGap: theme.spacing.sm, marginTop: theme.spacing.md },
+  side: { width: "340px", flexShrink: 0, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
 });
 
 export function AugmentedRealityPage() {
@@ -177,7 +177,7 @@ export function AugmentedRealityPage() {
                 <Text>{t("manufacturing.augmentedReality.noTags")}</Text>
               </Empty>
             ) : (
-              <div style={{ display: "flex", flexDirection: "column", rowGap: "8px" }}>
+              <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
                 {TAGS.map((tag) => (
                   <Button
                     key={tag.id}

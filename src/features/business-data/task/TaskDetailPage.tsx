@@ -6,6 +6,7 @@ import { Checkmark20Filled } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
 
 const TOP_TABS: DetailTab[] = [
@@ -46,7 +47,7 @@ export function TaskDetailPage({ name }: { name: string }) {
       </Panel>
     ) : (
       <>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
           <Body1Strong>{t("businessData.task.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -62,7 +63,7 @@ export function TaskDetailPage({ name }: { name: string }) {
             ]}
           />
         </div>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
           <Body1Strong>{t("businessData.task.detail.assignment")}</Body1Strong>
           <KV
             rows={[

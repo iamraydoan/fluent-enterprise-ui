@@ -43,8 +43,8 @@ const L: Record<string, TranslationKey> = {
 const useDialogStyles = makeStyles({
   steps: {
     display: "flex",
-    gap: "16px",
-    padding: "12px 16px",
+    gap: theme.spacing.lg,
+    padding: `${theme.spacing.md} ${theme.spacing.lg}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "-16px -20px 0",
   },

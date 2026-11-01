@@ -7,7 +7,7 @@ import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDefStyles = makeStyles({
-  layout: { display: "flex", columnGap: "12px", minHeight: "400px" },
+  layout: { display: "flex", columnGap: theme.spacing.md, minHeight: "400px" },
   nav: {
     width: "220px",
     flexShrink: 0,
@@ -16,7 +16,7 @@ const useDefStyles = makeStyles({
     rowGap: "2px",
   },
   navItem: {
-    padding: "10px 12px",
+    padding: `10px ${theme.spacing.md}`,
     border: "none",
     backgroundColor: "transparent",
     cursor: "pointer",

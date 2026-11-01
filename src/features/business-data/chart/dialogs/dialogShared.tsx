@@ -40,7 +40,7 @@ export function NumField({
   onChange: (v: number | undefined) => void;
 }) {
   return (
-    <div className="num-field" style={{ display: "flex", flexDirection: "column", rowGap: "4px" }}>
+    <div className="num-field" style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.xs }}>
       <span style={{ fontSize: "12px", color: theme.color.textTertiary }}>{label}</span>
       <Input
         type="number"

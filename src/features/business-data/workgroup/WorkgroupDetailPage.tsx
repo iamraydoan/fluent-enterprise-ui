@@ -6,6 +6,7 @@ import { ShieldCheckmark20Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { formatList } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
 
@@ -56,7 +57,7 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.workgroup.sections.resources")} ({data.resources.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px" }}>{formatList(data.resources)}</div>
+        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.resources)}</div>
       </Panel>
     );
   } else if (left === "businessData.workgroup.sections.steps") {
@@ -65,7 +66,7 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.workgroup.sections.steps")} ({data.steps.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px" }}>{formatList(data.steps)}</div>
+        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.steps)}</div>
       </Panel>
     );
   } else if (left === "businessData.workgroup.sections.areas") {
@@ -74,7 +75,7 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.workgroup.sections.areas")} ({data.areas.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px" }}>{formatList(data.areas)}</div>
+        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.areas)}</div>
       </Panel>
     );
   } else if (left !== "businessData.workgroup.sections.details") {
@@ -87,7 +88,7 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+      <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
         <Body1Strong>{t("businessData.workgroup.sections.details")}</Body1Strong>
         <KV
           rows={[

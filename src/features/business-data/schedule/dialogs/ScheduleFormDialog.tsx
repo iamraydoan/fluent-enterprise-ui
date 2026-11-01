@@ -4,6 +4,7 @@ import { BaseDialog, WizardSteps } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ScheduleFormDialogProps {
   open: boolean;
@@ -78,7 +79,7 @@ export function ScheduleFormDialog({
       )}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -107,7 +108,7 @@ export function ScheduleFormDialog({
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Body1Strong>{t(`${k}.schedulingType`)}</Body1Strong>
           <Field label={t(`${k}.type`)}>
             <select value={schedulingType} onChange={(e) => setSchedulingType(e.target.value)}>
@@ -118,16 +119,16 @@ export function ScheduleFormDialog({
               ))}
             </select>
           </Field>
-          <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.optimizationBody`)}</div>
+          <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.optimizationBody`)}</div>
         </div>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.untieBody`)}</div>
+        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.untieBody`)}</div>
       )}
 
       {step === 4 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.automaticBody`)}</div>
+        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.automaticBody`)}</div>
       )}
 
       <Field label={t(`${k}.comments`)}>

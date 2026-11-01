@@ -3,6 +3,7 @@ import type { SamplingPlanDetail, SamplingPlanRecord, SamplingPlanType } from "@
 import { BaseDialog, WizardSteps } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface SamplingPlanFormDialogProps {
   open: boolean;
@@ -69,7 +70,7 @@ export function SamplingPlanFormDialog({
       )}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -102,7 +103,7 @@ export function SamplingPlanFormDialog({
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: "#666" }}>{t(`${k}.contextBody`)}</div>
+        <div style={{ padding: `${theme.spacing.md} 0`, color: theme.color.textTertiary }}>{t(`${k}.contextBody`)}</div>
       )}
 
       <Field label={t(`${k}.comments`)}>

@@ -62,7 +62,7 @@ const useDetailStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "12px 0 8px",
+    padding: `${theme.spacing.md} 0 ${theme.spacing.sm}`,
   },
   scroll: {
     flexGrow: 1,
@@ -85,7 +85,7 @@ const useDetailStyles = makeStyles({
   groupRow: { backgroundColor: theme.color.surfaceTertiary, cursor: "pointer" },
   td: { height: "34.5px", fontSize: "13px" },
   instr: {
-    padding: "14px 4px",
+    padding: `14px ${theme.spacing.xs}`,
     fontSize: "13px",
     lineHeight: "20px",
     whiteSpace: "pre-wrap",
@@ -182,7 +182,7 @@ function ToolsGrid({
                       <PlugConnected20Regular />
                       <span>
                         {serverName}{" "}
-                        <span style={{ color: "#444" }}>
+                        <span style={{ color: theme.color.textSecondary }}>
                           {t("aiAgent.toolsGroupCount", { count: Object.keys(tools).length })}
                         </span>
                       </span>
@@ -236,7 +236,7 @@ function ToolsGrid({
           </TableBody>
         </Table>
         {groups.length === 0 && (
-          <div style={{ padding: 40, textAlign: "center", color: "#777" }}>
+          <div style={{ padding: 40, textAlign: "center", color: theme.color.textTertiary }}>
             {t("aiAgent.noToolsSelected")}
           </div>
         )}

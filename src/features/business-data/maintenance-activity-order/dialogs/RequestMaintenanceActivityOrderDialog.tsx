@@ -22,10 +22,10 @@ const L: Record<string, TranslationKey> = {
 const useStyles = makeStyles({
   steps: {
     display: "flex",
-    gap: "16px",
-    padding: "4px 4px 12px",
+    gap: theme.spacing.lg,
+    padding: `${theme.spacing.xs} ${theme.spacing.xs} ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-    marginBottom: "4px",
+    marginBottom: theme.spacing.xs,
   },
   step: { fontSize: theme.font.sizeSm, color: theme.color.textTertiary },
   stepActive: {
@@ -34,7 +34,7 @@ const useStyles = makeStyles({
     color: theme.color.textBrand,
   },
   select: {
-    padding: "6px 8px",
+    padding: `6px ${theme.spacing.sm}`,
     border: `1px solid ${theme.color.border}`,
     borderRadius: theme.radius.md,
     fontSize: theme.font.sizeMd,

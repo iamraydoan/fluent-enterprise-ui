@@ -60,18 +60,18 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.clone`)} />
       }
     >
-      <div style={{ display: "flex", columnGap: 16 }}>
+      <div style={{ display: "flex", columnGap: theme.spacing.lg }}>
         <div style={{ width: 280, flexShrink: 0 }}>
           <div
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              marginBottom: 8,
+              marginBottom: theme.spacing.sm,
             }}
           >
             <Body1Strong>{t(`${k}.clones`, { count: clones.length })}</Body1Strong>
-            <div style={{ display: "flex", columnGap: 4 }}>
+            <div style={{ display: "flex", columnGap: theme.spacing.xs }}>
               <Button size="sm" variant="subtle" onClick={addClone}>
                 +
               </Button>
@@ -93,7 +93,7 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
                 key={`${name}-${i}`}
                 onClick={() => selectClone(i)}
                 style={{
-                  padding: "8px 12px",
+                  padding: `${theme.spacing.sm} ${theme.spacing.md}`,
                   cursor: "pointer",
                   backgroundColor: i === selected ? theme.color.brandSubtle : "transparent",
                   borderBottom: "1px solid #eee",
@@ -104,11 +104,11 @@ export function CloneResourceDialog({ open, onClose, resourceName }: MiscDialogP
             ))}
           </div>
         </div>
-        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.name`)}>
             <Input value={cloneName} onChange={setCloneName} />
           </Field>
-          <div style={{ fontSize: 12, color: "#666" }}>
+          <div style={{ fontSize: 12, color: theme.color.textTertiary }}>
             {t(`${k}.source`, { name: resourceName })}
           </div>
         </div>
@@ -160,7 +160,7 @@ export function ResourceOEEConfigurationDialog({ open, onClose, resourceName }: 
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.save`)} />}
     >
       <DialogEntityBanner icon="🔧" name={resourceName} />
-      <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+      <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
         <Field label={t(`${k}.idealCycleTime`)}>
           <Input value={idealCycleTime} onChange={setIdealCycleTime} />
         </Field>

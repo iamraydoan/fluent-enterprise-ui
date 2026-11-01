@@ -3,14 +3,15 @@ import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
   gridRow: {
     display: "grid",
     gridTemplateColumns: "1fr 32px",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     alignItems: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
 });
 

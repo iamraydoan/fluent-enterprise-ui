@@ -3,6 +3,7 @@ import type { ResourceDetail, ResourceProcessingType, ResourceRecord } from "@/a
 import { BaseDialog, WizardSteps } from "@/components/common";
 import { Body1Strong, Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface ResourceFormDialogProps {
   open: boolean;
@@ -100,7 +101,7 @@ export function ResourceFormDialog({
       )}
 
       {(step === 1 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>
@@ -125,7 +126,7 @@ export function ResourceFormDialog({
           <Field label={t(`${k}.area`)}>
             <Input value={area} onChange={setArea} />
           </Field>
-          <div style={{ display: "flex", columnGap: 12 }}>
+          <div style={{ display: "flex", columnGap: theme.spacing.md }}>
             <Field label={t(`${k}.priority`)}>
               <Input value={priority} onChange={setPriority} />
             </Field>
@@ -133,7 +134,7 @@ export function ResourceFormDialog({
               <Input value={displayOrder} onChange={setDisplayOrder} />
             </Field>
           </div>
-          <div style={{ display: "flex", columnGap: 12 }}>
+          <div style={{ display: "flex", columnGap: theme.spacing.md }}>
             <Field label={t(`${k}.vendor`)}>
               <Input value={vendor} onChange={setVendor} />
             </Field>
@@ -160,7 +161,7 @@ export function ResourceFormDialog({
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Body1Strong>{t(`${k}.materialTracking`)}</Body1Strong>
           <Field label={t(`${k}.allowProductMix`)}>
             <Checkbox
@@ -204,7 +205,7 @@ export function ResourceFormDialog({
             </select>
           </Field>
           <Body1Strong>{t(`${k}.coordinates`)}</Body1Strong>
-          <div style={{ display: "flex", columnGap: 12 }}>
+          <div style={{ display: "flex", columnGap: theme.spacing.md }}>
             <Field label={t(`${k}.latitude`)}>
               <Input value={latitude} onChange={setLatitude} />
             </Field>
@@ -216,7 +217,7 @@ export function ResourceFormDialog({
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Body1Strong>{t(`${k}.automation`)}</Body1Strong>
           <Field label={t(`${k}.enableAutomationScenarios`)}>
             <Checkbox

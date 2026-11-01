@@ -20,12 +20,12 @@ const useListStyles = makeStyles({
   row: {
     display: "grid",
     gridTemplateColumns: "minmax(0, 1fr) auto auto",
-    columnGap: "12px",
+    columnGap: theme.spacing.md,
     alignItems: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
+  empty: { padding: theme.spacing.lg, textAlign: "center", color: theme.color.textTertiary },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
 });
 
 export function MaterialListEditor({
@@ -130,8 +130,8 @@ const useManageDialogStyles = makeStyles({
     display: "grid",
     gridTemplateColumns: "170px minmax(0, 1fr)",
     alignItems: "center",
-    columnGap: "12px",
-    marginBottom: "12px",
+    columnGap: theme.spacing.md,
+    marginBottom: theme.spacing.md,
   },
   fieldLabel: { fontSize: "13px", color: theme.color.textSecondary, textAlign: "right" },
 });
@@ -161,13 +161,13 @@ export function ManageBatchMaterialsDialog({
       }
     >
       <Text>{t("businessData.batch.operations.manageMaterialsHint", { name: batchName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         <MaterialListEditor
           values={values}
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
         />
       </div>
-      <div className={styles.fieldRow} style={{ marginTop: "16px" }}>
+      <div className={styles.fieldRow} style={{ marginTop: theme.spacing.lg }}>
         <span className={styles.fieldLabel}>{t("businessData.batch.operations.comment")}</span>
         <Input value={comment} onChange={setComment} />
       </div>
@@ -198,7 +198,7 @@ export function ManageBatchContainersDialog({
       }
     >
       <Text>{t("businessData.batch.operations.manageContainersHint", { name: batchName })}</Text>
-      <div style={{ marginTop: "12px" }}>
+      <div style={{ marginTop: theme.spacing.md }}>
         <ContainerListEditor
           values={values}
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}

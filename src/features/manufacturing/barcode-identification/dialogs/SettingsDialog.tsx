@@ -16,23 +16,23 @@ const useSettingsStyles = makeStyles({
   body: {
     display: "grid",
     gridTemplateColumns: "220px 1fr",
-    columnGap: "16px",
+    columnGap: theme.spacing.lg,
     minHeight: "280px",
   },
   listLabel: {
     fontSize: "13px",
     fontWeight: theme.font.weightSemibold,
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
   form: {
     display: "flex",
     flexDirection: "column",
-    rowGap: "16px",
+    rowGap: theme.spacing.lg,
   },
   field: {
     display: "grid",
     gridTemplateColumns: "140px 1fr",
-    columnGap: "12px",
+    columnGap: theme.spacing.md,
     alignItems: "center",
     fontSize: "13px",
   },
@@ -42,7 +42,7 @@ const useSettingsStyles = makeStyles({
   select: {
     fontFamily: "inherit",
     fontSize: "13px",
-    padding: "6px 8px",
+    padding: `6px ${theme.spacing.sm}`,
     borderRadius: theme.radius.md,
     border: `1px solid ${theme.color.border}`,
     backgroundColor: theme.color.surface,

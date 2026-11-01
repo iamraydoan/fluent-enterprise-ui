@@ -33,22 +33,22 @@ const useDetailStyles = makeStyles({
   cards: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
+    gap: theme.spacing.md,
   },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "190px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
+  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
   yearGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-    gap: "16px",
+    gap: theme.spacing.lg,
   },
   monthCell: { display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "2px" },
   dayCell: {
@@ -65,16 +65,16 @@ const useDetailStyles = makeStyles({
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
     textAlign: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
   weekdayHeader: {
     display: "grid",
     gridTemplateColumns: "repeat(7, 1fr)",
     gap: "2px",
-    marginBottom: "4px",
+    marginBottom: theme.spacing.xs,
   },
   weekday: { fontSize: "11px", color: theme.color.textTertiary, textAlign: "center" },
-  legend: { display: "flex", columnGap: "16px", marginTop: "16px", fontSize: "12px" },
+  legend: { display: "flex", columnGap: theme.spacing.lg, marginTop: theme.spacing.lg, fontSize: "12px" },
   legendSwatch: {
     width: "12px",
     height: "12px",
@@ -318,7 +318,7 @@ export function CalendarDetailPage() {
           </DetailShell>
         )}
         {tab === "calendarDays" && (
-          <div className={sharedStyles.contentCard} style={{ padding: 16 }}>
+          <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
             <div className={styles.yearGrid}>
               {Array.from({ length: 12 }, (_, m) => (
                 <MonthGrid key={m} year={2026} month={m} />

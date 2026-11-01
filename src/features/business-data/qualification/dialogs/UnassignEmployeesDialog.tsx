@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface UnassignEmployeesDialogProps {
   open: boolean;
@@ -53,7 +54,7 @@ export function UnassignEmployeesDialog({
         />
       }
     >
-      <Text style={{ marginBottom: 12 }}>{t(`${k}.message`, { name: qualificationName })}</Text>
+      <Text style={{ marginBottom: theme.spacing.md }}>{t(`${k}.message`, { name: qualificationName })}</Text>
       <Table>
         <TableHeader>
           <TableRow>

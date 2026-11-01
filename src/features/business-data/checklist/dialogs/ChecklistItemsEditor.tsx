@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { ChecklistItem, ChecklistItemParameter } from "@/api";
 import { Button, Checkbox, Input, Textarea } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { MiniSelect } from "../../components/MiniSelect";
 import type { OperationOnChange, OperationValues } from "../../components/operationTypes";
 import {
@@ -66,7 +67,7 @@ export function ChecklistItemsEditor({
         <div className={styles.empty}>{t("businessData.checklist.operations.noItems")}</div>
       )}
       {rows.map((row) => (
-        <div key={row.id} style={{ marginBottom: "8px" }}>
+        <div key={row.id} style={{ marginBottom: theme.spacing.sm }}>
           <div className={styles.itemRow}>
             <div className={styles.itemNameWrap}>
               <Input
@@ -212,7 +213,7 @@ function ItemParametersEditor({
 
   return (
     <div>
-      <div className={styles.fieldLabel} style={{ marginBottom: "8px" }}>
+      <div className={styles.fieldLabel} style={{ marginBottom: theme.spacing.sm }}>
         {t("businessData.checklist.operations.parameters")}
       </div>
       {parameters.length === 0 && (

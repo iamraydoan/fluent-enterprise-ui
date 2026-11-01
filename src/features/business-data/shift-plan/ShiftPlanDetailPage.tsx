@@ -6,6 +6,7 @@ import { Timer24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
 import {
   formatEmployeeMeta,
@@ -54,7 +55,7 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
         <Caption1>{t("businessData.shiftPlan.calendar.hint")}</Caption1>
         <div
           className={sharedStyles.contentCard}
-          style={{ padding: "16px", marginTop: "12px", minHeight: "300px" }}
+          style={{ padding: theme.spacing.lg, marginTop: theme.spacing.md, minHeight: "300px" }}
         >
           <Caption1>{t("businessData.shiftPlan.calendar.empty")}</Caption1>
         </div>
@@ -74,9 +75,9 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.shiftPlan.sections.workgroups")} ({data.workgroups.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
           {data.workgroups.map((wg) => (
-            <div key={wg.name} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
+            <div key={wg.name} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{wg.name}</Body1Strong>
               <Caption1>{formatWorkgroupMeta(wg)}</Caption1>
               <Caption1>{formatWorkgroupResources(wg)}</Caption1>
@@ -94,9 +95,9 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.shiftPlan.manageEmployees")}</Button>
         </div>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
           {data.employees.map((emp) => (
-            <div key={emp.name} className={sharedStyles.contentCard} style={{ padding: "12px" }}>
+            <div key={emp.name} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
               <Body1Strong>{emp.name}</Body1Strong>
               <Caption1>{formatEmployeeMeta(emp)}</Caption1>
             </div>
@@ -118,7 +119,7 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
           <Body1Strong>{t("businessData.shiftPlan.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -134,7 +135,7 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
             ]}
           />
         </div>
-        <div className={sharedStyles.contentCard} style={{ padding: "16px" }}>
+        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
           <Body1Strong>{t("businessData.shiftPlan.detail.ownership")}</Body1Strong>
           <KV rows={[[t("businessData.shiftPlan.detail.ownerRole"), data.ownerRole]]} />
         </div>

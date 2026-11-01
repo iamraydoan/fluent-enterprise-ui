@@ -33,22 +33,22 @@ const useDetailStyles = makeStyles({
   cards: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "12px",
+    gap: theme.spacing.md,
   },
-  card: { padding: "16px", display: "flex", flexDirection: "column", rowGap: "12px" },
+  card: { padding: theme.spacing.lg, display: "flex", flexDirection: "column", rowGap: theme.spacing.md },
   cardTitle: {
     fontSize: "14px",
     fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing.sm,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  row: { display: "flex", columnGap: "12px", fontSize: "13px" },
+  row: { display: "flex", columnGap: theme.spacing.md, fontSize: "13px" },
   label: { color: theme.color.textTertiary, minWidth: "180px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
+  empty: { padding: theme.spacing["2xl"], textAlign: "center", color: theme.color.textTertiary },
   positionsGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
-    gap: "8px",
+    gap: theme.spacing.sm,
   },
   positionCell: {
     border: `1px solid ${theme.color.borderSubtle}`,
@@ -66,7 +66,7 @@ const useDetailStyles = makeStyles({
   split: {
     display: "grid",
     gridTemplateColumns: "3fr minmax(280px, 1fr)",
-    gap: "12px",
+    gap: theme.spacing.md,
     alignItems: "start",
   },
 });

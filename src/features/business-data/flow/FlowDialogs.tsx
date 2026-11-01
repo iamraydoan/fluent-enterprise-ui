@@ -3,6 +3,7 @@ import { BaseDialog, DialogFooter, FormField } from "@/components/common";
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const L: Record<string, TranslationKey> = {
   logicalNamesTitle: "businessData.flow.manageDialog.logicalNamesTitle",
@@ -17,7 +18,7 @@ const L: Record<string, TranslationKey> = {
 };
 
 const useStyles = makeStyles({
-  row: { display: "flex", gap: "8px", alignItems: "center" },
+  row: { display: "flex", gap: theme.spacing.sm, alignItems: "center" },
 });
 
 export function FlowLogicalNamesDialog({ onClose }: { onClose: () => void }) {

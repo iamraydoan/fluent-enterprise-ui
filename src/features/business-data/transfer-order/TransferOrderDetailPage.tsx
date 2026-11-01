@@ -6,6 +6,7 @@ import { ArrowExportUp24Regular } from "@/components/icons";
 import { Body1Strong, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
 import { formatItemMeta } from "./transferOrderHelpers";
 
@@ -54,12 +55,12 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.transferOrder.sections.items")} ({data.items.length})
         </Body1Strong>
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", rowGap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", flexDirection: "column", rowGap: theme.spacing.sm }}>
           {data.items.map((item) => (
             <div
               key={item.material}
               className={sharedStyles.contentCard}
-              style={{ padding: "12px" }}
+              style={{ padding: theme.spacing.md }}
             >
               <Body1Strong>{item.material}</Body1Strong>
               <div>
@@ -80,7 +81,7 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div className={sharedStyles.contentCard} style={{ padding: "16px", marginBottom: "12px" }}>
+      <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
         <Body1Strong>{t("businessData.transferOrder.sections.details")}</Body1Strong>
         <KV
           rows={[

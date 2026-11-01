@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
     fontWeight: theme.font.weightSemibold,
   },
   list: {
@@ -36,18 +36,18 @@ const useStyles = makeStyles({
     overflow: "hidden",
   },
   item: {
-    padding: "8px 12px",
+    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     cursor: "pointer",
   },
   itemActive: {
-    padding: "8px 12px",
+    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     cursor: "pointer",
     backgroundColor: theme.color.surfaceSecondary,
     fontWeight: theme.font.weightSemibold,
   },
-  details: { display: "flex", flexDirection: "column", gap: "12px" },
+  details: { display: "flex", flexDirection: "column", gap: theme.spacing.md },
 });
 
 export function ManageShippingFacilitiesDialog({
@@ -71,7 +71,7 @@ export function ManageShippingFacilitiesDialog({
       onClose={onClose}
       footer={<DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(L.update)} />}
     >
-      <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: "16px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: theme.spacing.lg }}>
         <div>
           <div className={styles.panelHead}>
             <span>{t(L.facilities)}</span>
@@ -104,7 +104,7 @@ export function ManageShippingFacilitiesDialog({
           {facilities.length > 0 && (
             <Button
               size="sm"
-              style={{ marginTop: "8px" }}
+              style={{ marginTop: theme.spacing.sm }}
               onClick={() => {
                 const next = facilities.filter((_, i) => i !== selected);
                 setFacilities(next);

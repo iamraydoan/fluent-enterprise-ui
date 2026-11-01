@@ -3,6 +3,7 @@ import type { RecipeDetail, RecipeRecord } from "@/api";
 import { BaseDialog, WizardSteps } from "@/components/common";
 import { Button, Checkbox, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 interface RecipeFormDialogProps {
   open: boolean;
@@ -75,9 +76,9 @@ export function RecipeFormDialog({
       )}
 
       {step === 1 && !nameReadOnly && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.changeSet`)}>
-            <div style={{ display: "flex", columnGap: 8 }}>
+            <div style={{ display: "flex", columnGap: theme.spacing.sm }}>
               <Input value={changeSet} onChange={setChangeSet} />
               <Button variant="secondary" onClick={() => {}}>
                 {t(`${k}.createNew`)}
@@ -97,7 +98,7 @@ export function RecipeFormDialog({
       )}
 
       {(step === 2 || nameReadOnly) && (
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 12 }}>
+        <div style={{ display: "flex", flexDirection: "column", rowGap: theme.spacing.md }}>
           <Field label={t(`${k}.name`)} required>
             <Input value={name} readOnly={nameReadOnly} onChange={setName} />
           </Field>

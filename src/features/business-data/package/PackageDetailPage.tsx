@@ -6,6 +6,7 @@ import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useSharedStyles } from "@/styles/shared";
 import {
   PackageReportDialog,
@@ -15,8 +16,8 @@ import {
 } from "./PackageDialogs";
 
 const useStyles = makeStyles({
-  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" },
-  sectionTitle: { marginBottom: "8px" },
+  cards: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: theme.spacing.md },
+  sectionTitle: { marginBottom: theme.spacing.sm },
 });
 
 const TOP_TABS: { value: string; labelKey: TranslationKey }[] = [
@@ -95,7 +96,7 @@ export function PackageDetailPage({ name }: { name: string }) {
       >
         {top === "details" && left === LEFT_ITEMS[0] && (
           <div className={styles.cards}>
-            <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+            <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
               <Text weight="semibold" size={400} className={styles.sectionTitle}>
                 {t("businessData.package.detail.generalData")}
               </Text>
@@ -114,28 +115,28 @@ export function PackageDetailPage({ name }: { name: string }) {
           </div>
         )}
         {top === "details" && left === LEFT_ITEMS[1] && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.package.left.contents")}
             </Text>
           </div>
         )}
         {top === "details" && left === LEFT_ITEMS[2] && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.package.left.subMaterials")}
             </Text>
           </div>
         )}
         {top === "references" && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.package.tabs.references")}
             </Text>
           </div>
         )}
         {top === "history" && (
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
+          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
             <Text weight="semibold" size={400} className={styles.sectionTitle}>
               {t("businessData.package.tabs.history")}
             </Text>

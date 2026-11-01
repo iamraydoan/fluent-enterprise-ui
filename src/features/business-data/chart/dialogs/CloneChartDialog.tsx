@@ -86,8 +86,8 @@ export function CloneChartDialog({
         <div
           key={row.id}
           style={{
-            marginBottom: "12px",
-            paddingBottom: "12px",
+            marginBottom: theme.spacing.md,
+            paddingBottom: theme.spacing.md,
             borderBottom: `1px solid ${theme.color.borderSubtle}`,
           }}
         >
@@ -116,7 +116,7 @@ export function CloneChartDialog({
           </div>
           <div
             className={styles.ruleRow}
-            style={{ gridTemplateColumns: "repeat(6, minmax(0,1fr))", marginTop: "8px" }}
+            style={{ gridTemplateColumns: "repeat(6, minmax(0,1fr))", marginTop: theme.spacing.sm }}
           >
             <NumField
               label={t("businessData.chart.detail.lsl")}
@@ -153,7 +153,7 @@ export function CloneChartDialog({
             placeholder={t("businessData.chart.detail.description")}
             value={row.description}
             onChange={(value) => update(row.id, { description: value })}
-            style={{ marginTop: "8px" }}
+            style={{ marginTop: theme.spacing.sm }}
           />
         </div>
       ))}

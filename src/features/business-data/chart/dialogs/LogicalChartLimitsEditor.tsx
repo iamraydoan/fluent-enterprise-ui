@@ -63,8 +63,8 @@ export function LogicalChartLimitsEditor({
         <div
           key={row.name}
           style={{
-            marginBottom: "16px",
-            paddingBottom: "12px",
+            marginBottom: theme.spacing.lg,
+            paddingBottom: theme.spacing.md,
             borderBottom: `1px solid ${theme.color.borderSubtle}`,
           }}
         >
@@ -73,7 +73,7 @@ export function LogicalChartLimitsEditor({
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginBottom: "8px",
+              marginBottom: theme.spacing.sm,
             }}
           >
             <Text weight="semibold">{row.name}</Text>

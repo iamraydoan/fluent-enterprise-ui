@@ -6,6 +6,7 @@ import { Wrench24Regular } from "@/components/icons";
 import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { formatDateTime } from "@/lib/formatDate";
 import { TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { MaintenanceActivityOrderDialog } from "./dialogs/MaintenanceActivityOrderDialog";
@@ -226,7 +227,7 @@ export function MaintenanceActivityOrderDetailPage({ name }: { name: string }) {
             [t("businessData.maintenanceActivityOrder.details.cost"), `$${data.cost.toFixed(2)}`],
           ]}
         />
-        <div style={{ marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm, flexWrap: "wrap" }}>
           {STATE_ACTIONS.map((action) => (
             <Button key={action.id} size="sm" onClick={() => setChangeStateAction(action.id)}>
               {t(action.labelKey)}

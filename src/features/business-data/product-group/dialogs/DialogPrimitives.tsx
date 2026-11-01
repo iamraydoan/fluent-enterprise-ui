@@ -6,7 +6,7 @@ export function WizardSteps({ steps, current }: { steps: string[]; current: numb
   return (
     <div className={styles.steps}>
       {steps.map((step, i) => (
-        <div key={step} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <div key={step} style={{ display: "flex", alignItems: "center", gap: theme.spacing.sm }}>
           {i > 0 && (
             <div
               style={{

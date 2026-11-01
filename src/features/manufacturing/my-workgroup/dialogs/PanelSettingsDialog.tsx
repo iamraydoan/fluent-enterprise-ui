@@ -6,12 +6,12 @@ import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  columns: { display: "grid", gridTemplateColumns: "1fr 220px", gap: "16px" },
+  columns: { display: "grid", gridTemplateColumns: "1fr 220px", gap: theme.spacing.lg },
   columnTitle: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
   list: {
     border: `1px solid ${theme.color.borderSubtle}`,
@@ -22,7 +22,7 @@ const useDialogStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     columnGap: "10px",
-    padding: "10px 12px",
+    padding: `10px ${theme.spacing.md}`,
     backgroundColor: theme.color.surfaceSecondary,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "12px",
@@ -34,7 +34,7 @@ const useDialogStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     columnGap: "10px",
-    padding: "10px 12px",
+    padding: `10px ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
     cursor: "pointer",
@@ -43,8 +43,8 @@ const useDialogStyles = makeStyles({
   selectedRow: {
     display: "flex",
     alignItems: "center",
-    columnGap: "8px",
-    padding: "10px 12px",
+    columnGap: theme.spacing.sm,
+    padding: `10px ${theme.spacing.md}`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "14px",
   },
@@ -56,9 +56,9 @@ const useDialogStyles = makeStyles({
   },
   toolbar: { display: "flex", alignItems: "center", columnGap: "2px" },
   comments: {
-    marginTop: "16px",
+    marginTop: theme.spacing.lg,
     borderTop: `1px solid ${theme.color.borderSubtle}`,
-    paddingTop: "12px",
+    paddingTop: theme.spacing.md,
   },
   commentsHeader: {
     display: "flex",
@@ -70,7 +70,7 @@ const useDialogStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "14px",
-    padding: "4px 0",
+    padding: `${theme.spacing.xs} 0`,
   },
 });
 

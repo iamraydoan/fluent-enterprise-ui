@@ -15,6 +15,7 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { MapDialog } from "./dialogs/MapDialog";
 import { MapLinkDialog, MapUnlinkDialog } from "./dialogs/MapLinkDialog";
@@ -120,7 +121,7 @@ export function MapDetailPage({ name }: { name: string }) {
             ))}
           </TableBody>
         </Table>
-        <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm }}>
           <Button onClick={() => undefined}>{t("businessData.map.actions.downloadLayer")}</Button>
           <Button onClick={() => setLinkOpen(true)}>
             {t("businessData.map.actions.linkMaterial")}

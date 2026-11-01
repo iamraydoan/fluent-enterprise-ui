@@ -62,11 +62,11 @@ export function TerminateProductGroupDialog({ open, onClose, onSubmit }: DialogP
       </Field>
       <div
         style={{
-          padding: "12px",
+          padding: theme.spacing.md,
           backgroundColor: theme.color.warningEmphasis,
           borderRadius: "4px",
           fontSize: "13px",
-          marginTop: "8px",
+          marginTop: theme.spacing.sm,
         }}
       >
         {t("businessData.productGroup.operations.terminate.warning")}
@@ -126,7 +126,7 @@ export function UnterminateProductGroupDialog({ open, onClose, onSubmit }: Dialo
         ]}
         current={step}
       />
-      <div style={{ paddingTop: "16px" }}>
+      <div style={{ paddingTop: theme.spacing.lg }}>
         {step === 0 && (
           <>
             <Field label={t("businessData.productGroup.operations.unterminate.fields.changeSet")}>

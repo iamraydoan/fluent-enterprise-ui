@@ -6,6 +6,7 @@ import { TableSimple24Regular } from "@/components/icons";
 import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { ManageConfigurationsDialog, ManageStepsDialog } from "./ManageInspectionPlanDialogs";
@@ -172,7 +173,7 @@ export function InspectionPlanDetailPage({ name }: { name: string }) {
             ],
           ]}
         />
-        <div style={{ marginTop: "12px", display: "flex", gap: "8px" }}>
+        <div style={{ marginTop: theme.spacing.md, display: "flex", gap: theme.spacing.sm }}>
           <Button onClick={() => setManageConfigurationsOpen(true)}>
             {t("businessData.inspectionPlan.manageConfigurations.manage")}
           </Button>

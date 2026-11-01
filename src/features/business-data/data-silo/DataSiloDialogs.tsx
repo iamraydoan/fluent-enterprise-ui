@@ -30,11 +30,11 @@ const useDialogStyles = makeStyles({
     display: "grid",
     gridTemplateColumns: "160px 1fr",
     alignItems: "center",
-    columnGap: "12px",
+    columnGap: theme.spacing.md,
   },
   label: { fontSize: "13px", textAlign: "right" },
   required: { color: theme.color.textDanger },
-  sectionTitle: { fontSize: "14px", fontWeight: 600, paddingTop: "8px" },
+  sectionTitle: { fontSize: "14px", fontWeight: 600, paddingTop: theme.spacing.sm },
 });
 
 export function CreateDataSiloDialog({ onClose }: { onClose: () => void }) {

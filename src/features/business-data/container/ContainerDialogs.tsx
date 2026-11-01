@@ -8,23 +8,23 @@ import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: "12px" },
-  fieldRow: { display: "flex", flexDirection: "column", rowGap: "4px", marginBottom: "12px" },
+  hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
+  fieldRow: { display: "flex", flexDirection: "column", rowGap: theme.spacing.xs, marginBottom: theme.spacing.md },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
-  empty: { padding: "16px", textAlign: "center", color: theme.color.textTertiary },
+  empty: { padding: theme.spacing.lg, textAlign: "center", color: theme.color.textTertiary },
   flexRow: {
     display: "flex",
     flexWrap: "wrap",
-    columnGap: "8px",
-    rowGap: "8px",
+    columnGap: theme.spacing.sm,
+    rowGap: theme.spacing.sm,
     alignItems: "center",
-    marginBottom: "8px",
+    marginBottom: theme.spacing.sm,
   },
   grow: { flex: "1 1 140px", minWidth: "120px" },
   posRow: {
     display: "flex",
     alignItems: "center",
-    columnGap: "8px",
+    columnGap: theme.spacing.sm,
     padding: "6px 0",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
@@ -390,7 +390,7 @@ export function ManagePositionsDialog({
           </Button>
         </div>
       ))}
-      <div className={styles.fieldRow} style={{ marginTop: "12px" }}>
+      <div className={styles.fieldRow} style={{ marginTop: theme.spacing.md }}>
         <span className={styles.fieldLabel}>{t("businessData.container.operations.comment")}</span>
         <Textarea value={comment} onChange={setComment} />
       </div>
