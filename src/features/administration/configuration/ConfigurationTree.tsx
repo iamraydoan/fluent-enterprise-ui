@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Wrench20Regular } from "@/components/icons";
+import { Folder20Regular } from "@/components/icons";
 import { Tree, TreeItem, TreeItemLayout, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -34,7 +34,7 @@ function BranchNodes({
       {nodes.map((node) => (
         <TreeItem key={node.path} itemType="branch" value={node.path}>
           <TreeItemLayout
-            iconBefore={<Wrench20Regular />}
+            iconBefore={<Folder20Regular />}
             className={mergeClasses(styles.item, selectedPath === node.path && styles.selected)}
             onClick={() => onSelect(node.path)}
           >
@@ -65,7 +65,7 @@ export function ConfigurationTree({ branchPaths, selectedPath, onSelect }: Confi
   return (
     <Tree aria-label={t("configuration.tree.title")} defaultOpenItems={defaultOpen}>
       <TreeItem itemType="branch" value="/">
-        <TreeItemLayout iconBefore={<Wrench20Regular />}>{entryName("/")}</TreeItemLayout>
+        <TreeItemLayout iconBefore={<Folder20Regular />}>{entryName("/")}</TreeItemLayout>
         <Tree aria-label={entryName("/")}>
           <BranchNodes nodes={nodes} selectedPath={selectedPath} onSelect={onSelect} />
         </Tree>

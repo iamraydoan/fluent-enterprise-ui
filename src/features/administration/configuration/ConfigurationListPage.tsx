@@ -1,9 +1,9 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef } from "react";
 import { useConfigurationTree, useConfigurations } from "@/api";
 import type { ConfigurationEntry } from "@/api";
 import { createAction, DataListPage, refreshAction, SidePanel, SidebarNavItem } from "@/components/common";
 import type { DataColumn, DataFilter, DataTableCardApi, HeaderAction } from "@/components/common";
-import { MoreVertical24Regular, Wrench20Regular } from "@/components/icons";
+import { Database20Regular, MoreVertical24Regular, Wrench20Regular } from "@/components/icons";
 import { useAppTranslation } from "@/i18n";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
@@ -112,7 +112,6 @@ export function ConfigurationListPage() {
   const openRoute = useTabsStore((state) => state.openRoute);
   const openDetail = useDetailNavigation("/administration/configuration/$path", openRoute);
   const tableApi = useRef<DataTableCardApi | null>(null);
-  const [showTree, setShowTree] = useState(true);
   const { data: branchPaths } = useConfigurationTree();
 
   const actions = useMemo<HeaderAction[]>(
@@ -154,10 +153,11 @@ export function ConfigurationListPage() {
       sidebar={
         <SidePanel
           title={t("configuration.tree.title")}
-          collapsed={!showTree}
-          onToggle={() => setShowTree((visible) => !visible)}
+          collapsible={false}
+          style={{ width: "290px" }}
         >
           <SidebarNavItem
+            icon={<Database20Regular />}
             label={t("configuration.tree.allEntries")}
             active
             onClick={() => tableApi.current?.resetFilters()}
