@@ -35,6 +35,9 @@ export {
   DialogTrigger,
 } from "./dialog";
 export { Divider } from "./divider";
+export { Spinner } from "./spinner";
+export { MessageBar, MessageBarBody } from "./messagebar";
+export { Radio, RadioGroup } from "./radio";
 export { Dropdown, Option } from "./dropdown";
 export { Combobox } from "./combobox";
 export { Badge } from "./badge";

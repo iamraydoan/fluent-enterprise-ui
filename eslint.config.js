@@ -177,8 +177,7 @@ export default tseslint.config(
             "Do not use raw <button> in features. Use Button/IconButton/MenuTriggerButton/OptionItem/NavItem/SectionHeader from @/components/common or @/components/ui.",
         },
         {
-          selector:
-            'CallExpression[callee.name="makeStyles"] Literal[value=/^#[0-9a-fA-F]{3,8}$/]',
+          selector: 'CallExpression[callee.name="makeStyles"] Literal[value=/^#[0-9a-fA-F]{3,8}$/]',
           message:
             "Do not hardcode hex colors in makeStyles. Use theme.* from @/styles/theme (single source of truth).",
         },
@@ -312,6 +311,9 @@ export default tseslint.config(
               "size",
               "color",
               "positioning",
+              "intent",
+              "level",
+              "fieldName",
               "relationship",
               "name",
               "value",

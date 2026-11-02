@@ -11,11 +11,20 @@ export type PopoverPositioning = "above" | "below" | "before" | "after" | "below
 export interface PopoverProps {
   positioning?: PopoverPositioning;
   withArrow?: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
   children?: ReactNode;
 }
 
-export function Popover({ children, ...rest }: PopoverProps) {
-  return <FluentPopover {...rest}>{children as ReactElement}</FluentPopover>;
+export function Popover({ onOpenChange, children, ...rest }: PopoverProps) {
+  return (
+    <FluentPopover
+      onOpenChange={onOpenChange ? (_, data) => onOpenChange(data.open) : undefined}
+      {...rest}
+    >
+      {children as ReactElement}
+    </FluentPopover>
+  );
 }
 
 export interface PopoverTriggerProps {
