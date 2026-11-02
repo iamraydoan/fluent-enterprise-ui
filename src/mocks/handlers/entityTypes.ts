@@ -1,4 +1,5 @@
 import { http, HttpResponse } from "msw";
+import { RecordState } from "@/api";
 import type { EntityTypeProperty, EntityTypeRecord, Page } from "@/api";
 import { buildEntityTypeProperties } from "../seeds/entityTypeProperties";
 import { buildEntityTypeSeeds } from "../seeds/entityTypes";
@@ -123,13 +124,31 @@ export const entityTypeHandlers = [
         system: true,
         versioned: false,
         isRelation: false,
-        state: "Active",
+        state: RecordState.Active,
         lockType: "Lock None",
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       });
     }
     return HttpResponse.json(record);
+  }),
+  http.post("/entity-types", async ({ request }) => {
+    const body = (await request.json()) as Partial<EntityTypeRecord>;
+    const index = RECORDS.length;
+    const record: EntityTypeRecord = {
+      id: `11111111-1111-4111-8111-${index.toString(16).padStart(12, "0")}`,
+      name: String(body.name ?? ""),
+      description: String(body.description ?? ""),
+      system: false,
+      versioned: body.versioned === true,
+      isRelation: body.isRelation === true,
+      state: RecordState.Active,
+      lockType: String(body.lockType ?? "LOCK_NONE"),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+    RECORDS.push(record);
+    return HttpResponse.json(record, { status: 201 });
   }),
   http.get("/entity-types/:name/properties", ({ params }) => {
     const name = decodeURIComponent(String(params.name));

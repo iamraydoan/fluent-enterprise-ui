@@ -17,13 +17,16 @@ export type { Page, PageMeta } from "./types";
 export {
   getEntityType,
   listEntityTypeProperties,
+  createEntityType,
   listEntityTypes,
+  useCreateEntityType,
   useEntityType,
   useEntityTypeProperties,
   useEntityTypes,
   useUpdateEntityTypeProperties,
 } from "./entityTypes";
 export type {
+  CreateEntityTypeInput,
   EntityPropertyKind,
   EntityTypeListParams,
   EntityTypeProperty,

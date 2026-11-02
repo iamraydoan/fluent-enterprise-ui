@@ -75,6 +75,31 @@ export function listEntityTypes(params: EntityTypeListParams): Promise<Page<Enti
   return apiFetch<Page<EntityTypeRecord>>(`/entity-types?${toListSearchParams(params)}`);
 }
 
+export interface CreateEntityTypeInput {
+  name: string;
+  description: string;
+  versioned: boolean;
+  isRelation: boolean;
+  lockType: string;
+}
+
+export function createEntityType(input: CreateEntityTypeInput): Promise<EntityTypeRecord> {
+  return apiFetch<EntityTypeRecord>(`/entity-types`, {
+    method: "POST",
+    body: JSON.stringify(input),
+  });
+}
+
+export function useCreateEntityType() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (input: CreateEntityTypeInput) => createEntityType(input),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["entity-types"] });
+    },
+  });
+}
+
 export function useEntityTypes(params: EntityTypeListParams) {
   return useQuery({
     queryKey: ["entity-types", params],

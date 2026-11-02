@@ -312,6 +312,7 @@ export default tseslint.config(
               "color",
               "positioning",
               "intent",
+              "mode",
               "level",
               "fieldName",
               "relationship",
