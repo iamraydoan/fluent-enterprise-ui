@@ -471,7 +471,12 @@
       "purgeType": "Purge Type",
       "procedure": "Procedure",
       "cloneable": "Cloneable",
-      "localizedMessageKey": "Localized Message Key"
+      "localizedMessageKey": "Localized Message Key",
+      "system": "System",
+      "propertyType": "Property Type",
+      "state": "State",
+      "universalState": "Universal State",
+      "licensed": "Licensed"
     },
     "dialog": {
       "createTitle": "Create New Entity Type",

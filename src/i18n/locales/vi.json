@@ -471,7 +471,12 @@
       "purgeType": "Loại purge",
       "procedure": "Thủ tục",
       "cloneable": "Có thể clone",
-      "localizedMessageKey": "Khóa thông điệp bản địa"
+      "localizedMessageKey": "Khóa thông điệp bản địa",
+      "system": "Hệ thống",
+      "propertyType": "Loại thuộc tính",
+      "state": "Trạng thái",
+      "universalState": "Trạng thái chung",
+      "licensed": "Có giấy phép"
     },
     "dialog": {
       "createTitle": "Tạo mới Entity Type",

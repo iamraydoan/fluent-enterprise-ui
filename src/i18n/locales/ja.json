@@ -471,7 +471,12 @@
       "purgeType": "パージ タイプ",
       "procedure": "プロシージャ",
       "cloneable": "クローン可能",
-      "localizedMessageKey": "ローカライズ メッセージ キー"
+      "localizedMessageKey": "ローカライズ メッセージ キー",
+      "system": "システム",
+      "propertyType": "プロパティの種類",
+      "state": "状態",
+      "universalState": "ユニバーサル状態",
+      "licensed": "ライセンス済み"
     },
     "dialog": {
       "createTitle": "エンティティ タイプの新規作成",

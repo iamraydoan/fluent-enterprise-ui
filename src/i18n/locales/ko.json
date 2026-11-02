@@ -471,7 +471,12 @@
       "purgeType": "퍼지 유형",
       "procedure": "프로시저",
       "cloneable": "복제 가능",
-      "localizedMessageKey": "지역화된 메시지 키"
+      "localizedMessageKey": "지역화된 메시지 키",
+      "system": "시스템",
+      "propertyType": "속성 유형",
+      "state": "상태",
+      "universalState": "유니버설 상태",
+      "licensed": "라이선스됨"
     },
     "dialog": {
       "createTitle": "엔터티 유형 새로 만들기",
