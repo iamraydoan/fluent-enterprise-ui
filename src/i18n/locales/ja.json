@@ -332,6 +332,34 @@
       "empty": "表示するものがありません",
       "emptyBody": "このセクションはデモでは利用できません。"
     },
+    "detailPage": {
+      "groups": {
+        "general": "全般",
+        "schema": "スキーマ"
+      },
+      "counts": {
+        "stateModels": "状態モデル ({{count}})",
+        "odsRetention": "ODS データ保持 ({{count}})"
+      },
+      "tables": {
+        "mainStateModel": "メイン状態モデル",
+        "olderThan": "経過",
+        "location": "場所"
+      },
+      "labels": {
+        "cloneDisplayOrder": "複製時の表示順",
+        "days": "日",
+        "defaultLocation": "既定の場所",
+        "isToEnrichCDM": "IsToEnrichCDM"
+      },
+      "empty": {
+        "noProperties": "プロパティがありません。",
+        "noAttributes": "属性が定義されていません。管理で追加してください。",
+        "noOperations": "操作がありません。",
+        "noOpAttributes": "操作属性が定義されていません。管理で追加してください。",
+        "noOdsRules": "保持ルールがありません。データは既定の場所に残ります。"
+      }
+    },
     "details": {
       "generalData": "一般データ",
       "name": "名前",

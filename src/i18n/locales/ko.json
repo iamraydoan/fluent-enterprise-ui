@@ -332,6 +332,34 @@
       "empty": "표시할 내용이 없습니다",
       "emptyBody": "이 섹션은 데모에서 사용할 수 없습니다."
     },
+    "detailPage": {
+      "groups": {
+        "general": "일반",
+        "schema": "스키마"
+      },
+      "counts": {
+        "stateModels": "상태 모델 ({{count}})",
+        "odsRetention": "ODS 데이터 보존 ({{count}})"
+      },
+      "tables": {
+        "mainStateModel": "주 상태 모델",
+        "olderThan": "경과",
+        "location": "위치"
+      },
+      "labels": {
+        "cloneDisplayOrder": "복제 표시 순서",
+        "days": "일",
+        "defaultLocation": "기본 위치",
+        "isToEnrichCDM": "IsToEnrichCDM"
+      },
+      "empty": {
+        "noProperties": "속성이 없습니다.",
+        "noAttributes": "특성이 정의되지 않았습니다. 관리에서 추가하세요.",
+        "noOperations": "작업이 없습니다.",
+        "noOpAttributes": "작업 특성이 정의되지 않았습니다. 관리에서 추가하세요.",
+        "noOdsRules": "보존 규칙이 없습니다. 데이터는 기본 위치에 유지됩니다."
+      }
+    },
     "details": {
       "generalData": "일반 데이터",
       "name": "이름",
