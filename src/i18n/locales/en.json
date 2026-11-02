@@ -332,6 +332,34 @@
       "empty": "Nothing to show yet",
       "emptyBody": "This section is not available in the demo."
     },
+    "detailPage": {
+      "groups": {
+        "general": "General",
+        "schema": "Schema"
+      },
+      "counts": {
+        "stateModels": "State Models ({{count}})",
+        "odsRetention": "ODS Data Retention ({{count}})"
+      },
+      "tables": {
+        "mainStateModel": "Main State Model",
+        "olderThan": "Older Than",
+        "location": "Location"
+      },
+      "labels": {
+        "cloneDisplayOrder": "Clone Display Order",
+        "days": "days",
+        "defaultLocation": "Default location",
+        "isToEnrichCDM": "IsToEnrichCDM"
+      },
+      "empty": {
+        "noProperties": "No properties.",
+        "noAttributes": "No attributes defined. Use Manage to add one.",
+        "noOperations": "No operations.",
+        "noOpAttributes": "No operation attributes defined. Use Manage to add one.",
+        "noOdsRules": "No retention rules: data stays in the default location."
+      }
+    },
     "details": {
       "generalData": "General Data",
       "name": "Name",

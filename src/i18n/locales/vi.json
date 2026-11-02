@@ -332,6 +332,34 @@
       "empty": "Chưa có gì để hiển thị",
       "emptyBody": "Mục này chưa có trong bản demo."
     },
+    "detailPage": {
+      "groups": {
+        "general": "Chung",
+        "schema": "Lược đồ"
+      },
+      "counts": {
+        "stateModels": "Mô hình trạng thái ({{count}})",
+        "odsRetention": "Lưu giữ dữ liệu ODS ({{count}})"
+      },
+      "tables": {
+        "mainStateModel": "Mô hình trạng thái chính",
+        "olderThan": "Cũ hơn",
+        "location": "Vị trí"
+      },
+      "labels": {
+        "cloneDisplayOrder": "Thứ tự hiển thị khi nhân bản",
+        "days": "ngày",
+        "defaultLocation": "Vị trí mặc định",
+        "isToEnrichCDM": "IsToEnrichCDM"
+      },
+      "empty": {
+        "noProperties": "Không có thuộc tính.",
+        "noAttributes": "Chưa định nghĩa đặc tính. Dùng Quản lý để thêm.",
+        "noOperations": "Không có thao tác.",
+        "noOpAttributes": "Chưa định nghĩa đặc tính thao tác. Dùng Quản lý để thêm.",
+        "noOdsRules": "Không có quy tắc lưu giữ: dữ liệu ở vị trí mặc định."
+      }
+    },
     "details": {
       "generalData": "Dữ liệu chung",
       "name": "Tên",

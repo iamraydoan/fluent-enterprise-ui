@@ -54,6 +54,7 @@ export { MenuTriggerButton } from "./MenuTriggerButton";
 export { Dot } from "./Dot";
 export { Card, CardGrid, DetailShell, Empty, KV, MiniBar, Panel } from "./DetailShell";
 export { ActionBar } from "./ActionBar";
+export { PageHeader } from "./PageHeader";
 export { RibbonButton } from "./RibbonButton";
 export type { RibbonMenuItem } from "./RibbonButton";
 export type {
