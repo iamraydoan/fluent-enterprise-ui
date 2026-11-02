@@ -468,7 +468,7 @@ export function ManageDialog({
   return (
     <BaseDialog
       open
-      width="1100px"
+      size="fullscreen"
       title={t(KIND_TITLES[kind])}
       icon={<Settings20Regular />}
       onClose={onClose}
@@ -725,7 +725,7 @@ export function EntityTypeDialog({
   return (
     <BaseDialog
       open
-      width="900px"
+      size="fullscreen"
       title={edit ? t("entityTypes.dialog.editTitle") : t("entityTypes.dialog.createTitle")}
       icon={edit ? <Edit20Regular /> : <Add24Regular />}
       onClose={onClose}
@@ -1113,7 +1113,7 @@ export function OdsDialog({
   return (
     <BaseDialog
       open
-      width="1000px"
+      size="fullscreen"
       title={t("entityTypes.ods.title")}
       icon={<Settings20Regular />}
       onClose={onClose}
@@ -1274,7 +1274,7 @@ export function GenerateDialog({ name, desc, state, onClose }: GenerateDialogPro
   return (
     <BaseDialog
       open
-      size="md"
+      size="fullscreen"
       title={t("entityTypes.generate.title")}
       icon={<Flash20Regular />}
       onClose={onClose}
@@ -1327,7 +1327,7 @@ export function LbosDialog({ onClose }: LbosDialogProps) {
   return (
     <BaseDialog
       open
-      size="md"
+      size="fullscreen"
       title={t("entityTypes.lbos.title")}
       icon={<ArrowDownload20Regular />}
       onClose={close}
