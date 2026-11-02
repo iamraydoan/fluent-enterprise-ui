@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { PanelLeftContract20Regular, PanelLeftExpand20Regular } from "@/components/icons";
 import { Button, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -24,6 +24,12 @@ const usePanelStyles = makeStyles({
   headerText: {
     textTransform: "uppercase",
   },
+  plainHeader: {
+    padding: "12px 16px",
+    margin: "4px 4px 6px",
+    flexShrink: 0,
+    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+  },
   body: {
     flexGrow: 1,
     minHeight: 0,
@@ -32,17 +38,44 @@ const usePanelStyles = makeStyles({
   },
 });
 
-interface SidePanelProps {
+interface SidePanelBaseProps {
   title: string;
-  collapsed: boolean;
-  onToggle: () => void;
   children: ReactNode;
+  style?: CSSProperties;
 }
 
-export function SidePanel({ title, collapsed, onToggle, children }: SidePanelProps) {
+interface CollapsibleSidePanelProps extends SidePanelBaseProps {
+  collapsible?: true;
+  collapsed: boolean;
+  onToggle: () => void;
+}
+
+interface FixedSidePanelProps extends SidePanelBaseProps {
+  collapsible: false;
+  collapsed?: never;
+  onToggle?: never;
+}
+
+type SidePanelProps = CollapsibleSidePanelProps | FixedSidePanelProps;
+
+export function SidePanel(props: SidePanelProps) {
   const { t } = useAppTranslation();
   const styles = usePanelStyles();
   const sharedStyles = useSharedStyles();
+  const { title, children, style } = props;
+  if (props.collapsible === false) {
+    return (
+      <aside style={style} className={mergeClasses(sharedStyles.contentCard, styles.panel)} aria-label={title}>
+        <div className={styles.plainHeader}>
+          <Text weight="semibold" size={400}>
+            {title}
+          </Text>
+        </div>
+        <div className={styles.body}>{children}</div>
+      </aside>
+    );
+  }
+  const { collapsed, onToggle } = props;
   if (collapsed) {
     return (
       <div>
@@ -56,7 +89,7 @@ export function SidePanel({ title, collapsed, onToggle, children }: SidePanelPro
     );
   }
   return (
-    <aside className={mergeClasses(sharedStyles.contentCard, styles.panel)} aria-label={title}>
+    <aside style={style} className={mergeClasses(sharedStyles.contentCard, styles.panel)} aria-label={title}>
       <div className={styles.header}>
         <Text weight="semibold" size={300} className={styles.headerText}>
           {title}

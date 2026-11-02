@@ -55,6 +55,7 @@ export {
   DocumentBulletList20Regular,
   DocumentBulletList24Regular,
   DocumentSearch24Regular,
+  Folder20Regular,
   Folder24Regular,
   Grid24Regular,
   Edit20Regular,
