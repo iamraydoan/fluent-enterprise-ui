@@ -1,5 +1,6 @@
 import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { ToastHost } from "@/components/common";
 import { Button, makeStyles, Text, tokens } from "@/components/ui";
 import { NAVIGATION_SECTIONS, routeForSection, sectionForRoute } from "@/data/navigation";
 import { useAppTranslation } from "@/i18n";
@@ -128,6 +129,7 @@ export function MainLayout() {
         )}
         {currentTab && <Outlet />}
       </div>
+      <ToastHost />
     </div>
   );
 }

@@ -122,6 +122,7 @@
     "chooseColumns": "Chọn cột",
     "clearSorting": "Xóa sắp xếp",
     "close": "Đóng",
+    "dismissNotification": "Đóng thông báo",
     "clear": "Xóa",
     "help": "Trợ giúp",
     "collapsePanel": "Thu gọn bảng",
@@ -372,6 +373,16 @@
       "searchableLimitError": "Ngoại trừ Tên, không thể đánh dấu quá hai thuộc tính là tìm kiếm được.",
       "containsWarning": "Kiểu tìm kiếm Chứa có thể ảnh hưởng đến hiệu năng tìm kiếm thực thể",
       "searchableNotAllowed": "Chỉ các thuộc tính có Kiểu tham chiếu là None, Kiểu vô hướng là Varchar/NVarchar và Kích thước 1-512 mới có thể tìm kiếm được."
+    },
+    "access": {
+      "title": "Mức truy cập",
+      "entity": "ENTITY",
+      "template": "TEMPLATE",
+      "view": "VIEW",
+      "create": "CREATE",
+      "update": "UPDATE",
+      "readOnly": "Chỉ đọc",
+      "hidden": "Ẩn"
     }
   },
   "mainLayout": {

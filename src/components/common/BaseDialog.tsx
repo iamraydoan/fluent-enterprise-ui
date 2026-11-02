@@ -101,6 +101,7 @@ interface BaseDialogProps {
   footer?: React.ReactNode;
   icon?: ReactNode;
   subHeader?: ReactNode;
+  headerExtra?: ReactNode;
   showComments?: boolean;
   children: React.ReactNode;
 }
@@ -114,6 +115,7 @@ export function BaseDialog({
   footer,
   icon,
   subHeader,
+  headerExtra,
   showComments = false,
   children,
 }: BaseDialogProps) {
@@ -143,16 +145,19 @@ export function BaseDialog({
         aria-modal="true"
         aria-label={title}
       >
-        <div className={styles.head}>
-          <span className={styles.headTitle}>
-            {icon}
-            <Text weight="semibold" size={400}>
-              {title}
-            </Text>
-          </span>
-          <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
-            <Dismiss16Regular />
-          </button>
+        <div style={headerExtra ? { backgroundColor: "#DDE1E7", flexShrink: 0 } : undefined}>
+          <div className={styles.head}>
+            <span className={styles.headTitle}>
+              {icon}
+              <Text weight="semibold" size={400}>
+                {title}
+              </Text>
+            </span>
+            <button className={styles.closeButton} onClick={onClose} aria-label={t("common.close")}>
+              <Dismiss16Regular />
+            </button>
+          </div>
+          {headerExtra}
         </div>
         {subHeader && <div className={styles.subHeader}>{subHeader}</div>}
         <div className={styles.body}>{children}</div>

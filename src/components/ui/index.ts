@@ -35,6 +35,8 @@ export {
   DialogTrigger,
 } from "./dialog";
 export { Divider } from "./divider";
+export { Dropdown, Option } from "./dropdown";
+export { Combobox } from "./combobox";
 export { Badge } from "./badge";
 export { Tree, TreeItem, TreeItemLayout } from "./tree";
 export { FluentProvider } from "./provider";
