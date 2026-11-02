@@ -153,7 +153,7 @@ export interface SchemaContext {
   entityNames: string[];
 }
 
-export type SchemaFieldKind = "text" | "number" | "select" | "combo" | "switch" | "access" | "fixed";
+type SchemaFieldKind = "text" | "number" | "select" | "combo" | "switch" | "access" | "fixed";
 
 export interface SchemaField {
   section: string;
@@ -177,12 +177,12 @@ export interface Issue {
 }
 
 export const REF_PROP: string[] = ["Entity", "Entity Definition", "Entity Type", "Entity Version", "Enum", "File", "Lookup Table", "Lookup Value", "None", "Query", "Role", "User"];
-export const REF_ATTR: string[] = ["None", "Lookup Value", "Lookup Table", "Enum"];
-export const ENTITYISH: string[] = ["Entity", "Entity Definition", "Entity Type", "Entity Version"];
-export const SCALARS: string[] = ["BigInt", "Boolean", "DateTime", "Decimal", "Int", "NVarChar", "VarChar"];
-export const IMPORT_MODES: string[] = ["Override Always", "Override If Null", "Ignore"];
-export const REF_MODES: string[] = ["Is Instance", "Is Part", "Is Reference"];
-export const SEARCH_TYPES: string[] = ["Contains", "Starts With"];
+const REF_ATTR: string[] = ["None", "Lookup Value", "Lookup Table", "Enum"];
+const ENTITYISH: string[] = ["Entity", "Entity Definition", "Entity Type", "Entity Version"];
+const SCALARS: string[] = ["BigInt", "Boolean", "DateTime", "Decimal", "Int", "NVarChar", "VarChar"];
+const IMPORT_MODES: string[] = ["Override Always", "Override If Null", "Ignore"];
+const REF_MODES: string[] = ["Is Instance", "Is Part", "Is Reference"];
+const SEARCH_TYPES: string[] = ["Contains", "Starts With"];
 export const LOCK_TYPES: string[] = ["LockNone", "LockSource", "LockTarget", "LockSourceAndTarget"];
 export const CLONE_BEHAVIORS: string[] = ["CopyIfSource", "CopyIfSourceOrTarget", "CopyIfTarget", "NoCopy"];
 export const PURGE_TYPES: string[] = ["Generic", "Specific", "Bypass"];
@@ -190,7 +190,7 @@ export const NAME_GENERATORS: string[] = ["ChangeSetNameGenerator", "DefaultName
 export const ROLES: string[] = ["Administrators", "Supervisors", "Quality Engineers", "Operators"];
 export const WORKFLOWS: string[] = ["Single Approval", "Two-Step Approval", "Quality Approval"];
 export const STATES: string[] = ["Created", "Active", "InReview", "Released"];
-export const DATA_GROUPS: string[] = ["Default", "Quality", "Production"];
+const DATA_GROUPS: string[] = ["Default", "Quality", "Production"];
 
 const REF_TO: Record<string, string[]> = {
   Enum: ["Cmf.Foundation.BusinessObjects.UIType", "Cmf.Foundation.Common.LogLevel", "Cmf.Navigo.BusinessObjects.MaterialState"],
@@ -302,9 +302,9 @@ const blank: Omit<EntityItem, "id" | "kind" | "name" | "type" | "al"> = {
 
 const ALF: AccessFlags = { roView: false, roCreate: false, roUpdate: false, hidView: false, hidCreate: false, hidUpdate: false };
 
-export const alOf = (o: Partial<AccessFlags> = {}): AccessLevel => ({ ent: { ...ALF, ...o }, tpl: { ...ALF, ...o } });
+const alOf = (o: Partial<AccessFlags> = {}): AccessLevel => ({ ent: { ...ALF, ...o }, tpl: { ...ALF, ...o } });
 
-export const mk = (kind: EntityItemKind, name: string, o: Partial<EntityItem> = {}): EntityItem =>
+const mk = (kind: EntityItemKind, name: string, o: Partial<EntityItem> = {}): EntityItem =>
   Object.assign(
     {
       id: nid(),
@@ -428,7 +428,7 @@ export const setEntityStore = (name: string, entry: EntityTypeStoreEntry): void 
 
 const isEntityish = (i: EntityItem): boolean => ENTITYISH.includes(i.refType);
 
-export const eligibleSearch = (i: EntityItem): boolean =>
+const eligibleSearch = (i: EntityItem): boolean =>
   i.refType === "None" && ["VarChar", "NVarChar"].includes(i.scalar) && Number(i.size) >= 1 && Number(i.size) <= 512;
 
 const T: SchemaFieldKind = "text";
@@ -536,20 +536,6 @@ export const SCHEMAS: Record<EntityItemKind, SchemaField[]> = {
   attribute: toSchema(attrFields(true)),
   opAttr: toSchema(attrFields(false)),
   operation: toSchema(opFields),
-};
-
-export const KIND_LABEL: Record<EntityItemKind, string> = {
-  property: "Properties",
-  attribute: "Attributes",
-  operation: "Operations",
-  opAttr: "Operation Attributes",
-};
-
-export const KIND_TITLE: Record<EntityItemKind, string> = {
-  property: "Manage Entity Type Properties",
-  attribute: "Manage Entity Type Attributes",
-  operation: "Manage Entity Type Operations",
-  opAttr: "Manage Entity Type Operation Attributes",
 };
 
 const fieldValue = (item: EntityItem, key: string): unknown => (item as unknown as Record<string, unknown>)[key];

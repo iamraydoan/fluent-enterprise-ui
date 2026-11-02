@@ -168,7 +168,7 @@ interface EntitySubProps {
   defaultOpen?: boolean;
 }
 
-export function EntitySub({ name, state, desc, defaultOpen = false }: EntitySubProps) {
+function EntitySub({ name, state, desc, defaultOpen = false }: EntitySubProps) {
   const s = useDialogStyles();
   const { t } = useAppTranslation();
   const [open, setOpen] = useState(defaultOpen);

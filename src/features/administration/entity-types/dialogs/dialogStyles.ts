@@ -1,6 +1,4 @@
-import { makeStyles, mergeClasses, tokens } from "@/components/ui";
-
-export { mergeClasses };
+import { makeStyles, tokens } from "@/components/ui";
 
 export const useDialogStyles = makeStyles({
   sub: {

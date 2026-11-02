@@ -4,7 +4,7 @@ export const STEP_COUNT = 4;
 
 const TARGETS = ["NetStandard", "NetFramework", "TypeScript", "Packages"];
 
-export type LbosPhase = "idle" | "running" | "done" | "failed";
+type LbosPhase = "idle" | "running" | "done" | "failed";
 
 export interface LbosState {
   phase: LbosPhase;
