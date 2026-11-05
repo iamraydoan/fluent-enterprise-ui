@@ -1,20 +1,22 @@
 import { Button as FluentButton } from "@fluentui/react-components";
 import { forwardRef } from "react";
-import type { CSSProperties, MouseEvent, ReactNode } from "react";
+import type { CSSProperties, MouseEventHandler, ReactElement, ReactNode } from "react";
+import { SIZE_MAP } from "./types";
+import type { ComponentSize } from "./types";
 
 export type ButtonVariant = "primary" | "secondary" | "subtle" | "transparent" | "outline";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonSize = ComponentSize;
 
 export interface ButtonProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
   disabled?: boolean;
-  icon?: ReactNode;
+  icon?: ReactElement | string | number | Iterable<ReactNode> | null;
   iconPosition?: "before" | "after";
   shape?: "rounded" | "circular" | "square";
   type?: "button" | "submit" | "reset";
-  onClick?: (e: MouseEvent<HTMLElement>) => void;
-  onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  onMouseDown?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   className?: string;
   style?: CSSProperties;
   title?: string;
@@ -23,12 +25,6 @@ export interface ButtonProps {
   children?: ReactNode;
 }
 
-const SIZE_MAP: Record<ButtonSize, "small" | "medium" | "large"> = {
-  sm: "small",
-  md: "medium",
-  lg: "large",
-};
-
 export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
   function Button({ variant, size, ...rest }, ref) {
     return (
@@ -36,7 +32,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
         ref={ref}
         appearance={variant}
         size={size ? SIZE_MAP[size] : undefined}
-        {...(rest as object)}
+        {...rest}
       />
     );
   },

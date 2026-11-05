@@ -44,3 +44,4 @@ export { Badge } from "./badge";
 export { Tree, TreeItem, TreeItemLayout } from "./tree";
 export { FluentProvider } from "./provider";
 export { makeStyles, mergeClasses, tokens } from "./styles";
+export type { ComponentSize } from "./types";

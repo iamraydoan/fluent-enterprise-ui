@@ -1,8 +1,10 @@
 import { Tab as FluentTab, TabList as FluentTabList } from "@fluentui/react-components";
 import { forwardRef } from "react";
 import type { ComponentRef, CSSProperties, ReactNode } from "react";
+import { SIZE_MAP } from "./types";
+import type { ComponentSize } from "./types";
 
-export type TabSize = "sm" | "md" | "lg";
+export type TabSize = ComponentSize;
 
 export interface TabProps {
   value: string;
@@ -25,12 +27,6 @@ export interface TabListProps {
   "aria-label"?: string;
   children?: ReactNode;
 }
-
-const SIZE_MAP: Record<TabSize, "small" | "medium" | "large"> = {
-  sm: "small",
-  md: "medium",
-  lg: "large",
-};
 
 export const TabList = forwardRef<ComponentRef<typeof FluentTabList>, TabListProps>(
   function TabList({ onTabSelect, size, ...rest }, ref) {

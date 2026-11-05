@@ -5,12 +5,14 @@ import {
 } from "@fluentui/react-components";
 import { forwardRef } from "react";
 import type { ComponentRef, CSSProperties, KeyboardEvent, ReactElement, ReactNode } from "react";
+import { SIZE_MAP } from "./types";
+import type { ComponentSize } from "./types";
 
 export type InputType =
   "text" | "password" | "number" | "date" | "datetime-local" | "email" | "search" | "tel" | "url";
 
 export type InputVariant = "outline" | "underline" | "filled";
-export type InputSize = "sm" | "md" | "lg";
+export type InputSize = ComponentSize;
 
 export interface InputProps {
   value?: string;
@@ -40,12 +42,6 @@ const INPUT_VARIANT_MAP: Record<InputVariant, "outline" | "underline" | "filled-
   filled: "filled-darker",
 };
 
-const INPUT_SIZE_MAP: Record<InputSize, "small" | "medium" | "large"> = {
-  sm: "small",
-  md: "medium",
-  lg: "large",
-};
-
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   { onChange, variant, size, ...rest },
   ref,
@@ -55,7 +51,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       ref={ref}
       onChange={onChange ? (_, data) => onChange(data.value) : undefined}
       appearance={variant ? INPUT_VARIANT_MAP[variant] : undefined}
-      size={size ? INPUT_SIZE_MAP[size] : undefined}
+      size={size ? SIZE_MAP[size] : undefined}
       {...rest}
     />
   );
@@ -90,7 +86,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
   );
 });
 
-export type FieldSize = "sm" | "md" | "lg";
+export type FieldSize = ComponentSize;
 
 export interface FieldProps {
   label?: string;
@@ -102,15 +98,9 @@ export interface FieldProps {
   children?: ReactNode;
 }
 
-const FIELD_SIZE_MAP: Record<FieldSize, "small" | "medium" | "large"> = {
-  sm: "small",
-  md: "medium",
-  lg: "large",
-};
-
 export const Field = forwardRef<ComponentRef<typeof FluentField>, FieldProps>(function Field(
   { size, ...rest },
   ref,
 ) {
-  return <FluentField ref={ref} size={size ? FIELD_SIZE_MAP[size] : undefined} {...rest} />;
+  return <FluentField ref={ref} size={size ? SIZE_MAP[size] : undefined} {...rest} />;
 });
