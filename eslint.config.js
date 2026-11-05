@@ -24,6 +24,20 @@ const fluentBan = {
   ],
 };
 
+const tokensUiBan = {
+  name: "@/components/ui",
+  importNames: ["tokens"],
+  message:
+    "Import tokens only in src/components/ui or src/styles/theme. Use theme from @/styles/theme.",
+};
+
+const tokensFluentBan = {
+  name: "@fluentui/react-components",
+  importNames: ["tokens"],
+  message:
+    "Import tokens only in src/components/ui or src/styles/theme. Use theme from @/styles/theme.",
+};
+
 const coreBan = {
   patterns: [
     {
@@ -120,7 +134,10 @@ export default tseslint.config(
       ],
       "no-restricted-imports": [
         "error",
-        { ...fluentBan, paths: [...fluentBan.paths, ...i18nBan, ...tanstackTableBan.paths] },
+        {
+          ...fluentBan,
+          paths: [...fluentBan.paths, tokensUiBan, ...i18nBan, ...tanstackTableBan.paths],
+        },
       ],
     },
     linterOptions: { reportUnusedDisableDirectives: "error" },
@@ -135,6 +152,18 @@ export default tseslint.config(
       "src/theme/**/*.ts",
       "src/styles/**/*.ts",
     ],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [...fluentBan.paths, tokensUiBan, ...i18nBan, ...tanstackTableBan.paths],
+          patterns: [...fluentBan.patterns, ...coreBan.patterns],
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/styles/theme.ts"],
     rules: {
       "no-restricted-imports": [
         "error",
@@ -198,7 +227,10 @@ export default tseslint.config(
     rules: {
       "no-restricted-imports": [
         "error",
-        { ...fluentBan, paths: [...fluentBan.paths, ...tanstackTableBan.paths] },
+        {
+          ...fluentBan,
+          paths: [...fluentBan.paths, tokensUiBan, ...tanstackTableBan.paths],
+        },
       ],
     },
   },
@@ -210,6 +242,26 @@ export default tseslint.config(
         "error",
         {
           paths: [
+            {
+              name: "@fluentui/react-icons",
+              message: "Import icons only from @/components/icons.",
+            },
+            ...tanstackTableBan.paths,
+          ],
+          patterns: [...coreBan.patterns],
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/theme/**/*.ts"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            tokensUiBan,
+            tokensFluentBan,
             {
               name: "@fluentui/react-icons",
               message: "Import icons only from @/components/icons.",
@@ -254,11 +306,23 @@ export default tseslint.config(
   },
   {
     files: ["src/components/**/*.{ts,tsx}"],
+    ignores: ["src/components/ui/**"],
+    rules: {
+      "no-restricted-imports": ["error", { paths: [tokensUiBan, tokensFluentBan] }],
+    },
+  },
+  {
+    files: ["src/components/ui/**/*.{ts,tsx}"],
     rules: { "no-restricted-imports": "off" },
   },
   {
     files: ["src/components/common/DetailShell.tsx"],
-    rules: { "no-restricted-imports": ["error", fluentBan] },
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        { ...fluentBan, paths: [...fluentBan.paths, tokensUiBan] },
+      ],
+    },
   },
   {
     files: ["src/components/icons/index.ts"],
@@ -267,6 +331,7 @@ export default tseslint.config(
         "error",
         {
           paths: [
+            tokensUiBan,
             {
               name: "@fluentui/react-components",
               message: "Import UI components only from @/components/ui.",
@@ -618,7 +683,7 @@ export default tseslint.config(
       "no-restricted-imports": [
         "error",
         {
-          paths: [...fluentBan.paths, ...i18nBan],
+          paths: [...fluentBan.paths, tokensUiBan, ...i18nBan],
           patterns: [...fluentBan.patterns, ...coreBan.patterns],
         },
       ],
