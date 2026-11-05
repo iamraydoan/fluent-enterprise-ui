@@ -308,7 +308,13 @@ export default tseslint.config(
     files: ["src/components/**/*.{ts,tsx}"],
     ignores: ["src/components/ui/**"],
     rules: {
-      "no-restricted-imports": ["error", { paths: [tokensUiBan, tokensFluentBan] }],
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [...fluentBan.paths, tokensUiBan, ...i18nBan, ...tanstackTableBan.paths],
+          patterns: [...fluentBan.patterns],
+        },
+      ],
     },
   },
   {
