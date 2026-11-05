@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Search20Regular } from "@/components/icons";
-import { Input, makeStyles, tokens } from "@/components/ui";
+import { Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const useHubStyles = makeStyles({
   page: {
@@ -31,20 +32,20 @@ const useHubStyles = makeStyles({
     justifyContent: "center",
     rowGap: "10px",
     padding: "8px",
-    backgroundColor: tokens.colorNeutralBackground2,
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    backgroundColor: theme.color.surfaceSecondary,
+    border: `1px solid ${theme.color.border}`,
     borderRadius: "4px",
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
     lineHeight: "16px",
-    color: tokens.colorNeutralForeground1,
+    color: theme.color.textPrimary,
     textAlign: "center",
     ":hover": {
-      backgroundColor: tokens.colorNeutralBackground1Hover,
-      border: `1px solid ${tokens.colorBrandStroke1}`,
+      backgroundColor: theme.color.surfaceHover,
+      border: `1px solid ${theme.color.borderBrand}`,
     },
-    ":focus-visible": { outline: `2px solid ${tokens.colorBrandStroke1}`, outlineOffset: "1px" },
+    ":focus-visible": { outline: `2px solid ${theme.color.borderBrand}`, outlineOffset: "1px" },
   },
   tileIcon: { fontSize: "32px", display: "grid", placeItems: "center", height: "32px" },
 });
@@ -91,7 +92,7 @@ export function HubPage({ tiles, ariaLabelKey, searchWidth = 210, onTileClick }:
         ))}
       </div>
       {filtered.length === 0 && (
-        <div style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}>
+        <div style={{ padding: 40, textAlign: "center", color: theme.color.textTertiary }}>
           {t("common.noResults")}
         </div>
       )}

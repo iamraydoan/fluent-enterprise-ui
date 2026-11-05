@@ -1,8 +1,9 @@
 import type { CSSProperties, ReactNode } from "react";
 import { PanelLeftContract20Regular, PanelLeftExpand20Regular } from "@/components/icons";
-import { Button, Text, makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { Button, Text, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const usePanelStyles = makeStyles({
   panel: {
@@ -19,7 +20,7 @@ const usePanelStyles = makeStyles({
     paddingLeft: "12px",
     paddingRight: "6px",
     flexShrink: 0,
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   headerText: {
     textTransform: "uppercase",
@@ -28,7 +29,7 @@ const usePanelStyles = makeStyles({
     padding: "12px 16px",
     margin: "4px 4px 6px",
     flexShrink: 0,
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   body: {
     flexGrow: 1,

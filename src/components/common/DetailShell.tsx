@@ -10,18 +10,11 @@ import {
   PanelLeftExpand20Regular,
   Sparkle24Filled,
 } from "@/components/icons";
-import {
-  Body1Strong,
-  Button,
-  makeStyles,
-  mergeClasses,
-  Tab,
-  TabList,
-  tokens,
-} from "@/components/ui";
+import { Body1Strong, Button, makeStyles, mergeClasses, Tab, TabList } from "@/components/ui";
 import type { TranslationKey } from "@/i18n";
 import { useAppTranslation } from "@/i18n";
 import { aiAccentColor, useSharedStyles, cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 import { ActionBar } from "./ActionBar";
 import { PageHeader } from "./PageHeader";
 import { RibbonButton } from "./RibbonButton";
@@ -29,7 +22,7 @@ import { RibbonButton } from "./RibbonButton";
 const useDetailShellStyles = makeStyles({
   tabsRow: {
     padding: "0 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     display: "flex",
   },
   body: { display: "flex", columnGap: "10px", marginTop: "10px", flexGrow: 1, minHeight: 0 },
@@ -46,7 +39,7 @@ const useDetailShellStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "10px 12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     margin: "4px 4px 8px",
   },
   leftItem: {
@@ -61,11 +54,11 @@ const useDetailShellStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "13px",
-    color: tokens.colorNeutralForeground1,
+    color: theme.color.textPrimary,
     textAlign: "left",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
-  leftActive: { backgroundColor: tokens.colorNeutralBackground1Selected, fontWeight: 600 },
+  leftActive: { backgroundColor: theme.color.surfaceSelected, fontWeight: 600 },
   area: {
     flexGrow: 1,
     minWidth: 0,
@@ -97,9 +90,9 @@ const useDetailShellStyles = makeStyles({
   },
   cardTitle: {
     fontSize: "14px",
-    color: tokens.colorNeutralForeground1,
+    color: theme.color.textPrimary,
     paddingBottom: "6px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: "14px",
   },
   kv: {
@@ -110,11 +103,11 @@ const useDetailShellStyles = makeStyles({
     fontSize: "13px",
     lineHeight: "24px",
   },
-  kvLabel: { textAlign: "right", color: tokens.colorNeutralForeground2, minWidth: "110px" },
+  kvLabel: { textAlign: "right", color: theme.color.textSecondary, minWidth: "110px" },
   kvVal: { wordBreak: "break-word", minWidth: 0, minHeight: "24px" },
   miniBar: {
     display: "flex",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
   miniGroup: {
@@ -122,12 +115,12 @@ const useDetailShellStyles = makeStyles({
     flexDirection: "column",
     paddingRight: "10px",
     marginRight: "8px",
-    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRight: `1px solid ${theme.color.borderSubtle}`,
   },
   miniLabel: {
     textAlign: "center",
     fontSize: "9px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     padding: "2px 0 6px",
     minHeight: "10px",
   },
@@ -138,7 +131,7 @@ const useDetailShellStyles = makeStyles({
     justifyContent: "center",
     rowGap: "6px",
     flexGrow: 1,
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
   },
 });
 

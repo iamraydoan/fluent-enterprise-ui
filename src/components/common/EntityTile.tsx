@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
-import { makeStyles, mergeClasses, Text, tokens } from "@/components/ui";
+import { makeStyles, mergeClasses, Text } from "@/components/ui";
 import { cardSurface, tileSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const useTileStyles = makeStyles({
   grid: {
@@ -23,7 +24,7 @@ const useTileStyles = makeStyles({
     ":hover": { backgroundColor: tileSurface.hoverBackgroundColor },
   },
   tileSelected: {
-    outline: `2px solid ${tokens.colorBrandStroke1}`,
+    outline: `2px solid ${theme.color.borderBrand}`,
     outlineOffset: "-2px",
   },
   accent: {
@@ -35,12 +36,12 @@ const useTileStyles = makeStyles({
   },
   title: {
     fontSize: "14px",
-    fontWeight: tokens.fontWeightSemibold,
+    fontWeight: theme.font.weightSemibold,
     overflow: "hidden",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
   },
-  subtitle: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
+  subtitle: { fontSize: "12px", color: theme.color.textTertiary },
   footer: {
     display: "flex",
     alignItems: "center",

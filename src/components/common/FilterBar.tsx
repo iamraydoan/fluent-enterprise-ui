@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { makeStyles, mergeClasses } from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 const useFilterBarStyles = makeStyles({
   root: {
@@ -12,13 +13,13 @@ const useFilterBarStyles = makeStyles({
   justifyEnd: { justifyContent: "flex-end", columnGap: "12px" },
   divider: {
     paddingBottom: "12px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   group: { display: "flex", alignItems: "center", columnGap: "8px" },
   alignEnd: { marginLeft: "auto" },
   label: {
     fontSize: "12px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     textTransform: "uppercase",
     letterSpacing: "0.5px",
     whiteSpace: "nowrap",

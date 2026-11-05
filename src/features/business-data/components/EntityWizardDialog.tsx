@@ -24,7 +24,6 @@ import {
   Textarea,
   makeStyles,
   mergeClasses,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -58,11 +57,11 @@ const useWizardStyles = makeStyles({
     minHeight: "56px",
     padding: "0 12px 0 20px",
     ...tileSurface,
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
   headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
-  headIcon: { color: tokens.colorNeutralForeground1, display: "flex" },
+  headIcon: { color: theme.color.textPrimary, display: "flex" },
   headActions: { display: "flex", alignItems: "center", columnGap: "4px" },
   body: {
     flexGrow: 1,
@@ -128,7 +127,7 @@ const useWizardStyles = makeStyles({
     columnGap: "8px",
     padding: "12px 24px",
     ...tileSurface,
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
   error: {

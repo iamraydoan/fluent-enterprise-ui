@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 import { RowLink } from "@/components/common/RowLink";
 import { Checkmark20Filled, Dismiss20Filled } from "@/components/icons";
-import { makeStyles, tokens } from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { theme } from "@/styles/theme";
 
 const useBooleanCellStyles = makeStyles({
   cell: {
@@ -10,7 +11,7 @@ const useBooleanCellStyles = makeStyles({
     justifyContent: "center",
   },
   no: {
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
   },
 });
 

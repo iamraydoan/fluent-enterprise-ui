@@ -1,4 +1,5 @@
-import { makeStyles, mergeClasses, Text, tokens } from "@/components/ui";
+import { makeStyles, mergeClasses, Text } from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 const useNavItemStyles = makeStyles({
   item: {
@@ -13,15 +14,15 @@ const useNavItemStyles = makeStyles({
     textAlign: "left",
     fontFamily: "inherit",
     fontSize: "13px",
-    borderRadius: tokens.borderRadiusMedium,
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    borderRadius: theme.radius.md,
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   active: {
-    backgroundColor: tokens.colorNeutralBackground1Selected,
-    fontWeight: tokens.fontWeightSemibold,
+    backgroundColor: theme.color.surfaceSelected,
+    fontWeight: theme.font.weightSemibold,
   },
-  desc: { fontSize: "12px", color: tokens.colorNeutralForeground3 },
-  count: { marginLeft: "auto", fontSize: "12px", fontWeight: tokens.fontWeightSemibold },
+  desc: { fontSize: "12px", color: theme.color.textTertiary },
+  count: { marginLeft: "auto", fontSize: "12px", fontWeight: theme.font.weightSemibold },
 });
 
 interface SidebarNavItemProps {

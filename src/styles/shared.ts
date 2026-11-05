@@ -1,4 +1,5 @@
-import { makeStyles, tokens } from "@/components/ui";
+import { makeStyles } from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 export const cardSurface = {
   backgroundColor: "#FAFAFA",
@@ -50,13 +51,13 @@ export const useSharedStyles = makeStyles({
     flexDirection: "column",
     paddingRight: "12px",
     marginRight: "4px",
-    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderRight: `1px solid ${theme.color.borderSubtle}`,
   },
   actionBarGroupButtons: { display: "flex" },
   actionBarGroupLabel: {
     textAlign: "center",
     fontSize: "9px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
     padding: "6px 0 4px",
   },
   actionBarButton: {
@@ -74,10 +75,10 @@ export const useSharedStyles = makeStyles({
     borderRadius: "6px",
     fontFamily: "inherit",
     fontSize: "10px",
-    color: tokens.colorNeutralForeground1,
+    color: theme.color.textPrimary,
     lineHeight: "12px",
     textAlign: "center",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   pageHeader: {
     display: "flex",
@@ -85,7 +86,7 @@ export const useSharedStyles = makeStyles({
     justifyContent: "space-between",
     height: "34px",
     padding: "0 12px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
     columnGap: "12px",
   },
 
@@ -111,7 +112,7 @@ export const useSharedStyles = makeStyles({
     cursor: "pointer",
     fontFamily: "inherit",
     fontSize: "12px",
-    color: tokens.colorNeutralForeground1,
+    color: theme.color.textPrimary,
     display: "inline-flex",
     alignItems: "center",
     columnGap: "4px",
@@ -127,14 +128,14 @@ export const useSharedStyles = makeStyles({
     flexGrow: 1,
     minHeight: 0,
     overflow: "auto",
-    border: `1px solid ${tokens.colorNeutralStroke2}`,
+    border: `1px solid ${theme.color.borderSubtle}`,
   },
   tableHeaderCell: {
     position: "sticky",
     top: 0,
     zIndex: 1,
-    backgroundColor: tokens.colorNeutralBackground2,
-    borderRight: `1px solid ${tokens.colorNeutralStroke2}`,
+    backgroundColor: theme.color.surfaceSecondary,
+    borderRight: `1px solid ${theme.color.borderSubtle}`,
     height: "38px",
     fontSize: "12px",
     fontWeight: 400,
@@ -149,12 +150,12 @@ export const useSharedStyles = makeStyles({
     font: "inherit",
     textTransform: "inherit",
     cursor: "pointer",
-    color: tokens.colorNeutralForeground1,
+    color: theme.color.textPrimary,
     padding: 0,
   },
   tableCell: { height: "36.5px", fontSize: "13px" },
   tableLink: {
-    color: tokens.colorBrandForeground1,
+    color: theme.color.textBrand,
     cursor: "pointer",
     textDecorationLine: "none",
     ":hover": { textDecorationLine: "underline" },

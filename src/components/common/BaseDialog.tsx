@@ -1,9 +1,10 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { ChevronDown20Regular, ChevronUp20Regular, Dismiss16Regular } from "@/components/icons";
-import { Button, Text, makeStyles, tokens } from "@/components/ui";
+import { Button, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const useBaseDialogStyles = makeStyles({
   overlay: {
@@ -29,7 +30,7 @@ const useBaseDialogStyles = makeStyles({
     justifyContent: "space-between",
     minHeight: "52px",
     padding: "0 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
   headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
@@ -38,7 +39,7 @@ const useBaseDialogStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "8px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     ...cardSurface,
     flexShrink: 0,
     fontSize: "13px",
@@ -55,10 +56,10 @@ const useBaseDialogStyles = makeStyles({
     justifyContent: "flex-end",
     columnGap: "8px",
     padding: "12px 16px",
-    borderTop: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
-  comments: { borderTop: `1px solid ${tokens.colorNeutralStroke2}`, flexShrink: 0 },
+  comments: { borderTop: `1px solid ${theme.color.borderSubtle}`, flexShrink: 0 },
   commentsBtn: {
     width: "100%",
     display: "flex",
@@ -77,9 +78,9 @@ const useBaseDialogStyles = makeStyles({
     backgroundColor: "transparent",
     cursor: "pointer",
     padding: "6px",
-    borderRadius: tokens.borderRadiusMedium,
+    borderRadius: theme.radius.md,
     display: "flex",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
 });
 
@@ -227,7 +228,7 @@ export function DialogFooter({
         variant={confirmVariant}
         onClick={onConfirm}
         disabled={disabled}
-        style={danger ? { backgroundColor: tokens.colorPaletteRedBackground3 } : undefined}
+        style={danger ? { backgroundColor: theme.color.dangerSubtle } : undefined}
       >
         {confirmLabel}
       </Button>

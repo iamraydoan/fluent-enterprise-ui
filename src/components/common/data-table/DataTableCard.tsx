@@ -37,12 +37,12 @@ import {
   TableHeaderCell,
   TableRow,
   Text,
-  tokens,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { ListQueryParams, ListQueryResult } from "@/lib/listQuery";
 import { useDebouncedValue } from "@/lib/useDebouncedValue";
 import { useSharedStyles } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 export interface DataTableCardApi {
   resetFilters: () => void;
@@ -396,11 +396,7 @@ export function DataTableCard<TRow extends RowData>({
                 <TableRow
                   key={row.id}
                   onClick={onRowClick ? () => onRowClick(row.original) : undefined}
-                  style={
-                    isSelected
-                      ? { backgroundColor: tokens.colorNeutralBackground1Selected }
-                      : undefined
-                  }
+                  style={isSelected ? { backgroundColor: theme.color.surfaceSelected } : undefined}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className={sharedStyles.tableCell}>
@@ -413,7 +409,7 @@ export function DataTableCard<TRow extends RowData>({
           </TableBody>
         </Table>
         {!isLoading && rows.length === 0 && (
-          <div style={{ padding: 40, textAlign: "center", color: tokens.colorNeutralForeground3 }}>
+          <div style={{ padding: 40, textAlign: "center", color: theme.color.textTertiary }}>
             {t("common.noRecordsFound")}
           </div>
         )}

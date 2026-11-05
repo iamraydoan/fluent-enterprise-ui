@@ -1,7 +1,8 @@
-import { makeStyles, tokens } from "@/components/ui";
+import { makeStyles } from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 const useBannerStyles = makeStyles({
-  banner: { marginBottom: "12px", color: tokens.colorBrandForeground1 },
+  banner: { marginBottom: "12px", color: theme.color.textBrand },
 });
 
 interface DialogEntityBannerProps {

@@ -1,4 +1,5 @@
-import { makeStyles, tokens } from "@/components/ui";
+import { makeStyles } from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 export const useDialogStyles = makeStyles({
   sub: {
@@ -6,7 +7,7 @@ export const useDialogStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "8px 16px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
     fontSize: "13px",
   },
@@ -32,7 +33,7 @@ export const useDialogStyles = makeStyles({
     flexGrow: 1,
     minHeight: 0,
     overflowY: "auto",
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    border: `1px solid ${theme.color.border}`,
     backgroundColor: "#EFEFEF",
   },
   item: {
@@ -41,7 +42,7 @@ export const useDialogStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 10px 0 10px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     backgroundColor: "#EFEFEF",
     cursor: "pointer",
     fontSize: "13px",
@@ -108,7 +109,7 @@ export const useDialogStyles = makeStyles({
   subExpand: {
     background: "#E0E0E0",
     padding: "14px 0 18px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
   noticeWarn: { borderLeft: "3px solid #C9A100" },
   noticeError: { borderLeft: "3px solid #B10E1C" },
@@ -132,7 +133,7 @@ export const useDialogStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "8px 10px",
-    borderBottom: `1px solid ${tokens.colorNeutralStroke2}`,
+    borderBottom: `1px solid ${theme.color.borderSubtle}`,
     fontSize: "13px",
   },
   warnHeadLabel: { display: "inline-flex", alignItems: "center", columnGap: "6px" },

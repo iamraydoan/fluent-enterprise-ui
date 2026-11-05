@@ -6,9 +6,10 @@ import { BooleanCell, LinkCell } from "@/components/common/data-table/cellRender
 import type { DataColumn } from "@/components/common/data-table/columns";
 import { defaultCellText, getColumnValue } from "@/components/common/data-table/columns";
 import type { DataTableFeatures } from "@/components/common/data-table/tableFeatures";
-import { TableCellLayout, Text, tokens } from "@/components/ui";
+import { TableCellLayout, Text } from "@/components/ui";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
+import { theme } from "@/styles/theme";
 
 export type TranslateFn = (key: TranslationKey) => string;
 
@@ -41,11 +42,11 @@ export function toColumnDefs<TRow extends RowData>(
               throw new Error(`Missing enum column option for ${column.field}: ${String(value)}`);
             }
             const color = {
-              brand: tokens.colorBrandForeground1,
-              success: tokens.colorPaletteGreenForeground1,
-              warning: tokens.colorPaletteDarkOrangeForeground1,
-              danger: tokens.colorPaletteRedForeground1,
-              neutral: tokens.colorNeutralForeground2,
+              brand: theme.color.textBrand,
+              success: theme.color.textSuccess,
+              warning: theme.color.textWarningStrong,
+              danger: theme.color.textDanger,
+              neutral: theme.color.textSecondary,
             }[option.color ?? "neutral"];
             return <Text style={color ? { color } : undefined}>{t(option.labelKey)}</Text>;
           }

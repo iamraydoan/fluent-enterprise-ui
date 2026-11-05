@@ -1,4 +1,5 @@
-import { makeStyles, mergeClasses, tokens } from "@/components/ui";
+import { makeStyles, mergeClasses } from "@/components/ui";
+import { theme } from "@/styles/theme";
 
 const useTabsStyles = makeStyles({
   tabs: { display: "flex", columnGap: "4px", padding: "0 16px" },
@@ -10,11 +11,11 @@ const useTabsStyles = makeStyles({
     fontFamily: "inherit",
     fontSize: "13px",
     borderBottom: "2px solid transparent",
-    ":hover": { backgroundColor: tokens.colorNeutralBackground1Hover },
+    ":hover": { backgroundColor: theme.color.surfaceHover },
   },
   tabActive: {
-    fontWeight: tokens.fontWeightSemibold,
-    borderBottom: `2px solid ${tokens.colorBrandStroke1}`,
+    fontWeight: theme.font.weightSemibold,
+    borderBottom: `2px solid ${theme.color.borderBrand}`,
   },
   tabContent: { padding: "16px", flexGrow: 1, minHeight: 0, overflowY: "auto" },
 });

@@ -1,7 +1,7 @@
 import { Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ToastHost } from "@/components/common";
-import { Button, makeStyles, Text, tokens } from "@/components/ui";
+import { Button, makeStyles, Text } from "@/components/ui";
 import { NAVIGATION_SECTIONS, routeForSection, sectionForRoute } from "@/data/navigation";
 import { useAppTranslation } from "@/i18n";
 import { PageTabs } from "@/layouts/PageTabs";
@@ -9,6 +9,7 @@ import { Sidebar } from "@/layouts/Sidebar";
 import { useTabsStore } from "@/stores/tabs-store";
 import type { PageTab } from "@/stores/tabs-store";
 import { cardSurface } from "@/styles/shared";
+import { theme } from "@/styles/theme";
 
 const useStyles = makeStyles({
   layoutGrid: {
@@ -35,7 +36,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
     rowGap: "10px",
-    color: tokens.colorNeutralForeground3,
+    color: theme.color.textTertiary,
   },
 });
 
