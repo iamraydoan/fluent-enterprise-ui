@@ -27,7 +27,7 @@ const useManageStyles = makeStyles({
   box: {
     border: `1px solid ${theme.color.border}`,
     overflow: "hidden",
-    backgroundColor: "#fff",
+    backgroundColor: theme.color.surface,
   },
   list: { flex: 1, minWidth: 0, overflowY: "auto" },
   listHead: {
@@ -266,7 +266,7 @@ export function ManageMcpDialog({
               </HStack>
             ))}
             {selectedList.length === 0 && (
-              <div style={{ padding: 20, color: "#777", fontSize: 13 }}>
+              <div style={{ padding: 20, color: theme.color.textQuaternary, fontSize: 13 }}>
                 {t("dialogs.manageMcp.noTools")}
               </div>
             )}

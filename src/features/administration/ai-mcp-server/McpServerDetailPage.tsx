@@ -197,8 +197,9 @@ export function McpServerDetailPage({ name }: McpServerDetailPageProps) {
     content = (
       <Panel>
         <MiniBar groups={toolsBarGroups} />
-        <div style={{ padding: "12px 12px 0", fontSize: 13, color: "#444" }}>
-          {t("mcpServer.lastSync")} <span style={{ color: "#222", marginLeft: 6 }}>{lastSync}</span>
+        <div style={{ padding: "12px 12px 0", fontSize: 13, color: theme.color.textSecondary }}>
+          {t("mcpServer.lastSync")}{" "}
+          <span style={{ color: theme.color.textPrimary, marginLeft: 6 }}>{lastSync}</span>
         </div>
         <HStack align="center" justify="between" gap="none" className={mcpDetailStyles.titleRow}>
           <Text size={400}>{t("mcpServer.toolsTitle", { count: detail.tools.length })}</Text>

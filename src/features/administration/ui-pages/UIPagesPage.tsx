@@ -46,8 +46,6 @@ const usePageStyles = makeStyles({
   tile: {
     padding: "14px",
     cursor: "pointer",
-    display: "flex",
-    flexDirection: "column",
     rowGap: "10px",
     minHeight: "110px",
     backgroundColor: theme.color.surface,
@@ -225,7 +223,7 @@ export function UIPagesPage() {
 function UIPageTile({ page }: { page: UIPageRecord }) {
   const styles = usePageStyles();
   return (
-    <div className={styles.tile} role="button" tabIndex={0} aria-label={page.name}>
+    <VStack gap="10px" className={styles.tile} role="button" tabIndex={0} aria-label={page.name}>
       <Text weight="semibold" size={400} className={styles.tileName} title={page.name}>
         {page.name}
       </Text>
@@ -238,6 +236,6 @@ function UIPageTile({ page }: { page: UIPageRecord }) {
           {page.description}
         </Text>
       )}
-    </div>
+    </VStack>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { BaseDialog, DialogFooter, HStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, HStack } from "@/components/common";
 import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -40,7 +40,6 @@ const useScanStyles = makeStyles({
     paddingTop: theme.spacing.xs,
   },
   typeOption: {
-    display: "flex",
     alignItems: "center",
     columnGap: theme.spacing.sm,
     cursor: "pointer",
@@ -101,33 +100,49 @@ export function ScanDialog({ open, onClose, onDetected }: ScanDialogProps) {
       }
     >
       <style>{`@keyframes barcode-scan-line { 0% { top: 12%; } 50% { top: 86%; } 100% { top: 12%; } }`}</style>
-      <HStack align="center" justify="center" gap="none" className={styles.viewport} aria-label={t(L.title)}>
-        <HStack gap="3px" align="stretch" aria-hidden="true" className={styles.code}>
+      <HStack
+        align="center"
+        justify="center"
+        gap="none"
+        className={styles.viewport}
+        aria-label={t(L.title)}
+      >
+        <HStack gap="3px" align="stretch" aria-hidden={true} className={styles.code}>
           {BARS.map((width, index) => (
             <span key={index} className={styles.bar} style={{ width: `${width}px` }} />
           ))}
         </HStack>
-        <div className={styles.scanLine} aria-hidden="true" />
+        <div className={styles.scanLine} aria-hidden={true} />
       </HStack>
       <Text className={styles.status}>{t(L.scanning)}</Text>
-      <HStack gap="24px" justify="center" role="radiogroup" aria-label={t(L.title)} className={styles.typeRow}>
-        <label className={styles.typeOption}>
-          <input
-            type="radio"
-            name="barcode-type"
-            checked={codeType === "barcode"}
-            onChange={() => setCodeType("barcode")}
-          />
-          {t(L.barcode)}
+      <HStack
+        gap="24px"
+        justify="center"
+        role="radiogroup"
+        aria-label={t(L.title)}
+        className={styles.typeRow}
+      >
+        <label>
+          <HStack align="center" gap="sm" className={styles.typeOption}>
+            <input
+              type="radio"
+              name="barcode-type"
+              checked={codeType === "barcode"}
+              onChange={() => setCodeType("barcode")}
+            />
+            {t(L.barcode)}
+          </HStack>
         </label>
-        <label className={styles.typeOption}>
-          <input
-            type="radio"
-            name="barcode-type"
-            checked={codeType === "qr"}
-            onChange={() => setCodeType("qr")}
-          />
-          {t(L.qrCode)}
+        <label>
+          <HStack align="center" gap="sm" className={styles.typeOption}>
+            <input
+              type="radio"
+              name="barcode-type"
+              checked={codeType === "qr"}
+              onChange={() => setCodeType("qr")}
+            />
+            {t(L.qrCode)}
+          </HStack>
         </label>
       </HStack>
     </BaseDialog>

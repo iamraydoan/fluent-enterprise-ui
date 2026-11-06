@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { KeyboardEvent, ReactNode } from "react";
-import { FormField, WizardSteps } from "@/components/common";
+import { FormField, Grid, HStack, VStack, WizardSteps } from "@/components/common";
 import {
   ChevronDown16Regular,
   ChevronDown20Regular,
@@ -36,7 +36,6 @@ const useWizardStyles = makeStyles({
     position: "fixed",
     inset: 0,
     zIndex: 1000,
-    display: "grid",
     placeItems: "center",
     padding: "24px",
     boxSizing: "border-box",
@@ -45,13 +44,10 @@ const useWizardStyles = makeStyles({
   surface: {
     width: "min(1100px, calc(100vw - 48px))",
     maxHeight: "min(860px, calc(100vh - 48px))",
-    display: "flex",
-    flexDirection: "column",
     overflow: "hidden",
     ...cardSurface,
   },
   headBand: {
-    display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     minHeight: "56px",
@@ -60,20 +56,18 @@ const useWizardStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     flexShrink: 0,
   },
-  headTitle: { display: "flex", alignItems: "center", columnGap: "10px" },
-  headIcon: { color: theme.color.textPrimary, display: "flex" },
-  headActions: { display: "flex", alignItems: "center", columnGap: "4px" },
+  headTitle: { alignItems: "center", columnGap: "10px" },
+  headIcon: { color: theme.color.textPrimary },
+  headActions: { alignItems: "center", columnGap: "4px" },
   body: {
     flexGrow: 1,
     minHeight: 0,
     overflowY: "auto",
     padding: "20px 24px",
-    display: "flex",
-    flexDirection: "column",
     rowGap: "20px",
     backgroundColor: theme.color.surface,
   },
-  section: { display: "flex", flexDirection: "column", rowGap: "12px" },
+  section: { rowGap: "12px" },
   sectionTitle: { fontSize: "14px", marginBottom: "4px" },
   fieldLabel: {
     fontSize: "13px",
@@ -85,7 +79,6 @@ const useWizardStyles = makeStyles({
   wizardControl: { minHeight: "36px", width: "100%", boxSizing: "border-box" },
   inputWrap: { width: "100%" },
   comboBox: {
-    display: "flex",
     alignItems: "center",
     columnGap: "8px",
     minHeight: "36px",
@@ -97,7 +90,7 @@ const useWizardStyles = makeStyles({
     borderRadius: theme.radius.md,
     cursor: "pointer",
   },
-  comboIcon: { color: theme.color.textBrand, display: "flex", flexShrink: 0 },
+  comboIcon: { color: theme.color.textBrand, flexShrink: 0 },
   comboText: {
     flexGrow: 1,
     fontSize: "14px",
@@ -108,9 +101,8 @@ const useWizardStyles = makeStyles({
     textAlign: "left",
   },
   comboPlaceholder: { color: theme.color.textTertiary },
-  comboChevron: { color: theme.color.textSecondary, display: "flex", flexShrink: 0 },
+  comboChevron: { color: theme.color.textSecondary, flexShrink: 0 },
   commentsBar: {
-    display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     padding: "10px 24px",
@@ -121,7 +113,6 @@ const useWizardStyles = makeStyles({
   },
   commentsBody: { padding: "0 24px 16px", backgroundColor: theme.color.surface, flexShrink: 0 },
   foot: {
-    display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
     columnGap: "8px",
@@ -226,16 +217,18 @@ export function EntityWizardDialog({
   };
 
   return (
-    <div className={styles.overlay} onClick={handleClose}>
-      <div className={styles.surface} onClick={(event) => event.stopPropagation()}>
-        <div className={styles.headBand}>
-          <div className={styles.headTitle}>
-            <span className={styles.headIcon}>{titleIcon ?? <Sparkle24Filled />}</span>
+    <Grid className={styles.overlay} onClick={handleClose}>
+      <VStack gap="none" className={styles.surface} onClick={(event) => event.stopPropagation()}>
+        <HStack gap="none" className={styles.headBand}>
+          <HStack gap="10px" className={styles.headTitle}>
+            <HStack gap="none" className={styles.headIcon}>
+              {titleIcon ?? <Sparkle24Filled />}
+            </HStack>
             <Text weight="semibold" size={400}>
               {t(titleKey)}
             </Text>
-          </div>
-          <div className={styles.headActions}>
+          </HStack>
+          <HStack gap="4px" className={styles.headActions}>
             {onHelp && (
               <Button
                 variant="transparent"
@@ -250,8 +243,8 @@ export function EntityWizardDialog({
               aria-label={t("common.close")}
               onClick={handleClose}
             />
-          </div>
-        </div>
+          </HStack>
+        </HStack>
         {steps.length > 1 && (
           <WizardSteps
             variant="band"
@@ -259,10 +252,10 @@ export function EntityWizardDialog({
             current={stepIndex + 1}
           />
         )}
-        <div className={styles.body}>
+        <VStack gap="20px" className={styles.body}>
           {hasSections ? (
             sections.map((section) => (
-              <div key={section.titleKey} className={styles.section}>
+              <VStack key={section.titleKey} gap="12px" className={styles.section}>
                 <Text weight="semibold" className={styles.sectionTitle}>
                   {t(section.titleKey)}
                 </Text>
@@ -274,10 +267,10 @@ export function EntityWizardDialog({
                     onChange={setValue}
                   />
                 ))}
-              </div>
+              </VStack>
             ))
           ) : (
-            <div className={styles.section}>
+            <VStack gap="12px" className={styles.section}>
               <Text weight="semibold" className={styles.sectionTitle}>
                 {t(step.titleKey)}
               </Text>
@@ -289,13 +282,14 @@ export function EntityWizardDialog({
                   onChange={setValue}
                 />
               ))}
-            </div>
+            </VStack>
           )}
-        </div>
+        </VStack>
         {error && <div className={styles.error}>{error}</div>}
         {onCommentsChange && (
           <>
-            <div
+            <HStack
+              gap="none"
               className={styles.commentsBar}
               role="button"
               tabIndex={0}
@@ -305,7 +299,7 @@ export function EntityWizardDialog({
             >
               <Text size={300}>{t("dialogs.commentsLabel")}</Text>
               {commentsOpen ? <ChevronUp20Regular /> : <ChevronDown20Regular />}
-            </div>
+            </HStack>
             {commentsOpen && (
               <div className={styles.commentsBody}>
                 <Textarea
@@ -318,7 +312,7 @@ export function EntityWizardDialog({
             )}
           </>
         )}
-        <div className={styles.foot}>
+        <HStack gap="8px" className={styles.foot}>
           <Button variant="secondary" onClick={handleClose}>
             {t("common.cancel")}
           </Button>
@@ -339,9 +333,9 @@ export function EntityWizardDialog({
           >
             {isLast ? t(submitLabelKey) : t("common.next")}
           </Button>
-        </div>
-      </div>
-    </div>
+        </HStack>
+      </VStack>
+    </Grid>
   );
 }
 
@@ -413,8 +407,12 @@ function WizardFieldInput({
             onCheckedValueChange={(checkedItems) => onChange(field.key, checkedItems[0] ?? "")}
           >
             <MenuTrigger disableButtonEnhancement>
-              <div className={styles.comboBox} role="button" tabIndex={0}>
-                {field.leadingIcon && <span className={styles.comboIcon}>{field.leadingIcon}</span>}
+              <HStack gap="8px" className={styles.comboBox} role="button" tabIndex={0}>
+                {field.leadingIcon && (
+                  <HStack gap="none" className={styles.comboIcon}>
+                    {field.leadingIcon}
+                  </HStack>
+                )}
                 <span
                   className={mergeClasses(styles.comboText, !hasValue && styles.comboPlaceholder)}
                 >
@@ -431,10 +429,10 @@ function WizardFieldInput({
                     }}
                   />
                 )}
-                <span className={styles.comboChevron}>
+                <HStack gap="none" className={styles.comboChevron}>
                   <ChevronDown16Regular />
-                </span>
-              </div>
+                </HStack>
+              </HStack>
             </MenuTrigger>
             <MenuPopover>
               <MenuList>

@@ -63,7 +63,6 @@ const useViewStyles = makeStyles({
     backgroundColor: theme.color.brand,
   },
   catRow: {
-    display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
@@ -400,8 +399,9 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
             onToggle={() => undefined}
           >
             {CATEGORIES.map((cat) => (
-              <div
+              <HStack
                 key={cat}
+                gap="none"
                 className={mergeClasses(styles.catRow, category === cat && styles.catActive)}
                 onClick={() => {
                   setCategory(cat);
@@ -425,7 +425,7 @@ export function StepView({ name, onBack }: { name: string; onBack: () => void })
                     refreshCategory(cat);
                   }}
                 />
-              </div>
+              </HStack>
             ))}
           </SidePanel>
         </VStack>

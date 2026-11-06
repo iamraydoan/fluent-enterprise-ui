@@ -1,4 +1,4 @@
-import { HStack, IconButton, VStack } from "@/components/common";
+import { Grid, HStack, IconButton, VStack } from "@/components/common";
 import { Dismiss16Regular, Warning20Filled } from "@/components/icons";
 import { Button, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -11,7 +11,6 @@ const useConfirmStyles = makeStyles({
     position: "fixed",
     inset: 0,
     zIndex: 1000,
-    display: "grid",
     placeItems: "center",
     padding: "24px",
     boxSizing: "border-box",
@@ -66,7 +65,7 @@ export function ConfirmOperationDialog({
   if (!open) return null;
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
+    <Grid className={styles.overlay} onClick={onClose}>
       <VStack className={styles.surface} onClick={(event) => event.stopPropagation()}>
         <HStack align="center" justify="between" className={styles.head}>
           <Text weight="semibold">{t(titleKey)}</Text>
@@ -93,6 +92,6 @@ export function ConfirmOperationDialog({
           </Button>
         </HStack>
       </VStack>
-    </div>
+    </Grid>
   );
 }
