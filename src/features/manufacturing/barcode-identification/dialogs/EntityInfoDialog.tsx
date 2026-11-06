@@ -1,5 +1,5 @@
 import type { BarcodeEntityInfo } from "@/api";
-import { BaseDialog, DialogFooter, Grid, VStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, Grid, VStack } from "@/components/common";
 import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -45,7 +45,13 @@ export function EntityInfoDialog({ info, onClose }: EntityInfoDialogProps) {
     >
       <VStack gap="14px" className={styles.rows}>
         {info?.rows.map((row) => (
-          <Grid columns="220px 1fr" gap="12px" align="baseline" key={row.labelKey} className={styles.row}>
+          <Grid
+            columns="220px 1fr"
+            gap="12px"
+            align="baseline"
+            key={row.labelKey}
+            className={styles.row}
+          >
             <Text className={styles.label}>{t(row.labelKey as TranslationKey)}:</Text>
             {row.link ? (
               <a

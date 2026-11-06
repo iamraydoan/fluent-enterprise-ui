@@ -66,7 +66,11 @@ export function SidePanel(props: SidePanelProps) {
   const { title, children, style } = props;
   if (props.collapsible === false) {
     return (
-      <aside style={style} className={mergeClasses(sharedStyles.contentCard, styles.panel)} aria-label={title}>
+      <aside
+        style={style}
+        className={mergeClasses(sharedStyles.contentCard, styles.panel)}
+        aria-label={title}
+      >
         <div className={styles.plainHeader}>
           <Text weight="semibold" size={400}>
             {title}
@@ -90,7 +94,11 @@ export function SidePanel(props: SidePanelProps) {
     );
   }
   return (
-    <aside style={style} className={mergeClasses(sharedStyles.contentCard, styles.panel)} aria-label={title}>
+    <aside
+      style={style}
+      className={mergeClasses(sharedStyles.contentCard, styles.panel)}
+      aria-label={title}
+    >
       <div className={styles.header}>
         <Text weight="semibold" size={300} className={styles.headerText}>
           {title}

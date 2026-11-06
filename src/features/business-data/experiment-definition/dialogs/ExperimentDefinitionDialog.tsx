@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { BaseDialog, FormField, HStack } from "@/components/common";
 import { Button, Checkbox, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -72,7 +72,6 @@ const useDialogStyles = makeStyles({
     fontSize: theme.font.sizeMd,
     backgroundColor: theme.color.surface,
   },
-  
 });
 
 interface DialogProps {

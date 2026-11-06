@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { BaseDialog, DialogEntityBanner, DialogFooter, WizardSteps, VStack  } from "@/components/common";
+import {
+  BaseDialog,
+  DialogEntityBanner,
+  DialogFooter,
+  WizardSteps,
+  VStack,
+} from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -94,10 +100,26 @@ export function ChangeResourceStateDialog({ open, onClose, resourceName }: State
           </Field>
         </VStack>
       )}
-      {step === 2 && <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step2Body`)}</div>}
-      {step === 3 && <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step3Body`)}</div>}
-      {step === 4 && <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step4Body`)}</div>}
-      {step === 5 && <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step5Body`)}</div>}
+      {step === 2 && (
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.step2Body`)}
+        </div>
+      )}
+      {step === 3 && (
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.step3Body`)}
+        </div>
+      )}
+      {step === 4 && (
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.step4Body`)}
+        </div>
+      )}
+      {step === 5 && (
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.step5Body`)}
+        </div>
+      )}
     </BaseDialog>
   );
 }

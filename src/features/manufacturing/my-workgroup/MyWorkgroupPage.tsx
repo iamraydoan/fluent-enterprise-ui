@@ -111,7 +111,15 @@ function FilterDropdown({
   );
 }
 
-function TileCount({ value, title, icon }: { value: number; title: string; icon: React.ReactNode }) {
+function TileCount({
+  value,
+  title,
+  icon,
+}: {
+  value: number;
+  title: string;
+  icon: React.ReactNode;
+}) {
   return (
     <HStack gap="xs" align="center" title={title}>
       <Text size={300}>{value}</Text>

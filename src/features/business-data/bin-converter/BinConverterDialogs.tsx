@@ -1,4 +1,4 @@
-import { Empty, Grid  } from "@/components/common";
+import { Empty, Grid } from "@/components/common";
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -58,7 +58,13 @@ export function BinConversionListEditor({
         <Empty>{t("businessData.binConverter.operations.noConversions")}</Empty>
       )}
       {rows.map((row) => (
-        <Grid columns="repeat(5, minmax(0, 1fr)) auto" gap="8px" align="center" key={row.id} className={styles.row}>
+        <Grid
+          columns="repeat(5, minmax(0, 1fr)) auto"
+          gap="8px"
+          align="center"
+          key={row.id}
+          className={styles.row}
+        >
           <Input
             placeholder={t("businessData.binConverter.operations.fromBinCode")}
             value={row.fromBinCode}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useConfiguration } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, KV, DetailTile, HStack  } from "@/components/common";
+import { Card, CardGrid, DetailShell, KV, DetailTile, HStack } from "@/components/common";
 import {
   Checkmark20Filled,
   Dismiss20Filled,

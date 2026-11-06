@@ -1,4 +1,4 @@
-import { Empty, HStack  } from "@/components/common";
+import { Empty, HStack } from "@/components/common";
 import { Button, Checkbox, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -66,7 +66,7 @@ export function LogicalChartLimitsEditor({
             borderBottom: `1px solid ${theme.color.borderSubtle}`,
           }}
         >
-          <HStack align="center" justify="space-between" style={{marginBottom: theme.spacing.sm}}>
+          <HStack align="center" justify="space-between" style={{ marginBottom: theme.spacing.sm }}>
             <Text weight="semibold">{row.name}</Text>
             <Button variant="secondary" onClick={() => copyChartLimits(row.name)}>
               {t("businessData.chart.operations.copyChartLimits")}

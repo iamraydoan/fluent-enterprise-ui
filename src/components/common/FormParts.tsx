@@ -46,7 +46,15 @@ interface FormRowProps {
   children: ReactNode;
 }
 
-export function FormRow({ label, required, error, ro, labelWidth, labelIcon, children }: FormRowProps) {
+export function FormRow({
+  label,
+  required,
+  error,
+  ro,
+  labelWidth,
+  labelIcon,
+  children,
+}: FormRowProps) {
   const s = useFormPartsStyles();
   return (
     <div
@@ -264,7 +272,8 @@ export function AccessGrid({ value, onChange, readOnly }: AccessGridProps) {
   const cell = (g: string, key: string, fixed?: boolean) => {
     const on = fixed === true || value[g]?.[key] === true;
     const toggle = () => {
-      if (!readOnly && !fixed) onChange({ ...value, [g]: { ...value[g], [key]: !value[g]?.[key] } });
+      if (!readOnly && !fixed)
+        onChange({ ...value, [g]: { ...value[g], [key]: !value[g]?.[key] } });
     };
     return (
       <td
@@ -294,7 +303,10 @@ export function AccessGrid({ value, onChange, readOnly }: AccessGridProps) {
   };
   return (
     <div style={{ overflowX: "auto" }}>
-      <table style={{ borderCollapse: "collapse", width: "100%", minWidth: 640 }} aria-label={t("entityTypes.access.title")}>
+      <table
+        style={{ borderCollapse: "collapse", width: "100%", minWidth: 640 }}
+        aria-label={t("entityTypes.access.title")}
+      >
         <thead>
           <tr>
             <th rowSpan={2} style={{ ...th, width: 150 }} />
@@ -306,20 +318,26 @@ export function AccessGrid({ value, onChange, readOnly }: AccessGridProps) {
           </tr>
           <tr>
             {groups.flatMap(([g]) =>
-              [t("entityTypes.access.view"), t("entityTypes.access.create"), t("entityTypes.access.update")].map(
-                (c) => (
-                  <th key={g + c} style={th}>
-                    {c}
-                  </th>
-                ),
-              ),
+              [
+                t("entityTypes.access.view"),
+                t("entityTypes.access.create"),
+                t("entityTypes.access.update"),
+              ].map((c) => (
+                <th key={g + c} style={th}>
+                  {c}
+                </th>
+              )),
             )}
           </tr>
         </thead>
         <tbody>
           <tr>
             <th style={rowHead}>{t("entityTypes.access.readOnly")}</th>
-            {groups.flatMap(([g]) => [cell(g, RO_VIEW, true), cell(g, RO_CREATE), cell(g, RO_UPDATE)])}
+            {groups.flatMap(([g]) => [
+              cell(g, RO_VIEW, true),
+              cell(g, RO_CREATE),
+              cell(g, RO_UPDATE),
+            ])}
           </tr>
           <tr>
             <th style={rowHead}>{t("entityTypes.access.hidden")}</th>

@@ -3,7 +3,12 @@ import { theme } from "@/styles/theme";
 
 export const useDialogStyles = makeStyles({
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
-  fieldRow: { display: "flex", flexDirection: "column", rowGap: theme.spacing.xs, marginBottom: theme.spacing.md },
+  fieldRow: {
+    display: "flex",
+    flexDirection: "column",
+    rowGap: theme.spacing.xs,
+    marginBottom: theme.spacing.md,
+  },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
   itemRow: {
     display: "flex",

@@ -6,7 +6,7 @@ import {
   useUpdateBarcodeIdentificationSettings,
 } from "@/api";
 import type { BarcodeEntityKind } from "@/api";
-import { BaseDialog, DialogFooter, SidebarNavItem, Grid, VStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, SidebarNavItem, Grid, VStack } from "@/components/common";
 import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -21,7 +21,7 @@ const useSettingsStyles = makeStyles({
     fontWeight: theme.font.weightSemibold,
     marginBottom: theme.spacing.sm,
   },
-  
+
   field: {
     fontSize: "13px",
   },

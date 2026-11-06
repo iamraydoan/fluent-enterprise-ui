@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePackageDetail } from "@/api";
 import type { DetailMoreMenuItem } from "@/components/common";
-import { DetailShell, KV, Grid  } from "@/components/common";
+import { DetailShell, KV, Grid } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -16,7 +16,6 @@ import {
 } from "./PackageDialogs";
 
 const useStyles = makeStyles({
-  
   sectionTitle: { marginBottom: theme.spacing.sm },
 });
 

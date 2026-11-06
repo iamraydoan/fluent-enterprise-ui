@@ -1,15 +1,7 @@
-import {
-  useState,
-} from "react";
-import {
-  BaseDialog, DialogFooter, DialogEntityBanner, VStack,
-} from "@/components/common";
-import {
-  Body1Strong, Field, Input,
-} from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { useState } from "react";
+import { BaseDialog, DialogFooter, DialogEntityBanner, VStack } from "@/components/common";
+import { Body1Strong, Field, Input } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 
 interface RecordSendAheadRunResultDialogProps {
   open: boolean;

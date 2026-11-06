@@ -64,11 +64,7 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
             </Button>
           )}
           {step === 1 ? (
-            <Button
-              variant="primary"
-              onClick={() => setStep(2)}
-              disabled={selected.length === 0}
-            >
+            <Button variant="primary" onClick={() => setStep(2)} disabled={selected.length === 0}>
               {t("common.next")}
             </Button>
           ) : (
@@ -79,7 +75,7 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
         </>
       }
     >
-            <WizardSteps steps={[t(`${k}.stepImages`), t(`${k}.stepAssessment`)]} current={step} />
+      <WizardSteps steps={[t(`${k}.stepImages`), t(`${k}.stepAssessment`)]} current={step} />
       <DialogEntityBanner icon="🚩" name={reasonName} />
 
       {step === 1 && (
@@ -111,9 +107,12 @@ export function AddImagesDialog({ open, onClose, reasonName }: AddImagesDialogPr
       {step === 2 && (
         <VStack gap={16}>
           {selectedImages.map((img) => (
-            <div key={img.name} style={{ border: "1px solid #ddd", borderRadius: 4, padding: theme.spacing.md }}>
+            <div
+              key={img.name}
+              style={{ border: "1px solid #ddd", borderRadius: 4, padding: theme.spacing.md }}
+            >
               <Body1Strong>{img.name}</Body1Strong>
-              <HStack gap={12} style={{marginTop: 8}}>
+              <HStack gap={12} style={{ marginTop: 8 }}>
                 <Field label={t(`${k}.assessment`)}>
                   <select
                     value={assessments[img.name] ?? "Unspecified"}

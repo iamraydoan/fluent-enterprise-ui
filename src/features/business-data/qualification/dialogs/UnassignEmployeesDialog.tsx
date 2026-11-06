@@ -54,7 +54,9 @@ export function UnassignEmployeesDialog({
         />
       }
     >
-      <Text style={{ marginBottom: theme.spacing.md }}>{t(`${k}.message`, { name: qualificationName })}</Text>
+      <Text style={{ marginBottom: theme.spacing.md }}>
+        {t(`${k}.message`, { name: qualificationName })}
+      </Text>
       <Table>
         <TableHeader>
           <TableRow>

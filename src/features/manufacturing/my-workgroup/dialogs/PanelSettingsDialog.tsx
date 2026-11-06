@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BaseDialog, DialogFooter, Grid, HStack, Section } from "@/components/common";
 import { ArrowDown20Regular, ArrowUp20Regular, Delete20Regular } from "@/components/icons";
-import { Button, Checkbox, Text, makeStyles, mergeClasses} from "@/components/ui";
+import { Button, Checkbox, Text, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 

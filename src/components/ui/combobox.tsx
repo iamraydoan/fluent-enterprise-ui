@@ -29,14 +29,10 @@ export function Combobox({
   return (
     <FluentCombobox
       onOptionSelect={
-        onOptionSelect
-          ? (_, data) => onOptionSelect(String(data.optionValue ?? ""))
-          : undefined
+        onOptionSelect ? (_, data) => onOptionSelect(String(data.optionValue ?? "")) : undefined
       }
       onChange={
-        onTextChange
-          ? (event) => onTextChange((event.target as HTMLInputElement).value)
-          : undefined
+        onTextChange ? (event) => onTextChange((event.target as HTMLInputElement).value) : undefined
       }
       onOpenChange={onOpenChange ? (_, data) => onOpenChange(data.open) : undefined}
       style={invalid ? { ...style, borderColor: "#C50F1F" } : style}

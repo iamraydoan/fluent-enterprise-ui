@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFabDashboard, useFabFacilities, useFabMaterialsToReceive } from "@/api";
-import { Card, EntityTile, SidePanel, TileGrid, Grid, HStack, VStack  } from "@/components/common";
+import { Card, EntityTile, SidePanel, TileGrid, Grid, HStack, VStack } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
 import { Button, makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -24,16 +24,16 @@ const useViewStyles = makeStyles({
     padding: "8px 0",
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
   },
-  
+
   kpiCard: { padding: theme.spacing.lg, textAlign: "center" },
   kpiValue: { fontSize: "32px", fontWeight: theme.font.weightSemibold },
   kpiTrend: { fontSize: "12px" },
-  
+
   materialRow: {
     fontSize: "13px",
     padding: `${theme.spacing.sm} 0`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  }
+  },
 });
 
 interface FacilitiesViewProps {
@@ -142,7 +142,11 @@ export function FacilitiesView({ nav, go }: FacilitiesViewProps) {
       <SidePanel title={t("fabExplorer.materialsToReceive")} collapsed={false} onToggle={() => {}}>
         <VStack gap="8px">
           {materials.map((m) => (
-            <HStack justify="space-between" key={`${m.name}-${m.facility}`} className={styles.materialRow}>
+            <HStack
+              justify="space-between"
+              key={`${m.name}-${m.facility}`}
+              className={styles.materialRow}
+            >
               <span>{m.name}</span>
               <span>
                 {m.quantity} ({m.facility})

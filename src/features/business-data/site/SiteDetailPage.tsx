@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSiteDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, VStack  } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, VStack } from "@/components/common";
 import { Globe24Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -56,9 +56,13 @@ export function SiteDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.site.sections.facilities")} ({data.facilities.length})
         </Body1Strong>
-        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
+        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
           {data.facilities.map((facility) => (
-            <div key={facility} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
+            <div
+              key={facility}
+              className={sharedStyles.contentCard}
+              style={{ padding: theme.spacing.md }}
+            >
               <Body1Strong>{facility}</Body1Strong>
             </div>
           ))}
@@ -79,7 +83,10 @@ export function SiteDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
+        <div
+          className={sharedStyles.contentCard}
+          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
+        >
           <Body1Strong>{t("businessData.site.sections.details")}</Body1Strong>
           <KV
             rows={[

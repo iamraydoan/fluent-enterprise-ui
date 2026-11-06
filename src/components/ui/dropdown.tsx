@@ -1,7 +1,4 @@
-import {
-  Dropdown as FluentDropdown,
-  Option as FluentOption,
-} from "@fluentui/react-components";
+import { Dropdown as FluentDropdown, Option as FluentOption } from "@fluentui/react-components";
 import type { CSSProperties, ReactNode } from "react";
 
 export interface DropdownProps {
@@ -30,9 +27,7 @@ export function Dropdown({
   return (
     <FluentDropdown
       onOptionSelect={
-        onOptionSelect
-          ? (_, data) => onOptionSelect(String(data.optionValue ?? ""))
-          : undefined
+        onOptionSelect ? (_, data) => onOptionSelect(String(data.optionValue ?? "")) : undefined
       }
       button={buttonStyle ? { style: buttonStyle } : undefined}
       style={invalid ? { ...style, borderColor: "#C50F1F" } : style}

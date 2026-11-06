@@ -3,7 +3,12 @@ import { theme } from "@/styles/theme";
 
 export const useDialogStyles = makeStyles({
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.md },
-  fieldRow: { display: "flex", flexDirection: "column", rowGap: theme.spacing.xs, marginBottom: theme.spacing.md },
+  fieldRow: {
+    display: "flex",
+    flexDirection: "column",
+    rowGap: theme.spacing.xs,
+    marginBottom: theme.spacing.md,
+  },
   fieldLabel: { fontSize: "13px", fontWeight: theme.font.weightSemibold },
   ruleRow: {
     display: "grid",
@@ -19,8 +24,18 @@ export const useDialogStyles = makeStyles({
     alignItems: "center",
     marginBottom: theme.spacing.sm,
   },
-  readingRow: { display: "flex", columnGap: theme.spacing.sm, alignItems: "center", marginBottom: theme.spacing.sm },
-  toolbar: { display: "flex", columnGap: theme.spacing.sm, marginBottom: theme.spacing.md, flexWrap: "wrap" },
+  readingRow: {
+    display: "flex",
+    columnGap: theme.spacing.sm,
+    alignItems: "center",
+    marginBottom: theme.spacing.sm,
+  },
+  toolbar: {
+    display: "flex",
+    columnGap: theme.spacing.sm,
+    marginBottom: theme.spacing.md,
+    flexWrap: "wrap",
+  },
   preview: {
     marginTop: theme.spacing.md,
     padding: theme.spacing.md,

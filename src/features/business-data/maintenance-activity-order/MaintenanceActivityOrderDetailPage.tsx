@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMaintenanceActivityOrderDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, HStack  } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack } from "@/components/common";
 import { Wrench24Regular } from "@/components/icons";
 import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -227,7 +227,7 @@ export function MaintenanceActivityOrderDetailPage({ name }: { name: string }) {
             [t("businessData.maintenanceActivityOrder.details.cost"), `$${data.cost.toFixed(2)}`],
           ]}
         />
-        <HStack gap="8px" wrap style={{marginTop: theme.spacing.md}}>
+        <HStack gap="8px" wrap style={{ marginTop: theme.spacing.md }}>
           {STATE_ACTIONS.map((action) => (
             <Button key={action.id} size="sm" onClick={() => setChangeStateAction(action.id)}>
               {t(action.labelKey)}

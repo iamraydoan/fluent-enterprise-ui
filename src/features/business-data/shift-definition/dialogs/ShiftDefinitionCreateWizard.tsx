@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ShiftDefinitionShift } from "@/api";
-import { BaseDialog, FormField, Grid, HStack  } from "@/components/common";
+import { BaseDialog, FormField, Grid, HStack } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import { Button, Caption1, Input, Text, makeStyles, mergeClasses } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -38,7 +38,7 @@ const useDialogStyles = makeStyles({
   },
   gridRow: {
     padding: "4px 0",
-  }
+  },
 });
 
 interface ShiftEntry extends ShiftDefinitionShift {
@@ -119,7 +119,11 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
   } else if (step === 1) {
     body = (
       <>
-        <Grid columns="1fr 110px 110px 90px 130px 120px 32px" gap="8px" className={styles.gridHeader}>
+        <Grid
+          columns="1fr 110px 110px 90px 130px 120px 32px"
+          gap="8px"
+          className={styles.gridHeader}
+        >
           <Text>{t("businessData.shiftDefinition.shiftForm.name")}</Text>
           <Text>{t("businessData.shiftDefinition.shiftForm.startTime")}</Text>
           <Text>{t("businessData.shiftDefinition.shiftForm.endTime")}</Text>
@@ -129,7 +133,13 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
           <span />
         </Grid>
         {shifts.map((shift, i) => (
-          <Grid columns="1fr 110px 110px 90px 130px 120px 32px" gap="8px" align="center" key={i} className={styles.gridRow}>
+          <Grid
+            columns="1fr 110px 110px 90px 130px 120px 32px"
+            gap="8px"
+            align="center"
+            key={i}
+            className={styles.gridRow}
+          >
             <Input value={shift.name} onChange={(value) => updateShift(i, { name: value })} />
             <Input
               value={shift.startTime}
@@ -169,7 +179,7 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
     const shift = shifts[activeShift];
     body = (
       <>
-        <HStack gap="8px" wrap style={{marginBottom: theme.spacing.md}}>
+        <HStack gap="8px" wrap style={{ marginBottom: theme.spacing.md }}>
           {shifts.map((s, i) => (
             <Button
               key={i}
@@ -181,9 +191,15 @@ export function ShiftDefinitionCreateWizard({ onClose }: { onClose: () => void }
           ))}
         </HStack>
         {shift.nonWorkingTimes.map((nwt, i) => (
-          <Grid columns="1fr 110px 110px 90px 130px 120px 32px" gap="8px" align="center" key={i}
-             
-            style={{ gridTemplateColumns: "1fr 110px 110px 32px" }} className={styles.gridRow}>
+          <Grid
+            columns="1fr 110px 110px 90px 130px 120px 32px"
+            gap="8px"
+            align="center"
+            key={i}
+
+            style={{ gridTemplateColumns: "1fr 110px 110px 32px" }}
+            className={styles.gridRow}
+          >
             <Input
               value={nwt.name}
               onChange={(value) => updateNonWorking(i, { name: value })}

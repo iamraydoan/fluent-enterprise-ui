@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField, Grid, HStack, VStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField, Grid, HStack, VStack } from "@/components/common";
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -44,7 +44,6 @@ const useStyles = makeStyles({
     backgroundColor: theme.color.surfaceSecondary,
     fontWeight: theme.font.weightSemibold,
   },
-  
 });
 
 export function ManageShippingFacilitiesDialog({
@@ -114,7 +113,9 @@ export function ManageShippingFacilitiesDialog({
           )}
         </div>
         <VStack gap="12px">
-          <HStack align="center" justify="space-between" className={styles.panelHead}>{t(L.facilityDetails)}</HStack>
+          <HStack align="center" justify="space-between" className={styles.panelHead}>
+            {t(L.facilityDetails)}
+          </HStack>
           <FormField
             label={
               <>

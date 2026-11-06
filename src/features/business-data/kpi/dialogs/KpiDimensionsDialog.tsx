@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, HStack  } from "@/components/common";
+import { BaseDialog, HStack } from "@/components/common";
 import { Button, Input, Checkbox, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -45,7 +45,7 @@ const useStyles = makeStyles({
     fontWeight: theme.font.weightSemibold,
     color: theme.color.textBrand,
   },
-  
+
   select: {
     padding: `6px ${theme.spacing.sm}`,
     border: `1px solid ${theme.color.border}`,

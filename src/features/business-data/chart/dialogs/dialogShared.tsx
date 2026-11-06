@@ -1,4 +1,4 @@
-import { BaseDialog, VStack  } from "@/components/common";
+import { BaseDialog, VStack } from "@/components/common";
 import { Input } from "@/components/ui";
 import { theme } from "@/styles/theme";
 

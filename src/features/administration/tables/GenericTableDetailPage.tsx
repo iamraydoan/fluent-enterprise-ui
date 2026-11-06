@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGenericTable } from "@/api";
-import { Empty, Panel, HStack, VStack  } from "@/components/common";
+import { Empty, Panel, HStack, VStack } from "@/components/common";
 import { Table24Regular } from "@/components/icons";
 import { Body1Strong, Caption1, makeStyles, Tab, TabList, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";

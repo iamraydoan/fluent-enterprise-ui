@@ -6,7 +6,12 @@ import { theme } from "@/styles/theme";
 import { toolDescription } from "../data";
 
 const useDescriptionStyles = makeStyles({
-  desc: { padding: `28px ${theme.spacing["2xl"]}`, fontSize: "13px", lineHeight: "20px", whiteSpace: "pre-wrap" },
+  desc: {
+    padding: `28px ${theme.spacing["2xl"]}`,
+    fontSize: "13px",
+    lineHeight: "20px",
+    whiteSpace: "pre-wrap",
+  },
 });
 
 interface ToolDescriptionDialogProps {

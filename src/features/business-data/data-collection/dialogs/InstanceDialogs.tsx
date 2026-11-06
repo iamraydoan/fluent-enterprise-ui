@@ -130,7 +130,11 @@ export function ViewDataCollectionInstanceDialog({
         </Button>
       }
     >
-      <TabList selectedValue={tab} onTabSelect={(value) => setTab(value as "data" | "context")} aria-label={t("businessData.dataCollection.operations.viewInstanceTitle")}>
+      <TabList
+        selectedValue={tab}
+        onTabSelect={(value) => setTab(value as "data" | "context")}
+        aria-label={t("businessData.dataCollection.operations.viewInstanceTitle")}
+      >
         <Tab value="data">{t("businessData.dataCollection.operations.dataTab")}</Tab>
         <Tab value="context">{t("businessData.dataCollection.operations.contextTab")}</Tab>
       </TabList>

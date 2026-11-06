@@ -1,7 +1,13 @@
 import { useMemo, useRef } from "react";
 import { useConfigurationTree, useConfigurations } from "@/api";
 import type { ConfigurationEntry } from "@/api";
-import { createAction, DataListPage, refreshAction, SidePanel, SidebarNavItem } from "@/components/common";
+import {
+  createAction,
+  DataListPage,
+  refreshAction,
+  SidePanel,
+  SidebarNavItem,
+} from "@/components/common";
 import type { DataColumn, DataFilter, DataTableCardApi, HeaderAction } from "@/components/common";
 import { Database20Regular, MoreVertical24Regular, Wrench20Regular } from "@/components/icons";
 import { useAppTranslation } from "@/i18n";
@@ -9,7 +15,6 @@ import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
 import { ConfigurationTree } from "./ConfigurationTree";
 import { CONFIG_ENTRY_TYPE_LABELS, CONFIG_ENTRY_TYPES, entryName, maskedValue } from "./data";
-
 
 const COLUMNS: DataColumn<ConfigurationEntry>[] = [
   {

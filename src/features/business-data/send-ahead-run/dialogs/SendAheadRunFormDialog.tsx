@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { SendAheadRunDetail, SendAheadRunRecord } from "@/api";
-import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";

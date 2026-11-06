@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, Empty, Grid, HStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, Empty, Grid, HStack } from "@/components/common";
 import { Button, Checkbox, Input, Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -49,7 +49,13 @@ function BomItemListEditor({
       <div className={styles.hint}>{t("businessData.bom.operations.itemsHint")}</div>
       {rows.length === 0 && <Empty>{t("businessData.bom.operations.noItems")}</Empty>}
       {rows.map((row) => (
-        <Grid columns="minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto" gap="8px" align="center" key={row.id} className={styles.row}>
+        <Grid
+          columns="minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto"
+          gap="8px"
+          align="center"
+          key={row.id}
+          className={styles.row}
+        >
           <Input
             placeholder={t("businessData.bom.operations.product")}
             value={row.product}
@@ -85,7 +91,7 @@ function BomItemListEditor({
 const useManageDialogStyles = makeStyles({
   checkRow: {
     marginTop: theme.spacing.md,
-  }
+  },
 });
 
 export function ManageBomItemsDialog({

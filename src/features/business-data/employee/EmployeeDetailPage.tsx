@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEmployeeDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, HStack  } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack } from "@/components/common";
 import { Organization24Regular } from "@/components/icons";
 import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -246,7 +246,7 @@ export function EmployeeDetailPage({ name }: { name: string }) {
             [t("businessData.employee.details.costPerHour"), `$${data.costPerHour.toFixed(2)}`],
           ]}
         />
-        <HStack gap="8px" style={{marginTop: theme.spacing.md}}>
+        <HStack gap="8px" style={{ marginTop: theme.spacing.md }}>
           <Button onClick={() => setManageCertOpen(true)}>
             {t("businessData.employee.certifications.manage")}
           </Button>
@@ -263,7 +263,7 @@ export function EmployeeDetailPage({ name }: { name: string }) {
             {t("businessData.employee.qualifications.assign")}
           </Button>
         </HStack>
-        <HStack gap="8px" wrap style={{marginTop: theme.spacing.md}}>
+        <HStack gap="8px" wrap style={{ marginTop: theme.spacing.md }}>
           <Button size="sm" onClick={() => setCheckInOpen(true)}>
             {t("businessData.employee.attendance.checkIn")}
           </Button>
@@ -289,7 +289,7 @@ export function EmployeeDetailPage({ name }: { name: string }) {
             {t("businessData.employee.delegates.checkOut")}
           </Button>
         </HStack>
-        <HStack gap="8px" wrap style={{marginTop: theme.spacing.md}}>
+        <HStack gap="8px" wrap style={{ marginTop: theme.spacing.md }}>
           <Button size="sm" onClick={() => setNonWorkingOpen(true)}>
             {t("businessData.employee.calendarDays.set")}
           </Button>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useProtocolDetail } from "@/api";
 import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
-import { DetailShell, KV, Grid  } from "@/components/common";
+import { DetailShell, KV, Grid } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -26,7 +26,6 @@ import {
 } from "./ProtocolDialogs";
 
 const useStyles = makeStyles({
-  
   sectionTitle: { marginBottom: theme.spacing.sm },
 });
 

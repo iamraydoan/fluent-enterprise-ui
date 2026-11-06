@@ -1,7 +1,16 @@
 import { useState } from "react";
 import { lookupBarcode, useBarcodeEntityInfo } from "@/api";
 import type { BarcodeEntityKind, ScannedBarcode } from "@/api";
-import { EntityTile, Grid, HStack, IconButton, ListPage, refreshAction, TileGrid, VStack } from "@/components/common";
+import {
+  EntityTile,
+  Grid,
+  HStack,
+  IconButton,
+  ListPage,
+  refreshAction,
+  TileGrid,
+  VStack,
+} from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import {
   ArrowExit24Regular,
@@ -23,7 +32,7 @@ import {
   SplitVertical24Regular,
   Wrench24Regular,
 } from "@/components/icons";
-import { makeStyles, Text} from "@/components/ui";
+import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -188,7 +197,13 @@ export function BarcodeIdentificationPage() {
       >
         <VStack grow p={16} style={{ overflow: "auto" }}>
           {scanned.length === 0 ? (
-            <VStack grow align="center" justify="center" gap={8} style={{ color: theme.color.textTertiary }}>
+            <VStack
+              grow
+              align="center"
+              justify="center"
+              gap={8}
+              style={{ color: theme.color.textTertiary }}
+            >
               <span className={styles.emptyIcon}>
                 <BarcodeScanner24Regular />
               </span>

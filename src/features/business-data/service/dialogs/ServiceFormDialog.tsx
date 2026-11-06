@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ServiceDetail, ServiceRecord } from "@/api";
-import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack } from "@/components/common";
 import { Button, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -101,7 +101,9 @@ export function ServiceFormDialog({
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step2Body`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.step2Body`)}
+        </div>
       )}
 
       <Field label={t(`${k}.comments`)}>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTransferRequirementDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, VStack  } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, VStack } from "@/components/common";
 import { ArrowExportUp24Regular } from "@/components/icons";
 import { Body1Strong, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -57,7 +57,7 @@ export function TransferRequirementDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.transferRequirement.sections.items")} ({data.items.length})
         </Body1Strong>
-        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
+        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
           {data.items.map((item) => (
             <div
               key={item.product}
@@ -83,7 +83,10 @@ export function TransferRequirementDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
+      <div
+        className={sharedStyles.contentCard}
+        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
+      >
         <Body1Strong>{t("businessData.transferRequirement.sections.details")}</Body1Strong>
         <KV
           rows={[

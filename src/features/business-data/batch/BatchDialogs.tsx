@@ -21,7 +21,6 @@ export interface ContainerRow {
   container: string;
 }
 
-
 export function MaterialListEditor({
   values,
   onChange,
@@ -47,7 +46,12 @@ export function MaterialListEditor({
       <div className={styles.hint}>{t("businessData.batch.operations.materialsHint")}</div>
       {rows.length === 0 && <Empty>{t("businessData.batch.operations.noMaterials")}</Empty>}
       {rows.map((row) => (
-        <Grid columns="minmax(0, 1fr) auto auto" gap="12px" className={styles.row} style={{ alignItems: "center" }}>
+        <Grid
+          columns="minmax(0, 1fr) auto auto"
+          gap="12px"
+          className={styles.row}
+          style={{ alignItems: "center" }}
+        >
           <Input
             placeholder={t("businessData.batch.operations.materialName")}
             value={row.material}
@@ -94,7 +98,12 @@ export function ContainerListEditor({
       <div className={styles.hint}>{t("businessData.batch.operations.containersHint")}</div>
       {rows.length === 0 && <Empty>{t("businessData.batch.operations.noContainers")}</Empty>}
       {rows.map((row) => (
-        <Grid columns="minmax(0, 1fr) auto auto" gap="12px" className={styles.row} style={{ alignItems: "center" }}>
+        <Grid
+          columns="minmax(0, 1fr) auto auto"
+          gap="12px"
+          className={styles.row}
+          style={{ alignItems: "center" }}
+        >
           <Input
             placeholder={t("businessData.batch.operations.containerName")}
             value={row.container}
@@ -114,7 +123,6 @@ export function ContainerListEditor({
     </div>
   );
 }
-
 
 export function ManageBatchMaterialsDialog({
   open,
@@ -146,7 +154,12 @@ export function ManageBatchMaterialsDialog({
           onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
         />
       </div>
-      <FormField label={t("businessData.batch.operations.comment")} labelWidth="170px" labelAlign="right" style={{ marginTop: theme.spacing.lg }}>
+      <FormField
+        label={t("businessData.batch.operations.comment")}
+        labelWidth="170px"
+        labelAlign="right"
+        style={{ marginTop: theme.spacing.lg }}
+      >
         <Input value={comment} onChange={setComment} />
       </FormField>
     </BaseDialog>
@@ -220,16 +233,10 @@ export function ChangeBatchResourceDialog({
         />
       }
     >
-      <FormField
-        label={t("businessData.batch.detail.resource")}
-        labelWidth="170px"
-      >
+      <FormField label={t("businessData.batch.detail.resource")} labelWidth="170px">
         <Input value={resource} onChange={setResource} />
       </FormField>
-      <FormField
-        label={t("businessData.batch.operations.comment")}
-        labelWidth="170px"
-      >
+      <FormField label={t("businessData.batch.operations.comment")} labelWidth="170px">
         <Input value={comment} onChange={setComment} />
       </FormField>
       <Text>{t("businessData.batch.operations.changeResourceHint", { name: batchName })}</Text>

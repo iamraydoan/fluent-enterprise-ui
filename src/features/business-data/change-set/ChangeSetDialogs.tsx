@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField, Empty, Grid  } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField, Empty, Grid } from "@/components/common";
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -17,7 +17,7 @@ const useDialogStyles = makeStyles({
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.lg },
   row: {
     marginBottom: theme.spacing.sm,
-  }
+  },
 });
 
 function NameListEditor({
@@ -46,7 +46,13 @@ function NameListEditor({
     <div>
       {rows.length === 0 && <Empty>{t("businessData.changeSet.operations.noEntries")}</Empty>}
       {rows.map((row) => (
-        <Grid columns="minmax(0, 1fr) minmax(0, 1fr) auto" gap="8px" align="center" key={row.id} className={styles.row}>
+        <Grid
+          columns="minmax(0, 1fr) minmax(0, 1fr) auto"
+          gap="8px"
+          align="center"
+          key={row.id}
+          className={styles.row}
+        >
           <Input
             placeholder={t(namePlaceholderKey)}
             value={row.name}
@@ -111,9 +117,14 @@ function ListDialogShell({
         extraPlaceholderKey={extraPlaceholderKey}
       />
       {commentLabel && (
-        <FormField label={commentLabel} labelWidth="170px" labelAlign="right" style={{ marginTop: theme.spacing.lg }}>
-        <Input value={comment} onChange={setComment} />
-      </FormField>
+        <FormField
+          label={commentLabel}
+          labelWidth="170px"
+          labelAlign="right"
+          style={{ marginTop: theme.spacing.lg }}
+        >
+          <Input value={comment} onChange={setComment} />
+        </FormField>
       )}
     </BaseDialog>
   );

@@ -23,7 +23,11 @@ const useGridStyles = makeStyles({
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
     marginBottom: theme.spacing.md,
   },
-  title: { fontSize: "15px", fontWeight: theme.font.weightSemibold, marginBottom: theme.spacing.sm },
+  title: {
+    fontSize: "15px",
+    fontWeight: theme.font.weightSemibold,
+    marginBottom: theme.spacing.sm,
+  },
   scroll: {
     overflow: "auto",
     border: `1px solid ${theme.color.borderSubtle}`,
@@ -48,7 +52,7 @@ const useGridStyles = makeStyles({
     padding: "8px 0",
     fontSize: "13px",
     color: theme.color.textSecondary,
-  }
+  },
 });
 
 function formatCell(value: unknown, dataType: string): string {

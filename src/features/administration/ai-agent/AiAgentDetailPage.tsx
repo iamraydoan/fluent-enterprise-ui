@@ -10,7 +10,8 @@ import {
   KV,
   MiniBar,
   Panel,
-  DetailTile, HStack 
+  DetailTile,
+  HStack,
 } from "@/components/common";
 import {
   ArrowSync20Regular,

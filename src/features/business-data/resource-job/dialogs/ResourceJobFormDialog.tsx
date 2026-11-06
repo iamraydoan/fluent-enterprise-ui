@@ -128,11 +128,15 @@ export function ResourceJobFormDialog({
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.materialsBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.materialsBody`)}
+        </div>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.containersBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.containersBody`)}
+        </div>
       )}
 
       <Field label={t(`${k}.comments`)}>

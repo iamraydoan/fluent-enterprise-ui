@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFlowDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, SidePanel, HStack  } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, SidePanel, HStack } from "@/components/common";
 import { Flow24Regular } from "@/components/icons";
 import { Button, Text, Tree, TreeItem, TreeItemLayout } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -97,7 +97,7 @@ export function FlowDetailPage({ name }: { name: string }) {
 
   if (top === "flowStructure") {
     return shell(
-      <HStack gap={16} style={{height: "100%"}}>
+      <HStack gap={16} style={{ height: "100%" }}>
         <SidePanel
           title={t("businessData.flow.sections.flowStructure")}
           collapsed={structureCollapsed}

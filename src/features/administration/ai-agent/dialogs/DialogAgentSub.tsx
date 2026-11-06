@@ -40,7 +40,9 @@ export function DialogAgentSub({
           <Bot20Regular />
           {agentName}
         </span>
-        {agentDescription && <span style={{ color: theme.color.textPrimary }}>{` / ${agentDescription}`}</span>}
+        {agentDescription && (
+          <span style={{ color: theme.color.textPrimary }}>{` / ${agentDescription}`}</span>
+        )}
       </span>
       <ChevronDown20Regular style={{ color: theme.color.textBrand }} />
     </HStack>

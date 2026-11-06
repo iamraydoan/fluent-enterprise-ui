@@ -88,9 +88,7 @@ export function Section({
               onClick={toggle}
               aria-expanded={expanded}
             >
-              <span
-                className={mergeClasses(styles.chevron, !expanded && styles.chevronCollapsed)}
-              >
+              <span className={mergeClasses(styles.chevron, !expanded && styles.chevronCollapsed)}>
                 <ChevronDown16Regular />
               </span>
               {titleNode}
@@ -114,7 +112,13 @@ interface SectionHeaderProps {
   onToggle?: () => void;
 }
 
-export function SectionHeader({ title, actions, collapsible, expanded, onToggle }: SectionHeaderProps) {
+export function SectionHeader({
+  title,
+  actions,
+  collapsible,
+  expanded,
+  onToggle,
+}: SectionHeaderProps) {
   const styles = useSectionStyles();
   const titleNode =
     typeof title === "string" ? (
@@ -127,7 +131,12 @@ export function SectionHeader({ title, actions, collapsible, expanded, onToggle 
   return (
     <div className={styles.header}>
       {collapsible ? (
-        <button type="button" className={styles.headerButton} onClick={onToggle} aria-expanded={expanded}>
+        <button
+          type="button"
+          className={styles.headerButton}
+          onClick={onToggle}
+          aria-expanded={expanded}
+        >
           <span className={mergeClasses(styles.chevron, !expanded && styles.chevronCollapsed)}>
             <ChevronDown16Regular />
           </span>

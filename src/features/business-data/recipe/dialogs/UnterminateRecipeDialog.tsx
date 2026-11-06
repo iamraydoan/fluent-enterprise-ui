@@ -50,7 +50,7 @@ export function UnterminateRecipeDialog({
         </>
       }
     >
-            <WizardSteps steps={[t(`${k}.changeSet`), t(`${k}.details`)]} current={step} />
+      <WizardSteps steps={[t(`${k}.changeSet`), t(`${k}.details`)]} current={step} />
 
       {step === 1 && (
         <VStack gap={12}>
@@ -66,16 +66,15 @@ export function UnterminateRecipeDialog({
             <Input value={approverRole} onChange={setApproverRole} />
           </Field>
           <Field label={t(`${k}.useAutomaticChangeSet`)}>
-            <Checkbox
-              checked={automaticChangeSet}
-              onChange={setAutomaticChangeSet}
-            />
+            <Checkbox checked={automaticChangeSet} onChange={setAutomaticChangeSet} />
           </Field>
         </VStack>
       )}
 
       {step === 2 && (
-        <div style={{ padding: `${theme.spacing.md} 0` }}>{t(`${k}.message`, { name: recipeName })}</div>
+        <div style={{ padding: `${theme.spacing.md} 0` }}>
+          {t(`${k}.message`, { name: recipeName })}
+        </div>
       )}
     </BaseDialog>
   );

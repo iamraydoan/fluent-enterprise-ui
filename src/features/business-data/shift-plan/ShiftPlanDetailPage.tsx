@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useShiftPlanDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, HStack, VStack  } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, HStack, VStack } from "@/components/common";
 import { Timer24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -75,9 +75,13 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.shiftPlan.sections.workgroups")} ({data.workgroups.length})
         </Body1Strong>
-        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
+        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
           {data.workgroups.map((wg) => (
-            <div key={wg.name} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
+            <div
+              key={wg.name}
+              className={sharedStyles.contentCard}
+              style={{ padding: theme.spacing.md }}
+            >
               <Body1Strong>{wg.name}</Body1Strong>
               <Caption1>{formatWorkgroupMeta(wg)}</Caption1>
               <Caption1>{formatWorkgroupResources(wg)}</Caption1>
@@ -95,9 +99,13 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.shiftPlan.manageEmployees")}</Button>
         </HStack>
-        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
+        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
           {data.employees.map((emp) => (
-            <div key={emp.name} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
+            <div
+              key={emp.name}
+              className={sharedStyles.contentCard}
+              style={{ padding: theme.spacing.md }}
+            >
               <Body1Strong>{emp.name}</Body1Strong>
               <Caption1>{formatEmployeeMeta(emp)}</Caption1>
             </div>
@@ -119,7 +127,10 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
+        <div
+          className={sharedStyles.contentCard}
+          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
+        >
           <Body1Strong>{t("businessData.shiftPlan.sections.details")}</Body1Strong>
           <KV
             rows={[

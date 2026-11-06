@@ -55,7 +55,7 @@ export function CloneQualificationCheckDialog({
     >
       <HStack gap={16}>
         <div style={{ width: 280, flexShrink: 0 }}>
-          <HStack align="center" justify="space-between" style={{marginBottom: 8}}>
+          <HStack align="center" justify="space-between" style={{ marginBottom: 8 }}>
             <Body1Strong>{t(`${k}.clones`, { count: clones.length })}</Body1Strong>
             <HStack gap={4}>
               <Button size="sm" variant="subtle" onClick={addClone}>

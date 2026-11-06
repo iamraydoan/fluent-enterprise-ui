@@ -229,7 +229,9 @@ export function EditInstructionsDialog({
       </div>
       <HStack gap={theme.spacing.md} align="start" className={editStyles.field}>
         <div className={editStyles.label}>
-          <span style={{ color: theme.color.textDanger }}>{t("dialogs.editInstructions.requiredMark")}</span>
+          <span style={{ color: theme.color.textDanger }}>
+            {t("dialogs.editInstructions.requiredMark")}
+          </span>
           {t("dialogs.editInstructions.instructionsLabel")}
         </div>
         <div className={editStyles.editor}>

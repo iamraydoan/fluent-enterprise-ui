@@ -62,7 +62,9 @@ export function GenerateScheduleScenarioDialog({
     >
       <DialogEntityBanner icon="📊" name={scenarioName} />
       <WizardSteps steps={STEP_KEYS.map((key) => t(key))} current={step} />
-      <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(BODIES[step - 1])}</div>
+      <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+        {t(BODIES[step - 1])}
+      </div>
     </BaseDialog>
   );
 }

@@ -23,7 +23,13 @@ function resolveGap(gap: string): string {
   return (theme.spacing as Record<string, string>)[gap] ?? gap;
 }
 
-export function Split({ sidebar, children, sidebarWidth = "300px", gap = "md", className }: SplitProps) {
+export function Split({
+  sidebar,
+  children,
+  sidebarWidth = "300px",
+  gap = "md",
+  className,
+}: SplitProps) {
   const styles = useSplitStyles();
   const gapValue = resolveGap(gap);
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ContainerPosition } from "@/api";
-import { BaseDialog, Empty, HStack, VStack  } from "@/components/common";
+import { BaseDialog, Empty, HStack, VStack } from "@/components/common";
 import { ArrowDown16Regular, ArrowUp16Regular } from "@/components/icons";
 import { Button, Input, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";

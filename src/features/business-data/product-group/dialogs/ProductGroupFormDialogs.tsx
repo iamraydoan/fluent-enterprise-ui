@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, HStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, HStack } from "@/components/common";
 import { Add24Regular, Delete20Regular } from "@/components/icons";
 import {
   Button,
@@ -413,7 +413,7 @@ export function CloneProductGroupDialog({ open, onClose, onSubmit }: DialogProps
         />
       }
     >
-      <HStack align="center" justify="space-between" style={{marginBottom: theme.spacing.md}}>
+      <HStack align="center" justify="space-between" style={{ marginBottom: theme.spacing.md }}>
         <Text weight="semibold">
           {t("businessData.productGroup.operations.clone.newInstances")}
         </Text>

@@ -1,16 +1,8 @@
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 import type { RecipeDetail, RecipeRecord } from "@/api";
-import {
-  BaseDialog, HStack, VStack, WizardSteps,
-} from "@/components/common";
-import {
-  Button, Checkbox, Field, Input,
-} from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { BaseDialog, HStack, VStack, WizardSteps } from "@/components/common";
+import { Button, Checkbox, Field, Input } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 
 interface RecipeFormDialogProps {
   open: boolean;
@@ -96,10 +88,7 @@ export function RecipeFormDialog({
             <Input value={approverRole} onChange={setApproverRole} />
           </Field>
           <Field label={t(`${k}.useAutomaticChangeSet`)}>
-            <Checkbox
-              checked={automaticChangeSet}
-              onChange={setAutomaticChangeSet}
-            />
+            <Checkbox checked={automaticChangeSet} onChange={setAutomaticChangeSet} />
           </Field>
         </VStack>
       )}
@@ -130,10 +119,7 @@ export function RecipeFormDialog({
             <Checkbox checked={isEnabled} onChange={setIsEnabled} />
           </Field>
           <Field label={t(`${k}.isExecutable`)}>
-            <Checkbox
-              checked={isExecutable}
-              onChange={setIsExecutable}
-            />
+            <Checkbox checked={isExecutable} onChange={setIsExecutable} />
           </Field>
           <Field label={t(`${k}.resourceRecipeName`)} required>
             <Input value={resourceRecipeName} onChange={setResourceRecipeName} />
@@ -142,10 +128,7 @@ export function RecipeFormDialog({
             <Input value={userInformation} onChange={setUserInformation} />
           </Field>
           <Field label={t(`${k}.supplierInformation`)}>
-            <Input
-              value={supplierInformation}
-              onChange={setSupplierInformation}
-            />
+            <Input value={supplierInformation} onChange={setSupplierInformation} />
           </Field>
         </VStack>
       )}

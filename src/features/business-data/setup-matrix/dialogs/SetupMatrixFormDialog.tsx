@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { SetupMatrixDetail, SetupMatrixRecord } from "@/api";
-import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack } from "@/components/common";
 import { Button, Field, Input, Switch } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -94,11 +94,15 @@ export function SetupMatrixFormDialog({
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step2Body`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.step2Body`)}
+        </div>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.step3Body`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.step3Body`)}
+        </div>
       )}
 
       <Field label={t(`${k}.comments`)}>

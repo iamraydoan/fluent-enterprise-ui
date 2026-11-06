@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField, Empty, Grid  } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField, Empty, Grid } from "@/components/common";
 import { Button, Checkbox, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -16,7 +16,7 @@ const useDialogStyles = makeStyles({
   hint: { fontSize: "13px", color: theme.color.textSecondary, marginBottom: theme.spacing.lg },
   empRow: {
     marginBottom: theme.spacing.sm,
-  }
+  },
 });
 
 function EmployeeListEditor({
@@ -41,7 +41,13 @@ function EmployeeListEditor({
     <div>
       {rows.length === 0 && <Empty>{t("businessData.certification.operations.noEmployees")}</Empty>}
       {rows.map((row) => (
-        <Grid columns="minmax(0, 1fr) auto auto" gap="12px" align="center" key={row.id} className={styles.empRow}>
+        <Grid
+          columns="minmax(0, 1fr) auto auto"
+          gap="12px"
+          align="center"
+          key={row.id}
+          className={styles.empRow}
+        >
           <Input
             placeholder={t("businessData.certification.operations.employeeName")}
             value={row.employee}
@@ -109,7 +115,12 @@ function EmployeeDialogShell({
         onChange={(key, value) => setValues((prev) => ({ ...prev, [key]: value }))}
         showGranted={showGranted}
       />
-      <FormField label={t("businessData.certification.operations.plannedDate")} labelWidth="170px" labelAlign="right" style={{ marginTop: theme.spacing.lg }}>
+      <FormField
+        label={t("businessData.certification.operations.plannedDate")}
+        labelWidth="170px"
+        labelAlign="right"
+        style={{ marginTop: theme.spacing.lg }}
+      >
         <Input type="date" value={plannedDate} onChange={setPlannedDate} />
       </FormField>
       <FormField

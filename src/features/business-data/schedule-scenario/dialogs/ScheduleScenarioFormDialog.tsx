@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack } from "@/components/common";
 import { Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -97,15 +97,21 @@ export function ScheduleScenarioFormDialog({
       )}
 
       {step === 2 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.optimizationBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.optimizationBody`)}
+        </div>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.untieBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.untieBody`)}
+        </div>
       )}
 
       {step === 4 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.automaticBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.automaticBody`)}
+        </div>
       )}
 
       <Field label={t(`${k}.comments`)}>

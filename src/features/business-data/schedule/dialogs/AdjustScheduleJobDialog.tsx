@@ -1,16 +1,8 @@
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 import type { ScheduleDetail, ScheduleRecord } from "@/api";
-import {
-  BaseDialog, DialogFooter, DialogEntityBanner, VStack,
-} from "@/components/common";
-import {
-  Body1Strong, Field, Input,
-} from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { BaseDialog, DialogFooter, DialogEntityBanner, VStack } from "@/components/common";
+import { Body1Strong, Field, Input } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 
 interface AdjustScheduleJobDialogProps {
   open: boolean;

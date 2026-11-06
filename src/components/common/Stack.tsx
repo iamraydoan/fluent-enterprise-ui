@@ -99,7 +99,16 @@ interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   style?: CSSProperties;
 }
 
-export function Grid({ children, columns, gap, align, grow, className, style, ...rest }: GridProps) {
+export function Grid({
+  children,
+  columns,
+  gap,
+  align,
+  grow,
+  className,
+  style,
+  ...rest
+}: GridProps) {
   return (
     <div
       className={className}

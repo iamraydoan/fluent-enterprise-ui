@@ -62,9 +62,7 @@ test("clicking a left panel item reports its key", async () => {
   expect(aside).not.toBeNull();
   const buttons = Array.from(aside?.querySelectorAll("button") ?? []);
   expect(buttons.map((button) => button.textContent?.trim())).toContain("Cancel");
-  const cancelButton = buttons.find(
-    (button) => button.textContent?.trim() === "Cancel",
-  );
+  const cancelButton = buttons.find((button) => button.textContent?.trim() === "Cancel");
   cancelButton?.click();
   expect(onLeft).toHaveBeenCalledWith("common.cancel");
 });

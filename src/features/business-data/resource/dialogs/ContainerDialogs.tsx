@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, DialogEntityBanner, VStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, DialogEntityBanner, VStack } from "@/components/common";
 import { Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -64,7 +64,9 @@ export function RemoveResourceFromContainerDialog({
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.remove`)} />
       }
     >
-      <div style={{ padding: `${theme.spacing.md} 0` }}>{t(`${k}.removeMessage`, { name: resourceName })}</div>
+      <div style={{ padding: `${theme.spacing.md} 0` }}>
+        {t(`${k}.removeMessage`, { name: resourceName })}
+      </div>
       <Field label={t(`${k}.comment`)}>
         <Input value={comment} onChange={setComment} />
       </Field>
@@ -217,7 +219,9 @@ export function RetrieveResourceDialog({ open, onClose, resourceName }: Containe
         <DialogFooter onCancel={onClose} onConfirm={onClose} confirmLabel={t(`${k}.retrieve`)} />
       }
     >
-      <div style={{ padding: `${theme.spacing.md} 0` }}>{t(`${k}.retrieveMessage`, { name: resourceName })}</div>
+      <div style={{ padding: `${theme.spacing.md} 0` }}>
+        {t(`${k}.retrieveMessage`, { name: resourceName })}
+      </div>
       <Field label={t(`${k}.comment`)}>
         <Input value={comment} onChange={setComment} />
       </Field>

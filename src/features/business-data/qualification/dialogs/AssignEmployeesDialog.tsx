@@ -94,11 +94,7 @@ export function AssignEmployeesDialog({
             </Button>
           )}
           {step === 1 ? (
-            <Button
-              variant="primary"
-              onClick={() => setStep(2)}
-              disabled={selected.length === 0}
-            >
+            <Button variant="primary" onClick={() => setStep(2)} disabled={selected.length === 0}>
               {t("common.next")}
             </Button>
           ) : (
@@ -109,14 +105,14 @@ export function AssignEmployeesDialog({
         </>
       }
     >
-            <WizardSteps steps={[t(`${k}.stepEmployees`), t(`${k}.stepQualification`)]} current={step} />
+      <WizardSteps steps={[t(`${k}.stepEmployees`), t(`${k}.stepQualification`)]} current={step} />
 
       <DialogEntityBanner icon="🏆" name={qualificationName} />
 
       {step === 1 && (
         <HStack gap={16}>
           <div style={{ flexGrow: 1 }}>
-            <HStack gap={12} style={{marginBottom: 12}}>
+            <HStack gap={12} style={{ marginBottom: 12 }}>
               <Field label={t(`${k}.search`)}>
                 <Input value={search} onChange={setSearch} />
               </Field>
@@ -167,7 +163,13 @@ export function AssignEmployeesDialog({
               }}
             >
               {selectedEmployees.map((e) => (
-                <div key={e.number} style={{ padding: `${theme.spacing.sm} ${theme.spacing.md}`, borderBottom: "1px solid #eee" }}>
+                <div
+                  key={e.number}
+                  style={{
+                    padding: `${theme.spacing.sm} ${theme.spacing.md}`,
+                    borderBottom: "1px solid #eee",
+                  }}
+                >
                   {e.name} ({e.number})
                 </div>
               ))}

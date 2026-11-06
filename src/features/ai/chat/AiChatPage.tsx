@@ -408,9 +408,7 @@ export function AiChatPage() {
                 <Text size={300} truncate wrap={false} style={{ maxWidth: 210 }}>
                   {candidate.title}
                 </Text>
-                <Caption1 style={{ color: theme.color.textTertiary }}>
-                  {candidate.agent}
-                </Caption1>
+                <Caption1 style={{ color: theme.color.textTertiary }}>{candidate.agent}</Caption1>
               </OptionItem>
             ))}
           </aside>

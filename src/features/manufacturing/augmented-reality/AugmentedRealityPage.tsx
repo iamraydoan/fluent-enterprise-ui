@@ -125,9 +125,7 @@ export function AugmentedRealityPage() {
                     top: `${tag.y}%`,
                     transform: "translate(-50%, -50%)",
                     outline:
-                      tag.id === selectedId
-                        ? `2px solid ${theme.color.borderBrand}`
-                        : undefined,
+                      tag.id === selectedId ? `2px solid ${theme.color.borderBrand}` : undefined,
                     outlineOffset: "2px",
                   }}
                 >

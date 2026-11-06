@@ -88,7 +88,10 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
+      <div
+        className={sharedStyles.contentCard}
+        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
+      >
         <Body1Strong>{t("businessData.workgroup.sections.details")}</Body1Strong>
         <KV
           rows={[

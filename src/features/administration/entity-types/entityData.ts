@@ -176,24 +176,58 @@ export interface Issue {
   msg: string;
 }
 
-export const REF_PROP: string[] = ["Entity", "Entity Definition", "Entity Type", "Entity Version", "Enum", "File", "Lookup Table", "Lookup Value", "None", "Query", "Role", "User"];
+export const REF_PROP: string[] = [
+  "Entity",
+  "Entity Definition",
+  "Entity Type",
+  "Entity Version",
+  "Enum",
+  "File",
+  "Lookup Table",
+  "Lookup Value",
+  "None",
+  "Query",
+  "Role",
+  "User",
+];
 const REF_ATTR: string[] = ["None", "Lookup Value", "Lookup Table", "Enum"];
 const ENTITYISH: string[] = ["Entity", "Entity Definition", "Entity Type", "Entity Version"];
-const SCALARS: string[] = ["BigInt", "Boolean", "DateTime", "Decimal", "Int", "NVarChar", "VarChar"];
+const SCALARS: string[] = [
+  "BigInt",
+  "Boolean",
+  "DateTime",
+  "Decimal",
+  "Int",
+  "NVarChar",
+  "VarChar",
+];
 const IMPORT_MODES: string[] = ["Override Always", "Override If Null", "Ignore"];
 const REF_MODES: string[] = ["Is Instance", "Is Part", "Is Reference"];
 const SEARCH_TYPES: string[] = ["Contains", "Starts With"];
 export const LOCK_TYPES: string[] = ["LockNone", "LockSource", "LockTarget", "LockSourceAndTarget"];
-export const CLONE_BEHAVIORS: string[] = ["CopyIfSource", "CopyIfSourceOrTarget", "CopyIfTarget", "NoCopy"];
+export const CLONE_BEHAVIORS: string[] = [
+  "CopyIfSource",
+  "CopyIfSourceOrTarget",
+  "CopyIfTarget",
+  "NoCopy",
+];
 export const PURGE_TYPES: string[] = ["Generic", "Specific", "Bypass"];
-export const NAME_GENERATORS: string[] = ["ChangeSetNameGenerator", "DefaultNameGenerator", "SequentialNameGenerator"];
+export const NAME_GENERATORS: string[] = [
+  "ChangeSetNameGenerator",
+  "DefaultNameGenerator",
+  "SequentialNameGenerator",
+];
 export const ROLES: string[] = ["Administrators", "Supervisors", "Quality Engineers", "Operators"];
 export const WORKFLOWS: string[] = ["Single Approval", "Two-Step Approval", "Quality Approval"];
 export const STATES: string[] = ["Created", "Active", "InReview", "Released"];
 const DATA_GROUPS: string[] = ["Default", "Quality", "Production"];
 
 const REF_TO: Record<string, string[]> = {
-  Enum: ["Cmf.Foundation.BusinessObjects.UIType", "Cmf.Foundation.Common.LogLevel", "Cmf.Navigo.BusinessObjects.MaterialState"],
+  Enum: [
+    "Cmf.Foundation.BusinessObjects.UIType",
+    "Cmf.Foundation.Common.LogLevel",
+    "Cmf.Navigo.BusinessObjects.MaterialState",
+  ],
   "Lookup Table": ["ScrapReasons", "HoldReasons", "Shifts"],
   "Lookup Value": ["ScrapReasons.Damaged", "HoldReasons.Quality", "Shifts.Morning"],
   Role: ROLES,
@@ -203,12 +237,13 @@ const REF_TO: Record<string, string[]> = {
 };
 
 export function refToOptions(refType: string, entityNames: string[]): string[] {
-  return ENTITYISH.includes(refType) ? entityNames : REF_TO[refType] ?? [];
+  return ENTITYISH.includes(refType) ? entityNames : (REF_TO[refType] ?? []);
 }
 
 let uid = 1;
 export const nid = (): string => "i" + String(uid++);
-export const spaced = (s: string | null | undefined): string => String(s ?? "").replace(/([a-z])([A-Z])/g, "$1 $2");
+export const spaced = (s: string | null | undefined): string =>
+  String(s ?? "").replace(/([a-z])([A-Z])/g, "$1 $2");
 
 export function detailsFor(row: EntityTypeRow): EntityTypeDetails {
   return {
@@ -300,9 +335,19 @@ const blank: Omit<EntityItem, "id" | "kind" | "name" | "type" | "al"> = {
   kafka: false,
 };
 
-const ALF: AccessFlags = { roView: false, roCreate: false, roUpdate: false, hidView: false, hidCreate: false, hidUpdate: false };
+const ALF: AccessFlags = {
+  roView: false,
+  roCreate: false,
+  roUpdate: false,
+  hidView: false,
+  hidCreate: false,
+  hidUpdate: false,
+};
 
-const alOf = (o: Partial<AccessFlags> = {}): AccessLevel => ({ ent: { ...ALF, ...o }, tpl: { ...ALF, ...o } });
+const alOf = (o: Partial<AccessFlags> = {}): AccessLevel => ({
+  ent: { ...ALF, ...o },
+  tpl: { ...ALF, ...o },
+});
 
 const mk = (kind: EntityItemKind, name: string, o: Partial<EntityItem> = {}): EntityItem =>
   Object.assign(
@@ -337,37 +382,94 @@ export const newItem = (kind: EntityItemKind, items: EntityItem[]): EntityItem =
   });
 };
 
-const SYS_ORDER_CREATED: string[] = ["RevisionState", "Revision", "Name", "Description", "MainStateModelStateReason", "OwnerInstance", "DataGroupName", "CreatedBy", "ModifiedBy", "LockedBy", "DocumentationURL", "Image"];
-const SYS_GENERIC: string[] = ["Name", "Description", "CreatedBy", "CreatedOn", "ModifiedBy", "ModifiedOn", "LockedBy", "OwnerInstance", "DataGroupId", "DataGroupName", "DocumentationURL", "Image", "MainStateModelStateReason"];
+const SYS_ORDER_CREATED: string[] = [
+  "RevisionState",
+  "Revision",
+  "Name",
+  "Description",
+  "MainStateModelStateReason",
+  "OwnerInstance",
+  "DataGroupName",
+  "CreatedBy",
+  "ModifiedBy",
+  "LockedBy",
+  "DocumentationURL",
+  "Image",
+];
+const SYS_GENERIC: string[] = [
+  "Name",
+  "Description",
+  "CreatedBy",
+  "CreatedOn",
+  "ModifiedBy",
+  "ModifiedOn",
+  "LockedBy",
+  "OwnerInstance",
+  "DataGroupId",
+  "DataGroupName",
+  "DocumentationURL",
+  "Image",
+  "MainStateModelStateReason",
+];
 
 function systemProps(row: EntityTypeRow, created: boolean): EntityItem[] {
   const nm = row.name;
-  const P = (n: string, desc: string, o: Partial<EntityItem> = {}): EntityItem => mk("property", n, { system: true, desc, ...o });
+  const P = (n: string, desc: string, o: Partial<EntityItem> = {}): EntityItem =>
+    mk("property", n, { system: true, desc, ...o });
   const common: Record<string, EntityItem> = {
-    Name: P("Name", `${nm} Name`, { mandatory: true, searchable: true, size: "256", regex: ".+", historyEnabled: true, copyOnClone: true, al: alOf({ roUpdate: true }) }),
+    Name: P("Name", `${nm} Name`, {
+      mandatory: true,
+      searchable: true,
+      size: "256",
+      regex: ".+",
+      historyEnabled: true,
+      copyOnClone: true,
+      al: alOf({ roUpdate: true }),
+    }),
     Description: P("Description", `${nm} Description.`, { size: "255" }),
-    CreatedBy: P("CreatedBy", "User that created the object.", { al: alOf({ roCreate: true, roUpdate: true }) }),
-    CreatedOn: P("CreatedOn", "Creation date and time.", { scalar: "DateTime", size: "0", al: alOf({ roCreate: true, roUpdate: true }) }),
-    ModifiedBy: P("ModifiedBy", "User that last modified the object.", { al: alOf({ roCreate: true, roUpdate: true }) }),
-    ModifiedOn: P("ModifiedOn", "Last modification date and time.", { scalar: "DateTime", size: "0", al: alOf({ roCreate: true, roUpdate: true }) }),
+    CreatedBy: P("CreatedBy", "User that created the object.", {
+      al: alOf({ roCreate: true, roUpdate: true }),
+    }),
+    CreatedOn: P("CreatedOn", "Creation date and time.", {
+      scalar: "DateTime",
+      size: "0",
+      al: alOf({ roCreate: true, roUpdate: true }),
+    }),
+    ModifiedBy: P("ModifiedBy", "User that last modified the object.", {
+      al: alOf({ roCreate: true, roUpdate: true }),
+    }),
+    ModifiedOn: P("ModifiedOn", "Last modification date and time.", {
+      scalar: "DateTime",
+      size: "0",
+      al: alOf({ roCreate: true, roUpdate: true }),
+    }),
     LockedBy: P("LockedBy", "User holding the lock on the object."),
     OwnerInstance: P("OwnerInstance", "MES instance that owns the object."),
     DataGroupId: P("DataGroupId", "Identifier of the data group.", { scalar: "BigInt", size: "0" }),
     DataGroupName: P("DataGroupName", "Name of the data group."),
     DocumentationURL: P("DocumentationURL", "Link to the object documentation.", { size: "512" }),
     Image: P("Image", "Image of the object.", { size: "512" }),
-    MainStateModelStateReason: P("MainStateModelStateReason", "Reason of the main state model state."),
+    MainStateModelStateReason: P(
+      "MainStateModelStateReason",
+      "Reason of the main state model state.",
+    ),
     Revision: P("Revision", "Revision of the object.", { size: "50" }),
     RevisionState: P("RevisionState", "State of the revision.", { size: "50" }),
   };
   if (created) {
-    return SYS_ORDER_CREATED.filter((n) => row.versioned || !n.startsWith("Revision")).map((n) => common[n]);
+    return SYS_ORDER_CREATED.filter((n) => row.versioned || !n.startsWith("Revision")).map(
+      (n) => common[n],
+    );
   }
   let list: EntityItem[] = SYS_GENERIC.map((n) => common[n]);
   if (nm === "Container") {
     list = [
       P("CapacityForm", "Form of the container capacity."),
-      P("CapacityPerPosition", "Capacity each position can carry in number of units;", { scalar: "Decimal", size: "18", decimals: "8" }),
+      P("CapacityPerPosition", "Capacity each position can carry in number of units;", {
+        scalar: "Decimal",
+        size: "18",
+        decimals: "8",
+      }),
       P("CapacityUnits", "Units of the container capacity."),
       P("CapacityValidationMode", "Validation mode for the container capacity."),
       ...list,
@@ -384,21 +486,51 @@ function systemProps(row: EntityTypeRow, created: boolean): EntityItem[] {
   return list.sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
 }
 
-const OPS: string[] = ["SaveRelations", "AddRelations", "RemoveRelations", "SetObjectsLocation", "Load", "SaveAttributes", "RemoveAttributes", "AddRelatedEntities", "CreateTemplate", "Create", "LogEvent", "Unterminate", "Terminate", "Edit", "ChangeState", "Clone"];
-const OPS_WITH_HISTORY: string[] = ["SaveAttributes", "Create", "Edit", "Terminate", "Unterminate", "ChangeState", "Clone"];
+const OPS: string[] = [
+  "SaveRelations",
+  "AddRelations",
+  "RemoveRelations",
+  "SetObjectsLocation",
+  "Load",
+  "SaveAttributes",
+  "RemoveAttributes",
+  "AddRelatedEntities",
+  "CreateTemplate",
+  "Create",
+  "LogEvent",
+  "Unterminate",
+  "Terminate",
+  "Edit",
+  "ChangeState",
+  "Clone",
+];
+const OPS_WITH_HISTORY: string[] = [
+  "SaveAttributes",
+  "Create",
+  "Edit",
+  "Terminate",
+  "Unterminate",
+  "ChangeState",
+  "Clone",
+];
 
 export function modelFor(row: EntityTypeRow, created: boolean): EntityTypeModel {
   const nm = row.name;
   const attrs: EntityItem[] =
     nm === "Container"
-      ? [mk("attribute", "Notes", { desc: "Free-text notes.", size: "255", copyOnClone: true }), mk("attribute", "Color", { desc: "Container color.", size: "20" })]
+      ? [
+          mk("attribute", "Notes", { desc: "Free-text notes.", size: "255", copyOnClone: true }),
+          mk("attribute", "Color", { desc: "Container color.", size: "20" }),
+        ]
       : nm === "Calendar"
         ? [mk("attribute", "Notes", { desc: "Free-text notes.", size: "255" })]
         : [];
   return {
     properties: systemProps(row, created),
     attributes: attrs,
-    operations: OPS.map((n) => mk("operation", n, { system: true, desc: n, historyEnabled: OPS_WITH_HISTORY.includes(n) })),
+    operations: OPS.map((n) =>
+      mk("operation", n, { system: true, desc: n, historyEnabled: OPS_WITH_HISTORY.includes(n) }),
+    ),
     opAttributes: [],
     stateModels: [{ name: `${nm}StateModel`, desc: `Main state model of ${nm}`, main: true }],
     ods: {
@@ -429,7 +561,10 @@ export const setEntityStore = (name: string, entry: EntityTypeStoreEntry): void 
 const isEntityish = (i: EntityItem): boolean => ENTITYISH.includes(i.refType);
 
 const eligibleSearch = (i: EntityItem): boolean =>
-  i.refType === "None" && ["VarChar", "NVarChar"].includes(i.scalar) && Number(i.size) >= 1 && Number(i.size) <= 512;
+  i.refType === "None" &&
+  ["VarChar", "NVarChar"].includes(i.scalar) &&
+  Number(i.size) >= 1 &&
+  Number(i.size) <= 512;
 
 const T: SchemaFieldKind = "text";
 const N: SchemaFieldKind = "number";
@@ -460,25 +595,94 @@ const propertyFields: RawField[] = [
   ["Property Details", "type", "Type", "fixed", { value: "Property" }],
   ["Property Details", "enabled", "Enabled", W, { ro: true }],
   ["Content", "refType", "Reference Type", S, { req: true, opts: REF_PROP, ro: true }],
-  ["Content", "refTo", "Reference To", C, { req: true, when: (i) => i.refType !== "None", ro: true }],
-  ["Content", "scalar", "Scalar Type", S, { req: true, opts: SCALARS, when: (i) => i.refType === "None", ro: true }],
+  [
+    "Content",
+    "refTo",
+    "Reference To",
+    C,
+    { req: true, when: (i) => i.refType !== "None", ro: true },
+  ],
+  [
+    "Content",
+    "scalar",
+    "Scalar Type",
+    S,
+    { req: true, opts: SCALARS, when: (i) => i.refType === "None", ro: true },
+  ],
   ["Content", "size", "Size", N, { narrow: true, ro: true }],
-  ["Content", "decimals", "Decimal Places", N, { narrow: true, when: (i) => i.refType === "None" && i.scalar === "Decimal", ro: true }],
+  [
+    "Content",
+    "decimals",
+    "Decimal Places",
+    N,
+    { narrow: true, when: (i) => i.refType === "None" && i.scalar === "Decimal", ro: true },
+  ],
   ["Content", "def", "Default Value", T, { ro: true }],
   ["Content", "array", "Array", W, { off: true, ro: true }],
   ["Content", "editableOnClone", "Editable On Clone", W, { ro: true }],
   ["Content", "copyOnClone", "Copy On Clone", W, { when: (i) => !i.system }],
   ["Content", "importMode", "Import Update Mode", S, { req: true, opts: IMPORT_MODES, edit: true }],
-  ["Content", "refMode", "Reference Mode", S, { opts: REF_MODES, when: (i) => isEntityish(i) && !i.weak, ro: true }],
-  ["Content", "weak", "Is Weak Reference", W, { when: (i) => i.refType === "None" && i.scalar === "BigInt", ro: true }],
-  ["Content", "weakType", "Weak Reference Type", S, { req: true, opts: ENTITYISH, when: (i) => i.weak && i.refType === "None" && i.scalar === "BigInt", ro: true }],
-  ["Content", "weakEntity", "Weak Reference Entity Type", C, { req: true, ent: true, when: (i) => i.weak && i.refType === "None" && i.scalar === "BigInt", ro: true }],
-  ["Content", "exportAutoInclude", "Export Auto Include", W, { when: (i) => isEntityish(i) || (i.weak && i.scalar === "BigInt"), ro: true }],
+  [
+    "Content",
+    "refMode",
+    "Reference Mode",
+    S,
+    { opts: REF_MODES, when: (i) => isEntityish(i) && !i.weak, ro: true },
+  ],
+  [
+    "Content",
+    "weak",
+    "Is Weak Reference",
+    W,
+    { when: (i) => i.refType === "None" && i.scalar === "BigInt", ro: true },
+  ],
+  [
+    "Content",
+    "weakType",
+    "Weak Reference Type",
+    S,
+    {
+      req: true,
+      opts: ENTITYISH,
+      when: (i) => i.weak && i.refType === "None" && i.scalar === "BigInt",
+      ro: true,
+    },
+  ],
+  [
+    "Content",
+    "weakEntity",
+    "Weak Reference Entity Type",
+    C,
+    {
+      req: true,
+      ent: true,
+      when: (i) => i.weak && i.refType === "None" && i.scalar === "BigInt",
+      ro: true,
+    },
+  ],
+  [
+    "Content",
+    "exportAutoInclude",
+    "Export Auto Include",
+    W,
+    { when: (i) => isEntityish(i) || (i.weak && i.scalar === "BigInt"), ro: true },
+  ],
   ["Flags", "indexed", "Indexed", W, { ro: true }],
   ["Flags", "reportable", "Reportable", W, { ro: true }],
   ["Flags", "mandatory", "Mandatory", W, { ro: true }],
   ["Flags", "searchable", "Searchable", W, { when: eligibleSearch, ro: true }],
-  ["Flags", "searchType", "Search Type", S, { opts: SEARCH_TYPES, clearable: false, when: (i) => i.searchable && eligibleSearch(i), ro: true }],
+  [
+    "Flags",
+    "searchType",
+    "Search Type",
+    S,
+    {
+      opts: SEARCH_TYPES,
+      clearable: false,
+      when: (i) => i.searchable && eligibleSearch(i),
+      ro: true,
+    },
+  ],
   ["Flags", "versionedPortion", "Versioned", W, { when: (_i, c) => c.versioned, ro: true }],
   ["Flags", "localOverrides", "Enable Local Overrides", W, { when: (i) => !i.system, ro: true }],
   ["Validation", "range", "Range", T, { ro: true }],
@@ -490,26 +694,62 @@ const propertyFields: RawField[] = [
 const attrFields = (full: boolean): RawField[] => [
   ["Property Details", "name", "Name", T, { req: true, ro: true }],
   ["Property Details", "desc", "Description", T, { ro: true }],
-  ...(full ? [["Property Details", "type", "Type", S, { opts: ["Attribute"], ro: true }] as RawField] : []),
+  ...(full
+    ? [["Property Details", "type", "Type", S, { opts: ["Attribute"], ro: true }] as RawField]
+    : []),
   ["Property Details", "dataGroup", "Data Group", S, { opts: DATA_GROUPS, icon: true, ro: true }],
   ["Property Details", "enabled", "Enabled", W, { ro: true }],
   ["Content", "refType", "Reference Type", S, { req: true, opts: REF_ATTR, ro: true }],
-  ["Content", "refTo", "Reference To", C, { req: true, when: (i) => i.refType === "Lookup Value" || i.refType === "Enum", ro: true }],
-  ["Content", "scalar", "Scalar Type", S, { req: true, opts: SCALARS, when: (i) => i.refType === "None", ro: true }],
+  [
+    "Content",
+    "refTo",
+    "Reference To",
+    C,
+    { req: true, when: (i) => i.refType === "Lookup Value" || i.refType === "Enum", ro: true },
+  ],
+  [
+    "Content",
+    "scalar",
+    "Scalar Type",
+    S,
+    { req: true, opts: SCALARS, when: (i) => i.refType === "None", ro: true },
+  ],
   ["Content", "size", "Size", N, { narrow: true, ro: true }],
-  ["Content", "decimals", "Decimal Places", N, { narrow: true, when: (i) => i.refType === "None" && i.scalar === "Decimal", ro: true }],
+  [
+    "Content",
+    "decimals",
+    "Decimal Places",
+    N,
+    { narrow: true, when: (i) => i.refType === "None" && i.scalar === "Decimal", ro: true },
+  ],
   ["Content", "def", "Default Value", T, { ro: true }],
   ["Content", "array", "Array", W, { ro: true }],
   ...(full
     ? [
         ["Content", "copyOnClone", "Copy On Clone", W, { ro: true }] as RawField,
-        ["Content", "importMode", "Import Update Mode", S, { req: true, opts: IMPORT_MODES, edit: true }] as RawField,
+        [
+          "Content",
+          "importMode",
+          "Import Update Mode",
+          S,
+          { req: true, opts: IMPORT_MODES, edit: true },
+        ] as RawField,
       ]
     : []),
   ["Flags", "indexed", "Indexed", W, { ro: true }],
   ["Flags", "reportable", "Reportable", W, { ro: true }],
   ["Flags", "historyEnabled", "History Enabled", W, { ro: true }],
-  ...(full ? [["Flags", "versionedPortion", "Versioned", W, { when: (_i, c) => c.versioned, ro: true }] as RawField] : []),
+  ...(full
+    ? [
+        [
+          "Flags",
+          "versionedPortion",
+          "Versioned",
+          W,
+          { when: (_i, c) => c.versioned, ro: true },
+        ] as RawField,
+      ]
+    : []),
   ["Validation", "range", "Range", T, { ro: true }],
   ["Validation", "regex", "Regular Expression", T, { ro: true }],
   ["Localized Message", "locKey", "Key", T, { ro: true }],
@@ -538,9 +778,14 @@ export const SCHEMAS: Record<EntityItemKind, SchemaField[]> = {
   operation: toSchema(opFields),
 };
 
-const fieldValue = (item: EntityItem, key: string): unknown => (item as unknown as Record<string, unknown>)[key];
+const fieldValue = (item: EntityItem, key: string): unknown =>
+  (item as unknown as Record<string, unknown>)[key];
 
-export function validateItems(kind: EntityItemKind, items: EntityItem[], ctx: SchemaContext): Map<string, Issue[]> {
+export function validateItems(
+  kind: EntityItemKind,
+  items: EntityItem[],
+  ctx: SchemaContext,
+): Map<string, Issue[]> {
   const out = new Map<string, Issue[]>();
   const add = (id: string, level: Issue["level"], msg: string): void => {
     if (!out.has(id)) {
@@ -562,17 +807,30 @@ export function validateItems(kind: EntityItemKind, items: EntityItem[], ctx: Sc
     } else if (items.some((o) => o !== i && o.name.toLowerCase() === i.name.trim().toLowerCase())) {
       add(i.id, "error", "Another item already uses this name.");
     } else if (kind !== "property" && !/^[A-Za-z][A-Za-z0-9]*$/.test(i.name)) {
-      add(i.id, "error", "The first character must be a letter and subsequent characters can be letters or digits.");
+      add(
+        i.id,
+        "error",
+        "The first character must be a letter and subsequent characters can be letters or digits.",
+      );
     }
     schema.forEach((f) => {
-      if (f.req && f.k !== "name" && (!f.when || f.when(i, ctx)) && !String(fieldValue(i, f.k) ?? "").trim()) {
+      if (
+        f.req &&
+        f.k !== "name" &&
+        (!f.when || f.when(i, ctx)) &&
+        !String(fieldValue(i, f.k) ?? "").trim()
+      ) {
         add(i.id, "error", `${f.label} is required.`);
       }
     });
     if (kind === "property" && i.searchable && eligibleSearch(i)) {
       searchCount += 1;
       if (searchCount > 2) {
-        add(i.id, "error", "Excluding the Name, it's not possible to mark more than two properties as searchable.");
+        add(
+          i.id,
+          "error",
+          "Excluding the Name, it's not possible to mark more than two properties as searchable.",
+        );
       }
       if (i.searchType === "Contains") {
         add(i.id, "warn", "Contains search type might affect the performance of the entity search");

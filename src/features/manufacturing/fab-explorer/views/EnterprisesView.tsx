@@ -6,7 +6,9 @@ import {
   FilterGroup,
   SidePanel,
   SidebarNavItem,
-  TileGrid, HStack, VStack 
+  TileGrid,
+  HStack,
+  VStack,
 } from "@/components/common";
 import { Globe24Regular, Grid24Regular, Organization24Regular } from "@/components/icons";
 import { Input, makeStyles } from "@/components/ui";

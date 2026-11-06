@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useStepDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, VStack  } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, VStack } from "@/components/common";
 import { Flow24Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -73,9 +73,13 @@ export function StepDetailPage({ name }: { name: string }) {
     content = (
       <Panel>
         <Body1Strong>{t("businessData.step.tabs.contexts")}</Body1Strong>
-        <VStack gap="8px" style={{marginTop: theme.spacing.md}}>
+        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
           {CONTEXTS.map((key) => (
-            <div key={key} className={sharedStyles.contentCard} style={{ padding: theme.spacing.md }}>
+            <div
+              key={key}
+              className={sharedStyles.contentCard}
+              style={{ padding: theme.spacing.md }}
+            >
               <Body1Strong>{t(key)}</Body1Strong>
             </div>
           ))}
@@ -127,7 +131,10 @@ export function StepDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
+      <div
+        className={sharedStyles.contentCard}
+        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
+      >
         <Body1Strong>{t("businessData.step.sections.details")}</Body1Strong>
         <KV
           rows={[

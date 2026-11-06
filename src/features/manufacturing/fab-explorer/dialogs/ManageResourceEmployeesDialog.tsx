@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { useFabResources } from "@/api";
-import { BaseDialog, DialogFooter, FormField, HStack, VStack  } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField, HStack, VStack } from "@/components/common";
 import { Button, Input, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
 
 const useDialogStyles = makeStyles({
-  
   row: {
     padding: "8px 0",
     borderBottom: `1px solid ${theme.color.border}`,
     fontSize: "13px",
-  }
+  },
 });
 
 interface ManageResourceEmployeesDialogProps {

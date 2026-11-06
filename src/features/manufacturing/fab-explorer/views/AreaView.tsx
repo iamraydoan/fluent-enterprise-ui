@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFabArea, useFabResources, useFabSteps, useFabUndispatchableMaterials } from "@/api";
 import type { FabResourceState } from "@/api";
-import { Card, FilterBar, FilterGroup, SidePanel, Grid, HStack, VStack  } from "@/components/common";
+import { Card, FilterBar, FilterGroup, SidePanel, Grid, HStack, VStack } from "@/components/common";
 import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";
@@ -39,7 +39,7 @@ const useViewStyles = makeStyles({
   resourceStats: {
     fontSize: "11px",
   },
-  
+
   undispatchTable: { width: "100%", borderCollapse: "collapse", fontSize: "13px" },
   undispatchHeader: {
     textAlign: "left",
@@ -49,7 +49,7 @@ const useViewStyles = makeStyles({
     fontSize: "12px",
   },
   undispatchCell: { padding: theme.spacing.sm, borderBottom: `1px solid ${theme.color.border}` },
-  
+
   infoCard: { padding: theme.spacing.md, textAlign: "center" },
 });
 
@@ -166,7 +166,7 @@ export function AreaView({ nav, onSelectStep, onSelectResource }: AreaViewProps)
                   <Text size={200} style={{ color: theme.color.textTertiary }}>
                     {step.description}
                   </Text>
-                  <HStack gap="8px" align="center" style={{marginTop: theme.spacing.sm}}>
+                  <HStack gap="8px" align="center" style={{ marginTop: theme.spacing.sm }}>
                     <span
                       style={{
                         width: "24px",

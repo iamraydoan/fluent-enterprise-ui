@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ScheduleDetail, ScheduleRecord } from "@/api";
-import { BaseDialog, WizardSteps, VStack  } from "@/components/common";
+import { BaseDialog, WizardSteps, VStack } from "@/components/common";
 import { Body1Strong, Button, Field, Input } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
@@ -114,16 +114,22 @@ export function ScheduleFormDialog({
               ))}
             </select>
           </Field>
-          <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.optimizationBody`)}</div>
+          <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+            {t(`${k}.optimizationBody`)}
+          </div>
         </VStack>
       )}
 
       {step === 3 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.untieBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.untieBody`)}
+        </div>
       )}
 
       {step === 4 && !nameReadOnly && (
-        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>{t(`${k}.automaticBody`)}</div>
+        <div style={{ padding: "12px 0", color: theme.color.textSecondary }}>
+          {t(`${k}.automaticBody`)}
+        </div>
       )}
 
       <Field label={t(`${k}.comments`)}>

@@ -1,15 +1,7 @@
-import {
-  useState,
-} from "react";
-import {
-  BaseDialog, DialogFooter, HStack,
-} from "@/components/common";
-import {
-  Button, Input,
-} from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { useState } from "react";
+import { BaseDialog, DialogFooter, HStack } from "@/components/common";
+import { Button, Input } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 
 const L: Record<string, TranslationKey> = {
@@ -28,7 +20,6 @@ const L: Record<string, TranslationKey> = {
   update: "businessData.inspectionPlan.manageConfigurations.update",
   remove: "businessData.inspectionPlan.dialog.remove",
 };
-
 
 export function ManageConfigurationsDialog({
   name,

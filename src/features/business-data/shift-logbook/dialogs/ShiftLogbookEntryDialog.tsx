@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseDialog, DialogFooter, FormField, Grid  } from "@/components/common";
+import { BaseDialog, DialogFooter, FormField, Grid } from "@/components/common";
 import { Input, Text, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
@@ -91,11 +91,23 @@ export function ShiftLogbookEntryDialog({ initial, onClose }: EntryDialogProps) 
       <FormField label={<>{t("businessData.shiftLogbook.addEntry.resource")}</>} labelWidth="140px">
         <Input value={resource} onChange={setResource} />
       </FormField>
-      <Grid columns="140px 1fr" gap="12px" align="center" style={{ alignItems: "start" }} className={styles.fieldRow}>
+      <Grid
+        columns="140px 1fr"
+        gap="12px"
+        align="center"
+        style={{ alignItems: "start" }}
+        className={styles.fieldRow}
+      >
         <Text>{t("businessData.shiftLogbook.addEntry.description")}</Text>
         <Textarea value={description} onChange={setDescription} rows={5} />
       </Grid>
-      <Grid columns="140px 1fr" gap="12px" align="center" style={{ alignItems: "start" }} className={styles.fieldRow}>
+      <Grid
+        columns="140px 1fr"
+        gap="12px"
+        align="center"
+        style={{ alignItems: "start" }}
+        className={styles.fieldRow}
+      >
         <Text>{t("businessData.shiftLogbook.addEntry.comments")}</Text>
         <Textarea value={comments} onChange={setComments} rows={2} />
       </Grid>

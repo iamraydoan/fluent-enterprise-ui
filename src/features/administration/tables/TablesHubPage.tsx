@@ -10,7 +10,9 @@ import {
   RECORD_STATE_COLUMN_OPTIONS,
   refreshAction,
   SidePanel,
-  SidebarNavItem, HStack, VStack 
+  SidebarNavItem,
+  HStack,
+  VStack,
 } from "@/components/common";
 import { Table24Regular } from "@/components/icons";
 import { makeStyles } from "@/components/ui";
@@ -29,7 +31,7 @@ const useHubStyles = makeStyles({
   },
   main: {
     minWidth: 0,
-  }
+  },
 });
 
 const TABLE_KINDS: Array<{

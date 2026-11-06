@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useShiftDefinitionDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, HStack  } from "@/components/common";
+import { DetailShell, Empty, KV, Panel, HStack } from "@/components/common";
 import { Timer24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -111,7 +111,10 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}>
+        <div
+          className={sharedStyles.contentCard}
+          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
+        >
           <Body1Strong>{t("businessData.shiftDefinition.sections.details")}</Body1Strong>
           <KV
             rows={[

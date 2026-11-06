@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFabResources } from "@/api";
 import type { FabResourceState } from "@/api";
-import { BaseDialog, FormField, HStack  } from "@/components/common";
+import { BaseDialog, FormField, HStack } from "@/components/common";
 import { Button, Checkbox, Input, Text, Textarea, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { containsIgnoreCase } from "@/lib/utils";

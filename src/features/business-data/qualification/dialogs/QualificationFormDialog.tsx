@@ -1,16 +1,8 @@
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 import type { QualificationDetail } from "@/api";
-import {
-  BaseDialog, DialogFooter, HStack, VStack,
-} from "@/components/common";
-import {
-  Body1Strong, Field, Input, Switch,
-} from "@/components/ui";
-import {
-  useAppTranslation,
-} from "@/i18n";
+import { BaseDialog, DialogFooter, HStack, VStack } from "@/components/common";
+import { Body1Strong, Field, Input, Switch } from "@/components/ui";
+import { useAppTranslation } from "@/i18n";
 
 interface QualificationFormDialogProps {
   open: boolean;
@@ -96,16 +88,10 @@ export function QualificationFormDialog({
 
         <Body1Strong>{t(`${k}.permissions`)}</Body1Strong>
         <Field label={t(`${k}.allowSelfAssignment`)}>
-          <Switch
-            checked={allowSelfAssignment}
-            onChange={setAllowSelfAssignment}
-          />
+          <Switch checked={allowSelfAssignment} onChange={setAllowSelfAssignment} />
         </Field>
         <Field label={t(`${k}.allowAssignmentByManager`)}>
-          <Switch
-            checked={allowAssignmentByManager}
-            onChange={setAllowAssignmentByManager}
-          />
+          <Switch checked={allowAssignmentByManager} onChange={setAllowAssignmentByManager} />
         </Field>
 
         <Body1Strong>{t(`${k}.validityPeriod`)}</Body1Strong>
@@ -124,10 +110,7 @@ export function QualificationFormDialog({
           </Field>
         </HStack>
         <Field label={t(`${k}.allowOverride`)}>
-          <Switch
-            checked={allowOverride}
-            onChange={setAllowOverride}
-          />
+          <Switch checked={allowOverride} onChange={setAllowOverride} />
         </Field>
 
         <Body1Strong>{t(`${k}.gracePeriod`)}</Body1Strong>

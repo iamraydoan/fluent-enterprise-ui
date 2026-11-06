@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useInspectionPlanDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, HStack  } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack } from "@/components/common";
 import { TableSimple24Regular } from "@/components/icons";
 import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
@@ -173,7 +173,7 @@ export function InspectionPlanDetailPage({ name }: { name: string }) {
             ],
           ]}
         />
-        <HStack gap="8px" style={{marginTop: theme.spacing.md}}>
+        <HStack gap="8px" style={{ marginTop: theme.spacing.md }}>
           <Button onClick={() => setManageConfigurationsOpen(true)}>
             {t("businessData.inspectionPlan.manageConfigurations.manage")}
           </Button>

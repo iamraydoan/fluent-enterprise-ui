@@ -6,7 +6,9 @@ import {
   EntityTile,
   SidePanel,
   SidebarNavItem,
-  TileGrid, HStack, VStack 
+  TileGrid,
+  HStack,
+  VStack,
 } from "@/components/common";
 import { Box24Regular, Grid24Regular } from "@/components/icons";
 import { Button, makeStyles } from "@/components/ui";
@@ -25,18 +27,18 @@ const useViewStyles = makeStyles({
   main: {
     minWidth: 0,
   },
-  
+
   stateCounts: {
     fontSize: "12px",
     color: theme.color.textSecondary,
     marginTop: "auto",
   },
-  
+
   materialRow: {
     fontSize: "13px",
     padding: `${theme.spacing.sm} 0`,
     borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  }
+  },
 });
 
 interface FacilityViewProps {

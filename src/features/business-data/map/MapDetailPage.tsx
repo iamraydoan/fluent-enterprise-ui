@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMapDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, HStack  } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
 import {
   Button,
@@ -121,7 +121,7 @@ export function MapDetailPage({ name }: { name: string }) {
             ))}
           </TableBody>
         </Table>
-        <HStack gap="8px" style={{marginTop: theme.spacing.md}}>
+        <HStack gap="8px" style={{ marginTop: theme.spacing.md }}>
           <Button onClick={() => undefined}>{t("businessData.map.actions.downloadLayer")}</Button>
           <Button onClick={() => setLinkOpen(true)}>
             {t("businessData.map.actions.linkMaterial")}
