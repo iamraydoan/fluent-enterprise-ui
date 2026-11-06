@@ -16,7 +16,7 @@ Read [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) first for the layer architecture, the 
 | `src/components/icons/index.ts`                  | `@fluentui/react-icons`                                                           |
 | `src/components/ui/__tests__/*.browser.test.tsx` | Fluent primitives used as reference markup in tests                               |
 
-Nothing else in `src/` may import `@fluentui/*`; the ESLint ban fails the build if it happens.
+Outside the files listed above, `@fluentui/*` imports are rejected by `no-restricted-imports`. The wrapper layer accepts `@fluentui/react-components` and `tokens`, but like every other layer it rejects `@fluentui/react-icons`, which is only allowed in `src/components/icons/index.ts`.
 
 ### 1.2 Upgrade procedure
 
@@ -24,7 +24,7 @@ Nothing else in `src/` may import `@fluentui/*`; the ESLint ban fails the build 
 2. Bump `@fluentui/react-components` (and `@fluentui/react-icons` if needed) in `package.json` and install.
 3. Run `npx tsc --noEmit`. Type errors usually point at one of three places: a renamed Fluent prop in a wrapper, a changed ref type, or a token name in `src/styles/theme.ts`.
 4. Run `npx eslint . -f json` and confirm the severity-2 count is still exactly 22. A new error normally means an import escaped the allowed layers.
-5. Open `src/styles/theme.ts` and verify that every `tokens.*` key still exists. Token renames surface here first because this is the only file that reads raw tokens.
+5. Open `src/styles/theme.ts` and verify that every `tokens.*` key still exists. Token renames surface here first because this is the only application file that reads raw tokens (`src/components/ui/styles.ts` re-exports them for the wrapper layer).
 6. Open `src/theme/index.ts` and verify the `webLightTheme` spread plus the three overrides (`fontFamilyBase`, `colorBrandForeground1`, `colorBrandForegroundLink`) still type-check.
 7. Run the full test suite: `npm run test:unit`, `npm run test:browser`, then `npm run test:coverage`.
 8. Do the visual pass described in 1.4.

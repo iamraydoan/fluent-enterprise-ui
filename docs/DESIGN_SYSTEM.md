@@ -39,7 +39,7 @@ Cross-cutting layers:
 ### The five rules
 
 1. `src/components/ui/**` is the only application layer that imports `@fluentui/react-components`; `src/theme/index.ts` is the only other file that does, and only for `webLightTheme`.
-2. `src/components/icons/**` is the only layer that imports `@fluentui/react-icons`. Everyone else imports icons from `@/components/icons`.
+2. `src/components/icons/**` is the only layer that imports `@fluentui/react-icons`; the wrapper layer explicitly rejects it. Everyone else imports icons from `@/components/icons`.
 3. Design values always come from `theme` (`@/styles/theme`). Raw `tokens.*` is read only by `src/styles/theme.ts`.
 4. There are no comments anywhere under `src/**`; the `local/no-comments` ESLint rule is an error.
 5. The wrapper layer is a closed API: each wrapper declares its own props interface, never `any`, and never leaks Fluent props it did not declare.
@@ -167,7 +167,7 @@ All wrappers are exported from `@/components/ui` ([index.ts](../src/components/u
 
 ### 3.1 Conventions
 
-- Size is always `"sm" | "md" | "lg"` (the shared `ComponentSize`), never Fluent's `"small" | "medium" | "large"`.
+- `Button`, `Input`, `Field`, `Badge` and `TabList` use the shared `ComponentSize` (`"sm" | "md" | "lg"`), never Fluent's `"small" | "medium" | "large"`. Other components have their own unions: `Spinner` uses `"tiny" | "small" | "medium" | "large" | "extra-large"`, `Text` uses `100`-`1000`, and `Avatar` uses `"xs" | "sm" | "md" | "lg" | "xl"` or a number.
 - Variant props are named `variant`, not Fluent's `appearance`.
 - Callbacks receive plain values, not Fluent's `(event, data)` pair.
 - Refs are forwarded with the correct DOM or component type where Fluent supports one.
@@ -254,7 +254,12 @@ All wrappers are exported from `@/components/ui` ([index.ts](../src/components/u
 - **TreeItemLayout** - `iconBefore`, `onClick`, `className`, `style`, `children`.
 - **Avatar** - `name`, `initials`, `size`, `shape` (`circular | square`), `color` (`neutral | brand | colorful` or a Fluent named colour), `className`, `style`, `aria-label`, `children`. Named sizes map to Fluent numbers: `xs -> 24`, `sm -> 32`, `md -> 48`, `lg -> 72`, `xl -> 96`; a numeric `size` is passed through.
 
-### 3.8 Theming and utilities
+### 3.8 Feedback
+
+- **MessageBar** - `intent` (`error | warning | success | info`, default `info`), `className`, `style`, `children`. Maps to Fluent `MessageBar`; renders `role="group"` with intent-specific styling.
+- **MessageBarBody** - `className`, `style`, `children`. Maps to Fluent `MessageBarBody` and holds the message text.
+
+### 3.9 Theming and utilities
 
 - **FluentProvider** - `theme`, `className`, `style`, `children`. Wraps Fluent `FluentProvider`; pass the app theme from `@/theme`.
 - **makeStyles**, **mergeClasses** - thin re-exports of the Fluent functions for use in the layers allowed to style.
@@ -294,21 +299,21 @@ All wrappers are exported from `@/components/ui` ([index.ts](../src/components/u
 
 The rules below are configured in `eslint.config.js` and fail the build.
 
-| Concern                      | Rule                                                                 | Where it is allowed                                                                                                                                               |
-| ---------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Fluent components            | `no-restricted-imports` (path + pattern ban)                         | `src/components/ui/**` (rule off) and `src/theme/index.ts` (`webLightTheme`)                                                                                      |
-| Fluent icons                 | `no-restricted-imports`                                              | `src/components/icons/**`; everything else imports `@/components/icons`                                                                                           |
-| Raw tokens                   | `no-restricted-imports` with `importNames: ["tokens"]`               | `src/components/ui/**` and `src/styles/theme.ts`; everywhere else use `theme` from `@/styles/theme`                                                               |
-| i18next / react-i18next      | `no-restricted-imports`                                              | `src/i18n/**`; everywhere else import `@/i18n`                                                                                                                    |
-| `@tanstack/react-table`      | `no-restricted-imports`                                              | `src/components/common/data-table/**`; pages use `DataColumn`/`DataFilter` from `@/components/common`                                                             |
-| Relative internal imports    | `no-restricted-imports` pattern `./*`, `../*`                        | `src/components/ui/**` and `src/i18n/**`; everyone else must use the `@/` alias                                                                                   |
-| Layer graph                  | `boundaries/dependencies`                                            | features, routes and layouts may reach `ui`, `icons`, `i18n` and `common` only through their `index.ts` entry files; `shared` and `stores` are importable in full |
-| Comments                     | `local/no-comments`                                                  | nowhere under `src/**`, including tests                                                                                                                           |
-| Literal JSX strings          | `i18next/no-literal-string`                                          | translated strings only; `*.test.tsx` and `src/i18n/**` are exempt                                                                                                |
-| Raw `<button>` in features   | `no-restricted-syntax`                                               | use `Button`/`IconButton`/`MenuTriggerButton` and friends                                                                                                         |
-| Hand-rolled flex/grid        | `no-restricted-syntax`                                               | use `HStack`/`VStack`/`TileGrid` from `@/components/common`                                                                                                       |
-| Hardcoded hex colours        | `no-restricted-syntax`                                               | use `theme.*` from `@/styles/theme`                                                                                                                               |
-| `any`, `@ts-ignore`, console | `@typescript-eslint/no-explicit-any`, `ban-ts-comment`, `no-console` | never                                                                                                                                                             |
+| Concern                      | Rule                                                                 | Where it is allowed                                                                                                                                                                                                                                                                                                                                     |
+| ---------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fluent components            | `no-restricted-imports` (path + pattern ban)                         | `@fluentui/react-components` is allowed only in `src/components/ui/**` and `src/theme/index.ts` (`webLightTheme`); the wrapper layer also rejects `@fluentui/react-icons`                                                                                                                                                                               |
+| Fluent icons                 | `no-restricted-imports`                                              | `src/components/icons/**` (including `src/components/icons/index.ts`); every other layer, including `src/components/ui/**`, rejects it and imports `@/components/icons`                                                                                                                                                                                 |
+| Raw tokens                   | `no-restricted-imports` with `importNames: ["tokens"]`               | `src/components/ui/**` and `src/styles/theme.ts`; everywhere else use `theme` from `@/styles/theme`                                                                                                                                                                                                                                                     |
+| i18next / react-i18next      | `no-restricted-imports`                                              | `src/i18n/**`; everywhere else import `@/i18n`                                                                                                                                                                                                                                                                                                          |
+| `@tanstack/react-table`      | `no-restricted-imports`                                              | `src/components/common/data-table/**`; pages use `DataColumn`/`DataFilter` from `@/components/common`                                                                                                                                                                                                                                                   |
+| Relative internal imports    | `no-restricted-imports` pattern `./*`, `../*`                        | **Rejected** in `src/layouts/**`, `src/routes/**`, `src/stores/**`, `src/lib/**`, `src/theme/**`, `src/styles/**`, `src/components/icons/**` and `src/components/common/data-table/**`. **Allowed** (the `@/` alias is still the convention) in `src/components/ui/**`, `src/components/common/**` sibling imports, `src/i18n/**` and `src/features/**` |
+| Layer graph                  | `boundaries/dependencies`                                            | features, routes and layouts may reach `ui`, `icons`, `i18n` and `common` only through their `index.ts` entry files; `shared` and `stores` are importable in full                                                                                                                                                                                       |
+| Comments                     | `local/no-comments`                                                  | nowhere under `src/**`, including tests                                                                                                                                                                                                                                                                                                                 |
+| Literal JSX strings          | `i18next/no-literal-string`                                          | translated strings only; `*.test.tsx` and `src/i18n/**` are exempt                                                                                                                                                                                                                                                                                      |
+| Raw `<button>` in features   | `no-restricted-syntax`                                               | use `Button`/`IconButton`/`MenuTriggerButton` and friends                                                                                                                                                                                                                                                                                               |
+| Hand-rolled flex/grid        | `no-restricted-syntax`                                               | use `HStack`/`VStack`/`TileGrid` from `@/components/common`                                                                                                                                                                                                                                                                                             |
+| Hardcoded hex colours        | `no-restricted-syntax`                                               | use `theme.*` from `@/styles/theme`                                                                                                                                                                                                                                                                                                                     |
+| `any`, `@ts-ignore`, console | `@typescript-eslint/no-explicit-any`, `ban-ts-comment`, `no-console` | never                                                                                                                                                                                                                                                                                                                                                   |
 
 The repository currently reports exactly 22 pre-existing severity-2 findings: 17 hand-rolled flex/grid, 1 hardcoded hex in `makeStyles`, 3 hardcoded hex in style props and 1 literal JSX string. New code must not increase that number.
 
@@ -324,9 +329,9 @@ Two Vitest projects are configured in `vite.config.ts`:
 Key points:
 
 - Wrapper tests live in `src/components/ui/__tests__/` and must be named `*.browser.test.tsx`. A wrapper test named `*.test.tsx` is collected by neither project and silently never runs.
-- Wrapper tests may import `@fluentui/react-components` directly: `no-restricted-imports` is switched off for `src/components/ui/**`. Tests should still assert behaviour (roles, text, attributes, callback arguments) and use direct Fluent rendering only as a reference for pure prop mapping.
+- Wrapper tests may import `@fluentui/react-components` directly: the `src/components/ui/**` rule allows `@fluentui/react-components`, `tokens` and `@/components/ui` while rejecting `@fluentui/react-icons`. Tests should still assert behaviour (roles, text, attributes, callback arguments) and use direct Fluent rendering only as a reference for pure prop mapping.
 - Current totals: 12 browser files / 80 tests overall, of which 34 tests cover the wrapper layer. Unit: 22 files / 171 tests.
-- Coverage: `npm run test:coverage` runs both projects. The old `src/components/ui/**` coverage exclusion has been removed, so the wrapper layer is measured. Wrapper coverage at HEAD: 135/135 statements (100%), 39/60 branches (65%), 67/67 functions (100%), 66/66 lines (100%). Remaining branch gaps are the "prop not provided" arms of optional props and are not behavioural.
+- Coverage: `npm run test:coverage` runs both projects. The old `src/components/ui/**` coverage exclusion has been removed, so the wrapper layer is measured. Wrapper coverage at HEAD across the 24 files of `src/components/ui/**`: 135/135 statements (100%), 39/60 branches (65%), 67/67 functions (100%) and 129/129 lines (100%). The line total is the sum of the per-file lines fractions in `coverage/components/ui/`; `src/components/ui/index.ts` is re-exports only and contributes 0 statements. Remaining branch gaps are the "prop not provided" arms of optional props and are not behavioural.
 - The theme regression test `src/styles/theme.browser.test.tsx` asserts the resolved spacing, radius, border and weight values described in section 2.
 
 ## 8. DO / DON'T quick reference
@@ -335,7 +340,7 @@ Key points:
 
 - Import UI from `@/components/ui` and icons from `@/components/icons`.
 - Use `theme.*` from `@/styles/theme` for every colour, spacing, radius, shadow, duration and border width.
-- Use `size="sm" | "md" | "lg"` and `variant` in wrapper props.
+- Use `size="sm" | "md" | "lg"` and `variant` in the wrapper props that declare them.
 - Handle plain callback values: `onChange={(value) => ...}`, `onCheckedValueChange={(items) => ...}`.
 - Keep wrapper props explicit and forward refs with the right type.
 - Name wrapper tests `*.browser.test.tsx` and put them in `src/components/ui/__tests__/`.
@@ -353,15 +358,15 @@ Key points:
 
 ## 9. Troubleshooting
 
-| Symptom                                                               | Cause                                          | Fix                                                                    |
-| --------------------------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------- |
-| `Cannot find module '@/...'`                                          | Missing alias import                           | Use the `@/` alias; relative imports are banned outside ui/icons/theme |
-| ESLint: "Import UI only from @/components/ui"                         | Imported `@fluentui/*` in app code             | Import from `@/components/ui`                                          |
-| ESLint: "Import tokens only in src/components/ui or src/styles/theme" | Imported `tokens` in app code                  | Use `theme` from `@/styles/theme`                                      |
-| ESLint: "Comments are not allowed"                                    | Comment under `src/**`                         | Delete it and make the code self-explanatory                           |
-| A wrapper test never runs                                             | File is not named `*.browser.test.tsx`         | Rename it; the unit project only collects `*.test.ts`                  |
-| Component renders unstyled or without theme                           | Missing `FluentProvider`                       | Wrap the tree in `FluentProvider` with the app theme from `@/theme`    |
-| Spacing is 4px larger than expected                                   | Expected Fluent's `spacingHorizontalXL` (20px) | `theme.spacing.xl` is intentionally 24px; see section 2.4              |
-| TypeError: size "small" is not assignable                             | Passed a Fluent size name                      | Use `sm`/`md`/`lg`                                                     |
-| Callback receives an object instead of a string                       | Used the Fluent component directly             | Use the wrapper; see section 3.2                                       |
-| New flex/grid or hex error appears in lint                            | Hand-rolled layout/colour in a feature         | Use `HStack`/`VStack`/`TileGrid` and `theme.*`                         |
+| Symptom                                                               | Cause                                          | Fix                                                                                                                    |
+| --------------------------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `Cannot find module '@/...'`                                          | Missing alias import                           | Use the `@/` alias; relative imports are rejected in layouts, routes, stores, lib, theme, styles, icons and data-table |
+| ESLint: "Import UI only from @/components/ui"                         | Imported `@fluentui/*` in app code             | Import from `@/components/ui`                                                                                          |
+| ESLint: "Import tokens only in src/components/ui or src/styles/theme" | Imported `tokens` in app code                  | Use `theme` from `@/styles/theme`                                                                                      |
+| ESLint: "Comments are not allowed"                                    | Comment under `src/**`                         | Delete it and make the code self-explanatory                                                                           |
+| A wrapper test never runs                                             | File is not named `*.browser.test.tsx`         | Rename it; the unit project only collects `*.test.ts`                                                                  |
+| Component renders unstyled or without theme                           | Missing `FluentProvider`                       | Wrap the tree in `FluentProvider` with the app theme from `@/theme`                                                    |
+| Spacing is 4px larger than expected                                   | Expected Fluent's `spacingHorizontalXL` (20px) | `theme.spacing.xl` is intentionally 24px; see section 2.4                                                              |
+| TypeError: size "small" is not assignable                             | Passed a Fluent size name                      | Use `sm`/`md`/`lg`                                                                                                     |
+| Callback receives an object instead of a string                       | Used the Fluent component directly             | Use the wrapper; see section 3.2                                                                                       |
+| New flex/grid or hex error appears in lint                            | Hand-rolled layout/colour in a feature         | Use `HStack`/`VStack`/`TileGrid` and `theme.*`                                                                         |
