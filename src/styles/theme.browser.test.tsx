@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { expect, test } from "vitest";
 import { render } from "vitest-browser-react";
 import { FluentProvider, makeStyles } from "@/components/ui";
@@ -28,7 +29,7 @@ function Probe() {
   return <div className={styles.box} data-testid="make-styles" />;
 }
 
-function mount(ui: React.ReactNode) {
+function mount(ui: ReactNode) {
   localStorage.setItem("fluent-enterprise-ui:language", "en");
   initI18n();
   return render(<FluentProvider theme={appTheme}>{ui}</FluentProvider>);

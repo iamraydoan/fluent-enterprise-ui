@@ -48,7 +48,7 @@ export default defineConfig({
       },
     ],
     coverage: {
-      exclude: ["src/components/ui/**", "src/routeTree.gen.ts", "src/routes/**"],
+      exclude: ["src/routeTree.gen.ts", "src/routes/**"],
     },
   },
 });
