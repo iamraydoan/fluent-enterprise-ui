@@ -319,7 +319,19 @@ export default tseslint.config(
   },
   {
     files: ["src/components/ui/**/*.{ts,tsx}"],
-    rules: { "no-restricted-imports": "off" },
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "@fluentui/react-icons",
+              message: "Import icons only from @/components/icons.",
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     files: ["src/components/common/DetailShell.tsx"],
