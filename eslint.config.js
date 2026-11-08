@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import js from "@eslint/js";
 import pluginQuery from "@tanstack/eslint-plugin-query";
 import prettierConfig from "eslint-config-prettier";
@@ -62,7 +63,15 @@ const tanstackTableBan = {
   ],
 };
 
-const noCommentsPlugin = {
+const cardSurfaceBan = {
+  selector: "Literal[value='#FAFAFA'], Literal[value='#fafafa']",
+  message:
+    "Do not hardcode the card surface color. Spread cardSurface from @/styles/shared instead (single source of truth).",
+};
+
+const pageDebt = JSON.parse(readFileSync(import.meta.dirname + "/eslint.page-debt.json", "utf8"));
+
+const localPlugin = {
   rules: {
     "no-comments": {
       meta: { type: "suggestion", docs: { description: "Disallow all comments." } },
@@ -73,6 +82,165 @@ const noCommentsPlugin = {
               context.report({
                 loc: comment.loc,
                 message: "Comments are not allowed. Make the code self-explanatory.",
+              });
+            }
+          },
+        };
+      },
+    },
+    "no-page-makeStyles": {
+      meta: { type: "problem", docs: { description: "Disallow makeStyles in page files." } },
+      create(context) {
+        return {
+          CallExpression(node) {
+            if (node.callee.type === "Identifier" && node.callee.name === "makeStyles") {
+              context.report({
+                node,
+                message:
+                  "Page files must not call makeStyles. Compose @/components/common primitives (HStack, VStack, Grid, Card, Panel, Section) and pass their props.",
+              });
+            }
+          },
+        };
+      },
+    },
+    "no-page-style-prop": {
+      meta: { type: "problem", docs: { description: "Disallow the style prop in page files." } },
+      create(context) {
+        return {
+          JSXAttribute(node) {
+            if (node.name.type === "JSXIdentifier" && node.name.name === "style") {
+              context.report({
+                node,
+                message:
+                  "Page files must not use the style prop. Use the gap/align/justify/surface/p props of @/components/common stacks or a named component.",
+              });
+            }
+          },
+        };
+      },
+    },
+    "no-page-literal-hex": {
+      meta: {
+        type: "problem",
+        docs: { description: "Disallow literal hex colours in page files." },
+      },
+      create(context) {
+        return {
+          Literal(node) {
+            if (typeof node.value === "string" && /^#[0-9a-fA-F]{3,8}$/.test(node.value)) {
+              context.report({
+                node,
+                message:
+                  "Page files must not use literal hex colours. Use a design-system variant or a @/components/common or @/components/ui primitive.",
+              });
+            }
+          },
+        };
+      },
+    },
+    "no-page-literal-px": {
+      meta: { type: "problem", docs: { description: "Disallow literal px values in page files." } },
+      create(context) {
+        return {
+          Literal(node) {
+            if (typeof node.value === "string" && /^\d+(\.\d+)?px$/.test(node.value)) {
+              context.report({
+                node,
+                message:
+                  "Page files must not use literal px values. Use the theme-backed gap/align/justify/p props of @/components/common stacks.",
+              });
+            }
+          },
+        };
+      },
+    },
+    "no-page-literal-radius": {
+      meta: { type: "problem", docs: { description: "Disallow literal radii in page files." } },
+      create(context) {
+        return {
+          Property(node) {
+            if (
+              node.key.type === "Identifier" &&
+              node.key.name === "borderRadius" &&
+              node.value.type === "Literal"
+            ) {
+              context.report({
+                node,
+                message:
+                  "Page files must not set literal radii. Use a @/components/common surface (Card, Panel, Section) instead.",
+              });
+            }
+          },
+        };
+      },
+    },
+    "no-page-theme-import": {
+      meta: {
+        type: "problem",
+        docs: { description: "Disallow @/styles/theme imports in page files." },
+      },
+      create(context) {
+        return {
+          ImportDeclaration(node) {
+            if (node.source.value === "@/styles/theme") {
+              context.report({
+                node,
+                message:
+                  "Page files must not import @/styles/theme. Move the styling into a @/components/ui or @/components/common primitive that reads the token.",
+              });
+            }
+          },
+        };
+      },
+    },
+    "no-page-settings-import": {
+      meta: {
+        type: "problem",
+        docs: { description: "Disallow settings store/config imports in page files." },
+      },
+      create(context) {
+        return {
+          ImportDeclaration(node) {
+            const source = String(node.source.value);
+            if (
+              /^@\/features\/settings(\/|$)/.test(source) ||
+              /^\.\.?\/.*settings\//.test(source)
+            ) {
+              context.report({
+                node,
+                message:
+                  "Page files must not import the settings store or config. The settings provider applies configuration; pages stay declarative.",
+              });
+            }
+          },
+        };
+      },
+    },
+    "no-page-conditional-style": {
+      meta: {
+        type: "problem",
+        docs: { description: "Disallow conditional style or className in page files." },
+      },
+      create(context) {
+        return {
+          JSXAttribute(node) {
+            if (
+              node.name.type !== "JSXIdentifier" ||
+              (node.name.name !== "style" && node.name.name !== "className")
+            ) {
+              return;
+            }
+            if (!node.value || node.value.type !== "JSXExpressionContainer") return;
+            const expression = node.value.expression;
+            if (
+              expression.type === "ConditionalExpression" ||
+              expression.type === "LogicalExpression"
+            ) {
+              context.report({
+                node,
+                message:
+                  "Page files must not branch on style or className. Use a variant prop or a named @/components/common component.",
               });
             }
           },
@@ -112,14 +280,7 @@ export default tseslint.config(
       "react-refresh/only-export-components": "error",
       "no-console": "error",
       "no-debugger": "error",
-      "no-restricted-syntax": [
-        "error",
-        {
-          selector: "Literal[value='#FAFAFA'], Literal[value='#fafafa']",
-          message:
-            "Do not hardcode the card surface color. Spread cardSurface from @/styles/shared instead (single source of truth).",
-        },
-      ],
+      "no-restricted-syntax": ["error", cardSurfaceBan],
       "no-alert": "error",
       "no-eval": "error",
       "import-x/no-duplicates": "error",
@@ -180,11 +341,6 @@ export default tseslint.config(
   },
   {
     files: ["src/features/**/*.{ts,tsx}"],
-    ignores: [
-      "src/features/ai/chat/AiChatPage.tsx",
-      "src/features/**/dialogStyles.ts",
-      "src/features/**/dialogShared.ts",
-    ],
     rules: {
       "no-restricted-syntax": [
         "error",
@@ -216,6 +372,20 @@ export default tseslint.config(
             "Do not hardcode hex colors in style props. Use theme.* from @/styles/theme (single source of truth).",
         },
       ],
+    },
+  },
+  {
+    files: ["src/features/**/*Page.tsx"],
+    plugins: { local: localPlugin },
+    rules: {
+      "local/no-page-makeStyles": "error",
+      "local/no-page-style-prop": "error",
+      "local/no-page-literal-hex": "error",
+      "local/no-page-literal-px": "error",
+      "local/no-page-literal-radius": "error",
+      "local/no-page-theme-import": "error",
+      "local/no-page-settings-import": "error",
+      "local/no-page-conditional-style": "error",
     },
   },
   {
@@ -692,7 +862,7 @@ export default tseslint.config(
   {
     files: ["src/**/*.{ts,tsx}"],
     ignores: ["src/vite-env.d.ts"],
-    plugins: { local: noCommentsPlugin },
+    plugins: { local: localPlugin },
     rules: { "local/no-comments": "error" },
   },
   {
@@ -707,5 +877,19 @@ export default tseslint.config(
       ],
     },
   },
+  ...Object.entries(pageDebt).map(([file, ruleIds]) => ({
+    files: [file],
+    rules: Object.fromEntries(ruleIds.map((ruleId) => [ruleId, "off"])),
+  })),
+  ...(Object.entries(pageDebt).some(([, ruleIds]) => ruleIds.includes("no-restricted-syntax"))
+    ? [
+        {
+          files: Object.entries(pageDebt)
+            .filter(([, ruleIds]) => ruleIds.includes("no-restricted-syntax"))
+            .map(([file]) => file),
+          rules: { "no-restricted-syntax": ["error", cardSurfaceBan] },
+        },
+      ]
+    : []),
   prettierConfig,
 );
