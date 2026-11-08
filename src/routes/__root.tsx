@@ -1,9 +1,19 @@
 import { createRootRoute, useNavigate } from "@tanstack/react-router";
 import { Button, FluentProvider, Text } from "@/components/ui";
+import { useThemeSettingsTheme } from "@/features/settings/theme-settings-context";
+import { ThemeSettingsProvider } from "@/features/settings/theme-settings-provider";
 import { useAppTranslation } from "@/i18n";
 import { MainLayout } from "@/layouts/MainLayout";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/theme";
+
+function RootLayout() {
+  const appTheme = useThemeSettingsTheme();
+  return (
+    <FluentProvider theme={appTheme} style={{ height: "100vh" }}>
+      <MainLayout />
+    </FluentProvider>
+  );
+}
 
 function NotFound() {
   const sharedStyles = useSharedStyles();
@@ -23,9 +33,9 @@ function NotFound() {
 
 export const Route = createRootRoute({
   component: () => (
-    <FluentProvider theme={theme} style={{ height: "100vh" }}>
-      <MainLayout />
-    </FluentProvider>
+    <ThemeSettingsProvider>
+      <RootLayout />
+    </ThemeSettingsProvider>
   ),
   notFoundComponent: NotFound,
 });

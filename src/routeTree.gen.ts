@@ -15,6 +15,7 @@ import { Route as AdministrationRouteImport } from './routes/administration'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as BusinessDataRouteImport } from './routes/business-data'
 import { Route as ManufacturingRouteImport } from './routes/manufacturing'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as AdministrationTileRouteImport } from './routes/administration.$tile'
 import { Route as AdministrationAiAgentRouteImport } from './routes/administration.ai-agent'
 import { Route as AdministrationAiMcpServerRouteImport } from './routes/administration.ai-mcp-server'
@@ -195,6 +196,11 @@ const BusinessDataRoute = BusinessDataRouteImport.update({
 const ManufacturingRoute = ManufacturingRouteImport.update({
   id: '/manufacturing',
   path: '/manufacturing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdministrationTileRoute = AdministrationTileRouteImport.update({
@@ -1050,6 +1056,7 @@ export interface FileRoutesByFullPath {
   '/ai': typeof AiRoute
   '/business-data': typeof BusinessDataRouteWithChildren
   '/manufacturing': typeof ManufacturingRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
@@ -1209,6 +1216,7 @@ export interface FileRoutesByTo {
   '/ai': typeof AiRoute
   '/business-data': typeof BusinessDataRouteWithChildren
   '/manufacturing': typeof ManufacturingRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
@@ -1369,6 +1377,7 @@ export interface FileRoutesById {
   '/ai': typeof AiRoute
   '/business-data': typeof BusinessDataRouteWithChildren
   '/manufacturing': typeof ManufacturingRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/administration/$tile': typeof AdministrationTileRoute
   '/administration/ai-agent': typeof AdministrationAiAgentRouteWithChildren
   '/administration/ai-mcp-server': typeof AdministrationAiMcpServerRouteWithChildren
@@ -1530,6 +1539,7 @@ export interface FileRouteTypes {
     | '/ai'
     | '/business-data'
     | '/manufacturing'
+    | '/settings'
     | '/administration/$tile'
     | '/administration/ai-agent'
     | '/administration/ai-mcp-server'
@@ -1689,6 +1699,7 @@ export interface FileRouteTypes {
     | '/ai'
     | '/business-data'
     | '/manufacturing'
+    | '/settings'
     | '/administration/$tile'
     | '/administration/ai-agent'
     | '/administration/ai-mcp-server'
@@ -1848,6 +1859,7 @@ export interface FileRouteTypes {
     | '/ai'
     | '/business-data'
     | '/manufacturing'
+    | '/settings'
     | '/administration/$tile'
     | '/administration/ai-agent'
     | '/administration/ai-mcp-server'
@@ -2008,6 +2020,7 @@ export interface RootRouteChildren {
   AiRoute: typeof AiRoute
   BusinessDataRoute: typeof BusinessDataRouteWithChildren
   ManufacturingRoute: typeof ManufacturingRouteWithChildren
+  SettingsRoute: typeof SettingsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -2052,6 +2065,13 @@ declare module '@tanstack/react-router' {
       path: '/manufacturing'
       fullPath: '/manufacturing'
       preLoaderRoute: typeof ManufacturingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/administration/$tile': {
@@ -4254,6 +4274,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiRoute: AiRoute,
   BusinessDataRoute: BusinessDataRouteWithChildren,
   ManufacturingRoute: ManufacturingRouteWithChildren,
+  SettingsRoute: SettingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

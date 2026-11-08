@@ -8367,5 +8367,49 @@
     "nonScheduled": "Non-Scheduled",
     "localMaterials": "Local Materials",
     "remoteMaterials": "Remote Materials"
+  },
+  "settings": {
+    "title": "Theme settings",
+    "subtitle": "Change how the app looks. Changes apply immediately and are saved on this device.",
+    "reset": "Reset to defaults",
+    "preview": {
+      "title": "Preview",
+      "primary": "Primary action",
+      "secondary": "Secondary action"
+    },
+    "brand": {
+      "title": "Brand colour",
+      "blue": "Blue",
+      "teal": "Teal",
+      "violet": "Violet",
+      "orange": "Orange",
+      "green": "Green"
+    },
+    "scheme": {
+      "title": "Colour scheme",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "radius": {
+      "title": "Corner radius",
+      "default": "Default",
+      "square": "Square",
+      "round": "Round"
+    },
+    "density": {
+      "title": "Density",
+      "comfortable": "Comfortable",
+      "compact": "Compact"
+    },
+    "sidebar": {
+      "title": "Sidebar layout",
+      "collapsed": "Collapsed",
+      "expanded": "Expanded"
+    },
+    "contentWidth": {
+      "title": "Content width",
+      "full": "Full width",
+      "narrow": "Narrow"
+    }
   }
 }

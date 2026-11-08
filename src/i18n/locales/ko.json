@@ -8367,5 +8367,49 @@
     "nonScheduled": "Non-Scheduled",
     "localMaterials": "Local Materials",
     "remoteMaterials": "Remote Materials"
+  },
+  "settings": {
+    "title": "테마 설정",
+    "subtitle": "앱의 모양을 변경합니다. 변경 사항은 즉시 적용되고 이 기기에 저장됩니다.",
+    "reset": "기본값으로 재설정",
+    "preview": {
+      "title": "미리보기",
+      "primary": "기본 작업",
+      "secondary": "보조 작업"
+    },
+    "brand": {
+      "title": "브랜드 색상",
+      "blue": "파랑",
+      "teal": "청록",
+      "violet": "보라",
+      "orange": "주황",
+      "green": "초록"
+    },
+    "scheme": {
+      "title": "색 구성표",
+      "light": "밝게",
+      "dark": "어둡게"
+    },
+    "radius": {
+      "title": "모서리 반경",
+      "default": "기본",
+      "square": "각진",
+      "round": "둥근"
+    },
+    "density": {
+      "title": "밀도",
+      "comfortable": "편안함",
+      "compact": "촘촘함"
+    },
+    "sidebar": {
+      "title": "사이드바 레이아웃",
+      "collapsed": "접힘",
+      "expanded": "펼침"
+    },
+    "contentWidth": {
+      "title": "콘텐츠 너비",
+      "full": "전체 너비",
+      "narrow": "좁게"
+    }
   }
 }

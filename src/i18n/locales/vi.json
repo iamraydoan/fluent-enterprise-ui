@@ -8367,5 +8367,49 @@
     "nonScheduled": "Non-Scheduled",
     "localMaterials": "Materials nội bộ",
     "remoteMaterials": "Materials từ xa"
+  },
+  "settings": {
+    "title": "Cài đặt giao diện",
+    "subtitle": "Thay đổi diện mạo ứng dụng. Thay đổi được áp dụng ngay và lưu trên thiết bị này.",
+    "reset": "Khôi phục mặc định",
+    "preview": {
+      "title": "Xem trước",
+      "primary": "Hành động chính",
+      "secondary": "Hành động phụ"
+    },
+    "brand": {
+      "title": "Màu thương hiệu",
+      "blue": "Xanh dương",
+      "teal": "Xanh mòng két",
+      "violet": "Tím",
+      "orange": "Cam",
+      "green": "Xanh lá"
+    },
+    "scheme": {
+      "title": "Bảng màu",
+      "light": "Sáng",
+      "dark": "Tối"
+    },
+    "radius": {
+      "title": "Bo góc",
+      "default": "Mặc định",
+      "square": "Vuông",
+      "round": "Tròn"
+    },
+    "density": {
+      "title": "Mật độ",
+      "comfortable": "Thoải mái",
+      "compact": "Gọn"
+    },
+    "sidebar": {
+      "title": "Bố cục thanh bên",
+      "collapsed": "Thu gọn",
+      "expanded": "Mở rộng"
+    },
+    "contentWidth": {
+      "title": "Chiều rộng nội dung",
+      "full": "Toàn chiều rộng",
+      "narrow": "Hẹp"
+    }
   }
 }

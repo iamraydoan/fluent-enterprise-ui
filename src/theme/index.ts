@@ -1,8 +1,22 @@
-import { webLightTheme } from "@fluentui/react-components";
+import { webDarkTheme, webLightTheme } from "@fluentui/react-components";
+import type { Theme } from "@fluentui/react-components";
 
-export const theme = {
+export type AppTheme = Theme;
+
+const fontFamilyBase = `"Noto Sans","Segoe UI",system-ui,sans-serif`;
+
+export const lightTheme: AppTheme = {
   ...webLightTheme,
-  fontFamilyBase: `"Noto Sans","Segoe UI",system-ui,sans-serif`,
+  fontFamilyBase,
   colorBrandForeground1: "#1a6fc4",
   colorBrandForegroundLink: "#1a6fc4",
 };
+
+export const darkTheme: AppTheme = {
+  ...webDarkTheme,
+  fontFamilyBase,
+  colorBrandForeground1: "#1a6fc4",
+  colorBrandForegroundLink: "#1a6fc4",
+};
+
+export const theme = lightTheme;

@@ -8367,5 +8367,49 @@
     "nonScheduled": "Non-Scheduled",
     "localMaterials": "Local Materials",
     "remoteMaterials": "Remote Materials"
+  },
+  "settings": {
+    "title": "テーマ設定",
+    "subtitle": "アプリの見た目を変更します。変更はすぐに反映され、この端末に保存されます。",
+    "reset": "既定値に戻す",
+    "preview": {
+      "title": "プレビュー",
+      "primary": "主要な操作",
+      "secondary": "補助的な操作"
+    },
+    "brand": {
+      "title": "ブランドカラー",
+      "blue": "ブルー",
+      "teal": "ティール",
+      "violet": "バイオレット",
+      "orange": "オレンジ",
+      "green": "グリーン"
+    },
+    "scheme": {
+      "title": "カラースキーム",
+      "light": "ライト",
+      "dark": "ダーク"
+    },
+    "radius": {
+      "title": "角の丸み",
+      "default": "既定",
+      "square": "直角",
+      "round": "丸め"
+    },
+    "density": {
+      "title": "密度",
+      "comfortable": "ゆったり",
+      "compact": "コンパクト"
+    },
+    "sidebar": {
+      "title": "サイドバー配置",
+      "collapsed": "折りたたみ",
+      "expanded": "展開"
+    },
+    "contentWidth": {
+      "title": "コンテンツ幅",
+      "full": "全幅",
+      "narrow": "狭い"
+    }
   }
 }
