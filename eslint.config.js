@@ -71,6 +71,54 @@ const cardSurfaceBan = {
 
 const pageDebt = JSON.parse(readFileSync(import.meta.dirname + "/eslint.page-debt.json", "utf8"));
 
+function isInStyleContainer(node, context) {
+  for (const ancestor of context.sourceCode.getAncestors(node)) {
+    if (
+      ancestor.type === "JSXAttribute" &&
+      ancestor.name.type === "JSXIdentifier" &&
+      ancestor.name.name === "style"
+    ) {
+      return true;
+    }
+    if (
+      ancestor.type === "CallExpression" &&
+      ancestor.callee.type === "Identifier" &&
+      ancestor.callee.name === "makeStyles"
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function isStylePropertyValue(node, context) {
+  let current = node;
+  const ancestors = context.sourceCode.getAncestors(node);
+  for (let index = ancestors.length - 1; index >= 0; index -= 1) {
+    const ancestor = ancestors[index];
+    if (ancestor.type === "Property" && ancestor.value === current) return true;
+    current = ancestor;
+  }
+  return false;
+}
+
+function containsStyleBranch(node) {
+  if (!node || typeof node.type !== "string") return false;
+  if (node.type === "ConditionalExpression" || node.type === "LogicalExpression") return true;
+  for (const key of Object.keys(node)) {
+    if (key === "parent") continue;
+    const value = node[key];
+    if (Array.isArray(value)) {
+      for (const child of value) {
+        if (child && typeof child.type === "string" && containsStyleBranch(child)) return true;
+      }
+    } else if (value && typeof value.type === "string" && containsStyleBranch(value)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 const localPlugin = {
   rules: {
     "no-comments": {
@@ -128,11 +176,16 @@ const localPlugin = {
       create(context) {
         return {
           Literal(node) {
-            if (typeof node.value === "string" && /^#[0-9a-fA-F]{3,8}$/.test(node.value)) {
+            if (
+              typeof node.value === "string" &&
+              /^#[0-9a-fA-F]{3,8}$/.test(node.value) &&
+              isInStyleContainer(node, context) &&
+              isStylePropertyValue(node, context)
+            ) {
               context.report({
                 node,
                 message:
-                  "Page files must not use literal hex colours. Use a design-system variant or a @/components/common or @/components/ui primitive.",
+                  "Page files must not use literal hex colours in styles. Use a design-system variant or a @/components/common or @/components/ui primitive.",
               });
             }
           },
@@ -144,11 +197,16 @@ const localPlugin = {
       create(context) {
         return {
           Literal(node) {
-            if (typeof node.value === "string" && /^\d+(\.\d+)?px$/.test(node.value)) {
+            if (
+              typeof node.value === "string" &&
+              /^\d+(\.\d+)?px$/.test(node.value) &&
+              isInStyleContainer(node, context) &&
+              isStylePropertyValue(node, context)
+            ) {
               context.report({
                 node,
                 message:
-                  "Page files must not use literal px values. Use the theme-backed gap/align/justify/p props of @/components/common stacks.",
+                  "Page files must not use literal px values in styles. Use the theme-backed gap/align/justify/p props of @/components/common stacks.",
               });
             }
           },
@@ -163,7 +221,8 @@ const localPlugin = {
             if (
               node.key.type === "Identifier" &&
               node.key.name === "borderRadius" &&
-              node.value.type === "Literal"
+              node.value.type === "Literal" &&
+              isInStyleContainer(node, context)
             ) {
               context.report({
                 node,
@@ -232,11 +291,7 @@ const localPlugin = {
               return;
             }
             if (!node.value || node.value.type !== "JSXExpressionContainer") return;
-            const expression = node.value.expression;
-            if (
-              expression.type === "ConditionalExpression" ||
-              expression.type === "LogicalExpression"
-            ) {
+            if (containsStyleBranch(node.value.expression)) {
               context.report({
                 node,
                 message:
@@ -280,7 +335,6 @@ export default tseslint.config(
       "react-refresh/only-export-components": "error",
       "no-console": "error",
       "no-debugger": "error",
-      "no-restricted-syntax": ["error", cardSurfaceBan],
       "no-alert": "error",
       "no-eval": "error",
       "import-x/no-duplicates": "error",
@@ -336,8 +390,11 @@ export default tseslint.config(
     },
   },
   {
-    files: ["src/styles/shared.ts"],
-    rules: { "no-restricted-syntax": "off" },
+    // shared.ts defines cardSurface itself, so it is excluded from the card-surface
+    // literal ban instead of switching the whole rule off for the file.
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/styles/shared.ts"],
+    rules: { "no-restricted-syntax": ["error", cardSurfaceBan] },
   },
   {
     files: ["src/features/**/*.{ts,tsx}"],

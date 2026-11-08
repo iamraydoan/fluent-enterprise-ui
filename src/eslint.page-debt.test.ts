@@ -9,7 +9,8 @@ import ledger from "../eslint.page-debt.json";
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 const PAGE_GLOB = "src/features/**/*Page.tsx";
 const LEDGER_FILE_BASELINE = 67;
-const LEDGER_MAPPING_BASELINE = 209;
+const LEDGER_MAPPING_BASELINE = 187;
+const LEDGER_RAW_MAPPING_BASELINE = 187;
 
 function walk(dir: string): string[] {
   const found: string[] = [];
@@ -33,8 +34,18 @@ const pageFiles = walk(join(ROOT, "src/features"))
   .filter((file) => file.endsWith("Page.tsx"))
   .map((file) => relative(ROOT, file).split("\\").join("/"));
 const referencePage = pageFiles.find((file) => !ledgerFiles.includes(file));
+const rawMappingCount = ledgerEntries.reduce((total, [, rules]) => total + rules.length, 0);
 
 it("keeps eslint.page-debt.json exactly matching the page-layer debt", async () => {
+  expect(rawMappingCount, "raw ledger mappings").toBeLessThanOrEqual(LEDGER_RAW_MAPPING_BASELINE);
+  expect(ledgerFiles.length, "ledger file entries").toBeLessThanOrEqual(LEDGER_FILE_BASELINE);
+  if (ledgerEntries.length === 0) {
+    const empty = new ESLint({ cwd: ROOT });
+    const results = await empty.lintFiles(["."]);
+    const errorCount = results.reduce((total, result) => total + result.errorCount, 0);
+    expect(errorCount, "eslint findings with an empty ledger").toBe(0);
+    return;
+  }
   expect(referencePage, "a clean reference page").toBeDefined();
   const base = new ESLint({ cwd: ROOT });
   const reference = await base.calculateConfigForFile(join(ROOT, referencePage as string));
@@ -72,6 +83,5 @@ it("keeps eslint.page-debt.json exactly matching the page-layer debt", async () 
   const missing = [...observed].filter((entry) => !declared.has(entry)).sort();
   expect(stale, "stale ledger entries").toEqual([]);
   expect(missing, "violations missing from the ledger").toEqual([]);
-  expect(ledgerFiles.length, "ledger file entries").toBeLessThanOrEqual(LEDGER_FILE_BASELINE);
-  expect(declared.size, "ledger rule mappings").toBeLessThanOrEqual(LEDGER_MAPPING_BASELINE);
+  expect(declared.size, "unique ledger mappings").toBeLessThanOrEqual(LEDGER_MAPPING_BASELINE);
 }, 600000);

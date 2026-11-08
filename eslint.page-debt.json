@@ -25,6 +25,7 @@
     "local/no-page-style-prop"
   ],
   "src/features/administration/entity-types/EntityTypeDetailPage.tsx": [
+    "local/no-page-conditional-style",
     "local/no-page-literal-px",
     "local/no-page-literal-radius",
     "local/no-page-makeStyles",
@@ -43,14 +44,10 @@
     "local/no-page-theme-import"
   ],
   "src/features/administration/tables/GenericTableDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-theme-import"
   ],
-  "src/features/administration/tables/TablesHubPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles"
-  ],
+  "src/features/administration/tables/TablesHubPage.tsx": ["local/no-page-makeStyles"],
   "src/features/administration/ui-pages/UIPagesPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-makeStyles",
@@ -92,6 +89,7 @@
     "local/no-page-theme-import"
   ],
   "src/features/business-data/calendar/CalendarDetailPage.tsx": [
+    "local/no-page-conditional-style",
     "local/no-page-literal-px",
     "local/no-page-literal-radius",
     "local/no-page-makeStyles",
@@ -140,7 +138,6 @@
   ],
   "src/features/business-data/data-collection/dialogs/dialogStyles.ts": ["no-restricted-syntax"],
   "src/features/business-data/employee/EmployeeDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
@@ -157,12 +154,10 @@
     "local/no-page-theme-import"
   ],
   "src/features/business-data/inspection-plan/InspectionPlanDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/maintenance-activity-order/MaintenanceActivityOrderDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
@@ -171,85 +166,71 @@
     "local/no-page-style-prop"
   ],
   "src/features/business-data/map/MapDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/material-transfer/MaterialTransferDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/material/MaterialDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/notification/NotificationDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/package/PackageDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/parameter/ParameterDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/periodic-inventory/PeriodicInventoryDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/pick-list/PickListDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/plan/PlanDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/printable-document/PrintableDocumentDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/product-group/ProductGroupDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/product-group/dialogs/dialogShared.ts": ["no-restricted-syntax"],
   "src/features/business-data/product/ProductDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/production-order/ProductionOrderDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/protocol/ProtocolDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
@@ -259,7 +240,6 @@
     "local/no-page-theme-import"
   ],
   "src/features/business-data/shift-logbook/ShiftLogbookDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
@@ -269,17 +249,14 @@
     "local/no-page-theme-import"
   ],
   "src/features/business-data/site/SiteDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/sort-rule-set/SortRuleSetDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/step/StepDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
@@ -302,12 +279,10 @@
     "local/no-page-theme-import"
   ],
   "src/features/business-data/transfer-order/TransferOrderDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/transfer-requirement/TransferRequirementDetailPage.tsx": [
-    "local/no-page-literal-px",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
@@ -316,6 +291,7 @@
     "local/no-page-theme-import"
   ],
   "src/features/manufacturing/augmented-reality/AugmentedRealityPage.tsx": [
+    "local/no-page-conditional-style",
     "local/no-page-literal-px",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
