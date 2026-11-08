@@ -63,13 +63,13 @@ Status legend: pending / in-progress / review / fixing / done. Review: blank / p
 | 21  | features/business-data/data-collection/DataCollectionDetailPage.tsx                      | 1   | 7   | 0   | 25  | 1   | 0   | pending |             |        |         |
 | 22  | features/business-data/checklist/ChecklistDetailPage.tsx                                 | 1   | 4   | 0   | 19  | 1   | 0   | pending |             |        |         |
 | 23  | features/business-data/calendar/CalendarDetailPage.tsx                                   | 1   | 3   | 0   | 18  | 1   | 0   | pending |             |        |         |
-| 24  | features/business-data/container/ContainerDetailPage.tsx                                 | 1   | 0   | 0   | 11  | 1   | 0   | pending |             |        |         |
+| 24  | features/business-data/container/ContainerDetailPage.tsx                                 | 0   | 0   | 0   | 0   | 0   | 0   | review  | test-worker |        | 6b2a75b |
 | 25  | features/business-data/product-group/ProductGroupDetailPage.tsx                          | 1   | 9   | 0   | 1   | 1   | 0   | pending |             |        |         |
-| 26  | features/business-data/chart/ChartDetailPage.tsx                                         | 1   | 0   | 0   | 9   | 1   | 0   | pending |             |        |         |
+| 26  | features/business-data/chart/ChartDetailPage.tsx                                         | 0   | 0   | 0   | 0   | 0   | 0   | review  | test-worker |        | 3e94d5e |
 | 27  | features/business-data/shift-plan/ShiftPlanDetailPage.tsx                                | 0   | 7   | 0   | 3   | 1   | 0   | pending |             |        |         |
 | 28  | features/business-data/business-partner/BusinessPartnerDetailPage.tsx                    | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
 | 29  | features/business-data/certification/CertificationDetailPage.tsx                         | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
-| 30  | features/business-data/change-set/ChangeSetDetailPage.tsx                                | 1   | 0   | 0   | 6   | 1   | 0   | pending |             |        |         |
+| 30  | features/business-data/change-set/ChangeSetDetailPage.tsx                                | 0   | 0   | 0   | 0   | 0   | 0   | review  | test-worker |        | 63f7855 |
 | 31  | features/business-data/package/PackageDetailPage.tsx                                     | 1   | 5   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 32  | features/business-data/shift-logbook/ShiftLogbookDetailPage.tsx                          | 0   | 6   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 33  | features/business-data/step/StepDetailPage.tsx                                           | 0   | 6   | 0   | 1   | 1   | 0   | pending |             |        |         |
@@ -77,7 +77,7 @@ Status legend: pending / in-progress / review / fixing / done. Review: blank / p
 | 35  | features/business-data/batch/BatchDetailPage.tsx                                         | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
 | 36  | features/business-data/bin-converter/BinConverterDetailPage.tsx                          | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
 | 37  | features/business-data/bom/BomDetailPage.tsx                                             | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
-| 38  | features/business-data/data-collection-limit-set/DataCollectionLimitSetDetailPage.tsx    | 1   | 0   | 0   | 5   | 1   | 0   | pending |             |        |         |
+| 38  | features/business-data/data-collection-limit-set/DataCollectionLimitSetDetailPage.tsx    | 0   | 0   | 0   | 0   | 0   | 0   | review  | test-worker |        | ed1cd8c |
 | 39  | features/business-data/employee/EmployeeDetailPage.tsx                                   | 0   | 3   | 0   | 3   | 1   | 0   | pending |             |        |         |
 | 40  | features/business-data/notification/NotificationDetailPage.tsx                           | 1   | 4   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 41  | features/business-data/substrate-map/SubstrateMapDetailPage.tsx                          | 0   | 4   | 0   | 2   | 1   | 0   | pending |             |        |         |
