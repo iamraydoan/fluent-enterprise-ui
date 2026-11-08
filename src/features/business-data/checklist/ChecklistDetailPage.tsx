@@ -3,40 +3,29 @@ import { useState } from "react";
 import { useChecklistDetail } from "@/api";
 import type { ChecklistInstance } from "@/api";
 import {
+  DetailCard,
+  DetailCardTitle,
+  DetailEmpty,
+  DetailField,
   DetailShell,
+  DetailTabs,
   EntityTile,
+  Grid,
   ListPage,
+  ListRow,
+  VStack,
   cloneAction,
   editAction,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, Eye20Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Tab, TabList, Text, makeStyles } from "@/components/ui";
+import { Button, Tab, TabList } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useChecklistDialogs } from "./useChecklistDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: "16px" },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: { fontSize: "13px" },
-  label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
-});
 
 const TABS = ["details", "checklistItems", "compare", "references", "history"] as const;
 const LEFT_SECTIONS: TranslationKey[] = [
@@ -48,8 +37,6 @@ const SUB_TABS = ["generalData", "instructions", "bom", "condition"] as const;
 
 export function ChecklistDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<string>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const [itemIdx, setItemIdx] = useState(0);
@@ -74,6 +61,11 @@ export function ChecklistDetailPage() {
     openDeviation,
   } = useChecklistDialogs(cl);
 
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.checklist.detail.emptyValue") : value;
+  const displayYesNo = (value: boolean) =>
+    value ? t("businessData.checklist.detail.yes") : t("businessData.checklist.detail.no");
+
   if (isLoading || !cl) {
     return (
       <ListPage
@@ -83,7 +75,7 @@ export function ChecklistDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.checklist.detail.loading")}</div>
+        <DetailEmpty>{t("businessData.checklist.detail.loading")}</DetailEmpty>
       </ListPage>
     );
   }
@@ -147,17 +139,15 @@ export function ChecklistDetailPage() {
             showState={false}
           >
             {showInstances ? (
-              <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
+              <DetailCard>
+                <DetailCardTitle>
                   {t("businessData.checklist.detail.instancesTitle", {
                     count: cl.instances.length,
                   })}
-                </Text>
-                <VStack gap="4px">
+                </DetailCardTitle>
+                <VStack gap="xs">
                   {cl.instances.length === 0 && (
-                    <div className={styles.empty}>
-                      {t("businessData.checklist.detail.noInstances")}
-                    </div>
+                    <DetailEmpty>{t("businessData.checklist.detail.noInstances")}</DetailEmpty>
                   )}
                   {cl.instances.map((i) => (
                     <InstanceRow
@@ -171,64 +161,93 @@ export function ChecklistDetailPage() {
                     />
                   ))}
                 </VStack>
-              </VStack>
+              </DetailCard>
             ) : (
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.checklist.detail.checklist")}
-                  </Text>
-                  <KV label={t("businessData.checklist.detail.name")} value={cl.name} />
-                  <KV
+              <Grid columns="auto-fit" gap="md">
+                <DetailCard>
+                  <DetailCardTitle>{t("businessData.checklist.detail.checklist")}</DetailCardTitle>
+                  <DetailField
+                    label={t("businessData.checklist.detail.name")}
+                    value={displayValue(cl.name)}
+                    labelWidth={200}
+                  />
+                  <DetailField
                     label={t("businessData.checklist.detail.description")}
-                    value={cl.description}
+                    value={displayValue(cl.description)}
+                    labelWidth={200}
                   />
-                  <KV label={t("businessData.checklist.detail.type")} value={cl.type} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.checklist.detail.type")}
+                    value={displayValue(cl.type)}
+                    labelWidth={200}
+                  />
+                  <DetailField
                     label={t("businessData.checklist.detail.universalState")}
-                    value={cl.universalState}
+                    value={displayValue(cl.universalState)}
+                    labelWidth={200}
                   />
-                  <KV label={t("businessData.checklist.detail.dataGroup")} value={cl.dataGroup} />
-                </VStack>
-                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
+                  <DetailField
+                    label={t("businessData.checklist.detail.dataGroup")}
+                    value={displayValue(cl.dataGroup)}
+                    labelWidth={200}
+                  />
+                </DetailCard>
+                <DetailCard>
+                  <DetailCardTitle>
                     {t("businessData.checklist.detail.information")}
-                  </Text>
-                  <KV label={t("businessData.checklist.detail.scope")} value={cl.scope} />
-                  <KV
+                  </DetailCardTitle>
+                  <DetailField
+                    label={t("businessData.checklist.detail.scope")}
+                    value={displayValue(cl.scope)}
+                    labelWidth={200}
+                  />
+                  <DetailField
                     label={t("businessData.checklist.detail.executionMode")}
-                    value={cl.executionMode}
+                    value={displayValue(cl.executionMode)}
+                    labelWidth={200}
                   />
-                  <KV label={t("businessData.checklist.detail.bom")} value={cl.bom} />
-                  <KV label={t("businessData.checklist.detail.product")} value={cl.product} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.checklist.detail.bom")}
+                    value={displayValue(cl.bom)}
+                    labelWidth={200}
+                  />
+                  <DetailField
+                    label={t("businessData.checklist.detail.product")}
+                    value={displayValue(cl.product)}
+                    labelWidth={200}
+                  />
+                  <DetailField
                     label={t("businessData.checklist.detail.materialDeviationProtocol")}
-                    value={cl.materialDeviationProtocol}
+                    value={displayValue(cl.materialDeviationProtocol)}
+                    labelWidth={200}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.checklist.detail.defineStandardTimes")}
-                    value={cl.defineStandardTimes}
+                    value={displayYesNo(cl.defineStandardTimes)}
+                    labelWidth={200}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.checklist.detail.trackExecutionTimes")}
-                    value={cl.trackExecutionTimes}
+                    value={displayYesNo(cl.trackExecutionTimes)}
+                    labelWidth={200}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.checklist.detail.standardDuration")}
-                    value={cl.standardDuration}
+                    value={displayValue(cl.standardDuration)}
+                    labelWidth={200}
                   />
-                </VStack>
+                </DetailCard>
               </Grid>
             )}
           </DetailShell>
         )}
         {tab === "checklistItems" && (
-          <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-            <Text className={styles.cardTitle}>
+          <DetailCard>
+            <DetailCardTitle>
               {t("businessData.checklist.detail.itemsTitle", { count: cl.items.length })}
-            </Text>
-            <Grid columns="minmax(320px, 2fr) 3fr" gap="12px" align="start">
-              <VStack gap="4px">
+            </DetailCardTitle>
+            <Grid columns="aside-main" asideWidth={320} gap="md" align="start">
+              <VStack gap="xs">
                 {cl.items.map((i, idx) => (
                   <EntityTile
                     key={i.name}
@@ -255,42 +274,49 @@ export function ChecklistDetailPage() {
                     ))}
                   </TabList>
                   {subTab === "generalData" && (
-                    <VStack gap={12}>
-                      <KV label={t("businessData.checklist.detail.itemName")} value={item.name} />
-                      <KV
+                    <VStack gap="md">
+                      <DetailField
+                        label={t("businessData.checklist.detail.itemName")}
+                        value={displayValue(item.name)}
+                        labelWidth={200}
+                      />
+                      <DetailField
                         label={t("businessData.checklist.detail.activityType")}
-                        value={item.activityType}
+                        value={displayValue(item.activityType)}
+                        labelWidth={200}
                       />
-                      <KV
+                      <DetailField
                         label={t("businessData.checklist.detail.trackingType")}
-                        value={item.trackingType}
+                        value={displayValue(item.trackingType)}
+                        labelWidth={200}
                       />
-                      <KV
+                      <DetailField
                         label={t("businessData.checklist.detail.standardDuration")}
-                        value={item.standardDuration}
+                        value={displayValue(item.standardDuration)}
+                        labelWidth={200}
                       />
-                      <Bool
+                      <DetailField
                         label={t("businessData.checklist.detail.optional")}
-                        value={item.optional}
+                        value={displayYesNo(item.optional)}
+                        labelWidth={200}
                       />
-                      <Bool
+                      <DetailField
                         label={t("businessData.checklist.detail.floating")}
-                        value={item.floating}
+                        value={displayYesNo(item.floating)}
+                        labelWidth={200}
                       />
                     </VStack>
                   )}
                   {subTab !== "generalData" && (
-                    <div className={styles.empty}>
-                      {t("businessData.checklist.detail.historyEmpty")}
-                    </div>
+                    <DetailEmpty>{t("businessData.checklist.detail.historyEmpty")}</DetailEmpty>
                   )}
                 </div>
               )}
             </Grid>
-          </VStack>
+          </DetailCard>
         )}
         {!["details", "checklistItems"].includes(tab) && (
-          <div className={styles.empty}>{t("businessData.checklist.detail.historyEmpty")}</div>
+          <DetailEmpty>{t("businessData.checklist.detail.historyEmpty")}</DetailEmpty>
         )}
       </DetailTabs>
       {dialogs}
@@ -314,66 +340,35 @@ function InstanceRow({
   onDeviation: () => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
   return (
-    <HStack
-      gap="12px"
-      align="center"
-      className={styles.row}
-      style={{
-        padding: "8px 0",
-        borderBottom: `1px solid ${theme.color.borderSubtle}`,
-      }}
-    >
-      <div style={{ flexGrow: 1 }}>
-        <div style={{ fontWeight: 600 }}>{instance.name}</div>
-        <div style={{ fontSize: "12px", color: theme.color.textTertiary }}>
+    <ListRow
+      title={instance.name}
+      subtitle={
+        <>
           {instance.state}
           {instance.executingState ? ` · ${instance.executingState}` : ""}
           {instance.material ? ` · ${instance.material}` : ""}
-        </div>
-      </div>
-      <HStack gap="4px" wrap>
-        <Button variant="secondary" size="sm" onClick={onPerform}>
-          {t("businessData.checklist.operations.perform")}
-        </Button>
-        <Button variant="secondary" size="sm" onClick={onPause}>
-          {t("businessData.checklist.operations.pause")}
-        </Button>
-        <Button variant="secondary" size="sm" onClick={onResume}>
-          {t("businessData.checklist.operations.resume")}
-        </Button>
-        <Button variant="secondary" size="sm" onClick={onTerminate}>
-          {t("businessData.checklist.operations.terminateInstance")}
-        </Button>
-        <Button variant="secondary" size="sm" onClick={onDeviation}>
-          {t("businessData.checklist.operations.openDeviation")}
-        </Button>
-      </HStack>
-    </HStack>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.checklist.detail.emptyValue") : value}</span>
-    </HStack>
-  );
-}
-
-function Bool({ label, value }: { label: string; value: boolean }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>
-        {value ? t("businessData.checklist.detail.yes") : t("businessData.checklist.detail.no")}
-      </span>
-    </HStack>
+        </>
+      }
+      actions={
+        <>
+          <Button variant="secondary" size="sm" onClick={onPerform}>
+            {t("businessData.checklist.operations.perform")}
+          </Button>
+          <Button variant="secondary" size="sm" onClick={onPause}>
+            {t("businessData.checklist.operations.pause")}
+          </Button>
+          <Button variant="secondary" size="sm" onClick={onResume}>
+            {t("businessData.checklist.operations.resume")}
+          </Button>
+          <Button variant="secondary" size="sm" onClick={onTerminate}>
+            {t("businessData.checklist.operations.terminateInstance")}
+          </Button>
+          <Button variant="secondary" size="sm" onClick={onDeviation}>
+            {t("businessData.checklist.operations.openDeviation")}
+          </Button>
+        </>
+      }
+    />
   );
 }

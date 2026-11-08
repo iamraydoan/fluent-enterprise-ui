@@ -1,0 +1,127 @@
+{
+  "snapshot": [
+    {
+      "card": {
+        "padding": "8px 16px 0px",
+        "background-color": "rgb(250, 250, 250)",
+        "border-radius": "12px",
+        "margin-top": "10px",
+        "display": "flex",
+        "flex-direction": "column",
+        "row-gap": "12px"
+      },
+      "header": null,
+      "headerText": null,
+      "grid": null,
+      "fields": []
+    }
+  ],
+  "inventory": {
+    "grids": [
+      {
+        "inlineTemplate": "minmax(320px, 2fr) 3fr",
+        "computedTemplate": "320px 274.172px",
+        "rowGap": "12px",
+        "columnGap": "12px"
+      }
+    ],
+    "rows": [
+      {
+        "label": {
+          "color": "rgb(97, 97, 97)",
+          "minWidth": "200px",
+          "fontSize": "13px"
+        },
+        "value": {
+          "fontSize": "13px",
+          "color": "rgb(36, 36, 36)"
+        },
+        "row": {
+          "display": "flex",
+          "columnGap": "12px",
+          "fontSize": "13px"
+        }
+      },
+      {
+        "label": {
+          "color": "rgb(97, 97, 97)",
+          "minWidth": "200px",
+          "fontSize": "13px"
+        },
+        "value": {
+          "fontSize": "13px",
+          "color": "rgb(36, 36, 36)"
+        },
+        "row": {
+          "display": "flex",
+          "columnGap": "12px",
+          "fontSize": "13px"
+        }
+      },
+      {
+        "label": {
+          "color": "rgb(97, 97, 97)",
+          "minWidth": "200px",
+          "fontSize": "13px"
+        },
+        "value": {
+          "fontSize": "13px",
+          "color": "rgb(36, 36, 36)"
+        },
+        "row": {
+          "display": "flex",
+          "columnGap": "12px",
+          "fontSize": "13px"
+        }
+      },
+      {
+        "label": {
+          "color": "rgb(97, 97, 97)",
+          "minWidth": "200px",
+          "fontSize": "13px"
+        },
+        "value": {
+          "fontSize": "13px",
+          "color": "rgb(36, 36, 36)"
+        },
+        "row": {
+          "display": "flex",
+          "columnGap": "12px",
+          "fontSize": "13px"
+        }
+      },
+      {
+        "label": {
+          "color": "rgb(97, 97, 97)",
+          "minWidth": "200px",
+          "fontSize": "13px"
+        },
+        "value": {
+          "fontSize": "13px",
+          "color": "rgb(36, 36, 36)"
+        },
+        "row": {
+          "display": "flex",
+          "columnGap": "12px",
+          "fontSize": "13px"
+        }
+      },
+      {
+        "label": {
+          "color": "rgb(97, 97, 97)",
+          "minWidth": "200px",
+          "fontSize": "13px"
+        },
+        "value": {
+          "fontSize": "13px",
+          "color": "rgb(36, 36, 36)"
+        },
+        "row": {
+          "display": "flex",
+          "columnGap": "12px",
+          "fontSize": "13px"
+        }
+      }
+    ]
+  }
+}
