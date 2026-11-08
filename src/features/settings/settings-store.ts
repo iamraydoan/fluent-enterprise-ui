@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { DEFAULT_THEME_SETTINGS } from "./settings-config";
+import { DEFAULT_THEME_SETTINGS, sanitizeThemeSettings } from "./settings-config";
 import type {
   BrandId,
   ColorSchemeId,
@@ -51,6 +51,10 @@ export const useThemeSettingsStore = create<ThemeSettingsState>()(
       setContentWidth: (contentWidth) => set({ contentWidth }),
       resetThemeSettings: () => set({ ...DEFAULT_THEME_SETTINGS }),
     }),
-    { name: THEME_SETTINGS_STORAGE_KEY, partialize: persistedSettings },
+    {
+      name: THEME_SETTINGS_STORAGE_KEY,
+      partialize: persistedSettings,
+      merge: (persisted, current) => ({ ...current, ...sanitizeThemeSettings(persisted) }),
+    },
   ),
 );

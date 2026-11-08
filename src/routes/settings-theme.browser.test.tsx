@@ -147,6 +147,81 @@ test("settings panel controls are labelled and drive the store", async () => {
   expect(useThemeSettingsStore.getState().contentWidth).toBe(DEFAULT_THEME_SETTINGS.contentWidth);
 });
 
+const HOSTILE_PAYLOADS: [string, unknown][] = [
+  ["an unknown brand string", { brand: "bogus" }],
+  [
+    "a wrong type for all six fields",
+    { brand: 42, scheme: true, radius: [], density: {}, sidebarLayout: 7, contentWidth: null },
+  ],
+  ["an empty object", {}],
+  ["a string payload", "nope"],
+  ["a number payload", 42],
+  ["a null payload", null],
+  ["an array payload", [1, 2, 3]],
+];
+
+for (const [name, payload] of HOSTILE_PAYLOADS) {
+  test("renders with defaults when the persisted payload is " + name, async () => {
+    localStorage.setItem(
+      THEME_SETTINGS_STORAGE_KEY,
+      JSON.stringify({ state: payload, version: 0 }),
+    );
+    await useThemeSettingsStore.persist.rehydrate();
+    const screen = await renderAt("/settings");
+    await expect.element(screen.getByRole("radiogroup", { name: "Brand colour" })).toBeVisible();
+    const state = useThemeSettingsStore.getState();
+    expect(state.brand).toBe(DEFAULT_THEME_SETTINGS.brand);
+    expect(state.scheme).toBe(DEFAULT_THEME_SETTINGS.scheme);
+    expect(state.radius).toBe(DEFAULT_THEME_SETTINGS.radius);
+    expect(state.density).toBe(DEFAULT_THEME_SETTINGS.density);
+    expect(state.sidebarLayout).toBe(DEFAULT_THEME_SETTINGS.sidebarLayout);
+    expect(state.contentWidth).toBe(DEFAULT_THEME_SETTINGS.contentWidth);
+    expect(styleOf(".fui-FluentProvider", "background-color")).toBe("rgb(255, 255, 255)");
+  });
+}
+
+test("fills missing fields with defaults and keeps valid ones", async () => {
+  localStorage.setItem(
+    THEME_SETTINGS_STORAGE_KEY,
+    JSON.stringify({ state: { brand: "teal" }, version: 0 }),
+  );
+  await useThemeSettingsStore.persist.rehydrate();
+  const screen = await renderAt("/settings");
+  await expect.element(screen.getByRole("radiogroup", { name: "Brand colour" })).toBeVisible();
+  const state = useThemeSettingsStore.getState();
+  expect(state.brand).toBe("teal");
+  expect(state.scheme).toBe(DEFAULT_THEME_SETTINGS.scheme);
+  expect(state.radius).toBe(DEFAULT_THEME_SETTINGS.radius);
+  expect(state.density).toBe(DEFAULT_THEME_SETTINGS.density);
+  expect(state.sidebarLayout).toBe(DEFAULT_THEME_SETTINGS.sidebarLayout);
+  expect(state.contentWidth).toBe(DEFAULT_THEME_SETTINGS.contentWidth);
+});
+
+test("keeps a valid persisted payload", async () => {
+  localStorage.setItem(
+    THEME_SETTINGS_STORAGE_KEY,
+    JSON.stringify({
+      state: {
+        brand: "teal",
+        scheme: "dark",
+        radius: "square",
+        density: "compact",
+        sidebarLayout: "expanded",
+        contentWidth: "narrow",
+      },
+      version: 0,
+    }),
+  );
+  await useThemeSettingsStore.persist.rehydrate();
+  const state = useThemeSettingsStore.getState();
+  expect(state.brand).toBe("teal");
+  expect(state.scheme).toBe("dark");
+  expect(state.radius).toBe("square");
+  expect(state.density).toBe("compact");
+  expect(state.sidebarLayout).toBe("expanded");
+  expect(state.contentWidth).toBe("narrow");
+});
+
 test("settings persist to local storage", async () => {
   const screen = await renderAt("/settings");
   await expect.element(screen.getByRole("radiogroup", { name: "Brand colour" })).toBeVisible();
