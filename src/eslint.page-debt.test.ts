@@ -9,8 +9,13 @@ import ledger from "../eslint.page-debt.json";
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 const PAGE_GLOB = "src/features/**/*Page.tsx";
 const LEDGER_FILE_BASELINE = 67;
-const LEDGER_MAPPING_BASELINE = 187;
-const LEDGER_RAW_MAPPING_BASELINE = 187;
+const LEDGER_MAPPING_BASELINE = 212;
+const LEDGER_RAW_MAPPING_BASELINE = 212;
+
+export interface LedgerCheck {
+  entries: [string, string[]][];
+  emptyTarget: string[];
+}
 
 function walk(dir: string): string[] {
   const found: string[] = [];
@@ -22,30 +27,29 @@ function walk(dir: string): string[] {
   return found;
 }
 
-const ledgerEntries = Object.entries(ledger as Record<string, string[]>);
-const ledgerFiles = ledgerEntries.map(([file]) => file);
-const ledgerRuleIds = [...new Set(ledgerEntries.flatMap(([, rules]) => rules))];
-const pageRuleIds = [
-  ...ledgerRuleIds,
-  "local/no-page-settings-import",
-  "local/no-page-conditional-style",
-];
-const pageFiles = walk(join(ROOT, "src/features"))
-  .filter((file) => file.endsWith("Page.tsx"))
-  .map((file) => relative(ROOT, file).split("\\").join("/"));
-const referencePage = pageFiles.find((file) => !ledgerFiles.includes(file));
-const rawMappingCount = ledgerEntries.reduce((total, [, rules]) => total + rules.length, 0);
-
-it("keeps eslint.page-debt.json exactly matching the page-layer debt", async () => {
+export async function runLedgerCheck({ entries, emptyTarget }: LedgerCheck): Promise<void> {
+  const rawMappingCount = entries.reduce((total, [, rules]) => total + rules.length, 0);
   expect(rawMappingCount, "raw ledger mappings").toBeLessThanOrEqual(LEDGER_RAW_MAPPING_BASELINE);
-  expect(ledgerFiles.length, "ledger file entries").toBeLessThanOrEqual(LEDGER_FILE_BASELINE);
-  if (ledgerEntries.length === 0) {
+  expect(entries.length, "ledger file entries").toBeLessThanOrEqual(LEDGER_FILE_BASELINE);
+  if (entries.length === 0) {
     const empty = new ESLint({ cwd: ROOT });
-    const results = await empty.lintFiles(["."]);
+    const results = await empty.lintFiles(emptyTarget);
     const errorCount = results.reduce((total, result) => total + result.errorCount, 0);
     expect(errorCount, "eslint findings with an empty ledger").toBe(0);
     return;
   }
+  expect(entries.length, "non-empty ledger path").toBeGreaterThan(0);
+  const fileNames = entries.map(([file]) => file);
+  const ruleIds = [...new Set(entries.flatMap(([, rules]) => rules))];
+  const pageRuleIds = [
+    ...ruleIds,
+    "local/no-page-settings-import",
+    "local/no-page-conditional-style",
+  ];
+  const pageFiles = walk(join(ROOT, "src/features"))
+    .filter((file) => file.endsWith("Page.tsx"))
+    .map((file) => relative(ROOT, file).split("\\").join("/"));
+  const referencePage = pageFiles.find((file) => !fileNames.includes(file));
   expect(referencePage, "a clean reference page").toBeDefined();
   const base = new ESLint({ cwd: ROOT });
   const reference = await base.calculateConfigForFile(join(ROOT, referencePage as string));
@@ -55,7 +59,7 @@ it("keeps eslint.page-debt.json exactly matching the page-layer debt", async () 
   );
   const overrideConfig: Linter.Config[] = [
     { files: [PAGE_GLOB], rules: pageRules },
-    ...ledgerEntries.map(([file, rules]) => ({
+    ...entries.map(([file, rules]) => ({
       files: [file],
       rules: Object.fromEntries(
         rules.map((ruleId) => [
@@ -66,7 +70,7 @@ it("keeps eslint.page-debt.json exactly matching the page-layer debt", async () 
     })),
   ];
   const eslint = new ESLint({ cwd: ROOT, overrideConfig });
-  const results = await eslint.lintFiles([PAGE_GLOB, ...ledgerFiles]);
+  const results = await eslint.lintFiles([PAGE_GLOB, ...fileNames]);
   const observed = new Set<string>();
   for (const result of results) {
     const file = relative(ROOT, result.filePath).split("\\").join("/");
@@ -77,11 +81,22 @@ it("keeps eslint.page-debt.json exactly matching the page-layer debt", async () 
     }
   }
   const declared = new Set(
-    ledgerEntries.flatMap(([file, rules]) => rules.map((ruleId) => file + "|" + ruleId)),
+    entries.flatMap(([file, rules]) => rules.map((ruleId) => file + "|" + ruleId)),
   );
   const stale = [...declared].filter((entry) => !observed.has(entry)).sort();
   const missing = [...observed].filter((entry) => !declared.has(entry)).sort();
   expect(stale, "stale ledger entries").toEqual([]);
   expect(missing, "violations missing from the ledger").toEqual([]);
   expect(declared.size, "unique ledger mappings").toBeLessThanOrEqual(LEDGER_MAPPING_BASELINE);
-}, 600000);
+}
+
+const IS_META_ENTRY = (expect.getState().testPath ?? "").endsWith("eslint.page-debt.test.ts");
+
+if (IS_META_ENTRY) {
+  it("keeps eslint.page-debt.json exactly matching the page-layer debt", async () => {
+    await runLedgerCheck({
+      entries: Object.entries(ledger as Record<string, string[]>),
+      emptyTarget: ["."],
+    });
+  }, 600000);
+}

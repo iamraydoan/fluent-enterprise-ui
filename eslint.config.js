@@ -91,6 +91,43 @@ function isInStyleContainer(node, context) {
   return false;
 }
 
+const HEX_EXEMPT_ATTRIBUTES = new Set([
+  "href",
+  "to",
+  "src",
+  "srcSet",
+  "id",
+  "key",
+  "name",
+  "htmlFor",
+  "role",
+  "target",
+  "rel",
+]);
+
+function jsxAttributeOf(node, context) {
+  const ancestors = context.sourceCode.getAncestors(node);
+  const parent = ancestors[ancestors.length - 1];
+  if (!parent) return null;
+  if (parent.type === "JSXAttribute" && parent.value === node) return parent;
+  if (parent.type === "JSXExpressionContainer" && parent.expression === node) {
+    const grandparent = ancestors[ancestors.length - 2];
+    if (grandparent && grandparent.type === "JSXAttribute" && grandparent.value === parent) {
+      return grandparent;
+    }
+  }
+  return null;
+}
+
+function isHexExemptAttribute(attribute) {
+  if (attribute.name.type !== "JSXIdentifier") return false;
+  return (
+    HEX_EXEMPT_ATTRIBUTES.has(attribute.name.name) ||
+    attribute.name.name.startsWith("data-") ||
+    attribute.name.name.startsWith("aria-")
+  );
+}
+
 function isStylePropertyValue(node, context) {
   let current = node;
   const ancestors = context.sourceCode.getAncestors(node);
@@ -179,8 +216,9 @@ const localPlugin = {
             if (
               typeof node.value === "string" &&
               /^#[0-9a-fA-F]{3,8}$/.test(node.value) &&
-              isInStyleContainer(node, context) &&
-              isStylePropertyValue(node, context)
+              ((jsxAttributeOf(node, context) !== null &&
+                !isHexExemptAttribute(jsxAttributeOf(node, context))) ||
+                (isInStyleContainer(node, context) && isStylePropertyValue(node, context)))
             ) {
               context.report({
                 node,
@@ -200,8 +238,8 @@ const localPlugin = {
             if (
               typeof node.value === "string" &&
               /^\d+(\.\d+)?px$/.test(node.value) &&
-              isInStyleContainer(node, context) &&
-              isStylePropertyValue(node, context)
+              (jsxAttributeOf(node, context) !== null ||
+                (isInStyleContainer(node, context) && isStylePropertyValue(node, context)))
             ) {
               context.report({
                 node,
