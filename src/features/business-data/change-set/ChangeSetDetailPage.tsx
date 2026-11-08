@@ -4,17 +4,16 @@ import { useChangeSetDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
+  DetailCard,
+  DetailField,
   DetailShell,
   DetailTabs,
   editAction,
   Empty,
+  Grid,
   ListPage,
   refreshAction,
   terminateAction,
-  SectionHeader,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import {
   Box24Regular,
@@ -29,27 +28,10 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useChangeSetDialogs } from "./useChangeSetDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "180px" },
-});
 
 const TABS = ["details", "references", "history"] as const;
 const LEFT_SECTIONS: TranslationKey[] = [
@@ -61,8 +43,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function ChangeSetDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<string>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { name } = useParams({ strict: false }) as { name: string };
@@ -84,6 +64,11 @@ export function ChangeSetDetailPage() {
     openTakeOwnership,
     openChange,
   } = useChangeSetDialogs(cs);
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.changeSet.detail.emptyValue") : value;
+  const displayYesNo = (value: boolean) =>
+    value ? t("businessData.changeSet.detail.yes") : t("businessData.changeSet.detail.no");
 
   if (isLoading || !cs) {
     return (
@@ -183,10 +168,9 @@ export function ChangeSetDetailPage() {
             showState={false}
           >
             {showItems ? (
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader
-                  title={t("businessData.changeSet.detail.itemsTitle", { count: cs.items.length })}
-                />
+              <DetailCard
+                title={t("businessData.changeSet.detail.itemsTitle", { count: cs.items.length })}
+              >
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -212,33 +196,20 @@ export function ChangeSetDetailPage() {
                       <TableRow key={i.name}>
                         <TableCell>{i.name}</TableCell>
                         <TableCell>{i.type}</TableCell>
-                        <TableCell>
-                          {i.approvalRole === ""
-                            ? t("businessData.changeSet.detail.emptyValue")
-                            : i.approvalRole}
-                        </TableCell>
-                        <TableCell>
-                          {i.approver === ""
-                            ? t("businessData.changeSet.detail.emptyValue")
-                            : i.approver}
-                        </TableCell>
-                        <TableCell>
-                          {i.approvalDate === ""
-                            ? t("businessData.changeSet.detail.emptyValue")
-                            : i.approvalDate}
-                        </TableCell>
+                        <TableCell>{displayValue(i.approvalRole)}</TableCell>
+                        <TableCell>{displayValue(i.approver)}</TableCell>
+                        <TableCell>{displayValue(i.approvalDate)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
                 </Table>
-              </VStack>
+              </DetailCard>
             ) : showSubscribers ? (
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader
-                  title={t("businessData.changeSet.detail.subscribersTitle", {
-                    count: cs.subscribers.length,
-                  })}
-                />
+              <DetailCard
+                title={t("businessData.changeSet.detail.subscribersTitle", {
+                  count: cs.subscribers.length,
+                })}
+              >
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -255,70 +226,99 @@ export function ChangeSetDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </VStack>
+              </DetailCard>
             ) : (
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.changeSet.detail.changeSet")} />
-                  <KV label={t("businessData.changeSet.detail.name")} value={cs.name} />
-                  <KV
+              <Grid columns="auto-fit" gap="md">
+                <DetailCard title={t("businessData.changeSet.detail.changeSet")}>
+                  <DetailField
+                    label={t("businessData.changeSet.detail.name")}
+                    value={displayValue(cs.name)}
+                    labelWidth={180}
+                  />
+                  <DetailField
                     label={t("businessData.changeSet.detail.description")}
-                    value={cs.description}
+                    value={displayValue(cs.description)}
+                    labelWidth={180}
                   />
-                  <KV label={t("businessData.changeSet.detail.type")} value={cs.type} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.changeSet.detail.type")}
+                    value={displayValue(cs.type)}
+                    labelWidth={180}
+                  />
+                  <DetailField
                     label={t("businessData.changeSet.detail.universalState")}
-                    value={cs.universalState}
+                    value={displayValue(cs.universalState)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.changeSet.detail.systemState")}
-                    value={cs.systemState}
+                    value={displayValue(cs.systemState)}
+                    labelWidth={180}
                   />
-                  <KV label={t("businessData.changeSet.detail.dataGroup")} value={cs.dataGroup} />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.changeSet.detail.information")} />
-                  <KV label={t("businessData.changeSet.detail.category")} value={cs.category} />
-                  <KV label={t("businessData.changeSet.detail.urgency")} value={cs.urgency} />
-                  <KV label={t("businessData.changeSet.detail.owner")} value={cs.owner} />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.changeSet.detail.approval")} />
-                  <Bool
+                  <DetailField
+                    label={t("businessData.changeSet.detail.dataGroup")}
+                    value={displayValue(cs.dataGroup)}
+                    labelWidth={180}
+                  />
+                </DetailCard>
+                <DetailCard title={t("businessData.changeSet.detail.information")}>
+                  <DetailField
+                    label={t("businessData.changeSet.detail.category")}
+                    value={displayValue(cs.category)}
+                    labelWidth={180}
+                  />
+                  <DetailField
+                    label={t("businessData.changeSet.detail.urgency")}
+                    value={displayValue(cs.urgency)}
+                    labelWidth={180}
+                  />
+                  <DetailField
+                    label={t("businessData.changeSet.detail.owner")}
+                    value={displayValue(cs.owner)}
+                    labelWidth={180}
+                  />
+                </DetailCard>
+                <DetailCard title={t("businessData.changeSet.detail.approval")}>
+                  <DetailField
                     label={t("businessData.changeSet.detail.requiresApproval")}
-                    value={cs.requiresApproval}
+                    value={displayYesNo(cs.requiresApproval)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.changeSet.detail.approvalRole")}
-                    value={cs.approvalRole}
+                    value={displayValue(cs.approvalRole)}
+                    labelWidth={180}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.changeSet.detail.makeItemsEffectiveOnApproval")}
-                    value={cs.makeItemsEffectiveOnApproval}
+                    value={displayYesNo(cs.makeItemsEffectiveOnApproval)}
+                    labelWidth={180}
                   />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.changeSet.detail.notification")} />
-                  <Bool
+                </DetailCard>
+                <DetailCard title={t("businessData.changeSet.detail.notification")}>
+                  <DetailField
                     label={t("businessData.changeSet.detail.sendEmailToApprovers")}
-                    value={cs.sendEmailToApprovers}
+                    value={displayYesNo(cs.sendEmailToApprovers)}
+                    labelWidth={180}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.changeSet.detail.sendEmailToRequester")}
-                    value={cs.sendEmailToRequester}
+                    value={displayYesNo(cs.sendEmailToRequester)}
+                    labelWidth={180}
                   />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.changeSet.detail.documentation")} />
-                  <KV
+                </DetailCard>
+                <DetailCard title={t("businessData.changeSet.detail.documentation")}>
+                  <DetailField
                     label={t("businessData.changeSet.detail.reasonForChange")}
-                    value={cs.reasonForChange}
+                    value={displayValue(cs.reasonForChange)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.changeSet.detail.descriptionOfChange")}
-                    value={cs.descriptionOfChange}
+                    value={displayValue(cs.descriptionOfChange)}
+                    labelWidth={180}
                   />
-                </VStack>
+                </DetailCard>
               </Grid>
             )}
           </DetailShell>
@@ -326,29 +326,5 @@ export function ChangeSetDetailPage() {
         {tab !== "details" && <Empty>{t("businessData.changeSet.detail.historyEmpty")}</Empty>}
       </DetailTabs>
     </ListPage>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.changeSet.detail.emptyValue") : value}</span>
-    </HStack>
-  );
-}
-
-function Bool({ label, value }: { label: string; value: boolean }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>
-        {value ? t("businessData.changeSet.detail.yes") : t("businessData.changeSet.detail.no")}
-      </span>
-    </HStack>
   );
 }
