@@ -12,6 +12,7 @@ export { DetailTabs } from "./DetailTabs";
 export { DetailCard, DetailField } from "./DetailCard";
 export { DetailEmpty } from "./DetailEmpty";
 export { ListRow } from "./ListRow";
+export { DetailSurface } from "./DetailSurface";
 export { FormField } from "./FormField";
 export { AccessGrid, FormCombo, FormRow, FormSection, FormSelect, YesNo } from "./FormParts";
 export type { AccessLevelState } from "./FormParts";

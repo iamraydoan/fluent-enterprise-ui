@@ -5,13 +5,21 @@ import {
 } from "@fluentui/react-components";
 import { forwardRef } from "react";
 import type { CSSProperties, MouseEvent, ReactNode } from "react";
+import { makeStyles, mergeClasses, tokens } from "./styles";
+
+const useToneStyles = makeStyles({
+  secondary: { color: tokens.colorNeutralForeground2 },
+  tertiary: { color: tokens.colorNeutralForeground3 },
+});
 
 export type TextSize = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000;
 export type TextWeight = "regular" | "medium" | "semibold" | "bold";
+export type TextTone = "secondary" | "tertiary";
 
 export interface TextProps {
   size?: TextSize;
   weight?: TextWeight;
+  tone?: TextTone;
   italic?: boolean;
   underline?: boolean;
   strikethrough?: boolean;
@@ -25,8 +33,18 @@ export interface TextProps {
   children?: ReactNode;
 }
 
-export const Text = forwardRef<HTMLElement, TextProps>(function Text(props, ref) {
-  return <FluentText ref={ref} {...props} />;
+export const Text = forwardRef<HTMLElement, TextProps>(function Text(
+  { tone, className, ...props },
+  ref,
+) {
+  const toneStyles = useToneStyles();
+  return (
+    <FluentText
+      ref={ref}
+      className={mergeClasses(tone ? toneStyles[tone] : undefined, className)}
+      {...props}
+    />
+  );
 });
 
 export function Body1Strong({ children, style }: { children?: ReactNode; style?: CSSProperties }) {
