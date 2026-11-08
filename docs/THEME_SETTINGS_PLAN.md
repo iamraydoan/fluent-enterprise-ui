@@ -139,3 +139,18 @@ Settled; do not relitigate without a new reason.
 3. **The `#FAFAFA` card-surface rule stays as it is**, applying to all of `src/**` including components. Rationale: it is a value-duplication rule (one canonical surface colour), not a style-encapsulation ban. It does not restrict how a component styles; it forbids re-declaring one canonical value that already exists in `src/styles/shared.ts`. Removing it would be exactly the kind of arbitrary loosening that produced the current escape hatches.
 4. **Import boundaries stay.** `@fluentui/react-components` only inside `@/components/ui`; raw `tokens` only in `src/components/ui/**` and `src/styles/theme.ts`; no i18n inside components. These are what make the wrapper layer a closed API, and they are not style bans.
 5. **Design-system carve-outs are recorded, never implicit.** `src/styles/theme.ts`, `src/styles/shared.ts`, `src/components/ui/**`, `src/theme/**` and the barrel files are design-system infrastructure and stay free of the page-layer rules. Where one of them genuinely needs relief from a global rule, the config must express it narrowly (exclude that file from that specific selector) and this list must name it. A blanket rule-level `"off"` with no record is not acceptable.
+
+## 13. Progress
+
+| Workstream                   | State                        | Evidence                                                                                                                                                                                 |
+| ---------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A - honest and strict ESLint | done, independently reviewed | commits d5a36a1, dd86d7b, cfb2a0a; ledger 67 files / 212 raw mappings; 8 page-layer rules; 7 regression tests; effective config compared across 893 files with zero unplanned weakenings |
+| B - theme settings feature   | not started                  |                                                                                                                                                                                          |
+| C - page conversions         | not started                  | 64 of 158 pages carry styling debt                                                                                                                                                       |
+| D - encapsulation proof      | not started                  |                                                                                                                                                                                          |
+
+Operational notes:
+
+- The browser gate needs `PLAYWRIGHT_BROWSERS_PATH=/root/fluent-enterprise-ui/node_modules/.cache/ms-playwright` on this host. The system browser cache at `/root/.cache/ms-playwright` does not hold the revision Playwright 1.64.1 expects, and that directory is outside the writable workspace.
+- Known and accepted limitation: a px literal assigned to a const and passed to a prop later is not detected, because that needs dataflow analysis. Measured at zero occurrences across all 156 page files today.
+- Review history for A: task-22 PASS with three minors; task-25 FAIL with one blocker (narrowing the literal rules to style containers dropped 25 files of real px debt from the ledger); task-27 PASS with zero blockers and zero majors.
