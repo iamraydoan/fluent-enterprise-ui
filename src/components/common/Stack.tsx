@@ -93,9 +93,11 @@ export function VStack(props: StackProps) {
 
 interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  columns?: CSSProperties["gridTemplateColumns"] | "auto-fit" | "auto-fill" | "main-aside";
+  columns?:
+    CSSProperties["gridTemplateColumns"] | "auto-fit" | "auto-fill" | "main-aside" | "aside-main";
   minColumn?: number;
   mainFr?: number;
+  asideFr?: number;
   asideWidth?: number;
   gap?: StackGap | (string & {}) | number;
   align?: CSSProperties["alignItems"];
@@ -109,6 +111,7 @@ export function Grid({
   columns,
   minColumn = 300,
   mainFr = 3,
+  asideFr = 2,
   asideWidth = 280,
   gap,
   align,
@@ -124,7 +127,9 @@ export function Grid({
         ? `repeat(auto-fill, minmax(${minColumn}px, 1fr))`
         : columns === "main-aside"
           ? `${mainFr}fr minmax(${asideWidth}px, 1fr)`
-          : columns;
+          : columns === "aside-main"
+            ? `minmax(${asideWidth}px, ${asideFr}fr) ${mainFr}fr`
+            : columns;
   return (
     <div
       className={className}

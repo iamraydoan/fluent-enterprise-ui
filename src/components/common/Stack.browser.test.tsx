@@ -45,6 +45,16 @@ test("expands the auto-fill preset with an explicit minimum column", async () =>
   expect(gridElement().style.gridTemplateColumns).toBe("repeat(auto-fill, minmax(90px, 1fr))");
 });
 
+test("expands the aside-main preset from its minimum width", async () => {
+  await renderWithAppTheme(
+    <Grid columns="aside-main" asideWidth={320} gap="md">
+      <span>aside</span>
+      <span>main</span>
+    </Grid>,
+  );
+  expect(gridElement().style.gridTemplateColumns).toBe("minmax(320px, 2fr) 3fr");
+});
+
 test("expands the main-aside preset with the default widths", async () => {
   await renderWithAppTheme(
     <Grid columns="main-aside" gap="md">
