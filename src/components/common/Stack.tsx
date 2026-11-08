@@ -91,7 +91,8 @@ export function VStack(props: StackProps) {
 
 interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  columns?: CSSProperties["gridTemplateColumns"];
+  columns?: CSSProperties["gridTemplateColumns"] | "auto-fit";
+  minColumn?: number;
   gap?: StackGap | (string & {}) | number;
   align?: CSSProperties["alignItems"];
   grow?: boolean;
@@ -102,6 +103,7 @@ interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Grid({
   children,
   columns,
+  minColumn = 300,
   gap,
   align,
   grow,
@@ -109,12 +111,14 @@ export function Grid({
   style,
   ...rest
 }: GridProps) {
+  const template =
+    columns === "auto-fit" ? `repeat(auto-fit, minmax(${minColumn}px, 1fr))` : columns;
   return (
     <div
       className={className}
       style={{
         display: "grid",
-        gridTemplateColumns: columns,
+        gridTemplateColumns: template,
         gap: gap === undefined ? undefined : resolveSpacing(gap),
         alignItems: align,
         flexGrow: grow ? 1 : undefined,

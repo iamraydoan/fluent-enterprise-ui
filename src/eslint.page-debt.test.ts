@@ -1,16 +1,17 @@
-import { readdirSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ESLint } from "eslint";
 import type { Linter } from "eslint";
 import { expect, it } from "vitest";
+import featureStyleBaseline from "../eslint.feature-style-baseline.json";
 import ledger from "../eslint.page-debt.json";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 const PAGE_GLOB = "src/features/**/*Page.tsx";
-const LEDGER_FILE_BASELINE = 66;
-const LEDGER_MAPPING_BASELINE = 209;
-const LEDGER_RAW_MAPPING_BASELINE = 209;
+const LEDGER_FILE_BASELINE = 67;
+const LEDGER_MAPPING_BASELINE = 211;
+const LEDGER_RAW_MAPPING_BASELINE = 211;
 
 export interface LedgerCheck {
   entries: [string, string[]][];
@@ -90,6 +91,34 @@ export async function runLedgerCheck({ entries, emptyTarget }: LedgerCheck): Pro
   expect(declared.size, "unique ledger mappings").toBeLessThanOrEqual(LEDGER_MAPPING_BASELINE);
 }
 
+const STYLE_OWNER_PATTERNS = [
+  /from "@\/styles\/theme"/,
+  /makeStyles\(/,
+  /from "@\/styles\/shared"/,
+];
+
+export function featureStyleOwners(root: string): string[] {
+  return walk(join(root, "src/features"))
+    .filter((file) => /\.[jt]sx?$/.test(file))
+    .filter((file) => !file.endsWith("Page.tsx") && !file.includes(".test."))
+    .filter((file) => {
+      const source = readFileSync(file, "utf8");
+      return STYLE_OWNER_PATTERNS.some((pattern) => pattern.test(source));
+    })
+    .map((file) => relative(root, file).split("\\").join("/"))
+    .sort();
+}
+
+export function runFeatureStyleCheck(files: string[]): void {
+  const declared = new Set(featureStyleBaseline as string[]);
+  const observed = new Set(files);
+  const added = [...observed].filter((file) => !declared.has(file)).sort();
+  const stale = [...declared].filter((file) => !observed.has(file)).sort();
+  expect(added, "feature files that newly own styling").toEqual([]);
+  expect(stale, "stale feature style baseline entries").toEqual([]);
+  expect(observed.size, "feature styling footprint").toBeLessThanOrEqual(declared.size);
+}
+
 const IS_META_ENTRY = (expect.getState().testPath ?? "").endsWith("eslint.page-debt.test.ts");
 
 if (IS_META_ENTRY) {
@@ -99,4 +128,8 @@ if (IS_META_ENTRY) {
       emptyTarget: ["."],
     });
   }, 600000);
+
+  it("freezes the feature styling footprint", () => {
+    runFeatureStyleCheck(featureStyleOwners(ROOT));
+  });
 }

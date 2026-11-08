@@ -91,7 +91,7 @@ function isInStyleContainer(node, context) {
   return false;
 }
 
-const HEX_EXEMPT_ATTRIBUTES = new Set([
+const TEXT_ONLY_ATTRIBUTES = new Set([
   "href",
   "to",
   "src",
@@ -103,6 +103,13 @@ const HEX_EXEMPT_ATTRIBUTES = new Set([
   "role",
   "target",
   "rel",
+  "alt",
+  "placeholder",
+  "title",
+  "label",
+  "description",
+  "message",
+  "heading",
 ]);
 
 function jsxAttributeOf(node, context) {
@@ -119,13 +126,19 @@ function jsxAttributeOf(node, context) {
   return null;
 }
 
-function isHexExemptAttribute(attribute) {
+function isTextOnlyAttribute(attribute) {
   if (attribute.name.type !== "JSXIdentifier") return false;
   return (
-    HEX_EXEMPT_ATTRIBUTES.has(attribute.name.name) ||
+    TEXT_ONLY_ATTRIBUTES.has(attribute.name.name) ||
     attribute.name.name.startsWith("data-") ||
     attribute.name.name.startsWith("aria-")
   );
+}
+
+function isStyledLiteral(node, context) {
+  const attribute = jsxAttributeOf(node, context);
+  if (attribute) return !isTextOnlyAttribute(attribute);
+  return isInStyleContainer(node, context) && isStylePropertyValue(node, context);
 }
 
 function isStylePropertyValue(node, context) {
@@ -215,10 +228,8 @@ const localPlugin = {
           Literal(node) {
             if (
               typeof node.value === "string" &&
-              /^#[0-9a-fA-F]{3,8}$/.test(node.value) &&
-              ((jsxAttributeOf(node, context) !== null &&
-                !isHexExemptAttribute(jsxAttributeOf(node, context))) ||
-                (isInStyleContainer(node, context) && isStylePropertyValue(node, context)))
+              /#[0-9a-fA-F]{3,8}(?![0-9a-fA-F])/.test(node.value) &&
+              isStyledLiteral(node, context)
             ) {
               context.report({
                 node,
@@ -237,9 +248,8 @@ const localPlugin = {
           Literal(node) {
             if (
               typeof node.value === "string" &&
-              /^\d+(\.\d+)?px$/.test(node.value) &&
-              (jsxAttributeOf(node, context) !== null ||
-                (isInStyleContainer(node, context) && isStylePropertyValue(node, context)))
+              /\d+(\.\d+)?px/.test(node.value) &&
+              isStyledLiteral(node, context)
             ) {
               context.report({
                 node,

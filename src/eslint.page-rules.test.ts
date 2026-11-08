@@ -5,7 +5,7 @@ import ledger from "../eslint.page-debt.json";
 import { runLedgerCheck } from "./eslint.page-debt.test";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
-const RAW_MAPPING_BASELINE = 212;
+const RAW_MAPPING_BASELINE = 211;
 const FIXTURE_PAGE = "src/features/fixture/FixturePage.tsx";
 const COMPLIANT_PAGE_FILE = "src/features/administration/apps/AppsListPage.tsx";
 
@@ -57,6 +57,42 @@ const STYLE_PX_PAGE = [
   "}",
 ].join("\n");
 
+const SHORTHAND_PX_ATTRIBUTE_PAGE = [
+  "export function FixturePage() {",
+  '  return <div gap="12px 8px" />;',
+  "}",
+].join("\n");
+
+const AUTO_FIT_PX_ATTRIBUTE_PAGE = [
+  "export function FixturePage() {",
+  '  return <div columns="repeat(auto-fit, minmax(340px, 1fr))" />;',
+  "}",
+].join("\n");
+
+const SHADOW_PX_STYLE_PAGE = [
+  "export function FixturePage() {",
+  '  return <div style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.08)" }} />;',
+  "}",
+].join("\n");
+
+const BORDER_HEX_STYLE_PAGE = [
+  "export function FixturePage() {",
+  '  return <div style={{ border: "1px solid #e0e0e0" }} />;',
+  "}",
+].join("\n");
+
+const TEXT_ONLY_ATTRIBUTE_PAGE = [
+  "export function FixturePage() {",
+  '  return <img alt="100px" title="e.g. 100px" />;',
+  "}",
+].join("\n");
+
+const TEXT_ONLY_NAMED_ATTRIBUTE_PAGE = [
+  "export function FixturePage() {",
+  '  return <div label="#e0e0e0" description="100px" message="#fff" heading="12px" />;',
+  "}",
+].join("\n");
+
 const WRAPPED_CONDITIONAL_PAGE = [
   'import { mergeClasses } from "@/components/ui";',
   "",
@@ -98,6 +134,23 @@ it("fires on a px literal inside a style object", async () => {
 it("stays silent on exempt hex attributes but fires inside a style object", async () => {
   expect(await lintFixture(HREF_FRAGMENT_PAGE)).not.toContain("local/no-page-literal-hex");
   expect(await lintFixture(STYLE_HEX_PAGE)).toContain("local/no-page-literal-hex");
+});
+
+it("fires on px embedded in a longer string in a style position", async () => {
+  expect(await lintFixture(SHORTHAND_PX_ATTRIBUTE_PAGE)).toEqual(["local/no-page-literal-px"]);
+  expect(await lintFixture(AUTO_FIT_PX_ATTRIBUTE_PAGE)).toEqual(["local/no-page-literal-px"]);
+  expect(await lintFixture(SHADOW_PX_STYLE_PAGE)).toContain("local/no-page-literal-px");
+});
+
+it("fires on px and hex embedded in a longer style string", async () => {
+  const rules = await lintFixture(BORDER_HEX_STYLE_PAGE);
+  expect(rules).toContain("local/no-page-literal-px");
+  expect(rules).toContain("local/no-page-literal-hex");
+});
+
+it("stays silent on px and hex inside text-only attributes", async () => {
+  expect(await lintFixture(TEXT_ONLY_ATTRIBUTE_PAGE)).toEqual([]);
+  expect(await lintFixture(TEXT_ONLY_NAMED_ATTRIBUTE_PAGE)).toEqual([]);
 });
 
 it("fires on a conditional wrapped in a call inside className", async () => {

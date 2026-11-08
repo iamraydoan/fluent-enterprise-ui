@@ -7,10 +7,7 @@ import {
   createRouter,
 } from "@tanstack/react-router";
 import { expect, test } from "vitest";
-import { render } from "vitest-browser-react";
-import { FluentProvider } from "@/components/ui";
-import { initI18n } from "@/i18n";
-import { lightTheme } from "@/theme";
+import { renderWithAppTheme } from "@/test-utils";
 import { AreaDetailPage } from "./AreaDetailPage";
 
 const rootRoute = createRootRoute();
@@ -24,18 +21,14 @@ const routeTree = rootRoute.addChildren([areaRoute]);
 const AREA_NAME = "Mixing";
 
 async function renderAreaDetail() {
-  localStorage.setItem("fluent-enterprise-ui:language", "en");
-  await initI18n();
   const queryClient = new QueryClient();
   const router = createRouter({
     routeTree,
     history: createMemoryHistory({ initialEntries: ["/business-data/area/" + AREA_NAME] }),
   });
-  return await render(
+  return await renderWithAppTheme(
     <QueryClientProvider client={queryClient}>
-      <FluentProvider theme={lightTheme}>
-        <RouterProvider router={router} />
-      </FluentProvider>
+      <RouterProvider router={router} />
     </QueryClientProvider>,
   );
 }
@@ -80,6 +73,9 @@ test("pins the detail card and field computed styles", async () => {
   expect(css(card, "row-gap")).toBe("12px");
   expect(css(grid, "row-gap")).toBe("12px");
   expect(css(grid, "column-gap")).toBe("12px");
+  expect((grid as HTMLElement).style.gridTemplateColumns).toBe(
+    "repeat(auto-fit, minmax(300px, 1fr))",
+  );
   expect(css(header, "display")).toBe("flex");
   expect(css(header, "padding-bottom")).toBe("8px");
   expect(css(header, "border-bottom")).toBe("1px solid rgb(224, 224, 224)");

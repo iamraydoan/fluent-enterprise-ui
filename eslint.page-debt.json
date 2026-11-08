@@ -1,5 +1,6 @@
 {
   "src/features/administration/PlaceholderPage.tsx": [
+    "local/no-page-literal-px",
     "local/no-page-literal-radius",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
@@ -251,6 +252,7 @@
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
+  "src/features/business-data/resource-job/ResourceJobDetailPage.tsx": ["local/no-page-literal-px"],
   "src/features/business-data/shift-definition/ShiftDefinitionDetailPage.tsx": [
     "local/no-page-style-prop",
     "local/no-page-theme-import"

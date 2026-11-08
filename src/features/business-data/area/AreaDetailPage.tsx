@@ -119,7 +119,7 @@ export function AreaDetailPage() {
               onAskAi={() => undefined}
               showState={false}
             >
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="md">
+              <Grid columns="auto-fit" gap="md">
                 <DetailCard title={t("businessData.area.detail.area")}>
                   <DetailField
                     label={t("businessData.area.detail.name")}
