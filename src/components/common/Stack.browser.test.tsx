@@ -1,10 +1,20 @@
 import { expect, test } from "vitest";
-import { Grid } from "@/components/common";
+import { Grid, HStack } from "@/components/common";
 import { renderWithAppTheme } from "@/test-utils";
 
 function gridElement() {
   return document.querySelector('[style*="grid-template-columns"]') as HTMLElement;
 }
+
+test("applies a theme-backed bottom margin", async () => {
+  await renderWithAppTheme(
+    <HStack mb="md">
+      <span>row</span>
+    </HStack>,
+  );
+  const row = document.querySelector('[style*="margin-bottom"]') as HTMLElement;
+  expect(row.style.marginBottom).toBe("var(--spacingHorizontalM)");
+});
 
 test("expands the auto-fit preset with the default minimum column", async () => {
   await renderWithAppTheme(

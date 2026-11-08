@@ -692,6 +692,8 @@ export default tseslint.config(
               "align",
               "justify",
               "p",
+              "mb",
+              "tone",
             ],
           },
           "object-properties": {

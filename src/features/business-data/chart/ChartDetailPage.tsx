@@ -5,18 +5,18 @@ import type { LogicalChartDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
+  DetailCard,
+  DetailField,
   DetailShell,
   DetailTabs,
   editAction,
   Empty,
+  Grid,
+  HStack,
   ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  SectionHeader,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import {
   Box24Regular,
@@ -32,30 +32,10 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useChartDialogs } from "./useChartDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "200px" },
-  toolbar: {
-    marginBottom: theme.spacing.md,
-  },
-});
 
 const TABS = ["details", "references", "history"] as const;
 const LEFT_SECTIONS: TranslationKey[] = [
@@ -69,8 +49,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function ChartDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<string>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { name } = useParams({ strict: false }) as { name: string };
@@ -96,6 +74,12 @@ export function ChartDetailPage() {
     openDataPoints,
   } = useChartDialogs(chart);
   void openCreate;
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.chart.detail.emptyValue") : value;
+  const displayYesNo = (value: boolean) =>
+    value ? t("businessData.chart.detail.yes") : t("businessData.chart.detail.no");
+  const displayNumber = (value: number | undefined) => (value === undefined ? "" : String(value));
 
   if (isLoading || !chart) {
     return (
@@ -208,11 +192,10 @@ export function ChartDetailPage() {
                   ])}
                 />
               ) : left === "businessData.chart.detail.sections.rules" ? (
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader
-                    title={t("businessData.chart.detail.rulesTitle", { count: chart.rules.length })}
-                  />
-                  <HStack gap="8px" className={styles.toolbar}>
+                <DetailCard
+                  title={t("businessData.chart.detail.rulesTitle", { count: chart.rules.length })}
+                >
+                  <HStack gap="sm" mb="md">
                     <Button variant="secondary" onClick={openManageRules}>
                       {t("businessData.chart.operations.manageRules")}
                     </Button>
@@ -240,16 +223,12 @@ export function ChartDetailPage() {
                           <TableCell>{r.scope}</TableCell>
                           <TableCell>{r.rule}</TableCell>
                           <TableCell>{r.protocol}</TableCell>
-                          <TableCell>
-                            {r.enabled
-                              ? t("businessData.chart.detail.yes")
-                              : t("businessData.chart.detail.no")}
-                          </TableCell>
+                          <TableCell>{displayYesNo(r.enabled)}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
                   </Table>
-                </VStack>
+                </DetailCard>
               ) : left === "businessData.chart.detail.sections.logicalCharts" ? (
                 <LogicalChartsCard
                   chart={chart}
@@ -260,121 +239,160 @@ export function ChartDetailPage() {
                   onDataPoints={openDataPoints}
                 />
               ) : (
-                <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                  <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                    <SectionHeader title={t("businessData.chart.detail.chart")} />
-                    <KV label={t("businessData.chart.detail.name")} value={chart.name} />
-                    <KV
+                <Grid columns="auto-fit" gap="md">
+                  <DetailCard title={t("businessData.chart.detail.chart")}>
+                    <DetailField
+                      label={t("businessData.chart.detail.name")}
+                      value={displayValue(chart.name)}
+                      labelWidth={200}
+                    />
+                    <DetailField
                       label={t("businessData.chart.detail.description")}
-                      value={chart.description}
+                      value={displayValue(chart.description)}
+                      labelWidth={200}
                     />
-                    <KV label={t("businessData.chart.detail.type")} value={chart.type} />
-                    <KV
+                    <DetailField
+                      label={t("businessData.chart.detail.type")}
+                      value={displayValue(chart.type)}
+                      labelWidth={200}
+                    />
+                    <DetailField
                       label={t("businessData.chart.detail.universalState")}
-                      value={chart.universalState}
+                      value={displayValue(chart.universalState)}
+                      labelWidth={200}
                     />
-                    <Bool label={t("businessData.chart.detail.enabled")} value={chart.enabled} />
-                  </VStack>
-                  <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                    <SectionHeader title={t("businessData.chart.detail.properties")} />
-                    <KV label={t("businessData.chart.detail.parameter")} value={chart.parameter} />
-                    <KV label={t("businessData.chart.detail.chartType")} value={chart.chartType} />
-                    <KV
+                    <DetailField
+                      label={t("businessData.chart.detail.enabled")}
+                      value={displayYesNo(chart.enabled)}
+                      labelWidth={200}
+                    />
+                  </DetailCard>
+                  <DetailCard title={t("businessData.chart.detail.properties")}>
+                    <DetailField
+                      label={t("businessData.chart.detail.parameter")}
+                      value={displayValue(chart.parameter)}
+                      labelWidth={200}
+                    />
+                    <DetailField
+                      label={t("businessData.chart.detail.chartType")}
+                      value={displayValue(chart.chartType)}
+                      labelWidth={200}
+                    />
+                    <DetailField
                       label={t("businessData.chart.detail.minimumSampleReadings")}
                       value={String(chart.minimumSampleReadings)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.maximumSampleReadings")}
                       value={String(chart.maximumSampleReadings)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.specLimitsType")}
-                      value={chart.specLimitsType}
+                      value={displayValue(chart.specLimitsType)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.usl")}
-                      value={chart.usl === undefined ? "" : String(chart.usl)}
+                      value={displayNumber(chart.usl)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.target")}
-                      value={chart.target === undefined ? "" : String(chart.target)}
+                      value={displayNumber(chart.target)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.lsl")}
-                      value={chart.lsl === undefined ? "" : String(chart.lsl)}
+                      value={displayNumber(chart.lsl)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.centerline1")}
-                      value={chart.centerline1 === undefined ? "" : String(chart.centerline1)}
+                      value={displayNumber(chart.centerline1)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.centerline2")}
-                      value={chart.centerline2 === undefined ? "" : String(chart.centerline2)}
+                      value={displayNumber(chart.centerline2)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.stdDev")}
-                      value={chart.stdDev === undefined ? "" : String(chart.stdDev)}
+                      value={displayNumber(chart.stdDev)}
+                      labelWidth={200}
                     />
-                  </VStack>
-                  <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                    <SectionHeader title={t("businessData.chart.detail.display")} />
-                    <KV
+                  </DetailCard>
+                  <DetailCard title={t("businessData.chart.detail.display")}>
+                    <DetailField
                       label={t("businessData.chart.detail.filterMode")}
-                      value={chart.filterMode}
+                      value={displayValue(chart.filterMode)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.defaultPanel")}
-                      value={chart.defaultPanel}
+                      value={displayValue(chart.defaultPanel)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.indicatorDisplay")}
-                      value={chart.indicatorDisplay}
+                      value={displayValue(chart.indicatorDisplay)}
+                      labelWidth={200}
                     />
-                    <KV label={t("businessData.chart.detail.yAxisMode")} value={chart.yAxisMode} />
-                    <Bool
+                    <DetailField
+                      label={t("businessData.chart.detail.yAxisMode")}
+                      value={displayValue(chart.yAxisMode)}
+                      labelWidth={200}
+                    />
+                    <DetailField
                       label={t("businessData.chart.detail.showHistogram")}
-                      value={chart.showHistogram}
+                      value={displayYesNo(chart.showHistogram)}
+                      labelWidth={200}
                     />
-                    <Bool
+                    <DetailField
                       label={t("businessData.chart.detail.showSpecLimits")}
-                      value={chart.showSpecLimits}
+                      value={displayYesNo(chart.showSpecLimits)}
+                      labelWidth={200}
                     />
-                  </VStack>
-                  <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                    <SectionHeader title={t("businessData.chart.detail.retention")} />
-                    <KV
+                  </DetailCard>
+                  <DetailCard title={t("businessData.chart.detail.retention")}>
+                    <DetailField
                       label={t("businessData.chart.detail.dataPoints")}
                       value={String(chart.dataPoints)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.retentionTimeHours")}
-                      value={
-                        chart.retentionTimeHours === undefined
-                          ? ""
-                          : String(chart.retentionTimeHours)
-                      }
+                      value={displayNumber(chart.retentionTimeHours)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.retentionSize")}
-                      value={chart.retentionSize === undefined ? "" : String(chart.retentionSize)}
+                      value={displayNumber(chart.retentionSize)}
+                      labelWidth={200}
                     />
-                    <Bool
+                    <DetailField
                       label={t("businessData.chart.detail.learningMode")}
-                      value={chart.learningMode}
+                      value={displayYesNo(chart.learningMode)}
+                      labelWidth={200}
                     />
-                    <Bool
+                    <DetailField
                       label={t("businessData.chart.detail.autoRecalculateCenterlines")}
-                      value={chart.autoRecalculateCenterlines}
+                      value={displayYesNo(chart.autoRecalculateCenterlines)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.windowSize")}
                       value={String(chart.windowSize)}
+                      labelWidth={200}
                     />
-                    <KV
+                    <DetailField
                       label={t("businessData.chart.detail.dataPointSize")}
                       value={String(chart.dataPointSize)}
+                      labelWidth={200}
                     />
-                  </VStack>
+                  </DetailCard>
                 </Grid>
               )}
             </DetailShell>
@@ -403,16 +421,13 @@ function LogicalChartsCard({
   onDataPoints: (lc: LogicalChartDetail) => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   return (
-    <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-      <SectionHeader
-        title={t("businessData.chart.detail.logicalChartsTitle", {
-          count: chart.logicalCharts.length,
-        })}
-      />
-      <HStack gap="8px" className={styles.toolbar}>
+    <DetailCard
+      title={t("businessData.chart.detail.logicalChartsTitle", {
+        count: chart.logicalCharts.length,
+      })}
+    >
+      <HStack gap="sm" mb="md">
         <Button variant="secondary" onClick={onAdd}>
           {t("businessData.chart.operations.addLogicalChart")}
         </Button>
@@ -439,7 +454,7 @@ function LogicalChartsCard({
               <TableCell>{l.contextSummary}</TableCell>
               <TableCell>{String(l.dataPoints.length)}</TableCell>
               <TableCell>
-                <HStack gap="4px" wrap>
+                <HStack gap="xs" wrap>
                   <Button variant="secondary" size="sm" onClick={() => onDataPoints(l)}>
                     {t("businessData.chart.operations.dataPoints")}
                   </Button>
@@ -458,7 +473,7 @@ function LogicalChartsCard({
           ))}
         </TableBody>
       </Table>
-    </VStack>
+    </DetailCard>
   );
 }
 
@@ -471,11 +486,8 @@ function TableCard({
   headers: string[];
   rows: string[][];
 }) {
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   return (
-    <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-      <SectionHeader title={title} />
+    <DetailCard title={title}>
       <Table>
         <TableHeader>
           <TableRow>
@@ -494,28 +506,6 @@ function TableCard({
           ))}
         </TableBody>
       </Table>
-    </VStack>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.chart.detail.emptyValue") : value}</span>
-    </HStack>
-  );
-}
-
-function Bool({ label, value }: { label: string; value: boolean }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value ? t("businessData.chart.detail.yes") : t("businessData.chart.detail.no")}</span>
-    </HStack>
+    </DetailCard>
   );
 }

@@ -30,6 +30,7 @@ interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   surface?: boolean;
   divider?: boolean;
   p?: StackGap | (string & {}) | number;
+  mb?: StackGap | (string & {}) | number;
   title?: string;
   className?: string;
   style?: CSSProperties;
@@ -42,7 +43,7 @@ function resolveSpacing(value: string | number): string {
 }
 
 function stackStyle(direction: "row" | "column", props: StackProps): CSSProperties {
-  const { gap = "md", align, justify, wrap, grow, surface, divider, p } = props;
+  const { gap = "md", align, justify, wrap, grow, surface, divider, p, mb } = props;
   return {
     display: "flex",
     flexDirection: direction,
@@ -58,6 +59,7 @@ function stackStyle(direction: "row" | "column", props: StackProps): CSSProperti
     ...(surface ? cardSurface : {}),
     ...(divider ? { borderBottom: `1px solid ${theme.color.borderSubtle}` } : {}),
     ...(p !== undefined ? { padding: resolveSpacing(p) } : {}),
+    ...(mb !== undefined ? { marginBottom: resolveSpacing(mb) } : {}),
   };
 }
 

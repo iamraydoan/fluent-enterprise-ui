@@ -63,3 +63,91 @@ export function expectDetailCardParity(labelWidth = 120) {
   expect(css(value, "font-size")).toBe("13px");
   expect(css(value, "color")).toBe("rgb(36, 36, 36)");
 }
+
+function cardElements() {
+  return Array.from(document.querySelectorAll<HTMLElement>("div")).filter(
+    (element) =>
+      css(element, "background-color") === "rgb(250, 250, 250)" &&
+      css(element, "border-radius") === "12px",
+  );
+}
+
+function fieldRows(card: HTMLElement) {
+  return Array.from(card.children).filter((child) => {
+    const label = (child as HTMLElement).children[0] as HTMLElement | undefined;
+    return label?.tagName === "SPAN" && /:$/.test(label.textContent ?? "");
+  }) as HTMLElement[];
+}
+
+function metrics(element: HTMLElement, properties: string[]) {
+  return Object.fromEntries(properties.map((property) => [property, css(element, property)]));
+}
+
+export function detailSnapshot() {
+  const cards = cardElements();
+  if (cards.length === 0) throw new Error("no detail cards found");
+  return cards.map((card) => {
+    const header = card.children[0] as HTMLElement;
+    const hasHeader = css(header, "margin-bottom") === "12px";
+    const grid = card.parentElement as HTMLElement;
+    const isGrid = grid ? getComputedStyle(grid).display === "grid" : false;
+    return {
+      card: metrics(card, [
+        "padding",
+        "background-color",
+        "border-radius",
+        "margin-top",
+        "display",
+        "flex-direction",
+        "row-gap",
+      ]),
+      header: hasHeader
+        ? metrics(header, [
+            "display",
+            "align-items",
+            "justify-content",
+            "padding-bottom",
+            "border-bottom",
+            "margin-bottom",
+          ])
+        : null,
+      headerText: hasHeader
+        ? metrics(header.querySelector("span") as HTMLElement, [
+            "font-size",
+            "font-weight",
+            "color",
+          ])
+        : null,
+      grid: isGrid
+        ? {
+            ...metrics(grid, ["row-gap", "column-gap"]),
+            inlineTemplate: grid.style.gridTemplateColumns,
+            computedTemplate: getComputedStyle(grid).gridTemplateColumns,
+          }
+        : null,
+      fields: fieldRows(card).map((row) => ({
+        row: metrics(row, ["display", "column-gap", "font-size"]),
+        label: metrics(row.children[0] as HTMLElement, ["color", "min-width", "font-size"]),
+        value: metrics(row.children[1] as HTMLElement, ["font-size", "color"]),
+      })),
+    };
+  });
+}
+
+export async function detailViews() {
+  const buttons = Array.from(document.querySelectorAll<HTMLElement>("aside button")).filter(
+    (button) => !button.getAttribute("aria-label"),
+  );
+  const views: Record<string, unknown> = {};
+  for (const button of buttons) {
+    button.click();
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    views[button.textContent?.trim() ?? "unknown"] =
+      cardElements().length === 0 ? null : detailSnapshot();
+  }
+  return views;
+}
+
+export async function expectDetailViews(expected: unknown) {
+  expect(await detailViews()).toEqual(expected);
+}
