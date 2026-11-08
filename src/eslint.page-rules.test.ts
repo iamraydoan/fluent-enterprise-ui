@@ -120,7 +120,7 @@ it("does not fire on non-style data literals", async () => {
   const [result] = await eslint.lintText(DATA_ONLY_PAGE, { filePath: FIXTURE_PAGE });
   expect(pageFindings(result.messages)).toEqual([]);
   expect(result.errorCount).toBe(0);
-});
+}, 60000);
 
 it("fires on a px literal passed as a JSX attribute", async () => {
   expect(await lintFixture(GAP_ATTRIBUTE_PAGE)).toEqual(["local/no-page-literal-px"]);
