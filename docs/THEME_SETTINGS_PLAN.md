@@ -154,3 +154,26 @@ Operational notes:
 - The browser gate needs `PLAYWRIGHT_BROWSERS_PATH=/root/fluent-enterprise-ui/node_modules/.cache/ms-playwright` on this host. The system browser cache at `/root/.cache/ms-playwright` does not hold the revision Playwright 1.64.1 expects, and that directory is outside the writable workspace.
 - Known and accepted limitation: a px literal assigned to a const and passed to a prop later is not detected, because that needs dataflow analysis. Measured at zero occurrences across all 156 page files today.
 - Review history for A: task-22 PASS with three minors; task-25 FAIL with one blocker (narrowing the literal rules to style containers dropped 25 files of real px debt from the ledger); task-27 PASS with zero blockers and zero majors.
+
+## 14. Workstream C execution protocol
+
+C converts the debt pages onto the composition pattern that workstream B proved. One page is one task.
+
+Per-task shape:
+
+1. **Selection.** Pages are taken one at a time in checklist order, grouped by feature, so a task never spans two features.
+2. **Write scope.** The task declares the page file and the feature's own style modules. A primitive that does not exist yet is added to `src/components/common/**` or `src/components/ui/**` inside the same task, and the task names it up front. A page never works around a missing primitive.
+3. **The conversion.** The page ends up composing primitives. Styles that genuinely remain move to a colocated non-page module that uses `makeStyles` and `@/theme`. Raw `tokens` stay confined to `src/components/ui/**` and `src/styles/theme.ts`.
+4. **Ledger, in the same commit.** The page's entries are deleted from `eslint.page-debt.json`, and the baselines in `src/eslint.page-debt.test.ts` are lowered to the new actual counts. During C the baseline may only move down. An upward move is a finding, not a bump.
+5. **Worker gates.** `npx eslint .`, `npx tsc --noEmit`, `npm run test:unit`, `npm run format:check`, `npm run check:deps`, and the browser gate.
+6. **Visual parity evidence.** Computed-style values for the converted page's route, before and after.
+7. **Review.** The reviewer independently confirms that the page has no ledger entry, that the rules really fire on it by injecting a violation and watching it fail, that rendering is unchanged, that no rule was weakened and that no suppression was added. The reviewer specifically confirms the entry was deleted rather than the rule narrowed to fit.
+8. **Done.** A page is done only after the review passes. Its checklist row records the commit, the verdict and the reviewer.
+
+Cadence:
+
+The pilot page runs alone, end to end, to measure what a conversion actually costs. The cadence for the remaining pages is set from that measurement rather than estimated in advance. Per-page rigour is not negotiable - every page gets its own gates, its own parity evidence, its own reviewer verdict and its own checklist row. What the measurement decides is only how many pages share a worker task and a review window, never whether a page is verified.
+
+## 15. What the checklist is for
+
+`docs/PAGE_ENCAPSULATION_CHECKLIST.md` is the task ledger for C, not documentation. It holds one row per page, with per-rule columns showing the debt that must reach zero and Status / Owner / Review / Commit columns recording the outcome. A row is authoritative only when its Commit column holds a sha and its Review column holds a reviewer verdict. The summary counts at the top are recomputed from the rows, and at the end of each wave the file is reconciled against `eslint.page-debt.json`: the two must agree, and any disagreement is a finding about the ledger rather than about the checklist.
