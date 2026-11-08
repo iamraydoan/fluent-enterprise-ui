@@ -694,6 +694,7 @@ export default tseslint.config(
               "p",
               "mb",
               "tone",
+              "headerGap",
             ],
           },
           "object-properties": {

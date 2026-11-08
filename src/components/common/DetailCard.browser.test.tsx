@@ -35,6 +35,17 @@ test("renders a custom header row instead of a title", async () => {
   expect(css(headerRow, "justify-content")).toBe("space-between");
 });
 
+test("can render a header row with no bottom gap", async () => {
+  const screen = await renderWithAppTheme(
+    <DetailCard header={<span>tight header</span>} headerGap="none">
+      <span>body</span>
+    </DetailCard>,
+  );
+  await expect.element(screen.getByText("tight header")).toBeVisible();
+  const headerRow = document.querySelector("span")?.parentElement as HTMLElement;
+  expect(css(headerRow, "margin-bottom")).toBe("0px");
+});
+
 test("renders a label and value row", async () => {
   const screen = await renderWithAppTheme(
     <DetailCard title="Area">

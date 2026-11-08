@@ -4,10 +4,7 @@ import { useSharedStyles } from "@/styles/shared";
 import { theme } from "@/styles/theme";
 import { SectionHeader } from "./Section";
 import { HStack, VStack } from "./Stack";
-
-const useCardStyles = makeStyles({
-  header: { marginBottom: theme.spacing.md },
-});
+import type { StackGap } from "./Stack";
 
 const useFieldStyles = makeStyles({
   row: { fontSize: "13px" },
@@ -17,20 +14,21 @@ const useFieldStyles = makeStyles({
 export function DetailCard({
   title,
   header,
+  headerGap = "md",
   children,
   className,
 }: {
   title?: ReactNode;
   header?: ReactNode;
+  headerGap?: StackGap;
   children: ReactNode;
   className?: string;
 }) {
   const sharedStyles = useSharedStyles();
-  const cardStyles = useCardStyles();
   return (
     <VStack gap="md" className={mergeClasses(sharedStyles.contentCard, className)}>
       {header !== undefined ? (
-        <HStack align="center" justify="space-between" className={cardStyles.header}>
+        <HStack align="center" justify="space-between" mb={headerGap}>
           {header}
         </HStack>
       ) : (

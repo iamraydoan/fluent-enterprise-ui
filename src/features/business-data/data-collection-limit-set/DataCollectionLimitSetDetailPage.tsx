@@ -3,18 +3,18 @@ import { useState } from "react";
 import { useDataCollectionLimitSetDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
+  DetailCard,
+  DetailField,
   DetailShell,
   DetailTabs,
   editAction,
+  Empty,
+  Grid,
   ListPage,
   refreshAction,
+  SectionHeader,
   terminateAction,
   unterminateAction,
-  Empty,
-  SectionHeader,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
@@ -25,27 +25,10 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useDataCollectionLimitSetDialogs } from "./useDataCollectionLimitSetDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "180px" },
-});
 
 const TABS = ["details", "references", "history"] as const;
 const LEFT_SECTIONS: TranslationKey[] = [
@@ -56,8 +39,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function DataCollectionLimitSetDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<string>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { name } = useParams({ strict: false }) as { name: string };
@@ -65,6 +46,13 @@ export function DataCollectionLimitSetDetailPage() {
   const { data: ls, isLoading } = useDataCollectionLimitSetDetail(displayName);
   const { dialogs, openEdit, openTerminate, openUnterminate, openManageParameters } =
     useDataCollectionLimitSetDialogs(ls);
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.dataCollectionLimitSet.detail.emptyValue") : value;
+  const displayYesNo = (value: boolean) =>
+    value
+      ? t("businessData.dataCollectionLimitSet.detail.yes")
+      : t("businessData.dataCollectionLimitSet.detail.no");
 
   if (isLoading || !ls) {
     return (
@@ -129,17 +117,21 @@ export function DataCollectionLimitSetDetailPage() {
             showState={false}
           >
             {showLimits ? (
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <HStack align="center" justify="space-between">
-                  <SectionHeader
-                    title={t("businessData.dataCollectionLimitSet.detail.limitsTitle", {
-                      count: ls.parameterLimits.length,
-                    })}
-                  />
-                  <Button variant="secondary" size="sm" onClick={openManageParameters}>
-                    {t("businessData.dataCollectionLimitSet.operations.manageParametersTitle")}
-                  </Button>
-                </HStack>
+              <DetailCard
+                headerGap="none"
+                header={
+                  <>
+                    <SectionHeader
+                      title={t("businessData.dataCollectionLimitSet.detail.limitsTitle", {
+                        count: ls.parameterLimits.length,
+                      })}
+                    />
+                    <Button variant="secondary" size="sm" onClick={openManageParameters}>
+                      {t("businessData.dataCollectionLimitSet.operations.manageParametersTitle")}
+                    </Button>
+                  </>
+                }
+              >
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -188,16 +180,8 @@ export function DataCollectionLimitSetDetailPage() {
                     {ls.parameterLimits.map((p) => (
                       <TableRow key={p.parameter}>
                         <TableCell>{p.parameter}</TableCell>
-                        <TableCell>
-                          {p.overrideParameter
-                            ? t("businessData.dataCollectionLimitSet.detail.yes")
-                            : t("businessData.dataCollectionLimitSet.detail.no")}
-                        </TableCell>
-                        <TableCell>
-                          {p.includeSampleLimits
-                            ? t("businessData.dataCollectionLimitSet.detail.yes")
-                            : t("businessData.dataCollectionLimitSet.detail.no")}
-                        </TableCell>
+                        <TableCell>{displayYesNo(p.overrideParameter)}</TableCell>
+                        <TableCell>{displayYesNo(p.includeSampleLimits)}</TableCell>
                         <TableCell>{p.limitType}</TableCell>
                         <TableCell>{p.lowerErrorLimit}</TableCell>
                         <TableCell>{p.lowerWarningLimit}</TableCell>
@@ -208,43 +192,45 @@ export function DataCollectionLimitSetDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </VStack>
+              </DetailCard>
             ) : (
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader
-                    title={t("businessData.dataCollectionLimitSet.detail.dataCollectionLimitSet")}
-                  />
-                  <KV
+              <Grid columns="auto-fit" gap="md">
+                <DetailCard
+                  title={t("businessData.dataCollectionLimitSet.detail.dataCollectionLimitSet")}
+                >
+                  <DetailField
                     label={t("businessData.dataCollectionLimitSet.detail.name")}
-                    value={ls.name}
+                    value={displayValue(ls.name)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.dataCollectionLimitSet.detail.description")}
-                    value={ls.description}
+                    value={displayValue(ls.description)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.dataCollectionLimitSet.detail.type")}
-                    value={ls.type}
+                    value={displayValue(ls.type)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.dataCollectionLimitSet.detail.universalState")}
-                    value={ls.universalState}
+                    value={displayValue(ls.universalState)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.dataCollectionLimitSet.detail.dataGroup")}
-                    value={ls.dataGroup}
+                    value={displayValue(ls.dataGroup)}
+                    labelWidth={180}
                   />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader
-                    title={t("businessData.dataCollectionLimitSet.detail.information")}
-                  />
-                  <KV
+                </DetailCard>
+                <DetailCard title={t("businessData.dataCollectionLimitSet.detail.information")}>
+                  <DetailField
                     label={t("businessData.dataCollectionLimitSet.detail.dataCollection")}
-                    value={ls.dataCollection}
+                    value={displayValue(ls.dataCollection)}
+                    labelWidth={180}
                   />
-                </VStack>
+                </DetailCard>
               </Grid>
             )}
           </DetailShell>
@@ -255,18 +241,5 @@ export function DataCollectionLimitSetDetailPage() {
       </DetailTabs>
       {dialogs}
     </ListPage>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>
-        {value === "" ? t("businessData.dataCollectionLimitSet.detail.emptyValue") : value}
-      </span>
-    </HStack>
   );
 }
