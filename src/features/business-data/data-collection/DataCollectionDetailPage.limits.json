@@ -1,0 +1,46 @@
+[
+  {
+    "card": {
+      "padding": "8px 16px 0px",
+      "backgroundColor": "rgb(250, 250, 250)",
+      "borderRadius": "12px",
+      "marginTop": "10px",
+      "display": "flex",
+      "flexDirection": "column",
+      "rowGap": "12px"
+    },
+    "header": {
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "space-between",
+      "columnGap": "12px",
+      "marginBottom": "0px"
+    },
+    "title": {
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "color": "rgb(36, 36, 36)",
+      "paddingBottom": "8px",
+      "borderBottom": "1px solid rgb(224, 224, 224)"
+    },
+    "rows": [
+      {
+        "display": "flex",
+        "columnGap": "12px",
+        "fontSize": "13px",
+        "padding": "0px",
+        "borderBottom": "0px none rgb(36, 36, 36)",
+        "leaves": [
+          {
+            "fontSize": "13px",
+            "fontWeight": "400",
+            "color": "rgb(36, 36, 36)",
+            "padding": "0px",
+            "borderBottom": "0px none rgb(36, 36, 36)",
+            "text": "Cookie Inspection Limits 001"
+          }
+        ]
+      }
+    ]
+  }
+]

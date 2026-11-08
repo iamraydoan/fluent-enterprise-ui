@@ -3,41 +3,32 @@ import { useState } from "react";
 import { useDataCollectionDetail } from "@/api";
 import type { DataCollectionInstance, DataCollectionParameter } from "@/api";
 import {
+  DetailCard,
+  DetailCardTitle,
+  DetailEmpty,
+  DetailField,
   DetailShell,
+  DetailSurface,
+  DetailTabs,
+  Grid,
+  HStack,
   ListPage,
+  ListRow,
   Section,
+  VStack,
   cloneAction,
   editAction,
   refreshAction,
   terminateAction,
   unterminateAction,
-  DetailTabs,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Text, makeStyles } from "@/components/ui";
+import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useCopyDataCollectionLimitSetsDialog } from "../data-collection-limit-set/useDataCollectionLimitSetDialogs";
 import { useDataCollectionDialogs } from "./useDataCollectionDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: "16px" },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: "8px",
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: { fontSize: "13px" },
-  label: { color: theme.color.textTertiary, minWidth: "200px" },
-  empty: { padding: "32px", textAlign: "center", color: theme.color.textTertiary },
-});
 
 const TABS = ["details", "compare", "references", "history"] as const;
 const LEFT_SECTIONS: TranslationKey[] = [
@@ -50,8 +41,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function DataCollectionDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<string>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -79,6 +68,8 @@ export function DataCollectionDetailPage() {
     dc?.name ?? "",
   );
 
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.dataCollection.detail.emptyValue") : value;
   if (isLoading || !dc) {
     return (
       <ListPage
@@ -88,7 +79,7 @@ export function DataCollectionDetailPage() {
           actions: [refreshAction, editAction],
         }}
       >
-        <div className={styles.empty}>{t("businessData.dataCollection.detail.loading")}</div>
+        <DetailEmpty>{t("businessData.dataCollection.detail.loading")}</DetailEmpty>
       </ListPage>
     );
   }
@@ -149,14 +140,14 @@ export function DataCollectionDetailPage() {
             showState={false}
           >
             {left === "businessData.dataCollection.detail.sections.parameters" ? (
-              <VStack gap="12px">
-                <HStack justify="end" style={{ marginBottom: "8px" }}>
+              <VStack gap="md">
+                <HStack justify="end" mb="sm">
                   <Button variant="secondary" onClick={openManageParameters}>
                     {t("businessData.dataCollection.operations.manageParametersTitle")}
                   </Button>
                 </HStack>
                 {dc.parameters.map((p) => (
-                  <div key={p.parameter} className={sharedStyles.contentCard}>
+                  <DetailSurface key={p.parameter}>
                     <Section
                       collapsible
                       expanded={expanded === p.parameter}
@@ -166,7 +157,7 @@ export function DataCollectionDetailPage() {
                       title={
                         <>
                           {p.parameter}
-                          <Text size={200} style={{ color: theme.color.textTertiary }}>
+                          <Text size={200} tone="tertiary">
                             {p.dataType}
                           </Text>
                         </>
@@ -174,34 +165,36 @@ export function DataCollectionDetailPage() {
                     >
                       <ParameterDetail parameter={p} />
                     </Section>
-                  </div>
+                  </DetailSurface>
                 ))}
               </VStack>
             ) : left === "businessData.dataCollection.detail.sections.limitSets" ? (
-              <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <HStack align="center" justify="between">
-                  <Text className={styles.cardTitle}>
-                    {t("businessData.dataCollection.detail.limitSetsTitle", {
-                      count: dc.limitSets.length,
-                    })}
-                  </Text>
-                  <Button variant="secondary" size="sm" onClick={openCopyLimitSets}>
-                    {t("businessData.dataCollectionLimitSet.operations.copyTitle")}
-                  </Button>
-                </HStack>
+              <DetailCard
+                header={
+                  <>
+                    <DetailCardTitle>
+                      {t("businessData.dataCollection.detail.limitSetsTitle", {
+                        count: dc.limitSets.length,
+                      })}
+                    </DetailCardTitle>
+                    <Button variant="secondary" size="sm" onClick={openCopyLimitSets}>
+                      {t("businessData.dataCollectionLimitSet.operations.copyTitle")}
+                    </Button>
+                  </>
+                }
+                headerGap="none"
+              >
                 {dc.limitSets.map((l) => (
-                  <HStack key={l.name} gap="12px" className={styles.row}>
-                    <span>{l.name}</span>
-                  </HStack>
+                  <ListRow key={l.name} variant="plain" title={l.name} />
                 ))}
-              </VStack>
+              </DetailCard>
             ) : left === "businessData.dataCollection.detail.sections.instances" ? (
-              <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <Text className={styles.cardTitle}>
+              <DetailCard>
+                <DetailCardTitle>
                   {t("businessData.dataCollection.detail.instancesTitle", {
                     count: dc.instances.length,
                   })}
-                </Text>
+                </DetailCardTitle>
                 {dc.instances.map((i) => (
                   <InstanceRow
                     key={i.name}
@@ -215,57 +208,75 @@ export function DataCollectionDetailPage() {
                     onUnterminate={() => openUnterminateInstance(i)}
                   />
                 ))}
-              </VStack>
+              </DetailCard>
             ) : (
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
+              <Grid columns="auto-fit" gap="md">
+                <DetailCard>
+                  <DetailCardTitle>
                     {t("businessData.dataCollection.detail.dataCollection")}
-                  </Text>
-                  <KV label={t("businessData.dataCollection.detail.name")} value={dc.name} />
-                  <KV
+                  </DetailCardTitle>
+                  <DetailField
+                    label={t("businessData.dataCollection.detail.name")}
+                    value={displayValue(dc.name)}
+                    labelWidth={200}
+                  />
+                  <DetailField
                     label={t("businessData.dataCollection.detail.description")}
-                    value={dc.description}
+                    value={displayValue(dc.description)}
+                    labelWidth={200}
                   />
-                  <KV label={t("businessData.dataCollection.detail.type")} value={dc.type} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.dataCollection.detail.type")}
+                    value={displayValue(dc.type)}
+                    labelWidth={200}
+                  />
+                  <DetailField
                     label={t("businessData.dataCollection.detail.universalState")}
-                    value={dc.universalState}
+                    value={displayValue(dc.universalState)}
+                    labelWidth={200}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.dataCollection.detail.dataGroup")}
-                    value={dc.dataGroup}
+                    value={displayValue(dc.dataGroup)}
+                    labelWidth={200}
                   />
-                </VStack>
-                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
+                </DetailCard>
+                <DetailCard>
+                  <DetailCardTitle>
                     {t("businessData.dataCollection.detail.changeSet")}
-                  </Text>
-                  <KV
+                  </DetailCardTitle>
+                  <DetailField
                     label={t("businessData.dataCollection.detail.changeSetLabel")}
-                    value={dc.changeSet}
+                    value={displayValue(dc.changeSet)}
+                    labelWidth={200}
                   />
-                </VStack>
-                <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <Text className={styles.cardTitle}>
+                </DetailCard>
+                <DetailCard>
+                  <DetailCardTitle>
                     {t("businessData.dataCollection.detail.details")}
-                  </Text>
-                  <KV label={t("businessData.dataCollection.detail.scope")} value={dc.scope} />
-                  <KV
+                  </DetailCardTitle>
+                  <DetailField
+                    label={t("businessData.dataCollection.detail.scope")}
+                    value={displayValue(dc.scope)}
+                    labelWidth={200}
+                  />
+                  <DetailField
                     label={t("businessData.dataCollection.detail.userInterface")}
-                    value={dc.userInterface}
+                    value={displayValue(dc.userInterface)}
+                    labelWidth={200}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.dataCollection.detail.limitCheckingMode")}
-                    value={dc.limitCheckingMode}
+                    value={displayValue(dc.limitCheckingMode)}
+                    labelWidth={200}
                   />
-                </VStack>
+                </DetailCard>
               </Grid>
             )}
           </DetailShell>
         )}
         {tab !== "details" && (
-          <div className={styles.empty}>{t("businessData.dataCollection.detail.historyEmpty")}</div>
+          <DetailEmpty>{t("businessData.dataCollection.detail.historyEmpty")}</DetailEmpty>
         )}
       </DetailTabs>
       {dialogs}
@@ -298,129 +309,112 @@ function InstanceRow({
   onUnterminate: () => void;
 }) {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
   const terminated = instance.state === "Terminated";
   return (
-    <HStack
-      gap="12px"
-      align="center"
-      className={styles.row}
-      style={{
-        padding: "8px 0",
-        borderBottom: `1px solid ${theme.color.borderSubtle}`,
-      }}
-    >
-      <div style={{ flexGrow: 1 }}>
-        <div style={{ fontWeight: 600 }}>{instance.name}</div>
-        <div style={{ fontSize: "12px", color: theme.color.textTertiary }}>
+    <ListRow
+      title={instance.name}
+      subtitle={
+        <>
           {instance.state}
           {postedCountSuffix(instance.postedData.length)}
-        </div>
-      </div>
-      <HStack gap="4px" wrap>
-        <Button variant="secondary" size="sm" onClick={onView}>
-          {t("businessData.dataCollection.operations.viewInstanceTitle")}
-        </Button>
-        <Button variant="secondary" size="sm" onClick={onPost}>
-          {t("businessData.dataCollection.operations.post")}
-        </Button>
-        <Button variant="secondary" size="sm" onClick={onCorrect}>
-          {t("businessData.dataCollection.operations.correct")}
-        </Button>
-        <Button variant="secondary" size="sm" onClick={onClose}>
-          {t("businessData.dataCollection.operations.close")}
-        </Button>
-        <Button variant="secondary" size="sm" onClick={onReset}>
-          {t("businessData.dataCollection.operations.reset")}
-        </Button>
-        {terminated ? (
-          <Button variant="secondary" size="sm" onClick={onUnterminate}>
-            {t("businessData.dataCollection.operations.unterminateInstance")}
+        </>
+      }
+      actions={
+        <>
+          <Button variant="secondary" size="sm" onClick={onView}>
+            {t("businessData.dataCollection.operations.viewInstanceTitle")}
           </Button>
-        ) : (
-          <Button variant="secondary" size="sm" onClick={onTerminate}>
-            {t("businessData.dataCollection.operations.terminateInstance")}
+          <Button variant="secondary" size="sm" onClick={onPost}>
+            {t("businessData.dataCollection.operations.post")}
           </Button>
-        )}
-      </HStack>
-    </HStack>
+          <Button variant="secondary" size="sm" onClick={onCorrect}>
+            {t("businessData.dataCollection.operations.correct")}
+          </Button>
+          <Button variant="secondary" size="sm" onClick={onClose}>
+            {t("businessData.dataCollection.operations.close")}
+          </Button>
+          <Button variant="secondary" size="sm" onClick={onReset}>
+            {t("businessData.dataCollection.operations.reset")}
+          </Button>
+          {terminated ? (
+            <Button variant="secondary" size="sm" onClick={onUnterminate}>
+              {t("businessData.dataCollection.operations.unterminateInstance")}
+            </Button>
+          ) : (
+            <Button variant="secondary" size="sm" onClick={onTerminate}>
+              {t("businessData.dataCollection.operations.terminateInstance")}
+            </Button>
+          )}
+        </>
+      }
+    />
   );
 }
 
 function ParameterDetail({ parameter }: { parameter: DataCollectionParameter }) {
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const { t } = useAppTranslation();
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.dataCollection.detail.emptyValue") : value;
+  const displayYesNo = (value: boolean) =>
+    value
+      ? t("businessData.dataCollection.detail.yes")
+      : t("businessData.dataCollection.detail.no");
   return (
-    <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px" style={{ padding: 16 }}>
-      <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-        <Text className={styles.cardTitle}>
+    <Grid columns="auto-fit" gap="md" p="lg">
+      <DetailCard>
+        <DetailCardTitle>
           {t("businessData.dataCollection.detail.parameterDetails")}
-        </Text>
-        <KV label={t("businessData.dataCollection.detail.parameter")} value={parameter.parameter} />
-        <Bool
+        </DetailCardTitle>
+        <DetailField
+          label={t("businessData.dataCollection.detail.parameter")}
+          value={displayValue(parameter.parameter)}
+          labelWidth={200}
+        />
+        <DetailField
           label={t("businessData.dataCollection.detail.isOptional")}
-          value={parameter.isOptional}
+          value={displayYesNo(parameter.isOptional)}
+          labelWidth={200}
         />
-      </VStack>
-      <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-        <Text className={styles.cardTitle}>{t("businessData.dataCollection.detail.samples")}</Text>
-        <KV label={t("businessData.dataCollection.detail.type")} value={parameter.dataType} />
-        <KV
+      </DetailCard>
+      <DetailCard>
+        <DetailCardTitle>{t("businessData.dataCollection.detail.samples")}</DetailCardTitle>
+        <DetailField
+          label={t("businessData.dataCollection.detail.type")}
+          value={displayValue(parameter.dataType)}
+          labelWidth={200}
+        />
+        <DetailField
           label={t("businessData.dataCollection.detail.minimumSamples")}
-          value={String(parameter.minimumSamples)}
+          value={displayValue(String(parameter.minimumSamples))}
+          labelWidth={200}
         />
-        <KV
+        <DetailField
           label={t("businessData.dataCollection.detail.maximumSamples")}
-          value={String(parameter.maximumSamples)}
+          value={displayValue(String(parameter.maximumSamples))}
+          labelWidth={200}
         />
-      </VStack>
-      <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-        <Text className={styles.cardTitle}>{t("businessData.dataCollection.detail.readings")}</Text>
-        <KV
+      </DetailCard>
+      <DetailCard>
+        <DetailCardTitle>{t("businessData.dataCollection.detail.readings")}</DetailCardTitle>
+        <DetailField
           label={t("businessData.dataCollection.detail.minimumSampleReadings")}
-          value={String(parameter.minimumSampleReadings)}
+          value={displayValue(String(parameter.minimumSampleReadings))}
+          labelWidth={200}
         />
-        <KV
+        <DetailField
           label={t("businessData.dataCollection.detail.maximumSampleReadings")}
-          value={String(parameter.maximumSampleReadings)}
+          value={displayValue(String(parameter.maximumSampleReadings))}
+          labelWidth={200}
         />
-      </VStack>
-      <VStack gap="12px" className={`${sharedStyles.contentCard} ${styles.card}`}>
-        <Text className={styles.cardTitle}>
-          {t("businessData.dataCollection.detail.calculation")}
-        </Text>
-        <KV
+      </DetailCard>
+      <DetailCard>
+        <DetailCardTitle>{t("businessData.dataCollection.detail.calculation")}</DetailCardTitle>
+        <DetailField
           label={t("businessData.dataCollection.detail.limitChecking")}
-          value={parameter.limitChecking}
+          value={displayValue(parameter.limitChecking)}
+          labelWidth={200}
         />
-      </VStack>
+      </DetailCard>
     </Grid>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.dataCollection.detail.emptyValue") : value}</span>
-    </HStack>
-  );
-}
-
-function Bool({ label, value }: { label: string; value: boolean }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>
-        {value
-          ? t("businessData.dataCollection.detail.yes")
-          : t("businessData.dataCollection.detail.no")}
-      </span>
-    </HStack>
   );
 }
