@@ -8,7 +8,7 @@ Regenerate with the inventory script; update Status/Owner/Review/Commit as work 
 | Metric                         | Count |
 | ------------------------------ | ----- |
 | Page files scanned             | 158   |
-| Pages carrying styling debt    | 54    |
+| Pages carrying styling debt    | 52    |
 | Pages already clean            | 94    |
 | Pages calling makeStyles       | 40    |
 | Pages with inline style props  | 49    |
@@ -60,8 +60,8 @@ Status legend: pending / in-progress / review / fixing / done. Review: blank / p
 
 | #   | Page                                                                                     | MS  | INL | HEX | PX  | THM | CFG | Status  | Owner       | Review | Commit  |
 | --- | ---------------------------------------------------------------------------------------- | --- | --- | --- | --- | --- | --- | ------- | ----------- | ------ | ------- |
-| 21  | features/business-data/data-collection/DataCollectionDetailPage.tsx                      | 1   | 7   | 0   | 25  | 1   | 0   | pending |             |        |         |
-| 22  | features/business-data/checklist/ChecklistDetailPage.tsx                                 | 1   | 4   | 0   | 19  | 1   | 0   | pending |             |        |         |
+| 21  | features/business-data/data-collection/DataCollectionDetailPage.tsx                      | 0   | 0   | 0   | 0   | 0   | 0   | review  | page-worker |        | 63d6056 |
+| 22  | features/business-data/checklist/ChecklistDetailPage.tsx                                 | 0   | 0   | 0   | 0   | 0   | 0   | review  | page-worker |        | 7523da3 |
 | 23  | features/business-data/calendar/CalendarDetailPage.tsx                                   | 1   | 3   | 0   | 18  | 1   | 0   | pending |             |        |         |
 | 24  | features/business-data/container/ContainerDetailPage.tsx                                 | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 6b2a75b |
 | 25  | features/business-data/product-group/ProductGroupDetailPage.tsx                          | 1   | 9   | 0   | 1   | 1   | 0   | pending |             |        |         |
