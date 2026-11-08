@@ -121,10 +121,18 @@ Per phase: the above plus `npm run format:check` clean, `npm run check:deps` 0, 
 
 Final: encapsulation test green, ledger empty, and every checklist row `done`.
 
-## 11. Risks and open decisions
+## 11. Risks
 
 - A ban without primitives creates escape hatches; every new rule in A must ship with the primitive it points at.
 - Some layouts are genuinely bespoke. The target is rare, named and justified exceptions in the ledger, not zero exceptions.
 - Runtime theming re-renders the tree. Acceptable for a settings panel, but do not use the store for per-page tweaks.
 - 64 pages is a long tail. If throughput matters, pages that share an identical conversion pattern may be grouped into one commit, but each page still needs its own checklist row and review verdict.
-- Open: is the panel a developer tool or an end-user feature? End-user means i18n, a11y and persistence become hard requirements.
+
+## 12. Decisions
+
+Settled; do not relitigate without a new reason.
+
+1. **The panel is an end-user feature, kept simple.** It follows the template-vendor pattern: a small, fixed setting set that a user changes at runtime. i18n, keyboard access, labels and persistence are therefore hard requirements, but the setting set stays small - six settings, not a design tool.
+2. **The component layer is unrestricted.** All style bans are scoped to the page layer (`src/features/**/*Page.tsx`). No style rule may be applied to `src/components/**`.
+3. **The `#FAFAFA` card-surface rule stays as it is**, applying to all of `src/**` including components. Rationale: it is a value-duplication rule (one canonical surface colour), not a style-encapsulation ban. It does not restrict how a component styles; it forbids re-declaring one canonical value that already exists in `src/styles/shared.ts`. Removing it would be exactly the kind of arbitrary loosening that produced the current escape hatches.
+4. **Import boundaries stay.** `@fluentui/react-components` only inside `@/components/ui`; raw `tokens` only in `src/components/ui/**` and `src/styles/theme.ts`; no i18n inside components. These are what make the wrapper layer a closed API, and they are not style bans.
