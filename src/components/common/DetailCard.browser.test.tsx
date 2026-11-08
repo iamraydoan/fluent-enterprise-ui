@@ -35,6 +35,33 @@ test("renders a custom header row instead of a title", async () => {
   expect(css(headerRow, "justify-content")).toBe("space-between");
 });
 
+test("renders a compact card title", async () => {
+  const screen = await renderWithAppTheme(
+    <DetailCard title="Compact" titleVariant="compact">
+      <span>body</span>
+    </DetailCard>,
+  );
+  await expect.element(screen.getByText("Compact")).toBeVisible();
+  const title = document.querySelector("span") as HTMLElement;
+  expect(css(title, "font-size")).toBe("14px");
+  expect(css(title, "font-weight")).toBe("600");
+  expect(css(title, "padding-bottom")).toBe("8px");
+  expect(css(title, "border-bottom")).toBe("1px solid rgb(224, 224, 224)");
+  expect(css(title, "margin-bottom")).toBe("0px");
+});
+
+test("renders a section card title by default", async () => {
+  const screen = await renderWithAppTheme(
+    <DetailCard title="Section">
+      <span>body</span>
+    </DetailCard>,
+  );
+  await expect.element(screen.getByText("Section")).toBeVisible();
+  const title = document.querySelector("span") as HTMLElement;
+  expect(css(title, "font-size")).toBe("16px");
+  expect(css(title.parentElement as HTMLElement, "margin-bottom")).toBe("12px");
+});
+
 test("can render a header row with no bottom gap", async () => {
   const screen = await renderWithAppTheme(
     <DetailCard header={<span>tight header</span>} headerGap="none">
