@@ -4,40 +4,22 @@ import { useAreaDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
+  DetailCard,
+  DetailField,
   DetailShell,
   DetailTabs,
   editAction,
   Empty,
+  Grid,
   ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  SectionHeader,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
-import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useAreaDialogs } from "./useAreaDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "120px" },
-});
 
 const TABS = ["details", "areaView", "maintenance", "references", "history"] as const;
 type AreaTab = (typeof TABS)[number];
@@ -53,8 +35,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 export function AreaDetailPage() {
   const { name } = useParams({ strict: false }) as { name: string };
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<AreaTab>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { data: area, isLoading } = useAreaDetail(decodeURIComponent(name));
@@ -68,6 +48,9 @@ export function AreaDetailPage() {
     openTransferTypes,
     openDashboards,
   } = useAreaDialogs(area);
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.area.detail.emptyValue") : value;
 
   const detailActions: HeaderAction[] = [
     refreshAction,
@@ -136,36 +119,59 @@ export function AreaDetailPage() {
               onAskAi={() => undefined}
               showState={false}
             >
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.area.detail.area")} />
-                  <KV label={t("businessData.area.detail.name")} value={area.name} />
-                  <KV label={t("businessData.area.detail.description")} value={area.description} />
-                  <KV label={t("businessData.area.detail.type")} value={area.type} />
-                  <KV
-                    label={t("businessData.area.detail.universalState")}
-                    value={area.universalState}
+              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="md">
+                <DetailCard title={t("businessData.area.detail.area")}>
+                  <DetailField
+                    label={t("businessData.area.detail.name")}
+                    value={displayValue(area.name)}
                   />
-                  <KV label={t("businessData.area.detail.dataGroup")} value={area.dataGroup} />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.area.detail.information")} />
-                  <KV label={t("businessData.area.detail.facility")} value={area.facility} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.area.detail.description")}
+                    value={displayValue(area.description)}
+                  />
+                  <DetailField
+                    label={t("businessData.area.detail.type")}
+                    value={displayValue(area.type)}
+                  />
+                  <DetailField
+                    label={t("businessData.area.detail.universalState")}
+                    value={displayValue(area.universalState)}
+                  />
+                  <DetailField
+                    label={t("businessData.area.detail.dataGroup")}
+                    value={displayValue(area.dataGroup)}
+                  />
+                </DetailCard>
+                <DetailCard title={t("businessData.area.detail.information")}>
+                  <DetailField
+                    label={t("businessData.area.detail.facility")}
+                    value={displayValue(area.facility)}
+                  />
+                  <DetailField
                     label={t("businessData.area.detail.displayOrder")}
                     value={String(area.displayOrder)}
                   />
-                  <KV label={t("businessData.area.detail.areaType")} value={area.areaType} />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.area.detail.planning")} />
-                  <KV label={t("businessData.area.detail.calendar")} value={area.calendar} />
-                  <KV label={t("businessData.area.detail.schedule")} value={area.schedule} />
-                  <KV label={t("businessData.area.detail.costCenter")} value={area.costCenter} />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.area.detail.shiftLogbooks")} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.area.detail.areaType")}
+                    value={displayValue(area.areaType)}
+                  />
+                </DetailCard>
+                <DetailCard title={t("businessData.area.detail.planning")}>
+                  <DetailField
+                    label={t("businessData.area.detail.calendar")}
+                    value={displayValue(area.calendar)}
+                  />
+                  <DetailField
+                    label={t("businessData.area.detail.schedule")}
+                    value={displayValue(area.schedule)}
+                  />
+                  <DetailField
+                    label={t("businessData.area.detail.costCenter")}
+                    value={displayValue(area.costCenter)}
+                  />
+                </DetailCard>
+                <DetailCard title={t("businessData.area.detail.shiftLogbooks")}>
+                  <DetailField
                     label={t("businessData.area.detail.enableShiftLogbook")}
                     value={
                       area.enableShiftLogbook
@@ -173,7 +179,7 @@ export function AreaDetailPage() {
                         : t("businessData.area.detail.no")
                     }
                   />
-                </VStack>
+                </DetailCard>
               </Grid>
             </DetailShell>
           )}
@@ -182,16 +188,5 @@ export function AreaDetailPage() {
       </ListPage>
       {dialogs}
     </>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.area.detail.emptyValue") : value}</span>
-    </HStack>
   );
 }

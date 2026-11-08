@@ -67,11 +67,6 @@
     "local/no-page-theme-import",
     "no-restricted-syntax"
   ],
-  "src/features/business-data/area/AreaDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/batch/BatchDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-makeStyles",
