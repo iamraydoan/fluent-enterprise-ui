@@ -4,18 +4,18 @@ import { useBomDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
+  DetailCard,
+  DetailField,
   DetailShell,
   DetailTabs,
   editAction,
   Empty,
+  Grid,
   ListPage,
   refreshAction,
+  SectionHeader,
   terminateAction,
   unterminateAction,
-  SectionHeader,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
@@ -25,30 +25,10 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useBomDialogs } from "./useBomDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "140px" },
-  itemsHeader: {
-    marginBottom: theme.spacing.md,
-  },
-});
 
 const TABS = ["details", "compare", "references", "history"] as const;
 type BomTab = (typeof TABS)[number];
@@ -62,8 +42,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function BomDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<BomTab>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { name } = useParams({ strict: false }) as { name: string };
@@ -71,6 +49,9 @@ export function BomDetailPage() {
   const { data: bom, isLoading } = useBomDetail(displayName);
   const { dialogs, openEdit, openClone, openTerminate, openUnterminate, openManageItems } =
     useBomDialogs(bom);
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.bom.detail.emptyValue") : value;
 
   if (isLoading || !bom) {
     return (
@@ -135,12 +116,13 @@ export function BomDetailPage() {
             showState={false}
           >
             {showItems ? (
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <HStack align="center" justify="space-between" className={styles.itemsHeader}>
+              <DetailCard
+                header={
                   <SectionHeader
                     title={t("businessData.bom.detail.bomItemsTitle", { count: bom.items.length })}
                   />
-                </HStack>
+                }
+              >
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -177,50 +159,83 @@ export function BomDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </VStack>
+              </DetailCard>
             ) : (
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.bom.detail.bom")} />
-                  <KV label={t("businessData.bom.detail.name")} value={bom.name} />
-                  <KV label={t("businessData.bom.detail.description")} value={bom.description} />
-                  <KV label={t("businessData.bom.detail.type")} value={bom.type} />
-                  <KV
-                    label={t("businessData.bom.detail.universalState")}
-                    value={bom.universalState}
+              <Grid columns="auto-fit" gap="md">
+                <DetailCard title={t("businessData.bom.detail.bom")}>
+                  <DetailField
+                    label={t("businessData.bom.detail.name")}
+                    value={displayValue(bom.name)}
+                    labelWidth={140}
                   />
-                  <KV label={t("businessData.bom.detail.dataGroup")} value={bom.dataGroup} />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.bom.detail.changeSet")} />
-                  <KV label={t("businessData.bom.detail.changeSetLabel")} value={bom.changeSet} />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.bom.detail.information")} />
-                  <KV label={t("businessData.bom.detail.scope")} value={bom.scope} />
-                  <KV label={t("businessData.bom.detail.product")} value={bom.product} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.bom.detail.description")}
+                    value={displayValue(bom.description)}
+                    labelWidth={140}
+                  />
+                  <DetailField
+                    label={t("businessData.bom.detail.type")}
+                    value={displayValue(bom.type)}
+                    labelWidth={140}
+                  />
+                  <DetailField
+                    label={t("businessData.bom.detail.universalState")}
+                    value={displayValue(bom.universalState)}
+                    labelWidth={140}
+                  />
+                  <DetailField
+                    label={t("businessData.bom.detail.dataGroup")}
+                    value={displayValue(bom.dataGroup)}
+                    labelWidth={140}
+                  />
+                </DetailCard>
+                <DetailCard title={t("businessData.bom.detail.changeSet")}>
+                  <DetailField
+                    label={t("businessData.bom.detail.changeSetLabel")}
+                    value={displayValue(bom.changeSet)}
+                    labelWidth={140}
+                  />
+                </DetailCard>
+                <DetailCard title={t("businessData.bom.detail.information")}>
+                  <DetailField
+                    label={t("businessData.bom.detail.scope")}
+                    value={displayValue(bom.scope)}
+                    labelWidth={140}
+                  />
+                  <DetailField
+                    label={t("businessData.bom.detail.product")}
+                    value={displayValue(bom.product)}
+                    labelWidth={140}
+                  />
+                  <DetailField
                     label={t("businessData.bom.detail.baseQuantity")}
                     value={String(bom.baseQuantity)}
+                    labelWidth={140}
                   />
-                  <KV label={t("businessData.bom.detail.units")} value={bom.units} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.bom.detail.units")}
+                    value={displayValue(bom.units)}
+                    labelWidth={140}
+                  />
+                  <DetailField
                     label={t("businessData.bom.detail.useTolerances")}
                     value={
                       bom.useTolerances
                         ? t("businessData.bom.detail.yes")
                         : t("businessData.bom.detail.no")
                     }
+                    labelWidth={140}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.bom.detail.useMixedAssembly")}
                     value={
                       bom.useMixedAssembly
                         ? t("businessData.bom.detail.yes")
                         : t("businessData.bom.detail.no")
                     }
+                    labelWidth={140}
                   />
-                </VStack>
+                </DetailCard>
               </Grid>
             )}
           </DetailShell>
@@ -228,16 +243,5 @@ export function BomDetailPage() {
         {tab !== "details" && <Empty>{t("businessData.bom.detail.historyEmpty")}</Empty>}
       </DetailTabs>
     </ListPage>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.bom.detail.emptyValue") : value}</span>
-    </HStack>
   );
 }

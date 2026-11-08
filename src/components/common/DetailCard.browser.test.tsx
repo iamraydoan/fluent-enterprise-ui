@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { DetailCard, DetailField } from "@/components/common";
-import { renderWithAppTheme } from "@/test-utils";
+import { css, renderWithAppTheme } from "@/test-utils";
 
 test("renders a title and children", async () => {
   const screen = await renderWithAppTheme(
@@ -22,6 +22,19 @@ test("renders children without a title", async () => {
   expect(document.querySelectorAll("section")).toHaveLength(0);
 });
 
+test("renders a custom header row instead of a title", async () => {
+  const screen = await renderWithAppTheme(
+    <DetailCard header={<span>custom header</span>}>
+      <span>body</span>
+    </DetailCard>,
+  );
+  await expect.element(screen.getByText("custom header")).toBeVisible();
+  const headerRow = document.querySelector("span")?.parentElement as HTMLElement;
+  expect(css(headerRow, "display")).toBe("flex");
+  expect(css(headerRow, "margin-bottom")).toBe("12px");
+  expect(css(headerRow, "justify-content")).toBe("space-between");
+});
+
 test("renders a label and value row", async () => {
   const screen = await renderWithAppTheme(
     <DetailCard title="Area">
@@ -35,8 +48,21 @@ test("renders a label and value row", async () => {
   const row = label.parentElement as HTMLElement;
   const value = row.children[1] as HTMLElement;
   expect(value.textContent).toBe("Mixing");
-  expect(getComputedStyle(label).minWidth).toBe("120px");
-  expect(getComputedStyle(label).color).toBe("rgb(97, 97, 97)");
-  expect(getComputedStyle(label).fontSize).toBe("13px");
-  expect(getComputedStyle(row).columnGap).toBe("12px");
+  expect(css(label, "min-width")).toBe("120px");
+  expect(css(label, "color")).toBe("rgb(97, 97, 97)");
+  expect(css(label, "font-size")).toBe("13px");
+  expect(css(row, "column-gap")).toBe("12px");
+});
+
+test("renders a wider label when asked", async () => {
+  const screen = await renderWithAppTheme(
+    <DetailCard title="Area">
+      <DetailField label="Name" value="Mixing" labelWidth={170} />
+    </DetailCard>,
+  );
+  await expect.element(screen.getByText("Name:")).toBeVisible();
+  const label = Array.from(document.querySelectorAll("span")).find(
+    (span) => span.textContent === "Name:",
+  ) as HTMLElement;
+  expect(css(label, "min-width")).toBe("170px");
 });

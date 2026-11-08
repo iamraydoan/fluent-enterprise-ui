@@ -5,34 +5,57 @@ import { theme } from "@/styles/theme";
 import { SectionHeader } from "./Section";
 import { HStack, VStack } from "./Stack";
 
+const useCardStyles = makeStyles({
+  header: { marginBottom: theme.spacing.md },
+});
+
 const useFieldStyles = makeStyles({
   row: { fontSize: "13px" },
-  label: { color: theme.color.textTertiary, minWidth: "120px" },
+  label: { color: theme.color.textTertiary },
 });
 
 export function DetailCard({
   title,
+  header,
   children,
   className,
 }: {
   title?: ReactNode;
+  header?: ReactNode;
   children: ReactNode;
   className?: string;
 }) {
   const sharedStyles = useSharedStyles();
+  const cardStyles = useCardStyles();
   return (
     <VStack gap="md" className={mergeClasses(sharedStyles.contentCard, className)}>
-      {title !== undefined && <SectionHeader title={title} />}
+      {header !== undefined ? (
+        <HStack align="center" justify="space-between" className={cardStyles.header}>
+          {header}
+        </HStack>
+      ) : (
+        title !== undefined && <SectionHeader title={title} />
+      )}
       {children}
     </VStack>
   );
 }
 
-export function DetailField({ label, value }: { label: string; value: ReactNode }) {
+export function DetailField({
+  label,
+  value,
+  labelWidth = 120,
+}: {
+  label: string;
+  value: ReactNode;
+  labelWidth?: number;
+}) {
   const fieldStyles = useFieldStyles();
   return (
     <HStack gap="12px" className={fieldStyles.row}>
-      <span className={fieldStyles.label}>{label}:</span>
+      <span className={fieldStyles.label} style={{ minWidth: `${labelWidth}px` }}>
+        {label}:
+      </span>
       <span>{value}</span>
     </HStack>
   );

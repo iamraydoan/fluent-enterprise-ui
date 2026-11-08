@@ -3,16 +3,15 @@ import { useState } from "react";
 import { useBatchDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
+  DetailCard,
+  DetailField,
   DetailShell,
-  ListPage,
-  editAction,
-  refreshAction,
   DetailTabs,
+  editAction,
   Empty,
-  SectionHeader,
   Grid,
-  HStack,
-  VStack,
+  ListPage,
+  refreshAction,
 } from "@/components/common";
 import {
   ArrowDownload24Regular,
@@ -21,26 +20,9 @@ import {
   Box24Regular,
   MoreVertical24Regular,
 } from "@/components/icons";
-import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useBatchDialogs } from "./useBatchDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "140px" },
-});
 
 const TABS = ["details", "references", "history"] as const;
 type BatchTab = (typeof TABS)[number];
@@ -54,8 +36,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function BatchDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<BatchTab>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { name } = useParams({ strict: false }) as { name: string };
@@ -69,6 +49,9 @@ export function BatchDetailPage() {
     openChangeResource,
     openTransition,
   } = useBatchDialogs(batch);
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.batch.detail.emptyValue") : value;
 
   if (isLoading || !batch) {
     return (
@@ -160,101 +143,156 @@ export function BatchDetailPage() {
             onAskAi={() => undefined}
             showState={false}
           >
-            <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.batch.detail.batch")} />
-                <KV label={t("businessData.batch.detail.name")} value={batch.name} />
-                <KV label={t("businessData.batch.detail.description")} value={batch.description} />
-                <KV label={t("businessData.batch.detail.type")} value={batch.type} />
-                <KV
-                  label={t("businessData.batch.detail.universalState")}
-                  value={batch.universalState}
+            <Grid columns="auto-fit" gap="md">
+              <DetailCard title={t("businessData.batch.detail.batch")}>
+                <DetailField
+                  label={t("businessData.batch.detail.name")}
+                  value={displayValue(batch.name)}
+                  labelWidth={140}
                 />
-                <KV label={t("businessData.batch.detail.systemState")} value={batch.systemState} />
-                <KV label={t("businessData.batch.detail.dataGroup")} value={batch.dataGroup} />
-              </VStack>
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.batch.detail.information")} />
-                <KV label={t("businessData.batch.detail.resource")} value={batch.resource} />
-                <KV label={t("businessData.batch.detail.loadState")} value={batch.loadState} />
-                <KV label={t("businessData.batch.detail.step")} value={batch.step} />
-                <KV label={t("businessData.batch.detail.resourceJob")} value={batch.resourceJob} />
-                <KV
+                <DetailField
+                  label={t("businessData.batch.detail.description")}
+                  value={displayValue(batch.description)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.batch.detail.type")}
+                  value={displayValue(batch.type)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.batch.detail.universalState")}
+                  value={displayValue(batch.universalState)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.batch.detail.systemState")}
+                  value={displayValue(batch.systemState)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.batch.detail.dataGroup")}
+                  value={displayValue(batch.dataGroup)}
+                  labelWidth={140}
+                />
+              </DetailCard>
+              <DetailCard title={t("businessData.batch.detail.information")}>
+                <DetailField
+                  label={t("businessData.batch.detail.resource")}
+                  value={displayValue(batch.resource)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.batch.detail.loadState")}
+                  value={displayValue(batch.loadState)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.batch.detail.step")}
+                  value={displayValue(batch.step)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.batch.detail.resourceJob")}
+                  value={displayValue(batch.resourceJob)}
+                  labelWidth={140}
+                />
+                <DetailField
                   label={t("businessData.batch.detail.priority")}
                   value={String(batch.priority)}
+                  labelWidth={140}
                 />
-              </VStack>
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.batch.detail.resourceInformation")} />
-                <KV
+              </DetailCard>
+              <DetailCard title={t("businessData.batch.detail.resourceInformation")}>
+                <DetailField
                   label={t("businessData.batch.detail.resourceType")}
-                  value={batch.resourceType}
+                  value={displayValue(batch.resourceType)}
+                  labelWidth={140}
                 />
-                <KV label={t("businessData.batch.detail.facility")} value={batch.facility} />
-                <KV
+                <DetailField
+                  label={t("businessData.batch.detail.facility")}
+                  value={displayValue(batch.facility)}
+                  labelWidth={140}
+                />
+                <DetailField
                   label={t("businessData.batch.detail.loadStartMode")}
-                  value={batch.loadStartMode}
+                  value={displayValue(batch.loadStartMode)}
+                  labelWidth={140}
                 />
-                <KV label={t("businessData.batch.detail.loadMode")} value={batch.loadMode} />
-                <KV
+                <DetailField
+                  label={t("businessData.batch.detail.loadMode")}
+                  value={displayValue(batch.loadMode)}
+                  labelWidth={140}
+                />
+                <DetailField
                   label={t("businessData.batch.detail.materialSplitMode")}
-                  value={batch.materialSplitMode}
+                  value={displayValue(batch.materialSplitMode)}
+                  labelWidth={140}
                 />
-                <KV
+                <DetailField
                   label={t("businessData.batch.detail.allowProductMix")}
                   value={
                     batch.allowProductMix
                       ? t("businessData.batch.detail.yes")
                       : t("businessData.batch.detail.no")
                   }
+                  labelWidth={140}
                 />
-                <KV
+                <DetailField
                   label={t("businessData.batch.detail.minimumBatchSize")}
-                  value={batch.minimumBatchSize}
+                  value={displayValue(batch.minimumBatchSize)}
+                  labelWidth={140}
                 />
-              </VStack>
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.batch.detail.materialInformation")} />
-                <KV
+              </DetailCard>
+              <DetailCard title={t("businessData.batch.detail.materialInformation")}>
+                <DetailField
                   label={t("businessData.batch.detail.mainMaterial")}
-                  value={batch.mainMaterial}
+                  value={displayValue(batch.mainMaterial)}
+                  labelWidth={140}
                 />
-                <KV label={t("businessData.batch.detail.service")} value={batch.service} />
-                <KV label={t("businessData.batch.detail.product")} value={batch.product} />
-                <KV
+                <DetailField
+                  label={t("businessData.batch.detail.service")}
+                  value={displayValue(batch.service)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.batch.detail.product")}
+                  value={displayValue(batch.product)}
+                  labelWidth={140}
+                />
+                <DetailField
                   label={t("businessData.batch.detail.productDescription")}
-                  value={batch.productDescription}
+                  value={displayValue(batch.productDescription)}
+                  labelWidth={140}
                 />
-                <KV
+                <DetailField
                   label={t("businessData.batch.detail.capacityClass")}
-                  value={batch.capacityClass}
+                  value={displayValue(batch.capacityClass)}
+                  labelWidth={140}
                 />
-                <KV label={t("businessData.batch.detail.quantity")} value={batch.quantity} />
-                <KV label={t("businessData.batch.detail.batchSize")} value={batch.batchSize} />
-              </VStack>
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.batch.detail.containerInformation")} />
-                <KV
+                <DetailField
+                  label={t("businessData.batch.detail.quantity")}
+                  value={displayValue(batch.quantity)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.batch.detail.batchSize")}
+                  value={displayValue(batch.batchSize)}
+                  labelWidth={140}
+                />
+              </DetailCard>
+              <DetailCard title={t("businessData.batch.detail.containerInformation")}>
+                <DetailField
                   label={t("businessData.batch.detail.containerType")}
-                  value={batch.containerType}
+                  value={displayValue(batch.containerType)}
+                  labelWidth={140}
                 />
-              </VStack>
+              </DetailCard>
             </Grid>
           </DetailShell>
         )}
         {tab !== "details" && <Empty>{t("businessData.batch.detail.historyEmpty")}</Empty>}
       </DetailTabs>
     </ListPage>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.batch.detail.emptyValue") : value}</span>
-    </HStack>
   );
 }

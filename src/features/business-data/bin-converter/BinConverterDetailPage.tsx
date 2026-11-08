@@ -4,18 +4,17 @@ import { useBinConverterDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
+  DetailCard,
+  DetailField,
   DetailShell,
   DetailTabs,
   editAction,
   Empty,
+  Grid,
   ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  SectionHeader,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import {
@@ -25,27 +24,10 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useBinConverterDialogs } from "./useBinConverterDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "140px" },
-});
 
 const TABS = ["details", "compare", "references", "history"] as const;
 const LEFT_SECTIONS: TranslationKey[] = [
@@ -56,8 +38,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function BinConverterDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<string>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { name } = useParams({ strict: false }) as { name: string };
@@ -65,6 +45,9 @@ export function BinConverterDetailPage() {
   const { data: bc, isLoading } = useBinConverterDetail(displayName);
   const { dialogs, openEdit, openClone, openTerminate, openUnterminate } =
     useBinConverterDialogs(bc);
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.binConverter.detail.emptyValue") : value;
 
   if (isLoading || !bc) {
     return (
@@ -119,12 +102,11 @@ export function BinConverterDetailPage() {
             showState={false}
           >
             {showConversions ? (
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader
-                  title={t("businessData.binConverter.detail.conversionsTitle", {
-                    count: bc.conversions.length,
-                  })}
-                />
+              <DetailCard
+                title={t("businessData.binConverter.detail.conversionsTitle", {
+                  count: bc.conversions.length,
+                })}
+              >
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -157,32 +139,43 @@ export function BinConverterDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </VStack>
+              </DetailCard>
             ) : (
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.binConverter.detail.binConverter")} />
-                  <KV label={t("businessData.binConverter.detail.name")} value={bc.name} />
-                  <KV
+              <Grid columns="auto-fit" gap="md">
+                <DetailCard title={t("businessData.binConverter.detail.binConverter")}>
+                  <DetailField
+                    label={t("businessData.binConverter.detail.name")}
+                    value={displayValue(bc.name)}
+                    labelWidth={140}
+                  />
+                  <DetailField
                     label={t("businessData.binConverter.detail.description")}
-                    value={bc.description}
+                    value={displayValue(bc.description)}
+                    labelWidth={140}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.binConverter.detail.universalState")}
-                    value={bc.universalState}
+                    value={displayValue(bc.universalState)}
+                    labelWidth={140}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.binConverter.detail.dataGroup")}
-                    value={bc.dataGroup}
+                    value={displayValue(bc.dataGroup)}
+                    labelWidth={140}
                   />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <KV
+                </DetailCard>
+                <DetailCard>
+                  <DetailField
                     label={t("businessData.binConverter.detail.converterType")}
-                    value={bc.converterType}
+                    value={displayValue(bc.converterType)}
+                    labelWidth={140}
                   />
-                  <KV label={t("businessData.binConverter.detail.binType")} value={bc.binType} />
-                </VStack>
+                  <DetailField
+                    label={t("businessData.binConverter.detail.binType")}
+                    value={displayValue(bc.binType)}
+                    labelWidth={140}
+                  />
+                </DetailCard>
               </Grid>
             )}
           </DetailShell>
@@ -190,16 +183,5 @@ export function BinConverterDetailPage() {
         {tab !== "details" && <Empty>{t("businessData.binConverter.detail.historyEmpty")}</Empty>}
       </DetailTabs>
     </ListPage>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.binConverter.detail.emptyValue") : value}</span>
-    </HStack>
   );
 }

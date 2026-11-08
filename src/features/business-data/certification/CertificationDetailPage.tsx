@@ -4,17 +4,16 @@ import { useCertificationDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
+  DetailCard,
+  DetailField,
   DetailShell,
   DetailTabs,
   Empty,
+  Grid,
   ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  SectionHeader,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
@@ -24,27 +23,10 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useCertificationDialogs } from "./useCertificationDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "170px" },
-});
 
 const TABS = ["details", "references", "history"] as const;
 const LEFT_SECTIONS: TranslationKey[] = [
@@ -56,8 +38,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function CertificationDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<string>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { name } = useParams({ strict: false }) as { name: string };
@@ -74,6 +54,11 @@ export function CertificationDetailPage() {
     openRevoke,
     openUnassign,
   } = useCertificationDialogs(cert);
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.certification.detail.emptyValue") : value;
+  const displayYesNo = (value: boolean) =>
+    value ? t("businessData.certification.detail.yes") : t("businessData.certification.detail.no");
 
   if (isLoading || !cert) {
     return (
@@ -144,12 +129,11 @@ export function CertificationDetailPage() {
             showState={false}
           >
             {showEmployees ? (
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader
-                  title={t("businessData.certification.detail.employeesTitle", {
-                    count: cert.employees.length,
-                  })}
-                />
+              <DetailCard
+                title={t("businessData.certification.detail.employeesTitle", {
+                  count: cert.employees.length,
+                })}
+              >
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -174,14 +158,13 @@ export function CertificationDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </VStack>
+              </DetailCard>
             ) : showQualifications ? (
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader
-                  title={t("businessData.certification.detail.qualificationsTitle", {
-                    count: cert.qualifications.length,
-                  })}
-                />
+              <DetailCard
+                title={t("businessData.certification.detail.qualificationsTitle", {
+                  count: cert.qualifications.length,
+                })}
+              >
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -201,87 +184,99 @@ export function CertificationDetailPage() {
                       <TableRow key={q.qualification}>
                         <TableCell>{q.qualification}</TableCell>
                         <TableCell>{q.proficiency}</TableCell>
-                        <TableCell>
-                          {q.required
-                            ? t("businessData.certification.detail.yes")
-                            : t("businessData.certification.detail.no")}
-                        </TableCell>
+                        <TableCell>{displayYesNo(q.required)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
                 </Table>
-              </VStack>
+              </DetailCard>
             ) : (
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.certification.detail.certification")} />
-                  <KV label={t("businessData.certification.detail.name")} value={cert.name} />
-                  <KV
+              <Grid columns="auto-fit" gap="md">
+                <DetailCard title={t("businessData.certification.detail.certification")}>
+                  <DetailField
+                    label={t("businessData.certification.detail.name")}
+                    value={displayValue(cert.name)}
+                    labelWidth={170}
+                  />
+                  <DetailField
                     label={t("businessData.certification.detail.description")}
-                    value={cert.description}
+                    value={displayValue(cert.description)}
+                    labelWidth={170}
                   />
-                  <KV label={t("businessData.certification.detail.type")} value={cert.type} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.certification.detail.type")}
+                    value={displayValue(cert.type)}
+                    labelWidth={170}
+                  />
+                  <DetailField
                     label={t("businessData.certification.detail.universalState")}
-                    value={cert.universalState}
+                    value={displayValue(cert.universalState)}
+                    labelWidth={170}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.certification.detail.dataGroup")}
-                    value={cert.dataGroup}
+                    value={displayValue(cert.dataGroup)}
+                    labelWidth={170}
                   />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.certification.detail.info")} />
-                  <KV
+                </DetailCard>
+                <DetailCard title={t("businessData.certification.detail.info")}>
+                  <DetailField
                     label={t("businessData.certification.detail.ownerRole")}
-                    value={cert.ownerRole}
+                    value={displayValue(cert.ownerRole)}
+                    labelWidth={170}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.certification.detail.sendNotificationOnChanges")}
-                    value={cert.sendNotificationOnChanges}
+                    value={displayYesNo(cert.sendNotificationOnChanges)}
+                    labelWidth={170}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.certification.detail.sendNotificationWhenRequired")}
-                    value={cert.sendNotificationWhenRequired}
+                    value={displayYesNo(cert.sendNotificationWhenRequired)}
+                    labelWidth={170}
                   />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.certification.detail.permission")} />
-                  <Bool
+                </DetailCard>
+                <DetailCard title={t("businessData.certification.detail.permission")}>
+                  <DetailField
                     label={t("businessData.certification.detail.allowManualGrants")}
-                    value={cert.allowManualGrants}
+                    value={displayYesNo(cert.allowManualGrants)}
+                    labelWidth={170}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.certification.detail.allowSelfGranting")}
-                    value={cert.allowSelfGranting}
+                    value={displayYesNo(cert.allowSelfGranting)}
+                    labelWidth={170}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.certification.detail.allowGrantingByManager")}
-                    value={cert.allowGrantingByManager}
+                    value={displayYesNo(cert.allowGrantingByManager)}
+                    labelWidth={170}
                   />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.certification.detail.validityPeriod")} />
-                  <KV
+                </DetailCard>
+                <DetailCard title={t("businessData.certification.detail.validityPeriod")}>
+                  <DetailField
                     label={t("businessData.certification.detail.validFor")}
-                    value={cert.validFor}
+                    value={displayValue(cert.validFor)}
+                    labelWidth={170}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.certification.detail.allowOverride")}
-                    value={cert.allowOverride}
+                    value={displayYesNo(cert.allowOverride)}
+                    labelWidth={170}
                   />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.certification.detail.training")} />
-                  <KV
+                </DetailCard>
+                <DetailCard title={t("businessData.certification.detail.training")}>
+                  <DetailField
                     label={t("businessData.certification.detail.trainingMaximumDuration")}
-                    value={cert.trainingMaximumDuration}
+                    value={displayValue(cert.trainingMaximumDuration)}
+                    labelWidth={170}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.certification.detail.traineeByDefault")}
-                    value={cert.traineeByDefault}
+                    value={displayYesNo(cert.traineeByDefault)}
+                    labelWidth={170}
                   />
-                </VStack>
+                </DetailCard>
               </Grid>
             )}
           </DetailShell>
@@ -289,31 +284,5 @@ export function CertificationDetailPage() {
         {tab !== "details" && <Empty>{t("businessData.certification.detail.historyEmpty")}</Empty>}
       </DetailTabs>
     </ListPage>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.certification.detail.emptyValue") : value}</span>
-    </HStack>
-  );
-}
-
-function Bool({ label, value }: { label: string; value: boolean }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>
-        {value
-          ? t("businessData.certification.detail.yes")
-          : t("businessData.certification.detail.no")}
-      </span>
-    </HStack>
   );
 }

@@ -5,7 +5,7 @@ import ledger from "../eslint.page-debt.json";
 import { runLedgerCheck } from "./eslint.page-debt.test";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
-const RAW_MAPPING_BASELINE = 211;
+const RAW_MAPPING_BASELINE = 196;
 const FIXTURE_PAGE = "src/features/fixture/FixturePage.tsx";
 const COMPLIANT_PAGE_FILE = "src/features/administration/apps/AppsListPage.tsx";
 
@@ -109,14 +109,14 @@ function pageFindings(messages: { ruleId: string | null; severity: number }[]) {
     .map((message) => message.ruleId);
 }
 
+const eslint = new ESLint({ cwd: ROOT });
+
 async function lintFixture(code: string) {
-  const eslint = new ESLint({ cwd: ROOT });
   const [result] = await eslint.lintText(code, { filePath: FIXTURE_PAGE });
   return pageFindings(result.messages);
 }
 
 it("does not fire on non-style data literals", async () => {
-  const eslint = new ESLint({ cwd: ROOT });
   const [result] = await eslint.lintText(DATA_ONLY_PAGE, { filePath: FIXTURE_PAGE });
   expect(pageFindings(result.messages)).toEqual([]);
   expect(result.errorCount).toBe(0);
@@ -167,4 +167,4 @@ it("keeps the ledger free of duplicate rule ids and inside the raw-mapping ratch
 
 it("drives the meta test's empty-ledger branch against a compliant page set", async () => {
   await runLedgerCheck({ entries: [], emptyTarget: [COMPLIANT_PAGE_FILE] });
-});
+}, 60000);

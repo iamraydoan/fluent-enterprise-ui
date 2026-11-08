@@ -4,40 +4,22 @@ import { useBusinessPartnerDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
+  DetailCard,
+  DetailField,
   DetailShell,
   DetailTabs,
   editAction,
   Empty,
+  Grid,
   ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  SectionHeader,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useBusinessPartnerDialogs } from "./useBusinessPartnerDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "140px" },
-});
 
 const TABS = ["details", "references", "history"] as const;
 const LEFT_SECTIONS: TranslationKey[] = [
@@ -47,8 +29,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function BusinessPartnerDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<string>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const { name } = useParams({ strict: false }) as { name: string };
@@ -56,6 +36,13 @@ export function BusinessPartnerDetailPage() {
   const { data: bp, isLoading } = useBusinessPartnerDetail(displayName);
   const { dialogs, openEdit, openClone, openTerminate, openUnterminate } =
     useBusinessPartnerDialogs(bp);
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.businessPartner.detail.emptyValue") : value;
+  const displayYesNo = (value: boolean) =>
+    value
+      ? t("businessData.businessPartner.detail.yes")
+      : t("businessData.businessPartner.detail.no");
 
   if (isLoading || !bp) {
     return (
@@ -107,90 +94,127 @@ export function BusinessPartnerDetailPage() {
             onAskAi={() => undefined}
             showState={false}
           >
-            <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.businessPartner.detail.businessPartner")} />
-                <KV label={t("businessData.businessPartner.detail.name")} value={bp.name} />
-                <KV
+            <Grid columns="auto-fit" gap="md">
+              <DetailCard title={t("businessData.businessPartner.detail.businessPartner")}>
+                <DetailField
+                  label={t("businessData.businessPartner.detail.name")}
+                  value={displayValue(bp.name)}
+                  labelWidth={140}
+                />
+                <DetailField
                   label={t("businessData.businessPartner.detail.description")}
-                  value={bp.description}
+                  value={displayValue(bp.description)}
+                  labelWidth={140}
                 />
-                <KV
+                <DetailField
                   label={t("businessData.businessPartner.detail.universalState")}
-                  value={bp.universalState}
+                  value={displayValue(bp.universalState)}
+                  labelWidth={140}
                 />
-                <KV
+                <DetailField
                   label={t("businessData.businessPartner.detail.dataGroup")}
-                  value={bp.dataGroup}
+                  value={displayValue(bp.dataGroup)}
+                  labelWidth={140}
                 />
-              </VStack>
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.businessPartner.detail.properties")} />
-                <Bool
+              </DetailCard>
+              <DetailCard title={t("businessData.businessPartner.detail.properties")}>
+                <DetailField
                   label={t("businessData.businessPartner.detail.contractor")}
-                  value={bp.isContractor}
+                  value={displayYesNo(bp.isContractor)}
+                  labelWidth={140}
                 />
-                <Bool
+                <DetailField
                   label={t("businessData.businessPartner.detail.customer")}
-                  value={bp.isCustomer}
+                  value={displayYesNo(bp.isCustomer)}
+                  labelWidth={140}
                 />
-                <Bool
+                <DetailField
                   label={t("businessData.businessPartner.detail.supplier")}
-                  value={bp.isSupplier}
+                  value={displayYesNo(bp.isSupplier)}
+                  labelWidth={140}
                 />
-                <Bool
+                <DetailField
                   label={t("businessData.businessPartner.detail.manufacturer")}
-                  value={bp.isManufacturer}
+                  value={displayYesNo(bp.isManufacturer)}
+                  labelWidth={140}
                 />
-                <KV
+                <DetailField
                   label={t("businessData.businessPartner.detail.labelSpecification")}
-                  value={bp.labelSpecification}
+                  value={displayValue(bp.labelSpecification)}
+                  labelWidth={140}
                 />
-              </VStack>
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader
-                  title={t("businessData.businessPartner.detail.contactInformation")}
-                />
-                <KV
+              </DetailCard>
+              <DetailCard title={t("businessData.businessPartner.detail.contactInformation")}>
+                <DetailField
                   label={t("businessData.businessPartner.detail.contactTitle")}
-                  value={bp.contactTitle}
+                  value={displayValue(bp.contactTitle)}
+                  labelWidth={140}
                 />
-                <KV
+                <DetailField
                   label={t("businessData.businessPartner.detail.contactName")}
-                  value={bp.contactName}
+                  value={displayValue(bp.contactName)}
+                  labelWidth={140}
                 />
-                <KV label={t("businessData.businessPartner.detail.email")} value={bp.email} />
-                <KV
+                <DetailField
+                  label={t("businessData.businessPartner.detail.email")}
+                  value={displayValue(bp.email)}
+                  labelWidth={140}
+                />
+                <DetailField
                   label={t("businessData.businessPartner.detail.mobilePhone")}
-                  value={bp.mobilePhone}
+                  value={displayValue(bp.mobilePhone)}
+                  labelWidth={140}
                 />
-                <KV
+                <DetailField
                   label={t("businessData.businessPartner.detail.businessPhone")}
-                  value={bp.businessPhone}
+                  value={displayValue(bp.businessPhone)}
+                  labelWidth={140}
                 />
-                <KV
+                <DetailField
                   label={t("businessData.businessPartner.detail.businessFax")}
-                  value={bp.businessFax}
+                  value={displayValue(bp.businessFax)}
+                  labelWidth={140}
                 />
-              </VStack>
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader
-                  title={t("businessData.businessPartner.detail.addressInformation")}
+              </DetailCard>
+              <DetailCard title={t("businessData.businessPartner.detail.addressInformation")}>
+                <DetailField
+                  label={t("businessData.businessPartner.detail.address")}
+                  value={displayValue(bp.address)}
+                  labelWidth={140}
                 />
-                <KV label={t("businessData.businessPartner.detail.address")} value={bp.address} />
-                <KV label={t("businessData.businessPartner.detail.zipCode")} value={bp.zipCode} />
-                <KV label={t("businessData.businessPartner.detail.country")} value={bp.country} />
-                <KV label={t("businessData.businessPartner.detail.state")} value={bp.stateName} />
-                <KV label={t("businessData.businessPartner.detail.city")} value={bp.city} />
-              </VStack>
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader title={t("businessData.businessPartner.detail.otherInformation")} />
-                <KV
+                <DetailField
+                  label={t("businessData.businessPartner.detail.zipCode")}
+                  value={displayValue(bp.zipCode)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.businessPartner.detail.country")}
+                  value={displayValue(bp.country)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.businessPartner.detail.state")}
+                  value={displayValue(bp.stateName)}
+                  labelWidth={140}
+                />
+                <DetailField
+                  label={t("businessData.businessPartner.detail.city")}
+                  value={displayValue(bp.city)}
+                  labelWidth={140}
+                />
+              </DetailCard>
+              <DetailCard title={t("businessData.businessPartner.detail.otherInformation")}>
+                <DetailField
                   label={t("businessData.businessPartner.detail.taxNumber")}
-                  value={bp.taxNumber}
+                  value={displayValue(bp.taxNumber)}
+                  labelWidth={140}
                 />
-                <KV label={t("businessData.businessPartner.detail.website")} value={bp.website} />
-              </VStack>
+                <DetailField
+                  label={t("businessData.businessPartner.detail.website")}
+                  value={displayValue(bp.website)}
+                  labelWidth={140}
+                />
+              </DetailCard>
             </Grid>
           </DetailShell>
         )}
@@ -199,31 +223,5 @@ export function BusinessPartnerDetailPage() {
         )}
       </DetailTabs>
     </ListPage>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.businessPartner.detail.emptyValue") : value}</span>
-    </HStack>
-  );
-}
-
-function Bool({ label, value }: { label: string; value: boolean }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>
-        {value
-          ? t("businessData.businessPartner.detail.yes")
-          : t("businessData.businessPartner.detail.no")}
-      </span>
-    </HStack>
   );
 }

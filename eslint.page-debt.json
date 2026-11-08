@@ -68,37 +68,12 @@
     "local/no-page-theme-import",
     "no-restricted-syntax"
   ],
-  "src/features/business-data/batch/BatchDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-theme-import"
-  ],
-  "src/features/business-data/bin-converter/BinConverterDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-theme-import"
-  ],
-  "src/features/business-data/bom/BomDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-theme-import"
-  ],
-  "src/features/business-data/business-partner/BusinessPartnerDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/calendar/CalendarDetailPage.tsx": [
     "local/no-page-conditional-style",
     "local/no-page-literal-px",
     "local/no-page-literal-radius",
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
-  "src/features/business-data/certification/CertificationDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
     "local/no-page-theme-import"
   ],
   "src/features/business-data/change-set/ChangeSetDetailPage.tsx": [
