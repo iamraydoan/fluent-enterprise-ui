@@ -642,7 +642,8 @@
       "maintenance": "Bảo trì",
       "manufacturing": "Sản xuất",
       "planningAndLogistics": "Hoạch định và logistics",
-      "quality": "Chất lượng"
+      "quality": "Chất lượng",
+      "settings": "Cài đặt giao diện"
     },
     "tiles": {
       "aiAgent": "Tác tử AI",

@@ -642,7 +642,8 @@
       "maintenance": "メンテナンス",
       "manufacturing": "製造",
       "planningAndLogistics": "計画と物流",
-      "quality": "品質"
+      "quality": "品質",
+      "settings": "テーマ設定"
     },
     "tiles": {
       "aiAgent": "AIエージェント",

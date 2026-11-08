@@ -642,7 +642,8 @@
       "maintenance": "유지보수",
       "manufacturing": "제조",
       "planningAndLogistics": "계획 및 물류",
-      "quality": "품질"
+      "quality": "품질",
+      "settings": "테마 설정"
     },
     "tiles": {
       "aiAgent": "AI 에이전트",

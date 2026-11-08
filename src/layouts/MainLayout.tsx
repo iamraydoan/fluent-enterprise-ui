@@ -43,14 +43,6 @@ const useStyles = makeStyles({
 
 const ADMINISTRATION_SECTION_ID = "administration";
 
-const SETTINGS_TAB: PageTab = {
-  id: "settings",
-  route: "/settings",
-  titleKey: "settings.title",
-  title: null,
-  parentRoute: null,
-};
-
 export function MainLayout() {
   const layoutStyles = useStyles();
   const { t } = useAppTranslation();
@@ -61,7 +53,6 @@ export function MainLayout() {
   const active = useTabsStore((state) => state.active);
   const openRoute = useTabsStore((state) => state.openRoute);
   const addTab = useTabsStore((state) => state.addTab);
-  const openTab = useTabsStore((state) => state.openTab);
   const closeTab = useTabsStore((state) => state.closeTab);
   const backFromTab = useTabsStore((state) => state.backFromTab);
   const setActive = useTabsStore((state) => state.setActive);
@@ -70,12 +61,8 @@ export function MainLayout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (location.pathname === SETTINGS_TAB.route) {
-      openTab(SETTINGS_TAB);
-      return;
-    }
     syncRoute(location.pathname);
-  }, [location.pathname, syncRoute, openTab]);
+  }, [location.pathname, syncRoute]);
 
   const currentTab = tabs.find((tab) => tab.id === active);
   const currentSection = currentTab ? sectionForRoute(currentTab.route) : undefined;

@@ -642,7 +642,8 @@
       "maintenance": "Maintenance",
       "manufacturing": "Manufacturing",
       "planningAndLogistics": "Planning and Logistics",
-      "quality": "Quality"
+      "quality": "Quality",
+      "settings": "Theme settings"
     },
     "tiles": {
       "aiAgent": "AI Agent",

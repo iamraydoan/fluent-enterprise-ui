@@ -15,7 +15,6 @@ interface TabsState {
   active: string | null;
   openRoute: (route: string) => void;
   addTab: () => string;
-  openTab: (tab: PageTab) => void;
   closeTab: (id: string) => string | null;
   backFromTab: (tab: PageTab) => string | null;
   setActive: (id: string) => void;
@@ -72,15 +71,6 @@ export const useTabsStore = create<TabsState>()((set, get) => ({
     const id = nextHomeId(tabs);
     set({ tabs: [...tabs, homeTab(id)], active: id });
     return id;
-  },
-  openTab: (tab) => {
-    const { tabs, active } = get();
-    const existing = tabs.find((candidate) => candidate.id === tab.id);
-    if (existing) {
-      set({ active: existing.id });
-      return;
-    }
-    set(activateOrNavigate(tabs, active, tab));
   },
   closeTab: (id) => {
     const { tabs, active } = get();

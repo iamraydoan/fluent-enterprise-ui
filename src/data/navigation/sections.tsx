@@ -79,7 +79,7 @@ export const NAVIGATION_SECTIONS: NavigationSection[] = [
   { id: "apps", labelKey: "nav.sections.apps", icon: <Window20Regular />, route: "/apps" },
   {
     id: "settings",
-    labelKey: "settings.title",
+    labelKey: "nav.sections.settings",
     icon: <Settings20Regular />,
     route: "/settings",
   },
