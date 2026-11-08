@@ -68,6 +68,8 @@ Turning the rules on today would produce hundreds of errors and break the pre-pu
 - A meta test asserts three properties: no stale entries (every entry genuinely violates), no missing entries (every violating file is listed), and the entry count never increases against the committed baseline.
 - Converting a page means deleting its entry. The test fails if an entry is re-added.
 
+Baselines are committed numbers, and they move only with a stated reason. The recorded history is: 209 raw mappings at the first commit of the ledger, 187 after the literal rules were narrowed, and 212 after that narrowing was corrected (minus 25 wrongly-dropped px entries, plus 3 genuine conditional-style detections the widened tree walk found). A baseline that rises without such a reason is a loosening and fails review.
+
 This keeps `npx eslint .` at zero findings at every step while guaranteeing the debt only shrinks.
 
 ## 6. Theme settings feature (B)
