@@ -84,12 +84,6 @@
     "local/no-page-theme-import"
   ],
   "src/features/business-data/checklist/dialogs/dialogStyles.ts": ["no-restricted-syntax"],
-  "src/features/business-data/container/ContainerDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-literal-radius",
-    "local/no-page-makeStyles",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/data-collection/DataCollectionDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-makeStyles",

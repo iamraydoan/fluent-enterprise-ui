@@ -4,19 +4,18 @@ import { useContainerDetail } from "@/api";
 import type { HeaderAction } from "@/components/common";
 import {
   cloneAction,
+  DetailCard,
+  DetailField,
   DetailShell,
   DetailTabs,
   editAction,
   Empty,
+  EntityTile,
+  Grid,
   ListPage,
   refreshAction,
   terminateAction,
   unterminateAction,
-  EntityTile,
-  SectionHeader,
-  Grid,
-  HStack,
-  VStack,
 } from "@/components/common";
 import { Box24Regular, MoreVertical24Regular } from "@/components/icons";
 import {
@@ -26,39 +25,10 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-  makeStyles,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { useContainerDialogs } from "./useContainerDialogs";
-
-const useDetailStyles = makeStyles({
-  card: { padding: theme.spacing.lg },
-  cardTitle: {
-    fontSize: "14px",
-    fontWeight: theme.font.weightSemibold,
-    paddingBottom: theme.spacing.sm,
-    borderBottom: `1px solid ${theme.color.borderSubtle}`,
-  },
-  row: {
-    fontSize: "13px",
-  },
-  label: { color: theme.color.textTertiary, minWidth: "180px" },
-
-  positionCell: {
-    border: `1px solid ${theme.color.borderSubtle}`,
-    borderRadius: "6px",
-    padding: "10px",
-    cursor: "pointer",
-    fontSize: "12px",
-    textAlign: "center",
-    backgroundColor: theme.color.surface,
-    ":hover": { backgroundColor: theme.color.surfaceHover },
-  },
-  positionActive: { border: `2px solid ${theme.color.borderBrand}` },
-});
 
 const TABS = ["details", "container", "maintenance", "compare", "references", "history"] as const;
 const LEFT_SECTIONS: TranslationKey[] = [
@@ -69,8 +39,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 export function ContainerDetailPage() {
   const { t } = useAppTranslation();
-  const styles = useDetailStyles();
-  const sharedStyles = useSharedStyles();
   const [tab, setTab] = useState<string>("details");
   const [left, setLeft] = useState<string>(LEFT_SECTIONS[0]);
   const [selectedPosition, setSelectedPosition] = useState<number | null>(1);
@@ -96,6 +64,11 @@ export function ContainerDetailPage() {
     openTransferMaterial,
     openUndock,
   } = useContainerDialogs(c);
+
+  const displayValue = (value: string) =>
+    value === "" ? t("businessData.container.detail.emptyValue") : value;
+  const displayYesNo = (value: boolean) =>
+    value ? t("businessData.container.detail.yes") : t("businessData.container.detail.no");
 
   if (isLoading || !c) {
     return (
@@ -191,12 +164,11 @@ export function ContainerDetailPage() {
             showState={false}
           >
             {showMaterials ? (
-              <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                <SectionHeader
-                  title={t("businessData.container.detail.materialsTitle", {
-                    count: c.materials.length,
-                  })}
-                />
+              <DetailCard
+                title={t("businessData.container.detail.materialsTitle", {
+                  count: c.materials.length,
+                })}
+              >
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -229,120 +201,163 @@ export function ContainerDetailPage() {
                     ))}
                   </TableBody>
                 </Table>
-              </VStack>
+              </DetailCard>
             ) : (
-              <Grid columns="repeat(auto-fit, minmax(300px, 1fr))" gap="12px">
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.container.detail.container")} />
-                  <KV label={t("businessData.container.detail.name")} value={c.name} />
-                  <KV
+              <Grid columns="auto-fit" gap="md">
+                <DetailCard title={t("businessData.container.detail.container")}>
+                  <DetailField
+                    label={t("businessData.container.detail.name")}
+                    value={displayValue(c.name)}
+                    labelWidth={180}
+                  />
+                  <DetailField
                     label={t("businessData.container.detail.description")}
-                    value={c.description}
+                    value={displayValue(c.description)}
+                    labelWidth={180}
                   />
-                  <KV label={t("businessData.container.detail.type")} value={c.type} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.container.detail.type")}
+                    value={displayValue(c.type)}
+                    labelWidth={180}
+                  />
+                  <DetailField
                     label={t("businessData.container.detail.universalState")}
-                    value={c.universalState}
+                    value={displayValue(c.universalState)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.container.detail.systemState")}
-                    value={c.systemState}
+                    value={displayValue(c.systemState)}
+                    labelWidth={180}
                   />
-                  <KV label={t("businessData.container.detail.dataGroup")} value={c.dataGroup} />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.container.detail.information")} />
-                  <KV label={t("businessData.container.detail.facility")} value={c.facility} />
-                  <KV label={t("businessData.container.detail.parent")} value={c.parent} />
-                  <Bool label={t("businessData.container.detail.onHold")} value={c.onHold} />
-                </VStack>
-                <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-                  <SectionHeader title={t("businessData.container.detail.positions")} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.container.detail.dataGroup")}
+                    value={displayValue(c.dataGroup)}
+                    labelWidth={180}
+                  />
+                </DetailCard>
+                <DetailCard title={t("businessData.container.detail.information")}>
+                  <DetailField
+                    label={t("businessData.container.detail.facility")}
+                    value={displayValue(c.facility)}
+                    labelWidth={180}
+                  />
+                  <DetailField
+                    label={t("businessData.container.detail.parent")}
+                    value={displayValue(c.parent)}
+                    labelWidth={180}
+                  />
+                  <DetailField
+                    label={t("businessData.container.detail.onHold")}
+                    value={displayYesNo(c.onHold)}
+                    labelWidth={180}
+                  />
+                </DetailCard>
+                <DetailCard title={t("businessData.container.detail.positions")}>
+                  <DetailField
                     label={t("businessData.container.detail.positionUnitType")}
-                    value={c.positionUnitType}
+                    value={displayValue(c.positionUnitType)}
+                    labelWidth={180}
                   />
-                  <Bool
+                  <DetailField
                     label={t("businessData.container.detail.allowMixedTypes")}
-                    value={c.allowMixedTypes}
+                    value={displayYesNo(c.allowMixedTypes)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.container.detail.usedPositions")}
                     value={String(c.usedPositions)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.container.detail.totalPositions")}
                     value={String(c.totalPositions)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.container.detail.capacityValidationMode")}
-                    value={c.capacityValidationMode}
+                    value={displayValue(c.capacityValidationMode)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.container.detail.capacityUnit")}
-                    value={c.capacityUnit}
+                    value={displayValue(c.capacityUnit)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.container.detail.capacityPerPosition")}
                     value={String(c.capacityPerPosition)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.container.detail.positionSorting")}
-                    value={c.positionSorting}
+                    value={displayValue(c.positionSorting)}
+                    labelWidth={180}
                   />
-                </VStack>
+                </DetailCard>
               </Grid>
             )}
           </DetailShell>
         )}
         {tab === "container" && (
-          <Grid columns="3fr minmax(280px, 1fr)" gap="12px" align="start">
-            <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-              <SectionHeader title={t("businessData.container.detail.positionsView")} />
-              <Grid columns="repeat(auto-fill, minmax(90px, 1fr))" gap="8px">
+          <Grid columns="main-aside" gap="md" align="start">
+            <DetailCard title={t("businessData.container.detail.positionsView")}>
+              <Grid columns="auto-fill" minColumn={90} gap="sm">
                 {c.positions.map((p) => (
                   <EntityTile
                     key={p.position}
                     title={p.position}
-                    description={
-                      p.material === "" ? t("businessData.container.detail.emptyValue") : p.material
-                    }
+                    description={displayValue(p.material)}
                     selected={selectedPosition === p.position}
-                    backgroundColor={p.material !== "" ? theme.color.infoSubtle : undefined}
+                    tone={p.material !== "" ? "info" : undefined}
                     onClick={() => setSelectedPosition(p.position)}
                     ariaLabel={p.position}
                   />
                 ))}
               </Grid>
-            </VStack>
-            <VStack gap="md" className={`${sharedStyles.contentCard} ${styles.card}`}>
-              <SectionHeader title={t("businessData.container.detail.positionDetails")} />
+            </DetailCard>
+            <DetailCard title={t("businessData.container.detail.positionDetails")}>
               {selected ? (
                 <>
-                  <KV
+                  <DetailField
                     label={t("businessData.container.detail.position")}
                     value={String(selected.position)}
+                    labelWidth={180}
                   />
-                  <KV
+                  <DetailField
                     label={t("businessData.container.detail.material")}
-                    value={selected.material}
+                    value={displayValue(selected.material)}
+                    labelWidth={180}
                   />
-                  <KV label={t("businessData.container.detail.product")} value={selected.product} />
-                  <KV label={t("businessData.container.detail.step")} value={selected.step} />
-                  <KV
+                  <DetailField
+                    label={t("businessData.container.detail.product")}
+                    value={displayValue(selected.product)}
+                    labelWidth={180}
+                  />
+                  <DetailField
+                    label={t("businessData.container.detail.step")}
+                    value={displayValue(selected.step)}
+                    labelWidth={180}
+                  />
+                  <DetailField
                     label={t("businessData.container.detail.quantity")}
                     value={
                       selected.quantity === 0
                         ? t("businessData.container.detail.emptyValue")
                         : `${selected.quantity} ${selected.unit}`
                     }
+                    labelWidth={180}
                   />
-                  <KV label={t("businessData.container.detail.unit")} value={selected.unit} />
+                  <DetailField
+                    label={t("businessData.container.detail.unit")}
+                    value={displayValue(selected.unit)}
+                    labelWidth={180}
+                  />
                 </>
               ) : (
                 <Empty>{t("businessData.container.detail.selectPosition")}</Empty>
               )}
-            </VStack>
+            </DetailCard>
           </Grid>
         )}
         {!["details", "container"].includes(tab) && (
@@ -351,29 +366,5 @@ export function ContainerDetailPage() {
       </DetailTabs>
       {dialogs}
     </ListPage>
-  );
-}
-
-function KV({ label, value }: { label: string; value: string }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>{value === "" ? t("businessData.container.detail.emptyValue") : value}</span>
-    </HStack>
-  );
-}
-
-function Bool({ label, value }: { label: string; value: boolean }) {
-  const styles = useDetailStyles();
-  const { t } = useAppTranslation();
-  return (
-    <HStack gap="12px" className={styles.row}>
-      <span className={styles.label}>{label}:</span>
-      <span>
-        {value ? t("businessData.container.detail.yes") : t("businessData.container.detail.no")}
-      </span>
-    </HStack>
   );
 }

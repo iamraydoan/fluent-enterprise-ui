@@ -151,3 +151,7 @@ export async function detailViews() {
 export async function expectDetailViews(expected: unknown) {
   expect(await detailViews()).toEqual(expected);
 }
+
+export function expectDetailSnapshot(expected: unknown) {
+  expect(detailSnapshot()).toEqual(expected);
+}

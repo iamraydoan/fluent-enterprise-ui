@@ -76,6 +76,7 @@ interface EntityTileProps {
   footer?: ReactNode;
   accentColor?: string;
   backgroundColor?: string;
+  tone?: "info";
   selected?: boolean;
   onClick: () => void;
   ariaLabel?: string | number;
@@ -89,16 +90,19 @@ export function EntityTile({
   footer,
   accentColor,
   backgroundColor,
+  tone,
   selected,
   onClick,
   ariaLabel,
   className,
 }: EntityTileProps) {
   const styles = useTileStyles();
+  const resolvedBackground =
+    backgroundColor ?? (tone === "info" ? theme.color.infoSubtle : undefined);
   return (
     <div
       className={mergeClasses(styles.tile, selected && styles.tileSelected, className)}
-      style={backgroundColor ? { backgroundColor } : undefined}
+      style={resolvedBackground ? { backgroundColor: resolvedBackground } : undefined}
       onClick={onClick}
       role="button"
       tabIndex={0}
