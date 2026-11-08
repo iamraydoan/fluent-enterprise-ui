@@ -77,6 +77,12 @@ export const NAVIGATION_SECTIONS: NavigationSection[] = [
     route: "/data-platform",
   },
   { id: "apps", labelKey: "nav.sections.apps", icon: <Window20Regular />, route: "/apps" },
+  {
+    id: "settings",
+    labelKey: "settings.title",
+    icon: <Settings20Regular />,
+    route: "/settings",
+  },
 ];
 
 export function getNavigationSection(sectionId: string) {

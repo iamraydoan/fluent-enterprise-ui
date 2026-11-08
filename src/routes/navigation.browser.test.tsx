@@ -46,6 +46,15 @@ beforeEach(() => {
   useTabsStore.setState({ tabs: [], active: null });
 });
 
+test("the sidebar settings entry opens the theme panel", async () => {
+  const screen = await renderAt("/administration");
+  await expect.element(screen.getByText("Configuration")).toBeVisible();
+  await screen.getByRole("button", { name: "Theme settings" }).click();
+  await waitForText("Brand colour");
+  await expect.element(screen.getByRole("radiogroup", { name: "Brand colour" })).toBeVisible();
+  expect(tabCount()).toBe(1);
+});
+
 test("administration hub renders tiles and a tile opens its list without adding a tab", async () => {
   const screen = await renderAt("/administration");
   await expect.element(screen.getByText("AI Agent")).toBeVisible();
