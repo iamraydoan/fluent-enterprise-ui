@@ -57,6 +57,8 @@ Done means all of:
 
 Data/loading/empty/error branching in a page stays legal. The ban is on style and config branching, not on control flow in general.
 
+**Scope: the page layer only.** `src/components/**` is unrestricted. Components are where styling legitimately lives, so no style rule may be applied there - not the rules above, not the existing hex/flex ones. These bans exist so that pages compose the component layer; they are not a constraint on the component layer itself. Concretely, a component file may call `makeStyles`, use the `style` prop, and hold literal px, hex and radius values.
+
 ## 5. Enforcement: the debt ledger (ratchet)
 
 Turning the rules on today would produce hundreds of errors and break the pre-push gate, and a rule with no migration path is what produced the current escape hatches. So enforcement is ratcheted:

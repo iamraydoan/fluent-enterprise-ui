@@ -53,6 +53,8 @@ If a gate cannot run (host load, flake), say so explicitly and name the blocker.
 
 ## 5. Page conversion review
 
+These checks apply to **page files only**. Do not extend them to `src/components/**`: the component layer is unrestricted by design and must be allowed to use `makeStyles`, the `style` prop and literal values. A reviewer who demands that a component drop its `makeStyles` is wrong - the fix belongs in the page that consumes it.
+
 Verify, on the converted page:
 
 1. **No page-layer styling.** Zero `makeStyles`, zero `style={{...}}`, zero literal px/hex/radius, no `@/styles/theme` import, no settings-store or config import.
