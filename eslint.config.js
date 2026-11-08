@@ -223,7 +223,7 @@ const localPlugin = {
               context.report({
                 node,
                 message:
-                  "Page files must not use literal hex colours in styles. Use a design-system variant or a @/components/common or @/components/ui primitive.",
+                  "Page files must not use literal hex colours in style objects or JSX attribute values. Use a design-system variant or a @/components/common or @/components/ui primitive.",
               });
             }
           },
@@ -244,7 +244,7 @@ const localPlugin = {
               context.report({
                 node,
                 message:
-                  "Page files must not use literal px values in styles. Use the theme-backed gap/align/justify/p props of @/components/common stacks.",
+                  "Page files must not use literal px values in style objects or JSX attribute values. Use the theme-backed gap/align/justify/p props of @/components/common stacks.",
               });
             }
           },
@@ -595,15 +595,6 @@ export default tseslint.config(
             },
           ],
         },
-      ],
-    },
-  },
-  {
-    files: ["src/components/common/DetailShell.tsx"],
-    rules: {
-      "no-restricted-imports": [
-        "error",
-        { ...fluentBan, paths: [...fluentBan.paths, tokensUiBan] },
       ],
     },
   },
