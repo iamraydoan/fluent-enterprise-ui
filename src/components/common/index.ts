@@ -9,7 +9,7 @@ export { BaseDialog, DialogFooter } from "./BaseDialog";
 export { SidebarNavItem } from "./SidebarNavItem";
 export { DetailTile } from "./DetailTile";
 export { DetailTabs } from "./DetailTabs";
-export { DetailCard, DetailField } from "./DetailCard";
+export { DetailCard, DetailCardTitle, DetailField } from "./DetailCard";
 export { DetailEmpty } from "./DetailEmpty";
 export { ListRow } from "./ListRow";
 export { DetailSurface } from "./DetailSurface";

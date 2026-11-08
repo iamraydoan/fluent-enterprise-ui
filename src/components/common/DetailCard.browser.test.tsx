@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { DetailCard, DetailField } from "@/components/common";
+import { DetailCard, DetailCardTitle, DetailField } from "@/components/common";
 import { css, renderWithAppTheme } from "@/test-utils";
 
 test("renders a title and children", async () => {
@@ -48,6 +48,16 @@ test("renders a compact card title", async () => {
   expect(css(title, "padding-bottom")).toBe("8px");
   expect(css(title, "border-bottom")).toBe("1px solid rgb(224, 224, 224)");
   expect(css(title, "margin-bottom")).toBe("0px");
+});
+
+test("exports the compact card title as a reusable piece", async () => {
+  const screen = await renderWithAppTheme(<DetailCardTitle>Standalone title</DetailCardTitle>);
+  await expect.element(screen.getByText("Standalone title")).toBeVisible();
+  const title = screen.getByText("Standalone title").element() as HTMLElement;
+  expect(css(title, "font-size")).toBe("14px");
+  expect(css(title, "font-weight")).toBe("600");
+  expect(css(title, "padding-bottom")).toBe("8px");
+  expect(css(title, "border-bottom")).toBe("1px solid rgb(224, 224, 224)");
 });
 
 test("renders a section card title by default", async () => {

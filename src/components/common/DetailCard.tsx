@@ -18,6 +18,15 @@ const useCardTitleStyles = makeStyles({
   },
 });
 
+export function DetailCardTitle({ children }: { children: ReactNode }) {
+  const cardTitleStyles = useCardTitleStyles();
+  return (
+    <Text size={300} weight="semibold" className={cardTitleStyles.compact}>
+      {children}
+    </Text>
+  );
+}
+
 export function DetailCard({
   title,
   titleVariant = "section",
@@ -34,7 +43,6 @@ export function DetailCard({
   className?: string;
 }) {
   const sharedStyles = useSharedStyles();
-  const cardTitleStyles = useCardTitleStyles();
   return (
     <VStack gap="md" className={mergeClasses(sharedStyles.contentCard, className)}>
       {header !== undefined ? (
@@ -42,9 +50,7 @@ export function DetailCard({
           {header}
         </HStack>
       ) : title !== undefined && titleVariant === "compact" ? (
-        <Text size={300} weight="semibold" className={cardTitleStyles.compact}>
-          {title}
-        </Text>
+        <DetailCardTitle>{title}</DetailCardTitle>
       ) : (
         title !== undefined && <SectionHeader title={title} />
       )}

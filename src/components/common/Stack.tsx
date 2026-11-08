@@ -102,6 +102,7 @@ interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   gap?: StackGap | (string & {}) | number;
   align?: CSSProperties["alignItems"];
   grow?: boolean;
+  p?: StackGap | (string & {}) | number;
   className?: string;
   style?: CSSProperties;
 }
@@ -116,6 +117,7 @@ export function Grid({
   gap,
   align,
   grow,
+  p,
   className,
   style,
   ...rest
@@ -140,6 +142,7 @@ export function Grid({
         alignItems: align,
         flexGrow: grow ? 1 : undefined,
         minWidth: grow ? 0 : undefined,
+        padding: p === undefined ? undefined : resolveSpacing(p),
         ...style,
       }}
       {...rest}

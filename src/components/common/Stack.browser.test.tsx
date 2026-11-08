@@ -75,6 +75,15 @@ test("expands the main-aside preset with explicit widths", async () => {
   expect(gridElement().style.gridTemplateColumns).toBe("2fr minmax(320px, 1fr)");
 });
 
+test("applies a theme-backed padding", async () => {
+  await renderWithAppTheme(
+    <Grid columns="auto-fit" gap="md" p="lg">
+      <span>tile</span>
+    </Grid>,
+  );
+  expect(gridElement().style.padding).toBe("var(--spacingHorizontalL)");
+});
+
 test("passes an explicit template through unchanged", async () => {
   await renderWithAppTheme(
     <Grid columns="repeat(2, minmax(0, 1fr))" gap="12px">

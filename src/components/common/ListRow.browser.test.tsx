@@ -35,3 +35,15 @@ test("omits the subtitle and actions when they are not given", async () => {
   const row = title.parentElement?.parentElement as HTMLElement;
   expect(row.children).toHaveLength(1);
 });
+
+test("renders an undecorated row in the plain variant", async () => {
+  const screen = await renderWithAppTheme(<ListRow variant="plain" title="Limits 001" />);
+  await expect.element(screen.getByText("Limits 001")).toBeVisible();
+  const title = screen.getByText("Limits 001").element() as HTMLElement;
+  const row = title.parentElement?.parentElement as HTMLElement;
+  expect(css(row, "font-size")).toBe("13px");
+  expect(css(row, "padding")).toBe("0px");
+  expect(css(row, "border-bottom-width")).toBe("0px");
+  expect(css(row, "border-bottom-style")).toBe("none");
+  expect(css(title, "font-weight")).toBe("400");
+});
