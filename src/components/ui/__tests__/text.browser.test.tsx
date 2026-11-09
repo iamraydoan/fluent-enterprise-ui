@@ -1,10 +1,24 @@
+import { webLightTheme } from "@fluentui/react-components";
 import type { ReactNode } from "react";
 import { expect, test } from "vitest";
 import { render } from "vitest-browser-react";
 import { FluentProvider, Text, tokens } from "@/components/ui";
 
 function renderUi(ui: ReactNode) {
-  return render(<FluentProvider>{ui}</FluentProvider>);
+  return render(<FluentProvider theme={webLightTheme}>{ui}</FluentProvider>);
+}
+
+function tokenColor(token: string) {
+  const root = document.querySelector(".fui-FluentProvider") as HTMLElement;
+  const probe = document.createElement("div");
+  const plain = document.createElement("div");
+  root.append(probe, plain);
+  probe.setAttribute("style", "color: " + token);
+  const expected = getComputedStyle(probe).color;
+  const fallback = getComputedStyle(plain).color;
+  probe.remove();
+  plain.remove();
+  return { expected, fallback };
 }
 
 const TONES = [
@@ -19,32 +33,28 @@ const TONES = [
 test("maps every semantic tone to its token", async () => {
   const screen = await renderUi(
     <div>
-      {TONES.map(([tone, value]) => (
+      {TONES.map(([tone]) => (
         <div key={tone}>
           <Text tone={tone}>{"tone " + tone}</Text>
-          <span data-testid={"ref-" + tone} style={{ color: value }} />
         </div>
       ))}
     </div>,
   );
-  for (const [tone] of TONES) {
+  for (const [tone, value] of TONES) {
     const element = screen.getByText("tone " + tone).element();
-    const reference = document.querySelector('[data-testid="ref-' + tone + '"]') as HTMLElement;
-    expect(getComputedStyle(element).color).toBe(getComputedStyle(reference).color);
+    expect(getComputedStyle(element).color).toBe(tokenColor(value).expected);
   }
+  const brand = tokenColor(tokens.colorBrandForeground1);
+  expect(brand.expected).not.toBe(brand.fallback);
 });
 
 test("leaves the tone unset by default", async () => {
-  const screen = await renderUi(
-    <div>
-      <Text>default tone</Text>
-      <span data-testid="brand-ref" style={{ color: tokens.colorBrandForeground1 }} />
-    </div>,
-  );
+  const screen = await renderUi(<Text>default tone</Text>);
   await expect.element(screen.getByText("default tone")).toBeVisible();
   const element = screen.getByText("default tone").element();
-  const reference = document.querySelector('[data-testid="brand-ref"]') as HTMLElement;
-  expect(getComputedStyle(element).color).not.toBe(getComputedStyle(reference).color);
+  const brand = tokenColor(tokens.colorBrandForeground1);
+  expect(brand.expected).not.toBe(brand.fallback);
+  expect(getComputedStyle(element).color).not.toBe(brand.expected);
 });
 
 test("aligns text only when asked", async () => {

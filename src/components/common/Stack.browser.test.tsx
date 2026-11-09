@@ -145,6 +145,20 @@ function parentStack(screen: Awaited<ReturnType<typeof renderWithAppTheme>>, tex
   return screen.getByText(text).element().parentElement as HTMLElement;
 }
 
+function tokenValue(token: string, property: string) {
+  const root = document.querySelector(".fui-FluentProvider") as HTMLElement;
+  const probe = document.createElement("div");
+  const plain = document.createElement("div");
+  root.append(probe, plain);
+  probe.setAttribute("style", property + ": " + token);
+  const expected = getComputedStyle(probe).getPropertyValue(property);
+  const fallback = getComputedStyle(plain).getPropertyValue(property);
+  probe.remove();
+  plain.remove();
+  expect(expected).not.toBe(fallback);
+  return expected;
+}
+
 test("opts a stack out of shrinking and leaves the default alone", async () => {
   const screen = await renderWithAppTheme(
     <HStack shrink>
@@ -206,21 +220,14 @@ test("places a stack on its own cross axis", async () => {
 });
 
 test("paints a theme tone, a full border and a theme radius, and nothing when absent", async () => {
-  const reference = document.createElement("div");
-  reference.style.backgroundColor = theme.color.surfaceTertiary;
-  reference.style.borderTopStyle = "solid";
-  reference.style.borderTopColor = theme.color.borderSubtle;
-  document.body.append(reference);
-  const expectedTone = getComputedStyle(reference).backgroundColor;
-  const expectedBorder = getComputedStyle(reference).borderTopColor;
-  reference.remove();
-
   const screen = await renderWithAppTheme(
     <VStack tone="surfaceTertiary" border radius="md">
       <span>painted stack</span>
     </VStack>,
   );
   await expect.element(screen.getByText("painted stack")).toBeVisible();
+  const expectedTone = tokenValue(theme.color.surfaceTertiary, "background-color");
+  const expectedBorder = tokenValue(theme.color.borderSubtle, "border-top-color");
   const painted = parentStack(screen, "painted stack");
   expect(css(painted, "background-color")).toBe(expectedTone);
   expect(css(painted, "border-top-width")).toBe("1px");

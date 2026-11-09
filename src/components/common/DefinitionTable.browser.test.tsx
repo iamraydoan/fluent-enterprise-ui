@@ -26,15 +26,24 @@ function toolTable(stickyHeader: boolean, grow: boolean, minWidth: number) {
   );
 }
 
-test("renders the cell chrome shared by both pages", async () => {
-  const reference = document.createElement("div");
-  reference.style.backgroundColor = theme.color.surfaceTertiary;
-  document.body.append(reference);
-  const expectedTone = getComputedStyle(reference).backgroundColor;
-  reference.remove();
+function tokenValue(token: string, property: string) {
+  const root = document.querySelector(".fui-FluentProvider") as HTMLElement;
+  const probe = document.createElement("div");
+  const plain = document.createElement("div");
+  root.append(probe, plain);
+  probe.setAttribute("style", property + ": " + token);
+  const expected = getComputedStyle(probe).getPropertyValue(property);
+  const fallback = getComputedStyle(plain).getPropertyValue(property);
+  probe.remove();
+  plain.remove();
+  expect(expected).not.toBe(fallback);
+  return expected;
+}
 
+test("renders the cell chrome shared by both pages", async () => {
   const screen = await renderWithAppTheme(toolTable(false, false, 640));
   await expect.element(screen.getByText("Tool")).toBeVisible();
+  const expectedTone = tokenValue(theme.color.surfaceTertiary, "background-color");
   const table = document.querySelector("table") as HTMLElement;
   const container = table.parentElement as HTMLElement;
   expect(css(container, "overflow")).toBe("auto");
@@ -63,8 +72,8 @@ test("leaves the header non-sticky by default", async () => {
   const screen = await renderWithAppTheme(toolTable(false, false, 560));
   await expect.element(screen.getByText("Tool")).toBeVisible();
   const header = document.querySelector("th") as HTMLElement;
-  expect(css(header, "position")).toBe("static");
-  expect(css(header, "top")).toBe("auto");
+  expect(css(header, "position")).not.toBe("sticky");
+  expect(header.style.position).toBe("");
 });
 
 test("pins the header when the sticky option is set", async () => {

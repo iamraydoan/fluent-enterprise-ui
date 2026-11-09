@@ -15,7 +15,8 @@ test("scrolls on one axis and leaves the other alone", async () => {
   await expect.element(vertical.getByText("vertical child")).toBeVisible();
   const v = regionOf(vertical, "vertical child");
   expect(css(v, "overflow-y")).toBe("auto");
-  expect(css(v, "overflow-x")).toBe("visible");
+  expect(v.style.overflowY).toBe("auto");
+  expect(v.style.overflowX).toBe("");
 
   const horizontal = await renderWithAppTheme(
     <ScrollRegion axis="horizontal">
@@ -25,7 +26,8 @@ test("scrolls on one axis and leaves the other alone", async () => {
   await expect.element(horizontal.getByText("horizontal child")).toBeVisible();
   const h = regionOf(horizontal, "horizontal child");
   expect(css(h, "overflow-x")).toBe("auto");
-  expect(css(h, "overflow-y")).toBe("visible");
+  expect(h.style.overflowX).toBe("auto");
+  expect(h.style.overflowY).toBe("");
 });
 
 test("grows with a zero minimum and leaves both alone when absent", async () => {
