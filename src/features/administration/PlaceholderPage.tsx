@@ -1,21 +1,10 @@
 import { cloneElement } from "react";
 import type { ReactElement } from "react";
-import { VStack } from "@/components/common";
+import { IconContainer, VStack } from "@/components/common";
 import { Wrench24Regular } from "@/components/icons";
-import { Caption1, makeStyles, Text } from "@/components/ui";
+import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { cardSurface } from "@/styles/shared";
-import { theme } from "@/styles/theme";
-
-const usePlaceholderStyles = makeStyles({
-  stub: {
-    ...cardSurface,
-    borderRadius: "0 0 12px 12px",
-    color: theme.color.textTertiary,
-    textAlign: "center",
-    padding: theme.spacing.xl,
-  },
-});
+import { useSharedStyles } from "@/styles/shared";
 
 interface PlaceholderPageProps {
   title: string;
@@ -24,7 +13,7 @@ interface PlaceholderPageProps {
 }
 
 export function PlaceholderPage({ title, icon, body }: PlaceholderPageProps) {
-  const placeholderStyles = usePlaceholderStyles();
+  const shared = useSharedStyles();
   const { t } = useAppTranslation();
   const renderedIcon = cloneElement(icon ?? <Wrench24Regular />, {
     style: { width: 40, height: 40 },
@@ -35,14 +24,17 @@ export function PlaceholderPage({ title, icon, body }: PlaceholderPageProps) {
       justify="center"
       gap="sm"
       grow
-      className={placeholderStyles.stub}
+      p="xl"
+      className={shared.headerBlock}
       aria-label={title}
     >
-      <div style={{ fontSize: 40 }}>{renderedIcon}</div>
-      <Text weight="semibold" size={500} style={{ color: theme.color.textPrimary }}>
+      <IconContainer icon={renderedIcon} size={40} tone="tertiary" />
+      <Text weight="semibold" size={500} tone="primary" align="center">
         {title}
       </Text>
-      <Caption1>{body ?? t("placeholder.defaultBody")}</Caption1>
+      <Text size={200} tone="tertiary" align="center">
+        {body ?? t("placeholder.defaultBody")}
+      </Text>
     </VStack>
   );
 }

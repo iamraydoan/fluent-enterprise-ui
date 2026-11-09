@@ -1,0 +1,17 @@
+{
+  "default": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [],
+      "grids": [],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Placeholder Section", 95, 72, "20px", "600", "rgb(36, 36, 36)"],
+        ["This page is a placeholder in the demo.", 89, 108, "12px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  }
+}
