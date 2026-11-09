@@ -83,7 +83,7 @@ Status legend: pending / in-progress / review / fixing / done / deferred. Review
 | 37  | features/business-data/bom/BomDetailPage.tsx                                             | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 0d566b6 |
 | 38  | features/business-data/data-collection-limit-set/DataCollectionLimitSetDetailPage.tsx    | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | ed1cd8c |
 | 39  | features/business-data/employee/EmployeeDetailPage.tsx                                   | 0   | 3   | 0   | 3   | 1   | 0   | pending |             |        |         |
-| 40  | features/business-data/notification/NotificationDetailPage.tsx                           | 1   | 4   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 40  | features/business-data/notification/NotificationDetailPage.tsx                           | 1   | 4   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | 047c4a0 |
 | 41  | features/business-data/substrate-map/SubstrateMapDetailPage.tsx                          | 0   | 4   | 0   | 2   | 1   | 0   | pending |             |        |         |
 | 42  | features/business-data/site/SiteDetailPage.tsx                                           | 0   | 4   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 43  | features/business-data/material/MaterialDetailPage.tsx                                   | 1   | 1   | 0   | 2   | 1   | 0   | done    | page-worker | pass   | d3f78cc |
@@ -92,14 +92,14 @@ Status legend: pending / in-progress / review / fixing / done / deferred. Review
 | 46  | features/business-data/transfer-requirement/TransferRequirementDetailPage.tsx            | 0   | 3   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 47  | features/business-data/workgroup/WorkgroupDetailPage.tsx                                 | 0   | 4   | 0   | 0   | 1   | 0   | pending |             |        |         |
 | 48  | features/business-data/maintenance-plan/MaintenancePlanDetailPage.tsx                    | 0   | 2   | 0   | 2   | 0   | 0   | pending |             |        |         |
-| 49  | features/business-data/material-transfer/MaterialTransferDetailPage.tsx                  | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 49  | features/business-data/material-transfer/MaterialTransferDetailPage.tsx                  | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | 24ccae2 |
 | 50  | features/business-data/parameter/ParameterDetailPage.tsx                                 | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | cb7e539 |
-| 51  | features/business-data/periodic-inventory/PeriodicInventoryDetailPage.tsx                | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
-| 52  | features/business-data/pick-list/PickListDetailPage.tsx                                  | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 51  | features/business-data/periodic-inventory/PeriodicInventoryDetailPage.tsx                | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | 5872745 |
+| 52  | features/business-data/pick-list/PickListDetailPage.tsx                                  | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | c2f8041 |
 | 53  | features/business-data/plan/PlanDetailPage.tsx                                           | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | 52aa5c0 |
-| 54  | features/business-data/printable-document/PrintableDocumentDetailPage.tsx                | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 54  | features/business-data/printable-document/PrintableDocumentDetailPage.tsx                | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | 649850c |
 | 55  | features/business-data/product/ProductDetailPage.tsx                                     | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | 40cfd85 |
-| 56  | features/business-data/production-order/ProductionOrderDetailPage.tsx                    | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 56  | features/business-data/production-order/ProductionOrderDetailPage.tsx                    | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | fa2e4a0 |
 | 57  | features/business-data/protocol/ProtocolDetailPage.tsx                                   | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | c1ae450 |
 | 58  | features/business-data/shift-definition/ShiftDefinitionDetailPage.tsx                    | 0   | 3   | 0   | 0   | 1   | 0   | pending |             |        |         |
 | 59  | features/business-data/substrate-map-mask/SubstrateMapMaskDetailPage.tsx                 | 0   | 2   | 0   | 1   | 1   | 0   | pending |             |        |         |
