@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useProductDetail } from "@/api";
 import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
-import { DetailShell, KV, Grid } from "@/components/common";
+import { DetailSectionCard, DetailShell, KV, Grid } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text, makeStyles } from "@/components/ui";
+import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import {
   CloneProductDialog,
   CreateBOMForProductDialog,
@@ -35,14 +33,8 @@ import {
   ViewProductReportsDialog,
 } from "./ProductDialogs";
 
-const useStyles = makeStyles({
-  sectionTitle: { marginBottom: theme.spacing.sm },
-});
-
 export function ProductDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
-  const shared = useSharedStyles();
   const { data: detail } = useProductDetail(name);
 
   const [top, setTop] = useState("details");
@@ -192,11 +184,8 @@ export function ProductDetailPage({ name }: { name: string }) {
         showState={false}
         moreActions={moreMenuItems}
       >
-        <Grid columns="repeat(2, 1fr)" gap="12px">
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.product.detail.generalData")}
-            </Text>
+        <Grid columns="repeat(2, 1fr)" gap={12}>
+          <DetailSectionCard title={t("businessData.product.detail.generalData")}>
             <KV
               rows={[
                 [t("businessData.product.detail.fields.name"), detail.name],
@@ -206,7 +195,7 @@ export function ProductDetailPage({ name }: { name: string }) {
                 [t("businessData.product.detail.fields.isActive"), detail.isActive],
               ]}
             />
-          </div>
+          </DetailSectionCard>
         </Grid>
       </DetailShell>
       <CreateProductDialog open={createOpen} onClose={() => setCreateOpen(false)} />

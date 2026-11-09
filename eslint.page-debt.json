@@ -149,12 +149,6 @@
     "local/no-page-theme-import"
   ],
   "src/features/business-data/product-group/dialogs/dialogShared.ts": ["no-restricted-syntax"],
-  "src/features/business-data/product/ProductDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/production-order/ProductionOrderDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-makeStyles",
