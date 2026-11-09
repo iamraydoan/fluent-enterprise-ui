@@ -23,6 +23,8 @@ The five non-page rows in `eslint.page-debt.json` are NOT page debt and must not
 
 Status legend: pending / in-progress / review / fixing / done / deferred. Review: blank / pass / fail. `deferred` means the page is left in the ledger and untouched on purpose, because converting it would need several primitives that no second consumer justifies yet; it is never a way of closing a row, and the debt stays counted.
 
+`re-pin` in the Review column is a correction of this file's own record, not a page failure. It means the conversion itself was accepted, but the page's parity test was later measured to be insensitive to a changed field label or value, so it could not have caught a wording regression. Twelve pages carry it. They are being re-pinned onto `pageFingerprint()` under task-51, with fixtures re-captured at each page's own base commit, and their verdicts will be re-issued afterwards. Writing `pass` here would have been the dishonest option.
+
 ## components/common (3 pages, 2 need work)
 
 | #   | Page                                          | MS  | INL | HEX | PX  | THM | CFG | Status  | Owner | Review | Commit |
@@ -62,43 +64,43 @@ Status legend: pending / in-progress / review / fixing / done / deferred. Review
 
 | #   | Page                                                                                     | MS  | INL | HEX | PX  | THM | CFG | Status  | Owner       | Review | Commit  |
 | --- | ---------------------------------------------------------------------------------------- | --- | --- | --- | --- | --- | --- | ------- | ----------- | ------ | ------- |
-| 21  | features/business-data/data-collection/DataCollectionDetailPage.tsx                      | 0   | 0   | 0   | 0   | 0   | 0   | done    | page-worker | pass   | 63d6056 |
-| 22  | features/business-data/checklist/ChecklistDetailPage.tsx                                 | 0   | 0   | 0   | 0   | 0   | 0   | done    | page-worker | pass   | 7523da3 |
+| 21  | features/business-data/data-collection/DataCollectionDetailPage.tsx                      | 0   | 0   | 0   | 0   | 0   | 0   | done    | page-worker | re-pin | 63d6056 |
+| 22  | features/business-data/checklist/ChecklistDetailPage.tsx                                 | 0   | 0   | 0   | 0   | 0   | 0   | done    | page-worker | re-pin | 7523da3 |
 | 23  | features/business-data/calendar/CalendarDetailPage.tsx                                   | 1   | 3   | 0   | 18  | 1   | 0   | pending |             |        |         |
-| 24  | features/business-data/container/ContainerDetailPage.tsx                                 | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 6b2a75b |
+| 24  | features/business-data/container/ContainerDetailPage.tsx                                 | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 6b2a75b |
 | 25  | features/business-data/product-group/ProductGroupDetailPage.tsx                          | 1   | 9   | 0   | 1   | 1   | 0   | pending |             |        |         |
-| 26  | features/business-data/chart/ChartDetailPage.tsx                                         | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 3e94d5e |
+| 26  | features/business-data/chart/ChartDetailPage.tsx                                         | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 3e94d5e |
 | 27  | features/business-data/shift-plan/ShiftPlanDetailPage.tsx                                | 0   | 7   | 0   | 3   | 1   | 0   | pending |             |        |         |
-| 28  | features/business-data/business-partner/BusinessPartnerDetailPage.tsx                    | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
-| 29  | features/business-data/certification/CertificationDetailPage.tsx                         | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
-| 30  | features/business-data/change-set/ChangeSetDetailPage.tsx                                | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 63f7855 |
-| 31  | features/business-data/package/PackageDetailPage.tsx                                     | 1   | 5   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 28  | features/business-data/business-partner/BusinessPartnerDetailPage.tsx                    | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 0d566b6 |
+| 29  | features/business-data/certification/CertificationDetailPage.tsx                         | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 0d566b6 |
+| 30  | features/business-data/change-set/ChangeSetDetailPage.tsx                                | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 63f7855 |
+| 31  | features/business-data/package/PackageDetailPage.tsx                                     | 1   | 5   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | 2704994 |
 | 32  | features/business-data/shift-logbook/ShiftLogbookDetailPage.tsx                          | 0   | 6   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 33  | features/business-data/step/StepDetailPage.tsx                                           | 0   | 6   | 0   | 1   | 1   | 0   | pending |             |        |         |
-| 34  | features/business-data/area/AreaDetailPage.tsx                                           | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 19b36b2 |
-| 35  | features/business-data/batch/BatchDetailPage.tsx                                         | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
-| 36  | features/business-data/bin-converter/BinConverterDetailPage.tsx                          | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
-| 37  | features/business-data/bom/BomDetailPage.tsx                                             | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | 0d566b6 |
-| 38  | features/business-data/data-collection-limit-set/DataCollectionLimitSetDetailPage.tsx    | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | pass   | ed1cd8c |
+| 34  | features/business-data/area/AreaDetailPage.tsx                                           | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 19b36b2 |
+| 35  | features/business-data/batch/BatchDetailPage.tsx                                         | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 0d566b6 |
+| 36  | features/business-data/bin-converter/BinConverterDetailPage.tsx                          | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 0d566b6 |
+| 37  | features/business-data/bom/BomDetailPage.tsx                                             | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | 0d566b6 |
+| 38  | features/business-data/data-collection-limit-set/DataCollectionLimitSetDetailPage.tsx    | 0   | 0   | 0   | 0   | 0   | 0   | done    | test-worker | re-pin | ed1cd8c |
 | 39  | features/business-data/employee/EmployeeDetailPage.tsx                                   | 0   | 3   | 0   | 3   | 1   | 0   | pending |             |        |         |
 | 40  | features/business-data/notification/NotificationDetailPage.tsx                           | 1   | 4   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 41  | features/business-data/substrate-map/SubstrateMapDetailPage.tsx                          | 0   | 4   | 0   | 2   | 1   | 0   | pending |             |        |         |
 | 42  | features/business-data/site/SiteDetailPage.tsx                                           | 0   | 4   | 0   | 1   | 1   | 0   | pending |             |        |         |
-| 43  | features/business-data/material/MaterialDetailPage.tsx                                   | 1   | 1   | 0   | 2   | 1   | 0   | pending |             |        |         |
+| 43  | features/business-data/material/MaterialDetailPage.tsx                                   | 1   | 1   | 0   | 2   | 1   | 0   | done    | page-worker | pass   | d3f78cc |
 | 44  | features/business-data/sort-rule-set/SortRuleSetDetailPage.tsx                           | 0   | 3   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 45  | features/business-data/transfer-order/TransferOrderDetailPage.tsx                        | 0   | 3   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 46  | features/business-data/transfer-requirement/TransferRequirementDetailPage.tsx            | 0   | 3   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 47  | features/business-data/workgroup/WorkgroupDetailPage.tsx                                 | 0   | 4   | 0   | 0   | 1   | 0   | pending |             |        |         |
 | 48  | features/business-data/maintenance-plan/MaintenancePlanDetailPage.tsx                    | 0   | 2   | 0   | 2   | 0   | 0   | pending |             |        |         |
 | 49  | features/business-data/material-transfer/MaterialTransferDetailPage.tsx                  | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
-| 50  | features/business-data/parameter/ParameterDetailPage.tsx                                 | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 50  | features/business-data/parameter/ParameterDetailPage.tsx                                 | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | cb7e539 |
 | 51  | features/business-data/periodic-inventory/PeriodicInventoryDetailPage.tsx                | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 52  | features/business-data/pick-list/PickListDetailPage.tsx                                  | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
-| 53  | features/business-data/plan/PlanDetailPage.tsx                                           | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 53  | features/business-data/plan/PlanDetailPage.tsx                                           | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | 52aa5c0 |
 | 54  | features/business-data/printable-document/PrintableDocumentDetailPage.tsx                | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
-| 55  | features/business-data/product/ProductDetailPage.tsx                                     | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 55  | features/business-data/product/ProductDetailPage.tsx                                     | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | 40cfd85 |
 | 56  | features/business-data/production-order/ProductionOrderDetailPage.tsx                    | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
-| 57  | features/business-data/protocol/ProtocolDetailPage.tsx                                   | 1   | 1   | 0   | 1   | 1   | 0   | pending |             |        |         |
+| 57  | features/business-data/protocol/ProtocolDetailPage.tsx                                   | 1   | 1   | 0   | 1   | 1   | 0   | done    | page-worker | pass   | c1ae450 |
 | 58  | features/business-data/shift-definition/ShiftDefinitionDetailPage.tsx                    | 0   | 3   | 0   | 0   | 1   | 0   | pending |             |        |         |
 | 59  | features/business-data/substrate-map-mask/SubstrateMapMaskDetailPage.tsx                 | 0   | 2   | 0   | 1   | 1   | 0   | pending |             |        |         |
 | 60  | features/business-data/team/TeamDetailPage.tsx                                           | 0   | 3   | 0   | 0   | 1   | 0   | pending |             |        |         |
