@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useConfiguration } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, KV, DetailTile, HStack } from "@/components/common";
+import { Card, CardGrid, DetailShell, KV, DetailTile, HStack, VStack } from "@/components/common";
 import {
   Checkmark20Filled,
   Dismiss20Filled,
@@ -42,7 +42,7 @@ export function ConfigurationDetailPage({ path }: ConfigurationDetailPageProps) 
     <Card title={t("configuration.sections.generalData")}>
       <HStack gap={18} align="flex-start">
         <DetailTile icon={<Wrench24Regular />} />
-        <div style={{ flexGrow: 1, minWidth: 0 }}>
+        <VStack grow>
           <KV
             rows={[
               [t("configuration.fields.path"), data.path],
@@ -53,17 +53,14 @@ export function ConfigurationDetailPage({ path }: ConfigurationDetailPageProps) 
               [t("configuration.fields.value"), maskedValue(data)],
               [
                 t("configuration.fields.confidential"),
-                <span
-                  key="confidential"
-                  style={{ display: "inline-flex", alignItems: "center", columnGap: 6 }}
-                >
+                <HStack key="confidential" inline align="center" gap={6}>
                   {data.confidential ? <Checkmark20Filled /> : <Dismiss20Filled />}
                   {data.confidential ? t("common.yes") : t("common.no")}
-                </span>,
+                </HStack>,
               ],
             ]}
           />
-        </div>
+        </VStack>
       </HStack>
     </Card>
   );

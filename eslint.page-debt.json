@@ -18,9 +18,6 @@
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
-  "src/features/administration/configuration/ConfigurationDetailPage.tsx": [
-    "local/no-page-style-prop"
-  ],
   "src/features/administration/configuration/ConfigurationListPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-style-prop"
