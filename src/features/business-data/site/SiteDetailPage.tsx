@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useSiteDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, VStack } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, KV, Panel, VStack } from "@/components/common";
 import { Globe24Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { formatOptional } from "./siteHelpers";
 
 const TOP_TABS: DetailTab[] = [
@@ -56,15 +55,11 @@ export function SiteDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.site.sections.facilities")} ({data.facilities.length})
         </Body1Strong>
-        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
+        <VStack gap={8} mt={12}>
           {data.facilities.map((facility) => (
-            <div
-              key={facility}
-              className={sharedStyles.contentCard}
-              style={{ padding: theme.spacing.md }}
-            >
+            <DetailSurface className={sharedStyles.contentCard} key={facility} p={12}>
               <Body1Strong>{facility}</Body1Strong>
-            </div>
+            </DetailSurface>
           ))}
         </VStack>
       </Panel>
@@ -83,10 +78,7 @@ export function SiteDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div
-          className={sharedStyles.contentCard}
-          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-        >
+        <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
           <Body1Strong>{t("businessData.site.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -100,8 +92,8 @@ export function SiteDetailPage({ name }: { name: string }) {
               [t("businessData.site.detail.dataGroup"), data.dataGroup],
             ]}
           />
-        </div>
-        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
+        </DetailSurface>
+        <DetailSurface className={sharedStyles.contentCard} p={16}>
           <Body1Strong>{t("businessData.site.detail.remoteShipping")}</Body1Strong>
           <KV
             rows={[
@@ -115,7 +107,7 @@ export function SiteDetailPage({ name }: { name: string }) {
               ],
             ]}
           />
-        </div>
+        </DetailSurface>
       </>
     );
   }
