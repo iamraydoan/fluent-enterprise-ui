@@ -29,14 +29,12 @@ export function DetailCardTitle({ children }: { children: ReactNode }) {
 
 export function DetailCard({
   title,
-  titleVariant = "section",
   header,
   headerGap = "md",
   children,
   className,
 }: {
   title?: ReactNode;
-  titleVariant?: "section" | "compact";
   header?: ReactNode;
   headerGap?: StackGap;
   children: ReactNode;
@@ -49,8 +47,6 @@ export function DetailCard({
         <HStack align="center" justify="space-between" mb={headerGap}>
           {header}
         </HStack>
-      ) : title !== undefined && titleVariant === "compact" ? (
-        <DetailCardTitle>{title}</DetailCardTitle>
       ) : (
         title !== undefined && <SectionHeader title={title} />
       )}

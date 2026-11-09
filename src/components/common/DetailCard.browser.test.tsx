@@ -35,14 +35,15 @@ test("renders a custom header row instead of a title", async () => {
   expect(css(headerRow, "justify-content")).toBe("space-between");
 });
 
-test("renders a compact card title", async () => {
+test("renders a compact card title as a card child", async () => {
   const screen = await renderWithAppTheme(
-    <DetailCard title="Compact" titleVariant="compact">
+    <DetailCard>
+      <DetailCardTitle>Compact</DetailCardTitle>
       <span>body</span>
     </DetailCard>,
   );
   await expect.element(screen.getByText("Compact")).toBeVisible();
-  const title = document.querySelector("span") as HTMLElement;
+  const title = screen.getByText("Compact").element() as HTMLElement;
   expect(css(title, "font-size")).toBe("14px");
   expect(css(title, "font-weight")).toBe("600");
   expect(css(title, "padding-bottom")).toBe("8px");
