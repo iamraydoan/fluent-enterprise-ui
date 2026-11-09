@@ -58,10 +58,6 @@
   "src/features/business-data/chart/dialogs/dialogStyles.ts": ["no-restricted-syntax"],
   "src/features/business-data/checklist/dialogs/dialogStyles.ts": ["no-restricted-syntax"],
   "src/features/business-data/data-collection/dialogs/dialogStyles.ts": ["no-restricted-syntax"],
-  "src/features/business-data/maintenance-plan/MaintenancePlanDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-style-prop"
-  ],
   "src/features/business-data/product-group/dialogs/dialogShared.ts": ["no-restricted-syntax"],
   "src/features/business-data/resource-job/ResourceJobDetailPage.tsx": ["local/no-page-literal-px"],
   "src/features/manufacturing/augmented-reality/AugmentedRealityPage.tsx": [

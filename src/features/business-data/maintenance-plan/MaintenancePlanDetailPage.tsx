@@ -119,7 +119,7 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
   if (top === "activities") {
     const activity = data.activities[selectedActivity];
     return shell(
-      <HStack gap={16} style={{ height: "100%" }}>
+      <HStack gap={16} height="100%">
         <Panel>
           <Text weight="semibold">{t("businessData.maintenancePlan.sections.activities")}</Text>
           {data.activities.map((item, index) => (
@@ -203,7 +203,7 @@ export function MaintenancePlanDetailPage({ name }: { name: string }) {
             [t("businessData.maintenancePlan.details.dataGroup"), data.dataGroup],
           ]}
         />
-        <HStack gap="8px" style={{ marginTop: "12px" }}>
+        <HStack gap="sm" mt={12}>
           <Button onClick={() => setSetEffectiveOpen(true)}>
             {t("businessData.maintenancePlan.terminateDialog.setEffective")}
           </Button>
