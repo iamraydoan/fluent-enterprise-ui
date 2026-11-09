@@ -179,6 +179,28 @@ Cadence:
 
 The pilot page runs alone, end to end, to measure what a conversion actually costs. The cadence for the remaining pages is set from that measurement rather than estimated in advance. Per-page rigour is not negotiable - every page gets its own gates, its own parity evidence, its own reviewer verdict and its own checklist row. What the measurement decides is only how many pages share a worker task and a review window, never whether a page is verified.
 
+### 14a. Props a page is allowed to pass
+
+These rules exist because the batch that converted the checklist and data-collection pages hit a trap that cost a review cycle, and because the same trap would otherwise catch every remaining page one at a time.
+
+`DetailCard` had grown a `titleVariant?: "section" | "compact"` prop. It renders correctly, it was tested, and no page could use it: `titleVariant="compact"` is an `i18next/no-literal-string` error inside `src/features/**`, and so is `titleVariant={"compact"}`. Only hoisting the string to a const escapes the rule, which is a dodge rather than a design. The prop was therefore dead API that advertised a capability pages could not exercise. It is removed; the compact title survives as `DetailCardTitle`, an exported component used as a card child.
+
+The review that settled this also measured the justification first offered for the child form - that it was needed to keep the title a direct child of the card so the full-width bottom border matched. Both forms render the title as a direct child with byte-identical computed styles; the stated reason was false and the real reason was only the lint rule. Record the real reason, not a plausible one.
+
+The rules, which apply to every remaining page and to any future primitive:
+
+**R1.** A prop a page is expected to pass in JSX must be usable from a page with NO config edit. Either express the variation as a child or a variant component that takes no string-literal enum, which is the `DetailCardTitle` pattern, or - if a shipping page will genuinely pass a literal enum - add that attribute name to the `i18next/no-literal-string` exclusion list **in the same commit**, with a one-line justification that the prop cannot carry user-visible text.
+
+**R2. Necessity test for an exclusion.** An exclusion may only be added for a prop that shipping page or component code already uses. `mb`, `tone` and `headerGap` qualified because pages use them today. An exemption for a prop with zero users is convenience and is rejected.
+
+**R3.** Never hoist a const in a page purely to avoid the i18n rule.
+
+**R4. Dead props.** A prop added for a page that ends up not using it is deleted in the same batch. Deleting an unused prop always beats widening an exclusion.
+
+**R5. Reviewer gate.** Before a batch lands, the reviewer greps every new string-literal prop and every new primitive prop for use under `src/features/**`. Anything that would error there is removed, or exempted with a necessity justification, in the same commit.
+
+A related note on the same class of error: a new string-literal prop that a page _can_ use still needs its attribute name in the exclusion list, otherwise the page cannot compile under lint. Widening that list is a real change to the ruleset, so it is disclosed and reviewed like any other, and R2 decides whether it is allowed.
+
 ## 15. What the checklist is for
 
 `docs/PAGE_ENCAPSULATION_CHECKLIST.md` is the task ledger for C, not documentation. It holds one row per page, with per-rule columns showing the debt that must reach zero and Status / Owner / Review / Commit columns recording the outcome. A row is authoritative only when its Commit column holds a sha and its Review column holds a reviewer verdict. The summary counts at the top are recomputed from the rows, and at the end of each wave the file is reconciled against `eslint.page-debt.json`: the two must agree, and any disagreement is a finding about the ledger rather than about the checklist.
