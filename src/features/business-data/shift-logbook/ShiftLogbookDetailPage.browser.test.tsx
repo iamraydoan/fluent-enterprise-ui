@@ -7,9 +7,10 @@ import {
   createRouter,
 } from "@tanstack/react-router";
 import { expect, test } from "vitest";
-import { capturePageViews, renderWithAppTheme } from "@/test-utils";
+import { capturePageViews, expectDetailSnapshot, renderWithAppTheme } from "@/test-utils";
 import { ShiftLogbookDetailPage } from "./ShiftLogbookDetailPage";
 import parity from "./ShiftLogbookDetailPage.parity.json";
+import positions from "./ShiftLogbookDetailPage.positions.json";
 
 const rootRoute = createRootRoute();
 const detailRoute = createRoute({
@@ -45,4 +46,16 @@ test("keeps every card, grid and field row in every section", async () => {
   const screen = await renderDetail();
   await expect.element(screen.getByText(ENTITY).first()).toBeVisible();
   expect(await capturePageViews({ expected: parity })).toEqual(parity);
+});
+
+test("keeps the handover summary card metrics", async () => {
+  const screen = await renderDetail();
+  await expect.element(screen.getByText(ENTITY).first()).toBeVisible();
+  const before = document.querySelectorAll("div").length;
+  const trigger = document.querySelector('[aria-haspopup="menu"]') as HTMLElement | null;
+  expect(trigger).not.toBeNull();
+  trigger?.click();
+  await screen.getByRole("menuitem", { name: /summary|handover/i }).click();
+  await expect.poll(() => document.querySelectorAll("div").length).toBeGreaterThan(before);
+  expectDetailSnapshot(positions);
 });
