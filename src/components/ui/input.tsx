@@ -8,6 +8,10 @@ import type { ComponentRef, CSSProperties, KeyboardEvent, ReactElement, ReactNod
 import { SIZE_MAP } from "./types";
 import type { ComponentSize } from "./types";
 
+function resolveWidth(width: number | string) {
+  return typeof width === "number" ? `${width}px` : width;
+}
+
 export type InputType =
   "text" | "password" | "number" | "date" | "datetime-local" | "email" | "search" | "tel" | "url";
 
@@ -29,6 +33,7 @@ export interface InputProps {
   contentAfter?: ReactElement;
   className?: string;
   style?: CSSProperties;
+  width?: number | string;
   autoFocus?: boolean;
   maxLength?: number;
   name?: string;
@@ -43,7 +48,7 @@ const INPUT_VARIANT_MAP: Record<InputVariant, "outline" | "underline" | "filled-
 };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { onChange, variant, size, ...rest },
+  { onChange, variant, size, width, style, ...rest },
   ref,
 ) {
   return (
@@ -52,6 +57,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       onChange={onChange ? (_, data) => onChange(data.value) : undefined}
       appearance={variant ? INPUT_VARIANT_MAP[variant] : undefined}
       size={size ? SIZE_MAP[size] : undefined}
+      style={width === undefined ? style : { ...style, width: resolveWidth(width) }}
       {...rest}
     />
   );
