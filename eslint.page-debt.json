@@ -32,10 +32,6 @@
     "local/no-page-makeStyles",
     "local/no-page-theme-import"
   ],
-  "src/features/administration/tables/TablesHubPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles"
-  ],
   "src/features/administration/ui-pages/UIPagesPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-makeStyles",

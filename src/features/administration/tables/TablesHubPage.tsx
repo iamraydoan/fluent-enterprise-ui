@@ -15,24 +15,11 @@ import {
   VStack,
 } from "@/components/common";
 import { Table24Regular } from "@/components/icons";
-import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import type { ListQueryParams } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
-
-const useHubStyles = makeStyles({
-  body: {
-    minHeight: 0,
-  },
-  side: {
-    minHeight: 0,
-  },
-  main: {
-    minWidth: 0,
-  },
-});
 
 const TABLE_KINDS: Array<{
   kind: GenericTableKind;
@@ -95,7 +82,6 @@ function TablesGrid({ kind }: { kind: GenericTableKind }) {
 
 export function TablesHubPage() {
   const { t } = useAppTranslation();
-  const styles = useHubStyles();
   const [kind, setKind] = useState<GenericTableKind>("generic");
   const [collapsed, setCollapsed] = useState(false);
 
@@ -107,8 +93,8 @@ export function TablesHubPage() {
         actions: [createAction, refreshAction],
       }}
     >
-      <HStack gap="10px" className={styles.body}>
-        <VStack className={styles.side}>
+      <HStack gap={10} minHeight={0}>
+        <VStack minHeight={0}>
           <SidePanel
             title={t("tables.typesTitle")}
             collapsed={collapsed}
@@ -125,7 +111,7 @@ export function TablesHubPage() {
             ))}
           </SidePanel>
         </VStack>
-        <VStack className={styles.main}>
+        <VStack minWidth={0}>
           <TablesGrid key={kind} kind={kind} />
         </VStack>
       </HStack>
