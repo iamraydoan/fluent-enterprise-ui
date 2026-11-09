@@ -82,11 +82,6 @@
   ],
   "src/features/business-data/product-group/dialogs/dialogShared.ts": ["no-restricted-syntax"],
   "src/features/business-data/resource-job/ResourceJobDetailPage.tsx": ["local/no-page-literal-px"],
-  "src/features/business-data/sort-rule-set/SortRuleSetDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/step/StepDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-style-prop",

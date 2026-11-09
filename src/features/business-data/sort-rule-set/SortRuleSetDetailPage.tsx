@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useSortRuleSetDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, HStack, VStack } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, HStack, KV, Panel, VStack } from "@/components/common";
 import { ArrowUp20Regular } from "@/components/icons";
 import { Body1Strong, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { formatRuleMeta } from "./sortRuleSetHelpers";
 
 const TOP_TABS: DetailTab[] = [
@@ -59,18 +58,14 @@ export function SortRuleSetDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.sortRuleSet.manageRules")}</Button>
         </HStack>
-        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
+        <VStack gap={8} mt={12}>
           {data.rules.map((rule, index) => (
-            <div
-              key={rule.rule}
-              className={sharedStyles.contentCard}
-              style={{ padding: theme.spacing.md }}
-            >
+            <DetailSurface key={rule.rule} className={sharedStyles.contentCard} p={12}>
               <Body1Strong>
                 {index + 1}. {rule.rule}
               </Body1Strong>
               <div>{formatRuleMeta(rule)}</div>
-            </div>
+            </DetailSurface>
           ))}
         </VStack>
       </Panel>
@@ -88,10 +83,7 @@ export function SortRuleSetDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div
-        className={sharedStyles.contentCard}
-        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-      >
+      <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
         <Body1Strong>{t("businessData.sortRuleSet.sections.details")}</Body1Strong>
         <KV
           rows={[
@@ -105,7 +97,7 @@ export function SortRuleSetDetailPage({ name }: { name: string }) {
             [t("businessData.sortRuleSet.detail.dataGroup"), data.dataGroup],
           ]}
         />
-      </div>
+      </DetailSurface>
     );
   }
 
