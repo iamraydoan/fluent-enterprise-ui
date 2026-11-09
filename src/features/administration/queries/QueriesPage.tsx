@@ -11,27 +11,16 @@ import {
   searchFilter,
   SidePanel,
   SidebarNavItem,
+  SidebarSectionLabel,
 } from "@/components/common";
 import type { DataColumn, DataFilter } from "@/components/common";
 import { DocumentSearch24Regular, Folder24Regular, Grid24Regular } from "@/components/icons";
-import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { ListQueryParams, ListQueryResult } from "@/lib/listQuery";
 import { useDetailNavigation } from "@/lib/useDetailNavigation";
 import { useTabsStore } from "@/stores/tabs-store";
-import { theme } from "@/styles/theme";
 
 const ALL_FOLDERS = "all";
-
-const usePageStyles = makeStyles({
-  sectionLabel: {
-    fontSize: "11px",
-    color: theme.color.textTertiary,
-    textTransform: "uppercase",
-    padding: `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.xs}`,
-    letterSpacing: "0.5px",
-  },
-});
 
 const COLUMNS: DataColumn<QueryRecord>[] = [
   {
@@ -59,7 +48,6 @@ const FILTERS: DataFilter[] = [
 
 export function QueriesPage() {
   const { t } = useAppTranslation();
-  const styles = usePageStyles();
   const [collapsed, setCollapsed] = useState(false);
   const [folder, setFolder] = useState(ALL_FOLDERS);
   const { data: folders = [] } = useQueryFolders();
@@ -102,7 +90,7 @@ export function QueriesPage() {
             active={folder === ALL_FOLDERS}
             onClick={() => setFolder(ALL_FOLDERS)}
           />
-          <div className={styles.sectionLabel}>{t("queries.foldersSection")}</div>
+          <SidebarSectionLabel>{t("queries.foldersSection")}</SidebarSectionLabel>
           {folders.map((entry) => (
             <SidebarNavItem
               key={entry.path}

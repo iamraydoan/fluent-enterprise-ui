@@ -27,11 +27,6 @@
     "local/no-page-theme-import"
   ],
   "src/features/administration/entity-types/dialogs/dialogStyles.ts": ["no-restricted-syntax"],
-  "src/features/administration/queries/QueriesPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-theme-import"
-  ],
   "src/features/administration/queries/QueryDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-makeStyles",
