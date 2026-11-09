@@ -7,7 +7,7 @@ import {
   createRouter,
 } from "@tanstack/react-router";
 import { expect, test } from "vitest";
-import { pageFingerprint, renderWithAppTheme } from "@/test-utils";
+import { captureWalkViews, renderWithAppTheme } from "@/test-utils";
 import { QueriesPage } from "./QueriesPage";
 import parity from "./QueriesPage.parity.json";
 
@@ -31,25 +31,6 @@ async function renderList() {
   );
 }
 
-export async function pageViews() {
-  const sectionButtons = Array.from(document.querySelectorAll<HTMLElement>("aside button")).filter(
-    (button) => !button.getAttribute("aria-label"),
-  );
-  const tabButtons = Array.from(document.querySelectorAll<HTMLElement>('[role="tab"]'));
-  const buttons = sectionButtons.length > 0 ? sectionButtons : tabButtons;
-  if (buttons.length === 0) {
-    return { walk: "page", views: { page: pageFingerprint() } };
-  }
-  const views: Record<string, unknown> = {};
-  for (const button of buttons) {
-    button.click();
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    const label = (button.textContent ?? "").trim() || "unknown";
-    views[label] = pageFingerprint();
-  }
-  return { walk: sectionButtons.length > 0 ? "sections" : "tabs", views };
-}
-
 function folderButtonCount() {
   return Array.from(document.querySelectorAll("aside button")).filter(
     (button) => !button.getAttribute("aria-label"),
@@ -60,5 +41,5 @@ test("keeps every card, grid and field row in every section", async () => {
   await renderList();
   await expect.poll(() => document.body.innerText.includes("GetAllMaterials")).toBe(true);
   await expect.poll(folderButtonCount).toBe(3);
-  expect(await pageViews()).toEqual(parity);
+  expect(await captureWalkViews()).toEqual(parity);
 });
