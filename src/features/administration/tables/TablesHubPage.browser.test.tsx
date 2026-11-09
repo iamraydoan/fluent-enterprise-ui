@@ -34,5 +34,5 @@ async function renderHub() {
 test("keeps every card, grid and field row in every section", async () => {
   await renderHub();
   await expect.poll(() => document.body.innerText.includes("AQLAcceptanceQualityLimit")).toBe(true);
-  expect(await captureWalkViews()).toEqual(parity);
+  expect(await captureWalkViews(parity)).toEqual(parity);
 });

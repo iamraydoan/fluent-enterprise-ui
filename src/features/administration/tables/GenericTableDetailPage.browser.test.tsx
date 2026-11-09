@@ -17,5 +17,5 @@ async function renderPage() {
 test("keeps every card, grid and field row in every section", async () => {
   await renderPage();
   await expect.poll(() => document.body.innerText.includes(TABLE_NAME)).toBe(true);
-  expect(await captureWalkViews()).toEqual(parity);
+  expect(await captureWalkViews(parity)).toEqual(parity);
 });

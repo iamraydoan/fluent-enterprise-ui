@@ -34,5 +34,5 @@ async function renderList() {
 test("keeps every card, grid and field row in every section", async () => {
   await renderList();
   await expect.poll(() => document.body.innerText.includes("MasterDataLoadDate")).toBe(true);
-  expect(await captureWalkViews()).toEqual(parity);
+  expect(await captureWalkViews(parity)).toEqual(parity);
 });

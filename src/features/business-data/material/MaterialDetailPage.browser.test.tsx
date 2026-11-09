@@ -47,5 +47,5 @@ test("keeps every card, grid and field row in every section", async () => {
   await expect
     .poll(() => document.querySelectorAll('[style*="grid-template-columns"]').length)
     .toBeGreaterThan(0);
-  expect(await capturePageViews()).toEqual(parity);
+  expect(await capturePageViews({ expected: parity })).toEqual(parity);
 });

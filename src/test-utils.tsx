@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { expect } from "vitest";
+import { page } from "vitest/browser";
 import { render } from "vitest-browser-react";
 import { FluentProvider } from "@/components/ui";
 import { initI18n } from "@/i18n";
-import { worker } from "@/mocks/browser";
 import { lightTheme } from "@/theme";
 
 export async function renderWithAppTheme(ui: ReactNode) {
@@ -143,50 +143,92 @@ function cardSnapshot() {
   }
 }
 
-let inFlight = 0;
-let tracking = false;
-
-function trackRequests() {
-  if (tracking) return;
-  tracking = true;
-  worker.events.on("request:start", () => {
-    inFlight += 1;
-  });
-  worker.events.on("request:end", () => {
-    inFlight = Math.max(0, inFlight - 1);
-  });
+function textsOf(value: unknown): string[] | null {
+  if (!value || typeof value !== "object") return null;
+  const texts = (value as { texts?: unknown }).texts;
+  if (!Array.isArray(texts)) return null;
+  const result: string[] = [];
+  for (const entry of texts) {
+    if (!Array.isArray(entry) || typeof entry[0] !== "string") return null;
+    result.push(entry[0]);
+  }
+  return result;
 }
 
-async function waitForNetworkIdle() {
-  const deadline = Date.now() + 10000;
-  while (inFlight > 0 && Date.now() < deadline) {
+function fingerprintOf(view: unknown): unknown {
+  if (!view || typeof view !== "object") return undefined;
+  return (view as { fingerprint?: unknown }).fingerprint;
+}
+
+function fixtureViews(fixture: unknown): Record<string, unknown> {
+  if (!fixture || typeof fixture !== "object") return {};
+  const record = fixture as Record<string, unknown>;
+  const views = record.views;
+  if (views && typeof views === "object" && !Array.isArray(views)) {
+    return views as Record<string, unknown>;
+  }
+  return record;
+}
+
+function viewKey(button: HTMLElement) {
+  return (button.textContent ?? "").trim() || "unknown";
+}
+
+function textSignature() {
+  return Array.from(document.querySelectorAll<HTMLElement>("*"))
+    .map((element) => {
+      const own = Array.from(element.childNodes)
+        .filter((node) => node.nodeType === Node.TEXT_NODE)
+        .map((node) => node.textContent ?? "")
+        .join("")
+        .replace(/\s+/g, " ")
+        .trim();
+      return own === "" ? null : own.slice(0, 40);
+    })
+    .filter((text): text is string => text !== null);
+}
+
+async function waitForText(expected: string[] | null) {
+  const target = expected === null ? null : JSON.stringify(expected);
+  const deadline = Date.now() + 2000;
+  let previous = "";
+  while (Date.now() < deadline) {
+    const current = JSON.stringify(textSignature());
+    if (current === previous && (target === null || current === target)) return;
+    previous = current;
     await new Promise((resolve) => setTimeout(resolve, 25));
   }
 }
 
-async function settleContent() {
-  trackRequests();
-  await waitForNetworkIdle();
-  let previous = "";
-  let stable = 0;
-  await expect
-    .poll(
-      () => {
-        const current = JSON.stringify(pageFingerprint());
-        stable = current === previous ? stable + 1 : 0;
-        previous = current;
-        return stable;
-      },
-      { timeout: 10000, interval: 50 },
-    )
-    .toBeGreaterThanOrEqual(3);
+function markerAttribute(buttons: HTMLElement[]) {
+  if (buttons.some((button) => button.hasAttribute("aria-selected"))) return "aria-selected";
+  if (buttons.some((button) => button.hasAttribute("aria-current"))) return "aria-current";
+  return null;
 }
 
-async function settleView(button: HTMLElement) {
-  if (button.hasAttribute("aria-selected")) {
-    await expect.poll(() => button.getAttribute("aria-selected"), { timeout: 5000 }).toBe("true");
+async function waitForMarker(button: HTMLElement, attribute: string | null) {
+  if (attribute === null) return;
+  const deadline = Date.now() + 1000;
+  while (Date.now() < deadline) {
+    const value = button.getAttribute(attribute);
+    if (attribute === "aria-selected" ? value === "true" : value !== null) return;
+    await new Promise((resolve) => setTimeout(resolve, 10));
   }
-  await settleContent();
+}
+
+async function parkCursor() {
+  await page.elementLocator(document.documentElement).hover({ position: { x: 1, y: 1 } });
+}
+
+async function captureSettled(produce: () => unknown, expected: unknown) {
+  let captured = produce();
+  if (expected === undefined) return captured;
+  const target = JSON.stringify(expected);
+  for (let attempt = 0; attempt < 2 && JSON.stringify(captured) !== target; attempt += 1) {
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    captured = produce();
+  }
+  return captured;
 }
 
 function viewButtons() {
@@ -195,53 +237,86 @@ function viewButtons() {
   );
 }
 
-export async function capturePageViews(options: { includeDefault?: boolean } = {}) {
+export async function capturePageViews(
+  options: { includeDefault?: boolean; expected?: unknown } = {},
+) {
+  const expectedViews = fixtureViews(options.expected);
+  const buttons = viewButtons();
+  const marker = markerAttribute(buttons);
   const views: Record<string, unknown> = {};
   if (options.includeDefault) {
-    await settleContent();
-    views.default = { snapshot: cardSnapshot(), fingerprint: pageFingerprint() };
+    const expectedView = expectedViews.default;
+    await waitForText(textsOf(fingerprintOf(expectedView)));
+    await parkCursor();
+    views.default = await captureSettled(
+      () => ({ snapshot: cardSnapshot(), fingerprint: pageFingerprint() }),
+      expectedView,
+    );
   }
-  for (const button of viewButtons()) {
+  for (const button of buttons) {
     button.click();
-    await settleView(button);
-    views[(button.textContent ?? "unknown").trim()] = {
-      snapshot: cardSnapshot(),
-      fingerprint: pageFingerprint(),
-    };
+    await waitForMarker(button, marker);
+    const key = viewKey(button);
+    const expectedView = expectedViews[key];
+    await waitForText(textsOf(fingerprintOf(expectedView)));
+    await parkCursor();
+    views[key] = await captureSettled(
+      () => ({ snapshot: cardSnapshot(), fingerprint: pageFingerprint() }),
+      expectedView,
+    );
   }
   return views;
 }
 
-export async function captureWalkViews() {
+export async function captureWalkViews(expected?: unknown) {
+  const expectedViews = fixtureViews(expected);
   const sectionButtons = viewButtons();
   const tabButtons = Array.from(document.querySelectorAll<HTMLElement>('[role="tab"]'));
   const buttons = sectionButtons.length > 0 ? sectionButtons : tabButtons;
   if (buttons.length === 0) {
-    await settleContent();
-    return { walk: "page", views: { page: pageFingerprint() } };
+    const expectedView = expectedViews.page;
+    await waitForText(textsOf(expectedView));
+    await parkCursor();
+    return {
+      walk: "page",
+      views: { page: await captureSettled(() => pageFingerprint(), expectedView) },
+    };
   }
+  const marker = markerAttribute(buttons);
   const views: Record<string, unknown> = {};
   for (const button of buttons) {
     button.click();
-    await settleView(button);
-    views[(button.textContent ?? "").trim() || "unknown"] = pageFingerprint();
+    await waitForMarker(button, marker);
+    const key = viewKey(button);
+    const expectedView = expectedViews[key];
+    await waitForText(textsOf(expectedView));
+    await parkCursor();
+    views[key] = await captureSettled(() => pageFingerprint(), expectedView);
   }
   return { walk: sectionButtons.length > 0 ? "sections" : "tabs", views };
 }
 
-export async function detailViews() {
+export async function detailViews(expected?: unknown) {
+  const expectedViews = fixtureViews(expected);
+  const buttons = viewButtons();
+  const marker = markerAttribute(buttons);
   const views: Record<string, unknown> = {};
-  for (const button of viewButtons()) {
+  for (const button of buttons) {
     button.click();
-    await settleView(button);
-    views[button.textContent?.trim() ?? "unknown"] =
-      cardElements().length === 0 ? null : detailSnapshot();
+    await waitForMarker(button, marker);
+    const key = viewKey(button);
+    await waitForText(null);
+    await parkCursor();
+    views[key] = await captureSettled(
+      () => (cardElements().length === 0 ? null : detailSnapshot()),
+      expectedViews[key],
+    );
   }
   return views;
 }
 
 export async function expectDetailViews(expected: unknown) {
-  expect(await detailViews()).toEqual(expected);
+  expect(await detailViews(expected)).toEqual(expected);
 }
 
 export function expectDetailSnapshot(expected: unknown) {

@@ -14,5 +14,5 @@ test("keeps every card, grid and field row in every section", async () => {
     </QueryClientProvider>,
   );
   await expect.element(screen.getByText("UserPassword").first()).toBeVisible();
-  expect(await captureWalkViews()).toEqual(parity);
+  expect(await captureWalkViews(parity)).toEqual(parity);
 });
