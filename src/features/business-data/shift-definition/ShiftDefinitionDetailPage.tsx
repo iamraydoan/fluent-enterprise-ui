@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useShiftDefinitionDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, HStack } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, HStack, KV, Panel } from "@/components/common";
 import { Timer24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { ManageShiftsDialog } from "./dialogs/ManageShiftsDialog";
 import { ShiftDefinitionCloneDialog } from "./dialogs/ShiftDefinitionCloneDialog";
 import { ShiftDefinitionEditDialog } from "./dialogs/ShiftDefinitionEditDialog";
@@ -75,11 +74,7 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
           <Caption1>{t("businessData.shiftDefinition.emptySection")}</Caption1>
         ) : (
           data.shifts.map((shift) => (
-            <div
-              key={shift.name}
-              className={sharedStyles.contentCard}
-              style={{ marginTop: theme.spacing.sm, padding: theme.spacing.md }}
-            >
+            <DetailSurface className={sharedStyles.contentCard} key={shift.name} p={12} mt={8}>
               <Body1Strong>{shift.name}</Body1Strong>
               <Caption1>
                 {t("businessData.shiftDefinition.shiftTimeRange", {
@@ -87,7 +82,7 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
                   end: shift.endTime,
                 })}
               </Caption1>
-            </div>
+            </DetailSurface>
           ))
         )}
       </Panel>
@@ -111,10 +106,7 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div
-          className={sharedStyles.contentCard}
-          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-        >
+        <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
           <Body1Strong>{t("businessData.shiftDefinition.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -127,8 +119,8 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
               [t("businessData.shiftDefinition.detail.dataGroup"), data.dataGroup],
             ]}
           />
-        </div>
-        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
+        </DetailSurface>
+        <DetailSurface className={sharedStyles.contentCard} p={16}>
           <Body1Strong>{t("businessData.shiftDefinition.detail.information")}</Body1Strong>
           <KV
             rows={[
@@ -136,7 +128,7 @@ export function ShiftDefinitionDetailPage({ name }: { name: string }) {
               [t("businessData.shiftDefinition.detail.startTime"), data.startTime],
             ]}
           />
-        </div>
+        </DetailSurface>
       </>
     );
   }
