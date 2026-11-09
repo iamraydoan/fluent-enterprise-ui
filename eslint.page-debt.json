@@ -112,12 +112,6 @@
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
-  "src/features/business-data/package/PackageDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/periodic-inventory/PeriodicInventoryDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-makeStyles",

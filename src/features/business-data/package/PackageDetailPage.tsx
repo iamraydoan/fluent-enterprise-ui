@@ -1,23 +1,17 @@
 import { useState } from "react";
 import { usePackageDetail } from "@/api";
 import type { DetailMoreMenuItem } from "@/components/common";
-import { DetailShell, KV, Grid } from "@/components/common";
+import { DetailSectionCard, DetailShell, KV, Grid } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text, makeStyles } from "@/components/ui";
+import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import {
   PackageReportDialog,
   ShipPackagesDialog,
   TerminatePackageDialog,
   UnterminatePackageDialog,
 } from "./PackageDialogs";
-
-const useStyles = makeStyles({
-  sectionTitle: { marginBottom: theme.spacing.sm },
-});
 
 const TOP_TABS: { value: string; labelKey: TranslationKey }[] = [
   { value: "details", labelKey: "businessData.package.tabs.details" },
@@ -34,8 +28,6 @@ const LEFT_ITEMS: TranslationKey[] = [
 
 export function PackageDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
-  const shared = useSharedStyles();
   const { data: detail } = usePackageDetail(name);
 
   const [top, setTop] = useState("details");
@@ -94,11 +86,8 @@ export function PackageDetailPage({ name }: { name: string }) {
         moreActions={moreMenuItems}
       >
         {top === "details" && left === LEFT_ITEMS[0] && (
-          <Grid columns="repeat(2, 1fr)" gap="12px">
-            <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-              <Text weight="semibold" size={400} className={styles.sectionTitle}>
-                {t("businessData.package.detail.generalData")}
-              </Text>
+          <Grid columns="repeat(2, 1fr)" gap={12}>
+            <DetailSectionCard title={t("businessData.package.detail.generalData")}>
               <KV
                 rows={[
                   [t("businessData.package.detail.fields.name"), detail.name],
@@ -110,36 +99,28 @@ export function PackageDetailPage({ name }: { name: string }) {
                   [t("businessData.package.detail.fields.contentType"), detail.contentType],
                 ]}
               />
-            </div>
+            </DetailSectionCard>
           </Grid>
         )}
         {top === "details" && left === LEFT_ITEMS[1] && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.package.left.contents")}
-            </Text>
-          </div>
+          <DetailSectionCard title={t("businessData.package.left.contents")}>
+            {null}
+          </DetailSectionCard>
         )}
         {top === "details" && left === LEFT_ITEMS[2] && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.package.left.subMaterials")}
-            </Text>
-          </div>
+          <DetailSectionCard title={t("businessData.package.left.subMaterials")}>
+            {null}
+          </DetailSectionCard>
         )}
         {top === "references" && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.package.tabs.references")}
-            </Text>
-          </div>
+          <DetailSectionCard title={t("businessData.package.tabs.references")}>
+            {null}
+          </DetailSectionCard>
         )}
         {top === "history" && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.package.tabs.history")}
-            </Text>
-          </div>
+          <DetailSectionCard title={t("businessData.package.tabs.history")}>
+            {null}
+          </DetailSectionCard>
         )}
       </DetailShell>
 
