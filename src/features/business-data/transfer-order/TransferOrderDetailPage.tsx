@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useTransferOrderDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, VStack } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, KV, Panel, VStack } from "@/components/common";
 import { ArrowExportUp24Regular } from "@/components/icons";
 import { Body1Strong, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { formatItemMeta } from "./transferOrderHelpers";
 
 const TOP_TABS: DetailTab[] = [
@@ -55,18 +54,14 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.transferOrder.sections.items")} ({data.items.length})
         </Body1Strong>
-        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
+        <VStack gap={8} mt={12}>
           {data.items.map((item) => (
-            <div
-              key={item.material}
-              className={sharedStyles.contentCard}
-              style={{ padding: theme.spacing.md }}
-            >
+            <DetailSurface key={item.material} className={sharedStyles.contentCard} p={12}>
               <Body1Strong>{item.material}</Body1Strong>
               <div>
                 <Caption1>{formatItemMeta(item)}</Caption1>
               </div>
-            </div>
+            </DetailSurface>
           ))}
         </VStack>
       </Panel>
@@ -81,10 +76,7 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div
-        className={sharedStyles.contentCard}
-        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-      >
+      <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
         <Body1Strong>{t("businessData.transferOrder.sections.details")}</Body1Strong>
         <KV
           rows={[
@@ -100,7 +92,7 @@ export function TransferOrderDetailPage({ name }: { name: string }) {
             [t("businessData.transferOrder.detail.dataGroup"), data.dataGroup],
           ]}
         />
-      </div>
+      </DetailSurface>
     );
   }
 

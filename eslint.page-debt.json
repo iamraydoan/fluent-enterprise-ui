@@ -95,11 +95,6 @@
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
-  "src/features/business-data/transfer-order/TransferOrderDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/transfer-requirement/TransferRequirementDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-style-prop",
