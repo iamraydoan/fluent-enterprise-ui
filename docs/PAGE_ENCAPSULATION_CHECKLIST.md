@@ -44,8 +44,8 @@ Status legend: pending / in-progress / review / fixing / done / deferred. Review
 | 10  | features/administration/tables/GenericTableDetailPage.tsx         | 1   | 0   | 0   | 2   | 1   | 0   | done     | page-worker | pass   | 1e782dd |
 | 11  | features/administration/queries/QueriesPage.tsx                   | 1   | 0   | 0   | 1   | 1   | 0   | done     | page-worker | pass   | c15f988 |
 | 12  | features/administration/configuration/ConfigurationDetailPage.tsx | 0   | 2   | 0   | 0   | 0   | 0   | done     | page-worker | pass   | aba427f |
-| 13  | features/administration/configuration/ConfigurationListPage.tsx   | 0   | 1   | 0   | 1   | 0   | 0   | review   | page-worker |        | 90b1a8d |
-| 14  | features/administration/tables/TablesHubPage.tsx                  | 1   | 0   | 0   | 1   | 0   | 0   | review   | page-worker |        | 51de5c3 |
+| 13  | features/administration/configuration/ConfigurationListPage.tsx   | 0   | 1   | 0   | 1   | 0   | 0   | done     | page-worker | pass   | 90b1a8d |
+| 14  | features/administration/tables/TablesHubPage.tsx                  | 1   | 0   | 0   | 1   | 0   | 0   | done     | page-worker | pass   | 51de5c3 |
 | 15  | features/administration/AdministrationHubPage.tsx                 | 0   | 0   | 0   | 0   | 0   | 0   | clean    |             |        |         |
 | 16  | features/administration/ai-agent/AiAgentListPage.tsx              | 0   | 0   | 0   | 0   | 0   | 0   | clean    |             |        |         |
 | 17  | features/administration/ai-mcp-server/McpServerListPage.tsx       | 0   | 0   | 0   | 0   | 0   | 0   | clean    |             |        |         |
