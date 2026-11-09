@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useStepDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, VStack } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, KV, Panel, VStack } from "@/components/common";
 import { Flow24Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatList } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.step.tabs.details" },
@@ -73,15 +72,11 @@ export function StepDetailPage({ name }: { name: string }) {
     content = (
       <Panel>
         <Body1Strong>{t("businessData.step.tabs.contexts")}</Body1Strong>
-        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
+        <VStack gap={8} mt={12}>
           {CONTEXTS.map((key) => (
-            <div
-              key={key}
-              className={sharedStyles.contentCard}
-              style={{ padding: theme.spacing.md }}
-            >
+            <DetailSurface key={key} className={sharedStyles.contentCard} p={12}>
               <Body1Strong>{t(key)}</Body1Strong>
-            </div>
+            </DetailSurface>
           ))}
         </VStack>
       </Panel>
@@ -100,7 +95,9 @@ export function StepDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.step.sections.logicalNames")} ({data.logicalNames.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.logicalNames)}</div>
+        <VStack gap="none" mt={12}>
+          {formatList(data.logicalNames)}
+        </VStack>
       </Panel>
     );
   } else if (left === "businessData.step.sections.areas") {
@@ -109,7 +106,9 @@ export function StepDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.step.sections.areas")} ({data.areas.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.areas)}</div>
+        <VStack gap="none" mt={12}>
+          {formatList(data.areas)}
+        </VStack>
       </Panel>
     );
   } else if (left === "businessData.step.sections.reasons") {
@@ -118,7 +117,9 @@ export function StepDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.step.sections.reasons")} ({data.reasons.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.reasons)}</div>
+        <VStack gap="none" mt={12}>
+          {formatList(data.reasons)}
+        </VStack>
       </Panel>
     );
   } else if (left !== "businessData.step.sections.details") {
@@ -131,10 +132,7 @@ export function StepDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div
-        className={sharedStyles.contentCard}
-        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-      >
+      <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
         <Body1Strong>{t("businessData.step.sections.details")}</Body1Strong>
         <KV
           rows={[
@@ -151,7 +149,7 @@ export function StepDetailPage({ name }: { name: string }) {
             ],
           ]}
         />
-      </div>
+      </DetailSurface>
     );
   }
 
