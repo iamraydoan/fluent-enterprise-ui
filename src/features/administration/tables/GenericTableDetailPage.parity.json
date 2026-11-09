@@ -1,0 +1,247 @@
+{
+  "walk": "tabs",
+  "views": {
+    "Data": {
+      "cards": [
+        {
+          "padding": "12px",
+          "margin": "12px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "auto",
+          "shrink": "1",
+          "box": [390, 322]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "41.2188px",
+          "rowGap": "normal",
+          "columnGap": "6px",
+          "box": [61, 44]
+        },
+        {
+          "inline": "",
+          "computed": "81.3438px",
+          "rowGap": "normal",
+          "columnGap": "6px",
+          "box": [101, 44]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "6px",
+          "box": [81, 44]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Data", 26, 12, "14px", "600", "rgb(36, 36, 36)"],
+        ["Definition", 87, 12, "14px", "400", "rgb(66, 66, 66)"],
+        ["Definition", 87, 12, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 189, 12, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 189, 12, "14px", "600", "rgb(0, 0, 0)"],
+        ["AQLAcceptanceQualityLimit", 48, 68, "16px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 306, 69, "14px", "400", "rgb(36, 36, 36)"],
+        ["Refresh", 24, 146, "14px", "600", "rgb(66, 66, 66)"],
+        ["Add", 141, 146, "14px", "600", "rgb(66, 66, 66)"],
+        ["AQLAcceptanceQualityLimit (2)", 24, 199, "15px", "600", "rgb(36, 36, 36)"],
+        ["CODE", 158, 236, "12px", "400", "rgb(36, 36, 36)"],
+        ["DESCRIPTION", 280, 236, "12px", "400", "rgb(36, 36, 36)"],
+        ["001", 146, 277, "13px", "400", "rgb(36, 36, 36)"],
+        ["First record", 268, 277, "13px", "400", "rgb(36, 36, 36)"],
+        ["002", 146, 338, "13px", "400", "rgb(36, 36, 36)"],
+        ["Second record", 268, 338, "13px", "400", "rgb(36, 36, 36)"],
+        ["0 selected", 246, 408, "13px", "400", "rgb(66, 66, 66)"],
+        ["2 records", 329, 408, "13px", "400", "rgb(66, 66, 66)"]
+      ]
+    },
+    "Definition": {
+      "cards": [
+        {
+          "padding": "12px",
+          "margin": "12px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "auto",
+          "shrink": "1",
+          "box": [390, 588]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 421]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 133]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "41.2188px",
+          "rowGap": "normal",
+          "columnGap": "6px",
+          "box": [61, 44]
+        },
+        {
+          "inline": "",
+          "computed": "81.3438px",
+          "rowGap": "normal",
+          "columnGap": "6px",
+          "box": [101, 44]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "6px",
+          "box": [81, 44]
+        },
+        {
+          "inline": "",
+          "computed": "380px",
+          "rowGap": "10px",
+          "columnGap": "10px",
+          "box": [134, 564]
+        },
+        {
+          "inline": "",
+          "computed": "158.922px 177.078px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 344]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 56]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Data", 26, 12, "14px", "400", "rgb(66, 66, 66)"],
+        ["Data", 26, 12, "14px", "600", "rgb(0, 0, 0)"],
+        ["Definition", 87, 12, "14px", "600", "rgb(36, 36, 36)"],
+        ["History", 189, 12, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 189, 12, "14px", "600", "rgb(0, 0, 0)"],
+        ["AQLAcceptanceQualityLimit", 48, 68, "16px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 306, 69, "14px", "400", "rgb(36, 36, 36)"],
+        ["Generic Table Definition", 36, 148, "14px", "600", "rgb(0, 0, 0)"],
+        ["Properties", 36, 188, "14px", "400", "rgb(0, 0, 0)"],
+        ["General Data", 274, 154, "14px", "400", "rgb(36, 36, 36)"],
+        ["Name:", 274, 195, "13px", "400", "rgb(66, 66, 66)"],
+        ["AQLAcceptanceQualityLimit", 441, 195, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 274, 251, "13px", "400", "rgb(66, 66, 66)"],
+        ["Resolve AQL Limits based on Code, Inspec", 441, 251, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 274, 355, "13px", "400", "rgb(66, 66, 66)"],
+        ["Is System:", 274, 387, "13px", "400", "rgb(66, 66, 66)"],
+        ["Yes", 441, 387, "13px", "400", "rgb(36, 36, 36)"],
+        ["Enable History:", 274, 419, "13px", "400", "rgb(66, 66, 66)"],
+        ["No", 441, 419, "13px", "400", "rgb(36, 36, 36)"],
+        ["History Days by Default:", 274, 451, "13px", "400", "rgb(66, 66, 66)"],
+        ["0", 441, 451, "13px", "400", "rgb(36, 36, 36)"],
+        ["State:", 274, 483, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 441, 483, "13px", "400", "rgb(36, 36, 36)"],
+        ["Localized Message Key:", 274, 515, "13px", "400", "rgb(66, 66, 66)"],
+        ["Columns (2)", 274, 585, "14px", "400", "rgb(36, 36, 36)"],
+        ["Code:", 274, 626, "13px", "400", "rgb(66, 66, 66)"],
+        ["string (Key)", 392, 626, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 274, 658, "13px", "400", "rgb(66, 66, 66)"],
+        ["string", 392, 658, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "History": {
+      "cards": [
+        {
+          "padding": "12px",
+          "margin": "12px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "auto",
+          "shrink": "1",
+          "box": [390, 76]
+        },
+        {
+          "padding": "10px 14px 0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "1",
+          "box": [366, 52]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "41.2188px",
+          "rowGap": "normal",
+          "columnGap": "6px",
+          "box": [61, 44]
+        },
+        {
+          "inline": "",
+          "computed": "81.3438px",
+          "rowGap": "normal",
+          "columnGap": "6px",
+          "box": [101, 44]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "6px",
+          "box": [81, 44]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Data", 26, 12, "14px", "400", "rgb(66, 66, 66)"],
+        ["Data", 26, 12, "14px", "600", "rgb(0, 0, 0)"],
+        ["Definition", 87, 12, "14px", "400", "rgb(66, 66, 66)"],
+        ["Definition", 87, 12, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 189, 12, "14px", "600", "rgb(36, 36, 36)"],
+        ["AQLAcceptanceQualityLimit", 48, 68, "16px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 306, 69, "14px", "400", "rgb(36, 36, 36)"],
+        ["No history yet", 151, 148, "14px", "600", "rgb(97, 97, 97)"],
+        ["History is not available in the demo.", 98, 174, "12px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  }
+}
