@@ -50,8 +50,15 @@ export async function pageViews() {
   return { walk: sectionButtons.length > 0 ? "sections" : "tabs", views };
 }
 
+function folderButtonCount() {
+  return Array.from(document.querySelectorAll("aside button")).filter(
+    (button) => !button.getAttribute("aria-label"),
+  ).length;
+}
+
 test("keeps every card, grid and field row in every section", async () => {
   await renderList();
   await expect.poll(() => document.body.innerText.includes("GetAllMaterials")).toBe(true);
+  await expect.poll(folderButtonCount).toBe(3);
   expect(await pageViews()).toEqual(parity);
 });
