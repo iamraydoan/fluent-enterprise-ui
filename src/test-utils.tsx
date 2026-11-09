@@ -142,23 +142,27 @@ function cardSnapshot() {
   }
 }
 
-async function settleView(button: HTMLElement) {
-  if (button.hasAttribute("aria-selected")) {
-    await expect.poll(() => button.getAttribute("aria-selected"), { timeout: 5000 }).toBe("true");
-    return;
-  }
+async function settleContent() {
   let previous = "";
+  let stable = 0;
   await expect
     .poll(
       () => {
         const current = JSON.stringify(pageFingerprint());
-        const stable = current === previous;
+        stable = current === previous ? stable + 1 : 0;
         previous = current;
         return stable;
       },
-      { timeout: 5000, interval: 50 },
+      { timeout: 10000, interval: 50 },
     )
-    .toBe(true);
+    .toBeGreaterThanOrEqual(3);
+}
+
+async function settleView(button: HTMLElement) {
+  if (button.hasAttribute("aria-selected")) {
+    await expect.poll(() => button.getAttribute("aria-selected"), { timeout: 5000 }).toBe("true");
+  }
+  await settleContent();
 }
 
 function viewButtons() {
@@ -170,6 +174,7 @@ function viewButtons() {
 export async function capturePageViews(options: { includeDefault?: boolean } = {}) {
   const views: Record<string, unknown> = {};
   if (options.includeDefault) {
+    await settleContent();
     views.default = { snapshot: cardSnapshot(), fingerprint: pageFingerprint() };
   }
   for (const button of viewButtons()) {
@@ -188,6 +193,7 @@ export async function captureWalkViews() {
   const tabButtons = Array.from(document.querySelectorAll<HTMLElement>('[role="tab"]'));
   const buttons = sectionButtons.length > 0 ? sectionButtons : tabButtons;
   if (buttons.length === 0) {
+    await settleContent();
     return { walk: "page", views: { page: pageFingerprint() } };
   }
   const views: Record<string, unknown> = {};
