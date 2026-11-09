@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
-import { makeStyles, Text } from "@/components/ui";
+import { makeStyles, mergeClasses, Text } from "@/components/ui";
 import { useSharedStyles } from "@/styles/shared";
 import { theme } from "@/styles/theme";
 
 const useStyles = makeStyles({
+  card: { padding: "14px 16px" },
   heading: { marginBottom: theme.spacing.sm },
 });
 
@@ -11,7 +12,7 @@ export function DetailSectionCard({ title, children }: { title: ReactNode; child
   const sharedStyles = useSharedStyles();
   const styles = useStyles();
   return (
-    <div className={sharedStyles.contentCard} style={{ padding: "14px 16px" }}>
+    <div className={mergeClasses(sharedStyles.contentCard, styles.card)}>
       <Text size={400} weight="semibold" className={styles.heading}>
         {title}
       </Text>
