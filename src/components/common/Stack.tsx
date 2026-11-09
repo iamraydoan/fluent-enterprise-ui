@@ -31,6 +31,8 @@ interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   divider?: boolean;
   p?: StackGap | (string & {}) | number;
   mb?: StackGap | (string & {}) | number;
+  minWidth?: number | string;
+  minHeight?: number | string;
   title?: string;
   className?: string;
   style?: CSSProperties;
@@ -42,8 +44,24 @@ function resolveSpacing(value: string | number): string {
   return (theme.spacing as Record<string, string>)[value] ?? value;
 }
 
+function resolveLength(value: string | number): string {
+  return typeof value === "number" ? value + "px" : value;
+}
+
 function stackStyle(direction: "row" | "column", props: StackProps): CSSProperties {
-  const { gap = "md", align, justify, wrap, grow, surface, divider, p, mb } = props;
+  const {
+    gap = "md",
+    align,
+    justify,
+    wrap,
+    grow,
+    surface,
+    divider,
+    p,
+    mb,
+    minWidth,
+    minHeight,
+  } = props;
   return {
     display: "flex",
     flexDirection: direction,
@@ -60,6 +78,8 @@ function stackStyle(direction: "row" | "column", props: StackProps): CSSProperti
     ...(divider ? { borderBottom: `1px solid ${theme.color.borderSubtle}` } : {}),
     ...(p !== undefined ? { padding: resolveSpacing(p) } : {}),
     ...(mb !== undefined ? { marginBottom: resolveSpacing(mb) } : {}),
+    ...(minWidth !== undefined ? { minWidth: resolveLength(minWidth) } : {}),
+    ...(minHeight !== undefined ? { minHeight: resolveLength(minHeight) } : {}),
   };
 }
 

@@ -45,6 +45,8 @@ export {
 export type { HeaderAction } from "./ListPageHeader";
 export { RECORD_STATE_COLUMN_OPTIONS } from "./listState";
 export { SidePanel } from "./SidePanel";
+export { SidebarSectionLabel } from "./SidebarSectionLabel";
+export { RecordPage } from "./RecordPage";
 export { FilterBar, FilterGroup } from "./FilterBar";
 export { EntityTile, TileGrid } from "./EntityTile";
 export { HStack, VStack, Grid } from "./Stack";

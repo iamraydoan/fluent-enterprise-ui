@@ -155,3 +155,57 @@ export async function expectDetailViews(expected: unknown) {
 export function expectDetailSnapshot(expected: unknown) {
   expect(detailSnapshot()).toEqual(expected);
 }
+
+export function pageFingerprint() {
+  const box = (element: HTMLElement) => {
+    const rect = element.getBoundingClientRect();
+    return [Math.round(rect.width), Math.round(rect.height)];
+  };
+  const texts = Array.from(document.querySelectorAll<HTMLElement>("*"))
+    .map((element) => {
+      const own = Array.from(element.childNodes)
+        .filter((node) => node.nodeType === Node.TEXT_NODE)
+        .map((node) => node.textContent ?? "")
+        .join("")
+        .replace(/\s+/g, " ")
+        .trim();
+      if (own === "") return null;
+      const rect = element.getBoundingClientRect();
+      return [
+        own.slice(0, 40),
+        Math.round(rect.left),
+        Math.round(rect.top),
+        css(element, "font-size"),
+        css(element, "font-weight"),
+        css(element, "color"),
+      ];
+    })
+    .filter((entry) => entry !== null);
+  const cards = Array.from(document.querySelectorAll<HTMLElement>("*"))
+    .filter(
+      (element) =>
+        css(element, "border-radius") === "12px" &&
+        css(element, "background-color") === "rgb(250, 250, 250)",
+    )
+    .map((element) => ({
+      padding: css(element, "padding"),
+      margin: css(element, "margin"),
+      display: css(element, "display"),
+      direction: css(element, "flex-direction"),
+      rowGap: css(element, "row-gap"),
+      columnGap: css(element, "column-gap"),
+      overflow: css(element, "overflow"),
+      shrink: css(element, "flex-shrink"),
+      box: box(element),
+    }));
+  const grids = Array.from(document.querySelectorAll<HTMLElement>("*"))
+    .filter((element) => css(element, "display") === "grid")
+    .map((element) => ({
+      inline: element.style.gridTemplateColumns,
+      computed: css(element, "grid-template-columns"),
+      rowGap: css(element, "row-gap"),
+      columnGap: css(element, "column-gap"),
+      box: box(element),
+    }));
+  return { cards, grids, texts };
+}

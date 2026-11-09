@@ -43,6 +43,7 @@ interface SidePanelBaseProps {
   title: string;
   children: ReactNode;
   style?: CSSProperties;
+  width?: number | string;
 }
 
 interface CollapsibleSidePanelProps extends SidePanelBaseProps {
@@ -63,11 +64,15 @@ export function SidePanel(props: SidePanelProps) {
   const { t } = useAppTranslation();
   const styles = usePanelStyles();
   const sharedStyles = useSharedStyles();
-  const { title, children, style } = props;
+  const { title, children, style, width } = props;
+  const panelStyle =
+    width === undefined
+      ? style
+      : { ...style, width: typeof width === "number" ? width + "px" : width };
   if (props.collapsible === false) {
     return (
       <aside
-        style={style}
+        style={panelStyle}
         className={mergeClasses(sharedStyles.contentCard, styles.panel)}
         aria-label={title}
       >
@@ -95,7 +100,7 @@ export function SidePanel(props: SidePanelProps) {
   }
   return (
     <aside
-      style={style}
+      style={panelStyle}
       className={mergeClasses(sharedStyles.contentCard, styles.panel)}
       aria-label={title}
     >

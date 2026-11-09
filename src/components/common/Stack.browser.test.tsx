@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { Grid, HStack } from "@/components/common";
+import { Grid, HStack, VStack } from "@/components/common";
 import { renderWithAppTheme } from "@/test-utils";
 
 function gridElement() {
@@ -93,4 +93,15 @@ test("passes an explicit template through unchanged", async () => {
   const grid = gridElement();
   expect(grid.style.gridTemplateColumns).toBe("repeat(2, minmax(0px, 1fr))");
   expect(grid.style.gap).toBe("12px");
+});
+
+test("applies minimum sizes to a stack", async () => {
+  const screen = await renderWithAppTheme(
+    <VStack minWidth={0} minHeight={0}>
+      <span>sized row</span>
+    </VStack>,
+  );
+  const stack = screen.getByText("sized row").element().parentElement as HTMLElement;
+  expect(stack.style.minWidth).toBe("0px");
+  expect(stack.style.minHeight).toBe("0px");
 });
