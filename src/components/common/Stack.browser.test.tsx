@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { Grid, HStack, VStack } from "@/components/common";
-import { renderWithAppTheme } from "@/test-utils";
+import { css, renderWithAppTheme } from "@/test-utils";
 
 function gridElement() {
   return document.querySelector('[style*="grid-template-columns"]') as HTMLElement;
@@ -104,4 +104,16 @@ test("applies minimum sizes to a stack", async () => {
   const stack = screen.getByText("sized row").element().parentElement as HTMLElement;
   expect(stack.style.minWidth).toBe("0px");
   expect(stack.style.minHeight).toBe("0px");
+});
+
+test("lays a stack out inline", async () => {
+  const screen = await renderWithAppTheme(
+    <HStack inline align="center" gap={6}>
+      <span>inline row</span>
+    </HStack>,
+  );
+  const stack = screen.getByText("inline row").element().parentElement as HTMLElement;
+  expect(css(stack, "display")).toBe("inline-flex");
+  expect(css(stack, "align-items")).toBe("center");
+  expect(css(stack, "column-gap")).toBe("6px");
 });

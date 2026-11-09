@@ -26,6 +26,7 @@ interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: keyof typeof ALIGN_MAP | CSSProperties["alignItems"];
   justify?: keyof typeof JUSTIFY_MAP | CSSProperties["justifyContent"];
   wrap?: boolean;
+  inline?: boolean;
   grow?: boolean;
   surface?: boolean;
   divider?: boolean;
@@ -54,6 +55,7 @@ function stackStyle(direction: "row" | "column", props: StackProps): CSSProperti
     align,
     justify,
     wrap,
+    inline,
     grow,
     surface,
     divider,
@@ -63,7 +65,7 @@ function stackStyle(direction: "row" | "column", props: StackProps): CSSProperti
     minHeight,
   } = props;
   return {
-    display: "flex",
+    display: inline ? "inline-flex" : "flex",
     flexDirection: direction,
     gap: resolveSpacing(gap),
     ...(align !== undefined
