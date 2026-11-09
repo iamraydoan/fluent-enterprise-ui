@@ -1,0 +1,706 @@
+{
+  "default": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": null,
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 1186]
+        },
+        {
+          "padding": "16px",
+          "margin": "10px 0px 12px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [148, 1164]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "66.7188px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [79, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [116, 1112]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Content", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Content", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 168, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 168, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 254, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 254, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 359, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 359, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Wafer Map 001", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 163, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Overlay Bin Converters", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attributes", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Information", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Details", 282, 208, "14px", "600", "rgb(36, 36, 36)"],
+        ["Name::", 282, 228, "13px", "400", "rgb(66, 66, 66)"],
+        ["Wafer Map 001", 400, 228, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description::", 282, 500, "13px", "400", "rgb(66, 66, 66)"],
+        ["12-inch wafer bin code map", 400, 500, "13px", "400", "rgb(36, 36, 36)"],
+        ["Substrate Type::", 282, 1036, "13px", "400", "rgb(66, 66, 66)"],
+        ["Wafer", 400, 1036, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State::", 282, 1164, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 400, 1164, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group::", 282, 1316, "13px", "400", "rgb(66, 66, 66)"]
+      ]
+    }
+  },
+  "Details": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": null,
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 1186]
+        },
+        {
+          "padding": "16px",
+          "margin": "10px 0px 12px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [148, 1164]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "66.7188px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [79, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [116, 1112]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Content", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Content", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 168, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 168, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 254, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 254, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 359, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 359, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Wafer Map 001", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 163, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Overlay Bin Converters", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attributes", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Information", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Details", 282, 208, "14px", "600", "rgb(36, 36, 36)"],
+        ["Name::", 282, 228, "13px", "400", "rgb(66, 66, 66)"],
+        ["Wafer Map 001", 400, 228, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description::", 282, 500, "13px", "400", "rgb(66, 66, 66)"],
+        ["12-inch wafer bin code map", 400, 500, "13px", "400", "rgb(36, 36, 36)"],
+        ["Substrate Type::", 282, 1036, "13px", "400", "rgb(66, 66, 66)"],
+        ["Wafer", 400, 1036, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State::", 282, 1164, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 400, 1164, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group::", 282, 1316, "13px", "400", "rgb(66, 66, 66)"]
+      ]
+    }
+  },
+  "Overlay Bin Converters": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 257]
+        },
+        {
+          "padding": "10px 14px 0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "1",
+          "box": [148, 257]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "66.7188px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [79, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Content", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Content", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 168, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 168, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 254, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 254, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 359, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 359, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Wafer Map 001", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 163, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Bin Converters", 4, 279, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attributes", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Information", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["No data available for this section.", 280, 286, "14px", "600", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Attributes": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 257]
+        },
+        {
+          "padding": "10px 14px 0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "1",
+          "box": [148, 257]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "66.7188px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [79, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Content", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Content", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 168, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 168, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 254, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 254, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 359, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 359, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Wafer Map 001", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 163, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Bin Converters", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attributes", 4, 319, "13px", "600", "rgb(36, 36, 36)"],
+        ["Overlay Information", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["No data available for this section.", 280, 286, "14px", "600", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Overlay Information": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "12px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": null,
+        "fields": []
+      },
+      {
+        "card": {
+          "padding": "12px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": null,
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 350]
+        },
+        {
+          "padding": "10px 14px 0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "1",
+          "box": [148, 350]
+        },
+        {
+          "padding": "12px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [120, 104]
+        },
+        {
+          "padding": "12px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [120, 84]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "66.7188px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [79, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Content", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Content", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 168, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 168, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 254, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 254, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 359, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 359, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Wafer Map 001", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 163, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Bin Converters", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attributes", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Information", 4, 359, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Information (2)", 280, 218, "14px", "600", "rgb(36, 36, 36)"],
+        ["Manage Substrate Map Overlay Information", 385, 192, "14px", "600", "rgb(36, 36, 36)"],
+        ["BinCodeMap (Active)", 292, 338, "14px", "600", "rgb(36, 36, 36)"],
+        ["Bin Code Map · 1", 292, 382, "12px", "400", "rgb(36, 36, 36)"],
+        ["DeviceIdMap", 292, 460, "14px", "600", "rgb(36, 36, 36)"],
+        ["Device ID Map · 1", 292, 484, "12px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Attachments": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 257]
+        },
+        {
+          "padding": "10px 14px 0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "1",
+          "box": [148, 257]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "66.7188px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [79, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Content", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Content", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 168, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 168, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 254, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 254, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 359, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 359, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Wafer Map 001", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 163, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Bin Converters", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attributes", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Overlay Information", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "600", "rgb(36, 36, 36)"],
+        ["No data available for this section.", 280, 286, "14px", "600", "rgb(97, 97, 97)"]
+      ]
+    }
+  }
+}

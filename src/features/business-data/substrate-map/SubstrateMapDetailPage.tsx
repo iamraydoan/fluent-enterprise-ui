@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useSubstrateMapDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, HStack, VStack } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, HStack, KV, Panel, VStack } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { formatOverlayMeta } from "./substrateMapHelpers";
 
 const TOP_TABS: DetailTab[] = [
@@ -50,12 +49,9 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
       <Panel>
         <Body1Strong>{t("businessData.substrateMap.content.title")}</Body1Strong>
         <Caption1>{t("businessData.substrateMap.content.hint")}</Caption1>
-        <div
-          className={sharedStyles.contentCard}
-          style={{ padding: theme.spacing.lg, marginTop: theme.spacing.md, minHeight: "300px" }}
-        >
+        <DetailSurface className={sharedStyles.contentCard} p={16} mt={12} minHeight={300}>
           <Caption1>{t("businessData.substrateMap.content.empty")}</Caption1>
-        </div>
+        </DetailSurface>
       </Panel>
     );
   } else if (top !== "details") {
@@ -75,13 +71,9 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.substrateMap.manageOverlayInfo")}</Button>
         </HStack>
-        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
+        <VStack gap={8} mt={12}>
           {data.overlays.map((overlay) => (
-            <div
-              key={overlay.name}
-              className={sharedStyles.contentCard}
-              style={{ padding: theme.spacing.md }}
-            >
+            <DetailSurface key={overlay.name} className={sharedStyles.contentCard} p={12}>
               <Body1Strong>
                 {overlay.name}
                 {overlay.isActive ? ` (${t("businessData.substrateMap.active")})` : ""}
@@ -89,7 +81,7 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
               <div>
                 <Caption1>{formatOverlayMeta(overlay)}</Caption1>
               </div>
-            </div>
+            </DetailSurface>
           ))}
         </VStack>
       </Panel>
@@ -104,10 +96,7 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div
-        className={sharedStyles.contentCard}
-        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-      >
+      <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
         <Body1Strong>{t("businessData.substrateMap.sections.details")}</Body1Strong>
         <KV
           rows={[
@@ -121,7 +110,7 @@ export function SubstrateMapDetailPage({ name }: { name: string }) {
             [t("businessData.substrateMap.detail.dataGroup"), data.dataGroup],
           ]}
         />
-      </div>
+      </DetailSurface>
     );
   }
 
