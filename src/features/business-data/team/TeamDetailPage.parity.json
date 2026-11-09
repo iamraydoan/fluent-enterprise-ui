@@ -1,0 +1,458 @@
+{
+  "default": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": null,
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 970]
+        },
+        {
+          "padding": "16px",
+          "margin": "10px 0px 12px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [148, 948]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [116, 896]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Team A", 40, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 101, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Employees", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Calendar Days", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Details", 282, 208, "14px", "600", "rgb(36, 36, 36)"],
+        ["Name::", 282, 228, "13px", "400", "rgb(66, 66, 66)"],
+        ["Team A", 400, 228, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description::", 282, 356, "13px", "400", "rgb(66, 66, 66)"],
+        ["Morning shift team", 400, 356, "13px", "400", "rgb(36, 36, 36)"],
+        ["Calendar::", 282, 748, "13px", "400", "rgb(66, 66, 66)"],
+        ["Standard", 400, 748, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State::", 282, 948, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 400, 948, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group::", 282, 1100, "13px", "400", "rgb(66, 66, 66)"]
+      ]
+    }
+  },
+  "Details": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": null,
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 970]
+        },
+        {
+          "padding": "16px",
+          "margin": "10px 0px 12px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [148, 948]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [116, 896]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Team A", 40, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 101, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Employees", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Calendar Days", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Details", 282, 208, "14px", "600", "rgb(36, 36, 36)"],
+        ["Name::", 282, 228, "13px", "400", "rgb(66, 66, 66)"],
+        ["Team A", 400, 228, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description::", 282, 356, "13px", "400", "rgb(66, 66, 66)"],
+        ["Morning shift team", 400, 356, "13px", "400", "rgb(36, 36, 36)"],
+        ["Calendar::", 282, 748, "13px", "400", "rgb(66, 66, 66)"],
+        ["Standard", 400, 748, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State::", 282, 948, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 400, 948, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group::", 282, 1100, "13px", "400", "rgb(66, 66, 66)"]
+      ]
+    }
+  },
+  "Employees": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 217]
+        },
+        {
+          "padding": "10px 14px 0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "1",
+          "box": [148, 217]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Team A", 40, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 101, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Employees", 4, 279, "13px", "600", "rgb(36, 36, 36)"],
+        ["Calendar Days", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Employees (2)", 280, 192, "14px", "600", "rgb(36, 36, 36)"],
+        ["John Doe, Jane Smith", 280, 224, "14px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Calendar Days": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 217]
+        },
+        {
+          "padding": "10px 14px 0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "1",
+          "box": [148, 217]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Team A", 40, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 101, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Employees", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Calendar Days", 4, 319, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Calendar Days (2)", 280, 192, "14px", "600", "rgb(36, 36, 36)"],
+        ["2026-10-30, 2026-10-31", 280, 244, "14px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Attachments": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 217]
+        },
+        {
+          "padding": "10px 14px 0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "1",
+          "box": [148, 217]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Team A", 40, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 101, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Employees", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Calendar Days", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "600", "rgb(36, 36, 36)"],
+        ["No data available for this section.", 280, 266, "14px", "600", "rgb(97, 97, 97)"]
+      ]
+    }
+  }
+}

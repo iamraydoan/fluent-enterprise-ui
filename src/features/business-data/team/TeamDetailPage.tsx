@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTeamDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, KV, Panel, VStack } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { ShieldCheckmark20Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
@@ -8,7 +8,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatList } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.team.tabs.details" },
@@ -56,7 +55,9 @@ export function TeamDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.team.sections.employees")} ({data.employees.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.employees)}</div>
+        <VStack gap="none" mt={12}>
+          {formatList(data.employees)}
+        </VStack>
       </Panel>
     );
   } else if (left === "businessData.team.sections.calendarDays") {
@@ -65,7 +66,9 @@ export function TeamDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.team.sections.calendarDays")} ({data.calendarDays.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.calendarDays)}</div>
+        <VStack gap="none" mt={12}>
+          {formatList(data.calendarDays)}
+        </VStack>
       </Panel>
     );
   } else if (left !== "businessData.team.sections.details") {
@@ -78,10 +81,7 @@ export function TeamDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div
-        className={sharedStyles.contentCard}
-        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-      >
+      <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
         <Body1Strong>{t("businessData.team.sections.details")}</Body1Strong>
         <KV
           rows={[
@@ -95,7 +95,7 @@ export function TeamDetailPage({ name }: { name: string }) {
             [t("businessData.team.detail.dataGroup"), data.dataGroup],
           ]}
         />
-      </div>
+      </DetailSurface>
     );
   }
 
