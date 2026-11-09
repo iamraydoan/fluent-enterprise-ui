@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useMaterialDetail } from "@/api";
 import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
-import { DetailShell, KV, Grid } from "@/components/common";
+import { DetailSectionCard, DetailShell, KV, Grid } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text, makeStyles } from "@/components/ui";
+import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import {
   AbortMaterialDialog,
   AttachMaterialDialog,
@@ -38,10 +36,6 @@ import {
   ViewMaterialReportsDialog,
 } from "./MaterialDialogs";
 
-const useStyles = makeStyles({
-  sectionTitle: { marginBottom: theme.spacing.sm },
-});
-
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.material.tabs.details" },
   { value: "traceability", labelKey: "businessData.material.tabs.traceability" },
@@ -66,15 +60,10 @@ const LEFT_SECTIONS: TranslationKey[] = [
 
 function Card({ titleKey, rows }: { titleKey: TranslationKey; rows: [string, React.ReactNode][] }) {
   const { t } = useAppTranslation();
-  const shared = useSharedStyles();
-  const styles = useStyles();
   return (
-    <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-      <Text weight="semibold" size={400} className={styles.sectionTitle}>
-        {t(titleKey)}
-      </Text>
+    <DetailSectionCard title={t(titleKey)}>
       <KV rows={rows} />
-    </div>
+    </DetailSectionCard>
   );
 }
 
@@ -216,7 +205,7 @@ export function MaterialDetailPage({ name }: { name: string }) {
         moreActions={moreMenuItems}
       >
         {top === "details" && (
-          <Grid columns="repeat(3, 1fr)" gap="12px">
+          <Grid columns="repeat(3, 1fr)" gap={12}>
             <Card
               titleKey="businessData.material.sections.material"
               rows={[
@@ -270,7 +259,7 @@ export function MaterialDetailPage({ name }: { name: string }) {
           </Grid>
         )}
         {top !== "details" && (
-          <Grid columns="repeat(3, 1fr)" gap="12px">
+          <Grid columns="repeat(3, 1fr)" gap={12}>
             <Text>{t("businessData.material.emptyTab")}</Text>
           </Grid>
         )}
