@@ -1,0 +1,691 @@
+{
+  "default": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 138.172px"
+        },
+        "fields": []
+      },
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 138.172px"
+        },
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 810]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [150, 800]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [138, 800]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.1094px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "repeat(2, 1fr)",
+          "computed": "150px 138.172px",
+          "rowGap": "12px",
+          "columnGap": "12px",
+          "box": [148, 810]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [118, 720]
+        },
+        {
+          "inline": "",
+          "computed": "0px 98.1719px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [106, 0]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Contexts", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Contexts", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 175, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 175, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 262, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 262, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 366, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 366, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Cookies", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Parameters", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Products", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["General Data", 282, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 282, 258, "13px", "400", "rgb(66, 66, 66)"],
+        ["Cookies", 400, 258, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 282, 434, "13px", "400", "rgb(66, 66, 66)"],
+        ["Cookie products", 400, 434, "13px", "400", "rgb(36, 36, 36)"],
+        ["State:", 282, 778, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 400, 778, "13px", "400", "rgb(36, 36, 36)"],
+        ["Products:", 282, 930, "13px", "400", "rgb(66, 66, 66)"],
+        ["12", 400, 930, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 444, 206, "16px", "600", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Details": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 138.172px"
+        },
+        "fields": []
+      },
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 138.172px"
+        },
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 810]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [150, 800]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [138, 800]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.1094px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "repeat(2, 1fr)",
+          "computed": "150px 138.172px",
+          "rowGap": "12px",
+          "columnGap": "12px",
+          "box": [148, 810]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [118, 720]
+        },
+        {
+          "inline": "",
+          "computed": "0px 98.1719px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [106, 0]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Contexts", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Contexts", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 175, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 175, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 262, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 262, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 366, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 366, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Cookies", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Parameters", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Products", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["General Data", 282, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 282, 258, "13px", "400", "rgb(66, 66, 66)"],
+        ["Cookies", 400, 258, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 282, 434, "13px", "400", "rgb(66, 66, 66)"],
+        ["Cookie products", 400, 434, "13px", "400", "rgb(36, 36, 36)"],
+        ["State:", 282, 778, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 400, 778, "13px", "400", "rgb(36, 36, 36)"],
+        ["Products:", 282, 930, "13px", "400", "rgb(66, 66, 66)"],
+        ["12", 400, 930, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 444, 206, "16px", "600", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Parameters": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": null,
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 228]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [148, 218]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.1094px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Contexts", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Contexts", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 175, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 175, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 262, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 262, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 366, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 366, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Cookies", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parameters", 4, 279, "13px", "600", "rgb(36, 36, 36)"],
+        ["Products", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parameters", 282, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["Parameters shared across several Product", 282, 236, "14px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Products": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": null,
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 217]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [148, 207]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.1094px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Contexts", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Contexts", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 175, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 175, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 262, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 262, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 366, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 366, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Cookies", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parameters", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Products", 4, 319, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Products", 282, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["Products that are part of this Product G", 282, 236, "14px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Attachments": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": null,
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 217]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [148, 207]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.1094px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Contexts", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Contexts", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 175, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 175, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 262, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 262, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 366, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 366, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Cookies", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parameters", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Products", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 282, 206, "16px", "600", "rgb(36, 36, 36)"]
+      ]
+    }
+  }
+}

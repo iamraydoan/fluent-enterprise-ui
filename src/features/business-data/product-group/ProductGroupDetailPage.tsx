@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useProductGroupDetail } from "@/api";
 import type { DetailMoreMenuItem } from "@/components/common";
-import { DetailShell, KV, Grid } from "@/components/common";
+import { DetailSectionCard, DetailShell, Grid, KV } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text, makeStyles } from "@/components/ui";
+import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import {
   CloneProductGroupDialog,
   EditProductGroupDialog,
@@ -15,10 +13,6 @@ import {
   TerminateProductGroupDialog,
   UnterminateProductGroupDialog,
 } from "./dialogs";
-
-const useStyles = makeStyles({
-  sectionTitle: { marginBottom: theme.spacing.sm },
-});
 
 const TOP_TABS: { value: string; labelKey: TranslationKey }[] = [
   { value: "details", labelKey: "businessData.productGroup.tabs.details" },
@@ -37,8 +31,6 @@ const LEFT_ITEMS: TranslationKey[] = [
 
 export function ProductGroupDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
-  const shared = useSharedStyles();
   const { data: detail } = useProductGroupDetail(name);
 
   const [top, setTop] = useState("details");
@@ -98,11 +90,8 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
         moreActions={moreMenuItems}
       >
         {top === "details" && left === LEFT_ITEMS[0] && (
-          <Grid columns="repeat(2, 1fr)" gap="12px">
-            <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-              <Text weight="semibold" size={400} className={styles.sectionTitle}>
-                {t("businessData.productGroup.detail.generalData")}
-              </Text>
+          <Grid columns="repeat(2, 1fr)" gap="md">
+            <DetailSectionCard title={t("businessData.productGroup.detail.generalData")}>
               <KV
                 rows={[
                   [t("businessData.productGroup.detail.fields.name"), detail.name],
@@ -111,69 +100,46 @@ export function ProductGroupDetailPage({ name }: { name: string }) {
                   [t("businessData.productGroup.detail.fields.productCount"), detail.productCount],
                 ]}
               />
-            </div>
-            <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-              <Text weight="semibold" size={400} className={styles.sectionTitle}>
-                {t("businessData.productGroup.detail.information")}
-              </Text>
+            </DetailSectionCard>
+            <DetailSectionCard title={t("businessData.productGroup.detail.information")}>
               <KV rows={[]} />
-            </div>
+            </DetailSectionCard>
           </Grid>
         )}
         {top === "details" && left === LEFT_ITEMS[1] && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.productGroup.left.parameters")}
-            </Text>
+          <DetailSectionCard title={t("businessData.productGroup.left.parameters")}>
             <Text size={300}>{t("businessData.productGroup.paramsHint")}</Text>
-          </div>
+          </DetailSectionCard>
         )}
         {top === "details" && left === LEFT_ITEMS[2] && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.productGroup.left.products")}
-            </Text>
+          <DetailSectionCard title={t("businessData.productGroup.left.products")}>
             <Text size={300}>{t("businessData.productGroup.productsHint")}</Text>
-          </div>
+          </DetailSectionCard>
         )}
         {top === "details" && left === LEFT_ITEMS[3] && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.productGroup.left.attachments")}
-            </Text>
-          </div>
+          <DetailSectionCard title={t("businessData.productGroup.left.attachments")}>
+            {null}
+          </DetailSectionCard>
         )}
         {top === "contexts" && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.productGroup.tabs.contexts")}
-            </Text>
+          <DetailSectionCard title={t("businessData.productGroup.tabs.contexts")}>
             <Text size={300}>{t("businessData.productGroup.contextsHint")}</Text>
-          </div>
+          </DetailSectionCard>
         )}
         {top === "compare" && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.productGroup.tabs.compare")}
-            </Text>
+          <DetailSectionCard title={t("businessData.productGroup.tabs.compare")}>
             <Text size={300}>{t("businessData.productGroup.compareHint")}</Text>
-          </div>
+          </DetailSectionCard>
         )}
         {top === "references" && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.productGroup.tabs.references")}
-            </Text>
+          <DetailSectionCard title={t("businessData.productGroup.tabs.references")}>
             <Text size={300}>{t("businessData.productGroup.referencesHint")}</Text>
-          </div>
+          </DetailSectionCard>
         )}
         {top === "history" && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.productGroup.tabs.history")}
-            </Text>
+          <DetailSectionCard title={t("businessData.productGroup.tabs.history")}>
             <Text size={300}>{t("businessData.productGroup.historyHint")}</Text>
-          </div>
+          </DetailSectionCard>
         )}
       </DetailShell>
 

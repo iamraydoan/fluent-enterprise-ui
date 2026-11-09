@@ -66,12 +66,6 @@
     "local/no-page-literal-px",
     "local/no-page-style-prop"
   ],
-  "src/features/business-data/product-group/ProductGroupDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/product-group/dialogs/dialogShared.ts": ["no-restricted-syntax"],
   "src/features/business-data/resource-job/ResourceJobDetailPage.tsx": ["local/no-page-literal-px"],
   "src/features/manufacturing/augmented-reality/AugmentedRealityPage.tsx": [
