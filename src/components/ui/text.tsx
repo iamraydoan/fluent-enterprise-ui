@@ -11,14 +11,11 @@ const useToneStyles = makeStyles({
   primary: { color: tokens.colorNeutralForeground1 },
   secondary: { color: tokens.colorNeutralForeground2 },
   tertiary: { color: tokens.colorNeutralForeground3 },
-  quaternary: { color: tokens.colorNeutralForeground4 },
-  brand: { color: tokens.colorBrandForeground1 },
-  danger: { color: tokens.colorPaletteRedForeground1 },
 });
 
 export type TextSize = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000;
 export type TextWeight = "regular" | "medium" | "semibold" | "bold";
-export type TextTone = "primary" | "secondary" | "tertiary" | "quaternary" | "brand" | "danger";
+export type TextTone = "primary" | "secondary" | "tertiary";
 export type TextAlign = "start" | "center" | "end";
 
 export interface TextProps {

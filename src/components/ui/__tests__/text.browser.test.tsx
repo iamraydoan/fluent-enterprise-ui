@@ -25,9 +25,6 @@ const TONES = [
   ["primary", tokens.colorNeutralForeground1],
   ["secondary", tokens.colorNeutralForeground2],
   ["tertiary", tokens.colorNeutralForeground3],
-  ["quaternary", tokens.colorNeutralForeground4],
-  ["brand", tokens.colorBrandForeground1],
-  ["danger", tokens.colorPaletteRedForeground1],
 ] as const;
 
 test("maps every semantic tone to its token", async () => {
