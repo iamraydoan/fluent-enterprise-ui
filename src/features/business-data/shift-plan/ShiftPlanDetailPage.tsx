@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useShiftPlanDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, HStack, VStack } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, HStack, KV, Panel, VStack } from "@/components/common";
 import { Timer24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import {
   formatEmployeeMeta,
   formatWorkgroupMeta,
@@ -53,12 +52,9 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
       <Panel>
         <Body1Strong>{t("businessData.shiftPlan.calendar.title")}</Body1Strong>
         <Caption1>{t("businessData.shiftPlan.calendar.hint")}</Caption1>
-        <div
-          className={sharedStyles.contentCard}
-          style={{ padding: theme.spacing.lg, marginTop: theme.spacing.md, minHeight: "300px" }}
-        >
+        <DetailSurface className={sharedStyles.contentCard} p={16} mt={12} minHeight={300}>
           <Caption1>{t("businessData.shiftPlan.calendar.empty")}</Caption1>
-        </div>
+        </DetailSurface>
       </Panel>
     );
   } else if (top !== "details") {
@@ -75,17 +71,13 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.shiftPlan.sections.workgroups")} ({data.workgroups.length})
         </Body1Strong>
-        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
+        <VStack gap={8} mt={12}>
           {data.workgroups.map((wg) => (
-            <div
-              key={wg.name}
-              className={sharedStyles.contentCard}
-              style={{ padding: theme.spacing.md }}
-            >
+            <DetailSurface className={sharedStyles.contentCard} key={wg.name} p={12}>
               <Body1Strong>{wg.name}</Body1Strong>
               <Caption1>{formatWorkgroupMeta(wg)}</Caption1>
               <Caption1>{formatWorkgroupResources(wg)}</Caption1>
-            </div>
+            </DetailSurface>
           ))}
         </VStack>
       </Panel>
@@ -99,16 +91,12 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
           </Body1Strong>
           <Button>{t("businessData.shiftPlan.manageEmployees")}</Button>
         </HStack>
-        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
+        <VStack gap={8} mt={12}>
           {data.employees.map((emp) => (
-            <div
-              key={emp.name}
-              className={sharedStyles.contentCard}
-              style={{ padding: theme.spacing.md }}
-            >
+            <DetailSurface className={sharedStyles.contentCard} key={emp.name} p={12}>
               <Body1Strong>{emp.name}</Body1Strong>
               <Caption1>{formatEmployeeMeta(emp)}</Caption1>
-            </div>
+            </DetailSurface>
           ))}
         </VStack>
       </Panel>
@@ -127,10 +115,7 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div
-          className={sharedStyles.contentCard}
-          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-        >
+        <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
           <Body1Strong>{t("businessData.shiftPlan.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -145,11 +130,11 @@ export function ShiftPlanDetailPage({ name }: { name: string }) {
               [t("businessData.shiftPlan.detail.dataGroup"), data.dataGroup],
             ]}
           />
-        </div>
-        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
+        </DetailSurface>
+        <DetailSurface className={sharedStyles.contentCard} p={16}>
           <Body1Strong>{t("businessData.shiftPlan.detail.ownership")}</Body1Strong>
           <KV rows={[[t("businessData.shiftPlan.detail.ownerRole"), data.ownerRole]]} />
-        </div>
+        </DetailSurface>
       </>
     );
   }
