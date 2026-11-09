@@ -86,11 +86,6 @@
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
-  "src/features/business-data/shift-logbook/ShiftLogbookDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/site/SiteDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-style-prop",

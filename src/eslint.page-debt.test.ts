@@ -9,9 +9,9 @@ import ledger from "../eslint.page-debt.json";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 const PAGE_GLOB = "src/features/**/*Page.tsx";
-const LEDGER_FILE_BASELINE = 34;
-const LEDGER_MAPPING_BASELINE = 101;
-const LEDGER_RAW_MAPPING_BASELINE = 101;
+const LEDGER_FILE_BASELINE = 33;
+const LEDGER_MAPPING_BASELINE = 98;
+const LEDGER_RAW_MAPPING_BASELINE = 98;
 
 export interface LedgerCheck {
   entries: [string, string[]][];

@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useShiftLogbookDetail } from "@/api";
 import type { ShiftLogbookEntry } from "@/api";
-import { DetailShell, Empty, HStack, KV, Panel, VStack } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, HStack, KV, Panel, VStack } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { DocumentBulletList24Regular } from "@/components/icons";
 import { Body1Strong, Button, Caption1, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { ShiftLogbookEntryDialog } from "./dialogs/ShiftLogbookEntryDialog";
 import { ShiftLogbookSignOffDialog } from "./dialogs/ShiftLogbookSignOffDialog";
 import { SHIFT_LOGBOOK_DETAILS_SECTION, formatEntryMeta } from "./shiftLogbookHelpers";
@@ -68,16 +67,12 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
             {t("businessData.shiftLogbook.addEntry.add")}
           </Button>
         </HStack>
-        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
+        <VStack gap={8} mt={12}>
           {data.entries.length === 0 ? (
             <Caption1>{t("businessData.shiftLogbook.emptySection")}</Caption1>
           ) : (
             data.entries.map((entry, i) => (
-              <div
-                key={i}
-                className={sharedStyles.contentCard}
-                style={{ padding: theme.spacing.md }}
-              >
+              <DetailSurface className={sharedStyles.contentCard} key={i} p={12}>
                 <HStack justify="between" align="center">
                   <Body1Strong>{entry.title}</Body1Strong>
                   <Button variant="subtle" onClick={() => setEditEntry(entry)}>
@@ -86,7 +81,7 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
                 </HStack>
                 <Caption1>{formatEntryMeta(entry)}</Caption1>
                 <Text>{entry.description}</Text>
-              </div>
+              </DetailSurface>
             ))
           )}
         </VStack>
@@ -103,10 +98,7 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
   } else {
     content = (
       <>
-        <div
-          className={sharedStyles.contentCard}
-          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-        >
+        <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
           <Body1Strong>{t("businessData.shiftLogbook.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -120,11 +112,8 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
               [t("businessData.shiftLogbook.detail.dataGroup"), data.dataGroup],
             ]}
           />
-        </div>
-        <div
-          className={sharedStyles.contentCard}
-          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-        >
+        </DetailSurface>
+        <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
           <Body1Strong>{t("businessData.shiftLogbook.detail.shiftInfo")}</Body1Strong>
           <KV
             rows={[
@@ -134,18 +123,20 @@ export function ShiftLogbookDetailPage({ name }: { name: string }) {
               [t("businessData.shiftLogbook.detail.team"), data.team],
             ]}
           />
-        </div>
+        </DetailSurface>
         {summaryOpen && (
-          <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
+          <DetailSurface className={sharedStyles.contentCard} p={16}>
             <Body1Strong>{t("businessData.shiftLogbook.summary.title")}</Body1Strong>
-            <Text style={{ marginTop: theme.spacing.sm }}>
-              {t("businessData.shiftLogbook.summary.content", {
-                count: data.entries.length,
-                area: data.area,
-                shift: data.shift,
-              })}
-            </Text>
-          </div>
+            <VStack gap="none" mt={8}>
+              <Text>
+                {t("businessData.shiftLogbook.summary.content", {
+                  count: data.entries.length,
+                  area: data.area,
+                  shift: data.shift,
+                })}
+              </Text>
+            </VStack>
+          </DetailSurface>
         )}
       </>
     );
