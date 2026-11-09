@@ -156,11 +156,7 @@ export function ConfigurationListPage() {
       onRowClick={(entry) => openDetail(entry.path)}
       apiRef={tableApi}
       sidebar={
-        <SidePanel
-          title={t("configuration.tree.title")}
-          collapsible={false}
-          style={{ width: "290px" }}
-        >
+        <SidePanel title={t("configuration.tree.title")} collapsible={false} width={290}>
           <SidebarNavItem
             icon={<Database20Regular />}
             label={t("configuration.tree.allEntries")}
