@@ -3,6 +3,7 @@ import { expect } from "vitest";
 import { render } from "vitest-browser-react";
 import { FluentProvider } from "@/components/ui";
 import { initI18n } from "@/i18n";
+import { worker } from "@/mocks/browser";
 import { lightTheme } from "@/theme";
 
 export async function renderWithAppTheme(ui: ReactNode) {
@@ -142,7 +143,30 @@ function cardSnapshot() {
   }
 }
 
+let inFlight = 0;
+let tracking = false;
+
+function trackRequests() {
+  if (tracking) return;
+  tracking = true;
+  worker.events.on("request:start", () => {
+    inFlight += 1;
+  });
+  worker.events.on("request:end", () => {
+    inFlight = Math.max(0, inFlight - 1);
+  });
+}
+
+async function waitForNetworkIdle() {
+  const deadline = Date.now() + 10000;
+  while (inFlight > 0 && Date.now() < deadline) {
+    await new Promise((resolve) => setTimeout(resolve, 25));
+  }
+}
+
 async function settleContent() {
+  trackRequests();
+  await waitForNetworkIdle();
   let previous = "";
   let stable = 0;
   await expect
