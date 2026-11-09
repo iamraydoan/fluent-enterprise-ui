@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { mergeClasses } from "@/components/ui";
 import { cardSurface } from "@/styles/shared";
 import { theme } from "@/styles/theme";
+import { resolveLength, resolveSpacing } from "./spacing";
 
 export type StackGap = "none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
@@ -37,16 +38,6 @@ interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   className?: string;
   style?: CSSProperties;
-}
-
-function resolveSpacing(value: string | number): string {
-  if (typeof value === "number") return `${value}px`;
-  if (value === "none") return "0";
-  return (theme.spacing as Record<string, string>)[value] ?? value;
-}
-
-function resolveLength(value: string | number): string {
-  return typeof value === "number" ? value + "px" : value;
 }
 
 function stackStyle(direction: "row" | "column", props: StackProps): CSSProperties {
