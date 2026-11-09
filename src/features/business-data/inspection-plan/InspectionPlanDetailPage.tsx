@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useInspectionPlanDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, HStack } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack, VStack } from "@/components/common";
 import { TableSimple24Regular } from "@/components/icons";
 import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { ManageConfigurationsDialog, ManageStepsDialog } from "./ManageInspectionPlanDialogs";
@@ -148,39 +147,41 @@ export function InspectionPlanDetailPage({ name }: { name: string }) {
         />
       </Card>
       <Card title={t("businessData.inspectionPlan.sections.inspectionSettings")}>
-        <KV
-          rows={[
-            [
-              t("businessData.inspectionPlan.details.closeAutomaticallyOnPass"),
-              booleanLabel(data.closeAutomaticallyOnPass),
-            ],
-            [
-              t("businessData.inspectionPlan.details.closeAutomaticallyOnFail"),
-              booleanLabel(data.closeAutomaticallyOnFail),
-            ],
-            [
-              t("businessData.inspectionPlan.details.openProtocolOnFail"),
-              booleanLabel(data.openProtocolOnFail),
-            ],
-            [t("businessData.inspectionPlan.details.protocol"), data.protocol],
-            [
-              t("businessData.inspectionPlan.details.futureHoldCreationMode"),
-              data.futureHoldCreationMode,
-            ],
-            [
-              t("businessData.inspectionPlan.details.setHoldOnFail"),
-              booleanLabel(data.setHoldOnFail),
-            ],
-          ]}
-        />
-        <HStack gap="8px" style={{ marginTop: theme.spacing.md }}>
-          <Button onClick={() => setManageConfigurationsOpen(true)}>
-            {t("businessData.inspectionPlan.manageConfigurations.manage")}
-          </Button>
-          <Button onClick={() => setManageStepsOpen(true)}>
-            {t("businessData.inspectionPlan.manageSteps.manage")}
-          </Button>
-        </HStack>
+        <VStack gap={12}>
+          <KV
+            rows={[
+              [
+                t("businessData.inspectionPlan.details.closeAutomaticallyOnPass"),
+                booleanLabel(data.closeAutomaticallyOnPass),
+              ],
+              [
+                t("businessData.inspectionPlan.details.closeAutomaticallyOnFail"),
+                booleanLabel(data.closeAutomaticallyOnFail),
+              ],
+              [
+                t("businessData.inspectionPlan.details.openProtocolOnFail"),
+                booleanLabel(data.openProtocolOnFail),
+              ],
+              [t("businessData.inspectionPlan.details.protocol"), data.protocol],
+              [
+                t("businessData.inspectionPlan.details.futureHoldCreationMode"),
+                data.futureHoldCreationMode,
+              ],
+              [
+                t("businessData.inspectionPlan.details.setHoldOnFail"),
+                booleanLabel(data.setHoldOnFail),
+              ],
+            ]}
+          />
+          <HStack gap={8}>
+            <Button onClick={() => setManageConfigurationsOpen(true)}>
+              {t("businessData.inspectionPlan.manageConfigurations.manage")}
+            </Button>
+            <Button onClick={() => setManageStepsOpen(true)}>
+              {t("businessData.inspectionPlan.manageSteps.manage")}
+            </Button>
+          </HStack>
+        </VStack>
       </Card>
       <Card title={t("businessData.inspectionPlan.sections.futureHoldInformation")}>
         <KV
