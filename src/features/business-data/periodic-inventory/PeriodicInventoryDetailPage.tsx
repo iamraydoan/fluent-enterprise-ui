@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { usePeriodicInventoryDetail } from "@/api";
 import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
-import { DetailShell, KV, Grid } from "@/components/common";
+import { DetailSectionCard, DetailShell, KV, Grid } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text, makeStyles } from "@/components/ui";
+import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import {
   BeginPeriodicInventoryDialog,
   CancelPeriodicInventoryDialog,
@@ -21,14 +19,8 @@ import {
   UnterminatePeriodicInventoryDialog,
 } from "./PeriodicInventoryDialogs";
 
-const useStyles = makeStyles({
-  sectionTitle: { marginBottom: theme.spacing.sm },
-});
-
 export function PeriodicInventoryDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
-  const shared = useSharedStyles();
   const { data: detail } = usePeriodicInventoryDetail(name);
 
   const [top, setTop] = useState("details");
@@ -130,11 +122,8 @@ export function PeriodicInventoryDetailPage({ name }: { name: string }) {
         showState={false}
         moreActions={moreMenuItems}
       >
-        <Grid columns="repeat(2, 1fr)" gap="12px">
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.periodicInventory.detail.generalData")}
-            </Text>
+        <Grid columns="repeat(2, 1fr)" gap={12}>
+          <DetailSectionCard title={t("businessData.periodicInventory.detail.generalData")}>
             <KV
               rows={[
                 [t("businessData.periodicInventory.detail.fields.name"), detail.name],
@@ -144,7 +133,7 @@ export function PeriodicInventoryDetailPage({ name }: { name: string }) {
                 [t("businessData.periodicInventory.detail.fields.scheduledOn"), detail.scheduledOn],
               ]}
             />
-          </div>
+          </DetailSectionCard>
         </Grid>
       </DetailShell>
 
