@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useTaskDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Checkmark20Filled } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.task.tabs.details" },
@@ -47,10 +46,7 @@ export function TaskDetailPage({ name }: { name: string }) {
       </Panel>
     ) : (
       <>
-        <div
-          className={sharedStyles.contentCard}
-          style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-        >
+        <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
           <Body1Strong>{t("businessData.task.sections.details")}</Body1Strong>
           <KV
             rows={[
@@ -65,8 +61,8 @@ export function TaskDetailPage({ name }: { name: string }) {
               [t("businessData.task.detail.dataGroup"), data.dataGroup],
             ]}
           />
-        </div>
-        <div className={sharedStyles.contentCard} style={{ padding: theme.spacing.lg }}>
+        </DetailSurface>
+        <DetailSurface className={sharedStyles.contentCard} p={16}>
           <Body1Strong>{t("businessData.task.detail.assignment")}</Body1Strong>
           <KV
             rows={[
@@ -74,7 +70,7 @@ export function TaskDetailPage({ name }: { name: string }) {
               [t("businessData.task.detail.dueDate"), data.dueDate],
             ]}
           />
-        </div>
+        </DetailSurface>
       </>
     );
 
