@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMapDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, HStack } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack, VStack } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
 import {
   Button,
@@ -15,7 +15,6 @@ import {
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { theme } from "@/styles/theme";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { MapDialog } from "./dialogs/MapDialog";
 import { MapLinkDialog, MapUnlinkDialog } from "./dialogs/MapLinkDialog";
@@ -103,33 +102,35 @@ export function MapDetailPage({ name }: { name: string }) {
   if (top === "details" && left === "businessData.map.sections.layers") {
     return shell(
       <Card title={t("businessData.map.sections.layers")}>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHeaderCell>{t("businessData.map.layers.name")}</TableHeaderCell>
-              <TableHeaderCell>{t("businessData.map.layers.type")}</TableHeaderCell>
-              <TableHeaderCell>{t("businessData.map.layers.units")}</TableHeaderCell>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {(data.layers ?? []).map((layer) => (
-              <TableRow key={layer.name}>
-                <TableCell>{layer.name}</TableCell>
-                <TableCell>{layer.type}</TableCell>
-                <TableCell>{layer.units}</TableCell>
+        <VStack gap={12}>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHeaderCell>{t("businessData.map.layers.name")}</TableHeaderCell>
+                <TableHeaderCell>{t("businessData.map.layers.type")}</TableHeaderCell>
+                <TableHeaderCell>{t("businessData.map.layers.units")}</TableHeaderCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <HStack gap="8px" style={{ marginTop: theme.spacing.md }}>
-          <Button onClick={() => undefined}>{t("businessData.map.actions.downloadLayer")}</Button>
-          <Button onClick={() => setLinkOpen(true)}>
-            {t("businessData.map.actions.linkMaterial")}
-          </Button>
-          <Button onClick={() => setUnlinkOpen(true)}>
-            {t("businessData.map.actions.unlinkMaterial")}
-          </Button>
-        </HStack>
+            </TableHeader>
+            <TableBody>
+              {(data.layers ?? []).map((layer) => (
+                <TableRow key={layer.name}>
+                  <TableCell>{layer.name}</TableCell>
+                  <TableCell>{layer.type}</TableCell>
+                  <TableCell>{layer.units}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+          <HStack gap={8}>
+            <Button onClick={() => undefined}>{t("businessData.map.actions.downloadLayer")}</Button>
+            <Button onClick={() => setLinkOpen(true)}>
+              {t("businessData.map.actions.linkMaterial")}
+            </Button>
+            <Button onClick={() => setUnlinkOpen(true)}>
+              {t("businessData.map.actions.unlinkMaterial")}
+            </Button>
+          </HStack>
+        </VStack>
       </Card>,
     );
   }
