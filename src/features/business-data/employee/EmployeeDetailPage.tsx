@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useEmployeeDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, HStack } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, HStack, KV, VStack } from "@/components/common";
 import { Organization24Regular } from "@/components/icons";
 import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
-import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import {
@@ -240,69 +239,71 @@ export function EmployeeDetailPage({ name }: { name: string }) {
         />
       </Card>
       <Card title={t("businessData.employee.sections.costing")}>
-        <KV
-          rows={[
-            [t("businessData.employee.details.costCenter"), data.costCenter],
-            [t("businessData.employee.details.costPerHour"), `$${data.costPerHour.toFixed(2)}`],
-          ]}
-        />
-        <HStack gap="8px" style={{ marginTop: theme.spacing.md }}>
-          <Button onClick={() => setManageCertOpen(true)}>
-            {t("businessData.employee.certifications.manage")}
-          </Button>
-          <Button onClick={() => setGrantCertOpen(true)}>
-            {t("businessData.employee.certifications.grant")}
-          </Button>
-          <Button onClick={() => setAssignCertOpen(true)}>
-            {t("businessData.employee.certifications.assign")}
-          </Button>
-          <Button onClick={() => setManageQualOpen(true)}>
-            {t("businessData.employee.qualifications.manage")}
-          </Button>
-          <Button onClick={() => setAssignQualOpen(true)}>
-            {t("businessData.employee.qualifications.assign")}
-          </Button>
-        </HStack>
-        <HStack gap="8px" wrap style={{ marginTop: theme.spacing.md }}>
-          <Button size="sm" onClick={() => setCheckInOpen(true)}>
-            {t("businessData.employee.attendance.checkIn")}
-          </Button>
-          <Button size="sm" onClick={() => setCheckOutOpen(true)}>
-            {t("businessData.employee.attendance.checkOut")}
-          </Button>
-          <Button size="sm" onClick={() => setClockInOpen(true)}>
-            {t("businessData.employee.attendance.clockIn")}
-          </Button>
-          <Button size="sm" onClick={() => setClockOutOpen(true)}>
-            {t("businessData.employee.attendance.clockOut")}
-          </Button>
-          <Button size="sm" onClick={() => setAssignSubOpen(true)}>
-            {t("businessData.employee.attendance.assign")}
-          </Button>
-          <Button size="sm" onClick={() => setAssignTeamOpen(true)}>
-            {t("businessData.employee.attendance.save")}
-          </Button>
-          <Button size="sm" onClick={() => setManageDelegatesOpen(true)}>
-            {t("businessData.employee.delegates.manage")}
-          </Button>
-          <Button size="sm" onClick={() => setManageTraineesOpen(true)}>
-            {t("businessData.employee.delegates.checkOut")}
-          </Button>
-        </HStack>
-        <HStack gap="8px" wrap style={{ marginTop: theme.spacing.md }}>
-          <Button size="sm" onClick={() => setNonWorkingOpen(true)}>
-            {t("businessData.employee.calendarDays.set")}
-          </Button>
-          <Button size="sm" onClick={() => setAvailabilityOpen(true)}>
-            {t("businessData.employee.calendarDays.set")}
-          </Button>
-          <Button size="sm" onClick={() => setRemoveNonWorkingOpen(true)}>
-            {t("businessData.employee.calendarDays.remove")}
-          </Button>
-          <Button size="sm" onClick={() => setRemoveAvailabilityOpen(true)}>
-            {t("businessData.employee.calendarDays.remove")}
-          </Button>
-        </HStack>
+        <VStack gap={12}>
+          <KV
+            rows={[
+              [t("businessData.employee.details.costCenter"), data.costCenter],
+              [t("businessData.employee.details.costPerHour"), `$${data.costPerHour.toFixed(2)}`],
+            ]}
+          />
+          <HStack gap={8}>
+            <Button onClick={() => setManageCertOpen(true)}>
+              {t("businessData.employee.certifications.manage")}
+            </Button>
+            <Button onClick={() => setGrantCertOpen(true)}>
+              {t("businessData.employee.certifications.grant")}
+            </Button>
+            <Button onClick={() => setAssignCertOpen(true)}>
+              {t("businessData.employee.certifications.assign")}
+            </Button>
+            <Button onClick={() => setManageQualOpen(true)}>
+              {t("businessData.employee.qualifications.manage")}
+            </Button>
+            <Button onClick={() => setAssignQualOpen(true)}>
+              {t("businessData.employee.qualifications.assign")}
+            </Button>
+          </HStack>
+          <HStack gap={8} wrap>
+            <Button size="sm" onClick={() => setCheckInOpen(true)}>
+              {t("businessData.employee.attendance.checkIn")}
+            </Button>
+            <Button size="sm" onClick={() => setCheckOutOpen(true)}>
+              {t("businessData.employee.attendance.checkOut")}
+            </Button>
+            <Button size="sm" onClick={() => setClockInOpen(true)}>
+              {t("businessData.employee.attendance.clockIn")}
+            </Button>
+            <Button size="sm" onClick={() => setClockOutOpen(true)}>
+              {t("businessData.employee.attendance.clockOut")}
+            </Button>
+            <Button size="sm" onClick={() => setAssignSubOpen(true)}>
+              {t("businessData.employee.attendance.assign")}
+            </Button>
+            <Button size="sm" onClick={() => setAssignTeamOpen(true)}>
+              {t("businessData.employee.attendance.save")}
+            </Button>
+            <Button size="sm" onClick={() => setManageDelegatesOpen(true)}>
+              {t("businessData.employee.delegates.manage")}
+            </Button>
+            <Button size="sm" onClick={() => setManageTraineesOpen(true)}>
+              {t("businessData.employee.delegates.checkOut")}
+            </Button>
+          </HStack>
+          <HStack gap={8} wrap>
+            <Button size="sm" onClick={() => setNonWorkingOpen(true)}>
+              {t("businessData.employee.calendarDays.set")}
+            </Button>
+            <Button size="sm" onClick={() => setAvailabilityOpen(true)}>
+              {t("businessData.employee.calendarDays.set")}
+            </Button>
+            <Button size="sm" onClick={() => setRemoveNonWorkingOpen(true)}>
+              {t("businessData.employee.calendarDays.remove")}
+            </Button>
+            <Button size="sm" onClick={() => setRemoveAvailabilityOpen(true)}>
+              {t("businessData.employee.calendarDays.remove")}
+            </Button>
+          </HStack>
+        </VStack>
       </Card>
     </CardGrid>,
   );
