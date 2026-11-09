@@ -1,0 +1,480 @@
+{
+  "default": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 536]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 229]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 297]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "380px",
+          "rowGap": "10px",
+          "columnGap": "10px",
+          "box": [148, 536]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 152]
+        },
+        {
+          "inline": "",
+          "computed": "219.984px 116.016px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 176]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Giant Distribution Center Facility", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 294, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Areas", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Shipping Information", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Facility", 284, 198, "14px", "400", "rgb(36, 36, 36)"],
+        ["Name:", 284, 239, "13px", "400", "rgb(66, 66, 66)"],
+        ["Giant Distribution Center Facility", 402, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 284, 271, "13px", "400", "rgb(66, 66, 66)"],
+        ["This is a giant facility.", 402, 271, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 284, 303, "13px", "400", "rgb(66, 66, 66)"],
+        ["Distribution Center", 402, 303, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 284, 335, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 402, 335, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 284, 367, "13px", "400", "rgb(66, 66, 66)"],
+        ["Information", 284, 437, "14px", "400", "rgb(36, 36, 36)"],
+        ["Display Order:", 284, 478, "13px", "400", "rgb(66, 66, 66)"],
+        ["0", 512, 478, "13px", "400", "rgb(36, 36, 36)"],
+        ["Default Calendar:", 284, 510, "13px", "400", "rgb(66, 66, 66)"],
+        ["Standard", 512, 510, "13px", "400", "rgb(36, 36, 36)"],
+        ["Site:", 284, 542, "13px", "400", "rgb(66, 66, 66)"],
+        ["Giant Enterprise Asia", 512, 542, "13px", "400", "rgb(36, 36, 36)"],
+        ["Remote:", 284, 598, "13px", "400", "rgb(66, 66, 66)"],
+        ["No", 512, 598, "13px", "400", "rgb(36, 36, 36)"],
+        ["Terminate On Ship to This Facility:", 284, 630, "13px", "400", "rgb(66, 66, 66)"],
+        ["No", 512, 630, "13px", "400", "rgb(36, 36, 36)"],
+        ["Manage", 284, 666, "14px", "600", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Details": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 536]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 229]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 297]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "380px",
+          "rowGap": "10px",
+          "columnGap": "10px",
+          "box": [148, 536]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 152]
+        },
+        {
+          "inline": "",
+          "computed": "219.984px 116.016px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 176]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Giant Distribution Center Facility", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 294, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Areas", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Shipping Information", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Facility", 284, 198, "14px", "400", "rgb(36, 36, 36)"],
+        ["Name:", 284, 239, "13px", "400", "rgb(66, 66, 66)"],
+        ["Giant Distribution Center Facility", 402, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 284, 271, "13px", "400", "rgb(66, 66, 66)"],
+        ["This is a giant facility.", 402, 271, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 284, 303, "13px", "400", "rgb(66, 66, 66)"],
+        ["Distribution Center", 402, 303, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 284, 335, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 402, 335, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 284, 367, "13px", "400", "rgb(66, 66, 66)"],
+        ["Information", 284, 437, "14px", "400", "rgb(36, 36, 36)"],
+        ["Display Order:", 284, 478, "13px", "400", "rgb(66, 66, 66)"],
+        ["0", 512, 478, "13px", "400", "rgb(36, 36, 36)"],
+        ["Default Calendar:", 284, 510, "13px", "400", "rgb(66, 66, 66)"],
+        ["Standard", 512, 510, "13px", "400", "rgb(36, 36, 36)"],
+        ["Site:", 284, 542, "13px", "400", "rgb(66, 66, 66)"],
+        ["Giant Enterprise Asia", 512, 542, "13px", "400", "rgb(36, 36, 36)"],
+        ["Remote:", 284, 598, "13px", "400", "rgb(66, 66, 66)"],
+        ["No", 512, 598, "13px", "400", "rgb(36, 36, 36)"],
+        ["Terminate On Ship to This Facility:", 284, 630, "13px", "400", "rgb(66, 66, 66)"],
+        ["No", 512, 630, "13px", "400", "rgb(36, 36, 36)"],
+        ["Manage", 284, 666, "14px", "600", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Areas": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 217]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Giant Distribution Center Facility", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 294, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Areas", 4, 279, "13px", "600", "rgb(36, 36, 36)"],
+        ["Shipping Information", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 281, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Shipping Information": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 217]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Giant Distribution Center Facility", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 294, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Areas", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Shipping Information", 4, 319, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 281, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Attachments": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 217]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Giant Distribution Center Facility", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 294, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Areas", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Shipping Information", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 359, "13px", "600", "rgb(36, 36, 36)"],
+        ["No items", 309, 281, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  }
+}
