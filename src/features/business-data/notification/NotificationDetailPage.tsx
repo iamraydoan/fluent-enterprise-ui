@@ -1,23 +1,17 @@
 import { useState } from "react";
 import { useNotificationDetail } from "@/api";
 import type { DetailMoreMenuItem } from "@/components/common";
-import { DetailShell, KV, Grid } from "@/components/common";
+import { DetailSectionCard, DetailShell, KV, Grid } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text, makeStyles } from "@/components/ui";
+import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import {
   ClearNotificationDialog,
   CloneNotificationDialog,
   EditNotificationDialog,
   TerminateNotificationDialog,
 } from "./NotificationDialogs";
-
-const useStyles = makeStyles({
-  sectionTitle: { marginBottom: theme.spacing.sm },
-});
 
 const TOP_TABS: { value: string; labelKey: TranslationKey }[] = [
   { value: "details", labelKey: "businessData.notification.tabs.details" },
@@ -34,8 +28,6 @@ const LEFT_ITEMS: TranslationKey[] = [
 
 export function NotificationDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
-  const shared = useSharedStyles();
   const { data: detail } = useNotificationDetail(name);
 
   const [top, setTop] = useState("details");
@@ -84,11 +76,8 @@ export function NotificationDetailPage({ name }: { name: string }) {
         moreActions={moreMenuItems}
       >
         {top === "details" && left === LEFT_ITEMS[0] && (
-          <Grid columns="repeat(2, 1fr)" gap="12px">
-            <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-              <Text weight="semibold" size={400} className={styles.sectionTitle}>
-                {t("businessData.notification.detail.generalData")}
-              </Text>
+          <Grid columns="repeat(2, 1fr)" gap={12}>
+            <DetailSectionCard title={t("businessData.notification.detail.generalData")}>
               <KV
                 rows={[
                   [t("businessData.notification.detail.fields.name"), detail.name],
@@ -100,29 +89,23 @@ export function NotificationDetailPage({ name }: { name: string }) {
                   [t("businessData.notification.detail.fields.tracking"), detail.tracking],
                 ]}
               />
-            </div>
+            </DetailSectionCard>
           </Grid>
         )}
         {top === "details" && left === LEFT_ITEMS[1] && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.notification.left.clearHistory")}
-            </Text>
-          </div>
+          <DetailSectionCard title={t("businessData.notification.left.clearHistory")}>
+            {null}
+          </DetailSectionCard>
         )}
         {top === "references" && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.notification.tabs.references")}
-            </Text>
-          </div>
+          <DetailSectionCard title={t("businessData.notification.tabs.references")}>
+            {null}
+          </DetailSectionCard>
         )}
         {top === "history" && (
-          <div className={shared.contentCard} style={{ padding: `14px ${theme.spacing.lg}` }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.notification.tabs.history")}
-            </Text>
-          </div>
+          <DetailSectionCard title={t("businessData.notification.tabs.history")}>
+            {null}
+          </DetailSectionCard>
         )}
       </DetailShell>
 
