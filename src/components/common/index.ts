@@ -51,7 +51,7 @@ export { RecordPage } from "./RecordPage";
 export { FilterBar, FilterGroup } from "./FilterBar";
 export { EntityTile, TileGrid } from "./EntityTile";
 export { HStack, VStack, Grid } from "./Stack";
-export type { StackGap, SurfaceTone, TextAlign } from "./Stack";
+export type { StackGap } from "./Stack";
 export { ScrollRegion } from "./ScrollRegion";
 export { DefinitionTable, DefinitionTableCell, DefinitionTableHeaderCell } from "./DefinitionTable";
 export { IconContainer } from "./IconContainer";
