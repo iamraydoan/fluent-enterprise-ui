@@ -183,6 +183,22 @@ export async function capturePageViews(options: { includeDefault?: boolean } = {
   return views;
 }
 
+export async function captureWalkViews() {
+  const sectionButtons = viewButtons();
+  const tabButtons = Array.from(document.querySelectorAll<HTMLElement>('[role="tab"]'));
+  const buttons = sectionButtons.length > 0 ? sectionButtons : tabButtons;
+  if (buttons.length === 0) {
+    return { walk: "page", views: { page: pageFingerprint() } };
+  }
+  const views: Record<string, unknown> = {};
+  for (const button of buttons) {
+    button.click();
+    await settleView(button);
+    views[(button.textContent ?? "").trim() || "unknown"] = pageFingerprint();
+  }
+  return { walk: sectionButtons.length > 0 ? "sections" : "tabs", views };
+}
+
 export async function detailViews() {
   const views: Record<string, unknown> = {};
   for (const button of viewButtons()) {
