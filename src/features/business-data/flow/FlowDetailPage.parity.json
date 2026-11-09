@@ -1,0 +1,549 @@
+{
+  "default": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 372]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 229]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 133]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "120.797px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [133, 32]
+        },
+        {
+          "inline": "",
+          "computed": "145.656px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [158, 32]
+        },
+        {
+          "inline": "",
+          "computed": "121.453px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [133, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "380px",
+          "rowGap": "10px",
+          "columnGap": "10px",
+          "box": [148, 372]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 152]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 56]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Flow Structure", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Flow Structure", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Context Structure", 222, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Context Structure", 222, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Context Matrix", 380, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Context Matrix", 380, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 513, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 513, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 599, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 599, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 704, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 704, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["MOSRM8H", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 128, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Logical Names", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Flow", 284, 198, "14px", "400", "rgb(36, 36, 36)"],
+        ["Name:", 284, 239, "13px", "400", "rgb(66, 66, 66)"],
+        ["MOSRM8H", 402, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 284, 271, "13px", "400", "rgb(66, 66, 66)"],
+        ["MOSRM8H Front-End Flow", 402, 271, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 284, 303, "13px", "400", "rgb(66, 66, 66)"],
+        ["FrontEnd", 402, 303, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 284, 335, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 402, 335, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 284, 367, "13px", "400", "rgb(66, 66, 66)"],
+        ["Settings", 284, 437, "14px", "400", "rgb(36, 36, 36)"],
+        ["Flow Type:", 284, 478, "13px", "400", "rgb(66, 66, 66)"],
+        ["Sequential", 402, 478, "13px", "400", "rgb(36, 36, 36)"],
+        ["Enabled:", 284, 510, "13px", "400", "rgb(66, 66, 66)"],
+        ["Yes", 402, 510, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Details": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 372]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 229]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 133]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "120.797px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [133, 32]
+        },
+        {
+          "inline": "",
+          "computed": "145.656px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [158, 32]
+        },
+        {
+          "inline": "",
+          "computed": "121.453px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [133, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "380px",
+          "rowGap": "10px",
+          "columnGap": "10px",
+          "box": [148, 372]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 152]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 56]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Flow Structure", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Flow Structure", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Context Structure", 222, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Context Structure", 222, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Context Matrix", 380, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Context Matrix", 380, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 513, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 513, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 599, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 599, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 704, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 704, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["MOSRM8H", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 128, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Logical Names", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Flow", 284, 198, "14px", "400", "rgb(36, 36, 36)"],
+        ["Name:", 284, 239, "13px", "400", "rgb(66, 66, 66)"],
+        ["MOSRM8H", 402, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 284, 271, "13px", "400", "rgb(66, 66, 66)"],
+        ["MOSRM8H Front-End Flow", 402, 271, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 284, 303, "13px", "400", "rgb(66, 66, 66)"],
+        ["FrontEnd", 402, 303, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 284, 335, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 402, 335, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 284, 367, "13px", "400", "rgb(66, 66, 66)"],
+        ["Settings", 284, 437, "14px", "400", "rgb(36, 36, 36)"],
+        ["Flow Type:", 284, 478, "13px", "400", "rgb(66, 66, 66)"],
+        ["Sequential", 402, 478, "13px", "400", "rgb(36, 36, 36)"],
+        ["Enabled:", 284, 510, "13px", "400", "rgb(66, 66, 66)"],
+        ["Yes", 402, 510, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Logical Names": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 233]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [148, 233]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "120.797px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [133, 32]
+        },
+        {
+          "inline": "",
+          "computed": "145.656px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [158, 32]
+        },
+        {
+          "inline": "",
+          "computed": "121.453px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [133, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Flow Structure", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Flow Structure", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Context Structure", 222, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Context Structure", 222, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Context Matrix", 380, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Context Matrix", 380, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 513, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 513, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 599, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 599, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 704, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 704, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["MOSRM8H", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 128, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Names", 4, 279, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Names", 284, 198, "14px", "400", "rgb(36, 36, 36)"],
+        ["Manage Logical Names", 284, 239, "14px", "600", "rgb(255, 255, 255)"],
+        ["View Rework Paths", 284, 323, "14px", "600", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Attachments": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 177]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "120.797px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [133, 32]
+        },
+        {
+          "inline": "",
+          "computed": "145.656px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [158, 32]
+        },
+        {
+          "inline": "",
+          "computed": "121.453px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [133, 32]
+        },
+        {
+          "inline": "",
+          "computed": "74.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [86, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Flow Structure", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Flow Structure", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Context Structure", 222, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Context Structure", 222, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Context Matrix", 380, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Context Matrix", 380, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Compare", 513, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Compare", 513, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 599, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 599, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 704, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 704, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["MOSRM8H", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 128, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Names", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 319, "13px", "600", "rgb(36, 36, 36)"],
+        ["No items", 309, 261, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  }
+}

@@ -1,12 +1,20 @@
 import { useState } from "react";
 import { useFlowDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, SidePanel, HStack } from "@/components/common";
+import {
+  Card,
+  CardGrid,
+  DetailShell,
+  Empty,
+  HStack,
+  KV,
+  SidePanel,
+  VStack,
+} from "@/components/common";
 import { Flow24Regular } from "@/components/icons";
 import { Button, Text, Tree, TreeItem, TreeItemLayout } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { FlowLogicalNamesDialog, FlowReworkPathsDialog } from "./FlowDialogs";
@@ -97,7 +105,7 @@ export function FlowDetailPage({ name }: { name: string }) {
 
   if (top === "flowStructure") {
     return shell(
-      <HStack gap={16} style={{ height: "100%" }}>
+      <HStack gap={16} height="100%">
         <SidePanel
           title={t("businessData.flow.sections.flowStructure")}
           collapsed={structureCollapsed}
@@ -133,11 +141,11 @@ export function FlowDetailPage({ name }: { name: string }) {
         <Button variant="primary" onClick={() => setLogicalNamesOpen(true)}>
           {t("businessData.flow.actions.manageLogicalNames")}
         </Button>
-        <div style={{ marginTop: theme.spacing.md }}>
+        <VStack gap="none" mt={12}>
           <Button onClick={() => setReworkPathsOpen(true)}>
             {t("businessData.flow.actions.viewReworkPaths")}
           </Button>
-        </div>
+        </VStack>
       </Card>,
     );
   }
