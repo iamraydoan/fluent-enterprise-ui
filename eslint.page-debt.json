@@ -94,12 +94,6 @@
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
-  "src/features/business-data/printable-document/PrintableDocumentDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-makeStyles",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/product-group/ProductGroupDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-makeStyles",
