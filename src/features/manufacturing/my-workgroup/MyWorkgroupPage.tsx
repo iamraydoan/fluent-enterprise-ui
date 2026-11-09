@@ -9,6 +9,7 @@ import {
   FilterGroup,
   HStack,
   IconButton,
+  IconContainer,
   ListPage,
   MenuTriggerButton,
   SidebarNavItem,
@@ -38,7 +39,6 @@ import {
   Text,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import { theme } from "@/styles/theme";
 import { PanelSettingsDialog } from "./dialogs";
 
 type Panel = "resources" | "steps";
@@ -134,15 +134,12 @@ function ResourceTile({ tile, onOpen }: { tile: WorkgroupResourceTile; onOpen: (
     <EntityTile
       title={`${tile.name}(${tile.facility})`}
       subtitle={tile.type}
-      accentColor={tile.systemState === "Up" ? theme.color.textSuccess : theme.color.textDanger}
-      backgroundColor={tile.systemState === "Up" ? undefined : theme.color.dangerSubtle}
+      tone={tile.systemState === "Up" ? "success" : "danger"}
       onClick={onOpen}
       ariaLabel={`${tile.name} (${tile.facility})`}
       footer={
         <>
-          <span style={{ color: theme.color.textBrand, display: "inline-flex" }}>
-            <Box24Regular />
-          </span>
+          <IconContainer icon={<Box24Regular />} tone="brand" />
           <HStack gap="md" align="center">
             <TileCount
               value={tile.dispatched}
@@ -244,7 +241,6 @@ export function MyWorkgroupPage() {
       }}
     >
       <Split
-        sidebarWidth="300px"
         sidebar={
           collapsed ? (
             <Button
@@ -295,11 +291,7 @@ export function MyWorkgroupPage() {
               <VStack gap="xs" p="xs">
                 {visiblePanels.includes(RESOURCES_PANEL) && (
                   <SidebarNavItem
-                    icon={
-                      <span style={{ color: theme.color.textBrand, display: "inline-flex" }}>
-                        <Box24Regular />
-                      </span>
-                    }
+                    icon={<IconContainer icon={<Box24Regular />} tone="brand" />}
                     label={t(L.resources)}
                     active={panel === RESOURCES_PANEL}
                     onClick={() => setPanel(RESOURCES_PANEL)}
@@ -341,7 +333,7 @@ export function MyWorkgroupPage() {
                     value={resourceFacility}
                     onChange={setResourceFacility}
                     placeholder={t(L.facilityPlaceholder)}
-                    style={{ width: "140px" }}
+                    width={140}
                   />
                   <IconButton icon={<Search20Regular />} ariaLabel={t(L.facility)} />
                 </HStack>
@@ -357,7 +349,7 @@ export function MyWorkgroupPage() {
                 onChange={setResourceName}
                 placeholder={t(L.resourceNamePlaceholder)}
                 contentBefore={<Search20Regular />}
-                style={{ width: "220px" }}
+                width={220}
               />
             </FilterBar>
             {resourcesLoading ? (
@@ -365,7 +357,7 @@ export function MyWorkgroupPage() {
             ) : resources.length === 0 ? (
               <Empty>{t("myWorkgroup.noResources")}</Empty>
             ) : (
-              <TileGrid minWidth="300px">
+              <TileGrid minWidth={300}>
                 {resources.map((tile) => (
                   <ResourceTile
                     key={tile.name}
@@ -398,7 +390,7 @@ export function MyWorkgroupPage() {
                     value={stepFacility}
                     onChange={setStepFacility}
                     placeholder={t(L.facilityPlaceholder)}
-                    style={{ width: "140px" }}
+                    width={140}
                   />
                   <IconButton icon={<Search20Regular />} ariaLabel={t(L.facility)} />
                 </HStack>
@@ -408,7 +400,7 @@ export function MyWorkgroupPage() {
                 onChange={setStepName}
                 placeholder={t(L.stepNamePlaceholder)}
                 contentBefore={<Search20Regular />}
-                style={{ width: "220px" }}
+                width={220}
               />
             </FilterBar>
             {stepsLoading ? (
@@ -416,7 +408,7 @@ export function MyWorkgroupPage() {
             ) : steps.length === 0 ? (
               <Empty>{t("myWorkgroup.noSteps")}</Empty>
             ) : (
-              <TileGrid minWidth="300px">
+              <TileGrid minWidth={300}>
                 {steps.map((tile) => (
                   <StepTile key={tile.name} tile={tile} onOpen={() => openStepView(tile.name)} />
                 ))}

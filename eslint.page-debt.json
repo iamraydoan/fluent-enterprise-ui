@@ -65,10 +65,5 @@
     "local/no-page-makeStyles",
     "local/no-page-style-prop",
     "local/no-page-theme-import"
-  ],
-  "src/features/manufacturing/my-workgroup/MyWorkgroupPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
   ]
 }
