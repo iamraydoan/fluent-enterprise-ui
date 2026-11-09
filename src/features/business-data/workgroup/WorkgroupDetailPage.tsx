@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useWorkgroupDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, KV, Panel, VStack } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { ShieldCheckmark20Regular } from "@/components/icons";
 import { Body1Strong } from "@/components/ui";
@@ -8,7 +8,6 @@ import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatList } from "@/lib/utils";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.workgroup.tabs.details" },
@@ -57,7 +56,9 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.workgroup.sections.resources")} ({data.resources.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.resources)}</div>
+        <VStack gap="none" mt={12}>
+          {formatList(data.resources)}
+        </VStack>
       </Panel>
     );
   } else if (left === "businessData.workgroup.sections.steps") {
@@ -66,7 +67,9 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.workgroup.sections.steps")} ({data.steps.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.steps)}</div>
+        <VStack gap="none" mt={12}>
+          {formatList(data.steps)}
+        </VStack>
       </Panel>
     );
   } else if (left === "businessData.workgroup.sections.areas") {
@@ -75,7 +78,9 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.workgroup.sections.areas")} ({data.areas.length})
         </Body1Strong>
-        <div style={{ marginTop: theme.spacing.md }}>{formatList(data.areas)}</div>
+        <VStack gap="none" mt={12}>
+          {formatList(data.areas)}
+        </VStack>
       </Panel>
     );
   } else if (left !== "businessData.workgroup.sections.details") {
@@ -88,10 +93,7 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div
-        className={sharedStyles.contentCard}
-        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-      >
+      <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
         <Body1Strong>{t("businessData.workgroup.sections.details")}</Body1Strong>
         <KV
           rows={[
@@ -105,7 +107,7 @@ export function WorkgroupDetailPage({ name }: { name: string }) {
             [t("businessData.workgroup.detail.dataGroup"), data.dataGroup],
           ]}
         />
-      </div>
+      </DetailSurface>
     );
   }
 

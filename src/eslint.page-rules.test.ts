@@ -5,7 +5,7 @@ import ledger from "../eslint.page-debt.json";
 import { runLedgerCheck } from "./eslint.page-debt.test";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
-const RAW_MAPPING_BASELINE = 77;
+const RAW_MAPPING_BASELINE = 75;
 const FIXTURE_PAGE = "src/features/fixture/FixturePage.tsx";
 const COMPLIANT_PAGE_FILE = "src/features/administration/apps/AppsListPage.tsx";
 

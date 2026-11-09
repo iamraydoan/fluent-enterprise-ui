@@ -92,10 +92,6 @@
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
-  "src/features/business-data/workgroup/WorkgroupDetailPage.tsx": [
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/manufacturing/augmented-reality/AugmentedRealityPage.tsx": [
     "local/no-page-conditional-style",
     "local/no-page-literal-px",
