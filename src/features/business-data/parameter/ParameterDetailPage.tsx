@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useParameterDetail } from "@/api";
 import type { DetailMoreMenuItem, DetailTab } from "@/components/common";
-import { DetailShell, KV, Grid } from "@/components/common";
+import { DetailSectionCard, DetailShell, KV, Grid } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
-import { Text, makeStyles } from "@/components/ui";
+import { Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import {
   CloneParameterDialog,
   CreateParameterDialog,
@@ -16,14 +14,8 @@ import {
   UnterminateParameterDialog,
 } from "./ParameterDialogs";
 
-const useStyles = makeStyles({
-  sectionTitle: { marginBottom: theme.spacing.sm },
-});
-
 export function ParameterDetailPage({ name }: { name: string }) {
   const { t } = useAppTranslation();
-  const styles = useStyles();
-  const shared = useSharedStyles();
   const { data: detail } = useParameterDetail(name);
 
   const [top, setTop] = useState("details");
@@ -89,11 +81,8 @@ export function ParameterDetailPage({ name }: { name: string }) {
         showState={false}
         moreActions={moreMenuItems}
       >
-        <Grid columns="repeat(2, 1fr)" gap="12px">
-          <div className={shared.contentCard} style={{ padding: "14px 16px" }}>
-            <Text weight="semibold" size={400} className={styles.sectionTitle}>
-              {t("businessData.parameter.detail.generalData")}
-            </Text>
+        <Grid columns="repeat(2, 1fr)" gap={12}>
+          <DetailSectionCard title={t("businessData.parameter.detail.generalData")}>
             <KV
               rows={[
                 [t("businessData.parameter.detail.fields.name"), detail.name],
@@ -103,7 +92,7 @@ export function ParameterDetailPage({ name }: { name: string }) {
                 [t("businessData.parameter.detail.fields.state"), detail.state],
               ]}
             />
-          </div>
+          </DetailSectionCard>
         </Grid>
       </DetailShell>
 
