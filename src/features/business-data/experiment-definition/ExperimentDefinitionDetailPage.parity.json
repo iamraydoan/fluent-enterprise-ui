@@ -1,0 +1,784 @@
+{
+  "default": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 1445]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 229]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 165]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 165]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 133]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 713]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "54.8125px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [67, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "380px",
+          "rowGap": "10px",
+          "columnGap": "10px",
+          "box": [148, 1445]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 152]
+        },
+        {
+          "inline": "",
+          "computed": "211.781px 124.219px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 88]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 88]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 56]
+        },
+        {
+          "inline": "",
+          "computed": "205.172px 130.828px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 592]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Matrix", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Matrix", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 156, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 156, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 260, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 260, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Experiment_Definition_01", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 239, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Objectives", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Main Material Groups", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Instances", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Experiment Definition", 284, 198, "14px", "400", "rgb(36, 36, 36)"],
+        ["Name:", 284, 239, "13px", "400", "rgb(66, 66, 66)"],
+        ["Experiment_Definition_01", 402, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 284, 271, "13px", "400", "rgb(66, 66, 66)"],
+        ["Type:", 284, 303, "13px", "400", "rgb(66, 66, 66)"],
+        ["Standard", 402, 303, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 284, 335, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 402, 335, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 284, 367, "13px", "400", "rgb(66, 66, 66)"],
+        ["Options", 284, 437, "14px", "400", "rgb(36, 36, 36)"],
+        ["Ignore in Sampling Plans:", 284, 478, "13px", "400", "rgb(66, 66, 66)"],
+        ["Yes", 504, 478, "13px", "400", "rgb(36, 36, 36)"],
+        ["Ignore in SPC Charts:", 284, 510, "13px", "400", "rgb(66, 66, 66)"],
+        ["Yes", 504, 510, "13px", "400", "rgb(36, 36, 36)"],
+        ["Close Experiment Automatically:", 284, 542, "13px", "400", "rgb(66, 66, 66)"],
+        ["No", 504, 542, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 284, 612, "14px", "400", "rgb(36, 36, 36)"],
+        ["Owner Role:", 284, 653, "13px", "400", "rgb(66, 66, 66)"],
+        ["Administrators", 402, 653, "13px", "400", "rgb(36, 36, 36)"],
+        ["Purpose:", 284, 685, "13px", "400", "rgb(66, 66, 66)"],
+        ["Note:", 284, 717, "13px", "400", "rgb(66, 66, 66)"],
+        ["Results", 284, 787, "14px", "400", "rgb(36, 36, 36)"],
+        ["Result:", 284, 828, "13px", "400", "rgb(66, 66, 66)"],
+        ["Conclusions:", 284, 860, "13px", "400", "rgb(66, 66, 66)"],
+        ["Settings", 284, 930, "14px", "400", "rgb(36, 36, 36)"],
+        ["Product:", 284, 971, "13px", "400", "rgb(66, 66, 66)"],
+        ["Ammonium Phosphate [A]", 497, 971, "13px", "400", "rgb(36, 36, 36)"],
+        ["Product Group:", 284, 1027, "13px", "400", "rgb(66, 66, 66)"],
+        ["Maximum Number of Materials:", 284, 1059, "13px", "400", "rgb(66, 66, 66)"],
+        ["51", 497, 1059, "13px", "400", "rgb(36, 36, 36)"],
+        ["Required Material Type:", 284, 1091, "13px", "400", "rgb(66, 66, 66)"],
+        ["Durable", 497, 1091, "13px", "400", "rgb(36, 36, 36)"],
+        ["Required Material Form:", 284, 1123, "13px", "400", "rgb(66, 66, 66)"],
+        ["Lot", 497, 1123, "13px", "400", "rgb(36, 36, 36)"],
+        ["Mode:", 284, 1155, "13px", "400", "rgb(66, 66, 66)"],
+        ["Sub Materials", 497, 1155, "13px", "400", "rgb(36, 36, 36)"],
+        ["Required Sub-Materials Form:", 284, 1187, "13px", "400", "rgb(66, 66, 66)"],
+        ["Lot", 497, 1187, "13px", "400", "rgb(36, 36, 36)"],
+        ["Required Sub-Materials Count:", 284, 1219, "13px", "400", "rgb(66, 66, 66)"],
+        ["10", 497, 1219, "13px", "400", "rgb(36, 36, 36)"],
+        ["Planned Start Date:", 284, 1251, "13px", "400", "rgb(66, 66, 66)"],
+        ["9/23/2026 9:01:00 AM", 497, 1251, "13px", "400", "rgb(36, 36, 36)"],
+        ["Planned End Date:", 284, 1307, "13px", "400", "rgb(66, 66, 66)"],
+        ["9/24/2026 9:01:00 AM", 497, 1307, "13px", "400", "rgb(36, 36, 36)"],
+        ["Flow:", 284, 1363, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse [A]", 497, 1363, "13px", "400", "rgb(36, 36, 36)"],
+        ["First Step:", 284, 1395, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse", 497, 1395, "13px", "400", "rgb(36, 36, 36)"],
+        ["First Step Flow Path:", 284, 1427, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse [A] > Warehouse", 497, 1427, "13px", "400", "rgb(36, 36, 36)"],
+        ["Last Step:", 284, 1483, "13px", "400", "rgb(66, 66, 66)"],
+        ["Mixing", 497, 1483, "13px", "400", "rgb(36, 36, 36)"],
+        ["Last Step Flow Path:", 284, 1515, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse [A] > Mixing", 497, 1515, "13px", "400", "rgb(36, 36, 36)"],
+        ["Set Effective", 284, 1575, "14px", "600", "rgb(255, 255, 255)"]
+      ]
+    }
+  },
+  "Details": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 1445]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 229]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 165]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 165]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 133]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 713]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "54.8125px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [67, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "380px",
+          "rowGap": "10px",
+          "columnGap": "10px",
+          "box": [148, 1445]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 152]
+        },
+        {
+          "inline": "",
+          "computed": "211.781px 124.219px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 88]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 88]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 56]
+        },
+        {
+          "inline": "",
+          "computed": "205.172px 130.828px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 592]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Matrix", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Matrix", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 156, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 156, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 260, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 260, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Experiment_Definition_01", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 239, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Objectives", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Main Material Groups", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Instances", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Experiment Definition", 284, 198, "14px", "400", "rgb(36, 36, 36)"],
+        ["Name:", 284, 239, "13px", "400", "rgb(66, 66, 66)"],
+        ["Experiment_Definition_01", 402, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 284, 271, "13px", "400", "rgb(66, 66, 66)"],
+        ["Type:", 284, 303, "13px", "400", "rgb(66, 66, 66)"],
+        ["Standard", 402, 303, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 284, 335, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 402, 335, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 284, 367, "13px", "400", "rgb(66, 66, 66)"],
+        ["Options", 284, 437, "14px", "400", "rgb(36, 36, 36)"],
+        ["Ignore in Sampling Plans:", 284, 478, "13px", "400", "rgb(66, 66, 66)"],
+        ["Yes", 504, 478, "13px", "400", "rgb(36, 36, 36)"],
+        ["Ignore in SPC Charts:", 284, 510, "13px", "400", "rgb(66, 66, 66)"],
+        ["Yes", 504, 510, "13px", "400", "rgb(36, 36, 36)"],
+        ["Close Experiment Automatically:", 284, 542, "13px", "400", "rgb(66, 66, 66)"],
+        ["No", 504, 542, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 284, 612, "14px", "400", "rgb(36, 36, 36)"],
+        ["Owner Role:", 284, 653, "13px", "400", "rgb(66, 66, 66)"],
+        ["Administrators", 402, 653, "13px", "400", "rgb(36, 36, 36)"],
+        ["Purpose:", 284, 685, "13px", "400", "rgb(66, 66, 66)"],
+        ["Note:", 284, 717, "13px", "400", "rgb(66, 66, 66)"],
+        ["Results", 284, 787, "14px", "400", "rgb(36, 36, 36)"],
+        ["Result:", 284, 828, "13px", "400", "rgb(66, 66, 66)"],
+        ["Conclusions:", 284, 860, "13px", "400", "rgb(66, 66, 66)"],
+        ["Settings", 284, 930, "14px", "400", "rgb(36, 36, 36)"],
+        ["Product:", 284, 971, "13px", "400", "rgb(66, 66, 66)"],
+        ["Ammonium Phosphate [A]", 497, 971, "13px", "400", "rgb(36, 36, 36)"],
+        ["Product Group:", 284, 1027, "13px", "400", "rgb(66, 66, 66)"],
+        ["Maximum Number of Materials:", 284, 1059, "13px", "400", "rgb(66, 66, 66)"],
+        ["51", 497, 1059, "13px", "400", "rgb(36, 36, 36)"],
+        ["Required Material Type:", 284, 1091, "13px", "400", "rgb(66, 66, 66)"],
+        ["Durable", 497, 1091, "13px", "400", "rgb(36, 36, 36)"],
+        ["Required Material Form:", 284, 1123, "13px", "400", "rgb(66, 66, 66)"],
+        ["Lot", 497, 1123, "13px", "400", "rgb(36, 36, 36)"],
+        ["Mode:", 284, 1155, "13px", "400", "rgb(66, 66, 66)"],
+        ["Sub Materials", 497, 1155, "13px", "400", "rgb(36, 36, 36)"],
+        ["Required Sub-Materials Form:", 284, 1187, "13px", "400", "rgb(66, 66, 66)"],
+        ["Lot", 497, 1187, "13px", "400", "rgb(36, 36, 36)"],
+        ["Required Sub-Materials Count:", 284, 1219, "13px", "400", "rgb(66, 66, 66)"],
+        ["10", 497, 1219, "13px", "400", "rgb(36, 36, 36)"],
+        ["Planned Start Date:", 284, 1251, "13px", "400", "rgb(66, 66, 66)"],
+        ["9/23/2026 9:01:00 AM", 497, 1251, "13px", "400", "rgb(36, 36, 36)"],
+        ["Planned End Date:", 284, 1307, "13px", "400", "rgb(66, 66, 66)"],
+        ["9/24/2026 9:01:00 AM", 497, 1307, "13px", "400", "rgb(36, 36, 36)"],
+        ["Flow:", 284, 1363, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse [A]", 497, 1363, "13px", "400", "rgb(36, 36, 36)"],
+        ["First Step:", 284, 1395, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse", 497, 1395, "13px", "400", "rgb(36, 36, 36)"],
+        ["First Step Flow Path:", 284, 1427, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse [A] > Warehouse", 497, 1427, "13px", "400", "rgb(36, 36, 36)"],
+        ["Last Step:", 284, 1483, "13px", "400", "rgb(66, 66, 66)"],
+        ["Mixing", 497, 1483, "13px", "400", "rgb(36, 36, 36)"],
+        ["Last Step Flow Path:", 284, 1515, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse [A] > Mixing", 497, 1515, "13px", "400", "rgb(36, 36, 36)"],
+        ["Set Effective", 284, 1575, "14px", "600", "rgb(255, 255, 255)"]
+      ]
+    }
+  },
+  "Objectives": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 257]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "54.8125px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [67, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Matrix", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Matrix", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 156, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 156, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 260, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 260, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Experiment_Definition_01", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 239, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Objectives", 4, 279, "13px", "600", "rgb(36, 36, 36)"],
+        ["Main Material Groups", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Instances", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 301, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Main Material Groups": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 257]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "54.8125px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [67, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Matrix", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Matrix", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 156, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 156, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 260, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 260, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Experiment_Definition_01", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 239, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Objectives", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Main Material Groups", 4, 319, "13px", "600", "rgb(36, 36, 36)"],
+        ["Instances", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 301, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Instances": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 257]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "54.8125px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [67, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Matrix", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Matrix", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 156, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 156, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 260, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 260, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Experiment_Definition_01", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 239, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Objectives", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Main Material Groups", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Instances", 4, 359, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 301, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Attachments": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 257]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "54.8125px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [67, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["Matrix", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["Matrix", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["References", 156, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 156, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 260, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 260, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 265, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 362, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 345, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 446, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 426, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Experiment_Definition_01", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 239, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Objectives", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Main Material Groups", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Instances", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 399, "13px", "600", "rgb(36, 36, 36)"],
+        ["No items", 309, 301, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  }
+}

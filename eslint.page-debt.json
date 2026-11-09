@@ -58,10 +58,6 @@
   "src/features/business-data/chart/dialogs/dialogStyles.ts": ["no-restricted-syntax"],
   "src/features/business-data/checklist/dialogs/dialogStyles.ts": ["no-restricted-syntax"],
   "src/features/business-data/data-collection/dialogs/dialogStyles.ts": ["no-restricted-syntax"],
-  "src/features/business-data/experiment-definition/ExperimentDefinitionDetailPage.tsx": [
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/facility/FacilityDetailPage.tsx": [
     "local/no-page-style-prop",
     "local/no-page-theme-import"

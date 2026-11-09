@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useExperimentDefinitionDetail } from "@/api";
-import { Card, CardGrid, DetailShell, Empty, KV } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, VStack } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Box24Regular } from "@/components/icons";
 import { Text, Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
-import { theme } from "@/styles/theme";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { ExperimentDefinitionDialog } from "./dialogs/ExperimentDefinitionDialog";
@@ -207,11 +206,11 @@ export function ExperimentDefinitionDetailPage({ name }: { name: string }) {
             ],
           ]}
         />
-        <div style={{ marginTop: theme.spacing.md }}>
+        <VStack gap="none" mt={12}>
           <Button variant="primary" onClick={() => setSetEffectiveOpen(true)}>
             {t("businessData.experimentDefinition.actions.setEffective")}
           </Button>
-        </div>
+        </VStack>
       </Card>
     </CardGrid>,
   );
