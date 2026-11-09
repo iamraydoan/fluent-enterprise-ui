@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useTransferRequirementDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { DetailShell, Empty, KV, Panel, VStack } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, KV, Panel, VStack } from "@/components/common";
 import { ArrowExportUp24Regular } from "@/components/icons";
 import { Body1Strong, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 import { formatItemMeta } from "./transferRequirementHelpers";
 
 const TOP_TABS: DetailTab[] = [
@@ -57,18 +56,14 @@ export function TransferRequirementDetailPage({ name }: { name: string }) {
         <Body1Strong>
           {t("businessData.transferRequirement.sections.items")} ({data.items.length})
         </Body1Strong>
-        <VStack gap="8px" style={{ marginTop: theme.spacing.md }}>
+        <VStack gap="sm" mt={12}>
           {data.items.map((item) => (
-            <div
-              key={item.product}
-              className={sharedStyles.contentCard}
-              style={{ padding: theme.spacing.md }}
-            >
+            <DetailSurface key={item.product} className={sharedStyles.contentCard} p={12}>
               <Body1Strong>{item.product}</Body1Strong>
               <div>
                 <Caption1>{formatItemMeta(item)}</Caption1>
               </div>
-            </div>
+            </DetailSurface>
           ))}
         </VStack>
       </Panel>
@@ -83,10 +78,7 @@ export function TransferRequirementDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div
-        className={sharedStyles.contentCard}
-        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-      >
+      <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
         <Body1Strong>{t("businessData.transferRequirement.sections.details")}</Body1Strong>
         <KV
           rows={[
@@ -105,7 +97,7 @@ export function TransferRequirementDetailPage({ name }: { name: string }) {
             [t("businessData.transferRequirement.detail.dataGroup"), data.dataGroup],
           ]}
         />
-      </div>
+      </DetailSurface>
     );
   }
 
