@@ -82,11 +82,6 @@
   ],
   "src/features/business-data/product-group/dialogs/dialogShared.ts": ["no-restricted-syntax"],
   "src/features/business-data/resource-job/ResourceJobDetailPage.tsx": ["local/no-page-literal-px"],
-  "src/features/business-data/substrate-map-mask/SubstrateMapMaskDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/manufacturing/augmented-reality/AugmentedRealityPage.tsx": [
     "local/no-page-conditional-style",
     "local/no-page-literal-px",

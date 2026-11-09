@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useSubstrateMapMaskDetail } from "@/api";
-import { DetailShell, Empty, KV, Panel } from "@/components/common";
+import { DetailShell, DetailSurface, Empty, KV, Panel } from "@/components/common";
 import type { DetailTab } from "@/components/common";
 import { Grid24Regular } from "@/components/icons";
 import { Body1Strong, Caption1 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useSharedStyles } from "@/styles/shared";
-import { theme } from "@/styles/theme";
 
 const TOP_TABS: DetailTab[] = [
   { value: "details", labelKey: "businessData.substrateMapMask.tabs.details" },
@@ -49,12 +48,9 @@ export function SubstrateMapMaskDetailPage({ name }: { name: string }) {
       <Panel>
         <Body1Strong>{t("businessData.substrateMapMask.content.title")}</Body1Strong>
         <Caption1>{t("businessData.substrateMapMask.content.hint")}</Caption1>
-        <div
-          className={sharedStyles.contentCard}
-          style={{ padding: theme.spacing.lg, marginTop: theme.spacing.md, minHeight: "300px" }}
-        >
+        <DetailSurface className={sharedStyles.contentCard} p={16} mt={12} minHeight={300}>
           <Caption1>{t("businessData.substrateMapMask.content.empty")}</Caption1>
-        </div>
+        </DetailSurface>
       </Panel>
     );
   } else if (top !== "details" || left !== "businessData.substrateMapMask.sections.details") {
@@ -67,10 +63,7 @@ export function SubstrateMapMaskDetailPage({ name }: { name: string }) {
     );
   } else {
     content = (
-      <div
-        className={sharedStyles.contentCard}
-        style={{ padding: theme.spacing.lg, marginBottom: theme.spacing.md }}
-      >
+      <DetailSurface className={sharedStyles.contentCard} p={16} mb={12}>
         <Body1Strong>{t("businessData.substrateMapMask.sections.details")}</Body1Strong>
         <KV
           rows={[
@@ -84,7 +77,7 @@ export function SubstrateMapMaskDetailPage({ name }: { name: string }) {
             [t("businessData.substrateMapMask.detail.dataGroup"), data.dataGroup],
           ]}
         />
-      </div>
+      </DetailSurface>
     );
   }
 
