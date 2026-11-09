@@ -1,0 +1,847 @@
+{
+  "Details": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 1508]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 229]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 101]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 165]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 221]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 165]
+        },
+        {
+          "padding": "16px 18px 20px",
+          "margin": "0px",
+          "display": "block",
+          "direction": "row",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [380, 577]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "",
+          "computed": "380px",
+          "rowGap": "10px",
+          "columnGap": "10px",
+          "box": [148, 1508]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 152]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 24]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 88]
+        },
+        {
+          "inline": "",
+          "computed": "179.328px 156.672px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 144]
+        },
+        {
+          "inline": "",
+          "computed": "110px 226px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 88]
+        },
+        {
+          "inline": "",
+          "computed": "204.203px 131.797px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [344, 400]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 143, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 201, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 298, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 281, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 382, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 362, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["14", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 70, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Parts", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Labor", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Personnel", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Transfer Requirements", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Documents", 4, 439, "13px", "400", "rgb(36, 36, 36)"],
+        ["Past MAOS", 4, 479, "13px", "400", "rgb(36, 36, 36)"],
+        ["Joined MAOS", 4, 519, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 559, "13px", "400", "rgb(36, 36, 36)"],
+        ["Maintenance Activity Order", 284, 198, "14px", "400", "rgb(36, 36, 36)"],
+        ["Name:", 284, 239, "13px", "400", "rgb(66, 66, 66)"],
+        ["14", 402, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 284, 271, "13px", "400", "rgb(66, 66, 66)"],
+        ["Type:", 284, 303, "13px", "400", "rgb(66, 66, 66)"],
+        ["Standard", 402, 303, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 284, 335, "13px", "400", "rgb(66, 66, 66)"],
+        ["Active", 402, 335, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 284, 367, "13px", "400", "rgb(66, 66, 66)"],
+        ["Scheduling", 284, 437, "14px", "400", "rgb(36, 36, 36)"],
+        ["Schedule Date:", 284, 478, "13px", "400", "rgb(66, 66, 66)"],
+        ["9/23/2026 2:02:00 PM", 402, 478, "13px", "400", "rgb(36, 36, 36)"],
+        ["Request Information", 284, 548, "14px", "400", "rgb(36, 36, 36)"],
+        ["Requested By:", 284, 589, "13px", "400", "rgb(66, 66, 66)"],
+        ["Administrator", 402, 589, "13px", "400", "rgb(36, 36, 36)"],
+        ["Request Date:", 284, 621, "13px", "400", "rgb(66, 66, 66)"],
+        ["9/23/2026 2:01:00 PM", 402, 621, "13px", "400", "rgb(36, 36, 36)"],
+        ["Comment:", 284, 653, "13px", "400", "rgb(66, 66, 66)"],
+        ["Definition", 284, 723, "14px", "400", "rgb(36, 36, 36)"],
+        ["Maintenance Plan Instance:", 284, 764, "13px", "400", "rgb(66, 66, 66)"],
+        ["Maintenance Plan 02-Mixer", 471, 764, "13px", "400", "rgb(36, 36, 36)"],
+        ["Resource:", 284, 820, "13px", "400", "rgb(66, 66, 66)"],
+        ["Mixer-01", 471, 820, "13px", "400", "rgb(36, 36, 36)"],
+        ["Owner Role:", 284, 852, "13px", "400", "rgb(66, 66, 66)"],
+        ["Administrators", 471, 852, "13px", "400", "rgb(36, 36, 36)"],
+        ["Maintenance Activity:", 284, 884, "13px", "400", "rgb(66, 66, 66)"],
+        ["Replace Mixing Sensor", 471, 884, "13px", "400", "rgb(36, 36, 36)"],
+        ["Execution", 284, 954, "14px", "400", "rgb(36, 36, 36)"],
+        ["Role:", 284, 995, "13px", "400", "rgb(66, 66, 66)"],
+        ["Administrators", 402, 995, "13px", "400", "rgb(36, 36, 36)"],
+        ["Begin Date:", 284, 1027, "13px", "400", "rgb(66, 66, 66)"],
+        ["End Date:", 284, 1059, "13px", "400", "rgb(66, 66, 66)"],
+        ["Information", 284, 1129, "14px", "400", "rgb(36, 36, 36)"],
+        ["Schedule Type:", 284, 1170, "13px", "400", "rgb(66, 66, 66)"],
+        ["Adhoc", 496, 1170, "13px", "400", "rgb(36, 36, 36)"],
+        ["Expected Duration:", 284, 1202, "13px", "400", "rgb(66, 66, 66)"],
+        ["2 hour(s)", 496, 1202, "13px", "400", "rgb(36, 36, 36)"],
+        ["Execution State:", 284, 1234, "13px", "400", "rgb(66, 66, 66)"],
+        ["Approved", 496, 1234, "13px", "400", "rgb(36, 36, 36)"],
+        ["Rework Count:", 284, 1266, "13px", "400", "rgb(66, 66, 66)"],
+        ["0", 496, 1266, "13px", "400", "rgb(36, 36, 36)"],
+        ["Request Approval Mode:", 284, 1298, "13px", "400", "rgb(66, 66, 66)"],
+        ["Auto Approval", 496, 1298, "13px", "400", "rgb(36, 36, 36)"],
+        ["Maintenance Type:", 284, 1330, "13px", "400", "rgb(66, 66, 66)"],
+        ["Corrective", 496, 1330, "13px", "400", "rgb(36, 36, 36)"],
+        ["Material Type Restriction Mode:", 284, 1362, "13px", "400", "rgb(66, 66, 66)"],
+        ["Allow None", 496, 1362, "13px", "400", "rgb(36, 36, 36)"],
+        ["Material Type:", 284, 1394, "13px", "400", "rgb(66, 66, 66)"],
+        ["Order Release Mode:", 284, 1426, "13px", "400", "rgb(66, 66, 66)"],
+        ["Manual Release", 496, 1426, "13px", "400", "rgb(36, 36, 36)"],
+        ["Completion Acceptance Mode:", 284, 1458, "13px", "400", "rgb(66, 66, 66)"],
+        ["Auto Acceptance", 496, 1458, "13px", "400", "rgb(36, 36, 36)"],
+        ["Begin and Complete Mode:", 284, 1490, "13px", "400", "rgb(66, 66, 66)"],
+        ["Manual Begin And Complete", 496, 1490, "13px", "400", "rgb(36, 36, 36)"],
+        ["Cost:", 284, 1546, "13px", "400", "rgb(66, 66, 66)"],
+        ["$0.00", 496, 1546, "13px", "400", "rgb(36, 36, 36)"],
+        ["Approve", 284, 1582, "12px", "400", "rgb(36, 36, 36)"],
+        ["Release", 360, 1582, "12px", "400", "rgb(36, 36, 36)"],
+        ["Begin", 433, 1582, "12px", "400", "rgb(36, 36, 36)"],
+        ["Complete", 505, 1582, "12px", "400", "rgb(36, 36, 36)"],
+        ["Accept", 284, 1614, "12px", "400", "rgb(36, 36, 36)"],
+        ["Reject", 356, 1614, "12px", "400", "rgb(36, 36, 36)"],
+        ["Skip", 428, 1614, "12px", "400", "rgb(36, 36, 36)"],
+        ["Abort", 500, 1614, "12px", "400", "rgb(36, 36, 36)"],
+        ["Rework", 284, 1646, "12px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Parts": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 417]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 143, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 201, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 298, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 281, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 382, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 362, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["14", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 70, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parts", 4, 279, "13px", "600", "rgb(36, 36, 36)"],
+        ["Labor", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Personnel", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Transfer Requirements", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Documents", 4, 439, "13px", "400", "rgb(36, 36, 36)"],
+        ["Past MAOS", 4, 479, "13px", "400", "rgb(36, 36, 36)"],
+        ["Joined MAOS", 4, 519, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 559, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 381, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Labor": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 417]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 143, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 201, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 298, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 281, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 382, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 362, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["14", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 70, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parts", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Labor", 4, 319, "13px", "600", "rgb(36, 36, 36)"],
+        ["Personnel", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Transfer Requirements", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Documents", 4, 439, "13px", "400", "rgb(36, 36, 36)"],
+        ["Past MAOS", 4, 479, "13px", "400", "rgb(36, 36, 36)"],
+        ["Joined MAOS", 4, 519, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 559, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 381, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Personnel": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 417]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 143, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 201, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 298, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 281, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 382, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 362, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["14", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 70, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parts", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Labor", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Personnel", 4, 359, "13px", "600", "rgb(36, 36, 36)"],
+        ["Transfer Requirements", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Documents", 4, 439, "13px", "400", "rgb(36, 36, 36)"],
+        ["Past MAOS", 4, 479, "13px", "400", "rgb(36, 36, 36)"],
+        ["Joined MAOS", 4, 519, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 559, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 381, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Transfer Requirements": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 417]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 143, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 201, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 298, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 281, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 382, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 362, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["14", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 70, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parts", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Labor", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Personnel", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Transfer Requirements", 4, 399, "13px", "600", "rgb(36, 36, 36)"],
+        ["Documents", 4, 439, "13px", "400", "rgb(36, 36, 36)"],
+        ["Past MAOS", 4, 479, "13px", "400", "rgb(36, 36, 36)"],
+        ["Joined MAOS", 4, 519, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 559, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 381, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Documents": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 417]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 143, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 201, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 298, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 281, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 382, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 362, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["14", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 70, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parts", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Labor", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Personnel", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Transfer Requirements", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Documents", 4, 439, "13px", "600", "rgb(36, 36, 36)"],
+        ["Past MAOS", 4, 479, "13px", "400", "rgb(36, 36, 36)"],
+        ["Joined MAOS", 4, 519, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 559, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 381, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Past MAOS": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 417]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 143, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 201, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 298, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 281, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 382, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 362, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["14", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 70, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parts", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Labor", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Personnel", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Transfer Requirements", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Documents", 4, 439, "13px", "400", "rgb(36, 36, 36)"],
+        ["Past MAOS", 4, 479, "13px", "600", "rgb(36, 36, 36)"],
+        ["Joined MAOS", 4, 519, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 559, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 381, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Joined MAOS": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 417]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 143, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 201, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 298, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 281, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 382, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 362, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["14", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 70, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parts", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Labor", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Personnel", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Transfer Requirements", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Documents", 4, 439, "13px", "400", "rgb(36, 36, 36)"],
+        ["Past MAOS", 4, 479, "13px", "400", "rgb(36, 36, 36)"],
+        ["Joined MAOS", 4, 519, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 559, "13px", "400", "rgb(36, 36, 36)"],
+        ["No items", 309, 381, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  },
+  "Attachments": {
+    "snapshot": null,
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 417]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 143, 73, "10px", "400", "rgb(36, 36, 36)"],
+        ["Unterminate", 201, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 298, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 281, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 382, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 362, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["14", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["(Active)", 70, 145, "12px", "400", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parts", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Labor", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["Personnel", 4, 359, "13px", "400", "rgb(36, 36, 36)"],
+        ["Transfer Requirements", 4, 399, "13px", "400", "rgb(36, 36, 36)"],
+        ["Documents", 4, 439, "13px", "400", "rgb(36, 36, 36)"],
+        ["Past MAOS", 4, 479, "13px", "400", "rgb(36, 36, 36)"],
+        ["Joined MAOS", 4, 519, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 559, "13px", "600", "rgb(36, 36, 36)"],
+        ["No items", 309, 381, "14px", "400", "rgb(97, 97, 97)"]
+      ]
+    }
+  }
+}

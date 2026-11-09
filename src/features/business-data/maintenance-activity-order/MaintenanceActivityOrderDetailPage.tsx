@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useMaintenanceActivityOrderDetail } from "@/api";
 import type { DetailTab } from "@/components/common";
-import { Card, CardGrid, DetailShell, Empty, KV, HStack } from "@/components/common";
+import { Card, CardGrid, DetailShell, Empty, KV, HStack, VStack } from "@/components/common";
 import { Wrench24Regular } from "@/components/icons";
 import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { formatDateTime } from "@/lib/formatDate";
-import { theme } from "@/styles/theme";
 import { TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { MaintenanceActivityOrderDialog } from "./dialogs/MaintenanceActivityOrderDialog";
 import { MaintenanceActivityOrderTerminateDialog } from "./dialogs/MaintenanceActivityOrderTerminateDialog";
@@ -184,56 +183,58 @@ export function MaintenanceActivityOrderDetailPage({ name }: { name: string }) {
         />
       </Card>
       <Card title={t("businessData.maintenanceActivityOrder.sections.information")}>
-        <KV
-          rows={[
-            [t("businessData.maintenanceActivityOrder.details.scheduleType"), data.scheduleType],
-            [
-              t("businessData.maintenanceActivityOrder.details.expectedDuration"),
-              data.expectedDuration,
-            ],
-            [
-              t("businessData.maintenanceActivityOrder.details.executionState"),
-              data.executionState,
-            ],
-            [
-              t("businessData.maintenanceActivityOrder.details.reworkCount"),
-              String(data.reworkCount),
-            ],
-            [
-              t("businessData.maintenanceActivityOrder.details.requestApprovalMode"),
-              data.requestApprovalMode,
-            ],
-            [
-              t("businessData.maintenanceActivityOrder.details.maintenanceType"),
-              data.maintenanceType,
-            ],
-            [
-              t("businessData.maintenanceActivityOrder.details.materialTypeRestrictionMode"),
-              data.materialTypeRestrictionMode,
-            ],
-            [t("businessData.maintenanceActivityOrder.details.materialType"), data.materialType],
-            [
-              t("businessData.maintenanceActivityOrder.details.orderReleaseMode"),
-              data.orderReleaseMode,
-            ],
-            [
-              t("businessData.maintenanceActivityOrder.details.completionAcceptanceMode"),
-              data.completionAcceptanceMode,
-            ],
-            [
-              t("businessData.maintenanceActivityOrder.details.beginAndCompleteMode"),
-              data.beginAndCompleteMode,
-            ],
-            [t("businessData.maintenanceActivityOrder.details.cost"), `$${data.cost.toFixed(2)}`],
-          ]}
-        />
-        <HStack gap="8px" wrap style={{ marginTop: theme.spacing.md }}>
-          {STATE_ACTIONS.map((action) => (
-            <Button key={action.id} size="sm" onClick={() => setChangeStateAction(action.id)}>
-              {t(action.labelKey)}
-            </Button>
-          ))}
-        </HStack>
+        <VStack gap={12}>
+          <KV
+            rows={[
+              [t("businessData.maintenanceActivityOrder.details.scheduleType"), data.scheduleType],
+              [
+                t("businessData.maintenanceActivityOrder.details.expectedDuration"),
+                data.expectedDuration,
+              ],
+              [
+                t("businessData.maintenanceActivityOrder.details.executionState"),
+                data.executionState,
+              ],
+              [
+                t("businessData.maintenanceActivityOrder.details.reworkCount"),
+                String(data.reworkCount),
+              ],
+              [
+                t("businessData.maintenanceActivityOrder.details.requestApprovalMode"),
+                data.requestApprovalMode,
+              ],
+              [
+                t("businessData.maintenanceActivityOrder.details.maintenanceType"),
+                data.maintenanceType,
+              ],
+              [
+                t("businessData.maintenanceActivityOrder.details.materialTypeRestrictionMode"),
+                data.materialTypeRestrictionMode,
+              ],
+              [t("businessData.maintenanceActivityOrder.details.materialType"), data.materialType],
+              [
+                t("businessData.maintenanceActivityOrder.details.orderReleaseMode"),
+                data.orderReleaseMode,
+              ],
+              [
+                t("businessData.maintenanceActivityOrder.details.completionAcceptanceMode"),
+                data.completionAcceptanceMode,
+              ],
+              [
+                t("businessData.maintenanceActivityOrder.details.beginAndCompleteMode"),
+                data.beginAndCompleteMode,
+              ],
+              [t("businessData.maintenanceActivityOrder.details.cost"), `$${data.cost.toFixed(2)}`],
+            ]}
+          />
+          <HStack gap={8} wrap>
+            {STATE_ACTIONS.map((action) => (
+              <Button key={action.id} size="sm" onClick={() => setChangeStateAction(action.id)}>
+                {t(action.labelKey)}
+              </Button>
+            ))}
+          </HStack>
+        </VStack>
       </Card>
     </CardGrid>,
   );

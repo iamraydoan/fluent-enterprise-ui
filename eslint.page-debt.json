@@ -70,11 +70,6 @@
     "local/no-page-style-prop",
     "local/no-page-theme-import"
   ],
-  "src/features/business-data/maintenance-activity-order/MaintenanceActivityOrderDetailPage.tsx": [
-    "local/no-page-literal-px",
-    "local/no-page-style-prop",
-    "local/no-page-theme-import"
-  ],
   "src/features/business-data/maintenance-plan/MaintenancePlanDetailPage.tsx": [
     "local/no-page-literal-px",
     "local/no-page-style-prop"
