@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { makeStyles, mergeClasses, Text } from "@/components/ui";
 import { cardSurface, tileSurface } from "@/styles/shared";
 import { theme } from "@/styles/theme";
+import { resolveLength } from "./spacing";
 
 const useTileStyles = makeStyles({
   grid: {
@@ -53,7 +54,7 @@ const useTileStyles = makeStyles({
 
 interface TileGridProps {
   children: ReactNode;
-  minWidth?: string;
+  minWidth?: number | string;
   className?: string;
 }
 
@@ -62,7 +63,7 @@ export function TileGrid({ children, minWidth = "220px", className }: TileGridPr
   return (
     <div
       className={mergeClasses(styles.grid, className)}
-      style={{ "--tile-min-width": minWidth } as React.CSSProperties}
+      style={{ "--tile-min-width": resolveLength(minWidth) } as React.CSSProperties}
     >
       {children}
     </div>
@@ -76,7 +77,7 @@ interface EntityTileProps {
   footer?: ReactNode;
   accentColor?: string;
   backgroundColor?: string;
-  tone?: "info";
+  tone?: "info" | "success" | "danger";
   selected?: boolean;
   onClick: () => void;
   ariaLabel?: string | number;
@@ -97,8 +98,20 @@ export function EntityTile({
   className,
 }: EntityTileProps) {
   const styles = useTileStyles();
+  const resolvedAccent =
+    accentColor ??
+    (tone === "success"
+      ? theme.color.textSuccess
+      : tone === "danger"
+        ? theme.color.textDanger
+        : undefined);
   const resolvedBackground =
-    backgroundColor ?? (tone === "info" ? theme.color.infoSubtle : undefined);
+    backgroundColor ??
+    (tone === "info"
+      ? theme.color.infoSubtle
+      : tone === "danger"
+        ? theme.color.dangerSubtle
+        : undefined);
   return (
     <div
       className={mergeClasses(styles.tile, selected && styles.tileSelected, className)}
@@ -112,7 +125,9 @@ export function EntityTile({
       }}
       aria-label={ariaLabel?.toString()}
     >
-      {accentColor && <div className={styles.accent} style={{ backgroundColor: accentColor }} />}
+      {resolvedAccent && (
+        <div className={styles.accent} style={{ backgroundColor: resolvedAccent }} />
+      )}
       <div>
         <Text weight="semibold" size={400} className={styles.title}>
           {title}
