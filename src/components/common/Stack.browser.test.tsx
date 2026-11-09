@@ -117,3 +117,25 @@ test("lays a stack out inline", async () => {
   expect(css(stack, "align-items")).toBe("center");
   expect(css(stack, "column-gap")).toBe("6px");
 });
+
+test("applies a top margin from a scale name and a number", async () => {
+  const scale = await renderWithAppTheme(
+    <VStack mt="md" gap="none">
+      <span>scale top</span>
+    </VStack>,
+  );
+  await expect.element(scale.getByText("scale top")).toBeVisible();
+  expect(
+    css(scale.getByText("scale top").element().parentElement as HTMLElement, "margin-top"),
+  ).toBe("12px");
+
+  const numeric = await renderWithAppTheme(
+    <VStack mt={12} gap="none">
+      <span>numeric top</span>
+    </VStack>,
+  );
+  await expect.element(numeric.getByText("numeric top")).toBeVisible();
+  expect(
+    css(numeric.getByText("numeric top").element().parentElement as HTMLElement, "margin-top"),
+  ).toBe("12px");
+});

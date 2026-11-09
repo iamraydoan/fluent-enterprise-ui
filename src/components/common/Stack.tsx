@@ -33,6 +33,7 @@ interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   divider?: boolean;
   p?: StackGap | (string & {}) | number;
   mb?: StackGap | (string & {}) | number;
+  mt?: StackGap | (string & {}) | number;
   minWidth?: number | string;
   minHeight?: number | string;
   title?: string;
@@ -52,6 +53,7 @@ function stackStyle(direction: "row" | "column", props: StackProps): CSSProperti
     divider,
     p,
     mb,
+    mt,
     minWidth,
     minHeight,
   } = props;
@@ -70,6 +72,7 @@ function stackStyle(direction: "row" | "column", props: StackProps): CSSProperti
     ...(surface ? cardSurface : {}),
     ...(divider ? { borderBottom: `1px solid ${theme.color.borderSubtle}` } : {}),
     ...(p !== undefined ? { padding: resolveSpacing(p) } : {}),
+    ...(mt !== undefined ? { marginTop: resolveSpacing(mt) } : {}),
     ...(mb !== undefined ? { marginBottom: resolveSpacing(mb) } : {}),
     ...(minWidth !== undefined ? { minWidth: resolveLength(minWidth) } : {}),
     ...(minHeight !== undefined ? { minHeight: resolveLength(minHeight) } : {}),
