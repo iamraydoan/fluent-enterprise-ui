@@ -1,0 +1,512 @@
+{
+  "Details": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 150px"
+        },
+        "fields": []
+      },
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 150px"
+        },
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 1082]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [150, 1072]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [150, 1072]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "repeat(2, 1fr)",
+          "computed": "150px 150px",
+          "rowGap": "12px",
+          "columnGap": "12px",
+          "box": [148, 1082]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [118, 992]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [118, 968]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["MT-0001", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "600", "rgb(36, 36, 36)"],
+        ["Materials", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["General Data", 282, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 282, 258, "13px", "400", "rgb(66, 66, 66)"],
+        ["MT-0001", 400, 258, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 282, 434, "13px", "400", "rgb(66, 66, 66)"],
+        ["ForMaterial", 400, 434, "13px", "400", "rgb(36, 36, 36)"],
+        ["State:", 282, 706, "13px", "400", "rgb(66, 66, 66)"],
+        ["Requested", 400, 706, "13px", "400", "rgb(36, 36, 36)"],
+        ["Material:", 282, 930, "13px", "400", "rgb(66, 66, 66)"],
+        ["Flour-01", 400, 930, "13px", "400", "rgb(36, 36, 36)"],
+        ["Quantity:", 282, 1130, "13px", "400", "rgb(66, 66, 66)"],
+        ["500 Kg", 400, 1130, "13px", "400", "rgb(36, 36, 36)"],
+        ["General Data", 444, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["From Facility:", 444, 258, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse A", 562, 258, "13px", "400", "rgb(36, 36, 36)"],
+        ["To Facility:", 444, 506, "13px", "400", "rgb(66, 66, 66)"],
+        ["Cookie Factory", 562, 506, "13px", "400", "rgb(36, 36, 36)"],
+        ["Requester:", 444, 826, "13px", "400", "rgb(66, 66, 66)"],
+        ["admin", 562, 826, "13px", "400", "rgb(36, 36, 36)"],
+        ["Urgency:", 444, 954, "13px", "400", "rgb(66, 66, 66)"],
+        ["Normal", 562, 954, "13px", "400", "rgb(36, 36, 36)"],
+        ["Quantity:", 444, 1106, "13px", "400", "rgb(66, 66, 66)"],
+        ["500 Kg", 562, 1106, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Materials": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 150px"
+        },
+        "fields": []
+      },
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 150px"
+        },
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 1082]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [150, 1072]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [150, 1072]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "repeat(2, 1fr)",
+          "computed": "150px 150px",
+          "rowGap": "12px",
+          "columnGap": "12px",
+          "box": [148, 1082]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [118, 992]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [118, 968]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["MT-0001", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Materials", 4, 279, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 319, "13px", "400", "rgb(36, 36, 36)"],
+        ["General Data", 282, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 282, 258, "13px", "400", "rgb(66, 66, 66)"],
+        ["MT-0001", 400, 258, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 282, 434, "13px", "400", "rgb(66, 66, 66)"],
+        ["ForMaterial", 400, 434, "13px", "400", "rgb(36, 36, 36)"],
+        ["State:", 282, 706, "13px", "400", "rgb(66, 66, 66)"],
+        ["Requested", 400, 706, "13px", "400", "rgb(36, 36, 36)"],
+        ["Material:", 282, 930, "13px", "400", "rgb(66, 66, 66)"],
+        ["Flour-01", 400, 930, "13px", "400", "rgb(36, 36, 36)"],
+        ["Quantity:", 282, 1130, "13px", "400", "rgb(66, 66, 66)"],
+        ["500 Kg", 400, 1130, "13px", "400", "rgb(36, 36, 36)"],
+        ["General Data", 444, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["From Facility:", 444, 258, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse A", 562, 258, "13px", "400", "rgb(36, 36, 36)"],
+        ["To Facility:", 444, 506, "13px", "400", "rgb(66, 66, 66)"],
+        ["Cookie Factory", 562, 506, "13px", "400", "rgb(36, 36, 36)"],
+        ["Requester:", 444, 826, "13px", "400", "rgb(66, 66, 66)"],
+        ["admin", 562, 826, "13px", "400", "rgb(36, 36, 36)"],
+        ["Urgency:", 444, 954, "13px", "400", "rgb(66, 66, 66)"],
+        ["Normal", 562, 954, "13px", "400", "rgb(36, 36, 36)"],
+        ["Quantity:", 444, 1106, "13px", "400", "rgb(66, 66, 66)"],
+        ["500 Kg", 562, 1106, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  },
+  "Attachments": {
+    "snapshot": [
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 150px"
+        },
+        "fields": []
+      },
+      {
+        "card": {
+          "padding": "14px 16px",
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "margin-top": "10px",
+          "display": "flex",
+          "flex-direction": "column",
+          "row-gap": "normal"
+        },
+        "header": null,
+        "headerText": null,
+        "grid": {
+          "row-gap": "12px",
+          "column-gap": "12px",
+          "inlineTemplate": "repeat(2, 1fr)",
+          "computedTemplate": "150px 150px"
+        },
+        "fields": []
+      }
+    ],
+    "fingerprint": {
+      "cards": [
+        {
+          "padding": "0px",
+          "margin": "0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "hidden",
+          "shrink": "0",
+          "box": [256, 1082]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [150, 1072]
+        },
+        {
+          "padding": "14px 16px",
+          "margin": "10px 0px 0px",
+          "display": "flex",
+          "direction": "column",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "overflow": "visible",
+          "shrink": "1",
+          "box": [150, 1072]
+        }
+      ],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "59.1875px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [71, 32]
+        },
+        {
+          "inline": "",
+          "computed": "92.3594px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [104, 32]
+        },
+        {
+          "inline": "",
+          "computed": "61.2031px",
+          "rowGap": "normal",
+          "columnGap": "2px",
+          "box": [73, 32]
+        },
+        {
+          "inline": "repeat(2, 1fr)",
+          "computed": "150px 150px",
+          "rowGap": "12px",
+          "columnGap": "12px",
+          "box": [148, 1082]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [118, 992]
+        },
+        {
+          "inline": "",
+          "computed": "110px 0px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "box": [118, 968]
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Details", 18, 6, "14px", "600", "rgb(36, 36, 36)"],
+        ["References", 89, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["References", 89, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["History", 194, 6, "14px", "400", "rgb(66, 66, 66)"],
+        ["History", 194, 6, "14px", "600", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 170, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 153, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 254, 77, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 234, 107, "9px", "400", "rgb(97, 97, 97)"],
+        ["MT-0001", 44, 145, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 16, 198, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 4, 239, "13px", "400", "rgb(36, 36, 36)"],
+        ["Materials", 4, 279, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 4, 319, "13px", "600", "rgb(36, 36, 36)"],
+        ["General Data", 282, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 282, 258, "13px", "400", "rgb(66, 66, 66)"],
+        ["MT-0001", 400, 258, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 282, 434, "13px", "400", "rgb(66, 66, 66)"],
+        ["ForMaterial", 400, 434, "13px", "400", "rgb(36, 36, 36)"],
+        ["State:", 282, 706, "13px", "400", "rgb(66, 66, 66)"],
+        ["Requested", 400, 706, "13px", "400", "rgb(36, 36, 36)"],
+        ["Material:", 282, 930, "13px", "400", "rgb(66, 66, 66)"],
+        ["Flour-01", 400, 930, "13px", "400", "rgb(36, 36, 36)"],
+        ["Quantity:", 282, 1130, "13px", "400", "rgb(66, 66, 66)"],
+        ["500 Kg", 400, 1130, "13px", "400", "rgb(36, 36, 36)"],
+        ["General Data", 444, 206, "16px", "600", "rgb(36, 36, 36)"],
+        ["From Facility:", 444, 258, "13px", "400", "rgb(66, 66, 66)"],
+        ["Warehouse A", 562, 258, "13px", "400", "rgb(36, 36, 36)"],
+        ["To Facility:", 444, 506, "13px", "400", "rgb(66, 66, 66)"],
+        ["Cookie Factory", 562, 506, "13px", "400", "rgb(36, 36, 36)"],
+        ["Requester:", 444, 826, "13px", "400", "rgb(66, 66, 66)"],
+        ["admin", 562, 826, "13px", "400", "rgb(36, 36, 36)"],
+        ["Urgency:", 444, 954, "13px", "400", "rgb(66, 66, 66)"],
+        ["Normal", 562, 954, "13px", "400", "rgb(36, 36, 36)"],
+        ["Quantity:", 444, 1106, "13px", "400", "rgb(66, 66, 66)"],
+        ["500 Kg", 562, 1106, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    }
+  }
+}
