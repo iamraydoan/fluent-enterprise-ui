@@ -8,7 +8,7 @@ Regenerate with the inventory script; update Status/Owner/Review/Commit as work 
 | Metric                         | Count |
 | ------------------------------ | ----- |
 | Page files scanned             | 158   |
-| Pages carrying styling debt    | 52    |
+| Pages carrying styling debt    | 47    |
 | Pages already clean            | 94    |
 | Pages calling makeStyles       | 40    |
 | Pages with inline style props  | 49    |
@@ -19,7 +19,7 @@ Debt columns: MS = makeStyles calls, INL = inline style props, HEX = hex literal
 
 Provenance: the debt columns are the ORIGINAL inventory taken before workstream C started. They are a planning aid, not the live state - `eslint.page-debt.json` is authoritative for what still offends, and the two are reconciled at the end of each wave. The PX values in particular predate the matcher widening in b923a90, which now also catches px embedded inside a longer style string. A row records progress only once its Commit column holds a sha and its Review column holds a verdict; a page reaches done only after an independent review passes it, under the per-page rules in `docs/THEME_SETTINGS_PLAN.md` section 14.
 
-Status legend: pending / in-progress / review / fixing / done. Review: blank / pass / fail.
+Status legend: pending / in-progress / review / fixing / done / deferred. Review: blank / pass / fail. `deferred` means the page is left in the ledger and untouched on purpose, because converting it would need several primitives that no second consumer justifies yet; it is never a way of closing a row, and the debt stays counted.
 
 ## components/common (3 pages, 2 need work)
 
@@ -31,24 +31,24 @@ Status legend: pending / in-progress / review / fixing / done. Review: blank / p
 
 ## features/administration (16 pages, 11 need work)
 
-| #   | Page                                                              | MS  | INL | HEX | PX  | THM | CFG | Status  | Owner | Review | Commit |
-| --- | ----------------------------------------------------------------- | --- | --- | --- | --- | --- | --- | ------- | ----- | ------ | ------ |
-| 4   | features/administration/queries/QueryDetailPage.tsx               | 1   | 0   | 0   | 26  | 1   | 0   | pending |       |        |        |
-| 5   | features/administration/entity-types/EntityTypeDetailPage.tsx     | 1   | 3   | 0   | 17  | 1   | 0   | pending |       |        |        |
-| 6   | features/administration/ai-agent/AiAgentDetailPage.tsx            | 1   | 14  | 0   | 5   | 1   | 0   | pending |       |        |        |
-| 7   | features/administration/ai-mcp-server/McpServerDetailPage.tsx     | 1   | 10  | 0   | 6   | 1   | 0   | pending |       |        |        |
-| 8   | features/administration/ui-pages/UIPagesPage.tsx                  | 1   | 2   | 0   | 14  | 1   | 0   | pending |       |        |        |
-| 9   | features/administration/PlaceholderPage.tsx                       | 1   | 2   | 0   | 0   | 1   | 0   | pending |       |        |        |
-| 10  | features/administration/tables/GenericTableDetailPage.tsx         | 1   | 0   | 0   | 2   | 1   | 0   | pending |       |        |        |
-| 11  | features/administration/queries/QueriesPage.tsx                   | 1   | 0   | 0   | 1   | 1   | 0   | pending |       |        |        |
-| 12  | features/administration/configuration/ConfigurationDetailPage.tsx | 0   | 2   | 0   | 0   | 0   | 0   | pending |       |        |        |
-| 13  | features/administration/configuration/ConfigurationListPage.tsx   | 0   | 1   | 0   | 1   | 0   | 0   | pending |       |        |        |
-| 14  | features/administration/tables/TablesHubPage.tsx                  | 1   | 0   | 0   | 1   | 0   | 0   | pending |       |        |        |
-| 15  | features/administration/AdministrationHubPage.tsx                 | 0   | 0   | 0   | 0   | 0   | 0   | clean   |       |        |        |
-| 16  | features/administration/ai-agent/AiAgentListPage.tsx              | 0   | 0   | 0   | 0   | 0   | 0   | clean   |       |        |        |
-| 17  | features/administration/ai-mcp-server/McpServerListPage.tsx       | 0   | 0   | 0   | 0   | 0   | 0   | clean   |       |        |        |
-| 18  | features/administration/apps/AppsListPage.tsx                     | 0   | 0   | 0   | 0   | 0   | 0   | clean   |       |        |        |
-| 19  | features/administration/entity-types/EntityTypesListPage.tsx      | 0   | 0   | 0   | 0   | 0   | 0   | clean   |       |        |        |
+| #   | Page                                                              | MS  | INL | HEX | PX  | THM | CFG | Status   | Owner       | Review | Commit  |
+| --- | ----------------------------------------------------------------- | --- | --- | --- | --- | --- | --- | -------- | ----------- | ------ | ------- |
+| 4   | features/administration/queries/QueryDetailPage.tsx               | 1   | 0   | 0   | 26  | 1   | 0   | deferred |             |        |         |
+| 5   | features/administration/entity-types/EntityTypeDetailPage.tsx     | 1   | 3   | 0   | 17  | 1   | 0   | pending  |             |        |         |
+| 6   | features/administration/ai-agent/AiAgentDetailPage.tsx            | 1   | 14  | 0   | 5   | 1   | 0   | pending  |             |        |         |
+| 7   | features/administration/ai-mcp-server/McpServerDetailPage.tsx     | 1   | 10  | 0   | 6   | 1   | 0   | pending  |             |        |         |
+| 8   | features/administration/ui-pages/UIPagesPage.tsx                  | 1   | 2   | 0   | 14  | 1   | 0   | pending  |             |        |         |
+| 9   | features/administration/PlaceholderPage.tsx                       | 1   | 2   | 0   | 0   | 1   | 0   | pending  |             |        |         |
+| 10  | features/administration/tables/GenericTableDetailPage.tsx         | 1   | 0   | 0   | 2   | 1   | 0   | review   | page-worker |        | 1e782dd |
+| 11  | features/administration/queries/QueriesPage.tsx                   | 1   | 0   | 0   | 1   | 1   | 0   | review   | page-worker |        | c15f988 |
+| 12  | features/administration/configuration/ConfigurationDetailPage.tsx | 0   | 2   | 0   | 0   | 0   | 0   | review   | page-worker |        | aba427f |
+| 13  | features/administration/configuration/ConfigurationListPage.tsx   | 0   | 1   | 0   | 1   | 0   | 0   | review   | page-worker |        | 90b1a8d |
+| 14  | features/administration/tables/TablesHubPage.tsx                  | 1   | 0   | 0   | 1   | 0   | 0   | review   | page-worker |        | 51de5c3 |
+| 15  | features/administration/AdministrationHubPage.tsx                 | 0   | 0   | 0   | 0   | 0   | 0   | clean    |             |        |         |
+| 16  | features/administration/ai-agent/AiAgentListPage.tsx              | 0   | 0   | 0   | 0   | 0   | 0   | clean    |             |        |         |
+| 17  | features/administration/ai-mcp-server/McpServerListPage.tsx       | 0   | 0   | 0   | 0   | 0   | 0   | clean    |             |        |         |
+| 18  | features/administration/apps/AppsListPage.tsx                     | 0   | 0   | 0   | 0   | 0   | 0   | clean    |             |        |         |
+| 19  | features/administration/entity-types/EntityTypesListPage.tsx      | 0   | 0   | 0   | 0   | 0   | 0   | clean    |             |        |         |
 
 ## features/ai (1 pages, 1 need work)
 
