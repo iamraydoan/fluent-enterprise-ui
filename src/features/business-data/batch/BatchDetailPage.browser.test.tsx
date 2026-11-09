@@ -7,12 +7,7 @@ import {
   createRouter,
 } from "@tanstack/react-router";
 import { expect, test } from "vitest";
-import {
-  detailSnapshot,
-  expectDetailCardParity,
-  pageFingerprint,
-  renderWithAppTheme,
-} from "@/test-utils";
+import { capturePageViews, expectDetailCardParity, renderWithAppTheme } from "@/test-utils";
 import { BatchDetailPage } from "./BatchDetailPage";
 import fingerprintParity from "./BatchDetailPage.fingerprint.json";
 
@@ -47,37 +42,11 @@ test("batch detail keeps its measured card styles", async () => {
   expectDetailCardParity(140);
 });
 
-function cardSnapshot() {
-  try {
-    return detailSnapshot();
-  } catch {
-    return null;
-  }
-}
-
-async function pageViews() {
-  const views: Record<string, unknown> = {
-    default: { snapshot: cardSnapshot(), fingerprint: pageFingerprint() },
-  };
-  const buttons = Array.from(document.querySelectorAll<HTMLElement>("aside button")).filter(
-    (button) => !button.getAttribute("aria-label"),
-  );
-  for (const button of buttons) {
-    button.click();
-    await new Promise((resolve) => setTimeout(resolve, 120));
-    views[(button.textContent ?? "unknown").trim()] = {
-      snapshot: cardSnapshot(),
-      fingerprint: pageFingerprint(),
-    };
-  }
-  return views;
-}
-
 test("keeps every card, grid and field row in every section", async () => {
   const screen = await renderDetail();
   await expect.element(screen.getByText(ENTITY).first()).toBeVisible();
   await expect
     .poll(() => document.querySelectorAll('[style*="grid-template-columns"]').length)
     .toBeGreaterThan(0);
-  expect(await pageViews()).toEqual(fingerprintParity);
+  expect(await capturePageViews({ includeDefault: true })).toEqual(fingerprintParity);
 });

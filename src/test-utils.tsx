@@ -134,14 +134,60 @@ export function detailSnapshot() {
   });
 }
 
-export async function detailViews() {
-  const buttons = Array.from(document.querySelectorAll<HTMLElement>("aside button")).filter(
+function cardSnapshot() {
+  try {
+    return detailSnapshot();
+  } catch {
+    return null;
+  }
+}
+
+async function settleView(button: HTMLElement) {
+  if (button.hasAttribute("aria-selected")) {
+    await expect.poll(() => button.getAttribute("aria-selected"), { timeout: 5000 }).toBe("true");
+    return;
+  }
+  let previous = "";
+  await expect
+    .poll(
+      () => {
+        const current = JSON.stringify(pageFingerprint());
+        const stable = current === previous;
+        previous = current;
+        return stable;
+      },
+      { timeout: 5000, interval: 50 },
+    )
+    .toBe(true);
+}
+
+function viewButtons() {
+  return Array.from(document.querySelectorAll<HTMLElement>("aside button")).filter(
     (button) => !button.getAttribute("aria-label"),
   );
+}
+
+export async function capturePageViews(options: { includeDefault?: boolean } = {}) {
   const views: Record<string, unknown> = {};
-  for (const button of buttons) {
+  if (options.includeDefault) {
+    views.default = { snapshot: cardSnapshot(), fingerprint: pageFingerprint() };
+  }
+  for (const button of viewButtons()) {
     button.click();
-    await new Promise((resolve) => setTimeout(resolve, 120));
+    await settleView(button);
+    views[(button.textContent ?? "unknown").trim()] = {
+      snapshot: cardSnapshot(),
+      fingerprint: pageFingerprint(),
+    };
+  }
+  return views;
+}
+
+export async function detailViews() {
+  const views: Record<string, unknown> = {};
+  for (const button of viewButtons()) {
+    button.click();
+    await settleView(button);
     views[button.textContent?.trim() ?? "unknown"] =
       cardElements().length === 0 ? null : detailSnapshot();
   }
