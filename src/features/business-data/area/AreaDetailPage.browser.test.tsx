@@ -7,8 +7,9 @@ import {
   createRouter,
 } from "@tanstack/react-router";
 import { expect, test } from "vitest";
-import { renderWithAppTheme } from "@/test-utils";
+import { detailSnapshot, pageFingerprint, renderWithAppTheme } from "@/test-utils";
 import { AreaDetailPage } from "./AreaDetailPage";
+import fingerprintParity from "./AreaDetailPage.fingerprint.json";
 
 const rootRoute = createRootRoute();
 const areaRoute = createRoute({
@@ -91,4 +92,39 @@ test("pins the detail card and field computed styles", async () => {
   expect(css(nameLabel, "font-size")).toBe("13px");
   expect(css(value, "font-size")).toBe("13px");
   expect(css(value, "color")).toBe("rgb(36, 36, 36)");
+});
+
+function cardSnapshot() {
+  try {
+    return detailSnapshot();
+  } catch {
+    return null;
+  }
+}
+
+async function pageViews() {
+  const views: Record<string, unknown> = {
+    default: { snapshot: cardSnapshot(), fingerprint: pageFingerprint() },
+  };
+  const buttons = Array.from(document.querySelectorAll<HTMLElement>("aside button")).filter(
+    (button) => !button.getAttribute("aria-label"),
+  );
+  for (const button of buttons) {
+    button.click();
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    views[(button.textContent ?? "unknown").trim()] = {
+      snapshot: cardSnapshot(),
+      fingerprint: pageFingerprint(),
+    };
+  }
+  return views;
+}
+
+test("keeps every card, grid and field row in every section", async () => {
+  const screen = await renderAreaDetail();
+  await expect.element(screen.getByText(AREA_NAME).first()).toBeVisible();
+  await expect
+    .poll(() => document.querySelectorAll('[style*="grid-template-columns"]').length)
+    .toBeGreaterThan(0);
+  expect(await pageViews()).toEqual(fingerprintParity);
 });

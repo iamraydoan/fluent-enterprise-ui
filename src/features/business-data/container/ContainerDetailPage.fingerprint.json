@@ -1,0 +1,1622 @@
+{
+  "Attachments": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 811],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [300, 283],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 167],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 307],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [
+        {
+          "box": [116, 811],
+          "columnGap": "12px",
+          "computed": "300px",
+          "inline": "repeat(auto-fit, minmax(300px, 1fr))",
+          "rowGap": "12px"
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 284, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Container 001 (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["Container", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Maintenance", 203, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Compare", 323, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["References", 418, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 526, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Container 001", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "400", "rgb(36, 36, 36)"],
+        ["Materials", 20, 437, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 477, "13px", "600", "rgb(36, 36, 36)"],
+        ["Container", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 298, 413, "13px", "400", "rgb(97, 97, 97)"],
+        ["Container 001", 490, 413, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 298, 465, "13px", "400", "rgb(97, 97, 97)"],
+        ["Container 001 of 100", 490, 465, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 298, 517, "13px", "400", "rgb(97, 97, 97)"],
+        ["General", 490, 517, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 298, 549, "13px", "400", "rgb(97, 97, 97)"],
+        ["Active", 490, 549, "13px", "400", "rgb(36, 36, 36)"],
+        ["System State:", 298, 581, "13px", "400", "rgb(97, 97, 97)"],
+        ["Available", 490, 581, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 298, 613, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 490, 613, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 298, 663, "16px", "600", "rgb(36, 36, 36)"],
+        ["Facility:", 298, 718, "13px", "400", "rgb(97, 97, 97)"],
+        ["Cookie Factory", 490, 718, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parent:", 298, 770, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 490, 770, "13px", "400", "rgb(36, 36, 36)"],
+        ["On Hold:", 298, 802, "13px", "400", "rgb(97, 97, 97)"],
+        ["No", 490, 802, "13px", "400", "rgb(36, 36, 36)"],
+        ["Positions", 298, 852, "16px", "600", "rgb(36, 36, 36)"],
+        ["Position Unit Type:", 298, 907, "13px", "400", "rgb(97, 97, 97)"],
+        ["Material", 490, 907, "13px", "400", "rgb(36, 36, 36)"],
+        ["Allow Mixed Types:", 298, 939, "13px", "400", "rgb(97, 97, 97)"],
+        ["No", 490, 939, "13px", "400", "rgb(36, 36, 36)"],
+        ["Used Positions:", 298, 971, "13px", "400", "rgb(97, 97, 97)"],
+        ["8", 490, 971, "13px", "400", "rgb(36, 36, 36)"],
+        ["Total Positions:", 298, 1003, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 490, 1003, "13px", "400", "rgb(36, 36, 36)"],
+        ["Capacity Validation Mode:", 298, 1035, "13px", "400", "rgb(97, 97, 97)"],
+        ["Units", 490, 1035, "13px", "400", "rgb(36, 36, 36)"],
+        ["Capacity Unit:", 298, 1067, "13px", "400", "rgb(97, 97, 97)"],
+        ["Kg", 490, 1067, "13px", "400", "rgb(36, 36, 36)"],
+        ["Capacity per Position:", 298, 1099, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 490, 1099, "13px", "400", "rgb(36, 36, 36)"],
+        ["Position Sorting:", 298, 1131, "13px", "400", "rgb(97, 97, 97)"],
+        ["Ascending", 490, 1131, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  },
+  "Details": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 811],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [300, 283],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 167],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 307],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [
+        {
+          "box": [116, 811],
+          "columnGap": "12px",
+          "computed": "300px",
+          "inline": "repeat(auto-fit, minmax(300px, 1fr))",
+          "rowGap": "12px"
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 284, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Container 001 (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["Container", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Maintenance", 203, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Compare", 323, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["References", 418, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 526, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Container 001", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "600", "rgb(36, 36, 36)"],
+        ["Materials", 20, 437, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 477, "13px", "400", "rgb(36, 36, 36)"],
+        ["Container", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 298, 413, "13px", "400", "rgb(97, 97, 97)"],
+        ["Container 001", 490, 413, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 298, 465, "13px", "400", "rgb(97, 97, 97)"],
+        ["Container 001 of 100", 490, 465, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 298, 517, "13px", "400", "rgb(97, 97, 97)"],
+        ["General", 490, 517, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 298, 549, "13px", "400", "rgb(97, 97, 97)"],
+        ["Active", 490, 549, "13px", "400", "rgb(36, 36, 36)"],
+        ["System State:", 298, 581, "13px", "400", "rgb(97, 97, 97)"],
+        ["Available", 490, 581, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 298, 613, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 490, 613, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 298, 663, "16px", "600", "rgb(36, 36, 36)"],
+        ["Facility:", 298, 718, "13px", "400", "rgb(97, 97, 97)"],
+        ["Cookie Factory", 490, 718, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parent:", 298, 770, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 490, 770, "13px", "400", "rgb(36, 36, 36)"],
+        ["On Hold:", 298, 802, "13px", "400", "rgb(97, 97, 97)"],
+        ["No", 490, 802, "13px", "400", "rgb(36, 36, 36)"],
+        ["Positions", 298, 852, "16px", "600", "rgb(36, 36, 36)"],
+        ["Position Unit Type:", 298, 907, "13px", "400", "rgb(97, 97, 97)"],
+        ["Material", 490, 907, "13px", "400", "rgb(36, 36, 36)"],
+        ["Allow Mixed Types:", 298, 939, "13px", "400", "rgb(97, 97, 97)"],
+        ["No", 490, 939, "13px", "400", "rgb(36, 36, 36)"],
+        ["Used Positions:", 298, 971, "13px", "400", "rgb(97, 97, 97)"],
+        ["8", 490, 971, "13px", "400", "rgb(36, 36, 36)"],
+        ["Total Positions:", 298, 1003, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 490, 1003, "13px", "400", "rgb(36, 36, 36)"],
+        ["Capacity Validation Mode:", 298, 1035, "13px", "400", "rgb(97, 97, 97)"],
+        ["Units", 490, 1035, "13px", "400", "rgb(36, 36, 36)"],
+        ["Capacity Unit:", 298, 1067, "13px", "400", "rgb(97, 97, 97)"],
+        ["Kg", 490, 1067, "13px", "400", "rgb(36, 36, 36)"],
+        ["Capacity per Position:", 298, 1099, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 490, 1099, "13px", "400", "rgb(36, 36, 36)"],
+        ["Position Sorting:", 298, 1131, "13px", "400", "rgb(97, 97, 97)"],
+        ["Ascending", 490, 1131, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  },
+  "Materials": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 555],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [116, 545],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 284, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Container 001 (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["Container", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Maintenance", 203, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Compare", 323, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["References", 418, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 526, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Container 001", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "400", "rgb(36, 36, 36)"],
+        ["Materials", 20, 437, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 477, "13px", "400", "rgb(36, 36, 36)"],
+        ["Materials (7)", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Position", 306, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Material", 323, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Product", 340, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Step", 356, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Quantity", 373, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["1", 298, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A1", 315, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A [A]", 332, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["Mixing", 348, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["40 Kg", 365, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["2", 298, 529, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A1", 315, 529, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A [A]", 332, 529, "14px", "400", "rgb(36, 36, 36)"],
+        ["Mixing", 348, 529, "14px", "400", "rgb(36, 36, 36)"],
+        ["40 Kg", 365, 529, "14px", "400", "rgb(36, 36, 36)"],
+        ["3", 298, 590, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A5", 315, 590, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A [A]", 332, 590, "14px", "400", "rgb(36, 36, 36)"],
+        ["Mixing", 348, 590, "14px", "400", "rgb(36, 36, 36)"],
+        ["40 Kg", 365, 590, "14px", "400", "rgb(36, 36, 36)"],
+        ["4", 298, 651, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie C3", 315, 651, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A [A]", 332, 651, "14px", "400", "rgb(36, 36, 36)"],
+        ["Mixing", 348, 651, "14px", "400", "rgb(36, 36, 36)"],
+        ["50 Kg", 365, 651, "14px", "400", "rgb(36, 36, 36)"],
+        ["6", 298, 712, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie D3", 315, 712, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A [A]", 332, 712, "14px", "400", "rgb(36, 36, 36)"],
+        ["Mixing", 348, 712, "14px", "400", "rgb(36, 36, 36)"],
+        ["70 Kg", 365, 712, "14px", "400", "rgb(36, 36, 36)"],
+        ["7", 298, 773, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie B1", 315, 773, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A [A]", 332, 773, "14px", "400", "rgb(36, 36, 36)"],
+        ["Mixing", 348, 773, "14px", "400", "rgb(36, 36, 36)"],
+        ["100 Kg", 365, 773, "14px", "400", "rgb(36, 36, 36)"],
+        ["8", 298, 834, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie D2", 315, 834, "14px", "400", "rgb(36, 36, 36)"],
+        ["Cookie A [A]", 332, 834, "14px", "400", "rgb(36, 36, 36)"],
+        ["Mixing", 348, 834, "14px", "400", "rgb(36, 36, 36)"],
+        ["70 Kg", 365, 834, "14px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [],
+        "grid": null,
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  },
+  "default": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 811],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [300, 283],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 167],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 307],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [
+        {
+          "box": [116, 811],
+          "columnGap": "12px",
+          "computed": "300px",
+          "inline": "repeat(auto-fit, minmax(300px, 1fr))",
+          "rowGap": "12px"
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 284, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Container 001 (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["Container", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Maintenance", 203, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Compare", 323, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["References", 418, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 526, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Container 001", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "600", "rgb(36, 36, 36)"],
+        ["Materials", 20, 437, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 477, "13px", "400", "rgb(36, 36, 36)"],
+        ["Container", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 298, 413, "13px", "400", "rgb(97, 97, 97)"],
+        ["Container 001", 490, 413, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 298, 465, "13px", "400", "rgb(97, 97, 97)"],
+        ["Container 001 of 100", 490, 465, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 298, 517, "13px", "400", "rgb(97, 97, 97)"],
+        ["General", 490, 517, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 298, 549, "13px", "400", "rgb(97, 97, 97)"],
+        ["Active", 490, 549, "13px", "400", "rgb(36, 36, 36)"],
+        ["System State:", 298, 581, "13px", "400", "rgb(97, 97, 97)"],
+        ["Available", 490, 581, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 298, 613, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 490, 613, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 298, 663, "16px", "600", "rgb(36, 36, 36)"],
+        ["Facility:", 298, 718, "13px", "400", "rgb(97, 97, 97)"],
+        ["Cookie Factory", 490, 718, "13px", "400", "rgb(36, 36, 36)"],
+        ["Parent:", 298, 770, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 490, 770, "13px", "400", "rgb(36, 36, 36)"],
+        ["On Hold:", 298, 802, "13px", "400", "rgb(97, 97, 97)"],
+        ["No", 490, 802, "13px", "400", "rgb(36, 36, 36)"],
+        ["Positions", 298, 852, "16px", "600", "rgb(36, 36, 36)"],
+        ["Position Unit Type:", 298, 907, "13px", "400", "rgb(97, 97, 97)"],
+        ["Material", 490, 907, "13px", "400", "rgb(36, 36, 36)"],
+        ["Allow Mixed Types:", 298, 939, "13px", "400", "rgb(97, 97, 97)"],
+        ["No", 490, 939, "13px", "400", "rgb(36, 36, 36)"],
+        ["Used Positions:", 298, 971, "13px", "400", "rgb(97, 97, 97)"],
+        ["8", 490, 971, "13px", "400", "rgb(36, 36, 36)"],
+        ["Total Positions:", 298, 1003, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 490, 1003, "13px", "400", "rgb(36, 36, 36)"],
+        ["Capacity Validation Mode:", 298, 1035, "13px", "400", "rgb(97, 97, 97)"],
+        ["Units", 490, 1035, "13px", "400", "rgb(36, 36, 36)"],
+        ["Capacity Unit:", 298, 1067, "13px", "400", "rgb(97, 97, 97)"],
+        ["Kg", 490, 1067, "13px", "400", "rgb(36, 36, 36)"],
+        ["Capacity per Position:", 298, 1099, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 490, 1099, "13px", "400", "rgb(36, 36, 36)"],
+        ["Position Sorting:", 298, 1131, "13px", "400", "rgb(97, 97, 97)"],
+        ["Ascending", 490, 1131, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "180px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  }
+}

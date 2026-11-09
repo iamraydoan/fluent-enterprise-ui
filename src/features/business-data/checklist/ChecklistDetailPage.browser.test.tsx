@@ -7,8 +7,15 @@ import {
   createRouter,
 } from "@tanstack/react-router";
 import { expect, test } from "vitest";
-import { css, detailSnapshot, expectDetailViews, renderWithAppTheme } from "@/test-utils";
+import {
+  css,
+  detailSnapshot,
+  expectDetailViews,
+  pageFingerprint,
+  renderWithAppTheme,
+} from "@/test-utils";
 import { ChecklistDetailPage } from "./ChecklistDetailPage";
+import fingerprintParity from "./ChecklistDetailPage.fingerprint.json";
 import items from "./ChecklistDetailPage.items.json";
 import parity from "./ChecklistDetailPage.parity.json";
 
@@ -85,4 +92,39 @@ test("keeps the items tab inventory", async () => {
     .poll(() => document.querySelectorAll('[style*="grid-template-columns"]').length)
     .toBeGreaterThan(0);
   expect({ snapshot: detailSnapshot(), inventory: itemsInventory() }).toEqual(items);
+});
+
+function cardSnapshot() {
+  try {
+    return detailSnapshot();
+  } catch {
+    return null;
+  }
+}
+
+async function pageViews() {
+  const views: Record<string, unknown> = {
+    default: { snapshot: cardSnapshot(), fingerprint: pageFingerprint() },
+  };
+  const buttons = Array.from(document.querySelectorAll<HTMLElement>("aside button")).filter(
+    (button) => !button.getAttribute("aria-label"),
+  );
+  for (const button of buttons) {
+    button.click();
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    views[(button.textContent ?? "unknown").trim()] = {
+      snapshot: cardSnapshot(),
+      fingerprint: pageFingerprint(),
+    };
+  }
+  return views;
+}
+
+test("keeps every card, grid and field row in every section", async () => {
+  const screen = await renderDetail();
+  await expect.element(screen.getByText(ENTITY).first()).toBeVisible();
+  await expect
+    .poll(() => document.querySelectorAll('[style*="grid-template-columns"]').length)
+    .toBeGreaterThan(0);
+  expect(await pageViews()).toEqual(fingerprintParity);
 });

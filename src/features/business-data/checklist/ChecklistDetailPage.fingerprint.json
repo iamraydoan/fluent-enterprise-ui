@@ -1,0 +1,1164 @@
+{
+  "Attachments": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 702],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [300, 317],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 353],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [
+        {
+          "box": [116, 702],
+          "columnGap": "12px",
+          "computed": "300px",
+          "inline": "repeat(auto-fit, minmax(300px, 1fr))",
+          "rowGap": "12px"
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Preview", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002 (Effect", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["Checklist Items", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Compare", 198, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["References", 293, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 402, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 60, 318, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 371, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 412, "13px", "400", "rgb(36, 36, 36)"],
+        ["Instances", 20, 452, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 492, "13px", "600", "rgb(36, 36, 36)"],
+        ["Checklist", 298, 373, "14px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 298, 414, "13px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 510, 414, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 298, 506, "13px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 510, 506, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 298, 598, "13px", "400", "rgb(97, 97, 97)"],
+        ["Standard", 510, 598, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 298, 630, "13px", "400", "rgb(97, 97, 97)"],
+        ["Effective", 510, 630, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 298, 662, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 510, 662, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 298, 712, "14px", "600", "rgb(36, 36, 36)"],
+        ["Scope:", 298, 753, "13px", "400", "rgb(97, 97, 97)"],
+        ["MaterialTracking", 510, 753, "13px", "400", "rgb(36, 36, 36)"],
+        ["Execution Mode:", 298, 785, "13px", "400", "rgb(97, 97, 97)"],
+        ["Long Running", 510, 785, "13px", "400", "rgb(36, 36, 36)"],
+        ["BOM:", 298, 837, "13px", "400", "rgb(97, 97, 97)"],
+        ["BOM 001 [A]", 510, 837, "13px", "400", "rgb(36, 36, 36)"],
+        ["Product:", 298, 889, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 510, 889, "13px", "400", "rgb(36, 36, 36)"],
+        ["Material Deviation Protocol:", 298, 921, "13px", "400", "rgb(97, 97, 97)"],
+        ["DeviationProtocol_001 [A]", 510, 921, "13px", "400", "rgb(36, 36, 36)"],
+        ["Define Standard Times:", 298, 973, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 973, "13px", "400", "rgb(36, 36, 36)"],
+        ["Track Execution Times:", 298, 1005, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1005, "13px", "400", "rgb(36, 36, 36)"],
+        ["Standard Duration:", 298, 1037, "13px", "400", "rgb(97, 97, 97)"],
+        ["10m", 510, 1037, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": null,
+        "headerText": null
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": null,
+        "headerText": null
+      }
+    ]
+  },
+  "Details": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 702],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [300, 317],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 353],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [
+        {
+          "box": [116, 702],
+          "columnGap": "12px",
+          "computed": "300px",
+          "inline": "repeat(auto-fit, minmax(300px, 1fr))",
+          "rowGap": "12px"
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Preview", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002 (Effect", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["Checklist Items", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Compare", 198, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["References", 293, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 402, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 60, 318, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 371, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 412, "13px", "600", "rgb(36, 36, 36)"],
+        ["Instances", 20, 452, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 492, "13px", "400", "rgb(36, 36, 36)"],
+        ["Checklist", 298, 373, "14px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 298, 414, "13px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 510, 414, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 298, 506, "13px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 510, 506, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 298, 598, "13px", "400", "rgb(97, 97, 97)"],
+        ["Standard", 510, 598, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 298, 630, "13px", "400", "rgb(97, 97, 97)"],
+        ["Effective", 510, 630, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 298, 662, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 510, 662, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 298, 712, "14px", "600", "rgb(36, 36, 36)"],
+        ["Scope:", 298, 753, "13px", "400", "rgb(97, 97, 97)"],
+        ["MaterialTracking", 510, 753, "13px", "400", "rgb(36, 36, 36)"],
+        ["Execution Mode:", 298, 785, "13px", "400", "rgb(97, 97, 97)"],
+        ["Long Running", 510, 785, "13px", "400", "rgb(36, 36, 36)"],
+        ["BOM:", 298, 837, "13px", "400", "rgb(97, 97, 97)"],
+        ["BOM 001 [A]", 510, 837, "13px", "400", "rgb(36, 36, 36)"],
+        ["Product:", 298, 889, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 510, 889, "13px", "400", "rgb(36, 36, 36)"],
+        ["Material Deviation Protocol:", 298, 921, "13px", "400", "rgb(97, 97, 97)"],
+        ["DeviationProtocol_001 [A]", 510, 921, "13px", "400", "rgb(36, 36, 36)"],
+        ["Define Standard Times:", 298, 973, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 973, "13px", "400", "rgb(36, 36, 36)"],
+        ["Track Execution Times:", 298, 1005, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1005, "13px", "400", "rgb(36, 36, 36)"],
+        ["Standard Duration:", 298, 1037, "13px", "400", "rgb(97, 97, 97)"],
+        ["10m", 510, 1037, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": null,
+        "headerText": null
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": null,
+        "headerText": null
+      }
+    ]
+  },
+  "Instances": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 300],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [116, 290],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Preview", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002 (Effect", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["Checklist Items", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Compare", 198, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["References", 293, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 402, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 60, 318, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 371, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 412, "13px", "400", "rgb(36, 36, 36)"],
+        ["Instances", 20, 452, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 492, "13px", "400", "rgb(36, 36, 36)"],
+        ["Checklist Instances (1)", 298, 373, "14px", "600", "rgb(36, 36, 36)"],
+        ["Instance 2026-10-001", 298, 494, "13px", "600", "rgb(36, 36, 36)"],
+        ["Open \u00b7 Executing \u00b7 MAT-001", 298, 554, "12px", "400", "rgb(97, 97, 97)"],
+        ["Perform", 373, 462, "12px", "400", "rgb(36, 36, 36)"],
+        ["Pause", 373, 490, "12px", "400", "rgb(36, 36, 36)"],
+        ["Resume", 373, 518, "12px", "400", "rgb(36, 36, 36)"],
+        ["Terminate Instance", 373, 546, "12px", "400", "rgb(36, 36, 36)"],
+        ["Open Material Deviation", 373, 590, "12px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [],
+        "grid": null,
+        "header": null,
+        "headerText": null
+      }
+    ]
+  },
+  "default": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 702],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [300, 317],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 353],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [
+        {
+          "box": [116, 702],
+          "columnGap": "12px",
+          "computed": "300px",
+          "inline": "repeat(auto-fit, minmax(300px, 1fr))",
+          "rowGap": "12px"
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Preview", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002 (Effect", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["Checklist Items", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Compare", 198, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["References", 293, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 402, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 250, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 280, "9px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 60, 318, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 371, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 412, "13px", "600", "rgb(36, 36, 36)"],
+        ["Instances", 20, 452, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 492, "13px", "400", "rgb(36, 36, 36)"],
+        ["Checklist", 298, 373, "14px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 298, 414, "13px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 510, 414, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 298, 506, "13px", "400", "rgb(97, 97, 97)"],
+        ["Material Deviation Checklist 002", 510, 506, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 298, 598, "13px", "400", "rgb(97, 97, 97)"],
+        ["Standard", 510, 598, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 298, 630, "13px", "400", "rgb(97, 97, 97)"],
+        ["Effective", 510, 630, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Group:", 298, 662, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 510, 662, "13px", "400", "rgb(36, 36, 36)"],
+        ["Information", 298, 712, "14px", "600", "rgb(36, 36, 36)"],
+        ["Scope:", 298, 753, "13px", "400", "rgb(97, 97, 97)"],
+        ["MaterialTracking", 510, 753, "13px", "400", "rgb(36, 36, 36)"],
+        ["Execution Mode:", 298, 785, "13px", "400", "rgb(97, 97, 97)"],
+        ["Long Running", 510, 785, "13px", "400", "rgb(36, 36, 36)"],
+        ["BOM:", 298, 837, "13px", "400", "rgb(97, 97, 97)"],
+        ["BOM 001 [A]", 510, 837, "13px", "400", "rgb(36, 36, 36)"],
+        ["Product:", 298, 889, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 510, 889, "13px", "400", "rgb(36, 36, 36)"],
+        ["Material Deviation Protocol:", 298, 921, "13px", "400", "rgb(97, 97, 97)"],
+        ["DeviationProtocol_001 [A]", 510, 921, "13px", "400", "rgb(36, 36, 36)"],
+        ["Define Standard Times:", 298, 973, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 973, "13px", "400", "rgb(36, 36, 36)"],
+        ["Track Execution Times:", 298, 1005, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1005, "13px", "400", "rgb(36, 36, 36)"],
+        ["Standard Duration:", 298, 1037, "13px", "400", "rgb(97, 97, 97)"],
+        ["10m", 510, 1037, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": null,
+        "headerText": null
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": null,
+        "headerText": null
+      }
+    ]
+  }
+}

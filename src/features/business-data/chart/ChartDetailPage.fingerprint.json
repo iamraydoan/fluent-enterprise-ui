@@ -1,0 +1,2680 @@
+{
+  "Attachments": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 1308],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [300, 231],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 463],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 263],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 275],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [
+        {
+          "box": [116, 1308],
+          "columnGap": "12px",
+          "computed": "300px",
+          "inline": "repeat(auto-fit, minmax(300px, 1fr))",
+          "rowGap": "12px"
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Disable", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["References", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 212, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "400", "rgb(36, 36, 36)"],
+        ["Limits", 20, 437, "13px", "400", "rgb(36, 36, 36)"],
+        ["Contexts", 20, 477, "13px", "400", "rgb(36, 36, 36)"],
+        ["Rules", 20, 517, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Charts", 20, 557, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 597, "13px", "600", "rgb(36, 36, 36)"],
+        ["Chart", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 298, 413, "13px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 510, 413, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 298, 465, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 510, 465, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 298, 497, "13px", "400", "rgb(97, 97, 97)"],
+        ["Standard", 510, 497, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 298, 529, "13px", "400", "rgb(97, 97, 97)"],
+        ["Active", 510, 529, "13px", "400", "rgb(36, 36, 36)"],
+        ["Enabled:", 298, 561, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 561, "13px", "400", "rgb(36, 36, 36)"],
+        ["Properties", 298, 611, "16px", "600", "rgb(36, 36, 36)"],
+        ["Parameter:", 298, 666, "13px", "400", "rgb(97, 97, 97)"],
+        ["Maximum Width", 510, 666, "13px", "400", "rgb(36, 36, 36)"],
+        ["Chart Type:", 298, 718, "13px", "400", "rgb(97, 97, 97)"],
+        ["Average And Range", 510, 718, "13px", "400", "rgb(36, 36, 36)"],
+        ["Minimum Sample Readings:", 298, 790, "13px", "400", "rgb(97, 97, 97)"],
+        ["2", 510, 790, "13px", "400", "rgb(36, 36, 36)"],
+        ["Maximum Sample Readings:", 298, 822, "13px", "400", "rgb(97, 97, 97)"],
+        ["4", 510, 822, "13px", "400", "rgb(36, 36, 36)"],
+        ["Specification Limits Type:", 298, 854, "13px", "400", "rgb(97, 97, 97)"],
+        ["Chart", 510, 854, "13px", "400", "rgb(36, 36, 36)"],
+        ["Upper Spec Limit:", 298, 886, "13px", "400", "rgb(97, 97, 97)"],
+        ["10.5", 510, 886, "13px", "400", "rgb(36, 36, 36)"],
+        ["Target:", 298, 918, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 510, 918, "13px", "400", "rgb(36, 36, 36)"],
+        ["Lower Spec Limit:", 298, 950, "13px", "400", "rgb(97, 97, 97)"],
+        ["9.5", 510, 950, "13px", "400", "rgb(36, 36, 36)"],
+        ["Centerline 1:", 298, 982, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 510, 982, "13px", "400", "rgb(36, 36, 36)"],
+        ["Centerline 2:", 298, 1014, "13px", "400", "rgb(97, 97, 97)"],
+        ["0.25", 510, 1014, "13px", "400", "rgb(36, 36, 36)"],
+        ["Standard Deviation:", 298, 1046, "13px", "400", "rgb(97, 97, 97)"],
+        ["0.12", 510, 1046, "13px", "400", "rgb(36, 36, 36)"],
+        ["Display", 298, 1096, "16px", "600", "rgb(36, 36, 36)"],
+        ["Filter Mode:", 298, 1151, "13px", "400", "rgb(97, 97, 97)"],
+        ["LastNPoints", 510, 1151, "13px", "400", "rgb(36, 36, 36)"],
+        ["Default Panel:", 298, 1183, "13px", "400", "rgb(97, 97, 97)"],
+        ["Chart Statistics", 510, 1183, "13px", "400", "rgb(36, 36, 36)"],
+        ["Indicator Display:", 298, 1235, "13px", "400", "rgb(97, 97, 97)"],
+        ["Both", 510, 1235, "13px", "400", "rgb(36, 36, 36)"],
+        ["Y-Axis Mode:", 298, 1267, "13px", "400", "rgb(97, 97, 97)"],
+        ["Automatic", 510, 1267, "13px", "400", "rgb(36, 36, 36)"],
+        ["Show Histogram:", 298, 1299, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1299, "13px", "400", "rgb(36, 36, 36)"],
+        ["Show Spec Limits:", 298, 1331, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1331, "13px", "400", "rgb(36, 36, 36)"],
+        ["Retention", 298, 1381, "16px", "600", "rgb(36, 36, 36)"],
+        ["Data Points:", 298, 1436, "13px", "400", "rgb(97, 97, 97)"],
+        ["20", 510, 1436, "13px", "400", "rgb(36, 36, 36)"],
+        ["Retention Time (hours):", 298, 1468, "13px", "400", "rgb(97, 97, 97)"],
+        ["720", 510, 1468, "13px", "400", "rgb(36, 36, 36)"],
+        ["Retention Size:", 298, 1500, "13px", "400", "rgb(97, 97, 97)"],
+        ["10000", 510, 1500, "13px", "400", "rgb(36, 36, 36)"],
+        ["Learning Mode:", 298, 1532, "13px", "400", "rgb(97, 97, 97)"],
+        ["No", 510, 1532, "13px", "400", "rgb(36, 36, 36)"],
+        ["Auto Recalculate Centerlines:", 298, 1564, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1564, "13px", "400", "rgb(36, 36, 36)"],
+        ["Window Size:", 298, 1596, "13px", "400", "rgb(97, 97, 97)"],
+        ["25", 510, 1596, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Point Size:", 298, 1628, "13px", "400", "rgb(97, 97, 97)"],
+        ["25", 510, 1628, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  },
+  "Contexts": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 297],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [116, 287],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Disable", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["References", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 212, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "400", "rgb(36, 36, 36)"],
+        ["Limits", 20, 437, "13px", "400", "rgb(36, 36, 36)"],
+        ["Contexts", 20, 477, "13px", "600", "rgb(36, 36, 36)"],
+        ["Rules", 20, 517, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Charts", 20, 557, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 597, "13px", "400", "rgb(36, 36, 36)"],
+        ["Contexts (2)", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Key Order", 306, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Is Key", 323, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Name", 340, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Type", 356, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Source", 373, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["1", 298, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["Yes", 315, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["Resource", 332, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["Object", 348, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["Resource", 365, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["2", 298, 513, "14px", "400", "rgb(36, 36, 36)"],
+        ["Yes", 315, 513, "14px", "400", "rgb(36, 36, 36)"],
+        ["Product", 332, 513, "14px", "400", "rgb(36, 36, 36)"],
+        ["Object", 348, 513, "14px", "400", "rgb(36, 36, 36)"],
+        ["Product", 365, 513, "14px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [],
+        "grid": null,
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  },
+  "Details": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 1308],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [300, 231],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 463],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 263],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 275],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [
+        {
+          "box": [116, 1308],
+          "columnGap": "12px",
+          "computed": "300px",
+          "inline": "repeat(auto-fit, minmax(300px, 1fr))",
+          "rowGap": "12px"
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Disable", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["References", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 212, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "600", "rgb(36, 36, 36)"],
+        ["Limits", 20, 437, "13px", "400", "rgb(36, 36, 36)"],
+        ["Contexts", 20, 477, "13px", "400", "rgb(36, 36, 36)"],
+        ["Rules", 20, 517, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Charts", 20, 557, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 597, "13px", "400", "rgb(36, 36, 36)"],
+        ["Chart", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 298, 413, "13px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 510, 413, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 298, 465, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 510, 465, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 298, 497, "13px", "400", "rgb(97, 97, 97)"],
+        ["Standard", 510, 497, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 298, 529, "13px", "400", "rgb(97, 97, 97)"],
+        ["Active", 510, 529, "13px", "400", "rgb(36, 36, 36)"],
+        ["Enabled:", 298, 561, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 561, "13px", "400", "rgb(36, 36, 36)"],
+        ["Properties", 298, 611, "16px", "600", "rgb(36, 36, 36)"],
+        ["Parameter:", 298, 666, "13px", "400", "rgb(97, 97, 97)"],
+        ["Maximum Width", 510, 666, "13px", "400", "rgb(36, 36, 36)"],
+        ["Chart Type:", 298, 718, "13px", "400", "rgb(97, 97, 97)"],
+        ["Average And Range", 510, 718, "13px", "400", "rgb(36, 36, 36)"],
+        ["Minimum Sample Readings:", 298, 790, "13px", "400", "rgb(97, 97, 97)"],
+        ["2", 510, 790, "13px", "400", "rgb(36, 36, 36)"],
+        ["Maximum Sample Readings:", 298, 822, "13px", "400", "rgb(97, 97, 97)"],
+        ["4", 510, 822, "13px", "400", "rgb(36, 36, 36)"],
+        ["Specification Limits Type:", 298, 854, "13px", "400", "rgb(97, 97, 97)"],
+        ["Chart", 510, 854, "13px", "400", "rgb(36, 36, 36)"],
+        ["Upper Spec Limit:", 298, 886, "13px", "400", "rgb(97, 97, 97)"],
+        ["10.5", 510, 886, "13px", "400", "rgb(36, 36, 36)"],
+        ["Target:", 298, 918, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 510, 918, "13px", "400", "rgb(36, 36, 36)"],
+        ["Lower Spec Limit:", 298, 950, "13px", "400", "rgb(97, 97, 97)"],
+        ["9.5", 510, 950, "13px", "400", "rgb(36, 36, 36)"],
+        ["Centerline 1:", 298, 982, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 510, 982, "13px", "400", "rgb(36, 36, 36)"],
+        ["Centerline 2:", 298, 1014, "13px", "400", "rgb(97, 97, 97)"],
+        ["0.25", 510, 1014, "13px", "400", "rgb(36, 36, 36)"],
+        ["Standard Deviation:", 298, 1046, "13px", "400", "rgb(97, 97, 97)"],
+        ["0.12", 510, 1046, "13px", "400", "rgb(36, 36, 36)"],
+        ["Display", 298, 1096, "16px", "600", "rgb(36, 36, 36)"],
+        ["Filter Mode:", 298, 1151, "13px", "400", "rgb(97, 97, 97)"],
+        ["LastNPoints", 510, 1151, "13px", "400", "rgb(36, 36, 36)"],
+        ["Default Panel:", 298, 1183, "13px", "400", "rgb(97, 97, 97)"],
+        ["Chart Statistics", 510, 1183, "13px", "400", "rgb(36, 36, 36)"],
+        ["Indicator Display:", 298, 1235, "13px", "400", "rgb(97, 97, 97)"],
+        ["Both", 510, 1235, "13px", "400", "rgb(36, 36, 36)"],
+        ["Y-Axis Mode:", 298, 1267, "13px", "400", "rgb(97, 97, 97)"],
+        ["Automatic", 510, 1267, "13px", "400", "rgb(36, 36, 36)"],
+        ["Show Histogram:", 298, 1299, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1299, "13px", "400", "rgb(36, 36, 36)"],
+        ["Show Spec Limits:", 298, 1331, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1331, "13px", "400", "rgb(36, 36, 36)"],
+        ["Retention", 298, 1381, "16px", "600", "rgb(36, 36, 36)"],
+        ["Data Points:", 298, 1436, "13px", "400", "rgb(97, 97, 97)"],
+        ["20", 510, 1436, "13px", "400", "rgb(36, 36, 36)"],
+        ["Retention Time (hours):", 298, 1468, "13px", "400", "rgb(97, 97, 97)"],
+        ["720", 510, 1468, "13px", "400", "rgb(36, 36, 36)"],
+        ["Retention Size:", 298, 1500, "13px", "400", "rgb(97, 97, 97)"],
+        ["10000", 510, 1500, "13px", "400", "rgb(36, 36, 36)"],
+        ["Learning Mode:", 298, 1532, "13px", "400", "rgb(97, 97, 97)"],
+        ["No", 510, 1532, "13px", "400", "rgb(36, 36, 36)"],
+        ["Auto Recalculate Centerlines:", 298, 1564, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1564, "13px", "400", "rgb(36, 36, 36)"],
+        ["Window Size:", 298, 1596, "13px", "400", "rgb(97, 97, 97)"],
+        ["25", 510, 1596, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Point Size:", 298, 1628, "13px", "400", "rgb(97, 97, 97)"],
+        ["25", 510, 1628, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  },
+  "Limits": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 297],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [116, 287],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Disable", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["References", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 212, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "400", "rgb(36, 36, 36)"],
+        ["Limits", 20, 437, "13px", "600", "rgb(36, 36, 36)"],
+        ["Contexts", 20, 477, "13px", "400", "rgb(36, 36, 36)"],
+        ["Rules", 20, 517, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Charts", 20, 557, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 597, "13px", "400", "rgb(36, 36, 36)"],
+        ["Limits (2)", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Limit", 306, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Value", 348, 435, "14px", "400", "rgb(36, 36, 36)"],
+        ["Upper Spec Limit", 298, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["10.5", 340, 468, "14px", "400", "rgb(36, 36, 36)"],
+        ["Lower Spec Limit", 298, 529, "14px", "400", "rgb(36, 36, 36)"],
+        ["9.5", 340, 529, "14px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [],
+        "grid": null,
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  },
+  "Logical Charts": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 387],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [116, 377],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Disable", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["References", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 212, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "400", "rgb(36, 36, 36)"],
+        ["Limits", 20, 437, "13px", "400", "rgb(36, 36, 36)"],
+        ["Contexts", 20, 477, "13px", "400", "rgb(36, 36, 36)"],
+        ["Rules", 20, 517, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Charts", 20, 557, "13px", "600", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 597, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Charts (1)", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Add Logical Chart", 298, 457, "14px", "600", "rgb(36, 36, 36)"],
+        ["Name", 306, 553, "14px", "400", "rgb(36, 36, 36)"],
+        ["Context", 327, 553, "14px", "400", "rgb(36, 36, 36)"],
+        ["Data Points", 348, 553, "14px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 369, 553, "14px", "400", "rgb(36, 36, 36)"],
+        ["Width Evolution / Resource A", 298, 586, "14px", "400", "rgb(36, 36, 36)"],
+        ["Resource=Resource A, Product=Product X", 319, 586, "14px", "400", "rgb(36, 36, 36)"],
+        ["3", 340, 586, "14px", "400", "rgb(36, 36, 36)"],
+        ["Data Points", 369, 586, "12px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 369, 630, "12px", "400", "rgb(36, 36, 36)"],
+        ["Recalculate Centerlines", 369, 658, "12px", "400", "rgb(36, 36, 36)"],
+        ["Remove", 369, 702, "12px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [],
+        "grid": null,
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  },
+  "Rules": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 297],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [116, 287],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Disable", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["References", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 212, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "400", "rgb(36, 36, 36)"],
+        ["Limits", 20, 437, "13px", "400", "rgb(36, 36, 36)"],
+        ["Contexts", 20, 477, "13px", "400", "rgb(36, 36, 36)"],
+        ["Rules", 20, 517, "13px", "600", "rgb(36, 36, 36)"],
+        ["Logical Charts", 20, 557, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 597, "13px", "400", "rgb(36, 36, 36)"],
+        ["Rules (2)", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Manage Rules", 298, 413, "14px", "600", "rgb(36, 36, 36)"],
+        ["Scope", 306, 489, "14px", "400", "rgb(36, 36, 36)"],
+        ["Rule", 327, 489, "14px", "400", "rgb(36, 36, 36)"],
+        ["Protocol", 348, 489, "14px", "400", "rgb(36, 36, 36)"],
+        ["Enabled", 369, 489, "14px", "400", "rgb(36, 36, 36)"],
+        ["Chart", 298, 522, "14px", "400", "rgb(36, 36, 36)"],
+        ["Nelson 1", 319, 522, "14px", "400", "rgb(36, 36, 36)"],
+        ["Yes", 361, 522, "14px", "400", "rgb(36, 36, 36)"],
+        ["Chart", 298, 567, "14px", "400", "rgb(36, 36, 36)"],
+        ["Out of Spec", 319, 567, "14px", "400", "rgb(36, 36, 36)"],
+        ["Yes", 361, 567, "14px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [],
+        "grid": null,
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  },
+  "default": {
+    "fingerprint": {
+      "cards": [
+        {
+          "box": [256, 1308],
+          "columnGap": "normal",
+          "direction": "column",
+          "display": "flex",
+          "margin": "0px",
+          "overflow": "hidden",
+          "padding": "0px",
+          "rowGap": "normal",
+          "shrink": "0"
+        },
+        {
+          "box": [300, 231],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 463],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 263],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        },
+        {
+          "box": [300, 275],
+          "columnGap": "12px",
+          "direction": "column",
+          "display": "flex",
+          "margin": "10px 0px 0px",
+          "overflow": "visible",
+          "padding": "8px 16px 0px",
+          "rowGap": "12px",
+          "shrink": "1"
+        }
+      ],
+      "grids": [
+        {
+          "box": [116, 1308],
+          "columnGap": "12px",
+          "computed": "300px",
+          "inline": "repeat(auto-fit, minmax(300px, 1fr))",
+          "rowGap": "12px"
+        }
+      ],
+      "texts": [
+        ["(() => { function wrapModule(moduleCallb", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["(function () { 'use strict'; let SOURCEM", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Vitest Browser Tester", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["html { padding: 0; margin: 0; } body { p", 0, 0, "16px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 21, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 94, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Clone", 154, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Terminate", 207, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["Disable", 277, 38, "10px", "400", "rgb(36, 36, 36)"],
+        ["More", 348, 42, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 8, 72, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution (Active)", 48, 110, "14px", "400", "rgb(36, 36, 36)"],
+        ["Details", 16, 137, "13px", "600", "rgb(0, 0, 0)"],
+        ["References", 103, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["History", 212, 137, "13px", "400", "rgb(0, 0, 0)"],
+        ["Refresh", 37, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Edit", 110, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["General", 24, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Ask AI", 186, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["MES Copilot", 169, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["More", 270, 235, "10px", "400", "rgb(36, 36, 36)"],
+        ["Actions", 250, 265, "9px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 60, 303, "13px", "600", "rgb(36, 36, 36)"],
+        ["Details View", 32, 356, "14px", "600", "rgb(36, 36, 36)"],
+        ["Details", 20, 397, "13px", "600", "rgb(36, 36, 36)"],
+        ["Limits", 20, 437, "13px", "400", "rgb(36, 36, 36)"],
+        ["Contexts", 20, 477, "13px", "400", "rgb(36, 36, 36)"],
+        ["Rules", 20, 517, "13px", "400", "rgb(36, 36, 36)"],
+        ["Logical Charts", 20, 557, "13px", "400", "rgb(36, 36, 36)"],
+        ["Attachments", 20, 597, "13px", "400", "rgb(36, 36, 36)"],
+        ["Chart", 298, 358, "16px", "600", "rgb(36, 36, 36)"],
+        ["Name:", 298, 413, "13px", "400", "rgb(97, 97, 97)"],
+        ["Width Evolution", 510, 413, "13px", "400", "rgb(36, 36, 36)"],
+        ["Description:", 298, 465, "13px", "400", "rgb(97, 97, 97)"],
+        ["\u2014", 510, 465, "13px", "400", "rgb(36, 36, 36)"],
+        ["Type:", 298, 497, "13px", "400", "rgb(97, 97, 97)"],
+        ["Standard", 510, 497, "13px", "400", "rgb(36, 36, 36)"],
+        ["Universal State:", 298, 529, "13px", "400", "rgb(97, 97, 97)"],
+        ["Active", 510, 529, "13px", "400", "rgb(36, 36, 36)"],
+        ["Enabled:", 298, 561, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 561, "13px", "400", "rgb(36, 36, 36)"],
+        ["Properties", 298, 611, "16px", "600", "rgb(36, 36, 36)"],
+        ["Parameter:", 298, 666, "13px", "400", "rgb(97, 97, 97)"],
+        ["Maximum Width", 510, 666, "13px", "400", "rgb(36, 36, 36)"],
+        ["Chart Type:", 298, 718, "13px", "400", "rgb(97, 97, 97)"],
+        ["Average And Range", 510, 718, "13px", "400", "rgb(36, 36, 36)"],
+        ["Minimum Sample Readings:", 298, 790, "13px", "400", "rgb(97, 97, 97)"],
+        ["2", 510, 790, "13px", "400", "rgb(36, 36, 36)"],
+        ["Maximum Sample Readings:", 298, 822, "13px", "400", "rgb(97, 97, 97)"],
+        ["4", 510, 822, "13px", "400", "rgb(36, 36, 36)"],
+        ["Specification Limits Type:", 298, 854, "13px", "400", "rgb(97, 97, 97)"],
+        ["Chart", 510, 854, "13px", "400", "rgb(36, 36, 36)"],
+        ["Upper Spec Limit:", 298, 886, "13px", "400", "rgb(97, 97, 97)"],
+        ["10.5", 510, 886, "13px", "400", "rgb(36, 36, 36)"],
+        ["Target:", 298, 918, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 510, 918, "13px", "400", "rgb(36, 36, 36)"],
+        ["Lower Spec Limit:", 298, 950, "13px", "400", "rgb(97, 97, 97)"],
+        ["9.5", 510, 950, "13px", "400", "rgb(36, 36, 36)"],
+        ["Centerline 1:", 298, 982, "13px", "400", "rgb(97, 97, 97)"],
+        ["10", 510, 982, "13px", "400", "rgb(36, 36, 36)"],
+        ["Centerline 2:", 298, 1014, "13px", "400", "rgb(97, 97, 97)"],
+        ["0.25", 510, 1014, "13px", "400", "rgb(36, 36, 36)"],
+        ["Standard Deviation:", 298, 1046, "13px", "400", "rgb(97, 97, 97)"],
+        ["0.12", 510, 1046, "13px", "400", "rgb(36, 36, 36)"],
+        ["Display", 298, 1096, "16px", "600", "rgb(36, 36, 36)"],
+        ["Filter Mode:", 298, 1151, "13px", "400", "rgb(97, 97, 97)"],
+        ["LastNPoints", 510, 1151, "13px", "400", "rgb(36, 36, 36)"],
+        ["Default Panel:", 298, 1183, "13px", "400", "rgb(97, 97, 97)"],
+        ["Chart Statistics", 510, 1183, "13px", "400", "rgb(36, 36, 36)"],
+        ["Indicator Display:", 298, 1235, "13px", "400", "rgb(97, 97, 97)"],
+        ["Both", 510, 1235, "13px", "400", "rgb(36, 36, 36)"],
+        ["Y-Axis Mode:", 298, 1267, "13px", "400", "rgb(97, 97, 97)"],
+        ["Automatic", 510, 1267, "13px", "400", "rgb(36, 36, 36)"],
+        ["Show Histogram:", 298, 1299, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1299, "13px", "400", "rgb(36, 36, 36)"],
+        ["Show Spec Limits:", 298, 1331, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1331, "13px", "400", "rgb(36, 36, 36)"],
+        ["Retention", 298, 1381, "16px", "600", "rgb(36, 36, 36)"],
+        ["Data Points:", 298, 1436, "13px", "400", "rgb(97, 97, 97)"],
+        ["20", 510, 1436, "13px", "400", "rgb(36, 36, 36)"],
+        ["Retention Time (hours):", 298, 1468, "13px", "400", "rgb(97, 97, 97)"],
+        ["720", 510, 1468, "13px", "400", "rgb(36, 36, 36)"],
+        ["Retention Size:", 298, 1500, "13px", "400", "rgb(97, 97, 97)"],
+        ["10000", 510, 1500, "13px", "400", "rgb(36, 36, 36)"],
+        ["Learning Mode:", 298, 1532, "13px", "400", "rgb(97, 97, 97)"],
+        ["No", 510, 1532, "13px", "400", "rgb(36, 36, 36)"],
+        ["Auto Recalculate Centerlines:", 298, 1564, "13px", "400", "rgb(97, 97, 97)"],
+        ["Yes", 510, 1564, "13px", "400", "rgb(36, 36, 36)"],
+        ["Window Size:", 298, 1596, "13px", "400", "rgb(97, 97, 97)"],
+        ["25", 510, 1596, "13px", "400", "rgb(36, 36, 36)"],
+        ["Data Point Size:", 298, 1628, "13px", "400", "rgb(97, 97, 97)"],
+        ["25", 510, 1628, "13px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "snapshot": [
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      },
+      {
+        "card": {
+          "background-color": "rgb(250, 250, 250)",
+          "border-radius": "12px",
+          "display": "flex",
+          "flex-direction": "column",
+          "margin-top": "10px",
+          "padding": "8px 16px 0px",
+          "row-gap": "12px"
+        },
+        "fields": [
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          },
+          {
+            "label": {
+              "color": "rgb(97, 97, 97)",
+              "font-size": "13px",
+              "min-width": "200px"
+            },
+            "row": {
+              "column-gap": "12px",
+              "display": "flex",
+              "font-size": "13px"
+            },
+            "value": {
+              "color": "rgb(36, 36, 36)",
+              "font-size": "13px"
+            }
+          }
+        ],
+        "grid": {
+          "column-gap": "12px",
+          "computedTemplate": "300px",
+          "inlineTemplate": "repeat(auto-fit, minmax(300px, 1fr))",
+          "row-gap": "12px"
+        },
+        "header": {
+          "align-items": "center",
+          "border-bottom": "1px solid rgb(224, 224, 224)",
+          "display": "flex",
+          "justify-content": "space-between",
+          "margin-bottom": "12px",
+          "padding-bottom": "8px"
+        },
+        "headerText": {
+          "color": "rgb(36, 36, 36)",
+          "font-size": "16px",
+          "font-weight": "600"
+        }
+      }
+    ]
+  }
+}
