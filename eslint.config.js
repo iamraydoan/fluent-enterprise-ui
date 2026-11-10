@@ -446,7 +446,11 @@ export default tseslint.config(
   },
   {
     files: ["src/features/**/*.{ts,tsx}"],
-    ignores: ["src/features/**/*.test.{ts,tsx}", "src/features/**/__fixtures__/**"],
+    ignores: [
+      "src/features/**/*.test.ts",
+      "src/features/**/*.browser.test.tsx",
+      "src/features/**/__fixtures__/**",
+    ],
     plugins: { local: localPlugin },
     rules: {
       "no-restricted-syntax": [
