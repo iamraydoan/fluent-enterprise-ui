@@ -49,10 +49,8 @@ const useChatStyles = makeStyles({
   },
 });
 
-export type ChatStyles = ReturnType<typeof useChatStyles>;
-
 export function AiChatPage() {
-  const chatStyles = useChatStyles();
+  const styles = useChatStyles();
   const { t } = useAppTranslation();
   const [chats, setChats] = useState<ChatSession[]>(SEED_CHATS);
   const [currentChatId, setCurrentChatId] = useState<string | null>(null);
@@ -147,7 +145,7 @@ export function AiChatPage() {
 
   return (
     <>
-      <div className={chatStyles.bar}>
+      <div className={styles.bar}>
         <Menu
           checkedValues={{ agent: [agent.name] }}
           onCheckedValueChange={(checkedItems) => {
@@ -174,7 +172,7 @@ export function AiChatPage() {
         </Menu>
       </div>
 
-      <div className={chatStyles.body}>
+      <div className={styles.body}>
         <ChatToolRail
           showHistory={showHistory}
           onToggleHistory={toggleHistory}
@@ -192,7 +190,7 @@ export function AiChatPage() {
           />
         )}
 
-        <div className={chatStyles.main}>
+        <div className={styles.main}>
           {messages.length === 0 ? (
             <ChatEmptyState
               name={agent.name}
