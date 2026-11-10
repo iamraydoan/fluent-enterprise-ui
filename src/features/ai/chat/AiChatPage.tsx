@@ -40,20 +40,6 @@ const useChatStyles = makeStyles({
     borderRadius: "12px",
     overflow: "hidden",
   },
-  history: {
-    width: "250px",
-    flexShrink: 0,
-    borderRight: `1px solid ${theme.color.borderSubtle}`,
-    display: "flex",
-    flexDirection: "column",
-    overflowY: "auto",
-    padding: `${theme.spacing.md} ${theme.spacing.sm}`,
-    rowGap: "2px",
-    backgroundColor: theme.color.surfaceSecondary,
-  },
-  historyTitle: { padding: "4px 10px 8px" },
-  historyTitleText: { maxWidth: "210px" },
-  historyAgent: { color: theme.color.textTertiary },
   heroText: { maxWidth: "460px", lineHeight: "21px" },
   composerSlot: { width: "100%" },
   main: {
@@ -319,7 +305,6 @@ export function AiChatPage() {
 
         {showHistory && (
           <ChatHistoryPanel
-            styles={chatStyles}
             chats={chats}
             currentChatId={currentChatId}
             onSelect={(candidate) => {
