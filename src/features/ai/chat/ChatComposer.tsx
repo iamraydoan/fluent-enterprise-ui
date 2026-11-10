@@ -1,12 +1,45 @@
 import type { KeyboardEvent } from "react";
 import { IconButton } from "@/components/common";
 import { ArrowUp20Regular, Attach20Regular, Mic20Regular } from "@/components/icons";
-import { Button } from "@/components/ui";
+import { Button, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { ChatStyles } from "./AiChatPage";
+import { theme } from "@/styles/theme";
+
+const useStyles = makeStyles({
+  composerWrap: {
+    width: "100%",
+    maxWidth: "820px",
+    padding: `0 ${theme.spacing.xl} ${theme.spacing.xl}`,
+    boxSizing: "border-box",
+  },
+  composer: {
+    border: `1px solid ${theme.color.borderSubtle}`,
+    borderRadius: "24px",
+    padding: "14px 16px 10px 20px",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
+    backgroundColor: theme.color.surface,
+    display: "flex",
+    flexDirection: "column",
+    rowGap: theme.spacing.sm,
+    ":focus-within": { border: `1px solid ${theme.color.borderBrand}` },
+  },
+  textarea: {
+    border: "none",
+    outline: "none",
+    resize: "none",
+    width: "100%",
+    fontFamily: "inherit",
+    fontSize: theme.font.sizeMd,
+    lineHeight: "22px",
+    background: "transparent",
+    maxHeight: "150px",
+    color: "#222",
+  },
+  composerRow: { display: "flex", alignItems: "center", justifyContent: "space-between" },
+  micRow: { display: "inline-flex", alignItems: "center", columnGap: theme.spacing.xs },
+});
 
 interface ChatComposerProps {
-  styles: ChatStyles;
   agentName: string;
   value: string;
   busy: boolean;
@@ -14,14 +47,8 @@ interface ChatComposerProps {
   onSend: () => void;
 }
 
-export function ChatComposer({
-  styles,
-  agentName,
-  value,
-  busy,
-  onChange,
-  onSend,
-}: ChatComposerProps) {
+export function ChatComposer({ agentName, value, busy, onChange, onSend }: ChatComposerProps) {
+  const styles = useStyles();
   const { t } = useAppTranslation();
   const placeholder = t("aiChat.messageAgent", { agent: agentName });
   const onKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
