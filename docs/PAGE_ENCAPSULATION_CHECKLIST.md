@@ -10,8 +10,11 @@ Regenerate with the inventory script; update Status/Owner/Review/Commit as work 
 > `local/no-feature-*`. The ratchet is now `eslint.feature-budget.json` with
 > `src/eslint.feature-budget.test.ts` (see `9612689`). Every remaining mention of a ledger entry
 > below is the historical record of how this work was tracked at the time, not the live
-> mechanism, and the debt columns are the original inventory. The live figure is 1937 warnings
-> across 155 files in five feature folders, recorded in `eslint.feature-budget.json`.
+> mechanism, and the debt columns are the original inventory. The live figure is 1924 warnings
+> across 155 files in five feature folders, recorded in `eslint.feature-budget.json`, down from
+> 1937 before the chat restructure (`0a9be1a..2d198c9`). That restructure cut 25 value findings
+> from the `ai` folder by substituting exactly equal theme tokens, and added 12 relocation
+> findings - one `makeStyles` call and one theme import per new per-component sheet.
 
 ## Summary
 

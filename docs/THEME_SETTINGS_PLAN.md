@@ -59,18 +59,18 @@ Data/loading/empty/error branching in a page stays legal. The ban is on style an
 
 **Scope: the page layer only.** `src/components/**` is unrestricted. Components are where styling legitimately lives, so no style rule may be applied there - not the rules above, not the existing hex/flex ones. These bans exist so that pages compose the component layer; they are not a constraint on the component layer itself. Concretely, a component file may call `makeStyles`, use the `style` prop, and hold literal px, hex and radius values.
 
-## 5. Enforcement: the debt ledger (ratchet)
+## 5. Enforcement: the folder-scoped budget (ratchet)
 
-Turning the rules on today would produce hundreds of errors and break the pre-push gate, and a rule with no migration path is what produced the current escape hatches. So enforcement is ratcheted:
+Turning the rules on today would produce hundreds of errors and break the pre-push gate, and a rule with no migration path is what produced the current escape hatches. So enforcement is ratcheted, and it is scoped to the folder rather than to individual files, so that no filename is special-cased and no per-file exemption exists:
 
-- `eslint.page-debt.json` maps a page path to the exact rule ids it is currently excused from.
-- `eslint.config.js` reads that file and adds per-file ignores **only for those rule ids** - a hand-written exemption becomes a data entry instead.
-- A meta test asserts three properties: no stale entries (every entry genuinely violates), no missing entries (every violating file is listed), and the entry count never increases against the committed baseline.
-- Converting a page means deleting its entry. The test fails if an entry is re-added.
+- The style rules apply to the whole of `src/features/**/*.{ts,tsx}` at `warn` severity, so `npx eslint .` stays at zero errors. Severity is not the gate; the ratchet below is.
+- `eslint.feature-budget.json` declares an exact finding count per feature folder head per rule. `src/eslint.feature-budget.test.ts` asserts measured === declared for every cell over the union of keys in both directions, measured total === declared total, and declared total <= `FEATURE_DEBT_TOTAL_BASELINE` (1937), a high-water mark that only ever comes down.
+- Because the cells must match exactly, paying debt means lowering the cell in the same commit and introducing debt fails that same run. The key check is two-way, so switching a rule off for a folder leaves a stale cell and fails rather than hiding findings.
+- Test files and fixtures are excluded by the patterns the test runners actually collect (`**/*.test.ts`, `**/*.browser.test.tsx`, `**/__fixtures__/**`), and both excluded sets are pinned by count, so the excluded set cannot grow without a remembered edit. An earlier text-based guard was deleted: the three narrowed globs are exactly the files the runners collect, so a file that declares no test fails its runner, which is a stronger check than a regex a decoy comment can satisfy.
 
-Baselines are committed numbers, and they move only with a stated reason. The recorded history is: 209 raw mappings at the first commit of the ledger, 187 after the literal rules were narrowed, and 212 after that narrowing was corrected (minus 25 wrongly-dropped px entries, plus 3 genuine conditional-style detections the widened tree walk found). A baseline that rises without such a reason is a loosening and fails review.
+The residual limit, stated rather than implied: one commit that edits the violating code, its budget cell and the baseline constant together still passes. Any ratchet that tracks a number in the same repository can be moved by whoever moves the code, and the defence is that the constant is a visible one-line diff in a reviewed commit, not that the mechanism makes it impossible.
 
-This keeps `npx eslint .` at zero findings at every step while guaranteeing the debt only shrinks.
+History: the first version of this enforcement was a per-file debt ledger (`eslint.page-debt.json` together with `eslint.feature-style-baseline.json`), which listed a page against the exact rule ids it was excused from. It was deleted in `be5ca66` when the rules moved to folder scope. Its last recorded state was 15 files and 49 raw mappings, and those mappings excused roughly 347 real violations - the ledger counted declared exemptions rather than debt, which is why the folder figure is so much larger than the 49 that was being reported.
 
 ## 6. Theme settings feature (B)
 
