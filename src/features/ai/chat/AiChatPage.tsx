@@ -40,8 +40,6 @@ const useChatStyles = makeStyles({
     borderRadius: "12px",
     overflow: "hidden",
   },
-  heroText: { maxWidth: "460px", lineHeight: "21px" },
-  composerSlot: { width: "100%" },
   main: {
     flexGrow: 1,
     minWidth: 0,
@@ -63,38 +61,6 @@ const useChatStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     rowGap: "18px",
-  },
-  hero: {
-    flexGrow: 1,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    rowGap: "14px",
-    textAlign: "center",
-    padding: `0 ${theme.spacing.xl}`,
-    width: "100%",
-    maxWidth: "820px",
-    marginBottom: "40px",
-  },
-  heroTitle: {
-    display: "flex",
-    alignItems: "center",
-    columnGap: "14px",
-    fontSize: "34px",
-    fontWeight: 300,
-    lineHeight: "40px",
-    color: "#1E2330",
-  },
-  heroIcon: {
-    width: "44px",
-    height: "44px",
-    borderRadius: "999px",
-    border: `1px solid ${theme.color.borderSubtle}`,
-    display: "grid",
-    placeItems: "center",
-    backgroundColor: theme.color.surface,
-    fontSize: theme.font.sizeXxl,
   },
   composerWrap: {
     width: "100%",
@@ -310,7 +276,6 @@ export function AiChatPage() {
         <div className={chatStyles.main}>
           {messages.length === 0 ? (
             <ChatEmptyState
-              styles={chatStyles}
               name={agent.name}
               description={agent.description}
               composer={composer}
