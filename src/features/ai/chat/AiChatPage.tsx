@@ -161,13 +161,6 @@ const useChatStyles = makeStyles({
     borderRadius: "999px",
     padding: "2px 10px 2px 8px",
   },
-  examples: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: theme.spacing.sm,
-    justifyContent: "center",
-    marginTop: "6px",
-  },
 });
 
 export type ChatStyles = ReturnType<typeof useChatStyles>;

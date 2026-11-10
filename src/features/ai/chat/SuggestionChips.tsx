@@ -1,14 +1,24 @@
-import { Button } from "@/components/ui";
+import { Button, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { ChatStyles } from "./AiChatPage";
+import { theme } from "@/styles/theme";
 import { CHAT_EXAMPLES } from "./data";
 
+const useStyles = makeStyles({
+  examples: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: theme.spacing.sm,
+    justifyContent: "center",
+    marginTop: "6px",
+  },
+});
+
 interface SuggestionChipsProps {
-  styles: ChatStyles;
   onPick: (text: string) => void;
 }
 
-export function SuggestionChips({ styles, onPick }: SuggestionChipsProps) {
+export function SuggestionChips({ onPick }: SuggestionChipsProps) {
+  const styles = useStyles();
   const { t } = useAppTranslation();
   return (
     <div className={styles.examples}>

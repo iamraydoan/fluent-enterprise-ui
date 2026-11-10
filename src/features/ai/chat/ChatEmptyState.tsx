@@ -31,7 +31,7 @@ export function ChatEmptyState({
         {description}
       </Text>
       <div className={styles.composerSlot}>{composer}</div>
-      <SuggestionChips styles={styles} onPick={onPick} />
+      <SuggestionChips onPick={onPick} />
     </div>
   );
 }
