@@ -1,4 +1,5 @@
-import { relative } from "node:path";
+import { readFileSync, readdirSync } from "node:fs";
+import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ESLint } from "eslint";
 import { expect, it } from "vitest";
@@ -8,7 +9,10 @@ const ROOT = fileURLToPath(new URL("../", import.meta.url));
 const FEATURE_GLOB = "src/features/**/*.{ts,tsx}";
 const FEATURE_ROOT = "src/features/";
 const FEATURE_DEBT_TOTAL_BASELINE = 1937;
+const EXCLUDED_TEST_FILE_COUNT = 58;
+const EXCLUDED_FIXTURE_FILE_COUNT = 0;
 const CELL_SEPARATOR = "|";
+const TEST_CALL = /\b(it|test)\s*\(/;
 
 const FEATURE_RULES = [
   "local/no-feature-makeStyles",
@@ -26,7 +30,17 @@ function cell(head: string, ruleId: string) {
   return head + CELL_SEPARATOR + ruleId;
 }
 
-it("keeps every feature folder cell inside the committed budget", async () => {
+function walk(dir: string): string[] {
+  const found: string[] = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) found.push(...walk(full));
+    else if (entry.isFile()) found.push(full);
+  }
+  return found;
+}
+
+it("keeps every feature folder cell exactly at its committed budget", async () => {
   const eslint = new ESLint({ cwd: ROOT });
   const results = await eslint.lintFiles([FEATURE_GLOB]);
   const measured: Record<string, number> = {};
@@ -42,27 +56,56 @@ it("keeps every feature folder cell inside the committed budget", async () => {
     }
   }
 
-  const total = Object.values(measured).reduce((sum, count) => sum + count, 0);
-  expect(total, "feature warning total").toBeLessThanOrEqual(FEATURE_DEBT_TOTAL_BASELINE);
-
   const declared: Record<string, number> = {};
   for (const [head, rules] of Object.entries(budget as Record<string, Record<string, number>>)) {
     for (const [ruleId, count] of Object.entries(rules)) {
       declared[cell(head, ruleId)] = count;
     }
   }
-  for (const [key, count] of Object.entries(measured)) {
-    expect(count, key).toBeLessThanOrEqual(declared[key] ?? 0);
+
+  const keys = [...new Set([...Object.keys(measured), ...Object.keys(declared)])].sort();
+  for (const key of keys) {
+    const measuredCount = measured[key] ?? 0;
+    const declaredCount = declared[key] ?? 0;
+    const direction =
+      measuredCount > declaredCount
+        ? "over budget, new debt was introduced"
+        : measuredCount < declaredCount
+          ? "under budget, lower the declared cell in this commit"
+          : "in budget";
+    expect(
+      measuredCount,
+      key + ": measured " + measuredCount + ", declared " + declaredCount + " (" + direction + ")",
+    ).toBe(declaredCount);
   }
 
-  const measuredKeys = Object.keys(measured).sort();
-  const declaredKeys = Object.keys(declared).sort();
+  const measuredTotal = Object.values(measured).reduce((sum, count) => sum + count, 0);
+  const declaredTotal = Object.values(declared).reduce((sum, count) => sum + count, 0);
   expect(
-    declaredKeys.filter((key) => !measuredKeys.includes(key)),
-    "stale budget cells",
-  ).toEqual([]);
+    measuredTotal,
+    "feature warning total: measured " + measuredTotal + ", declared " + declaredTotal,
+  ).toBe(declaredTotal);
   expect(
-    measuredKeys.filter((key) => !declaredKeys.includes(key)),
-    "unlisted budget cells",
-  ).toEqual([]);
+    declaredTotal,
+    "declared total " +
+      declaredTotal +
+      " exceeds the committed high-water mark " +
+      FEATURE_DEBT_TOTAL_BASELINE,
+  ).toBeLessThanOrEqual(FEATURE_DEBT_TOTAL_BASELINE);
 }, 600000);
+
+it("pins the excluded feature set and requires every ignored test to declare a test", () => {
+  const files = walk(join(ROOT, "src/features")).map((file) =>
+    relative(ROOT, file).split("\\").join("/"),
+  );
+  const ignoredTests = files
+    .filter((file) => file.endsWith(".test.ts") || file.endsWith(".test.tsx"))
+    .sort();
+  const ignoredFixtures = files.filter((file) => file.includes("/__fixtures__/")).sort();
+  expect(ignoredTests.length, "ignored test files").toBe(EXCLUDED_TEST_FILE_COUNT);
+  expect(ignoredFixtures.length, "ignored fixture files").toBe(EXCLUDED_FIXTURE_FILE_COUNT);
+  const notTests = ignoredTests.filter(
+    (file) => !TEST_CALL.test(readFileSync(join(ROOT, file), "utf8")),
+  );
+  expect(notTests, "ignored files that declare no test").toEqual([]);
+});
