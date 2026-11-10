@@ -1,0 +1,45 @@
+{
+  "administration": {
+    "local/no-feature-theme-import": 13,
+    "local/no-feature-makeStyles": 13,
+    "local/no-feature-literal-px": 216,
+    "local/no-feature-style-prop": 54,
+    "local/no-feature-literal-radius": 4,
+    "local/no-feature-literal-hex": 28,
+    "local/no-feature-conditional-style": 7,
+    "no-restricted-syntax": 38
+  },
+  "ai": {
+    "local/no-feature-theme-import": 1,
+    "local/no-feature-makeStyles": 1,
+    "local/no-feature-literal-radius": 7,
+    "local/no-feature-literal-px": 60,
+    "no-restricted-syntax": 23,
+    "local/no-feature-literal-hex": 7,
+    "local/no-feature-style-prop": 1
+  },
+  "business-data": {
+    "local/no-feature-theme-import": 97,
+    "local/no-feature-makeStyles": 50,
+    "local/no-feature-literal-px": 623,
+    "local/no-feature-style-prop": 269,
+    "local/no-feature-literal-radius": 29,
+    "local/no-feature-conditional-style": 55,
+    "no-restricted-syntax": 21,
+    "local/no-feature-literal-hex": 39
+  },
+  "manufacturing": {
+    "local/no-feature-theme-import": 21,
+    "local/no-feature-makeStyles": 17,
+    "local/no-feature-literal-px": 163,
+    "local/no-feature-style-prop": 57,
+    "local/no-feature-conditional-style": 5,
+    "local/no-feature-literal-radius": 12,
+    "local/no-feature-literal-hex": 3
+  },
+  "settings": {
+    "local/no-feature-makeStyles": 1,
+    "local/no-feature-literal-px": 1,
+    "local/no-feature-conditional-style": 1
+  }
+}
