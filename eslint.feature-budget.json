@@ -13,9 +13,9 @@
     "local/no-feature-theme-import": 1,
     "local/no-feature-makeStyles": 1,
     "local/no-feature-literal-radius": 7,
-    "local/no-feature-literal-px": 60,
-    "no-restricted-syntax": 23,
-    "local/no-feature-literal-hex": 7,
+    "local/no-feature-literal-px": 43,
+    "no-restricted-syntax": 19,
+    "local/no-feature-literal-hex": 3,
     "local/no-feature-style-prop": 1
   },
   "business-data": {
