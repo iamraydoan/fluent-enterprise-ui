@@ -1,7 +1,7 @@
 import { Button, makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
-import { CHAT_EXAMPLES } from "./data";
+import { CHAT_EXAMPLES } from "../data";
 
 const useStyles = makeStyles({
   examples: {

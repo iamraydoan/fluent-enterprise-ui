@@ -3,7 +3,7 @@ import { Bot20Regular, Wrench16Regular } from "@/components/icons";
 import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
-import type { ChatMessage } from "./data";
+import type { ChatMessage } from "../data";
 
 const useStyles = makeStyles({
   scroll: {

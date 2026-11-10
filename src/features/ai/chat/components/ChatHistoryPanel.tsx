@@ -2,7 +2,7 @@ import { OptionItem } from "@/components/common";
 import { makeStyles, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { theme } from "@/styles/theme";
-import type { ChatSession } from "./data";
+import type { ChatSession } from "../data";
 
 const useStyles = makeStyles({
   history: {

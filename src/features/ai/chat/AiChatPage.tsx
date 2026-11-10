@@ -13,11 +13,11 @@ import {
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 import { theme } from "@/styles/theme";
-import { ChatComposer } from "./ChatComposer";
-import { ChatEmptyState } from "./ChatEmptyState";
-import { ChatHistoryPanel } from "./ChatHistoryPanel";
-import { ChatMessageList } from "./ChatMessageList";
-import { ChatToolRail } from "./ChatToolRail";
+import { ChatComposer } from "./components/ChatComposer";
+import { ChatEmptyState } from "./components/ChatEmptyState";
+import { ChatHistoryPanel } from "./components/ChatHistoryPanel";
+import { ChatMessageList } from "./components/ChatMessageList";
+import { ChatToolRail } from "./components/ChatToolRail";
 import { SEED_CHATS } from "./data";
 import type { ChatSession } from "./data";
 
