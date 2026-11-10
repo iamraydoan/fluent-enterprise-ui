@@ -1,22 +1,35 @@
 import { IconButton } from "@/components/common";
 import { ChatMultiple20Regular, Compose20Regular, PanelLeft20Regular } from "@/components/icons";
-import { Tooltip } from "@/components/ui";
+import { makeStyles, Tooltip } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
-import type { ChatStyles } from "./AiChatPage";
+import { theme } from "@/styles/theme";
+
+const useStyles = makeStyles({
+  tools: {
+    width: "56px",
+    flexShrink: 0,
+    backgroundColor: theme.color.surfaceSecondary,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingTop: theme.spacing.md,
+    rowGap: "6px",
+  },
+  railDivider: {
+    width: "28px",
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
+    margin: "2px 0",
+  },
+});
 
 interface ChatToolRailProps {
-  styles: ChatStyles;
   showHistory: boolean;
   onToggleHistory: () => void;
   onNewChat: () => void;
 }
 
-export function ChatToolRail({
-  styles,
-  showHistory,
-  onToggleHistory,
-  onNewChat,
-}: ChatToolRailProps) {
+export function ChatToolRail({ showHistory, onToggleHistory, onNewChat }: ChatToolRailProps) {
+  const styles = useStyles();
   const { t } = useAppTranslation();
   return (
     <div className={styles.tools}>

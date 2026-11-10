@@ -40,16 +40,6 @@ const useChatStyles = makeStyles({
     borderRadius: "12px",
     overflow: "hidden",
   },
-  tools: {
-    width: "56px",
-    flexShrink: 0,
-    backgroundColor: theme.color.surfaceSecondary,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    paddingTop: theme.spacing.md,
-    rowGap: "6px",
-  },
   history: {
     width: "250px",
     flexShrink: 0,
@@ -63,11 +53,6 @@ const useChatStyles = makeStyles({
   },
   historyTitle: { padding: "4px 10px 8px" },
   historyTitleText: { maxWidth: "210px" },
-  railDivider: {
-    width: "28px",
-    borderTop: `1px solid ${theme.color.borderSubtle}`,
-    margin: "2px 0",
-  },
   historyAgent: { color: theme.color.textTertiary },
   heroText: { maxWidth: "460px", lineHeight: "21px" },
   composerSlot: { width: "100%" },
@@ -327,7 +312,6 @@ export function AiChatPage() {
 
       <div className={chatStyles.body}>
         <ChatToolRail
-          styles={chatStyles}
           showHistory={showHistory}
           onToggleHistory={toggleHistory}
           onNewChat={newChat}
