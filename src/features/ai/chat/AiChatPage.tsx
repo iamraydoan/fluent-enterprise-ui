@@ -1,35 +1,24 @@
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useState } from "react";
 import { useAiAgents, useSendChat } from "@/api";
-import { IconButton, MenuTriggerButton, OptionItem } from "@/components/common";
+import { MenuTriggerButton } from "@/components/common";
+import { Bot20Regular, ChevronDown16Regular } from "@/components/icons";
 import {
-  ArrowUp20Regular,
-  Attach20Regular,
-  Bot20Regular,
-  Bot24Regular,
-  ChatMultiple20Regular,
-  ChevronDown16Regular,
-  Compose20Regular,
-  Mic20Regular,
-  PanelLeft20Regular,
-  Wrench16Regular,
-} from "@/components/icons";
-import {
-  Body1Strong,
-  Button,
-  Caption1,
   makeStyles,
   Menu,
   MenuItemRadio,
   MenuList,
   MenuPopover,
   MenuTrigger,
-  Text,
-  Tooltip,
 } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 import { theme } from "@/styles/theme";
-import { CHAT_EXAMPLES, SEED_CHATS } from "./data";
+import { ChatComposer } from "./ChatComposer";
+import { ChatEmptyState } from "./ChatEmptyState";
+import { ChatHistoryPanel } from "./ChatHistoryPanel";
+import { ChatMessageList } from "./ChatMessageList";
+import { ChatToolRail } from "./ChatToolRail";
+import { SEED_CHATS } from "./data";
 import type { ChatSession } from "./data";
 
 const useChatStyles = makeStyles({
@@ -72,6 +61,16 @@ const useChatStyles = makeStyles({
     rowGap: "2px",
     backgroundColor: theme.color.surfaceSecondary,
   },
+  historyTitle: { padding: "4px 10px 8px" },
+  historyTitleText: { maxWidth: "210px" },
+  railDivider: {
+    width: "28px",
+    borderTop: `1px solid ${theme.color.borderSubtle}`,
+    margin: "2px 0",
+  },
+  historyAgent: { color: theme.color.textTertiary },
+  heroText: { maxWidth: "460px", lineHeight: "21px" },
+  composerSlot: { width: "100%" },
   main: {
     flexGrow: 1,
     minWidth: 0,
@@ -156,6 +155,9 @@ const useChatStyles = makeStyles({
     color: "#222",
   },
   composerRow: { display: "flex", alignItems: "center", justifyContent: "space-between" },
+  micRow: { display: "inline-flex", alignItems: "center", columnGap: "4px" },
+  botText: { fontSize: "14px", lineHeight: "22px" },
+  thinkingLine: { lineHeight: "28px" },
   userMsg: {
     alignSelf: "flex-end",
     maxWidth: "75%",
@@ -197,6 +199,8 @@ const useChatStyles = makeStyles({
   },
 });
 
+export type ChatStyles = ReturnType<typeof useChatStyles>;
+
 export function AiChatPage() {
   const chatStyles = useChatStyles();
   const { t } = useAppTranslation();
@@ -206,17 +210,12 @@ export function AiChatPage() {
   const [showHistory, setShowHistory] = useState(false);
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
-  const endRef = useRef<HTMLDivElement>(null);
   const { mutate: sendChat } = useSendChat();
   const { data: agentsData } = useAiAgents({ page: 1, limit: 200 });
   const agents = agentsData?.data ?? [];
   const agent = agents.find((candidate) => candidate.name === agentName) ?? agents[0];
   const chat = chats.find((candidate) => candidate.id === currentChatId);
   const messages = chat?.messages ?? [];
-
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ block: "end" });
-  }, [messages.length, busy]);
 
   if (agent === undefined) return null;
 
@@ -284,51 +283,17 @@ export function AiChatPage() {
       },
     );
   };
-  const onKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      send();
-    }
-  };
+  const toggleHistory = () => setShowHistory((value) => !value);
 
   const composer = (
-    <div className={chatStyles.composerWrap}>
-      <div className={chatStyles.composer}>
-        <textarea
-          className={chatStyles.textarea}
-          rows={Math.min(6, text.split("\n").length)}
-          value={text}
-          placeholder={t("aiChat.messageAgent", { agent: agent.name })}
-          onChange={(event) => setText(event.target.value)}
-          onKeyDown={onKeyDown}
-          aria-label={t("aiChat.messageAgent", { agent: agent.name })}
-        />
-        <div className={chatStyles.composerRow}>
-          <Button
-            variant="subtle"
-            shape="circular"
-            icon={<Attach20Regular />}
-            aria-label={t("aiChat.attachFile")}
-          />
-          <span style={{ display: "inline-flex", alignItems: "center", columnGap: 4 }}>
-            <Button
-              variant="subtle"
-              shape="circular"
-              icon={<Mic20Regular />}
-              aria-label={t("aiChat.dictate")}
-            />
-            <IconButton
-              variant="primary"
-              shape="circular"
-              icon={<ArrowUp20Regular />}
-              onClick={() => send()}
-              disabled={!text.trim() || busy}
-              ariaLabel={t("aiChat.send")}
-            />
-          </span>
-        </div>
-      </div>
-    </div>
+    <ChatComposer
+      styles={chatStyles}
+      agentName={agent.name}
+      value={text}
+      busy={busy}
+      onChange={setText}
+      onSend={() => send()}
+    />
   );
 
   return (
@@ -361,123 +326,42 @@ export function AiChatPage() {
       </div>
 
       <div className={chatStyles.body}>
-        <div className={chatStyles.tools}>
-          <Tooltip content={t("aiChat.toggleHistory")} relationship="label" positioning="after">
-            <IconButton
-              icon={<PanelLeft20Regular />}
-              ariaLabel={t("aiChat.toggleHistory")}
-              onClick={() => setShowHistory((value) => !value)}
-            />
-          </Tooltip>
-          <Tooltip content={t("aiChat.newChat")} relationship="label" positioning="after">
-            <IconButton
-              icon={<Compose20Regular />}
-              ariaLabel={t("aiChat.newChat")}
-              onClick={newChat}
-            />
-          </Tooltip>
-          <div
-            style={{
-              width: 28,
-              borderTop: `1px solid ${theme.color.borderSubtle}`,
-              margin: "2px 0",
-            }}
-          />
-          <Tooltip content={t("aiChat.chats")} relationship="label" positioning="after">
-            <IconButton
-              icon={<ChatMultiple20Regular />}
-              ariaLabel={t("aiChat.chats")}
-              active={showHistory}
-              onClick={() => setShowHistory((value) => !value)}
-            />
-          </Tooltip>
-        </div>
+        <ChatToolRail
+          styles={chatStyles}
+          showHistory={showHistory}
+          onToggleHistory={toggleHistory}
+          onNewChat={newChat}
+        />
 
         {showHistory && (
-          <aside className={chatStyles.history} aria-label={t("aiChat.chatHistory")}>
-            <Body1Strong style={{ padding: "4px 10px 8px" }}>{t("aiChat.chats")}</Body1Strong>
-            {chats.map((candidate) => (
-              <OptionItem
-                key={candidate.id}
-                selected={currentChatId === candidate.id}
-                onClick={() => {
-                  setCurrentChatId(candidate.id);
-                  setAgentName(candidate.agent);
-                }}
-              >
-                <Text size={300} truncate wrap={false} style={{ maxWidth: 210 }}>
-                  {candidate.title}
-                </Text>
-                <Caption1 style={{ color: theme.color.textTertiary }}>{candidate.agent}</Caption1>
-              </OptionItem>
-            ))}
-          </aside>
+          <ChatHistoryPanel
+            styles={chatStyles}
+            chats={chats}
+            currentChatId={currentChatId}
+            onSelect={(candidate) => {
+              setCurrentChatId(candidate.id);
+              setAgentName(candidate.agent);
+            }}
+          />
         )}
 
         <div className={chatStyles.main}>
           {messages.length === 0 ? (
-            <div className={chatStyles.hero}>
-              <div className={chatStyles.heroTitle}>
-                <span className={chatStyles.heroIcon}>
-                  <Bot24Regular />
-                </span>
-                {agent.name}
-              </div>
-              <Text size={300} style={{ maxWidth: 460, lineHeight: "21px" }}>
-                {agent.description}
-              </Text>
-              <div style={{ width: "100%" }}>{composer}</div>
-              <div className={chatStyles.examples}>
-                {CHAT_EXAMPLES.map((key) => (
-                  <Button key={key} variant="outline" size="sm" onClick={() => send(t(key))}>
-                    {t(key)}
-                  </Button>
-                ))}
-              </div>
-            </div>
+            <ChatEmptyState
+              styles={chatStyles}
+              name={agent.name}
+              description={agent.description}
+              composer={composer}
+              onPick={send}
+            />
           ) : (
             <>
-              <div className={chatStyles.scroll}>
-                <div className={chatStyles.col}>
-                  {messages.map((message, index) =>
-                    message.role === "user" ? (
-                      <div key={index} className={chatStyles.userMsg}>
-                        {message.text}
-                      </div>
-                    ) : (
-                      <div key={index} className={chatStyles.botRow}>
-                        <span className={chatStyles.botIcon}>
-                          <Bot20Regular />
-                        </span>
-                        <div style={{ fontSize: 14, lineHeight: "22px" }}>
-                          {message.text}
-                          {message.tools && (
-                            <div className={chatStyles.chips}>
-                              {message.tools.map((tool) => (
-                                <span key={tool} className={chatStyles.chip}>
-                                  <Wrench16Regular />
-                                  {tool}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    ),
-                  )}
-                  {busy && (
-                    <div className={chatStyles.botRow}>
-                      <span className={chatStyles.botIcon}>
-                        <Bot20Regular />
-                      </span>
-                      <Caption1 style={{ lineHeight: "28px" }}>
-                        {t("aiChat.thinking", { agent: agent.name })}
-                      </Caption1>
-                    </div>
-                  )}
-                  <div ref={endRef} />
-                </div>
-              </div>
+              <ChatMessageList
+                styles={chatStyles}
+                messages={messages}
+                busy={busy}
+                agentName={agent.name}
+              />
               {composer}
             </>
           )}

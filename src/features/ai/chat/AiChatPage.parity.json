@@ -1,0 +1,788 @@
+{
+  "empty": {
+    "fingerprint": {
+      "cards": [],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "44px",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "box": [46, 46]
+        }
+      ],
+      "texts": [
+        ["CM MES Agent", 12, 4, "13px", "600", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 81, 46, "34px", "300", "rgb(30, 35, 48)"],
+        ["Answers questions about MES documents an", 56, 106, "14px", "400", "rgb(36, 36, 36)"],
+        ["Summarize the latest attachment", 125, 298, "12px", "400", "rgb(36, 36, 36)"],
+        ["Compare two document revisions", 125, 330, "12px", "400", "rgb(36, 36, 36)"],
+        ["Find the entity by its name", 145, 362, "12px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "texts": [
+      ["CM MES Agent", 12, 4, 166, 28],
+      ["CM MES Agent", 81, 46, 308, 46],
+      ["Answers questions about MES documents and entity revisions", 56, 106, 358, 42],
+      ["Summarize the latest attachment", 125, 298, 220, 24],
+      ["Compare two document revisions", 125, 330, 220, 24],
+      ["Find the entity by its name", 145, 362, 179, 24]
+    ],
+    "chrome": {
+      "composer": [80, 162, 310, 92],
+      "composerOuter": [56, 162, 358, 116],
+      "history": null,
+      "rail": [0, 46, 56, 380],
+      "divider": [14, 128, 28, 1],
+      "dividerBorder": "rgb(224, 224, 224)"
+    },
+    "controls": [
+      {
+        "kind": "field",
+        "tag": "TEXTAREA",
+        "value": "",
+        "placeholder": "Message CM MES Agent",
+        "disabled": false,
+        "box": [101, 177, 276, 26]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [12, 4, 166, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Toggle history",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 58, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "New chat",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 92, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Chats",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 137, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Attach file",
+        "disabled": false,
+        "pressed": null,
+        "box": [101, 211, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Dictate",
+        "disabled": false,
+        "pressed": null,
+        "box": [309, 211, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Send",
+        "disabled": true,
+        "pressed": null,
+        "box": [345, 213, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [125, 298, 220, 24]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [125, 330, 220, 24]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [145, 362, 179, 24]
+      }
+    ]
+  },
+  "history": {
+    "fingerprint": {
+      "cards": [],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "24px",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "box": [26, 46]
+        }
+      ],
+      "texts": [
+        ["CM MES Agent", 12, 4, "13px", "600", "rgb(36, 36, 36)"],
+        ["Chats", 64, 58, "14px", "600", "rgb(36, 36, 36)"],
+        ["Which documents reference the latest rec", 76, 114, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 256, 100, "12px", "400", "rgb(97, 97, 97)"],
+        ["Compare revision 2 and 3 of the work ins", 76, 180, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 258, 166, "12px", "400", "rgb(97, 97, 97)"],
+        ["CM MES Agent", 288, 46, "34px", "300", "rgb(30, 35, 48)"],
+        ["Answers questions about MES documents an", 323, 180, "14px", "400", "rgb(36, 36, 36)"],
+        ["Summarize the latest attachment", 323, 456, "12px", "400", "rgb(36, 36, 36)"],
+        ["Compare two document revisions", 323, 520, "12px", "400", "rgb(36, 36, 36)"],
+        ["Find the entity by its name", 323, 600, "12px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "texts": [
+      ["CM MES Agent", 12, 4, 166, 28],
+      ["Chats", 64, 58, 250, 32],
+      ["Which documents reference the latest recipe?", 76, 114, 172, 20],
+      ["CM MES Agent", 256, 100, 46, 48],
+      ["Compare revision 2 and 3 of the work instruction", 76, 180, 174, 20],
+      ["CM MES Agent", 258, 166, 44, 48],
+      ["CM MES Agent", 288, 46, 161, 120],
+      ["Answers questions about MES documents and entity revisions", 323, 180, 91, 126],
+      ["Summarize the latest attachment", 323, 456, 91, 56],
+      ["Compare two document revisions", 323, 520, 91, 72],
+      ["Find the entity by its name", 323, 600, 91, 56]
+    ],
+    "chrome": {
+      "composer": [347, 320, 43, 92],
+      "composerOuter": [323, 320, 91, 116],
+      "history": [56, 46, 267, 650],
+      "rail": [0, 46, 56, 650],
+      "divider": [14, 128, 28, 1],
+      "dividerBorder": "rgb(224, 224, 224)"
+    },
+    "controls": [
+      {
+        "kind": "field",
+        "tag": "TEXTAREA",
+        "value": "",
+        "placeholder": "Message CM MES Agent",
+        "disabled": false,
+        "box": [368, 335, 9, 26]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [12, 4, 166, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Toggle history",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 58, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "New chat",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 92, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Chats",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 137, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "false",
+        "box": [64, 92, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "false",
+        "box": [64, 158, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "Attach file",
+        "disabled": false,
+        "pressed": null,
+        "box": [368, 369, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Dictate",
+        "disabled": false,
+        "pressed": null,
+        "box": [400, 369, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Send",
+        "disabled": true,
+        "pressed": null,
+        "box": [436, 371, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [323, 456, 91, 56]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [323, 520, 91, 72]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [323, 600, 91, 56]
+      }
+    ]
+  },
+  "session": {
+    "fingerprint": {
+      "cards": [],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "28px",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "box": [30, 30]
+        }
+      ],
+      "texts": [
+        ["CM MES Agent", 12, 4, "13px", "600", "rgb(36, 36, 36)"],
+        ["Chats", 64, 58, "14px", "600", "rgb(36, 36, 36)"],
+        ["Which documents reference the latest rec", 76, 114, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 256, 100, "12px", "400", "rgb(97, 97, 97)"],
+        ["Compare revision 2 and 3 of the work ins", 76, 180, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 258, 166, "12px", "400", "rgb(97, 97, 97)"],
+        ["Compare revision 2 and 3 of the work ins", 318, 70, "14px", "400", "rgb(36, 36, 36)"],
+        ["Revision 3 adds a torque check at step 5", 365, 213, "14px", "400", "rgb(36, 36, 36)"],
+        ["compare_entities", 365, 331, "12px", "400", "rgb(68, 68, 68)"]
+      ]
+    },
+    "texts": [
+      ["CM MES Agent", 12, 4, 166, 28],
+      ["Chats", 64, 58, 250, 32],
+      ["Which documents reference the latest recipe?", 76, 114, 172, 20],
+      ["CM MES Agent", 256, 100, 46, 48],
+      ["Compare revision 2 and 3 of the work instruction", 76, 180, 174, 20],
+      ["CM MES Agent", 258, 166, 44, 48],
+      ["Compare revision 2 and 3 of the work instruction", 318, 70, 96, 125],
+      [
+        "Revision 3 adds a torque check at step 5 and removes the optional cleaning step.",
+        365,
+        213,
+        141,
+        144
+      ],
+      ["compare_entities", 365, 331, 141, 26]
+    ],
+    "chrome": {
+      "composer": [347, 383, 43, 92],
+      "composerOuter": [323, 383, 91, 116],
+      "history": [56, 46, 267, 453],
+      "rail": [0, 46, 56, 453],
+      "divider": [14, 128, 28, 1],
+      "dividerBorder": "rgb(224, 224, 224)"
+    },
+    "controls": [
+      {
+        "kind": "field",
+        "tag": "TEXTAREA",
+        "value": "",
+        "placeholder": "Message CM MES Agent",
+        "disabled": false,
+        "box": [368, 398, 9, 26]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [12, 4, 166, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Toggle history",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 58, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "New chat",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 92, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Chats",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 137, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "false",
+        "box": [64, 92, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "true",
+        "box": [64, 158, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "Attach file",
+        "disabled": false,
+        "pressed": null,
+        "box": [368, 432, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Dictate",
+        "disabled": false,
+        "pressed": null,
+        "box": [400, 432, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Send",
+        "disabled": true,
+        "pressed": null,
+        "box": [436, 434, 28, 28]
+      }
+    ]
+  },
+  "draft": {
+    "fingerprint": {
+      "cards": [],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "28px",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "box": [30, 30]
+        }
+      ],
+      "texts": [
+        ["CM MES Agent", 12, 4, "13px", "600", "rgb(36, 36, 36)"],
+        ["Chats", 64, 58, "14px", "600", "rgb(36, 36, 36)"],
+        ["Which documents reference the latest rec", 76, 114, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 256, 100, "12px", "400", "rgb(97, 97, 97)"],
+        ["Compare revision 2 and 3 of the work ins", 76, 180, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 258, 166, "12px", "400", "rgb(97, 97, 97)"],
+        ["Compare revision 2 and 3 of the work ins", 318, 70, "14px", "400", "rgb(36, 36, 36)"],
+        ["Revision 3 adds a torque check at step 5", 365, 213, "14px", "400", "rgb(36, 36, 36)"],
+        ["compare_entities", 365, 331, "12px", "400", "rgb(68, 68, 68)"],
+        ["compare the two revisions", 368, 398, "14px", "400", "rgb(34, 34, 34)"]
+      ]
+    },
+    "texts": [
+      ["CM MES Agent", 12, 4, 166, 28],
+      ["Chats", 64, 58, 250, 32],
+      ["Which documents reference the latest recipe?", 76, 114, 172, 20],
+      ["CM MES Agent", 256, 100, 46, 48],
+      ["Compare revision 2 and 3 of the work instruction", 76, 180, 174, 20],
+      ["CM MES Agent", 258, 166, 44, 48],
+      ["Compare revision 2 and 3 of the work instruction", 318, 70, 96, 125],
+      [
+        "Revision 3 adds a torque check at step 5 and removes the optional cleaning step.",
+        365,
+        213,
+        141,
+        144
+      ],
+      ["compare_entities", 365, 331, 141, 26],
+      ["compare the two revisions", 368, 398, 9, 26]
+    ],
+    "chrome": {
+      "composer": [347, 383, 43, 92],
+      "composerOuter": [323, 383, 91, 116],
+      "history": [56, 46, 267, 453],
+      "rail": [0, 46, 56, 453],
+      "divider": [14, 128, 28, 1],
+      "dividerBorder": "rgb(224, 224, 224)"
+    },
+    "controls": [
+      {
+        "kind": "field",
+        "tag": "TEXTAREA",
+        "value": "compare the two revisions",
+        "placeholder": "Message CM MES Agent",
+        "disabled": false,
+        "box": [368, 398, 9, 26]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [12, 4, 166, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Toggle history",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 58, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "New chat",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 92, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Chats",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 137, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "false",
+        "box": [64, 92, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "true",
+        "box": [64, 158, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "Attach file",
+        "disabled": false,
+        "pressed": null,
+        "box": [368, 432, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Dictate",
+        "disabled": false,
+        "pressed": null,
+        "box": [400, 432, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Send",
+        "disabled": false,
+        "pressed": null,
+        "box": [436, 434, 28, 28]
+      }
+    ]
+  },
+  "sent": {
+    "fingerprint": {
+      "cards": [],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "28px",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "box": [30, 30]
+        },
+        {
+          "inline": "",
+          "computed": "28px",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "box": [30, 30]
+        }
+      ],
+      "texts": [
+        ["CM MES Agent", 12, 4, "13px", "600", "rgb(36, 36, 36)"],
+        ["Chats", 64, 58, "14px", "600", "rgb(36, 36, 36)"],
+        ["Which documents reference the latest rec", 76, 114, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 256, 100, "12px", "400", "rgb(97, 97, 97)"],
+        ["Compare revision 2 and 3 of the work ins", 76, 180, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 258, 166, "12px", "400", "rgb(97, 97, 97)"],
+        ["Compare revision 2 and 3 of the work ins", 318, 70, "14px", "400", "rgb(36, 36, 36)"],
+        ["Revision 3 adds a torque check at step 5", 365, 213, "14px", "400", "rgb(36, 36, 36)"],
+        ["compare_entities", 365, 331, "12px", "400", "rgb(68, 68, 68)"],
+        ["compare the two revisions", 323, 375, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent is thinking…", 365, 476, "12px", "400", "rgb(36, 36, 36)"]
+      ]
+    },
+    "texts": [
+      ["CM MES Agent", 12, 4, 166, 28],
+      ["Chats", 64, 58, 250, 32],
+      ["Which documents reference the latest recipe?", 76, 114, 172, 20],
+      ["CM MES Agent", 256, 100, 46, 48],
+      ["Compare revision 2 and 3 of the work instruction", 76, 180, 174, 20],
+      ["CM MES Agent", 258, 166, 44, 48],
+      ["Compare revision 2 and 3 of the work instruction", 318, 70, 96, 125],
+      [
+        "Revision 3 adds a torque check at step 5 and removes the optional cleaning step.",
+        365,
+        213,
+        141,
+        144
+      ],
+      ["compare_entities", 365, 331, 141, 26],
+      ["compare the two revisions", 323, 375, 91, 83],
+      ["CM MES Agent is thinking…", 365, 476, 61, 84]
+    ],
+    "chrome": {
+      "composer": [347, 586, 43, 92],
+      "composerOuter": [323, 586, 91, 116],
+      "history": [56, 46, 267, 656],
+      "rail": [0, 46, 56, 656],
+      "divider": [14, 128, 28, 1],
+      "dividerBorder": "rgb(224, 224, 224)"
+    },
+    "controls": [
+      {
+        "kind": "field",
+        "tag": "TEXTAREA",
+        "value": "",
+        "placeholder": "Message CM MES Agent",
+        "disabled": false,
+        "box": [368, 601, 9, 26]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [12, 4, 166, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Toggle history",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 58, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "New chat",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 92, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Chats",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 137, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "false",
+        "box": [64, 92, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "true",
+        "box": [64, 158, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "Attach file",
+        "disabled": false,
+        "pressed": null,
+        "box": [368, 635, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Dictate",
+        "disabled": false,
+        "pressed": null,
+        "box": [400, 635, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Send",
+        "disabled": true,
+        "pressed": null,
+        "box": [436, 637, 28, 28]
+      }
+    ]
+  },
+  "reply": {
+    "fingerprint": {
+      "cards": [],
+      "grids": [
+        {
+          "inline": "",
+          "computed": "28px",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "box": [30, 30]
+        },
+        {
+          "inline": "",
+          "computed": "28px",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "box": [30, 30]
+        }
+      ],
+      "texts": [
+        ["CM MES Agent", 12, 4, "13px", "600", "rgb(36, 36, 36)"],
+        ["Chats", 64, 58, "14px", "600", "rgb(36, 36, 36)"],
+        ["Which documents reference the latest rec", 76, 114, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 256, 100, "12px", "400", "rgb(97, 97, 97)"],
+        ["Compare revision 2 and 3 of the work ins", 76, 180, "14px", "400", "rgb(36, 36, 36)"],
+        ["CM MES Agent", 258, 166, "12px", "400", "rgb(97, 97, 97)"],
+        ["Compare revision 2 and 3 of the work ins", 318, 70, "14px", "400", "rgb(36, 36, 36)"],
+        ["Revision 3 adds a torque check at step 5", 365, 213, "14px", "400", "rgb(36, 36, 36)"],
+        ["compare_entities", 365, 331, "12px", "400", "rgb(68, 68, 68)"],
+        ["compare the two revisions", 323, 375, "14px", "400", "rgb(36, 36, 36)"],
+        ["Here is what I found for \"compare the tw", 365, 476, "14px", "400", "rgb(36, 36, 36)"],
+        ["compare_entities", 365, 638, "12px", "400", "rgb(68, 68, 68)"],
+        ["compare_document_entity", 365, 670, "12px", "400", "rgb(68, 68, 68)"]
+      ]
+    },
+    "texts": [
+      ["CM MES Agent", 12, 4, 166, 28],
+      ["Chats", 64, 58, 250, 32],
+      ["Which documents reference the latest recipe?", 76, 114, 172, 20],
+      ["CM MES Agent", 256, 100, 46, 48],
+      ["Compare revision 2 and 3 of the work instruction", 76, 180, 174, 20],
+      ["CM MES Agent", 258, 166, 44, 48],
+      ["Compare revision 2 and 3 of the work instruction", 318, 70, 96, 125],
+      [
+        "Revision 3 adds a torque check at step 5 and removes the optional cleaning step.",
+        365,
+        213,
+        141,
+        144
+      ],
+      ["compare_entities", 365, 331, 141, 26],
+      ["compare the two revisions", 323, 375, 91, 83],
+      [
+        "Here is what I found for \"compare the two revisions\". This is a demo reply from CM MES Agent; connect the page to your agent API to get real answers.",
+        365,
+        476,
+        198,
+        220
+      ],
+      ["compare_entities", 365, 638, 141, 26],
+      ["compare_document_entity", 365, 670, 198, 26]
+    ],
+    "chrome": {
+      "composer": [347, 722, 43, 92],
+      "composerOuter": [323, 722, 91, 116],
+      "history": [56, 46, 267, 792],
+      "rail": [0, 46, 56, 792],
+      "divider": [14, 128, 28, 1],
+      "dividerBorder": "rgb(224, 224, 224)"
+    },
+    "controls": [
+      {
+        "kind": "field",
+        "tag": "TEXTAREA",
+        "value": "",
+        "placeholder": "Message CM MES Agent",
+        "disabled": false,
+        "box": [368, 737, 9, 26]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": null,
+        "box": [12, 4, 166, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Toggle history",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 58, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "New chat",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 92, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "Chats",
+        "disabled": false,
+        "pressed": null,
+        "box": [14, 137, 28, 28]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "false",
+        "box": [64, 92, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "",
+        "disabled": false,
+        "pressed": "true",
+        "box": [64, 158, 250, 64]
+      },
+      {
+        "kind": "button",
+        "label": "Attach file",
+        "disabled": false,
+        "pressed": null,
+        "box": [368, 771, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Dictate",
+        "disabled": false,
+        "pressed": null,
+        "box": [400, 771, 32, 32]
+      },
+      {
+        "kind": "button",
+        "label": "Send",
+        "disabled": true,
+        "pressed": null,
+        "box": [436, 773, 28, 28]
+      }
+    ]
+  }
+}
