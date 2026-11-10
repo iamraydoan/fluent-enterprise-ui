@@ -47,55 +47,6 @@ const useChatStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
   },
-  scroll: {
-    flexGrow: 1,
-    width: "100%",
-    overflowY: "auto",
-    display: "flex",
-    justifyContent: "center",
-  },
-  col: {
-    width: "100%",
-    maxWidth: "820px",
-    padding: `${theme.spacing.xl} ${theme.spacing.xl} ${theme.spacing.sm}`,
-    display: "flex",
-    flexDirection: "column",
-    rowGap: "18px",
-  },
-  botText: { fontSize: theme.font.sizeMd, lineHeight: "22px" },
-  thinkingLine: { lineHeight: "28px" },
-  userMsg: {
-    alignSelf: "flex-end",
-    maxWidth: "75%",
-    backgroundColor: theme.color.brandSubtle,
-    borderRadius: "18px 18px 4px 18px",
-    padding: "10px 14px",
-    fontSize: theme.font.sizeMd,
-    lineHeight: "21px",
-    whiteSpace: "pre-wrap",
-  },
-  botRow: { display: "flex", columnGap: theme.spacing.md, alignItems: "flex-start" },
-  botIcon: {
-    width: "28px",
-    height: "28px",
-    flexShrink: 0,
-    borderRadius: "999px",
-    border: `1px solid ${theme.color.borderSubtle}`,
-    display: "grid",
-    placeItems: "center",
-    backgroundColor: theme.color.surface,
-  },
-  chips: { display: "flex", flexWrap: "wrap", gap: "6px", marginTop: theme.spacing.sm },
-  chip: {
-    display: "inline-flex",
-    alignItems: "center",
-    columnGap: theme.spacing.xs,
-    fontSize: theme.font.sizeSm,
-    color: "#444",
-    backgroundColor: theme.color.surfaceSecondary,
-    borderRadius: "999px",
-    padding: "2px 10px 2px 8px",
-  },
 });
 
 export type ChatStyles = ReturnType<typeof useChatStyles>;
@@ -251,12 +202,7 @@ export function AiChatPage() {
             />
           ) : (
             <>
-              <ChatMessageList
-                styles={chatStyles}
-                messages={messages}
-                busy={busy}
-                agentName={agent.name}
-              />
+              <ChatMessageList messages={messages} busy={busy} agentName={agent.name} />
               {composer}
             </>
           )}
