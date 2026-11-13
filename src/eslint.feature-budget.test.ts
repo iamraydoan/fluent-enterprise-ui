@@ -8,7 +8,7 @@ import budget from "../eslint.feature-budget.json";
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 const FEATURE_GLOB = "src/features/**/*.{ts,tsx}";
 const FEATURE_ROOT = "src/features/";
-const FEATURE_DEBT_TOTAL_BASELINE = 1937;
+const FEATURE_DEBT_TOTAL_BASELINE = 1949;
 const EXCLUDED_TEST_FILE_COUNT = 58;
 const EXCLUDED_FIXTURE_FILE_COUNT = 0;
 const CELL_SEPARATOR = "|";
@@ -22,6 +22,7 @@ const FEATURE_RULES = [
   "local/no-feature-theme-import",
   "local/no-feature-settings-import",
   "local/no-feature-conditional-style",
+  "local/no-feature-raw-primitive-imports",
   "no-restricted-syntax",
 ];
 

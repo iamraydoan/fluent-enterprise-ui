@@ -166,6 +166,39 @@ function containsStyleBranch(node) {
   return false;
 }
 
+const rawPrimitiveBans = new Set([
+  "Menu",
+  "MenuTrigger",
+  "MenuPopover",
+  "MenuList",
+  "MenuItem",
+  "MenuItemRadio",
+  "MenuItemCheckbox",
+  "Dialog",
+  "DialogActions",
+  "DialogBody",
+  "DialogContent",
+  "DialogSurface",
+  "DialogTitle",
+  "DialogTrigger",
+  "Popover",
+  "PopoverTrigger",
+  "PopoverSurface",
+  "Drawer",
+  "DrawerBody",
+  "DrawerHeader",
+  "DrawerFooter",
+  "Tree",
+  "TreeItem",
+  "TreeItemLayout",
+  "Tab",
+  "TabList",
+  "Accordion",
+  "AccordionItem",
+  "AccordionHeader",
+  "AccordionPanel",
+]);
+
 const localPlugin = {
   rules: {
     "no-comments": {
@@ -318,6 +351,31 @@ const localPlugin = {
                 node,
                 message:
                   "Feature files must not import the settings store or config. The settings provider applies configuration; features stay declarative.",
+              });
+            }
+          },
+        };
+      },
+    },
+    "no-feature-raw-primitive-imports": {
+      meta: {
+        type: "problem",
+        docs: { description: "Disallow raw assembly primitive imports in page files." },
+      },
+      create(context) {
+        return {
+          ImportDeclaration(node) {
+            if (node.source.value !== "@/components/ui") return;
+            for (const specifier of node.specifiers) {
+              if (specifier.type !== "ImportSpecifier") continue;
+              const imported =
+                specifier.imported.type === "Identifier"
+                  ? specifier.imported.name
+                  : String(specifier.imported.value);
+              if (!rawPrimitiveBans.has(imported)) continue;
+              context.report({
+                node: specifier,
+                message: `Page files must not import the raw assembly primitive ${imported} from @/components/ui. Extract the assembly into a component in this feature folder and compose it.`,
               });
             }
           },
@@ -493,6 +551,11 @@ export default tseslint.config(
       "local/no-feature-settings-import": "warn",
       "local/no-feature-conditional-style": "warn",
     },
+  },
+  {
+    files: ["src/features/**/*Page.tsx"],
+    plugins: { local: localPlugin },
+    rules: { "local/no-feature-raw-primitive-imports": "warn" },
   },
   {
     files: ["src/routes/**/*.{ts,tsx}"],

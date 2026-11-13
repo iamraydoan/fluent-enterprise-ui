@@ -7,7 +7,8 @@
     "local/no-feature-literal-radius": 4,
     "local/no-feature-literal-hex": 28,
     "local/no-feature-conditional-style": 7,
-    "no-restricted-syntax": 38
+    "no-restricted-syntax": 38,
+    "local/no-feature-raw-primitive-imports": 14
   },
   "ai": {
     "local/no-feature-theme-import": 8,
@@ -26,7 +27,8 @@
     "local/no-feature-literal-radius": 29,
     "local/no-feature-conditional-style": 55,
     "no-restricted-syntax": 21,
-    "local/no-feature-literal-hex": 39
+    "local/no-feature-literal-hex": 39,
+    "local/no-feature-raw-primitive-imports": 5
   },
   "manufacturing": {
     "local/no-feature-theme-import": 21,
@@ -35,7 +37,8 @@
     "local/no-feature-style-prop": 57,
     "local/no-feature-conditional-style": 5,
     "local/no-feature-literal-radius": 12,
-    "local/no-feature-literal-hex": 3
+    "local/no-feature-literal-hex": 3,
+    "local/no-feature-raw-primitive-imports": 5
   },
   "settings": {
     "local/no-feature-makeStyles": 1,
