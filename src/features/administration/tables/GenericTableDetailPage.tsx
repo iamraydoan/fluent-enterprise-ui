@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useGenericTable } from "@/api";
 import { Empty, Panel, RecordPage } from "@/components/common";
 import { Table24Regular } from "@/components/icons";
-import { Body1Strong, Caption1, Tab, TabList, Text } from "@/components/ui";
+import { Body1Strong, Caption1, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { GenericTableDataTab } from "./GenericTableDataTab";
 import { GenericTableDefinitionTab } from "./GenericTableDefinitionTab";
+import { GenericTableTabs } from "./GenericTableTabs";
 
 interface GenericTableDetailPageProps {
   name: string;
@@ -22,13 +23,7 @@ export function GenericTableDetailPage({ name }: GenericTableDetailPageProps) {
 
   return (
     <RecordPage
-      tabs={
-        <TabList selectedValue={tab} onTabSelect={setTab} aria-label={t("genericTables.pageLabel")}>
-          <Tab value="data">{t("genericTables.tabs.data")}</Tab>
-          <Tab value="definition">{t("genericTables.tabs.definition")}</Tab>
-          <Tab value="history">{t("genericTables.tabs.history")}</Tab>
-        </TabList>
-      }
+      tabs={<GenericTableTabs selected={tab} onSelect={setTab} />}
       title={
         <>
           <Table24Regular />

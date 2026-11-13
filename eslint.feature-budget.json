@@ -8,7 +8,7 @@
     "local/no-feature-literal-hex": 28,
     "local/no-feature-conditional-style": 7,
     "no-restricted-syntax": 38,
-    "local/no-feature-raw-primitive-imports": 14
+    "local/no-feature-raw-primitive-imports": 12
   },
   "ai": {
     "local/no-feature-theme-import": 8,
