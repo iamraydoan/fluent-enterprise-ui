@@ -36,8 +36,7 @@
     "local/no-feature-style-prop": 57,
     "local/no-feature-conditional-style": 5,
     "local/no-feature-literal-radius": 12,
-    "local/no-feature-literal-hex": 3,
-    "local/no-feature-raw-primitive-imports": 5
+    "local/no-feature-literal-hex": 3
   },
   "settings": {
     "local/no-feature-makeStyles": 1,

@@ -11,7 +11,6 @@ import {
   IconButton,
   IconContainer,
   ListPage,
-  MenuTriggerButton,
   SidebarNavItem,
   Split,
   TileGrid,
@@ -22,23 +21,15 @@ import {
   ArrowSync24Regular,
   Box24Regular,
   Checkmark20Filled,
-  ChevronDown16Regular,
   ChevronLeft20Regular,
   PanelLeftExpand20Regular,
   Search20Regular,
   Settings20Regular,
 } from "@/components/icons";
-import {
-  Button,
-  Input,
-  Menu,
-  MenuItemRadio,
-  MenuList,
-  MenuPopover,
-  MenuTrigger,
-  Text,
-} from "@/components/ui";
+import { Button, Input, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
+import { FilterDropdown } from "./FilterDropdown";
+import { WorkgroupSelector } from "./WorkgroupSelector";
 import { PanelSettingsDialog } from "./dialogs";
 
 type Panel = "resources" | "steps";
@@ -66,50 +57,6 @@ const L = {
   resourceNamePlaceholder: "myWorkgroup.filters.resourceNamePlaceholder",
   stepNamePlaceholder: "myWorkgroup.filters.stepNamePlaceholder",
 } as const;
-
-function FilterDropdown({
-  label,
-  value,
-  options,
-  onChange,
-}: {
-  label: string;
-  value: string;
-  options: string[];
-  onChange: (value: string) => void;
-}) {
-  const { t } = useAppTranslation();
-  return (
-    <FilterGroup label={label}>
-      <Menu
-        checkedValues={{ filter: [value] }}
-        onCheckedValueChange={(checkedItems) => {
-          const next = checkedItems[0];
-          if (next !== undefined) onChange(next);
-        }}
-      >
-        <MenuTrigger disableButtonEnhancement>
-          <MenuTriggerButton ariaLabel={label}>
-            {value === "" ? t(L.all).toUpperCase() : value.toUpperCase()}
-            <ChevronDown16Regular />
-          </MenuTriggerButton>
-        </MenuTrigger>
-        <MenuPopover>
-          <MenuList>
-            <MenuItemRadio name="filter" value="">
-              {t(L.all)}
-            </MenuItemRadio>
-            {options.map((option) => (
-              <MenuItemRadio key={option} name="filter" value={option}>
-                {option}
-              </MenuItemRadio>
-            ))}
-          </MenuList>
-        </MenuPopover>
-      </Menu>
-    </FilterGroup>
-  );
-}
 
 function TileCount({
   value,
@@ -252,29 +199,12 @@ export function MyWorkgroupPage() {
           ) : (
             <VStack surface grow gap="none">
               <HStack align="center" justify="between" p="sm" divider>
-                <Menu
-                  checkedValues={{ workgroup: [workgroup] }}
-                  onCheckedValueChange={(checkedItems) => {
-                    const next = checkedItems[0];
-                    if (next !== undefined) setWorkgroup(next);
-                  }}
-                >
-                  <MenuTrigger disableButtonEnhancement>
-                    <MenuTriggerButton size="md" ariaLabel={t("myWorkgroup.workgroup")}>
-                      {workgroup}
-                      <ChevronDown16Regular />
-                    </MenuTriggerButton>
-                  </MenuTrigger>
-                  <MenuPopover>
-                    <MenuList>
-                      {workgroups.map((wg) => (
-                        <MenuItemRadio key={wg.name} name="workgroup" value={wg.name}>
-                          {wg.name}
-                        </MenuItemRadio>
-                      ))}
-                    </MenuList>
-                  </MenuPopover>
-                </Menu>
+                <WorkgroupSelector
+                  workgroup={workgroup}
+                  workgroups={workgroups}
+                  label={t("myWorkgroup.workgroup")}
+                  onSelect={setWorkgroup}
+                />
                 <HStack gap="xs" align="center">
                   <IconButton
                     icon={<Settings20Regular />}
