@@ -12,12 +12,13 @@ import {
   VStack,
 } from "@/components/common";
 import { Flow24Regular } from "@/components/icons";
-import { Button, Text, Tree, TreeItem, TreeItemLayout } from "@/components/ui";
+import { Button, Text } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
 import { useBooleanLabel } from "../components/propertyLabels";
 import { MODE_CLONE, MODE_EDIT, TERMINATE, UNTERMINATE } from "../components/wizardMode";
 import { FlowLogicalNamesDialog, FlowReworkPathsDialog } from "./FlowDialogs";
+import { FlowStructureTree } from "./FlowStructureTree";
 import { FlowDialog } from "./dialogs/FlowDialog";
 import { FlowTerminateDialog } from "./dialogs/FlowTerminateDialog";
 
@@ -111,16 +112,7 @@ export function FlowDetailPage({ name }: { name: string }) {
           collapsed={structureCollapsed}
           onToggle={() => setStructureCollapsed((value) => !value)}
         >
-          <Tree>
-            <TreeItem itemType="branch">
-              <TreeItemLayout>{`${data.name} [A]`}</TreeItemLayout>
-              {data.items.map((item) => (
-                <TreeItem key={item.position} itemType="leaf">
-                  <TreeItemLayout>{`${item.position}. ${item.name}`}</TreeItemLayout>
-                </TreeItem>
-              ))}
-            </TreeItem>
-          </Tree>
+          <FlowStructureTree name={data.name} items={data.items} />
         </SidePanel>
         <Card title={t("businessData.flow.sections.flowDetails")}>
           <KV

@@ -8,7 +8,7 @@ import budget from "../eslint.feature-budget.json";
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 const FEATURE_GLOB = "src/features/**/*.{ts,tsx}";
 const FEATURE_ROOT = "src/features/";
-const FEATURE_DEBT_TOTAL_BASELINE = 1945;
+const FEATURE_DEBT_TOTAL_BASELINE = 1942;
 const EXCLUDED_TEST_FILE_COUNT = 58;
 const EXCLUDED_FIXTURE_FILE_COUNT = 0;
 const CELL_SEPARATOR = "|";
