@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import js from "@eslint/js";
 import pluginQuery from "@tanstack/eslint-plugin-query";
 import prettierConfig from "eslint-config-prettier";
@@ -199,6 +201,48 @@ const rawPrimitiveBans = new Set([
   "AccordionPanel",
 ]);
 
+function isPageFile(filename) {
+  return /src\/features\/.*Page\.tsx$/.test(filename.split("\\").join("/"));
+}
+
+function specifierName(node) {
+  const identifier = node.imported ?? node.local;
+  return identifier.type === "Identifier" ? identifier.name : String(identifier.value);
+}
+
+function resolveFeatureModule(filename, source) {
+  if (!source.startsWith("./") && !source.startsWith("../")) return null;
+  const base = resolve(dirname(filename), source);
+  const candidates = [base + ".ts", base + ".tsx", base + "/index.ts", base + "/index.tsx"];
+  return candidates.find((candidate) => existsSync(candidate)) ?? null;
+}
+
+function reexportedBannedNames(targetFile) {
+  const names = new Set();
+  const result = { names, exportsAll: false };
+  let source;
+  try {
+    source = readFileSync(targetFile, "utf8");
+  } catch {
+    return result;
+  }
+  for (const match of source.matchAll(
+    /export\s*(?:type\s*)?\{([^}]*)\}\s*from\s*"@\/components\/ui"/g,
+  )) {
+    for (const raw of match[1].split(",")) {
+      const parts = raw
+        .trim()
+        .replace(/^type\s+/, "")
+        .split(/\s+as\s+/);
+      const local = (parts[0] ?? "").trim();
+      const exported = (parts[1] ?? parts[0] ?? "").trim();
+      if (rawPrimitiveBans.has(local) && exported !== "") names.add(exported);
+    }
+  }
+  result.exportsAll = /export\s*\*\s*from\s*"@\/components\/ui"/.test(source);
+  return result;
+}
+
 const localPlugin = {
   rules: {
     "no-comments": {
@@ -360,24 +404,54 @@ const localPlugin = {
     "no-feature-raw-primitive-imports": {
       meta: {
         type: "problem",
-        docs: { description: "Disallow raw assembly primitive imports in page files." },
+        docs: { description: "Disallow raw assembly imports and re-exports in the feature layer." },
       },
       create(context) {
+        const filename = String(context.filename).split("\\").join("/");
+        const page = isPageFile(filename);
+        const report = (node, name, kind) => {
+          const detail =
+            kind === "import"
+              ? `Page files must not import the raw assembly primitive ${name} from @/components/ui. Extract the assembly into a component in this feature folder and compose it.`
+              : kind === "indirect"
+                ? `Page files must not import the raw assembly primitive ${name} through a feature-local re-export. Compose the extracted component instead.`
+                : `Feature files must not re-export the raw assembly primitive ${name} from @/components/ui. Compose it in a component instead.`;
+          context.report({ node, message: detail });
+        };
         return {
           ImportDeclaration(node) {
-            if (node.source.value !== "@/components/ui") return;
+            const source = String(node.source.value);
+            if (source === "@/components/ui") {
+              if (!page) return;
+              for (const specifier of node.specifiers) {
+                if (specifier.type !== "ImportSpecifier") continue;
+                const name = specifierName(specifier);
+                if (rawPrimitiveBans.has(name)) report(specifier, name, "import");
+              }
+              return;
+            }
+            if (!page) return;
+            const target = resolveFeatureModule(filename, source);
+            if (target === null) return;
+            const reexported = reexportedBannedNames(target);
             for (const specifier of node.specifiers) {
               if (specifier.type !== "ImportSpecifier") continue;
-              const imported =
-                specifier.imported.type === "Identifier"
-                  ? specifier.imported.name
-                  : String(specifier.imported.value);
-              if (!rawPrimitiveBans.has(imported)) continue;
-              context.report({
-                node: specifier,
-                message: `Page files must not import the raw assembly primitive ${imported} from @/components/ui. Extract the assembly into a component in this feature folder and compose it.`,
-              });
+              const name = specifierName(specifier);
+              if (reexported.exportsAll || reexported.names.has(name)) {
+                report(specifier, name, "indirect");
+              }
             }
+          },
+          ExportNamedDeclaration(node) {
+            if (node.source === null || String(node.source.value) !== "@/components/ui") return;
+            for (const specifier of node.specifiers) {
+              const name = specifierName(specifier);
+              if (rawPrimitiveBans.has(name)) report(specifier, name, "export");
+            }
+          },
+          ExportAllDeclaration(node) {
+            if (String(node.source.value) !== "@/components/ui") return;
+            report(node, "*", "export");
           },
         };
       },
@@ -550,12 +624,8 @@ export default tseslint.config(
       "local/no-feature-theme-import": "warn",
       "local/no-feature-settings-import": "warn",
       "local/no-feature-conditional-style": "warn",
+      "local/no-feature-raw-primitive-imports": "warn",
     },
-  },
-  {
-    files: ["src/features/**/*Page.tsx"],
-    plugins: { local: localPlugin },
-    rules: { "local/no-feature-raw-primitive-imports": "warn" },
   },
   {
     files: ["src/routes/**/*.{ts,tsx}"],
