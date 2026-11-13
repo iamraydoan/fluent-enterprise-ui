@@ -69,11 +69,32 @@ Status legend: pending / in-progress / review / fixing / done / deferred. Review
 | 18  | features/administration/apps/AppsListPage.tsx                     | 0   | 0   | 0   | 0   | 0   | 0   | clean    |               |                            |         |
 | 19  | features/administration/entity-types/EntityTypesListPage.tsx      | 0   | 0   | 0   | 0   | 0   | 0   | clean    |               |                            |         |
 
-## features/ai (1 pages, 1 need work)
+## features/ai (1 pages, 0 need work)
 
-| #   | Page                            | MS  | INL | HEX | PX  | THM | CFG | Status   | Owner | Review                | Commit |
-| --- | ------------------------------- | --- | --- | --- | --- | --- | --- | -------- | ----- | --------------------- | ------ |
-| 20  | features/ai/chat/AiChatPage.tsx | 1   | 10  | 7   | 42  | 1   | 0   | deferred |       | hex+shadow+focus-ring |        |
+| #   | Page                            | MS  | INL | HEX | PX  | THM | CFG | Status | Owner         | Review                                 | Commit  |
+| --- | ------------------------------- | --- | --- | --- | --- | --- | --- | ------ | ------------- | -------------------------------------- | ------- |
+| 20  | features/ai/chat/AiChatPage.tsx | 1   | 10  | 7   | 42  | 1   | 0   | done   | page-writer-2 | pass (parity, fixture not regenerated) | 275c654 |
+
+### AiChatPage.tsx - checklist of what was actually changed
+
+Nine commits, each gated on its own, each with the AiChatPage browser parity test run. The debt columns in the row above are the original inventory; this is what moved.
+
+- [x] Replaced 21 raw style values with exactly equal theme tokens, leaving every value that has no exact token alone (`0a9be1a`). Removed 17 px, 4 hex and 4 no-restricted-syntax findings.
+- [x] ChatToolRail owns its own sheet (`0c8db66`).
+- [x] ChatHistoryPanel owns its own sheet (`bcc7ffe`). Hardest case: its `color` overrides Fluent `Text`, so it was the first real insertion-order test.
+- [x] SuggestionChips owns its own sheet (`29e128d`).
+- [x] ChatEmptyState owns its own sheet (`040d138`). Second insertion-order case: `line-height` over Fluent `Text`.
+- [x] ChatComposer owns its own sheet (`1c1df9b`).
+- [x] ChatMessageList owns its own sheet (`6389510`). Third insertion-order case, `line-height` over `Text size={200}`.
+- [x] Moved all six into `components/`, a pure move: 8 insertions, 8 deletions, budget untouched (`84cb75d`). Nothing under `components/` imports the page.
+- [x] Reduced the page to composition, 211 lines, sheet down to the three classes it renders itself (`2d198c9`).
+- [x] Extracted the hand-assembled agent menu into `components/ChatAgentSelector.tsx` (`275c654`). The page is now 184 lines and `grep Menu` returns nothing.
+- [x] Parity fixture never regenerated: byte-identical across the whole range, last modifying commit still `c7c365c`.
+- [x] Value cells conserved exactly: px 43, hex 3, radius 7, style-prop 1, no-restricted-syntax 19 unchanged throughout. Only makeStyles (1 to 7) and theme-import (1 to 8) moved, which is the relocation cost of eight files owning sheets instead of one.
+- [x] Independent review: every extraction checked as a verbatim move, budget measured cell by cell, no drift outside the counted rules.
+- [ ] The page's own three-class sheet still carries debt, declared in the budget. Paying it down means moving `bar`, `body` and `main` into the component layer, which is the wider component work, not this page's encapsulation.
+
+Reusable parts for the remaining pages: the ratchet now counts every feature file, so relocating styles changes nothing by itself; each extraction needs its own browser coverage before it is safe; and the fixture is the evidence that nothing moved visually, so it is never regenerated alongside a refactor.
 
 ## features/business-data (131 pages, 47 need work)
 
