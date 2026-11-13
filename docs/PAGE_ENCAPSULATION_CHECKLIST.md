@@ -10,11 +10,13 @@ Regenerate with the inventory script; update Status/Owner/Review/Commit as work 
 > `local/no-feature-*`. The ratchet is now `eslint.feature-budget.json` with
 > `src/eslint.feature-budget.test.ts` (see `9612689`). Every remaining mention of a ledger entry
 > below is the historical record of how this work was tracked at the time, not the live
-> mechanism, and the debt columns are the original inventory. The live figure is 1924 warnings
-> across 155 files in five feature folders, recorded in `eslint.feature-budget.json`, down from
-> 1937 before the chat restructure (`0a9be1a..2d198c9`). That restructure cut 25 value findings
-> from the `ai` folder by substituting exactly equal theme tokens, and added 12 relocation
-> findings - one `makeStyles` call and one theme import per new per-component sheet.
+> The live figure is 1937 warnings across 162 files in five feature folders, recorded in
+> `eslint.feature-budget.json`. The path here matters more than the number: it was 1937 before this
+> round, 1925 after the chat restructure substituted exactly equal theme tokens in the `ai` folder,
+> then back to 1937 when `local/no-feature-raw-primitive-imports` began counting 24 pre-existing
+> raw-assembly findings. Twelve of those are paid - four pages with browser coverage had their
+> assembly extracted into components - and twelve remain on three administration pages with no
+> coverage, so the declared total now equals the measurement and there is zero headroom.
 
 ## Summary
 
