@@ -28,7 +28,7 @@
     "local/no-feature-conditional-style": 55,
     "no-restricted-syntax": 21,
     "local/no-feature-literal-hex": 39,
-    "local/no-feature-raw-primitive-imports": 5
+    "local/no-feature-raw-primitive-imports": 3
   },
   "manufacturing": {
     "local/no-feature-theme-import": 21,

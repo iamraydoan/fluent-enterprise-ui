@@ -22,9 +22,10 @@ import {
 } from "@/components/common";
 import type { HeaderAction } from "@/components/common";
 import { Box24Regular, Eye20Regular, MoreVertical24Regular } from "@/components/icons";
-import { Button, Tab, TabList } from "@/components/ui";
+import { Button } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
+import { ChecklistItemSubTabs } from "./ChecklistItemSubTabs";
 import { useChecklistDialogs } from "./useChecklistDialogs";
 
 const TABS = ["details", "checklistItems", "compare", "references", "history"] as const;
@@ -33,7 +34,6 @@ const LEFT_SECTIONS: TranslationKey[] = [
   "businessData.checklist.detail.sections.instances",
   "businessData.checklist.detail.sections.attachments",
 ];
-const SUB_TABS = ["generalData", "instructions", "bom", "condition"] as const;
 
 export function ChecklistDetailPage() {
   const { t } = useAppTranslation();
@@ -260,19 +260,11 @@ export function ChecklistDetailPage() {
               </VStack>
               {item && (
                 <div>
-                  <TabList
-                    selectedValue={subTab}
-                    onTabSelect={setSubTab}
-                    aria-label={t("businessData.checklist.detail.itemsTitle", {
-                      count: cl.items.length,
-                    })}
-                  >
-                    {SUB_TABS.map((v) => (
-                      <Tab key={v} value={v}>
-                        {t(`businessData.checklist.detail.subTabs.${v}`)}
-                      </Tab>
-                    ))}
-                  </TabList>
+                  <ChecklistItemSubTabs
+                    selected={subTab}
+                    itemCount={cl.items.length}
+                    onSelect={setSubTab}
+                  />
                   {subTab === "generalData" && (
                     <VStack gap="md">
                       <DetailField
