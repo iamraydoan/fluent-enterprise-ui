@@ -1,18 +1,10 @@
 import { useState } from "react";
 import { useAiAgents, useSendChat } from "@/api";
-import { MenuTriggerButton } from "@/components/common";
-import { Bot20Regular, ChevronDown16Regular } from "@/components/icons";
-import {
-  makeStyles,
-  Menu,
-  MenuItemRadio,
-  MenuList,
-  MenuPopover,
-  MenuTrigger,
-} from "@/components/ui";
+import { makeStyles } from "@/components/ui";
 import { useAppTranslation } from "@/i18n";
 import { cardSurface } from "@/styles/shared";
 import { theme } from "@/styles/theme";
+import { ChatAgentSelector } from "./components/ChatAgentSelector";
 import { ChatComposer } from "./components/ChatComposer";
 import { ChatEmptyState } from "./components/ChatEmptyState";
 import { ChatHistoryPanel } from "./components/ChatHistoryPanel";
@@ -132,6 +124,10 @@ export function AiChatPage() {
     );
   };
   const toggleHistory = () => setShowHistory((value) => !value);
+  const selectAgent = (checkedItems: string[]) => {
+    const next = checkedItems[0];
+    if (next) setAgentName(next);
+  };
 
   const composer = (
     <ChatComposer
@@ -146,30 +142,7 @@ export function AiChatPage() {
   return (
     <>
       <div className={styles.bar}>
-        <Menu
-          checkedValues={{ agent: [agent.name] }}
-          onCheckedValueChange={(checkedItems) => {
-            const next = checkedItems[0];
-            if (next) setAgentName(next);
-          }}
-        >
-          <MenuTrigger disableButtonEnhancement>
-            <MenuTriggerButton>
-              <Bot20Regular />
-              {agent.name}
-              <ChevronDown16Regular style={{ color: theme.color.textBrand }} />
-            </MenuTriggerButton>
-          </MenuTrigger>
-          <MenuPopover>
-            <MenuList>
-              {agents.map((candidate) => (
-                <MenuItemRadio key={candidate.name} name="agent" value={candidate.name}>
-                  {candidate.name}
-                </MenuItemRadio>
-              ))}
-            </MenuList>
-          </MenuPopover>
-        </Menu>
+        <ChatAgentSelector agents={agents} value={agent.name} onChange={selectAgent} />
       </div>
 
       <div className={styles.body}>

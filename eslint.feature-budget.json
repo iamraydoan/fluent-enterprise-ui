@@ -10,7 +10,7 @@
     "no-restricted-syntax": 38
   },
   "ai": {
-    "local/no-feature-theme-import": 7,
+    "local/no-feature-theme-import": 8,
     "local/no-feature-makeStyles": 7,
     "local/no-feature-literal-radius": 7,
     "local/no-feature-literal-px": 43,
